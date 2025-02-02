@@ -4,6 +4,7 @@ from config_manager import initialize_config, save_or_update_config, load_config
 import uvicorn
 from TcpConnector import TcpConnector
 from configParams import Parameters
+from fastapi.middleware.cors import CORSMiddleware
 # Initialize the configuration file
 initialize_config()
 #uvicorn configServer:app --reload --host 0.0.0.0 --port 8000
@@ -11,6 +12,17 @@ initialize_config()
 app = FastAPI()
 connection = TcpConnector()
 params=Parameters()
+
+origins = ["*"]  # Change this to specific domains in production
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=origins,  # Allow all origins
+    allow_credentials=True,
+    allow_methods=["GET", "POST", "PUT", "PATCH", "DELETE"],  # Allowed HTTP methods
+    allow_headers=["Origin", "X-Requested-With", "Content-Type", "Accept"],  # Allowed headers
+)
+
 
 # Pydantic model for updating configurations
 class ConfigUpdateRequest(BaseModel):

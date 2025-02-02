@@ -42,7 +42,7 @@ class YOLOModels:
         logger.info("Loading YOLO models...")
         self.model_plate = torch.hub.load('yolov5', 'custom', plate_model_path, source='local', device=device, force_reload=True)
         self.model_char = torch.hub.load('yolov5', 'custom', char_model_path, source='local', force_reload=True)
-        self.model_arvand = YOLO(arvand_model_path, verbose=False).to(device)
+       
         self.carmodel=YOLO('model/yolo11n.pt',verbose=False).to(device)
 
 models = YOLOModels(params.modelPlate_path, params.modelCharX_path, params.modelArvand_path)
@@ -192,7 +192,7 @@ async def transmit_frames(websocket, path):
 
                 # Detect plates
             # Process frame for plate detection
-                car_res=models.carmodel(frame,device=device,classes=[2,7])
+                car_res=models.carmodel(frame,device=device,classes=[2,5,7])
                 if len(car_res[0])>0:
                     for box in car_res[0].boxes:
                         x1,y1,x2,y2=map(int,box.xyxy[0][:4])
@@ -219,8 +219,7 @@ async def transmit_frames(websocket, path):
                                         plate_text, char_conf_avg = detect_plate_chars(cropped_plate)
 
                                         # Annotate frame with plate text
-                                        cv2.putText(cropped_car, f"Plate: {plate_text}", (x_min, y_min - 10), cv2.FONT_HERSHEY_SIMPLEX,
-                                                    0.7, (0, 255, 128), 2, cv2.LINE_AA)
+                                        
                                         cv2.rectangle(cropped_car,(x_min,y_min),(x_max,y_max),(0,0,255),2)
                                         plate_text.replace('Taxi','x')
                                         confidance=float(params.charConf)*100
@@ -228,6 +227,8 @@ async def transmit_frames(websocket, path):
                                 
                                         # Save plate details if valid
                                         if char_conf_avg >= confidance and len(plate_text) >= 8:
+                                            cv2.putText(cropped_car, f"Plate: {plate_text}", (x_min, y_min - 10), cv2.FONT_HERSHEY_SIMPLEX,
+                                                    0.7, (0, 255, 128), 2, cv2.LINE_AA)
                                             db_entries_time(
                                                 number=plate_text,
                                                 charConfAvg=char_conf_avg,
@@ -238,84 +239,116 @@ async def transmit_frames(websocket, path):
                                                 ,isarvand='notarvand',
                                                 rtpath=path
                                             )
-                        
-                        
-                        else:                
-                            plate_arvand=models.model_arvand(cropped_car,device=device)
-                            models.model_arvand.to(device)
-                            
-                            if  len(plate_arvand[0]) >0 :
-                                
-                                for bos in plate_arvand[0].boxes:
-                                    arvand_conf=int(bos.conf[0]*100)
-                                    if arvand_conf >= int(params.plateConf):
-                                        # xMin, yMin, xMax, yMax = map(int,box[0].xyxy[0][:4])
-                                        # d=yMax-yMin
-                                        # tempyMax=yMax-int(d/2)
-                                        
-                                        # cropped_plate_arvand = cropped_car[yMin:yMax, xMin:xMax]
-                                        # cropped_plate_detected_arvand = cropped_car[yMin:tempyMax, xMin:xMax]
-                                        xMin, yMin, xMax, yMax = map(int, bos.xyxy[0][:4])
-                                        if xMin >= xMax or yMin >= yMax:
-                                            continue
-                                        
-                                        abs_x_min = x1 + xMin
-                                        abs_y_min = y1 + yMin
-                                        abs_x_max = x1 + xMax
-                                        abs_y_max = y1 + yMax
-                                        
-                                        cv2.rectangle(frame, (abs_x_min, abs_y_min), (abs_x_max, abs_y_max), (255, 255, 255), 2)
-                                        cropped_plate_arvnad = cropped_car[yMin:yMax, xMin:xMax]
-
-
-                                        # صاف کردن پلاک قبل از تشخیص کاراکتر
-                                        deskewed_plate, (newx1, newy1, newx2, newy2) = correct_perspective(cropped_plate_arvnad, 2.0)
-
-                                      # بررسی اعتبار deskewed_plate
-                                        if deskewed_plate.size == 0:
-                                            
-                                            continue
-
-                                        # بررسی و اصلاح مختصات
-                                        newx1 = max(0, newx1)
-                                        newy1 = max(0, newy1)
-                                        newx2 = min(deskewed_plate.shape[1], newx2)
-                                        newy2 = min(deskewed_plate.shape[0], newy2)
-
-                                        # چک نهایی اعتبار مختصات
-                                        if (newx2 <= newx1) or (newy2 <= newy1):
-                                     
-                                            newx1, newy1 = 0, 0
-                                            newx2, newy2 = deskewed_plate.shape[1], deskewed_plate.shape[0]
-
-                                        # محاسبه تقسیم
-                                        d = newy2 - newy1
-                                        tempyMax = newy1 + int(d/2)  # تقسیم به دو نیمه برابر
-
-                                        # چک نهایی قبل از کراپ
-                                        if tempyMax <= deskewed_plate.shape[0] and newx2 <= deskewed_plate.shape[1]:
-                                            cropped_plate_nesf = deskewed_plate[newy1:tempyMax, newx1:newx2]
-                                            if cropped_plate_nesf.size > 0:
+                                            break
+                                        else:
+                                            deskewed_plate, (newx1, newy1, newx2, newy2) = correct_perspective(cropped_plate, 1.0)
+                                            if deskewed_plate.size == 0:
+                                                
                                                 continue
+                                            newx1 = max(0, newx1)
+                                            newy1 = max(0, newy1)
+                                            newx2 = min(deskewed_plate.shape[1], newx2)
+                                            newy2 = min(deskewed_plate.shape[0], newy2)
+                                            if (newx2 <= newx1) or (newy2 <= newy1):
+                                                
+                                                newx1, newy1 = 0, 0
+                                                newx2, newy2 = deskewed_plate.shape[1], deskewed_plate.shape[0]
+                                            d = newy2 - newy1
+                                            tempyMax = newy1 + int(d/2)  # تقسیم به دو نیمه برابر
+                                            cropped_plate_nesf = deskewed_plate[newy1:tempyMax, newx1:newx2]
+                                            plate_text_arvnad, char_conf_arvnad = detect_plate_chars(cropped_plate_nesf)
+                                        
+                                            if len(plate_text_arvnad) >=5 and char_conf_arvnad >=confidance-3:
+                                                cv2.putText(cropped_car, f"Plate: {plate_text_arvnad}", (x_min, y_min - 10), cv2.FONT_HERSHEY_SIMPLEX,
+                                                    0.7, (0, 255, 128), 2, cv2.LINE_AA)
+                                                db_entries_time(
+                                                number=plate_text_arvnad,
+                                                charConfAvg=char_conf_arvnad,
+                                                plateConfAvg=plate_conf,
+                                                croppedPlate=cropped_plate,
+                                                status="Active",
+                                                frame=frame
+                                                ,isarvand='arvand',
+                                                rtpath=path
+                                                ) 
+                        
+                        
+                        # else:                
+                        #     plate_arvand=models.model_arvand(cropped_car,device=device)
+                        #     models.model_arvand.to(device)
+                            
+                        #     if  len(plate_arvand[0]) >0 :
+                                
+                        #         for bos in plate_arvand[0].boxes:
+                        #             arvand_conf=int(bos.conf[0]*100)
+                        #             if arvand_conf >= int(params.plateConf):
+                        #                 # xMin, yMin, xMax, yMax = map(int,box[0].xyxy[0][:4])
+                        #                 # d=yMax-yMin
+                        #                 # tempyMax=yMax-int(d/2)
+                                        
+                        #                 # cropped_plate_arvand = cropped_car[yMin:yMax, xMin:xMax]
+                        #                 # cropped_plate_detected_arvand = cropped_car[yMin:tempyMax, xMin:xMax]
+                        #                 xMin, yMin, xMax, yMax = map(int, bos.xyxy[0][:4])
+                        #                 if xMin >= xMax or yMin >= yMax:
+                        #                     continue
+                                        
+                        #                 abs_x_min = x1 + xMin
+                        #                 abs_y_min = y1 + yMin
+                        #                 abs_x_max = x1 + xMax
+                        #                 abs_y_max = y1 + yMax
+                                        
+                        #                 cv2.rectangle(frame, (abs_x_min, abs_y_min), (abs_x_max, abs_y_max), (255, 255, 255), 2)
+                        #                 cropped_plate_arvnad = cropped_car[yMin:yMax, xMin:xMax]
+
+
+                        #                 # صاف کردن پلاک قبل از تشخیص کاراکتر
+                        #                 deskewed_plate, (newx1, newy1, newx2, newy2) = correct_perspective(cropped_plate_arvnad, 2.0)
+
+                        #               # بررسی اعتبار deskewed_plate
+                        #                 if deskewed_plate.size == 0:
+                                            
+                        #                     continue
+
+                        #                 # بررسی و اصلاح مختصات
+                        #                 newx1 = max(0, newx1)
+                        #                 newy1 = max(0, newy1)
+                        #                 newx2 = min(deskewed_plate.shape[1], newx2)
+                        #                 newy2 = min(deskewed_plate.shape[0], newy2)
+
+                        #                 # چک نهایی اعتبار مختصات
+                        #                 if (newx2 <= newx1) or (newy2 <= newy1):
+                                     
+                        #                     newx1, newy1 = 0, 0
+                        #                     newx2, newy2 = deskewed_plate.shape[1], deskewed_plate.shape[0]
+
+                        #                 # محاسبه تقسیم
+                        #                 d = newy2 - newy1
+                        #                 tempyMax = newy1 + int(d/2)  # تقسیم به دو نیمه برابر
+
+                        #                 # چک نهایی قبل از کراپ
+                        #                 if tempyMax <= deskewed_plate.shape[0] and newx2 <= deskewed_plate.shape[1]:
+                        #                     cropped_plate_nesf = deskewed_plate[newy1:tempyMax, newx1:newx2]
+                        #                     if cropped_plate_nesf.size > 0:
+                        #                         continue
                                     
               
                 
-                                        plate_text_arvand, char_conf_avg_arvand = detect_plate_chars(cropped_plate_nesf)
-                                        cv2.putText(cropped_car, f"Plate: {plate_text_arvand}", (xMin, yMin - 10), cv2.FONT_HERSHEY_SIMPLEX,
-                                                    0.7, (0, 255, 255), 2, cv2.LINE_AA)
-                                        cv2.rectangle(cropped_car,(xMin,yMin),(xMax,yMax),(51,103,53),2)
-                                        confidance_arvand=float(params.charConf)*100
-                                        if char_conf_avg_arvand >= 60  :
-                                            db_entries_time(
-                                                    number=plate_text_arvand,
-                                                    charConfAvg=char_conf_avg_arvand,
-                                                    plateConfAvg=arvand_conf,
-                                                    croppedPlate=deskewed_plate,
-                                                    status="Active",
-                                                    frame=frame,
-                                                    isarvand='arvand',
-                                                    rtpath=path
-                                                )
+                        #                 plate_text_arvand, char_conf_avg_arvand = detect_plate_chars(cropped_plate_nesf)
+                        #                 cv2.putText(cropped_car, f"Plate: {plate_text_arvand}", (xMin, yMin - 10), cv2.FONT_HERSHEY_SIMPLEX,
+                        #                             0.7, (0, 255, 255), 2, cv2.LINE_AA)
+                        #                 cv2.rectangle(cropped_car,(xMin,yMin),(xMax,yMax),(51,103,53),2)
+                        #                 confidance_arvand=float(params.charConf)*100
+                        #                 if char_conf_avg_arvand >= 60  :
+                        #                     db_entries_time(
+                        #                             number=plate_text_arvand,
+                        #                             charConfAvg=char_conf_avg_arvand,
+                        #                             plateConfAvg=arvand_conf,
+                        #                             croppedPlate=deskewed_plate,
+                        #                             status="Active",
+                        #                             frame=frame,
+                        #                             isarvand='arvand',
+                        #                             rtpath=path
+                        #                         )
 
                         # Encode frame as JPEG and send via WebSocket
                 _, encoded = cv2.imencode('.jpg', frame, [int(cv2.IMWRITE_JPEG_QUALITY), 50])

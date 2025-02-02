@@ -11,45 +11,45 @@ from database.classEntries import Entries
 from helper.text_decorators import check_similarity_threshold
 from PIL import Image
 
-def create_database_if_not_exists(db_path):
-    # Check if the database file already exists
-    if not os.path.exists(db_path):
-        # Create a new database and define the tables
-        conn = sqlite3.connect(db_path)
-        cursor = conn.cursor()
+# def create_database_if_not_exists(db_path):
+#     # Check if the database file already exists
+#     if not os.path.exists(db_path):
+#         # Create a new database and define the tables
+#         conn = sqlite3.connect(db_path)
+#         cursor = conn.cursor()
 
-        # Create `entry` table for `insterMyentry` function
-        cursor.execute('''CREATE TABLE IF NOT EXISTS entry (
-                            platePercent REAL,
-                            charPercent REAL,
-                            eDate TEXT,
-                            eTime TEXT,
-                            plateNum TEXT,
-                            status TEXT,
-                            imgpath TEXT,
-                            scrnpath TEXT,
-                          	isarvand  TEXT,
-                            rtpath TEXT
+#         # Create `entry` table for `insterMyentry` function
+#         cursor.execute('''CREATE TABLE IF NOT EXISTS entry (
+#                             platePercent REAL,
+#                             charPercent REAL,
+#                             eDate TEXT,
+#                             eTime TEXT,
+#                             plateNum TEXT,
+#                             status TEXT,
+#                             imgpath TEXT,
+#                             scrnpath TEXT,
+#                           	isarvand  TEXT,
+#                             rtpath TEXT
 
 
-                          )''')
+#                           )''')
 
-        # Create `entries` table for `insertEntries` function
-        # cursor.execute('''CREATE TABLE IF NOT EXISTS entries (
-        #                     platePercent REAL,
-        #                     charPercent REAL,
-        #                     eDate TEXT,
-        #                     eTime TEXT,
-        #                     plateNum TEXT PRIMARY KEY,
-        #                     status TEXT
-        #                   )''')
+#         # Create `entries` table for `insertEntries` function
+#         # cursor.execute('''CREATE TABLE IF NOT EXISTS entries (
+#         #                     platePercent REAL,
+#         #                     charPercent REAL,
+#         #                     eDate TEXT,
+#         #                     eTime TEXT,
+#         #                     plateNum TEXT PRIMARY KEY,
+#         #                     status TEXT
+#         #                   )''')
 
-        # Commit changes and close connection
-        conn.commit()
-        conn.close()
-        print(f"Database created at {db_path} with tables `entry` and `entries`.")
-    else:
-        print(f"Database already exists at {db_path}.")
+#         # Commit changes and close connection
+#         conn.commit()
+#         conn.close()
+#         print(f"Database created at {db_path} with tables `entry` and `entries`.")
+#     else:
+#         print(f"Database already exists at {db_path}.")
 
 
 
@@ -60,17 +60,17 @@ fieldsList = ['platePercent', 'charPercent', 'eDate', 'eTime', 'plateNum', 'stat
 dbEntries = params.dbEntries
 db_path = './database/entrieses.db'
 
-create_database_if_not_exists(db_path=db_path)
+# create_database_if_not_exists(db_path=db_path)
 
 
-def insterMyentry(platePercent, charPercent, eDate, eTime, plateNum, status, imagePath,scrnpath,isarvand,rtpath):
-    sqlconnect = sqlite3.connect('./database/entrieses.db')
-    sqlcuurser = sqlconnect.cursor()
-    excute = 'INSERT INTO entry VALUES (:platePercent, :charPercent, :eDate, :eTime, :plateNum, :status , :imgpath,:scrnpath,:isarvand,:rtpath)'
-    sqlcuurser.execute(excute, (platePercent, charPercent, eDate, eTime, plateNum, status, imagePath,scrnpath,isarvand,rtpath))
+# def insterMyentry(platePercent, charPercent, eDate, eTime, plateNum, status, imagePath,scrnpath,isarvand,rtpath):
+#     sqlconnect = sqlite3.connect('./database/entrieses.db')
+#     sqlcuurser = sqlconnect.cursor()
+#     excute = 'INSERT INTO entry VALUES (:platePercent, :charPercent, :eDate, :eTime, :plateNum, :status , :imgpath,:scrnpath,:isarvand,:rtpath)'
+#     sqlcuurser.execute(excute, (platePercent, charPercent, eDate, eTime, plateNum, status, imagePath,scrnpath,isarvand,rtpath))
 
-    sqlconnect.commit()
-    sqlcuurser.close()
+#     sqlconnect.commit()
+#     sqlcuurser.close()
 
 # def insertEntries(entry):
 #     sqlConnect = sqlite3.connect(dbEntries)
