@@ -1,9 +1,8 @@
-import os
+
 import cv2
 import datetime
-import sqlite3
 import time
-
+from requests.exceptions import RequestException
 import requests
 
 from configParams import Parameters
@@ -84,24 +83,52 @@ db_path = './database/entrieses.db'
 #     sqlConnect.close()
 
 def dbGetPlateLatestEntry(plateNumber):
-    sqlConnect = sqlite3.connect(db_path)
-    sqlCursor = sqlConnect.cursor()
+    base_url = "http://127.0.0.1:8090/api/collections/database/records"
+    
+    try:
+        params = {
+            'filter': f"plateNum='{plateNumber}'",
+            'sort': '-eDate',
+            'perPage': 1
+        }
 
-    FullEntriesSQL = f"""SELECT * FROM entry WHERE plateNum='{plateNumber}' ORDER BY eDate DESC LIMIT 1"""
-    FullEntries = sqlCursor.execute(FullEntriesSQL).fetchall()
-    # print(FullEntries[0][4]==plateNumber)
-
-    if len(FullEntries) != 0:
-        FullData = dict(zip([c[0] for c in sqlCursor.description], FullEntries[0]))
-        sqlConnect.commit()
-        sqlConnect.close()
-        return Entries(**FullData)
-    # fullsql=f"""SELECT * FROM entry LIMIT 1"""
-    # fullentry=sqlCursor.execute(fullsql).fetchall()
-    # fulldata=dict(zip([c[0] for c in sqlCursor.description], fullentry[0]))
-    # sqlConnect.commit()
-    # sqlConnect.close()
-    return None
+        response = requests.get(
+            url=base_url,
+            params=params,
+            timeout=10
+        )
+        response.raise_for_status()
+        
+        data = response.json()
+        
+        if data.get('totalItems', 0) > 0:
+            # Map API response to Entries constructor parameters
+            item = data['items'][0]
+            
+            # Create dictionary with required fields
+            FullData = {
+                'platePercent': item['platePercent'],
+                'charPercent': item['charPercent'],
+                'eDate': item['eDate'],
+                'eTime': item['eTime'],
+                'plateNum': item['plateNum'],
+                'status': item['status'],
+                'imgpath': item['imgpath'],
+                'scrnpath': item['scrnPath'],  # Note case difference
+                'isarvand': item['isarvand'],
+                'rtpath': item['rtpath']
+            }
+            print("inja")
+            return Entries(**FullData)
+            
+        return None
+        
+    except RequestException as e:
+        print(f"API request failed: {str(e)}")
+        return None
+    except KeyError as e:
+        print(f"Missing expected field in response: {str(e)}")
+        return None
 
 
 
