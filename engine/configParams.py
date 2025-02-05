@@ -1,4 +1,5 @@
 from configparser import ConfigParser
+import json
 
 
 class Parameters:
@@ -29,6 +30,9 @@ class Parameters:
 
         config_object = ConfigParser()
         config_object.read("./config.ini")
+        with open('./ip.json', 'r') as file:
+             data = json.load(file)
+        self.defip=data['defip']
 
         dbconfig = config_object["DATABASE"]
         self.dbEntries = dbconfig["dbentries"]

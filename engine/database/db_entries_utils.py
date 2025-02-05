@@ -55,9 +55,7 @@ from PIL import Image
 
 params = Parameters()
 
-fieldsList = ['platePercent', 'charPercent', 'eDate', 'eTime', 'plateNum', 'status']
-dbEntries = params.dbEntries
-db_path = './database/entrieses.db'
+
 
 # create_database_if_not_exists(db_path=db_path)
 
@@ -83,7 +81,7 @@ db_path = './database/entrieses.db'
 #     sqlConnect.close()
 
 def dbGetPlateLatestEntry(plateNumber):
-    base_url = "http://127.0.0.1:8090/api/collections/database/records"
+    base_url = f"{params.defip}/api/collections/database/records"
     
     try:
         params = {
@@ -118,7 +116,7 @@ def dbGetPlateLatestEntry(plateNumber):
                 'isarvand': item['isarvand'],
                 'rtpath': item['rtpath']
             }
-            print("inja")
+          
             return Entries(**FullData)
             
         return None
@@ -133,7 +131,7 @@ def dbGetPlateLatestEntry(plateNumber):
 
 
 def insterToPocket(plateImgName2, screenshot_path,number,display_date,display_time,status,isarvand,rtpath,charConfAvg,plateConfAvg):
-    POCKETBASE_URL = "http://127.0.0.1:8090"
+    POCKETBASE_URL = params.defip
     COLLECTION_NAME = "database"
     url = f"{POCKETBASE_URL}/api/collections/{COLLECTION_NAME}/records"
 

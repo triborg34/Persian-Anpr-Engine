@@ -25,7 +25,7 @@ logging.getLogger('ultralytics').setLevel(logging.ERROR)
 # Parameters
 params = Parameters()
 port = int(params.socketport)
-host = '127.0.0.1'
+host = params.defip.split('//')[1].split(':')[0]
 
 
 # Device setup

@@ -1,3 +1,4 @@
+import json
 from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel
 from config_manager import initialize_config, save_or_update_config, load_config, add_camera_ip
@@ -73,7 +74,23 @@ def update_config(request: ConfigUpdateRequest):
 
 
 
+@app.post('/defip')
+def modify(defip,defport):
+    file_path = "ip.json"
 
+# 1. Read the existing JSON data
+    with open(file_path, 'r') as file:
+        data = json.load(file)
+
+    # 2. Modify the values
+    data['defip'] = f"http://{defip}:{defport}"  # Replace with your new IP
+
+
+    # 3. Write the updated data back to the file
+    with open(file_path, 'w') as file:
+        json.dump(data, file, indent=4)  # indent=4 for pretty formatting
+        
+        
 
 
 
@@ -229,4 +246,6 @@ def sendEmail(request:EmailClass,email):
 
 
 if __name__ == "__main__":
-    uvicorn.run("configServer:app", host="127.0.0.1", port=int(params.serverport), log_level="info")
+
+    host:str=params.defip.split('//')[1].split(':')[0]
+    uvicorn.run("configServer:app", host=host, port=int(params.serverport), log_level="info")
