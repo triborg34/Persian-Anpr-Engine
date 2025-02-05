@@ -81,6 +81,7 @@ params = Parameters()
 #     sqlConnect.close()
 
 def dbGetPlateLatestEntry(plateNumber):
+    params = Parameters()
     base_url = f"{params.defip}/api/collections/database/records"
     
     try:
@@ -131,6 +132,7 @@ def dbGetPlateLatestEntry(plateNumber):
 
 
 def insterToPocket(plateImgName2, screenshot_path,number,display_date,display_time,status,isarvand,rtpath,charConfAvg,plateConfAvg):
+    params = Parameters()
     POCKETBASE_URL = params.defip
     COLLECTION_NAME = "database"
     url = f"{POCKETBASE_URL}/api/collections/{COLLECTION_NAME}/records"
