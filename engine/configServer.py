@@ -191,9 +191,9 @@ def emailHandler(email,plateNumber,edate,etime):
     # Email content
     subject = f"{edate} شناسایی پلاک در تاریخ "
     body = f""" 
-    پلاک:{plateNumber}
-    تاریخ:{edate}
-    زمان:{etime}
+    پلاک:\n{plateNumber}
+    تاریخ:\n{edate}
+    زمان:\n{etime}
      """
 
     # Create the email message
