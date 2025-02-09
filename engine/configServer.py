@@ -249,5 +249,5 @@ def sendEmail(request:EmailClass,email):
 
 if __name__ == "__main__":
 
-    host:str=params.defip.split('//')[1].split(':')[0]
+    host:str='0.0.0.0'
     uvicorn.run("configServer:app", host=host, port=int(params.serverport), log_level="info")
