@@ -26,6 +26,8 @@ logging.getLogger('ultralytics').setLevel(logging.ERROR)
 params = Parameters()
 port = int(params.socketport)
 host = '0.0.0.0'
+# host = params.defip.split('//')[1].split(':')[0]
+
 
 
 # Device setup
@@ -355,7 +357,8 @@ async def transmit_frames(websocket, path):
                 data = base64.b64encode(encoded).decode('utf-8')
                 await websocket.send(data)
             else:
-                await asyncio.sleep(0.1)  # Wait for new frames
+                # await asyncio.sleep(0.1)  # Wait for new frames
+                pass
     except websockets.ConnectionClosed:
         logger.info(f"Client disconnected from {path}")
 
