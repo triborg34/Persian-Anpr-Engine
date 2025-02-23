@@ -82,7 +82,7 @@ params = Parameters()
 
 def dbGetPlateLatestEntry(plateNumber):
     params = Parameters()
-    base_url = f"{params.defip}/api/collections/database/records"
+    base_url = f"http://{params.defip}:{params.defport}/api/collections/database/records"
     
     try:
         params = {
@@ -133,7 +133,7 @@ def dbGetPlateLatestEntry(plateNumber):
 
 def insterToPocket(plateImgName2, screenshot_path,number,display_date,display_time,status,isarvand,rtpath,charConfAvg,plateConfAvg):
     params = Parameters()
-    POCKETBASE_URL = params.defip
+    POCKETBASE_URL = f"http://{params.defip}:{params.defport}"
     COLLECTION_NAME = "database"
     url = f"{POCKETBASE_URL}/api/collections/{COLLECTION_NAME}/records"
 

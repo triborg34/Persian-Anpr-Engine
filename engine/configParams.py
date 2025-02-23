@@ -1,5 +1,6 @@
 from configparser import ConfigParser
 import json
+import socket
 
 
 class Parameters:
@@ -32,7 +33,11 @@ class Parameters:
         config_object.read("./config.ini")
         with open('./ip.json', 'r') as file:
              data = json.load(file)
-        self.defip=data['defip']
+        hostname = socket.gethostname()
+        IPAddr = socket.gethostbyname(hostname)
+        
+        self.defip=IPAddr
+        self.defport=data['defip'].split("//")[1].split(':')[1]
 
         dbconfig = config_object["DATABASE"]
         self.dbEntries = dbconfig["dbentries"]
