@@ -56,6 +56,15 @@ from PIL import Image
 params = Parameters()
 
 
+def getQuality() -> int:
+    response=requests.get( f"http://{params.defip}:{params.defport}/api/collections/setting/records")
+    
+    quality=response.json()['items'][len(response.json()['items'])-1]['quality']
+    
+    return int(quality)
+
+
+
 
 # create_database_if_not_exists(db_path=db_path)
 
@@ -169,7 +178,8 @@ def db_entries_time(number, charConfAvg, plateConfAvg, croppedPlate, status, fra
     
     global similarityTemp
     isSimilar = check_similarity_threshold(similarityTemp, number)
-    
+    quality=getQuality()
+    quality = 10 if quality<10 else quality
     
     # Only proceed if the plate number is unique
     if not isSimilar:
@@ -203,7 +213,7 @@ def db_entries_time(number, charConfAvg, plateConfAvg, croppedPlate, status, fra
                 if frame is not None:
                    frame = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB) 
                    frame=Image.fromarray(frame) 
-                   frame.save(screenshot_path, "JPEG", quality=10, optimize=True)
+                   frame.save(screenshot_path, "JPEG", quality=quality, optimize=True)
                 #    cv2.imwrite(screenshot_path, frame)
                    print(f"Screenshot saved to {screenshot_path} for plate {number} with character confidence {charConfAvg}%.")
 

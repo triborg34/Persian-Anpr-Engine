@@ -37,6 +37,7 @@ class CameraIPRequest(BaseModel):
     username:str
     password:str
     isnotrstp:bool
+    rtspname:str
 
 
 class Relay(BaseModel):
@@ -105,7 +106,7 @@ def add_camera(request: CameraIPRequest):
             print("is not rt")
             rtspIp=f"{request.ip}"
         else:
-            rtspIp=f"rtsp://{request.username}:{request.password}@{request.ip}:554/mainstream"
+            rtspIp=f"rtsp://{request.username}:{request.password}@{request.ip}:554/{request.rtspname}"
         new_camera = add_camera_ip(rtspIp)
         return {"status": "success", "new_camera": new_camera}
     except Exception as e:

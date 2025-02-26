@@ -1,29 +1,12 @@
 import requests
 import json
 
-substring='/api/collections/ipconfig/records'
+from configParams import Parameters
+params=Parameters()
 
 
-
-with open('ip.json') as json_data:
-    json = json.load(json_data)
-    
-
-print(json['ip'])
-url=json['ip']
-if len(url) <= 1:
-    url=f'http://127.0.0.1:8090'
-
-else:
-    url=f'http://{url}:8090'
-
-
-
-print(url)
-response=requests.get(f'{url}/{substring}')
-print(response.json())
-# try:
-#     url='http://127.0.0.1:8090/'
+quality=requests.get(f"http://{params.defip}:{params.defport}/api/collections/setting/records")
+print(quality.json()['items'][len(quality.json()['items'])-1]["quality"])
 
 
 
