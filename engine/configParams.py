@@ -38,6 +38,7 @@ class Parameters:
         
         self.defip=IPAddr
         self.defport=data['defip'].split("//")[1].split(':')[1]
+        
 
         dbconfig = config_object["DATABASE"]
         self.dbEntries = dbconfig["dbentries"]

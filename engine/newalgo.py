@@ -358,7 +358,7 @@ async def transmit_frames(websocket, path):
                 await websocket.send(data)
             else:
                 # await asyncio.sleep(0.1)  # Wait for new frames
-                pass
+                continue
     except websockets.ConnectionClosed:
         logger.info(f"Client disconnected from {path}")
 
