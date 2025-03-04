@@ -138,22 +138,24 @@ def connectrelay(request:Relay,ip,port):
 def onOff(onOff,relay):
     #on
     if(onOff=="true"):
-        if(relay==int(relay)):
-            data = b'\x00\x01\x02\x03\x04\x05\x06\x07\x08\x01\x00\x01\x01\x01\x00\x00\x00\x00\x00\x03\x01\x01\x00' #relay 1
-            if (connection.sendPacket(bData=data)):
-                return {'massage': connection.receivePacket(23, 2)}
-            else:
-                return {"massage":f"problem : {connection.receivePacket(23, 2)}"}
+        if(int(relay)==1):
+            data = b'\x00\x01\x02\x03\x04\x05\x06\x07\x08\x01\x00\x01\x01\x01\x00\x00\x00\x00\x00\x03\x01\x01\x02' #relay 1
+            connection.sendPacket(bData=data)
+            # if (connection.sendPacket(bData=data)):
+            #     return {'massage': connection.receivePacket(23, 2)}
+            # else:
+            #     return {"massage":f"problem : {connection.receivePacket(23, 2)}"}
         else:
-            data = b'\x00\x01\x02\x03\x04\x05\x06\x07\x08\x01\x00\x01\x01\x01\x00\x00\x00\x00\x00\x03\x02\x01\x00' #relay 2
-            if (connection.sendPacket(bData=data)):
-                return {'massage': connection.receivePacket(23, 2)}
-            else:
-                return {"massage":f"problem : {connection.receivePacket(23, 2)}"}
+            data = b'\x00\x01\x02\x03\x04\x05\x06\x07\x08\x01\x00\x01\x01\x01\x00\x00\x00\x00\x00\x03\x02\x01\x02' #relay 2
+            connection.sendPacket(bData=data)
+            # if ():
+            #     return {'massage': connection.receivePacket(23, 2)}
+            # else:
+            #     return {"massage":f"problem : {connection.receivePacket(23, 2)}"}
             ########################
             #of
     else:
-        if(relay==int(relay)):
+        if(int(relay)==1):
             data = b'\x00\x01\x02\x03\x04\x05\x06\x07\x08\x01\x00\x01\x01\x01\x00\x00\x00\x00\x00\x03\x01\x00\x00' #relay 1
             if (connection.sendPacket(bData=data)):
                 return {'massage': connection.receivePacket(23, 2)}
