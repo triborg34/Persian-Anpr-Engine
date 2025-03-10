@@ -241,13 +241,13 @@ def sendEmail(request:EmailClass,email):
 
 
         
-    
+    #TODO:WEB NOT BUILD YET
 
 
 
 
 
-
+#TODO : AGAIN OUTPUT
 
 
 if __name__ == "__main__":
