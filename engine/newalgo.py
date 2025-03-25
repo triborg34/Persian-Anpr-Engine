@@ -1,4 +1,8 @@
+import gc
 import logging
+import os
+import sys
+import time
 import numpy as np
 import cv2
 import warnings
@@ -50,18 +54,40 @@ class YOLOModels:
 models = YOLOModels(params.modelPlate_path, params.modelCharX_path, params.modelArvand_path)
 print('start server')
 
+
+# Memory management function
+def clear_memory():
+    logger.warning("Clearing memory to prevent leaks and restarting...")
+    torch.cuda.empty_cache()
+    gc.collect()
+    os.execv(sys.executable, ['python'] + sys.argv)
 # Frame Producer
 def frame_producer(source, buffer):
-    """Capture frames from an RTSP source and add them to a buffer."""
-    cap = cv2.VideoCapture(source)
     while True:
-        ret, frame = cap.read()
-        if not ret:
-            logger.error(f"Failed to retrieve frame from {source}. Retrying...")
-            continue
-        if buffer.full():
-            buffer.get()  # Remove oldest frame if buffer is full
-        buffer.put(frame)
+        try:
+            logger.info(f"Connecting to RTSP: {source}")
+            cap = cv2.VideoCapture(source)
+            if not cap.isOpened():
+                logger.warning(f"Failed to open {source}. Retrying in 5s...")
+                time.sleep(5)
+                continue
+
+            while True:
+                ret, frame = cap.read()
+                if not ret or frame is None or frame.size == 0:
+                    logger.warning(f"Lost connection or empty frame from {source}. Reconnecting...")
+                    break
+
+                if buffer.full():
+                    buffer.get()
+                buffer.put(frame)
+        except Exception as e:
+            logger.error(f"[frame_producer] Error for {source}: {e}")
+            time.sleep(5)
+        
+        # Check memory usage and clear if necessary
+        if torch.cuda.memory_reserved(device) > 2e9:  # Adjust memory threshold as needed
+            clear_memory()
 
 
 #correcting angles
@@ -181,6 +207,7 @@ async def transmit_frames(websocket, path):
     print(path)
     """Transmit frames for the specific WebSocket endpoint."""
     logger.info(f"Client connected to {path}")
+    
     if path not in frame_buffers.keys():
         logger.warning(f"Invalid path: {path}")
         await websocket.close()
@@ -191,6 +218,12 @@ async def transmit_frames(websocket, path):
         while True:
             if not buffer.empty():
                 frame = buffer.get()
+                if frame is None or frame.size == 0:
+                    logger.warning(f"[{path}] Skipped empty frame")
+                    continue
+                
+                
+
 
                 # Detect plates
             # Process frame for plate detection
@@ -241,6 +274,7 @@ async def transmit_frames(websocket, path):
                                                 ,isarvand='notarvand',
                                                 rtpath=path
                                             )
+                  
                                             break
                                         else:
                                             deskewed_plate, (newx1, newy1, newx2, newy2) = correct_perspective(cropped_plate, 1.0)
@@ -272,95 +306,35 @@ async def transmit_frames(websocket, path):
                                                 frame=frame
                                                 ,isarvand='arvand',
                                                 rtpath=path
-                                                ) 
-                        
-                        
-                        # else:                
-                        #     plate_arvand=models.model_arvand(cropped_car,device=device)
-                        #     models.model_arvand.to(device)
-                            
-                        #     if  len(plate_arvand[0]) >0 :
-                                
-                        #         for bos in plate_arvand[0].boxes:
-                        #             arvand_conf=int(bos.conf[0]*100)
-                        #             if arvand_conf >= int(params.plateConf):
-                        #                 # xMin, yMin, xMax, yMax = map(int,box[0].xyxy[0][:4])
-                        #                 # d=yMax-yMin
-                        #                 # tempyMax=yMax-int(d/2)
-                                        
-                        #                 # cropped_plate_arvand = cropped_car[yMin:yMax, xMin:xMax]
-                        #                 # cropped_plate_detected_arvand = cropped_car[yMin:tempyMax, xMin:xMax]
-                        #                 xMin, yMin, xMax, yMax = map(int, bos.xyxy[0][:4])
-                        #                 if xMin >= xMax or yMin >= yMax:
-                        #                     continue
-                                        
-                        #                 abs_x_min = x1 + xMin
-                        #                 abs_y_min = y1 + yMin
-                        #                 abs_x_max = x1 + xMax
-                        #                 abs_y_max = y1 + yMax
-                                        
-                        #                 cv2.rectangle(frame, (abs_x_min, abs_y_min), (abs_x_max, abs_y_max), (255, 255, 255), 2)
-                        #                 cropped_plate_arvnad = cropped_car[yMin:yMax, xMin:xMax]
-
-
-                        #                 # صاف کردن پلاک قبل از تشخیص کاراکتر
-                        #                 deskewed_plate, (newx1, newy1, newx2, newy2) = correct_perspective(cropped_plate_arvnad, 2.0)
-
-                        #               # بررسی اعتبار deskewed_plate
-                        #                 if deskewed_plate.size == 0:
-                                            
-                        #                     continue
-
-                        #                 # بررسی و اصلاح مختصات
-                        #                 newx1 = max(0, newx1)
-                        #                 newy1 = max(0, newy1)
-                        #                 newx2 = min(deskewed_plate.shape[1], newx2)
-                        #                 newy2 = min(deskewed_plate.shape[0], newy2)
-
-                        #                 # چک نهایی اعتبار مختصات
-                        #                 if (newx2 <= newx1) or (newy2 <= newy1):
-                                     
-                        #                     newx1, newy1 = 0, 0
-                        #                     newx2, newy2 = deskewed_plate.shape[1], deskewed_plate.shape[0]
-
-                        #                 # محاسبه تقسیم
-                        #                 d = newy2 - newy1
-                        #                 tempyMax = newy1 + int(d/2)  # تقسیم به دو نیمه برابر
-
-                        #                 # چک نهایی قبل از کراپ
-                        #                 if tempyMax <= deskewed_plate.shape[0] and newx2 <= deskewed_plate.shape[1]:
-                        #                     cropped_plate_nesf = deskewed_plate[newy1:tempyMax, newx1:newx2]
-                        #                     if cropped_plate_nesf.size > 0:
-                        #                         continue
-                                    
-              
+                                                )
                 
-                        #                 plate_text_arvand, char_conf_avg_arvand = detect_plate_chars(cropped_plate_nesf)
-                        #                 cv2.putText(cropped_car, f"Plate: {plate_text_arvand}", (xMin, yMin - 10), cv2.FONT_HERSHEY_SIMPLEX,
-                        #                             0.7, (0, 255, 255), 2, cv2.LINE_AA)
-                        #                 cv2.rectangle(cropped_car,(xMin,yMin),(xMax,yMax),(51,103,53),2)
-                        #                 confidance_arvand=float(params.charConf)*100
-                        #                 if char_conf_avg_arvand >= 60  :
-                        #                     db_entries_time(
-                        #                             number=plate_text_arvand,
-                        #                             charConfAvg=char_conf_avg_arvand,
-                        #                             plateConfAvg=arvand_conf,
-                        #                             croppedPlate=deskewed_plate,
-                        #                             status="Active",
-                        #                             frame=frame,
-                        #                             isarvand='arvand',
-                        #                             rtpath=path
-                        #                         )
+                                                
+                
+                        
+                        
+             
 
                         # Encode frame as JPEG and send via WebSocket
-                _, encoded = cv2.imencode('.jpg', frame, [int(cv2.IMWRITE_JPEG_QUALITY), 50])
-                data = base64.b64encode(encoded).decode('utf-8')
-                await websocket.send(data)
+                try:
+                    _, encoded = cv2.imencode('.jpg', frame, [int(cv2.IMWRITE_JPEG_QUALITY), 50])
+                    data = base64.b64encode(encoded).decode('utf-8')
+                    await websocket.send(data)
+                    del frame,data
+                    torch.cuda.empty_cache()
+                    # gc.collect()
+                    
+                    
+                except cv2.error as e:
+                    logger.error(f"OpenCV Memory Error: {e}")
+                    clear_memory()
             else:
-                # await asyncio.sleep(0.1)  # Wait for new frames
+                await asyncio.sleep(0.03)  # Wait for new frames
                 continue
     except websockets.ConnectionClosed:
         logger.info(f"Client disconnected from {path}")
+    except Exception as e:
+        logger.error(f"Unexpected error: {e}")
+        clear_memory()
 
 # WebSocket Server
 
