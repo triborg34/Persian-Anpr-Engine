@@ -1,11 +1,14 @@
 import json
-from fastapi import FastAPI, HTTPException
+import socket
+from fastapi import FastAPI, HTTPException, Query
+from fastapi.encoders import jsonable_encoder
 from pydantic import BaseModel
 from config_manager import initialize_config, save_or_update_config, load_config, add_camera_ip
 import uvicorn
 from TcpConnector import TcpConnector
 from configParams import Parameters
 from fastapi.middleware.cors import CORSMiddleware
+from onvifmaneger import discover_onvif_devices, get_rtsp_url
 # Initialize the configuration file
 initialize_config()
 #uvicorn configServer:app --reload --host 0.0.0.0 --port 8000
@@ -240,17 +243,43 @@ def sendEmail(request:EmailClass,email):
     
 
 
-        
-    #TODO:WEB NOT BUILD YET
+@app.get("/get")
+def get_cameras(ip: str = Query(default="192.168.1", description="Base IP address to scan for ONVIF cameras")):
+    """
+    Discover ONVIF cameras and return the list as a JSON response.
+    """
+    try:
+        hostname = socket.gethostname()
+        IPAddr = socket.gethostbyname(hostname)
+        ip=IPAddr.split('.')
+        ip='.'.join([ip[0],ip[1],ip[2]])
+    except Exception as e:
+        ip=ip
+    
+    
+    cameras = discover_onvif_devices(ip_base=ip)
+    if not cameras:
+        return {"message": "No ONVIF cameras found on the network.", "cameras": []} 
+    print(jsonable_encoder(cameras))
+    return jsonable_encoder(cameras)
 
-
-
-
-
-#TODO : AGAIN OUTPUT
+@app.get("/getrtsp")
+def rtsp(
+    ip: str = Query(..., description="IP address of the camera"),
+    port: int = Query(80, description="Port of the camera (default: 80)"),
+    username: str = Query(..., description="Username for the camera"),
+    password: str = Query(..., description="Password for the camera")
+):
+    """
+    Get the RTSP URL for a specific ONVIF camera.
+    """
+    rtsp_url = get_rtsp_url(ip, port, username, password)
+    if rtsp_url:
+        return {"rtsp": rtsp_url}
+    return {"message": f"Could not retrieve RTSP URL for {ip}:{port}"}
 
 
 if __name__ == "__main__":
-
+    print("UPDATE 4132025")
     host:str='0.0.0.0'
     uvicorn.run("configServer:app", host=host, port=int(params.serverport), log_level="info")
