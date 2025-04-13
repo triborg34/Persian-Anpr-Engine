@@ -7,7 +7,7 @@ import logging
 logging.getLogger('zeep').setLevel(logging.CRITICAL)
 
 def discover_onvif_devices(ip_base='192.168.1'):
-    print("🔍 Scanning network for ONVIF cameras...")
+    print("Scanning network for ONVIF cameras...")
     cameras = []
     
 
@@ -31,7 +31,7 @@ def discover_onvif_devices(ip_base='192.168.1'):
 def get_rtsp_url(ip, port, username, password):
     try:
         print(f"🔗 Connecting to {ip}:{port}...")
-        cam = ONVIFCamera(ip, port, username, password)
+        cam = ONVIFCamera(ip, port, username, password,wsdl_dir='./wsdl')
 
         media_service = cam.create_media_service()
         profiles = media_service.GetProfiles()
@@ -63,7 +63,7 @@ def get_rtsp_url(ip, port, username, password):
 
 if __name__ == "__main__":
     # cameras = discover_onvif_devices()
-    rtsp=get_rtsp_url('192.168.1.89',80,'admin','admin')
+    rtsp=get_rtsp_url('192.168.1.89',2000,'admin','admin')
     print(rtsp)
     # if not cameras:
     #     print("❌ No ONVIF cameras found on the network.")
