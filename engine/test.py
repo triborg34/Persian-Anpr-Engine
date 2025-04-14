@@ -1,4 +1,3 @@
-from collections import deque
 import gc
 import logging
 import os
@@ -19,7 +18,8 @@ import websockets.uri
 from configParams import Parameters
 from database.db_entries_utils import db_entries_time
 import websockets
-from deep_sort_realtime.deepsort_tracker import DeepSort
+from watchdog.observers import Observer
+from watchdog.events import FileSystemEventHandler
 
 # Logging configuration
 logging.basicConfig(level=logging.INFO)
@@ -45,6 +45,29 @@ logger.info(f"Version : 10.0.0 Up 26/3/2025")
 frame_buffers = {f"/rt{i+1}": Queue(maxsize=10) for i, _ in enumerate(params.rtps)}
 global buffer_key 
 
+
+
+
+def restart_program():
+    if getattr(sys, 'frozen', False):
+        # Running as .exe (frozen by PyInstaller or similar)
+        os.execv(sys.executable, [sys.executable] + sys.argv)
+    else:
+        # Running as .py script with Python
+        os.execv(sys.executable, ['python'] + sys.argv)
+
+class ConfigFileChangeHandler(FileSystemEventHandler):
+    def on_modified(self, event):
+        if event.src_path.endswith("config.ini"):
+            logger.warning("config.ini changed. Restarting script...")
+            restart_program()
+
+def start_config_watcher():
+    observer = Observer()
+    event_handler = ConfigFileChangeHandler()
+    observer.schedule(event_handler, path='.', recursive=False)
+    observer.start()
+
 # YOLO Models
 class YOLOModels:
     def __init__(self, plate_model_path, char_model_path, arvand_model_path):
@@ -56,13 +79,6 @@ class YOLOModels:
 
 models = YOLOModels(params.modelPlate_path, params.modelCharX_path, params.modelArvand_path)
 print('start server')
-deep_sort_tracker = DeepSort(max_age=30)
-object_area_history = {}
-track_histories = {}  # track_id -> deque of last states
-MAX_HISTORY = 5  # Number of frames to observe
-ENTRANCE_THRESHOLD = 1.2
-EXIT_THRESHOLD = 0.8
-POSITION_SHIFT_Y = 15  # Pixels
 
 
 # Memory management function
@@ -244,13 +260,10 @@ async def transmit_frames(websocket, path):
 
                 # Detect vehicles in low-res
                 car_res = models.carmodel(lowres_for_detection, device=device, classes=[2, 5, 7])
-                detections = []
                 if len(car_res[0]) > 0:
                     for box in car_res[0].boxes:
                         x1, y1, x2, y2 = map(int, box.xyxy[0][:4])
                         # Scale back to original resolution
-                        conf = float(box.conf[0])
-                        clse = int(box.cls[0])
                         x1 = int(x1 * scale_x)
                         y1 = int(y1 * scale_y)
                         x2 = int(x2 * scale_x)
@@ -258,47 +271,7 @@ async def transmit_frames(websocket, path):
 
                         cv2.rectangle(frame, (x1, y1), (x2, y2), (255, 0, 0), 2)
                         cropped_car = frame[y1:y2, x1:x2]
-                        detections.append(([x1, y1, x2 - x1, y2 - y1], conf, clse))
-                    
-                    tracks = deep_sort_tracker.update_tracks(detections, frame=frame)
-                    for track in tracks:
-                        if not track.is_confirmed():
-                            continue
-                        track_id = track.track_id
-                        x1, y1, x2, y2 = map(int, track.to_ltrb())
-                        current_area = (x2 - x1) * (y2 - y1)
-                        current_center = ((x1 + x2) // 2, (y1 + y2) // 2)
 
-                        # Initialize track history if new
-                        if track_id not in track_histories:
-                            track_histories[track_id] = deque(maxlen=MAX_HISTORY)
-
-                        # Append current state
-                        track_histories[track_id].append({'area': current_area, 'center': current_center})
-
-                        # Analyze movement if enough history exists
-                        if len(track_histories[track_id]) >= MAX_HISTORY:
-                            areas = [h['area'] for h in track_histories[track_id]]
-                            centers_y = [h['center'][1] for h in track_histories[track_id]]
-
-                            avg_area_old = sum(areas[:-1]) / (MAX_HISTORY - 1)
-                            latest_area = areas[-1]
-
-                            area_ratio = latest_area / avg_area_old if avg_area_old != 0 else 1
-                            delta_y = centers_y[-1] - centers_y[0]
-
-                            status = "Stationary"
-
-                            if area_ratio > ENTRANCE_THRESHOLD and delta_y > POSITION_SHIFT_Y:
-                                status = "Entrance"
-                                print(f"[Track {track_id}] Status: {status}, Area ratio: {area_ratio:.2f}, ΔY: {delta_y}")
-                            elif area_ratio < EXIT_THRESHOLD and delta_y < -POSITION_SHIFT_Y:
-                                status = "Exit"
-                                print(f"[Track {track_id}] Status: {status}, Area ratio: {area_ratio:.2f}, ΔY: {delta_y}")
-
-                           
-                        
-                        
                         plate_results = models.model_plate(cropped_car).pandas().xyxy[0]
                         if not plate_results.empty:
                             for _, plate in plate_results.iterrows():
@@ -375,9 +348,9 @@ async def transmit_frames(websocket, path):
                 await asyncio.sleep(0.03)
     except websockets.ConnectionClosed:
         logger.info(f"Client disconnected from {path}")
-    # except Exception as e:
-    #     logger.error(f"Unexpected error: {e}")
-        
+    except Exception as e:
+        logger.error(f"Unexpected error: {e}")
+        clear_memory()
 
 
 # WebSocket Server
@@ -405,6 +378,7 @@ async def websocket_server():
     await asyncio.Future()  # run forever
 # Main
 if __name__ == "__main__":
+    threading.Thread(target=start_config_watcher, daemon=True).start()
     # Start frame producer threads for each RTSP source
     for i, source in enumerate(params.rtps):
         buffer_key = f"/rt{i+1}"

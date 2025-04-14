@@ -18,6 +18,8 @@ import websockets.uri
 from configParams import Parameters
 from database.db_entries_utils import db_entries_time
 import websockets
+from watchdog.observers import Observer
+from watchdog.events import FileSystemEventHandler
 
 # Logging configuration
 logging.basicConfig(level=logging.INFO)
@@ -42,6 +44,29 @@ logger.info(f"Version : 10.0.0 Up 26/3/2025")
 # Frame Buffers: One buffer for each RTSP source
 frame_buffers = {f"/rt{i+1}": Queue(maxsize=10) for i, _ in enumerate(params.rtps)}
 global buffer_key 
+
+
+
+
+def restart_program():
+    if getattr(sys, 'frozen', False):
+        # Running as .exe (frozen by PyInstaller or similar)
+        os.execv(sys.executable, [sys.executable] + sys.argv)
+    else:
+        # Running as .py script with Python
+        os.execv(sys.executable, ['python'] + sys.argv)
+
+class ConfigFileChangeHandler(FileSystemEventHandler):
+    def on_modified(self, event):
+        if event.src_path.endswith("config.ini"):
+            logger.warning("config.ini changed. Restarting script...")
+            restart_program()
+
+def start_config_watcher():
+    observer = Observer()
+    event_handler = ConfigFileChangeHandler()
+    observer.schedule(event_handler, path='.', recursive=False)
+    observer.start()
 
 # YOLO Models
 class YOLOModels:
@@ -353,6 +378,7 @@ async def websocket_server():
     await asyncio.Future()  # run forever
 # Main
 if __name__ == "__main__":
+    threading.Thread(target=start_config_watcher, daemon=True).start()
     # Start frame producer threads for each RTSP source
     for i, source in enumerate(params.rtps):
         buffer_key = f"/rt{i+1}"
