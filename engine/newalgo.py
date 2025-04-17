@@ -39,7 +39,7 @@ host = '0.0.0.0'
 # Device setup
 device = torch.device(0 if torch.cuda.is_available()  else "cpu")
 logger.info(f"Using {'CUDA' if torch.cuda.is_available() else 'CPU'} device.")
-logger.info(f"Version : 10.0.0 Up 26/3/2025")
+logger.info(f"Version : 10.0.0 Up 4/14/2025")
 
 # Frame Buffers: One buffer for each RTSP source
 frame_buffers = {f"/rt{i+1}": Queue(maxsize=10) for i, _ in enumerate(params.rtps)}
