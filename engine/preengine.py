@@ -81,40 +81,57 @@ print('start server')
 
 # Memory management function
 def clear_memory():
-    logger.warning("Clearing memory to prevent leaks and restarting...")
+    logger.warning("Clearing GPU memory cache...")
+    # Move models to CPU temporarily
+    for model_attr in ['model_plate', 'model_char', 'carmodel']:
+        if hasattr(models, model_attr):
+            model = getattr(models, model_attr)
+            model.to('cpu')
+    # Clear CUDA cache
     torch.cuda.empty_cache()
     gc.collect()
-    os.execv(sys.executable, ['python'] + sys.argv)
+    # Move models back to GPU if needed
+    for model_attr in ['model_plate', 'model_char', 'carmodel']:
+        if hasattr(models, model_attr):
+            model = getattr(models, model_attr)
+            model.to(device)
+
 # Frame Producer
 def frame_producer(source, buffer):
-    while True:
-        try:
-            logger.info(f"Connecting to RTSP: {source}")
+    cap = None
+    try:
+        logger.info(f"Connecting to RTSP: {source}")
+        cap = cv2.VideoCapture(source)
+        cap.set(cv2.CAP_PROP_BUFFERSIZE, 2)
+        if not cap.isOpened():
+            logger.warning(f"Failed to open {source}. Retrying in 5s...")
+            time.sleep(5)
+            return
 
-            cap = cv2.VideoCapture(source)
-            # cap.set(cv2.CAP_PROP_BUFFERSIZE, 2)
-            if not cap.isOpened():
-                logger.warning(f"Failed to open {source}. Retrying in 5s...")
-                time.sleep(5)
-                continue
-
-            while True:
+        while True:
+            try:
                 ret, frame = cap.read()
                 if not ret or frame is None or frame.size == 0:
                     logger.warning(f"Lost connection or empty frame from {source}. Reconnecting...")
                     break
 
-                if buffer.full():
-                    buffer.get()
-                buffer.put(frame)
-        except Exception as e:
-            logger.error(f"[frame_producer] Error for {source}: {e}")
-            time.sleep(5)
-        
-        # Check memory usage and clear if necessary
-        if torch.cuda.memory_reserved(device) > 2e9:  # Adjust memory threshold as needed
-            clear_memory()
+                try:
+                    if buffer.full():
+                        buffer.get()
+                    buffer.put(frame)
+                except Exception as e:
+                    logger.error(f"Error while putting frame into buffer: {e}", exc_info=True)
 
+            except cv2.error as e:
+                logger.error(f"OpenCV error: {e}", exc_info=True)
+            except Exception as e:
+                logger.error(f"Unexpected error while reading frame: {e}", exc_info=True)
+
+    except Exception as e:
+        logger.error(f"Error in frame producer: {e}", exc_info=True)
+    finally:
+        if cap is not None:
+            cap.release()
 
 #correcting angles
 def correct_perspective(image, scale_factor):
@@ -230,125 +247,132 @@ def detect_plate_chars(cropped_plate):
 
 # WebSocket Frame Transmitter
 async def transmit_frames(websocket, path):
-    print(path)
-    logger.info(f"Client connected to {path}")
-    
-    if path not in frame_buffers.keys():
-        logger.warning(f"Invalid path: {path}")
-        await websocket.close()
-        return
-
-    buffer = frame_buffers[path]
     try:
+        logger.info(f"Client connected to {path}")
+        if path not in frame_buffers.keys():
+            logger.warning(f"Invalid path: {path}")
+            await websocket.close(1008, "Invalid path")
+            return
+
+        buffer = frame_buffers[path]
+        process_every_n_frames = 2
+        frame_counter = 0
+
         while True:
+            frame_counter += 1
             if not buffer.empty():
-                frame = buffer.get()
-                if frame is None or frame.size == 0:
-                    logger.warning(f"[{path}] Skipped empty frame")
-                    continue
+                try:
+                    frame = buffer.get()
+                    if torch.cuda.memory_allocated(device) > 1.5e9 and frame_counter % process_every_n_frames != 0:
+                        continue
 
-                # Create a lower-resolution copy for detection
-                lowres_for_detection = cv2.resize(
-                    frame,
-                    (640, int(frame.shape[0] * 640 / frame.shape[1])),
-                    interpolation=cv2.INTER_AREA
-                )
-                scale_x = frame.shape[1] / lowres_for_detection.shape[1]
-                scale_y = frame.shape[0] / lowres_for_detection.shape[0]
+                    # Create a lower-resolution copy for detection
+                    lowres_for_detection = cv2.resize(
+                        frame,
+                        (640, int(frame.shape[0] * 640 / frame.shape[1])),
+                        interpolation=cv2.INTER_AREA
+                    )
+                    scale_x = frame.shape[1] / lowres_for_detection.shape[1]
+                    scale_y = frame.shape[0] / lowres_for_detection.shape[0]
 
-                # Detect vehicles in low-res
-                car_res = models.carmodel(lowres_for_detection, device=device, classes=[2, 5, 7])
-                if len(car_res[0]) > 0:
-                    for box in car_res[0].boxes:
-                        x1, y1, x2, y2 = map(int, box.xyxy[0][:4])
-                        # Scale back to original resolution
-                        x1 = int(x1 * scale_x)
-                        y1 = int(y1 * scale_y)
-                        x2 = int(x2 * scale_x)
-                        y2 = int(y2 * scale_y)
+                    # Detect vehicles in low-res
+                    car_res = models.carmodel(lowres_for_detection, device=device, classes=[2, 5, 7])
+                    if len(car_res[0]) > 0:
+                        for box in car_res[0].boxes:
+                            x1, y1, x2, y2 = map(int, box.xyxy[0][:4])
+                            # Scale back to original resolution
+                            x1 = int(x1 * scale_x)
+                            y1 = int(y1 * scale_y)
+                            x2 = int(x2 * scale_x)
+                            y2 = int(y2 * scale_y)
 
-                        cv2.rectangle(frame, (x1, y1), (x2, y2), (255, 0, 0), 2)
-                        cropped_car = frame[y1:y2, x1:x2]
+                            cv2.rectangle(frame, (x1, y1), (x2, y2), (255, 0, 0), 2)
+                            cropped_car = frame[y1:y2, x1:x2]
 
-                        plate_results = models.model_plate(cropped_car).pandas().xyxy[0]
-                        if not plate_results.empty:
-                            for _, plate in plate_results.iterrows():
-                                plate_conf = int(plate['confidence'] * 100)
-                                if plate_conf >= int(params.plateConf):
-                                    x_min, y_min, x_max, y_max = (
-                                        int(plate['xmin']), int(plate['ymin']),
-                                        int(plate['xmax']), int(plate['ymax'])
-                                    )
-                                    cropped_plate = cropped_car[y_min:y_max, x_min:x_max]
-                                    plate_text, char_conf_avg = detect_plate_chars(cropped_plate)
-
-                                    cv2.rectangle(cropped_car, (x_min, y_min), (x_max, y_max), (0, 0, 255), 2)
-                                    plate_text = plate_text.replace('Taxi', 'x')
-                                    confidance = float(params.charConf) * 100
-
-                                    if char_conf_avg >= confidance and len(plate_text) >= 8:
-                                        cv2.putText(cropped_car, f"Plate: {plate_text}", (x_min, y_min - 10),
-                                                    cv2.FONT_HERSHEY_SIMPLEX, 0.7, (0, 255, 128), 2, cv2.LINE_AA)
-                                        db_entries_time(
-                                            number=plate_text,
-                                            charConfAvg=char_conf_avg,
-                                            plateConfAvg=plate_conf,
-                                            croppedPlate=cropped_plate,
-                                            status="Active",
-                                            frame=frame,
-                                            isarvand='notarvand',
-                                            rtpath=path
+                            plate_results = models.model_plate(cropped_car).pandas().xyxy[0]
+                            if not plate_results.empty:
+                                for _, plate in plate_results.iterrows():
+                                    plate_conf = int(plate['confidence'] * 100)
+                                    if plate_conf >= int(params.plateConf):
+                                        x_min, y_min, x_max, y_max = (
+                                            int(plate['xmin']), int(plate['ymin']),
+                                            int(plate['xmax']), int(plate['ymax'])
                                         )
-                                        break
-                                    else:
-                                        deskewed_plate, (newx1, newy1, newx2, newy2) = correct_perspective(cropped_plate, 1.0)
-                                        if deskewed_plate.size == 0:
-                                            continue
-                                        newx1 = max(0, newx1)
-                                        newy1 = max(0, newy1)
-                                        newx2 = min(deskewed_plate.shape[1], newx2)
-                                        newy2 = min(deskewed_plate.shape[0], newy2)
-                                        if (newx2 <= newx1) or (newy2 <= newy1):
-                                            newx1, newy1 = 0, 0
-                                            newx2, newy2 = deskewed_plate.shape[1], deskewed_plate.shape[0]
-                                        d = newy2 - newy1
-                                        tempyMax = newy1 + int(d / 2)
-                                        cropped_plate_nesf = deskewed_plate[newy1:tempyMax, newx1:newx2]
-                                        plate_text_arvnad, char_conf_arvnad = detect_plate_chars(cropped_plate_nesf)
+                                        cropped_plate = cropped_car[y_min:y_max, x_min:x_max]
+                                        plate_text, char_conf_avg = detect_plate_chars(cropped_plate)
 
-                                        if len(plate_text_arvnad) >= 5 and char_conf_arvnad >= confidance - 3:
-                                            cv2.putText(cropped_car, f"Plate: {plate_text_arvnad}", (x_min, y_min - 10),
+                                        cv2.rectangle(cropped_car, (x_min, y_min), (x_max, y_max), (0, 0, 255), 2)
+                                        plate_text = plate_text.replace('Taxi', 'x')
+                                        confidance = float(params.charConf) * 100
+
+                                        if char_conf_avg >= confidance and len(plate_text) >= 8:
+                                            cv2.putText(cropped_car, f"Plate: {plate_text}", (x_min, y_min - 10),
                                                         cv2.FONT_HERSHEY_SIMPLEX, 0.7, (0, 255, 128), 2, cv2.LINE_AA)
                                             db_entries_time(
-                                                number=plate_text_arvnad,
-                                                charConfAvg=char_conf_arvnad,
+                                                number=plate_text,
+                                                charConfAvg=char_conf_avg,
                                                 plateConfAvg=plate_conf,
                                                 croppedPlate=cropped_plate,
                                                 status="Active",
                                                 frame=frame,
-                                                isarvand='arvand',
+                                                isarvand='notarvand',
                                                 rtpath=path
                                             )
-                                
+                                            break
+                                        else:
+                                            deskewed_plate, (newx1, newy1, newx2, newy2) = correct_perspective(cropped_plate, 1.0)
+                                            if deskewed_plate.size == 0:
+                                                continue
+                                            newx1 = max(0, newx1)
+                                            newy1 = max(0, newy1)
+                                            newx2 = min(deskewed_plate.shape[1], newx2)
+                                            newy2 = min(deskewed_plate.shape[0], newy2)
+                                            if (newx2 <= newx1) or (newy2 <= newy1):
+                                                newx1, newy1 = 0, 0
+                                                newx2, newy2 = deskewed_plate.shape[1], deskewed_plate.shape[0]
+                                            d = newy2 - newy1
+                                            tempyMax = newy1 + int(d / 2)
+                                            cropped_plate_nesf = deskewed_plate[newy1:tempyMax, newx1:newx2]
+                                            plate_text_arvnad, char_conf_arvnad = detect_plate_chars(cropped_plate_nesf)
 
-                # Encode full-res frame with annotations
-                try:
-                    _, encoded = cv2.imencode('.jpg', frame, [int(cv2.IMWRITE_JPEG_QUALITY), 50])
-                    data = base64.b64encode(encoded).decode('utf-8')
-                    await websocket.send(data)
-                    del frame, data
-                   
-                    torch.cuda.empty_cache()
-                except cv2.error as e:
-                    logger.error(f"OpenCV Memory Error: {e}")
-                    clear_memory()
+                                            if len(plate_text_arvnad) >= 5 and char_conf_arvnad >= confidance - 3:
+                                                cv2.putText(cropped_car, f"Plate: {plate_text_arvnad}", (x_min, y_min - 10),
+                                                            cv2.FONT_HERSHEY_SIMPLEX, 0.7, (0, 255, 128), 2, cv2.LINE_AA)
+                                                db_entries_time(
+                                                    number=plate_text_arvnad,
+                                                    charConfAvg=char_conf_arvnad,
+                                                    plateConfAvg=plate_conf,
+                                                    croppedPlate=cropped_plate,
+                                                    status="Active",
+                                                    frame=frame,
+                                                    isarvand='arvand',
+                                                    rtpath=path
+                                                )
+                                    
+
+                    # Encode full-res frame with annotations
+                    try:
+                        _, encoded = cv2.imencode('.jpg', frame, [int(cv2.IMWRITE_JPEG_QUALITY), 50])
+                        data = base64.b64encode(encoded).decode('utf-8')
+                        await websocket.send(data)
+                        del frame, data
+                       
+                        torch.cuda.empty_cache()
+                    except cv2.error as e:
+                        logger.error(f"OpenCV Memory Error: {e}")
+                        clear_memory()
+                except Exception as e:
+                    logger.error(f"Error while getting frame from buffer: {e}", exc_info=True)
             else:
                 await asyncio.sleep(0.03)
     except websockets.ConnectionClosed:
         logger.info(f"Client disconnected from {path}")
     except Exception as e:
-        logger.error(f"Unexpected error: {e}")
-        clear_memory()
+        logger.error(f"Error in WebSocket connection: {e}", exc_info=True)
+        try:
+            await websocket.close(1011, "Internal server error")
+        except:
+            pass
 
 
 # WebSocket Server
