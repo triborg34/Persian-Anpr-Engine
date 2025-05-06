@@ -171,13 +171,16 @@ def frame_producer(source, buffer):
             if not ret or frame is None or frame.size == 0:
                 logger.warning(
                     f"Lost connection or empty frame from {source}. Reconnecting...")
+                
                 break
+            
 
             if buffer.full():
                 buffer.get_nowait()
             buffer.put_nowait(frame)
         except Exception as e:
             logger.error(f"Error in frame producer: {e}", exc_info=True)
+            restart_program()
     if cap:
         cap.release()
 
@@ -378,17 +381,21 @@ async def transmit_frames(websocket, path):
                                     if char_conf_avg >= confidance and len(plate_text) >= 8:
                                         cv2.putText(cropped_car, f"Plate: {plate_text}", (x_min, y_min - 10),
                                                     cv2.FONT_HERSHEY_SIMPLEX, 0.7, (0, 255, 128), 2, cv2.LINE_AA)
-                                        db_entries_time(
-                                            number=plate_text,
-                                            charConfAvg=char_conf_avg,
-                                            plateConfAvg=plate_conf,
-                                            croppedPlate=cropped_plate,
-                                            status="Active",
-                                            frame=frame,
-                                            isarvand='notarvand',
-                                            rtpath=path
-                                        )
-                                        break
+                                        try:
+                                            db_entries_time(
+                                                number=plate_text,
+                                                charConfAvg=char_conf_avg,
+                                                plateConfAvg=plate_conf,
+                                                croppedPlate=cropped_plate,
+                                                status="Active",
+                                                frame=frame,
+                                                isarvand='notarvand',
+                                                rtpath=path
+                                            )
+                                            break
+                                        except Exception as e :
+                                            logger.error(e)
+                                            continue
                                     else:
                                         deskewed_plate, (newx1, newy1, newx2, newy2) = correct_perspective(cropped_plate, 1.0)
                                         if deskewed_plate.size == 0:
@@ -425,19 +432,22 @@ async def transmit_frames(websocket, path):
                     _, encoded = cv2.imencode('.jpg', frame, [int(cv2.IMWRITE_JPEG_QUALITY), 50])
                     data = base64.b64encode(encoded).decode('utf-8')
                     await websocket.send(data)
-                    del frame, data
+                    del frame, data,
                    
                     torch.cuda.empty_cache()
                 except cv2.error as e:
                     logger.error(f"OpenCV Memory Error: {e}")
                     clear_memory()
+                    restart_program()
             else:
                 await asyncio.sleep(0.03)
     except websockets.ConnectionClosed:
         logger.info(f"Client disconnected from {path}")
+        
     except Exception as e:
         logger.error(f"Unexpected error: {e}")
         clear_memory()
+        restart_program()
 
 # Improved WebSocket Frame Transmitter
 
