@@ -1,6 +1,7 @@
 import base64
 import gc
 import logging
+import multiprocessing
 import os
 import sys
 import time
@@ -18,7 +19,6 @@ from database.db_entries_utils import db_entries_time
 import websockets
 from watchdog.observers import Observer
 from watchdog.events import FileSystemEventHandler
-from functools import lru_cache
 from contextlib import contextmanager
 
 # Logging configuration
@@ -35,10 +35,12 @@ host = '0.0.0.0'
 # host = params.defip.split('//')[1].split(':')[0]
 
 
+cpu_cores = multiprocessing.cpu_count()
+cv2.setNumThreads(cpu_cores)
 # Device setup
 device = torch.device(0 if torch.cuda.is_available() else "cpu")
 logger.info(f"Using {'CUDA' if torch.cuda.is_available() else 'CPU'} device.")
-logger.info(f"Version : 10.0.0 Up 4/14/2025")
+logger.info(f"Version : 10.0.0 Up 5/7/2025")
 
 # Frame Buffers: One buffer for each RTSP source
 frame_buffers = {f"/rt{i+1}": Queue(maxsize=10) for i, _ in enumerate(params.rtps)}
@@ -160,10 +162,11 @@ def frame_producer(source, buffer):
         except Exception as e:
             logger.error(f"Error connecting to RTSP: {e}")
             time.sleep(2 ** attempt)
+            restart_program()
     else:
         logger.error(
             f"Failed to connect to RTSP: {source} after {MAX_RETRIES} attempts.")
-        return
+        restart_program()
 
     while not stop_event.is_set():
         try:
@@ -172,7 +175,8 @@ def frame_producer(source, buffer):
                 logger.warning(
                     f"Lost connection or empty frame from {source}. Reconnecting...")
                 
-                break
+                
+                
             
 
             if buffer.full():
