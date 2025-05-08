@@ -35,7 +35,7 @@ host = '0.0.0.0'
 # Device setup
 device = torch.device(0 if torch.cuda.is_available() else "cpu")
 logger.info(f"Using {'CUDA' if torch.cuda.is_available() else 'CPU'} device.")
-logger.info(f"Version : 10.0.2 Up 5/8/2025")
+logger.info(f"Version : 10.0.3 Up 5/8/2025")
 
 # A dictionary to store FreshestFrame objects for each RTSP source
 camera_feeds = {}
@@ -102,7 +102,6 @@ logger.info('Server initialization complete')
 
 # Memory management function
 def clear_memory():
-    logger.warning("Clearing memory to prevent leaks...")
     torch.cuda.empty_cache()
     gc.collect()
 
@@ -389,9 +388,6 @@ async def ws_handler(websocket):
         if path.startswith('/rt'):
             # Handle single camera request
             await handle_single_camera(websocket, path, client_id)
-        elif path == '/all':
-            # Handle request for all cameras
-            await handle_all_cameras(websocket, client_id)
         else:
             logger.warning(f"Invalid path: {path}")
             await websocket.close(1008, "Invalid camera path")
@@ -426,7 +422,7 @@ async def handle_single_camera(websocket, path, client_id):
             active_connections[client_id]['last_frame_time'] = current_time
             
             # Read frame
-            ret, frame = camera.read()
+            ret, frame = camera.read(timeout=2)
             if not ret:
                 logger.warning(f"Failed to read frame from {path}")
                 await asyncio.sleep(0.5)  # Wait before trying again
@@ -454,58 +450,6 @@ async def handle_single_camera(websocket, path, client_id):
                 
     except Exception as e:
         logger.error(f"Error in handle_single_camera: {str(e)}")
-
-# Handle all camera feeds
-async def handle_all_cameras(websocket, client_id):
-    try:
-        while client_id in active_connections:
-            # Rate limiting
-            current_time = time.time()
-            if current_time - active_connections[client_id]['last_frame_time'] < FRAME_DELAY:
-                await asyncio.sleep(0.001)  # Small sleep to prevent CPU hogging
-                continue
-                
-            active_connections[client_id]['last_frame_time'] = current_time
-            
-            # Prepare data for all cameras
-            frames_data = {}
-            
-            for path, camera in camera_feeds.items():
-                ret, frame = camera.read()
-                if not ret:
-                    logger.warning(f"Failed to read frame from {path}")
-                    continue
-                    
-                # Process frame (detect vehicles and plates)
-                processed_frame = process_frame(frame, path)
-                
-                # Encode frame
-                _, encoded = cv2.imencode('.jpg', processed_frame, [int(cv2.IMWRITE_JPEG_QUALITY), 50])
-                encoded_data = base64.b64encode(encoded).decode('utf-8')
-                
-                # Add to frames data
-                frames_data[path] = encoded_data
-            
-            # Send all frames as JSON
-            if frames_data:
-                try:
-                    await websocket.send(json.dumps(frames_data))
-                    
-                    # Explicitly manage memory
-                    if current_time % 10 < 0.1:  # Every ~10 seconds
-                        clear_memory()
-                        
-                except websockets.exceptions.ConnectionClosed:
-                    logger.info(f"Connection closed for client {client_id}")
-                    break
-                except Exception as e:
-                    logger.error(f"Error sending frames: {str(e)}")
-                    await asyncio.sleep(0.1)
-            else:
-                await asyncio.sleep(0.1)  # No frames available, wait briefly
-                
-    except Exception as e:
-        logger.error(f"Error in handle_all_cameras: {str(e)}")
 
 # Global variables for cleanup and shutdown management
 server = None
@@ -539,12 +483,12 @@ def graceful_shutdown():
         logger.info("Config file observer stopped")
     
     logger.info("Cleanup complete. Shutting down.")
+    os._exit(0)  # Use os._exit instead of sys.exit for more forceful termination
 
-# Signal handler for SIGINT (Ctrl+C) and SIGTERM
+# Enhanced signal handler for SIGINT (Ctrl+C) and SIGTERM
 def signal_handler(sig, frame):
     logger.info(f"Received signal {sig}, shutting down...")
     graceful_shutdown()
-    sys.exit(0)
 
 # WebSocket Server with shutdown support
 async def websocket_server():
@@ -554,7 +498,6 @@ async def websocket_server():
     print(f'Camera feeds available at:')
     for path_key in camera_feeds.keys():
         print(f'  - ws://{host}:{port}{path_key}')
-    print(f'All cameras are available at: ws://{host}:{port}/all')
 
     server = await websockets.serve(
         ws_handler,
@@ -574,7 +517,7 @@ async def websocket_server():
 
 # Main
 if __name__ == "__main__":
-    # Register signal handlers
+    # Register signal handlers with more forceful approach
     import signal
     signal.signal(signal.SIGINT, signal_handler)  # Ctrl+C
     signal.signal(signal.SIGTERM, signal_handler) # Termination signal
@@ -590,7 +533,10 @@ if __name__ == "__main__":
     
     # Run WebSocket server
     try:
-        asyncio.run(websocket_server())
+        # Create a Future that will be set if Ctrl+C is pressed
+        loop = asyncio.get_event_loop()
+        main_task = loop.create_task(websocket_server())
+        loop.run_until_complete(main_task)
     except KeyboardInterrupt:
         logger.info("KeyboardInterrupt received, shutting down...")
         graceful_shutdown()
