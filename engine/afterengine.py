@@ -10,7 +10,7 @@ import torch
 import asyncio
 import base64
 import threading
-from queue import Queue
+import json
 import statistics
 from ultralytics import YOLO
 from configParams import Parameters
@@ -35,10 +35,13 @@ host = '0.0.0.0'
 # Device setup
 device = torch.device(0 if torch.cuda.is_available() else "cpu")
 logger.info(f"Using {'CUDA' if torch.cuda.is_available() else 'CPU'} device.")
-logger.info(f"Version : 10.0.1 Up 5/8/2025")
+logger.info(f"Version : 10.0.2 Up 5/8/2025")
 
 # A dictionary to store FreshestFrame objects for each RTSP source
 camera_feeds = {}
+
+# A dictionary to store active client connections
+active_connections = {}
 
 # Frame rate limiter (FPS)
 TARGET_FPS = 15  # Adjust based on your needs
@@ -76,18 +79,11 @@ def restart_program():
         logger.error(f"Error during restart cleanup: {e}")
         os._exit(1)  # Hard exit if cleanup fails
 
-
 class ConfigFileChangeHandler(FileSystemEventHandler):
     def on_modified(self, event):
         if event.src_path.endswith("config.ini"):
             logger.warning("config.ini changed. Restarting script...")
             restart_program()
-
-def start_config_watcher():
-    observer = Observer()
-    event_handler = ConfigFileChangeHandler()
-    observer.schedule(event_handler, path='.', recursive=False)
-    observer.start()
 
 # YOLO Models
 class YOLOModels:
@@ -360,30 +356,74 @@ def process_frame(frame, path):
         logger.error(f"Error processing frame: {str(e)}")
         return frame
 
-# WebSocket Connection Handler with Heartbeat and Rate Limiting
-async def transmit_frames(websocket, path):
-    logger.info(f"Client connected to {path}")
+# Heartbeat implementation
+async def send_ping(websocket):
+    try:
+        while True:
+            await asyncio.sleep(30)  # Send ping every 30 seconds
+            try:
+                await websocket.ping()
+            except:
+                break
+    except asyncio.CancelledError:
+        pass
+
+# WebSocket Connection Handler
+async def ws_handler(websocket):
+    path = websocket.request.path
+    client_id = id(websocket)
     
-    if path not in camera_feeds:
-        logger.warning(f"Invalid path: {path}")
-        await websocket.close(1008, "Invalid camera path")
-        return
+    # Add connection to active connections
+    active_connections[client_id] = {
+        'websocket': websocket,
+        'last_frame_time': 0
+    }
     
-    camera = camera_feeds[path]
+    logger.info(f"Client {client_id} connected on path {path}")
     
     # Setup ping/pong for connection health monitoring
     ping_task = asyncio.create_task(send_ping(websocket))
     
     try:
-        last_frame_time = 0
-        while True:
+        # Check if this is a request for a specific camera feed
+        if path.startswith('/rt'):
+            # Handle single camera request
+            await handle_single_camera(websocket, path, client_id)
+        elif path == '/all':
+            # Handle request for all cameras
+            await handle_all_cameras(websocket, client_id)
+        else:
+            logger.warning(f"Invalid path: {path}")
+            await websocket.close(1008, "Invalid camera path")
+    except asyncio.CancelledError:
+        logger.info(f"Connection to client {client_id} cancelled")
+    except Exception as e:
+        logger.error(f"Error in connection handler: {str(e)}")
+    finally:
+        # Clean up
+        ping_task.cancel()
+        if client_id in active_connections:
+            del active_connections[client_id]
+        logger.info(f"Client {client_id} disconnected")
+
+# Handle single camera feed
+async def handle_single_camera(websocket, path, client_id):
+    if path not in camera_feeds:
+        logger.warning(f"Camera path not found: {path}")
+        await websocket.close(1008, "Camera not found")
+        return
+    
+    camera = camera_feeds[path]
+    
+    try:
+        while client_id in active_connections:
             # Rate limiting
             current_time = time.time()
-            if current_time - last_frame_time < FRAME_DELAY:
+            if current_time - active_connections[client_id]['last_frame_time'] < FRAME_DELAY:
                 await asyncio.sleep(0.001)  # Small sleep to prevent CPU hogging
                 continue
                 
-            last_frame_time = current_time
+            active_connections[client_id]['last_frame_time'] = current_time
             
             # Read frame
             ret, frame = camera.read()
@@ -406,55 +446,144 @@ async def transmit_frames(websocket, path):
                     clear_memory()
                     
             except websockets.exceptions.ConnectionClosed:
-                logger.info(f"Connection closed for {path}")
+                logger.info(f"Connection closed for client {client_id}")
                 break
             except Exception as e:
                 logger.error(f"Error sending frame: {str(e)}")
                 await asyncio.sleep(0.1)
                 
-    except asyncio.CancelledError:
-        logger.info(f"Connection to {path} cancelled")
-    finally:
-        ping_task.cancel()
-        logger.info(f"Client disconnected from {path}")
+    except Exception as e:
+        logger.error(f"Error in handle_single_camera: {str(e)}")
 
-# Heartbeat implementation
-async def send_ping(websocket):
+# Handle all camera feeds
+async def handle_all_cameras(websocket, client_id):
     try:
-        while True:
-            await asyncio.sleep(30)  # Send ping every 30 seconds
-            try:
-                await websocket.ping()
-            except:
-                break
-    except asyncio.CancelledError:
-        pass
+        while client_id in active_connections:
+            # Rate limiting
+            current_time = time.time()
+            if current_time - active_connections[client_id]['last_frame_time'] < FRAME_DELAY:
+                await asyncio.sleep(0.001)  # Small sleep to prevent CPU hogging
+                continue
+                
+            active_connections[client_id]['last_frame_time'] = current_time
+            
+            # Prepare data for all cameras
+            frames_data = {}
+            
+            for path, camera in camera_feeds.items():
+                ret, frame = camera.read()
+                if not ret:
+                    logger.warning(f"Failed to read frame from {path}")
+                    continue
+                    
+                # Process frame (detect vehicles and plates)
+                processed_frame = process_frame(frame, path)
+                
+                # Encode frame
+                _, encoded = cv2.imencode('.jpg', processed_frame, [int(cv2.IMWRITE_JPEG_QUALITY), 50])
+                encoded_data = base64.b64encode(encoded).decode('utf-8')
+                
+                # Add to frames data
+                frames_data[path] = encoded_data
+            
+            # Send all frames as JSON
+            if frames_data:
+                try:
+                    await websocket.send(json.dumps(frames_data))
+                    
+                    # Explicitly manage memory
+                    if current_time % 10 < 0.1:  # Every ~10 seconds
+                        clear_memory()
+                        
+                except websockets.exceptions.ConnectionClosed:
+                    logger.info(f"Connection closed for client {client_id}")
+                    break
+                except Exception as e:
+                    logger.error(f"Error sending frames: {str(e)}")
+                    await asyncio.sleep(0.1)
+            else:
+                await asyncio.sleep(0.1)  # No frames available, wait briefly
+                
+    except Exception as e:
+        logger.error(f"Error in handle_all_cameras: {str(e)}")
 
-# WebSocket Handler
-async def ws_handler(websocket):
-    path = websocket.request.path
-    await transmit_frames(websocket, path)
+# Global variables for cleanup and shutdown management
+server = None
+observer = None
+shutdown_event = threading.Event()
 
-# WebSocket Server
+# Graceful shutdown function
+def graceful_shutdown():
+    logger.info("Initiating graceful shutdown...")
+    shutdown_event.set()
+    
+    # Stop cameras
+    for cam_key, cam in camera_feeds.items():
+        try:
+            if hasattr(cam, 'stop') and callable(cam.stop):
+                cam.stop()
+            logger.info(f"Stopped camera feed {cam_key}")
+        except Exception as e:
+            logger.error(f"Error stopping camera {cam_key}: {e}")
+    
+    # Clean up resources
+    if torch.cuda.is_available():
+        torch.cuda.empty_cache()
+    gc.collect()
+    
+    # Stop observer if running
+    global observer
+    if observer and observer.is_alive():
+        observer.stop()
+        observer.join(timeout=1.0)
+        logger.info("Config file observer stopped")
+    
+    logger.info("Cleanup complete. Shutting down.")
+
+# Signal handler for SIGINT (Ctrl+C) and SIGTERM
+def signal_handler(sig, frame):
+    logger.info(f"Received signal {sig}, shutting down...")
+    graceful_shutdown()
+    sys.exit(0)
+
+# WebSocket Server with shutdown support
 async def websocket_server():
+    global server
     logger.info(f"Starting WebSocket server at ws://{host}:{port}")
     print(f'WebSocket server started at ws://{host}:{port}')
+    print(f'Camera feeds available at:')
+    for path_key in camera_feeds.keys():
+        print(f'  - ws://{host}:{port}{path_key}')
+    print(f'All cameras are available at: ws://{host}:{port}/all')
 
     server = await websockets.serve(
         ws_handler,
         host,
         port,
     )
-
-    await asyncio.Future()  # run forever
-
-
-
+    
+    # Setup shutdown detection
+    while not shutdown_event.is_set():
+        await asyncio.sleep(0.1)
+    
+    # Close server when shutdown is requested
+    if server:
+        server.close()
+        await server.wait_closed()
+        logger.info("WebSocket server closed")
 
 # Main
 if __name__ == "__main__":
+    # Register signal handlers
+    import signal
+    signal.signal(signal.SIGINT, signal_handler)  # Ctrl+C
+    signal.signal(signal.SIGTERM, signal_handler) # Termination signal
+    
     # Start config watcher
-    threading.Thread(target=start_config_watcher, daemon=True).start()
+    observer = Observer()
+    event_handler = ConfigFileChangeHandler()
+    observer.schedule(event_handler, path='.', recursive=False)
+    observer.start()
     
     # Initialize all cameras
     initialize_cameras()
@@ -463,8 +592,8 @@ if __name__ == "__main__":
     try:
         asyncio.run(websocket_server())
     except KeyboardInterrupt:
-        logger.info("Server shutdown requested")
-        sys.exit(1)
+        logger.info("KeyboardInterrupt received, shutting down...")
+        graceful_shutdown()
     except Exception as e:
         logger.error(f"Server error: {str(e)}")
         restart_program()
