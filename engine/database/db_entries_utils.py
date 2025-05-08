@@ -2,7 +2,6 @@
 import cv2
 import datetime
 import time
-from requests.exceptions import RequestException
 import requests
 
 from configParams import Parameters
@@ -131,7 +130,7 @@ def dbGetPlateLatestEntry(plateNumber):
             
         return None
         
-    except RequestException as e:
+    except Exception as e:
         print(f"API request failed: {str(e)}")
         return None
     except KeyError as e:
