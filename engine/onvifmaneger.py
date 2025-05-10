@@ -25,19 +25,19 @@ def discover_onvif_devices(ip_base='192.168.1'):
             print(f"Error scanning {ip}: {e}")
             continue
 
-    print(f"✅ Discovery complete. Found {len(cameras)} cameras.")
+    print(f"Discovery complete. Found {len(cameras)} cameras.")
     return cameras
 
 def get_rtsp_url(ip, port, username, password):
     try:
-        print(f"🔗 Connecting to {ip}:{port}...")
+        print(f"Connecting to {ip}:{port}...")
         cam = ONVIFCamera(ip, port, username, password,wsdl_dir='./wsdl')
 
         media_service = cam.create_media_service()
         profiles = media_service.GetProfiles()
 
         if not profiles:
-            print(f"⚠️ No media profiles found on {ip}")
+            print(f"No media profiles found on {ip}")
             return None
 
         profile_token = profiles[0].token
@@ -57,7 +57,7 @@ def get_rtsp_url(ip, port, username, password):
         return uri_response.Uri
 
     except Exception as e:
-        print(f"❌ Error connecting to {ip}: {e}")
+        print(f"Error connecting to {ip}: {e}")
         return None
 
 

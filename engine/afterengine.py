@@ -6,11 +6,11 @@ import time
 import numpy as np
 import cv2
 import warnings
+import psutil
 import torch
 import asyncio
 import base64
 import threading
-import json
 import statistics
 from ultralytics import YOLO
 from configParams import Parameters
@@ -19,7 +19,6 @@ import websockets
 from watchdog.observers import Observer
 from watchdog.events import FileSystemEventHandler
 from camera import FreshestFrame
-
 # Logging configuration
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger("CCTV-Server")
@@ -35,7 +34,7 @@ host = '0.0.0.0'
 # Device setup
 device = torch.device(0 if torch.cuda.is_available() else "cpu")
 logger.info(f"Using {'CUDA' if torch.cuda.is_available() else 'CPU'} device.")
-logger.info(f"Version : 10.0.3 Up 5/8/2025")
+logger.info(f"Version : 10.0.3 Up 10/8/2025")
 
 # A dictionary to store FreshestFrame objects for each RTSP source
 camera_feeds = {}
@@ -47,9 +46,13 @@ active_connections = {}
 TARGET_FPS = 15  # Adjust based on your needs
 FRAME_DELAY = 1.0 / TARGET_FPS
 
+
+
+
 def restart_program():
     try:
         logger.warning("Restarting program... Cleaning up first.")
+        
         
         # Stop camera capture if possible
         for cam_key, cam in camera_feeds.items():
@@ -67,13 +70,18 @@ def restart_program():
 
         logger.info("Cleanup complete, restarting application...")
         
+
+        
         # Restart
         if getattr(sys, 'frozen', False):
             # Running as .exe (frozen by PyInstaller or similar)
+            
             os.execv(sys.executable, [sys.executable] + sys.argv)
+            
         else:
             # Running as .py script with Python
             os.execv(sys.executable, ['python'] + sys.argv)
+            
 
     except Exception as e:
         logger.error(f"Error during restart cleanup: {e}")
@@ -495,9 +503,6 @@ async def websocket_server():
     global server
     logger.info(f"Starting WebSocket server at ws://{host}:{port}")
     print(f'WebSocket server started at ws://{host}:{port}')
-    print(f'Camera feeds available at:')
-    for path_key in camera_feeds.keys():
-        print(f'  - ws://{host}:{port}{path_key}')
 
     server = await websockets.serve(
         ws_handler,
