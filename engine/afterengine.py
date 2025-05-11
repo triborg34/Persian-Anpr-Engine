@@ -471,7 +471,11 @@ async def ws_handler(websocket):
     except asyncio.CancelledError:
         logger.info(f"Connection cancelled on path {path}")
     except Exception as e:
+        
         logger.error(f"Error in connection handler: {str(e)}")
+        restart_program()
+        
+        
     finally:
         # Clean up
         ping_task.cancel()
