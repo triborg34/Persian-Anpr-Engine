@@ -1,7 +1,7 @@
-import os
+
 from fastapi import FastAPI, Response
 from fastapi.responses import StreamingResponse
-
+from fastapi.middleware.cors import CORSMiddleware
 from configParams import Parameters
 from lets import generate_frames, graceful_shutdown
 import uvicorn
@@ -13,7 +13,17 @@ host = '0.0.0.0'
 app = FastAPI()
 
 
+origins = ["*"]  # Change this to specific domains in production
 
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=origins,  # Allow all origins
+    allow_credentials=True,
+    allow_methods=["GET", "POST", "PUT", "PATCH",
+                   "DELETE"],  # Allowed HTTP methods
+    allow_headers=["Origin", "X-Requested-With",
+                   "Content-Type", "Accept"],  # Allowed headers
+)
 
 
 @app.get("/video_feed/{camera_id}")
@@ -32,17 +42,23 @@ def video_feed(camera_id: str):
                             status_code=404)
 
         return StreamingResponse(
+
             generate_frames(camera_idx),
-            media_type="multipart/x-mixed-replace; boundary=frame"
+            
+
+            media_type="multipart/x-mixed-replace; boundary=frame",
+            headers={
+                "Cache-Control": "no-store"
+            }
         )
     except ValueError:
         return Response(f"Invalid camera ID: {camera_id}. Use format: rt1, rt2, etc.",
                         status_code=400)
 
-if __name__ =="__main__":
-    try:
-        uvicorn.run("preengine:app",)
-    except KeyboardInterrupt:
+
+if __name__ == "__main__":
+
+    uvicorn.run("preengine:app", log_level='info', reload=False,port=5000)
+    if KeyboardInterrupt:
+
         graceful_shutdown()
-        os._exit(0)
-        

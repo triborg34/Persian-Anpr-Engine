@@ -6,6 +6,7 @@ import time
 import numpy as np
 import cv2
 import warnings
+import psutil
 import torch
 import statistics
 from ultralytics import YOLO
@@ -68,6 +69,8 @@ class YOLOModels:
 models = YOLOModels(params.modelPlate_path,
                     params.modelCharX_path, params.modelArvand_path)
 logger.info('Server initialization complete')
+observer = Observer()
+observer.start()
 
 # Memory management function
 
@@ -358,7 +361,18 @@ def process_frame(frame, path):
         logger.error(f"Error processing frame: {str(e)}")
         return frame
 
-
+def kill_processes_on_port(port):
+    for proc in psutil.process_iter(['pid', 'name']):
+        try:
+            connections = proc.net_connections()
+            for conn in connections:
+                if conn.laddr.port == port:
+                    print(
+                        f"Killing PID {proc.pid} ({proc.name()}) on port {port}")
+                    proc.kill()
+                    break
+        except (psutil.NoSuchProcess, psutil.AccessDenied, psutil.ZombieProcess):
+            continue
 
 
 
@@ -380,6 +394,7 @@ def generate_frames(camera_idx):
                     (50, 240), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 0, 255), 2)
         while True:
             _, buffer = cv2.imencode('.jpg', error_frame)
+            clear_memory()
             yield (b'--frame\r\n'
                    b'Content-Type: image/jpeg\r\n\r\n' + buffer.tobytes() + b'\r\n')
             time.sleep(1)  # Slow down error message stream
@@ -416,5 +431,7 @@ def generate_frames(camera_idx):
         except Exception as e:
             logger.error(f"Error in generate_frames for {path_key}: {str(e)}")
             time.sleep(0.5)  # Prevent tight loop on errors
+
+            
 
 
