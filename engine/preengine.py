@@ -3,7 +3,7 @@ from fastapi import FastAPI, Response
 from fastapi.responses import StreamingResponse
 from fastapi.middleware.cors import CORSMiddleware
 from configParams import Parameters
-from lets import generate_frames, graceful_shutdown
+from lets import generate_frames, graceful_shutdown, camera_feeds,initialize_cameras,caprelaese
 import uvicorn
 params = Parameters()
 port = int(params.socketport)
@@ -32,6 +32,12 @@ def video_feed(camera_id: str):
     if not camera_id.startswith("rt"):
         return Response("Invalid camera ID format. Use rt1, rt2, etc.", status_code=400)
 
+    if len(camera_feeds) > 0:
+        for cam_key, cam in camera_feeds.items():
+            cam.release()
+        initialize_cameras()
+                
+
     try:
         # Extract camera index from ID (rt1 -> 1)
         camera_idx = int(camera_id[2:])
@@ -44,7 +50,7 @@ def video_feed(camera_id: str):
         return StreamingResponse(
 
             generate_frames(camera_idx),
-            
+
 
             media_type="multipart/x-mixed-replace; boundary=frame",
             headers={
@@ -56,9 +62,14 @@ def video_feed(camera_id: str):
                         status_code=400)
 
 
+@app.get('/video_r')
+def caprel():
+    caprelaese()
+
 if __name__ == "__main__":
 
-    uvicorn.run("preengine:app", log_level='info', reload=False,port=5000)
+    uvicorn.run("preengine:app", log_level='info',
+                reload=False, port=port, host=host)
     if KeyboardInterrupt:
 
         graceful_shutdown()

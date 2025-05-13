@@ -42,7 +42,7 @@ camera_feeds = {}
 
 
 # Frame rate limiter (FPS)
-TARGET_FPS = 15  # Adjust based on your needs
+TARGET_FPS = 30  # Adjust based on your needs
 FRAME_DELAY = 1.0 / TARGET_FPS
 
 # Constants for health monitoring
@@ -85,9 +85,12 @@ def graceful_shutdown():
     
     # Stop cameras
     for cam_key, cam in camera_feeds.items():
+        cam.release()
         try:
             if hasattr(cam, 'stop') and callable(cam.stop):
                 cam.stop()
+                
+                
             logger.info(f"Stopped camera feed {cam_key}")
         except Exception as e:
             logger.error(f"Error stopping camera {cam_key}: {e}")
@@ -113,7 +116,9 @@ def initialize_cameras():
     for i, source in enumerate(params.rtps):
         path_key = f"/rt{i+1}"
         cap=cv2.VideoCapture(source)
+        
         camera_feeds[path_key] = FreshestFrame(cap)
+        
         logger.info(f"Camera initialized for {path_key}: {source}")
     print(camera_feeds)
 
@@ -240,11 +245,12 @@ def detect_plate_chars(cropped_plate):
 def process_frame(frame, path):
     try:
         # Create a lower-resolution copy for detection
-        lowres_for_detection = cv2.resize(
-            frame,
-            (640, int(frame.shape[0] * 640 / frame.shape[1])),
-            interpolation=cv2.INTER_AREA
-        )
+        lowres_for_detection=frame
+        # lowres_for_detection = cv2.resize(
+        #     frame,
+        #     (640, int(frame.shape[0] * 640 / frame.shape[1])),
+        #     interpolation=cv2.INTER_AREA
+        # )
         scale_x = frame.shape[1] / lowres_for_detection.shape[1]
         scale_y = frame.shape[0] / lowres_for_detection.shape[0]
 
