@@ -3,7 +3,7 @@ from fastapi import FastAPI, Response
 from fastapi.responses import StreamingResponse
 from fastapi.middleware.cors import CORSMiddleware
 from configParams import Parameters
-from lets import generate_frames, graceful_shutdown, camera_feeds,initialize_cameras,caprelaese
+from lets import generate_frames, graceful_shutdown, camera_feeds,initialize_cameras
 import uvicorn
 params = Parameters()
 port = int(params.socketport)
@@ -35,7 +35,9 @@ def video_feed(camera_id: str):
     if len(camera_feeds) > 0:
         for cam_key, cam in camera_feeds.items():
             cam.release()
+        camera_feeds.clear()
         initialize_cameras()
+        
                 
 
     try:
@@ -62,9 +64,6 @@ def video_feed(camera_id: str):
                         status_code=400)
 
 
-@app.get('/video_r')
-def caprel():
-    caprelaese()
 
 if __name__ == "__main__":
 
