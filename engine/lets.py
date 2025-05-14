@@ -31,10 +31,11 @@ host = '0.0.0.0'
 # Device setup
 device = torch.device(0 if torch.cuda.is_available() else "cpu")
 logger.info(f"Using {'CUDA' if torch.cuda.is_available() else 'CPU'} device.")
-logger.info(f"Version : 10.0.7 Up 05/14/2025")
+logger.info(f"Version : 10.1.0 Up 05/14/2025")
 
 # A dictionary to store FreshestFrame objects for each RTSP source
-camera_feeds = {}
+fresh_frames = [FreshestFrame(cv2.VideoCapture(src)) for src in params.rtps]
+# camera_feeds = {}
 retry=1
 cap=None
 # A dictionary to store active client connections
@@ -94,16 +95,13 @@ def clear_memory():
 def graceful_shutdown():
     
     # Stop cameras
-    for cam_key, cam in camera_feeds.items():
-        cam.release()
+    for fresh in fresh_frames:
+        fresh.release()
         try:
-            if hasattr(cam, 'stop') and callable(cam.stop):
-                cam.stop()
-                
-                
-            logger.info(f"Stopped camera feed {cam_key}")
+                            
+            logger.info(f"Stopped camera feed ")
         except Exception as e:
-            logger.error(f"Error stopping camera {cam_key}: {e}")
+            logger.error(f"Error stopping camera : {e}")
     
     # Clean up resources
     if torch.cuda.is_available():
@@ -125,29 +123,29 @@ def graceful_shutdown():
     os._exit(0)  # Use os._exit instead of sys.exit for more forceful termination
 
 
-def initialize_cameras():
-    global cap
+# def initialize_cameras():
+#     global cap
 
-    """Initialize all cameras from the rtps list"""
-    try:
-        for i, source in enumerate(params.rtps):
-            path_key = f"/rt{i+1}"
-            cap=cv2.VideoCapture(source)
+#     """Initialize all cameras from the rtps list"""
+#     try:
+#         for i, source in enumerate(params.rtps):
+#             path_key = f"/rt{i+1}"
+#             cap=cv2.VideoCapture(source)
             
-            camera_feeds[path_key] = FreshestFrame(cap)
+#             camera_feeds[path_key] = FreshestFrame(cap)
             
-            logger.info(f"Camera initialized for {path_key}: {source}")
-            logger.info(f"websocket")
+#             logger.info(f"Camera initialized for {path_key}: {source}")
+#             logger.info(f"websocket")
 
-    except Exception as e:
-        logger.info(f"Error connection to camera retry in {5*retry} secconds")
+#     except Exception as e:
+#         logger.info(f"Error connection to camera retry in {5*retry} secconds")
         
-        time.sleep(5*retry)
-        retry+=1
-        if retry <6:
-            initialize_cameras()
-        else:
-            logger.info(f"Somthing went wrong")
+#         time.sleep(5*retry)
+#         retry+=1
+#         if retry <6:
+#             initialize_cameras()
+#         else:
+#             logger.info(f"Somthing went wrong")
 
 
 
@@ -273,6 +271,7 @@ def detect_plate_chars(cropped_plate):
 
 
 def process_frame(frame, path):
+
     
     try:
         # Create a lower-resolution copy for detection
@@ -417,34 +416,14 @@ def kill_processes_on_port(port):
 
 
 def generate_frames(camera_idx):
+
     """Generate frames from a specific camera feed"""
     # Fix the path key format - the issue might be here
-    path_key = f"/rt{camera_idx}"
-
-    # Debug logging to help identify the issue
-    logger.info(f"Requested camera: {path_key}")
-    logger.info(f"Available cameras: {list(camera_feeds.keys())}")
-
-    # Check if camera exists in our feeds
-    if path_key not in camera_feeds:
-        logger.error(f"Camera {path_key} not found in available feeds")
-        # Generate a simple error frame to avoid breaking the stream
-        error_frame = np.zeros((480, 640, 3), dtype=np.uint8)
-        cv2.putText(error_frame, f"Camera {path_key} not available",
-                    (50, 240), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 0, 255), 2)
-        while True:
-            _, buffer = cv2.imencode('.jpg', error_frame)
-            clear_memory()
-            yield (b'--frame\r\n'
-                   b'Content-Type: image/jpeg\r\n\r\n' + buffer.tobytes() + b'\r\n')
-            time.sleep(1)  # Slow down error message stream
-
-    # Get the FreshestFrame object for this camera
-    fresh_frame = camera_feeds[path_key]
+    
 
     while True:
         try:
-            success, frame = fresh_frame.read(timeout=10)
+            success, frame = fresh_frames[camera_idx-1].read()
             if not success:
 
 
@@ -456,25 +435,22 @@ def generate_frames(camera_idx):
                 # Reset failure count and update successful read timestamp
 
                 # Process frame with vehicle/plate detection
-                # frame = process_frame(frame, path_key)
-                thred=ThreadWithReturnValue(target=process_frame, args=(frame.copy(),path_key),daemon=True)
-                thred.start()
-                frame=thred.join()
+                frame = process_frame(frame, f'/rt{camera_idx}')
+                # thred=ThreadWithReturnValue(target=process_frame, args=(frame.copy(),f'/rt{camera_idx}'),daemon=True)
+                # thred.start()
+                # frame=thred.join()
 
             # Apply FPS limiter to reduce CPU/bandwidth usage
-            time.sleep(FRAME_DELAY)
+            # time.sleep(FRAME_DELAY)
 
             # Encode and yield the frame
             _, buffer = cv2.imencode('.jpg', frame)
             frame_bytes = buffer.tobytes()
-            clear_memory()
-            del frame
             yield (b'--frame\r\n'
                    b'Content-Type: image/jpeg\r\n\r\n' + frame_bytes + b'\r\n')
 
         except Exception as e:
-            logger.error(f"Error in generate_frames for {path_key}: {str(e)}")
-            time.sleep(0.5)  # Prevent tight loop on errors
+            print(e)
 
             
 

@@ -4,16 +4,16 @@ from fastapi import FastAPI, Response
 from fastapi.responses import StreamingResponse
 from fastapi.middleware.cors import CORSMiddleware
 from configParams import Parameters
-from lets import generate_frames, graceful_shutdown, initialize_cameras
+from lets import clear_memory, generate_frames, graceful_shutdown, process_frame
 import uvicorn
 params = Parameters()
 port = int(params.socketport)
 host = '0.0.0.0'
-
+# fresh_frames = [FreshestFrame(cv2.VideoCapture(src)) for src in params.rtps]
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
-    yield initialize_cameras()
+    yield 
     graceful_shutdown()
 
 
@@ -45,6 +45,8 @@ app.add_middleware(
 #             pass
 #     camera_feeds.clear()
 #     initialize_cameras()
+
+
 
 
 @app.get("/video_feed/{camera_id}")
