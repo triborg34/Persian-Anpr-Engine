@@ -1,16 +1,23 @@
 
+from contextlib import asynccontextmanager
 from fastapi import FastAPI, Response
 from fastapi.responses import StreamingResponse
 from fastapi.middleware.cors import CORSMiddleware
 from configParams import Parameters
-from lets import generate_frames, graceful_shutdown, camera_feeds,initialize_cameras
+from lets import generate_frames, graceful_shutdown, camera_feeds, initialize_cameras
 import uvicorn
 params = Parameters()
 port = int(params.socketport)
 host = '0.0.0.0'
 
 
-app = FastAPI()
+@asynccontextmanager
+async def lifespan(app: FastAPI):
+    yield initialize_cameras()
+    graceful_shutdown()
+
+
+app = FastAPI(lifespan=lifespan)
 
 
 origins = ["*"]  # Change this to specific domains in production
@@ -26,19 +33,25 @@ app.add_middleware(
 )
 
 
+# @app.get("/video_release")
+# def vidrelase():
+#     if len(camera_feeds) > 0:
+#         for cam_key, cam in camera_feeds.items():
+#             cam.release()
+#         try:
+#             print("HERE")
+#             cap.release()
+#         except AttributeError:
+#             pass
+#     camera_feeds.clear()
+#     initialize_cameras()
+
+
 @app.get("/video_feed/{camera_id}")
 def video_feed(camera_id: str):
     """Stream video from a specific camera"""
     if not camera_id.startswith("rt"):
         return Response("Invalid camera ID format. Use rt1, rt2, etc.", status_code=400)
-
-    if len(camera_feeds) > 0:
-        for cam_key, cam in camera_feeds.items():
-            cam.release()
-        camera_feeds.clear()
-        initialize_cameras()
-        
-                
 
     try:
         # Extract camera index from ID (rt1 -> 1)
@@ -62,7 +75,6 @@ def video_feed(camera_id: str):
     except ValueError:
         return Response(f"Invalid camera ID: {camera_id}. Use format: rt1, rt2, etc.",
                         status_code=400)
-
 
 
 if __name__ == "__main__":

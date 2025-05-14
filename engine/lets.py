@@ -36,7 +36,7 @@ logger.info(f"Version : 10.0.6 Up 05/13/2025")
 
 # A dictionary to store FreshestFrame objects for each RTSP source
 camera_feeds = {}
-
+cap=None
 # A dictionary to store active client connections
 # Camera health monitoring
 
@@ -44,7 +44,7 @@ camera_feeds = {}
 # Frame rate limiter (FPS)
 TARGET_FPS = 30  # Adjust based on your needs
 FRAME_DELAY = 1.0 / TARGET_FPS
-
+retry=1
 # Constants for health monitoring
 
 
@@ -108,22 +108,41 @@ def graceful_shutdown():
         logger.info("Config file observer stopped")
     
     logger.info("Cleanup complete. Shutting down.")
+    try:
+        cap.release()
+    except Exception as e:
+        pass
     os._exit(0)  # Use os._exit instead of sys.exit for more forceful termination
 
 
 def initialize_cameras():
+
+    global cap
     """Initialize all cameras from the rtps list"""
-    for i, source in enumerate(params.rtps):
-        path_key = f"/rt{i+1}"
-        cap=cv2.VideoCapture(source)
+    try:
+        for i, source in enumerate(params.rtps):
+            path_key = f"/rt{i+1}"
+            cap=cv2.VideoCapture(source)
+            
+            camera_feeds[path_key] = FreshestFrame(cap)
+            
+            logger.info(f"Camera initialized for {path_key}: {source}")
+            logger.info(f"websocket")
+
+    except Exception as e:
+        logger.info(f"Error connection to camera retry in {5*retry} secconds")
         
-        camera_feeds[path_key] = FreshestFrame(cap)
-        
-        logger.info(f"Camera initialized for {path_key}: {source}")
-    print(camera_feeds)
+        time.sleep(5*retry)
+        retry+=1
+        if retry <6:
+            initialize_cameras()
+        else:
+            logger.info(f"Somthing went wrong")
+
+
 
 # Correcting angles
-initialize_cameras()
+# initialize_cameras()
 
 def correct_perspective(image, scale_factor):
     try:
