@@ -31,7 +31,7 @@ host = '0.0.0.0'
 # Device setup
 device = torch.device(0 if torch.cuda.is_available() else "cpu")
 logger.info(f"Using {'CUDA' if torch.cuda.is_available() else 'CPU'} device.")
-logger.info(f"Version : 10.0.6 Up 05/13/2025")
+logger.info(f"Version : 10.0.7 Up 05/14/2025")
 
 # A dictionary to store FreshestFrame objects for each RTSP source
 camera_feeds = {}
