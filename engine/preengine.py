@@ -4,7 +4,7 @@ from fastapi import FastAPI, Response
 from fastapi.responses import StreamingResponse
 from fastapi.middleware.cors import CORSMiddleware
 from configParams import Parameters
-from lets import generate_frames, graceful_shutdown, camera_feeds, initialize_cameras
+from lets import generate_frames, graceful_shutdown, initialize_cameras
 import uvicorn
 params = Parameters()
 port = int(params.socketport)

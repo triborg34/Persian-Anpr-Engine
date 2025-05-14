@@ -1,7 +1,6 @@
 import gc
 import logging
 import os
-import sys
 import time
 import numpy as np
 import cv2
@@ -15,7 +14,7 @@ from database.db_entries_utils import db_entries_time
 from watchdog.observers import Observer
 from watchdog.events import FileSystemEventHandler
 from camera import FreshestFrame
-
+import threading
 
 # Logging configuration
 logging.basicConfig(level=logging.INFO)
@@ -36,6 +35,7 @@ logger.info(f"Version : 10.0.6 Up 05/13/2025")
 
 # A dictionary to store FreshestFrame objects for each RTSP source
 camera_feeds = {}
+retry=1
 cap=None
 # A dictionary to store active client connections
 # Camera health monitoring
@@ -44,17 +44,27 @@ cap=None
 # Frame rate limiter (FPS)
 TARGET_FPS = 30  # Adjust based on your needs
 FRAME_DELAY = 1.0 / TARGET_FPS
-retry=1
 # Constants for health monitoring
 
 
 
+class ThreadWithReturnValue(threading.Thread):
+    def __init__(self, group=None, target=None, name=None, args=(), kwargs=None, *, daemon=None):
+        threading.Thread.__init__(self, group, target, name, args, kwargs, daemon=daemon)
+
+        self._return = None
+
+    def run(self):
+        if self._target is not None:
+            self._return = self._target(*self._args, **self._kwargs)
+
+    def join(self):
+        threading.Thread.join(self)
+        return self._return
 
 
 
 # YOLO Models
-
-
 class YOLOModels:
     def __init__(self, plate_model_path, char_model_path, arvand_model_path):
         logger.info("Loading YOLO models...")
@@ -116,8 +126,8 @@ def graceful_shutdown():
 
 
 def initialize_cameras():
-
     global cap
+
     """Initialize all cameras from the rtps list"""
     try:
         for i, source in enumerate(params.rtps):
@@ -138,6 +148,7 @@ def initialize_cameras():
             initialize_cameras()
         else:
             logger.info(f"Somthing went wrong")
+
 
 
 
@@ -262,14 +273,15 @@ def detect_plate_chars(cropped_plate):
 
 
 def process_frame(frame, path):
+    
     try:
         # Create a lower-resolution copy for detection
-        lowres_for_detection=frame
-        # lowres_for_detection = cv2.resize(
-        #     frame,
-        #     (640, int(frame.shape[0] * 640 / frame.shape[1])),
-        #     interpolation=cv2.INTER_AREA
-        # )
+        # lowres_for_detection=frame
+        lowres_for_detection = cv2.resize(
+            frame,
+            (640, int(frame.shape[0] * 640 / frame.shape[1])),
+            interpolation=cv2.INTER_AREA
+        )
         scale_x = frame.shape[1] / lowres_for_detection.shape[1]
         scale_y = frame.shape[0] / lowres_for_detection.shape[0]
 
@@ -380,10 +392,13 @@ def process_frame(frame, path):
                                                 isarvand='arvand',
                                                 rtpath=path
                                             )
-
+        try:
+            del plate_results,cropped_car,car_res
+        except Exception as e:
+            pass
         return frame
+
     except Exception as e:
-        logger.error(f"Error processing frame: {str(e)}")
         return frame
 
 def kill_processes_on_port(port):
@@ -429,7 +444,7 @@ def generate_frames(camera_idx):
 
     while True:
         try:
-            success, frame = fresh_frame.read()
+            success, frame = fresh_frame.read(timeout=10)
             if not success:
 
 
@@ -441,7 +456,10 @@ def generate_frames(camera_idx):
                 # Reset failure count and update successful read timestamp
 
                 # Process frame with vehicle/plate detection
-                frame = process_frame(frame, path_key)
+                # frame = process_frame(frame, path_key)
+                thred=ThreadWithReturnValue(target=process_frame, args=(frame.copy(),path_key),daemon=True)
+                thred.start()
+                frame=thred.join()
 
             # Apply FPS limiter to reduce CPU/bandwidth usage
             time.sleep(FRAME_DELAY)
@@ -450,6 +468,7 @@ def generate_frames(camera_idx):
             _, buffer = cv2.imencode('.jpg', frame)
             frame_bytes = buffer.tobytes()
             clear_memory()
+            del frame
             yield (b'--frame\r\n'
                    b'Content-Type: image/jpeg\r\n\r\n' + frame_bytes + b'\r\n')
 
