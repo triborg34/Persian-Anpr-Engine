@@ -2,6 +2,7 @@ import gc
 import logging
 import os
 import time
+from fastapi import Request
 import numpy as np
 import cv2
 import warnings
@@ -415,15 +416,17 @@ def kill_processes_on_port(port):
 
 
 
-def generate_frames(camera_idx):
+async def generate_frames(camera_idx,source, request: Request):
 
     """Generate frames from a specific camera feed"""
     # Fix the path key format - the issue might be here
     
+    cap=cv2.VideoCapture(source)
+    fresh=FreshestFrame(cap)
 
     while True:
         try:
-            success, frame = fresh_frames[camera_idx-1].read()
+            success, frame =fresh.read()
             if not success:
 
 
@@ -432,6 +435,10 @@ def generate_frames(camera_idx):
                 cv2.putText(frame, "No signal", (220, 240),
                             cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 0, 255), 2)
             else:
+                if await request.is_disconnected():
+                    print("Client disconnected, releasing camera.")
+                    break
+                    
                 # Reset failure count and update successful read timestamp
 
                 # Process frame with vehicle/plate detection
@@ -451,6 +458,10 @@ def generate_frames(camera_idx):
 
         except Exception as e:
             print(e)
+        finally:
+            fresh.release()
+            cap.release()
+            print("Camera released.")
 
             
 

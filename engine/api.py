@@ -1,10 +1,10 @@
 
 from contextlib import asynccontextmanager
-from fastapi import FastAPI, Response
+from fastapi import FastAPI, Query, Request, Response
 from fastapi.responses import StreamingResponse
 from fastapi.middleware.cors import CORSMiddleware
 from configParams import Parameters
-from engine.lets import clear_memory, generate_frames, graceful_shutdown, process_frame
+from engine.engine import  generate_frames, graceful_shutdown
 import uvicorn
 params = Parameters()
 port = int(params.socketport)
@@ -50,7 +50,9 @@ app.add_middleware(
 
 
 @app.get("/video_feed/{camera_id}")
-def video_feed(camera_id: str):
+async def video_feed(camera_id: str,request: Request, source: str = Query(...)):
+    if source =='0':
+        source=int(source)
     """Stream video from a specific camera"""
     if not camera_id.startswith("rt"):
         return Response("Invalid camera ID format. Use rt1, rt2, etc.", status_code=400)
@@ -66,7 +68,7 @@ def video_feed(camera_id: str):
 
         return StreamingResponse(
 
-            generate_frames(camera_idx),
+            generate_frames(camera_idx,source,request),
 
 
             media_type="multipart/x-mixed-replace; boundary=frame",
@@ -81,7 +83,7 @@ def video_feed(camera_id: str):
 
 if __name__ == "__main__":
 
-    uvicorn.run("preengine:app", log_level='info',
+    uvicorn.run("api:app", log_level='info',
                 reload=False, port=port, host=host)
     if KeyboardInterrupt:
 
