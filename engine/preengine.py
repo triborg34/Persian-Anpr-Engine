@@ -4,7 +4,7 @@ from fastapi import FastAPI, Response
 from fastapi.responses import StreamingResponse
 from fastapi.middleware.cors import CORSMiddleware
 from configParams import Parameters
-from lets import clear_memory, generate_frames, graceful_shutdown, process_frame
+from engine.lets import clear_memory, generate_frames, graceful_shutdown, process_frame
 import uvicorn
 params = Parameters()
 port = int(params.socketport)
