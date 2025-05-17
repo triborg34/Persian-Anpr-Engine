@@ -4,7 +4,7 @@ from fastapi import FastAPI, Query, Request, Response
 from fastapi.responses import StreamingResponse
 from fastapi.middleware.cors import CORSMiddleware
 from configParams import Parameters
-from engine.engine import  generate_frames, graceful_shutdown
+from engine import  generate_frames, graceful_shutdown
 import uvicorn
 params = Parameters()
 port = int(params.socketport)
@@ -31,21 +31,6 @@ app.add_middleware(
     allow_headers=["Origin", "X-Requested-With",
                    "Content-Type", "Accept"],  # Allowed headers
 )
-
-
-# @app.get("/video_release")
-# def vidrelase():
-#     if len(camera_feeds) > 0:
-#         for cam_key, cam in camera_feeds.items():
-#             cam.release()
-#         try:
-#             print("HERE")
-#             cap.release()
-#         except AttributeError:
-#             pass
-#     camera_feeds.clear()
-#     initialize_cameras()
-
 
 
 
