@@ -32,15 +32,7 @@ host = '0.0.0.0'
 # Device setup
 device = torch.device(0 if torch.cuda.is_available() else "cpu")
 logger.info(f"Using {'CUDA' if torch.cuda.is_available() else 'CPU'} device.")
-logger.info(f"Version : 10.1.0 Up 05/14/2025")
-
-# A dictionary to store FreshestFrame objects for each RTSP source
-fresh_frames = [FreshestFrame(cv2.VideoCapture(src)) for src in params.rtps]
-# camera_feeds = {}
-retry = 1
-cap = None
-# A dictionary to store active client connections
-# Camera health monitoring
+logger.info(f"Version : 10.1.1 Up 05/19/2025")
 
 
 # Frame rate limiter (FPS)
@@ -95,15 +87,6 @@ def clear_memory():
 
 def graceful_shutdown():
 
-    # Stop cameras
-    for fresh in fresh_frames:
-        fresh.release()
-        try:
-
-            logger.info(f"Stopped camera feed ")
-        except Exception as e:
-            logger.error(f"Error stopping camera : {e}")
-
     # Clean up resources
     if torch.cuda.is_available():
         torch.cuda.empty_cache()
@@ -117,40 +100,10 @@ def graceful_shutdown():
         logger.info("Config file observer stopped")
 
     logger.info("Cleanup complete. Shutting down.")
-    try:
-        cap.release()
-    except Exception as e:
-        pass
+
     os._exit(0)  # Use os._exit instead of sys.exit for more forceful termination
 
 
-# def initialize_cameras():
-#     global cap
-
-#     """Initialize all cameras from the rtps list"""
-#     try:
-#         for i, source in enumerate(params.rtps):
-#             path_key = f"/rt{i+1}"
-#             cap=cv2.VideoCapture(source)
-
-#             camera_feeds[path_key] = FreshestFrame(cap)
-
-#             logger.info(f"Camera initialized for {path_key}: {source}")
-#             logger.info(f"websocket")
-
-#     except Exception as e:
-#         logger.info(f"Error connection to camera retry in {5*retry} secconds")
-
-#         time.sleep(5*retry)
-#         retry+=1
-#         if retry <6:
-#             initialize_cameras()
-#         else:
-#             logger.info(f"Somthing went wrong")
-
-
-# Correcting angles
-# initialize_cameras()
 
 def correct_perspective(image, scale_factor):
     try:
@@ -413,13 +366,14 @@ def kill_processes_on_port(port):
 async def generate_frames(camera_idx, source, request: Request):
     """Generate frames from a specific camera feed"""
     cap = cv2.VideoCapture(source)
+    assert cap.isOpened()
     fresh = FreshestFrame(cap)
     if not cap.isOpened():
         print(f"Failed to open video source {source}")
         return
 
     try:
-        while True:
+        while fresh.is_alive():
 
             if await request.is_disconnected():
                 print("Client disconnected, releasing camera.")

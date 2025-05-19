@@ -280,6 +280,6 @@ def rtsp(
 
 
 if __name__ == "__main__":
-    print("UPDATE 4132025")
+    print("UPDATE 5/19/2025")
     host:str='0.0.0.0'
     uvicorn.run("configServer:app", host=host, port=int(params.serverport), log_level="info")
