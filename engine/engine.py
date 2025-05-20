@@ -1,3 +1,4 @@
+import asyncio
 import gc
 import logging
 import os
@@ -13,7 +14,6 @@ from ultralytics import YOLO
 from configParams import Parameters
 from database.db_entries_utils import db_entries_time
 from watchdog.observers import Observer
-from watchdog.events import FileSystemEventHandler
 from camera import FreshestFrame
 import threading
 
@@ -39,7 +39,8 @@ logger.info(f"Version : 10.1.1 Up 05/19/2025")
 TARGET_FPS = 30  # Adjust based on your needs
 FRAME_DELAY = 1.0 / TARGET_FPS
 # Constants for health monitoring
-
+RETRY_LIMIT = 5
+RETRY_DELAY = 3  # seconds
 
 class ThreadWithReturnValue(threading.Thread):
     def __init__(self, group=None, target=None, name=None, args=(), kwargs=None, *, daemon=None):
@@ -365,12 +366,24 @@ def kill_processes_on_port(port):
 
 async def generate_frames(camera_idx, source, request: Request):
     """Generate frames from a specific camera feed"""
-    cap = cv2.VideoCapture(source)
-    assert cap.isOpened()
-    fresh = FreshestFrame(cap)
-    if not cap.isOpened():
-        print(f"Failed to open video source {source}")
+
+    def open_capture(source):
+        cap = cv2.VideoCapture(source)
+        return cap if cap.isOpened() else None
+
+    retries = 0
+    cap = open_capture(source)
+
+    while cap is None and retries < RETRY_LIMIT:
+        print(f"[Camera {camera_idx}] Failed to open source. Retrying ({retries + 1}/{RETRY_LIMIT})...")
+        await asyncio.sleep(RETRY_DELAY)
+        retries += 1
+        cap = open_capture(source)
+
+    if cap is None:
+        print(f"[Camera {camera_idx}] Could not open source after {RETRY_LIMIT} retries.")
         return
+    fresh = FreshestFrame(cap)
 
     try:
         while fresh.is_alive():
