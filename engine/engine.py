@@ -198,7 +198,7 @@ def detect_plate_chars(cropped_plate):
     return ''.join(chars), char_conf_avg
 
 
-def process_frame(frame, path):
+async def process_frame(frame, path):
 
     try:
         # Create a lower-resolution copy for detection
@@ -308,7 +308,7 @@ def process_frame(frame, path):
                                         if len(plate_text_arvnad) >= 5 and char_conf_arvnad >= confidence - 3:
                                             cv2.putText(cropped_car, f"Plate: {plate_text_arvnad}", (x_min, y_min - 10),
                                                         cv2.FONT_HERSHEY_SIMPLEX, 0.7, (0, 255, 128), 2, cv2.LINE_AA)
-                                            db_entries_time(
+                                            await db_entries_time(
                                                 number=plate_text_arvnad,
                                                 charConfAvg=char_conf_arvnad,
                                                 plateConfAvg=plate_conf,

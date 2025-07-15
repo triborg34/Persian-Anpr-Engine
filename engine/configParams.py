@@ -1,14 +1,9 @@
-from configparser import ConfigParser
-import json
-import socket
+
 
 
 class Parameters:
 
     def __init__(self):
-
-
-        
 
         self.label_map = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'D', 'Gh', 'H', 'J', 'L', 'M',
                           'N',
@@ -140,39 +135,3 @@ class Parameters:
             "V": "و",
             "Y": "ی",
         }
-
-        self.fieldNames = {
-            'fName': 'نام',
-            'lName': 'نام خانوادگی',
-            'building': 'ساختمان',
-            'block': 'بلوک',
-            'num': 'پلاک',
-            'carModel': 'نوع خودرو',
-            'plateNum': 'پلاک خودرو',
-            'status': 'مجوز',
-            'time': 'ساعت',
-            'date': 'تاریخ',
-            'platePic': 'عکس پلاک',
-            'charPercent': 'درصد حروف',
-            'platePercent': 'درصد پلاک',
-            'editBtn': 'ویرایش',
-            'deleteBtn': 'حذف',
-            'searchBtn': 'جستجو',
-            'findEntriesBtn': 'ترددها',
-            'moreInfo': 'نمایش اطلاعات',
-            'addNew': 'ثبت پلاک',
-        }
-
-        self.fieldStatus = {
-            '0': 'غیر مجاز',
-            '1': 'مجاز',
-            '2': 'ثبت نشده'
-        }
-
-        self.fieldRecordType = {
-            '0': 'سیستمی',
-            '1': 'دستی',
-            '2': 'ویرایش شده'
-        }
-
-
