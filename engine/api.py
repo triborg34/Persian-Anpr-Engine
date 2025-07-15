@@ -4,16 +4,17 @@ from fastapi import FastAPI, Query, Request, Response
 from fastapi.responses import StreamingResponse
 from fastapi.middleware.cors import CORSMiddleware
 from configParams import Parameters
-from engine import  generate_frames, graceful_shutdown
+from engine import generate_frames, graceful_shutdown,generate_rtsp
 import uvicorn
 params = Parameters()
 port = int(params.socketport)
 host = '0.0.0.0'
 # fresh_frames = [FreshestFrame(cv2.VideoCapture(src)) for src in params.rtps]
 
+
 @asynccontextmanager
 async def lifespan(app: FastAPI):
-    yield 
+    yield
     graceful_shutdown()
 
 
@@ -33,11 +34,10 @@ app.add_middleware(
 )
 
 
-
 @app.get("/video_feed/{camera_id}")
-async def video_feed(camera_id: str,request: Request, source: str = Query(...)):
-    if source =='0':
-        source=int(source)
+async def video_feed(camera_id: str, request: Request, source: str = Query(...)):
+    if source == '0':
+        source = int(source)
     """Stream video from a specific camera"""
     if not camera_id.startswith("rt"):
         return Response("Invalid camera ID format. Use rt1, rt2, etc.", status_code=400)
@@ -53,7 +53,7 @@ async def video_feed(camera_id: str,request: Request, source: str = Query(...)):
 
         return StreamingResponse(
 
-            generate_frames(camera_idx,source,request),
+            generate_frames(camera_idx, source, request),
 
 
             media_type="multipart/x-mixed-replace; boundary=frame",
@@ -64,6 +64,27 @@ async def video_feed(camera_id: str,request: Request, source: str = Query(...)):
     except ValueError:
         return Response(f"Invalid camera ID: {camera_id}. Use format: rt1, rt2, etc.",
                         status_code=400)
+
+
+
+
+
+@app.get("/rtsp_feed/{camera_id}")
+async def video_feed(camera_id: str, request: Request, source: str = Query(...)):
+    if source == '0':
+        source = int(source)
+    """Stream video from a specific camera"""
+
+    return StreamingResponse(
+
+        generate_rtsp( source, request),
+
+
+        media_type="multipart/x-mixed-replace; boundary=frame",
+        headers={
+            "Cache-Control": "no-store"
+        }
+    )
 
 
 if __name__ == "__main__":

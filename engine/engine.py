@@ -32,7 +32,7 @@ host = '0.0.0.0'
 # Device setup
 device = torch.device(0 if torch.cuda.is_available() else "cpu")
 logger.info(f"Using {'CUDA' if torch.cuda.is_available() else 'CPU'} device.")
-logger.info(f"Version : 10.1.1 Up 05/19/2025")
+logger.info(f"Version : 10.1.2 Up 05/20/2025")
 
 
 # Frame rate limiter (FPS)
@@ -411,6 +411,53 @@ async def generate_frames(camera_idx, source, request: Request):
         print(e)
         graceful_shutdown()
         
+        
+
+
+async def generate_rtsp( source, request: Request):
+    """Generate frames from a specific camera feed"""
+
+    def open_capture(source):
+        cap = cv2.VideoCapture(source)
+        return cap if cap.isOpened() else None
+
+    retries = 0
+    cap = open_capture(source)
+
+    while cap is None and retries < RETRY_LIMIT:
+        
+        await asyncio.sleep(RETRY_DELAY)
+        retries += 1
+        cap = open_capture(source)
+
+    if cap is None:
+
+        return
+    fresh = FreshestFrame(cap)
+
+    try:
+        while fresh.is_alive():
+
+            if await request.is_disconnected():
+                print("Client disconnected, releasing camera.")
+                break
+            success, frame = fresh.read()
+            if not success:
+
+                # Generate blank frame if we can't read from camera
+                frame = np.zeros((480, 640, 3), dtype=np.uint8)
+                cv2.putText(frame, "No signal", (220, 240),
+                            cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 0, 255), 2)
+
+            # Encode and yield the frame
+            _, buffer = cv2.imencode('.jpg', frame)
+            frame_bytes = buffer.tobytes()
+            yield (b'--frame\r\n'
+                   b'Content-Type: image/jpeg\r\n\r\n' + frame_bytes + b'\r\n')
+
+    except Exception as e:
+        print(e)
+        graceful_shutdown()
     finally:
         fresh.release()
         cap.release()
