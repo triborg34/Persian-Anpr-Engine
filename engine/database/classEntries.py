@@ -4,6 +4,7 @@ from helper.text_decorators import convert_english_to_persian, split_string_lang
 
 
 
+
 class Entries:
 
     def __init__(self, platePercent,charPercent,eDate,eTime,plateNum,status,imgpath,scrnpath,isarvand,rtpath,):

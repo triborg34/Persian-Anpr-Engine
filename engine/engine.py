@@ -1,89 +1,73 @@
 import asyncio
 import gc
 import logging
+import multiprocessing
 import os
-import time
 from fastapi import Request
 import numpy as np
 import cv2
-import warnings
-import psutil
 import torch
 import statistics
 from ultralytics import YOLO
 from configParams import Parameters
 from database.db_entries_utils import db_entries_time
-from watchdog.observers import Observer
 from camera import FreshestFrame
 import threading
 
 # Logging configuration
-logging.basicConfig(level=logging.INFO)
-logger = logging.getLogger("CCTV-Server")
 logging.getLogger('torch').setLevel(logging.ERROR)
-warnings.filterwarnings("ignore", category=UserWarning)
+# warnings.filterwarnings("ignore", category=UserWarning)
 logging.getLogger('ultralytics').setLevel(logging.ERROR)
+logging.basicConfig(
+    level=logging.DEBUG,  # Capture everything from DEBUG and above
 
+    format='[%(asctime)s] [%(levelname)s] %(message)s',
+    handlers=[
+        logging.FileHandler("log.txt", mode='a',
+                            encoding='utf-8'),  # Append mode
+        logging.StreamHandler()  # Optional: also show logs in console
+    ]
+)
 # Parameters
 params = Parameters()
-port = int(params.socketport)
-host = '0.0.0.0'
 
+
+cv2.setNumThreads(multiprocessing.cpu_count())
 # Device setup
 device = torch.device(0 if torch.cuda.is_available() else "cpu")
-logger.info(f"Using {'CUDA' if torch.cuda.is_available() else 'CPU'} device.")
-logger.info(f"Version : 10.1.2 Up 05/20/2025")
+logging.info(f"Using {'CUDA' if torch.cuda.is_available() else 'CPU'} device.")
+logging.info(f"Version : 10.1.2 Up 05/20/2025")
 
 
 # Frame rate limiter (FPS)
-TARGET_FPS = 30  # Adjust based on your needs
-FRAME_DELAY = 1.0 / TARGET_FPS
+
 # Constants for health monitoring
 RETRY_LIMIT = 5
 RETRY_DELAY = 3  # seconds
-
-class ThreadWithReturnValue(threading.Thread):
-    def __init__(self, group=None, target=None, name=None, args=(), kwargs=None, *, daemon=None):
-        threading.Thread.__init__(
-            self, group, target, name, args, kwargs, daemon=daemon)
-
-        self._return = None
-
-    def run(self):
-        if self._target is not None:
-            self._return = self._target(*self._args, **self._kwargs)
-
-    def join(self):
-        threading.Thread.join(self)
-        return self._return
+lock = threading.Lock()
+model_plate = None
+model_char = None
+model_car = None
 
 
 # YOLO Models
-class YOLOModels:
-    def __init__(self, plate_model_path, char_model_path, arvand_model_path):
-        logger.info("Loading YOLO models...")
-        self.model_plate = torch.hub.load(
-            'yolov5', 'custom', plate_model_path, source='local', device=device, force_reload=True)
-        self.model_char = torch.hub.load(
-            'yolov5', 'custom', char_model_path, source='local', force_reload=True)
-        self.carmodel = YOLO('model/yolo11n.pt', verbose=False).to(device)
-        logger.info("Models loaded successfully")
 
+def loadModels():
+    global model_car, model_plate, model_char
+    if model_char == None:
 
-models = YOLOModels(params.modelPlate_path,
-                    params.modelCharX_path, params.modelArvand_path)
-logger.info('Server initialization complete')
-observer = Observer()
-observer.start()
+        logging.info("Loading YOLO models...")
+        model_char = torch.hub.load(
+            'yolov5', 'custom', 'models/CharsYolo.pt', source='local', device=device, force_reload=True)
+        model_plate = torch.hub.load(
+            'yolov5', 'custom', 'models/plateYolo.pt', source='local', device=device, force_reload=True)
+        model_car = YOLO('model/yolo11n.pt', verbose=False).to(device)
+        logging.info("Models loaded successfully")
+    with lock:
+        return model_char, model_plate, model_car
+
 
 # Memory management function
-
-
-def clear_memory():
-    torch.cuda.empty_cache()
-    gc.collect()
-
-# Initialize cameras - call once at startup
 
 
 def graceful_shutdown():
@@ -94,16 +78,10 @@ def graceful_shutdown():
     gc.collect()
 
     # Stop observer if running
-    global observer
-    if observer and observer.is_alive():
-        observer.stop()
-        observer.join(timeout=1.0)
-        logger.info("Config file observer stopped")
 
-    logger.info("Cleanup complete. Shutting down.")
+    logging.info("Cleanup complete. Shutting down.")
 
     os._exit(0)  # Use os._exit instead of sys.exit for more forceful termination
-
 
 
 def correct_perspective(image, scale_factor):
@@ -195,7 +173,7 @@ def correct_perspective(image, scale_factor):
         return deskewed, (new_x1, new_y1, new_x2, new_y2)
 
     except Exception as e:
-        logger.error(f"Error in correct_perspective: {e}")
+        logging.error(f"Error in correct_perspective: {e}")
         return image, (0, 0, 0, 0)
 
 # Character Detection
@@ -203,7 +181,7 @@ def correct_perspective(image, scale_factor):
 
 def detect_plate_chars(cropped_plate):
     chars, confidences, char_detected = [], [], []
-    results = models.model_char(cropped_plate)
+    results = model_char(cropped_plate)
     # Sort by x-coordinate
     detections = sorted(results.pred[0], key=lambda x: x[0])
     for det in detections:
@@ -234,7 +212,7 @@ def process_frame(frame, path):
         scale_y = frame.shape[0] / lowres_for_detection.shape[0]
 
         # Detect vehicles in low-res
-        car_res = models.carmodel(
+        car_res = model_car(
             lowres_for_detection, device=device, classes=[2, 5, 7])
 
         if len(car_res[0]) > 0:
@@ -249,7 +227,7 @@ def process_frame(frame, path):
                 cv2.rectangle(frame, (x1, y1), (x2, y2), (255, 0, 0), 2)
                 cropped_car = frame[y1:y2, x1:x2]
 
-                plate_results = models.model_plate(
+                plate_results = model_plate(
                     cropped_car).pandas().xyxy[0]
 
                 if not plate_results.empty:
@@ -350,22 +328,18 @@ def process_frame(frame, path):
         return frame
 
 
-def kill_processes_on_port(port):
-    for proc in psutil.process_iter(['pid', 'name']):
-        try:
-            connections = proc.net_connections()
-            for conn in connections:
-                if conn.laddr.port == port:
-                    print(
-                        f"Killing PID {proc.pid} ({proc.name()}) on port {port}")
-                    proc.kill()
-                    break
-        except (psutil.NoSuchProcess, psutil.AccessDenied, psutil.ZombieProcess):
-            continue
+def realseFreshest(fresh: FreshestFrame, cap: cv2.VideoCapture):
+    try:
+        fresh.release()
+        cap.release()
+    except Exception as e:
+        logging.error(f"Error to Realse Cameras : {e}")
 
 
 async def generate_frames(camera_idx, source, request: Request):
     """Generate frames from a specific camera feed"""
+
+    loadModels()
 
     def open_capture(source):
         cap = cv2.VideoCapture(source)
@@ -375,13 +349,15 @@ async def generate_frames(camera_idx, source, request: Request):
     cap = open_capture(source)
 
     while cap is None and retries < RETRY_LIMIT:
-        print(f"[Camera {camera_idx}] Failed to open source. Retrying ({retries + 1}/{RETRY_LIMIT})...")
+        print(
+            f"[Camera {camera_idx}] Failed to open source. Retrying ({retries + 1}/{RETRY_LIMIT})...")
         await asyncio.sleep(RETRY_DELAY)
         retries += 1
         cap = open_capture(source)
 
     if cap is None:
-        print(f"[Camera {camera_idx}] Could not open source after {RETRY_LIMIT} retries.")
+        print(
+            f"[Camera {camera_idx}] Could not open source after {RETRY_LIMIT} retries.")
         return
     fresh = FreshestFrame(cap)
 
@@ -390,6 +366,8 @@ async def generate_frames(camera_idx, source, request: Request):
 
             if await request.is_disconnected():
                 print("Client disconnected, releasing camera.")
+                cap.release()
+                fresh.release()
                 break
             success, frame = fresh.read()
             if not success:
@@ -406,15 +384,15 @@ async def generate_frames(camera_idx, source, request: Request):
             frame_bytes = buffer.tobytes()
             yield (b'--frame\r\n'
                    b'Content-Type: image/jpeg\r\n\r\n' + frame_bytes + b'\r\n')
-
     except Exception as e:
-        print(e)
         graceful_shutdown()
-        
-        
+    finally:
+
+        realseFreshest(fresh, cap)
+        print("Camera released.")
 
 
-async def generate_rtsp( source, request: Request):
+async def generate_rtsp(source, request: Request):
     """Generate frames from a specific camera feed"""
 
     def open_capture(source):
@@ -425,7 +403,7 @@ async def generate_rtsp( source, request: Request):
     cap = open_capture(source)
 
     while cap is None and retries < RETRY_LIMIT:
-        
+
         await asyncio.sleep(RETRY_DELAY)
         retries += 1
         cap = open_capture(source)
@@ -440,6 +418,8 @@ async def generate_rtsp( source, request: Request):
 
             if await request.is_disconnected():
                 print("Client disconnected, releasing camera.")
+                cap.release()
+                fresh.release()
                 break
             success, frame = fresh.read()
             if not success:
@@ -459,6 +439,5 @@ async def generate_rtsp( source, request: Request):
         print(e)
         graceful_shutdown()
     finally:
-        fresh.release()
-        cap.release()
+        realseFreshest(fresh, cap)
         print("Camera released.")

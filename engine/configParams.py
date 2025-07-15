@@ -6,60 +6,8 @@ import socket
 class Parameters:
 
     def __init__(self):
-        self.imgsz = 640
-        self.conf_thres = 0.25
-        self.max_det = 1000
-        self.hide_conf = True
 
-        self.region_threshold = 0.05
 
-        self.color_blue = (255, 255, 0)
-        self.color_red = (25, 20, 240)
-        self.color = self.color_blue
-        self.text_x_align = 10
-        self.inference_time_y = 30
-        self.fps_y = 90
-        self.analysis_time_y = 60
-        self.font_scale = 0.7
-        self.thickness = 2
-        self.rect_thickness = 3
-
-        self.rect_size = 15000
-
-        self.pred_shape = (480, 640, 3)
-        self.vis_shape = (400, 200)
-
-        config_object = ConfigParser()
-        config_object.read("./config.ini")
-        with open('./ip.json', 'r') as file:
-             data = json.load(file)
-        hostname = socket.gethostname()
-        IPAddr = socket.gethostbyname(hostname)
-        
-        self.defip=IPAddr
-        self.defport=data['defip'].split("//")[1].split(':')[1]
-        
-
-        dbconfig = config_object["DATABASE"]
-        self.dbEntries = dbconfig["dbentries"]
-        self.dbResidents = dbconfig["dbresidents"]
-        modelconfig = config_object["MODELCONFIG"]
-        self.modelPlate_path = modelconfig["platemodel"]
-        self.modelCharX_path = modelconfig["charmodel"]
-        self.modelCar_path=modelconfig["carmodel"]
-        self.modelArvand_path=modelconfig['arvandmodel']
-        defuiltConfig=config_object['DEFAULT']
-        self.plateConf=defuiltConfig['plate_confidence']
-        self.charConf=defuiltConfig['character_confidence']
-        self.device=defuiltConfig['device']
-        self.socketport=defuiltConfig['socketport']
-        self.serverport=defuiltConfig['serverport']
-        sourceConfig = config_object["SOURCEDETECT"]
-        self.rtps = [sourceConfig[key].strip() for key in sourceConfig if key.startswith("rtps")]
-
-       
-
-        self.video_path = r"D:/Codes/anprv7/engine/output/rooz.mp4"
         
 
         self.label_map = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'D', 'Gh', 'H', 'J', 'L', 'M',
@@ -228,9 +176,3 @@ class Parameters:
         }
 
 
-def getFieldNames(fieldsList):
-    params = Parameters()
-    fieldNamesOutput = []
-    for value in fieldsList:
-        fieldNamesOutput.append(params.fieldNames[value])
-    return fieldNamesOutput
