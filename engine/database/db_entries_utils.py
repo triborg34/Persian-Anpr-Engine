@@ -8,7 +8,6 @@ import time
 import requests
 
 from configParams import Parameters
-from database.classEntries import Entries
 from PIL import Image
 
 
@@ -166,10 +165,9 @@ def should_insert(name):
     return True
 
 
-def db_entries_time(number, charConfAvg, plateConfAvg, croppedPlate, status, frame, isarvand, rtpath):
+def db_entries_time(number, charConfAvg, plateConfAvg, croppedPlate, status, frame, isarvand, rtpath,quality):
     url = f"http://127.0.0.1:8090/api/collections/database/records"
-    quality = getQuality()
-    quality = 10 if quality < 10 else quality
+
 
     timeNow = datetime.datetime.now()
     display_time = timeNow.strftime("%H:%M:%S")

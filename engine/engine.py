@@ -1,4 +1,5 @@
 import asyncio
+from asyncio import subprocess
 import gc
 import logging
 import multiprocessing
@@ -6,13 +7,17 @@ import os
 from fastapi import Request
 import numpy as np
 import cv2
+import requests
 import torch
+import subprocess
 import statistics
 from ultralytics import YOLO
 from configParams import Parameters
 from database.db_entries_utils import db_entries_time
 from camera import FreshestFrame
 import threading
+
+
 
 # Logging configuration
 logging.getLogger('torch').setLevel(logging.ERROR)
@@ -48,9 +53,21 @@ lock = threading.Lock()
 model_plate = None
 model_char = None
 model_car = None
+quality=10
+charConfidence=0.7
+plateConfidence=0.85
+process=None
 
 
 # YOLO Models
+
+def loadDb():
+    global process
+    try:
+        process=subprocess.Popen(["pocketbase","serve","--http=0.0.0.0:8090"])
+        logging.info(f"PocketBase stater {process.pid}")
+    except Exception as e:
+        print(e)
 
 def loadModels():
     global model_car, model_plate, model_char
@@ -58,14 +75,26 @@ def loadModels():
 
         logging.info("Loading YOLO models...")
         model_char = torch.hub.load(
-            'yolov5', 'custom', 'models/CharsYolo.pt', source='local', device=device, force_reload=True)
+            'yolov5', 'custom', 'model/CharsYolo.pt', source='local', device=device, force_reload=True)
         model_plate = torch.hub.load(
-            'yolov5', 'custom', 'models/plateYolo.pt', source='local', device=device, force_reload=True)
+            'yolov5', 'custom', 'model/plateYolo.pt', source='local', device=device, force_reload=True)
         model_car = YOLO('model/yolo11n.pt', verbose=False).to(device)
         logging.info("Models loaded successfully")
     with lock:
-        return model_char, model_plate, model_car
+        return True
 
+
+def loadConfig():
+    global quality,charConfidence,plateConfidence
+    url='http://127.0.0.1:8090/api/collections/setting/records'
+    response=requests.get(url).json()
+    with lock:
+        quality=response['items'][0]['quality']
+        charConfidence=response['items'][0]['charConf']
+        plateConfidence=response['items'][0]['plateConf']
+        port=response['items'][0]['port']
+        return port
+    
 
 # Memory management function
 
@@ -78,6 +107,7 @@ def graceful_shutdown():
     gc.collect()
 
     # Stop observer if running
+    process.terminate()
 
     logging.info("Cleanup complete. Shutting down.")
 
@@ -233,7 +263,7 @@ async def process_frame(frame, path):
                 if not plate_results.empty:
                     for _, plate in plate_results.iterrows():
                         plate_conf = int(plate['confidence'] * 100)
-                        if plate_conf >= int(params.plateConf):
+                        if plate_conf >= int(plateConfidence*100):
                             x_min, y_min, x_max, y_max = (
                                 int(plate['xmin']), int(plate['ymin']),
                                 int(plate['xmax']), int(plate['ymax'])
@@ -259,12 +289,12 @@ async def process_frame(frame, path):
                             cv2.rectangle(
                                 cropped_car, (x_min, y_min), (x_max, y_max), (0, 0, 255), 2)
                             plate_text = plate_text.replace('Taxi', 'x')
-                            confidence = float(params.charConf) * 100
+                            confidence = float(charConfidence) * 100
 
                             if char_conf_avg >= confidence and len(plate_text) >= 8:
                                 cv2.putText(cropped_car, f"Plate: {plate_text}", (x_min, y_min - 10),
                                             cv2.FONT_HERSHEY_SIMPLEX, 0.7, (0, 255, 128), 2, cv2.LINE_AA)
-                                db_entries_time(
+                                await db_entries_time(
                                     number=plate_text,
                                     charConfAvg=char_conf_avg,
                                     plateConfAvg=plate_conf,
@@ -272,7 +302,8 @@ async def process_frame(frame, path):
                                     status="Active",
                                     frame=frame,
                                     isarvand='notarvand',
-                                    rtpath=path
+                                    rtpath=path,
+                                    quality=quality
                                 )
                                 break
                             else:
@@ -339,7 +370,7 @@ def realseFreshest(fresh: FreshestFrame, cap: cv2.VideoCapture):
 async def generate_frames(camera_idx, source, request: Request):
     """Generate frames from a specific camera feed"""
 
-    loadModels()
+
 
     def open_capture(source):
         cap = cv2.VideoCapture(source)
@@ -392,6 +423,8 @@ async def generate_frames(camera_idx, source, request: Request):
         print("Camera released.")
 
 
+
+
 async def generate_rtsp(source, request: Request):
     """Generate frames from a specific camera feed"""
 
@@ -441,3 +474,57 @@ async def generate_rtsp(source, request: Request):
     finally:
         realseFreshest(fresh, cap)
         print("Camera released.")
+
+
+
+def emailHandler(email, plateNumber, edate, etime):
+
+    import smtplib
+    from email.mime.text import MIMEText
+    from email.mime.multipart import MIMEMultipart
+
+    # Gmail SMTP server settings
+    SMTP_SERVER = "smtp.gmail.com"
+    SMTP_PORT = 587
+
+    # Sender's email credentials
+    SENDER_EMAIL = "amnafarin4@gmail.com"
+    SENDER_PASSWORD = "vioz mxiw nedg rybh"
+
+    # Recipient email
+    RECIPIENT_EMAIL = email
+
+    # Email content
+    subject = f"{edate} شناسایی پلاک در تاریخ "
+    body = f""" 
+    پلاک:\n{plateNumber}
+    تاریخ:\n{edate}
+    زمان:\n{etime}
+     """
+
+    # Create the email message
+    msg = MIMEMultipart()
+    msg["From"] = SENDER_EMAIL
+    msg["To"] = RECIPIENT_EMAIL
+    msg["Subject"] = subject
+    msg.attach(MIMEText(body, "plain"))
+
+    try:
+        # Connect to the SMTP server
+        server = smtplib.SMTP(SMTP_SERVER, SMTP_PORT)
+        server.starttls()  # Upgrade the connection to secure
+        server.login(SENDER_EMAIL, SENDER_PASSWORD)  # Log in to the server
+
+        # Send the email
+        server.sendmail(SENDER_EMAIL, RECIPIENT_EMAIL, msg.as_string())
+        print("Email sent successfully!")
+
+    except Exception as e:
+        print(f"Failed to send email: {e}")
+
+    finally:
+        server.quit()  # Close the connection
+        
+        
+        
+
