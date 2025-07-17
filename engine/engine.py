@@ -4,6 +4,8 @@ import gc
 import logging
 import multiprocessing
 import os
+import time
+from urllib.parse import urlparse
 from fastapi import Request
 import numpy as np
 import cv2
@@ -16,7 +18,6 @@ from configParams import Parameters
 from database.db_entries_utils import db_entries_time
 from camera import FreshestFrame
 import threading
-
 
 
 # Logging configuration
@@ -53,21 +54,25 @@ lock = threading.Lock()
 model_plate = None
 model_char = None
 model_car = None
-quality=10
-charConfidence=0.7
-plateConfidence=0.85
-process=None
+quality = 10
+charConfidence = 0.7
+plateConfidence = 0.85
+process = None
 
 
 # YOLO Models
 
+
 def loadDb():
     global process
     try:
-        process=subprocess.Popen(["pocketbase","serve","--http=0.0.0.0:8090"])
+
+        process = subprocess.Popen(
+            ["pocketbase", "serve", "--http=0.0.0.0:8090"])
         logging.info(f"PocketBase stater {process.pid}")
     except Exception as e:
         print(e)
+
 
 def loadModels():
     global model_car, model_plate, model_char
@@ -85,16 +90,16 @@ def loadModels():
 
 
 def loadConfig():
-    global quality,charConfidence,plateConfidence
-    url='http://127.0.0.1:8090/api/collections/setting/records'
-    response=requests.get(url).json()
+    global quality, charConfidence, plateConfidence
+    url = 'http://127.0.0.1:8090/api/collections/setting/records'
+    response = requests.get(url).json()
     with lock:
-        quality=response['items'][0]['quality']
-        charConfidence=response['items'][0]['charConf']
-        plateConfidence=response['items'][0]['plateConf']
-        port=response['items'][0]['port']
+        quality = response['items'][0]['quality']
+        charConfidence = response['items'][0]['charConf']
+        plateConfidence = response['items'][0]['plateConf']
+        port = response['items'][0]['port']
         return port
-    
+
 
 # Memory management function
 
@@ -294,6 +299,7 @@ async def process_frame(frame, path):
                             if char_conf_avg >= confidence and len(plate_text) >= 8:
                                 cv2.putText(cropped_car, f"Plate: {plate_text}", (x_min, y_min - 10),
                                             cv2.FONT_HERSHEY_SIMPLEX, 0.7, (0, 255, 128), 2, cv2.LINE_AA)
+                                
                                 await db_entries_time(
                                     number=plate_text,
                                     charConfAvg=char_conf_avg,
@@ -368,15 +374,19 @@ def realseFreshest(fresh: FreshestFrame, cap: cv2.VideoCapture):
 
 
 async def generate_frames(camera_idx, source, request: Request):
+    if not isConnectionAlive(source):
+        return
     """Generate frames from a specific camera feed"""
 
-
+    check_interval = 60  # seconds
+    last_check = 0
 
     def open_capture(source):
         cap = cv2.VideoCapture(source)
         return cap if cap.isOpened() else None
 
     retries = 0
+    tryconnection = 0
     cap = open_capture(source)
 
     while cap is None and retries < RETRY_LIMIT:
@@ -394,11 +404,16 @@ async def generate_frames(camera_idx, source, request: Request):
 
     try:
         while fresh.is_alive():
+            now = time.time()
+            if now - last_check >= check_interval:
+
+                if not isConnectionAlive(source):
+                    break
+                last_check = now
 
             if await request.is_disconnected():
                 print("Client disconnected, releasing camera.")
-                cap.release()
-                fresh.release()
+                realseFreshest(fresh, cap)
                 break
             success, frame = fresh.read()
             if not success:
@@ -408,7 +423,7 @@ async def generate_frames(camera_idx, source, request: Request):
                 cv2.putText(frame, "No signal", (220, 240),
                             cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 0, 255), 2)
             else:
-                frame = process_frame(frame, f'/rt{camera_idx}')
+                frame = await process_frame(frame, f'/rt{camera_idx}')
 
             # Encode and yield the frame
             _, buffer = cv2.imencode('.jpg', frame)
@@ -416,6 +431,7 @@ async def generate_frames(camera_idx, source, request: Request):
             yield (b'--frame\r\n'
                    b'Content-Type: image/jpeg\r\n\r\n' + frame_bytes + b'\r\n')
     except Exception as e:
+        logging.info(e)
         graceful_shutdown()
     finally:
 
@@ -423,9 +439,9 @@ async def generate_frames(camera_idx, source, request: Request):
         print("Camera released.")
 
 
-
-
 async def generate_rtsp(source, request: Request):
+    if not isConnectionAlive(source):
+        return
     """Generate frames from a specific camera feed"""
 
     def open_capture(source):
@@ -444,15 +460,19 @@ async def generate_rtsp(source, request: Request):
     if cap is None:
 
         return
-    fresh = FreshestFrame(cap)
+    try:
+        fresh = FreshestFrame(cap)
+    except Exception:
+        graceful_shutdown()
 
     try:
         while fresh.is_alive():
+            if not isConnectionAlive(source):
+                break
 
             if await request.is_disconnected():
                 print("Client disconnected, releasing camera.")
-                cap.release()
-                fresh.release()
+                realseFreshest(fresh, cap)
                 break
             success, frame = fresh.read()
             if not success:
@@ -475,6 +495,17 @@ async def generate_rtsp(source, request: Request):
         realseFreshest(fresh, cap)
         print("Camera released.")
 
+
+def isConnectionAlive(source):
+    ulr = urlparse(source).hostname
+    try:
+        res = requests.get(f"http://{ulr}", timeout=1)
+        if (res.status_code in [200, 201]):
+            return True
+        else:
+            return False
+    except Exception:
+        return False
 
 
 def emailHandler(email, plateNumber, edate, etime):
@@ -524,7 +555,3 @@ def emailHandler(email, plateNumber, edate, etime):
 
     finally:
         server.quit()  # Close the connection
-        
-        
-        
-

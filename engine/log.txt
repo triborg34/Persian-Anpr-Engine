@@ -213,3 +213,622 @@
 [2025-07-16 09:46:23,285] [INFO] Models loaded successfully
 [2025-07-16 09:46:23,335] [DEBUG] Using proactor: IocpProactor
 [2025-07-16 09:46:26,663] [INFO] Cleanup complete. Shutting down.
+[2025-07-16 12:11:14,031] [INFO] Using CUDA device.
+[2025-07-16 12:11:14,031] [INFO] Version : 10.1.2 Up 05/20/2025
+[2025-07-16 12:11:14,331] [INFO] PocketBase stater 81396
+[2025-07-16 12:11:14,856] [INFO] Loading YOLO models...
+[2025-07-16 12:11:20,084] [DEBUG] Loaded backend Agg version v2.2.
+[2025-07-16 12:11:21,504] [INFO] Models loaded successfully
+[2025-07-16 12:11:21,602] [DEBUG] Using proactor: IocpProactor
+[2025-07-16 12:11:54,818] [INFO] Cleanup complete. Shutting down.
+[2025-07-16 12:12:02,713] [INFO] Using CUDA device.
+[2025-07-16 12:12:02,713] [INFO] Version : 10.1.2 Up 05/20/2025
+[2025-07-16 12:12:02,886] [INFO] PocketBase stater 43156
+[2025-07-16 12:12:03,393] [INFO] Loading YOLO models...
+[2025-07-16 12:12:04,714] [DEBUG] Loaded backend Agg version v2.2.
+[2025-07-16 12:12:05,303] [INFO] Models loaded successfully
+[2025-07-16 12:12:05,367] [DEBUG] Using proactor: IocpProactor
+[2025-07-16 12:14:44,009] [INFO] Cleanup complete. Shutting down.
+[2025-07-16 12:14:53,514] [INFO] Using CUDA device.
+[2025-07-16 12:14:53,514] [INFO] Version : 10.1.2 Up 05/20/2025
+[2025-07-16 12:14:53,668] [INFO] PocketBase stater 81236
+[2025-07-16 12:14:54,183] [INFO] Loading YOLO models...
+[2025-07-16 12:14:55,458] [DEBUG] Loaded backend Agg version v2.2.
+[2025-07-16 12:14:56,041] [INFO] Models loaded successfully
+[2025-07-16 12:14:56,099] [DEBUG] Using proactor: IocpProactor
+[2025-07-16 12:18:15,204] [INFO] Cleanup complete. Shutting down.
+[2025-07-16 12:19:42,149] [INFO] Using CUDA device.
+[2025-07-16 12:19:42,149] [INFO] Version : 10.1.2 Up 05/20/2025
+[2025-07-16 12:19:42,305] [INFO] PocketBase stater 15852
+[2025-07-16 12:19:42,816] [INFO] Loading YOLO models...
+[2025-07-16 12:19:44,016] [DEBUG] Loaded backend Agg version v2.2.
+[2025-07-16 12:19:44,562] [INFO] Models loaded successfully
+[2025-07-16 12:19:44,624] [DEBUG] Using proactor: IocpProactor
+[2025-07-16 12:22:03,244] [INFO] Cleanup complete. Shutting down.
+[2025-07-16 12:25:40,713] [INFO] Using CUDA device.
+[2025-07-16 12:25:40,713] [INFO] Version : 10.1.2 Up 05/20/2025
+[2025-07-16 12:25:40,898] [INFO] PocketBase stater 31124
+[2025-07-16 12:25:40,917] [INFO] Loading YOLO models...
+[2025-07-16 12:25:42,701] [DEBUG] Loaded backend Agg version v2.2.
+[2025-07-16 12:25:44,122] [INFO] Models loaded successfully
+[2025-07-16 12:25:44,236] [DEBUG] Using proactor: IocpProactor
+[2025-07-16 12:30:16,633] [INFO] Cleanup complete. Shutting down.
+[2025-07-16 12:30:21,737] [INFO] Using CUDA device.
+[2025-07-16 12:30:21,737] [INFO] Version : 10.1.2 Up 05/20/2025
+[2025-07-16 12:30:22,006] [INFO] PocketBase stater 83628
+[2025-07-16 12:30:22,016] [INFO] Loading YOLO models...
+[2025-07-16 12:30:23,822] [DEBUG] Loaded backend Agg version v2.2.
+[2025-07-16 12:30:24,660] [INFO] Models loaded successfully
+[2025-07-16 12:30:24,739] [DEBUG] Using proactor: IocpProactor
+[2025-07-16 12:30:47,196] [INFO] Cleanup complete. Shutting down.
+[2025-07-16 12:30:50,323] [INFO] Using CUDA device.
+[2025-07-16 12:30:50,323] [INFO] Version : 10.1.2 Up 05/20/2025
+[2025-07-16 12:30:50,493] [INFO] PocketBase stater 83532
+[2025-07-16 12:30:50,500] [INFO] Loading YOLO models...
+[2025-07-16 12:30:51,757] [DEBUG] Loaded backend Agg version v2.2.
+[2025-07-16 12:30:52,329] [INFO] Models loaded successfully
+[2025-07-16 12:30:52,388] [DEBUG] Using proactor: IocpProactor
+[2025-07-16 12:31:33,764] [INFO] Cleanup complete. Shutting down.
+[2025-07-16 12:31:37,128] [INFO] Using CUDA device.
+[2025-07-16 12:31:37,128] [INFO] Version : 10.1.2 Up 05/20/2025
+[2025-07-16 12:31:37,279] [INFO] PocketBase stater 85580
+[2025-07-16 12:31:37,294] [INFO] Loading YOLO models...
+[2025-07-16 12:31:38,598] [DEBUG] Loaded backend Agg version v2.2.
+[2025-07-16 12:31:39,148] [INFO] Models loaded successfully
+[2025-07-16 12:31:39,214] [DEBUG] Using proactor: IocpProactor
+[2025-07-16 12:31:45,652] [INFO] Cleanup complete. Shutting down.
+[2025-07-16 12:31:54,951] [INFO] Using CUDA device.
+[2025-07-16 12:31:54,951] [INFO] Version : 10.1.2 Up 05/20/2025
+[2025-07-16 12:31:55,115] [INFO] PocketBase stater 87660
+[2025-07-16 12:31:55,122] [INFO] Loading YOLO models...
+[2025-07-16 12:31:56,555] [DEBUG] Loaded backend Agg version v2.2.
+[2025-07-16 12:31:57,205] [INFO] Models loaded successfully
+[2025-07-16 12:31:57,280] [DEBUG] Using proactor: IocpProactor
+[2025-07-16 12:31:59,490] [INFO] Cleanup complete. Shutting down.
+[2025-07-16 12:32:11,875] [INFO] Using CUDA device.
+[2025-07-16 12:32:11,875] [INFO] Version : 10.1.2 Up 05/20/2025
+[2025-07-16 12:32:12,027] [INFO] PocketBase stater 88684
+[2025-07-16 12:32:12,041] [INFO] Loading YOLO models...
+[2025-07-16 12:32:13,273] [DEBUG] Loaded backend Agg version v2.2.
+[2025-07-16 12:32:13,827] [INFO] Models loaded successfully
+[2025-07-16 12:32:13,884] [DEBUG] Using proactor: IocpProactor
+[2025-07-16 12:32:38,141] [INFO] Cleanup complete. Shutting down.
+[2025-07-16 12:33:03,440] [INFO] Using CUDA device.
+[2025-07-16 12:33:03,440] [INFO] Version : 10.1.2 Up 05/20/2025
+[2025-07-16 12:33:03,612] [INFO] PocketBase stater 88100
+[2025-07-16 12:33:03,626] [INFO] Loading YOLO models...
+[2025-07-16 12:33:04,934] [DEBUG] Loaded backend Agg version v2.2.
+[2025-07-16 12:33:05,496] [INFO] Models loaded successfully
+[2025-07-16 12:33:05,570] [DEBUG] Using proactor: IocpProactor
+[2025-07-16 12:33:09,611] [INFO] Cleanup complete. Shutting down.
+[2025-07-16 12:33:54,696] [INFO] Using CUDA device.
+[2025-07-16 12:33:54,696] [INFO] Version : 10.1.2 Up 05/20/2025
+[2025-07-16 12:33:54,878] [INFO] PocketBase stater 80728
+[2025-07-16 12:33:54,885] [INFO] Loading YOLO models...
+[2025-07-16 12:33:56,107] [DEBUG] Loaded backend Agg version v2.2.
+[2025-07-16 12:33:56,656] [INFO] Models loaded successfully
+[2025-07-16 12:33:56,706] [DEBUG] Using proactor: IocpProactor
+[2025-07-16 12:34:03,618] [INFO] Cleanup complete. Shutting down.
+[2025-07-16 12:34:34,460] [INFO] Using CUDA device.
+[2025-07-16 12:34:34,461] [INFO] Version : 10.1.2 Up 05/20/2025
+[2025-07-16 12:34:34,648] [INFO] PocketBase stater 89108
+[2025-07-16 12:34:34,652] [INFO] Loading YOLO models...
+[2025-07-16 12:34:35,966] [DEBUG] Loaded backend Agg version v2.2.
+[2025-07-16 12:34:36,543] [INFO] Models loaded successfully
+[2025-07-16 12:34:36,588] [DEBUG] Using proactor: IocpProactor
+[2025-07-16 12:34:38,676] [INFO] Cleanup complete. Shutting down.
+[2025-07-16 12:36:42,810] [INFO] Using CUDA device.
+[2025-07-16 12:36:42,811] [INFO] Version : 10.1.2 Up 05/20/2025
+[2025-07-16 12:36:42,964] [INFO] PocketBase stater 89748
+[2025-07-16 12:36:42,973] [INFO] Loading YOLO models...
+[2025-07-16 12:36:44,217] [DEBUG] Loaded backend Agg version v2.2.
+[2025-07-16 12:36:44,779] [INFO] Models loaded successfully
+[2025-07-16 12:36:44,834] [DEBUG] Using proactor: IocpProactor
+[2025-07-16 12:36:49,084] [INFO] Cleanup complete. Shutting down.
+[2025-07-16 12:37:11,192] [INFO] Using CUDA device.
+[2025-07-16 12:37:11,192] [INFO] Version : 10.1.2 Up 05/20/2025
+[2025-07-16 12:37:11,358] [INFO] PocketBase stater 89604
+[2025-07-16 12:37:11,365] [INFO] Loading YOLO models...
+[2025-07-16 12:37:12,578] [DEBUG] Loaded backend Agg version v2.2.
+[2025-07-16 12:37:13,138] [INFO] Models loaded successfully
+[2025-07-16 12:37:13,198] [DEBUG] Using proactor: IocpProactor
+[2025-07-16 12:38:25,412] [INFO] Using CUDA device.
+[2025-07-16 12:38:25,413] [INFO] Version : 10.1.2 Up 05/20/2025
+[2025-07-16 12:38:25,575] [INFO] PocketBase stater 90588
+[2025-07-16 12:38:25,580] [INFO] Loading YOLO models...
+[2025-07-16 12:38:26,930] [DEBUG] Loaded backend Agg version v2.2.
+[2025-07-16 12:38:27,494] [INFO] Models loaded successfully
+[2025-07-16 12:38:27,555] [DEBUG] Using proactor: IocpProactor
+[2025-07-16 13:06:52,926] [INFO] Using CUDA device.
+[2025-07-16 13:06:52,927] [INFO] Version : 10.1.2 Up 05/20/2025
+[2025-07-16 13:06:53,090] [INFO] PocketBase stater 80168
+[2025-07-16 13:06:53,095] [INFO] Loading YOLO models...
+[2025-07-16 13:06:54,399] [DEBUG] Loaded backend Agg version v2.2.
+[2025-07-16 13:06:54,983] [INFO] Models loaded successfully
+[2025-07-16 13:06:55,048] [DEBUG] Using proactor: IocpProactor
+[2025-07-16 13:09:58,553] [INFO] Cleanup complete. Shutting down.
+[2025-07-16 13:10:16,569] [INFO] Using CUDA device.
+[2025-07-16 13:10:16,569] [INFO] Version : 10.1.2 Up 05/20/2025
+[2025-07-16 13:10:16,745] [INFO] PocketBase stater 43068
+[2025-07-16 13:10:17,260] [INFO] Loading YOLO models...
+[2025-07-16 13:10:18,547] [DEBUG] Loaded backend Agg version v2.2.
+[2025-07-16 13:10:19,111] [INFO] Models loaded successfully
+[2025-07-16 13:10:19,170] [DEBUG] Using proactor: IocpProactor
+[2025-07-16 13:12:07,040] [INFO] Using CUDA device.
+[2025-07-16 13:12:07,040] [INFO] Version : 10.1.2 Up 05/20/2025
+[2025-07-16 13:12:07,186] [INFO] PocketBase stater 56276
+[2025-07-16 13:12:07,712] [INFO] Loading YOLO models...
+[2025-07-16 13:12:08,933] [DEBUG] Loaded backend Agg version v2.2.
+[2025-07-16 13:12:09,486] [INFO] Models loaded successfully
+[2025-07-16 13:12:09,546] [DEBUG] Using proactor: IocpProactor
+[2025-07-16 13:12:36,707] [INFO] Cleanup complete. Shutting down.
+[2025-07-16 13:12:40,010] [INFO] Using CUDA device.
+[2025-07-16 13:12:40,010] [INFO] Version : 10.1.2 Up 05/20/2025
+[2025-07-16 13:12:40,171] [INFO] PocketBase stater 82256
+[2025-07-16 13:12:40,689] [INFO] Loading YOLO models...
+[2025-07-16 13:12:41,847] [DEBUG] Loaded backend Agg version v2.2.
+[2025-07-16 13:12:42,384] [INFO] Models loaded successfully
+[2025-07-16 13:12:42,434] [DEBUG] Using proactor: IocpProactor
+[2025-07-16 13:13:22,328] [INFO] Cleanup complete. Shutting down.
+[2025-07-16 13:13:53,288] [INFO] Using CUDA device.
+[2025-07-16 13:13:53,289] [INFO] Version : 10.1.2 Up 05/20/2025
+[2025-07-16 13:13:53,450] [INFO] PocketBase stater 95916
+[2025-07-16 13:13:53,967] [INFO] Loading YOLO models...
+[2025-07-16 13:13:55,239] [DEBUG] Loaded backend Agg version v2.2.
+[2025-07-16 13:13:55,797] [INFO] Models loaded successfully
+[2025-07-16 13:13:55,863] [DEBUG] Using proactor: IocpProactor
+[2025-07-16 13:15:20,814] [INFO] Using CUDA device.
+[2025-07-16 13:15:20,814] [INFO] Version : 10.1.2 Up 05/20/2025
+[2025-07-16 13:15:20,970] [INFO] PocketBase stater 13748
+[2025-07-16 13:15:21,486] [INFO] Loading YOLO models...
+[2025-07-16 13:15:22,766] [DEBUG] Loaded backend Agg version v2.2.
+[2025-07-16 13:15:23,333] [INFO] Models loaded successfully
+[2025-07-16 13:15:23,400] [DEBUG] Using proactor: IocpProactor
+[2025-07-16 13:15:48,292] [INFO] Using CUDA device.
+[2025-07-16 13:15:48,293] [INFO] Version : 10.1.2 Up 05/20/2025
+[2025-07-16 13:15:48,440] [INFO] PocketBase stater 94444
+[2025-07-16 13:15:48,956] [INFO] Loading YOLO models...
+[2025-07-16 13:15:50,258] [DEBUG] Loaded backend Agg version v2.2.
+[2025-07-16 13:15:50,804] [INFO] Models loaded successfully
+[2025-07-16 13:15:50,875] [DEBUG] Using proactor: IocpProactor
+[2025-07-16 13:18:15,807] [INFO] Using CUDA device.
+[2025-07-16 13:18:15,807] [INFO] Version : 10.1.2 Up 05/20/2025
+[2025-07-16 13:18:15,950] [INFO] PocketBase stater 82576
+[2025-07-16 13:18:16,466] [INFO] Loading YOLO models...
+[2025-07-16 13:18:17,723] [DEBUG] Loaded backend Agg version v2.2.
+[2025-07-16 13:18:18,278] [INFO] Models loaded successfully
+[2025-07-16 13:18:18,338] [DEBUG] Using proactor: IocpProactor
+[2025-07-16 13:18:38,730] [INFO] Cleanup complete. Shutting down.
+[2025-07-16 13:18:42,013] [INFO] Using CUDA device.
+[2025-07-16 13:18:42,013] [INFO] Version : 10.1.2 Up 05/20/2025
+[2025-07-16 13:18:42,170] [INFO] PocketBase stater 97708
+[2025-07-16 13:18:42,688] [INFO] Loading YOLO models...
+[2025-07-16 13:18:43,981] [DEBUG] Loaded backend Agg version v2.2.
+[2025-07-16 13:18:44,543] [INFO] Models loaded successfully
+[2025-07-16 13:18:44,602] [DEBUG] Using proactor: IocpProactor
+[2025-07-16 13:20:58,180] [INFO] Using CUDA device.
+[2025-07-16 13:20:58,180] [INFO] Version : 10.1.2 Up 05/20/2025
+[2025-07-16 13:20:58,342] [INFO] PocketBase stater 96432
+[2025-07-16 13:20:58,866] [INFO] Loading YOLO models...
+[2025-07-16 13:21:00,106] [DEBUG] Loaded backend Agg version v2.2.
+[2025-07-16 13:21:00,634] [INFO] Models loaded successfully
+[2025-07-16 13:21:00,695] [DEBUG] Using proactor: IocpProactor
+[2025-07-16 13:22:28,659] [INFO] Using CUDA device.
+[2025-07-16 13:22:28,659] [INFO] Version : 10.1.2 Up 05/20/2025
+[2025-07-16 13:22:28,837] [INFO] PocketBase stater 13488
+[2025-07-16 13:22:29,355] [INFO] Loading YOLO models...
+[2025-07-16 13:22:30,610] [DEBUG] Loaded backend Agg version v2.2.
+[2025-07-16 13:22:31,184] [INFO] Models loaded successfully
+[2025-07-16 13:22:31,232] [DEBUG] Using proactor: IocpProactor
+[2025-07-16 13:26:46,002] [INFO] Cleanup complete. Shutting down.
+[2025-07-16 13:26:49,321] [INFO] Using CUDA device.
+[2025-07-16 13:26:49,321] [INFO] Version : 10.1.2 Up 05/20/2025
+[2025-07-16 13:26:49,473] [INFO] PocketBase stater 94776
+[2025-07-16 13:26:49,997] [INFO] Loading YOLO models...
+[2025-07-16 13:26:51,291] [DEBUG] Loaded backend Agg version v2.2.
+[2025-07-16 13:26:51,910] [INFO] Models loaded successfully
+[2025-07-16 13:26:51,958] [DEBUG] Using proactor: IocpProactor
+[2025-07-16 13:30:31,881] [INFO] Using CUDA device.
+[2025-07-16 13:30:31,881] [INFO] Version : 10.1.2 Up 05/20/2025
+[2025-07-16 13:30:32,046] [INFO] PocketBase stater 99308
+[2025-07-16 13:30:32,561] [INFO] Loading YOLO models...
+[2025-07-16 13:30:33,750] [DEBUG] Loaded backend Agg version v2.2.
+[2025-07-16 13:30:34,302] [INFO] Models loaded successfully
+[2025-07-16 13:30:34,347] [DEBUG] Using proactor: IocpProactor
+[2025-07-16 13:30:58,573] [INFO] Cleanup complete. Shutting down.
+[2025-07-16 13:32:36,708] [INFO] Using CUDA device.
+[2025-07-16 13:32:36,708] [INFO] Version : 10.1.2 Up 05/20/2025
+[2025-07-16 13:32:36,859] [INFO] PocketBase stater 98664
+[2025-07-16 13:32:37,373] [INFO] Loading YOLO models...
+[2025-07-16 13:32:38,694] [DEBUG] Loaded backend Agg version v2.2.
+[2025-07-16 13:32:39,250] [INFO] Models loaded successfully
+[2025-07-16 13:32:39,314] [DEBUG] Using proactor: IocpProactor
+[2025-07-16 13:32:56,476] [INFO] Using CUDA device.
+[2025-07-16 13:32:56,477] [INFO] Version : 10.1.2 Up 05/20/2025
+[2025-07-16 13:32:56,645] [INFO] PocketBase stater 98776
+[2025-07-16 13:32:57,173] [INFO] Loading YOLO models...
+[2025-07-16 13:32:58,478] [DEBUG] Loaded backend Agg version v2.2.
+[2025-07-16 13:32:59,016] [INFO] Models loaded successfully
+[2025-07-16 13:32:59,075] [DEBUG] Using proactor: IocpProactor
+[2025-07-16 13:33:28,745] [INFO] Cleanup complete. Shutting down.
+[2025-07-16 13:34:08,443] [INFO] Using CUDA device.
+[2025-07-16 13:34:08,443] [INFO] Version : 10.1.2 Up 05/20/2025
+[2025-07-16 13:34:08,600] [INFO] PocketBase stater 99680
+[2025-07-16 13:34:09,117] [INFO] Loading YOLO models...
+[2025-07-16 13:34:10,346] [DEBUG] Loaded backend Agg version v2.2.
+[2025-07-16 13:34:10,891] [INFO] Models loaded successfully
+[2025-07-16 13:34:10,936] [DEBUG] Using proactor: IocpProactor
+[2025-07-16 13:34:59,667] [INFO] Cleanup complete. Shutting down.
+[2025-07-16 13:35:10,370] [INFO] Using CUDA device.
+[2025-07-16 13:35:10,370] [INFO] Version : 10.1.2 Up 05/20/2025
+[2025-07-16 13:35:10,531] [INFO] PocketBase stater 99580
+[2025-07-16 13:35:11,037] [INFO] Loading YOLO models...
+[2025-07-16 13:35:12,377] [DEBUG] Loaded backend Agg version v2.2.
+[2025-07-16 13:35:12,926] [INFO] Models loaded successfully
+[2025-07-16 13:35:13,001] [DEBUG] Using proactor: IocpProactor
+[2025-07-16 13:36:58,612] [INFO] Cleanup complete. Shutting down.
+[2025-07-16 13:37:01,767] [INFO] Using CUDA device.
+[2025-07-16 13:37:01,767] [INFO] Version : 10.1.2 Up 05/20/2025
+[2025-07-16 13:37:34,250] [INFO] Using CUDA device.
+[2025-07-16 13:37:34,250] [INFO] Version : 10.1.2 Up 05/20/2025
+[2025-07-16 13:37:34,418] [INFO] PocketBase stater 99352
+[2025-07-16 13:37:34,930] [INFO] Loading YOLO models...
+[2025-07-16 13:37:36,168] [DEBUG] Loaded backend Agg version v2.2.
+[2025-07-16 13:37:36,727] [INFO] Models loaded successfully
+[2025-07-16 13:37:36,787] [DEBUG] Using proactor: IocpProactor
+[2025-07-16 14:05:53,922] [INFO] Cleanup complete. Shutting down.
+[2025-07-16 14:06:04,678] [INFO] Using CUDA device.
+[2025-07-16 14:06:04,678] [INFO] Version : 10.1.2 Up 05/20/2025
+[2025-07-16 14:06:04,843] [INFO] PocketBase stater 103304
+[2025-07-16 14:06:05,370] [INFO] Loading YOLO models...
+[2025-07-16 14:06:06,819] [DEBUG] Loaded backend Agg version v2.2.
+[2025-07-16 14:06:07,375] [INFO] Models loaded successfully
+[2025-07-16 14:06:07,377] [DEBUG] Using proactor: IocpProactor
+[2025-07-16 14:07:14,403] [INFO] Cleanup complete. Shutting down.
+[2025-07-16 14:10:08,402] [INFO] Using CUDA device.
+[2025-07-16 14:10:08,402] [INFO] Version : 10.1.2 Up 05/20/2025
+[2025-07-16 14:10:29,903] [INFO] Using CUDA device.
+[2025-07-16 14:10:29,903] [INFO] Version : 10.1.2 Up 05/20/2025
+[2025-07-16 14:10:30,069] [INFO] PocketBase stater 102204
+[2025-07-16 14:10:30,583] [INFO] Loading YOLO models...
+[2025-07-16 14:10:31,854] [DEBUG] Loaded backend Agg version v2.2.
+[2025-07-16 14:10:32,498] [INFO] Models loaded successfully
+[2025-07-16 14:10:32,501] [DEBUG] Using proactor: IocpProactor
+[2025-07-16 14:11:31,273] [INFO] Using CUDA device.
+[2025-07-16 14:11:31,274] [INFO] Version : 10.1.2 Up 05/20/2025
+[2025-07-16 14:11:31,456] [INFO] PocketBase stater 101360
+[2025-07-16 14:11:31,970] [INFO] Loading YOLO models...
+[2025-07-16 14:11:33,333] [DEBUG] Loaded backend Agg version v2.2.
+[2025-07-16 14:11:33,966] [INFO] Models loaded successfully
+[2025-07-16 14:11:33,972] [DEBUG] Using proactor: IocpProactor
+[2025-07-16 14:13:17,716] [INFO] Cleanup complete. Shutting down.
+[2025-07-17 08:39:33,144] [INFO] Using CUDA device.
+[2025-07-17 08:39:33,144] [INFO] Version : 10.1.2 Up 05/20/2025
+[2025-07-17 08:39:33,493] [INFO] PocketBase stater 27364
+[2025-07-17 08:39:34,013] [INFO] Loading YOLO models...
+[2025-07-17 08:39:39,124] [DEBUG] Loaded backend Agg version v2.2.
+[2025-07-17 08:39:40,351] [INFO] Models loaded successfully
+[2025-07-17 08:39:40,351] [DEBUG] Using proactor: IocpProactor
+[2025-07-17 08:40:07,700] [INFO] Cleanup complete. Shutting down.
+[2025-07-17 08:40:30,416] [INFO] Using CUDA device.
+[2025-07-17 08:40:30,416] [INFO] Version : 10.1.2 Up 05/20/2025
+[2025-07-17 08:40:30,618] [INFO] PocketBase stater 6876
+[2025-07-17 08:40:31,128] [INFO] Loading YOLO models...
+[2025-07-17 08:40:32,413] [DEBUG] Loaded backend Agg version v2.2.
+[2025-07-17 08:40:33,153] [INFO] Models loaded successfully
+[2025-07-17 08:40:33,156] [DEBUG] Using proactor: IocpProactor
+[2025-07-17 08:41:16,902] [INFO] Cleanup complete. Shutting down.
+[2025-07-17 08:41:28,665] [INFO] Using CUDA device.
+[2025-07-17 08:41:28,665] [INFO] Version : 10.1.2 Up 05/20/2025
+[2025-07-17 08:41:28,845] [INFO] PocketBase stater 32700
+[2025-07-17 08:41:29,353] [INFO] Loading YOLO models...
+[2025-07-17 08:41:30,640] [DEBUG] Loaded backend Agg version v2.2.
+[2025-07-17 08:41:31,170] [INFO] Models loaded successfully
+[2025-07-17 08:41:31,172] [DEBUG] Using proactor: IocpProactor
+[2025-07-17 08:42:07,738] [INFO] Using CUDA device.
+[2025-07-17 08:42:07,738] [INFO] Version : 10.1.2 Up 05/20/2025
+[2025-07-17 08:42:07,907] [INFO] PocketBase stater 31584
+[2025-07-17 08:42:08,421] [INFO] Loading YOLO models...
+[2025-07-17 08:42:09,728] [DEBUG] Loaded backend Agg version v2.2.
+[2025-07-17 08:42:10,284] [INFO] Models loaded successfully
+[2025-07-17 08:42:10,287] [DEBUG] Using proactor: IocpProactor
+[2025-07-17 08:44:01,188] [INFO] Using CUDA device.
+[2025-07-17 08:44:01,188] [INFO] Version : 10.1.2 Up 05/20/2025
+[2025-07-17 08:44:01,487] [INFO] PocketBase stater 33132
+[2025-07-17 08:44:02,002] [INFO] Loading YOLO models...
+[2025-07-17 08:44:07,022] [DEBUG] Loaded backend Agg version v2.2.
+[2025-07-17 08:44:07,839] [INFO] Models loaded successfully
+[2025-07-17 08:44:07,839] [DEBUG] Using proactor: IocpProactor
+[2025-07-17 08:45:09,039] [INFO] Cleanup complete. Shutting down.
+[2025-07-17 08:45:14,227] [INFO] Using CUDA device.
+[2025-07-17 08:45:14,227] [INFO] Version : 10.1.2 Up 05/20/2025
+[2025-07-17 08:45:14,403] [INFO] PocketBase stater 30640
+[2025-07-17 08:45:14,914] [INFO] Loading YOLO models...
+[2025-07-17 08:45:16,173] [DEBUG] Loaded backend Agg version v2.2.
+[2025-07-17 08:45:16,711] [INFO] Models loaded successfully
+[2025-07-17 08:45:16,714] [DEBUG] Using proactor: IocpProactor
+[2025-07-17 08:46:41,587] [INFO] Cleanup complete. Shutting down.
+[2025-07-17 08:46:55,327] [INFO] Using CUDA device.
+[2025-07-17 08:46:55,327] [INFO] Version : 10.1.2 Up 05/20/2025
+[2025-07-17 08:46:55,511] [INFO] PocketBase stater 32856
+[2025-07-17 08:46:56,019] [INFO] Loading YOLO models...
+[2025-07-17 08:46:57,300] [DEBUG] Loaded backend Agg version v2.2.
+[2025-07-17 08:47:03,493] [INFO] Using CUDA device.
+[2025-07-17 08:47:03,493] [INFO] Version : 10.1.2 Up 05/20/2025
+[2025-07-17 08:47:03,676] [INFO] PocketBase stater 30920
+[2025-07-17 08:47:04,191] [INFO] Loading YOLO models...
+[2025-07-17 08:47:05,528] [DEBUG] Loaded backend Agg version v2.2.
+[2025-07-17 08:47:06,106] [INFO] Models loaded successfully
+[2025-07-17 08:47:06,106] [DEBUG] Using proactor: IocpProactor
+[2025-07-17 08:48:49,497] [INFO] Using CUDA device.
+[2025-07-17 08:48:49,497] [INFO] Version : 10.1.2 Up 05/20/2025
+[2025-07-17 08:48:49,689] [INFO] PocketBase stater 10168
+[2025-07-17 08:48:50,201] [INFO] Loading YOLO models...
+[2025-07-17 08:48:51,422] [DEBUG] Loaded backend Agg version v2.2.
+[2025-07-17 08:48:51,981] [INFO] Models loaded successfully
+[2025-07-17 08:48:51,983] [DEBUG] Using proactor: IocpProactor
+[2025-07-17 08:51:03,227] [INFO] Using CUDA device.
+[2025-07-17 08:51:03,227] [INFO] Version : 10.1.2 Up 05/20/2025
+[2025-07-17 08:51:03,388] [INFO] PocketBase stater 33728
+[2025-07-17 08:51:03,920] [INFO] Loading YOLO models...
+[2025-07-17 08:51:05,129] [DEBUG] Loaded backend Agg version v2.2.
+[2025-07-17 08:51:05,660] [INFO] Models loaded successfully
+[2025-07-17 08:51:05,663] [DEBUG] Using proactor: IocpProactor
+[2025-07-17 08:52:43,979] [INFO] Cleanup complete. Shutting down.
+[2025-07-17 08:52:50,391] [INFO] Using CUDA device.
+[2025-07-17 08:52:50,395] [INFO] Version : 10.1.2 Up 05/20/2025
+[2025-07-17 08:52:50,578] [INFO] PocketBase stater 32956
+[2025-07-17 08:52:51,086] [INFO] Loading YOLO models...
+[2025-07-17 08:52:52,333] [DEBUG] Loaded backend Agg version v2.2.
+[2025-07-17 08:52:52,873] [INFO] Models loaded successfully
+[2025-07-17 08:52:52,886] [DEBUG] Using proactor: IocpProactor
+[2025-07-17 08:53:51,287] [INFO] Cleanup complete. Shutting down.
+[2025-07-17 08:54:40,555] [INFO] Using CUDA device.
+[2025-07-17 08:54:40,556] [INFO] Version : 10.1.2 Up 05/20/2025
+[2025-07-17 08:54:40,731] [INFO] PocketBase stater 31080
+[2025-07-17 08:54:41,253] [INFO] Loading YOLO models...
+[2025-07-17 08:54:42,461] [DEBUG] Loaded backend Agg version v2.2.
+[2025-07-17 08:54:43,000] [INFO] Models loaded successfully
+[2025-07-17 08:54:43,002] [DEBUG] Using proactor: IocpProactor
+[2025-07-17 08:56:18,381] [INFO] Using CUDA device.
+[2025-07-17 08:56:18,381] [INFO] Version : 10.1.2 Up 05/20/2025
+[2025-07-17 08:56:18,557] [INFO] PocketBase stater 12140
+[2025-07-17 08:56:19,082] [INFO] Loading YOLO models...
+[2025-07-17 08:56:20,288] [DEBUG] Loaded backend Agg version v2.2.
+[2025-07-17 08:56:20,891] [INFO] Models loaded successfully
+[2025-07-17 08:56:20,894] [DEBUG] Using proactor: IocpProactor
+[2025-07-17 08:56:47,385] [INFO] Cleanup complete. Shutting down.
+[2025-07-17 08:56:50,849] [INFO] Using CUDA device.
+[2025-07-17 08:56:50,849] [INFO] Version : 10.1.2 Up 05/20/2025
+[2025-07-17 08:56:51,028] [INFO] PocketBase stater 35604
+[2025-07-17 08:56:51,553] [INFO] Loading YOLO models...
+[2025-07-17 08:56:52,754] [DEBUG] Loaded backend Agg version v2.2.
+[2025-07-17 08:56:53,328] [INFO] Models loaded successfully
+[2025-07-17 08:56:53,330] [DEBUG] Using proactor: IocpProactor
+[2025-07-17 08:58:10,807] [INFO] Using CUDA device.
+[2025-07-17 08:58:10,807] [INFO] Version : 10.1.2 Up 05/20/2025
+[2025-07-17 08:58:10,979] [INFO] PocketBase stater 35324
+[2025-07-17 08:58:11,511] [INFO] Loading YOLO models...
+[2025-07-17 08:58:12,718] [DEBUG] Loaded backend Agg version v2.2.
+[2025-07-17 08:58:13,270] [INFO] Models loaded successfully
+[2025-07-17 08:58:13,272] [DEBUG] Using proactor: IocpProactor
+[2025-07-17 09:08:18,032] [INFO] Using CUDA device.
+[2025-07-17 09:08:18,033] [INFO] Version : 10.1.2 Up 05/20/2025
+[2025-07-17 09:08:18,240] [INFO] PocketBase stater 40720
+[2025-07-17 09:08:18,760] [INFO] Loading YOLO models...
+[2025-07-17 09:08:20,067] [DEBUG] Loaded backend Agg version v2.2.
+[2025-07-17 09:08:20,618] [INFO] Models loaded successfully
+[2025-07-17 09:08:20,619] [DEBUG] Using proactor: IocpProactor
+[2025-07-17 09:10:14,038] [INFO] Using CUDA device.
+[2025-07-17 09:10:14,038] [INFO] Version : 10.1.2 Up 05/20/2025
+[2025-07-17 09:10:14,214] [INFO] PocketBase stater 40616
+[2025-07-17 09:10:14,720] [INFO] Loading YOLO models...
+[2025-07-17 09:10:15,946] [DEBUG] Loaded backend Agg version v2.2.
+[2025-07-17 09:10:16,524] [INFO] Models loaded successfully
+[2025-07-17 09:10:16,525] [DEBUG] Using proactor: IocpProactor
+[2025-07-17 09:10:59,445] [INFO] Cleanup complete. Shutting down.
+[2025-07-17 09:11:05,227] [INFO] Using CUDA device.
+[2025-07-17 09:11:05,228] [INFO] Version : 10.1.2 Up 05/20/2025
+[2025-07-17 09:11:05,413] [INFO] PocketBase stater 40240
+[2025-07-17 09:11:05,929] [INFO] Loading YOLO models...
+[2025-07-17 09:11:07,195] [DEBUG] Loaded backend Agg version v2.2.
+[2025-07-17 09:11:07,733] [INFO] Models loaded successfully
+[2025-07-17 09:11:07,736] [DEBUG] Using proactor: IocpProactor
+[2025-07-17 09:14:29,037] [INFO] Cleanup complete. Shutting down.
+[2025-07-17 09:14:32,213] [INFO] Using CUDA device.
+[2025-07-17 09:14:32,213] [INFO] Version : 10.1.2 Up 05/20/2025
+[2025-07-17 09:14:32,377] [INFO] PocketBase stater 35800
+[2025-07-17 09:14:32,909] [INFO] Loading YOLO models...
+[2025-07-17 09:14:34,167] [DEBUG] Loaded backend Agg version v2.2.
+[2025-07-17 09:14:34,686] [INFO] Models loaded successfully
+[2025-07-17 09:14:34,688] [DEBUG] Using proactor: IocpProactor
+[2025-07-17 09:15:34,006] [INFO] Cleanup complete. Shutting down.
+[2025-07-17 09:18:34,190] [INFO] Using CUDA device.
+[2025-07-17 09:18:34,190] [INFO] Version : 10.1.2 Up 05/20/2025
+[2025-07-17 09:18:34,360] [INFO] PocketBase stater 40804
+[2025-07-17 09:18:34,875] [INFO] Loading YOLO models...
+[2025-07-17 09:18:36,090] [DEBUG] Loaded backend Agg version v2.2.
+[2025-07-17 09:18:36,662] [INFO] Models loaded successfully
+[2025-07-17 09:18:36,664] [DEBUG] Using proactor: IocpProactor
+[2025-07-17 09:19:31,401] [INFO] Using CUDA device.
+[2025-07-17 09:19:31,401] [INFO] Version : 10.1.2 Up 05/20/2025
+[2025-07-17 09:19:40,785] [INFO] Using CUDA device.
+[2025-07-17 09:19:40,785] [INFO] Version : 10.1.2 Up 05/20/2025
+[2025-07-17 09:19:40,963] [INFO] PocketBase stater 10764
+[2025-07-17 09:19:41,470] [INFO] Loading YOLO models...
+[2025-07-17 09:19:42,757] [DEBUG] Loaded backend Agg version v2.2.
+[2025-07-17 09:19:43,438] [INFO] Models loaded successfully
+[2025-07-17 09:19:43,441] [DEBUG] Using proactor: IocpProactor
+[2025-07-17 09:20:47,627] [INFO] Using CUDA device.
+[2025-07-17 09:20:47,627] [INFO] Version : 10.1.2 Up 05/20/2025
+[2025-07-17 09:20:47,795] [INFO] PocketBase stater 38732
+[2025-07-17 09:20:48,304] [INFO] Loading YOLO models...
+[2025-07-17 09:20:49,547] [DEBUG] Loaded backend Agg version v2.2.
+[2025-07-17 09:20:50,103] [INFO] Models loaded successfully
+[2025-07-17 09:20:50,105] [DEBUG] Using proactor: IocpProactor
+[2025-07-17 09:21:08,716] [INFO] Cleanup complete. Shutting down.
+[2025-07-17 09:21:12,384] [INFO] Using CUDA device.
+[2025-07-17 09:21:12,384] [INFO] Version : 10.1.2 Up 05/20/2025
+[2025-07-17 09:21:12,543] [INFO] PocketBase stater 40520
+[2025-07-17 09:21:13,063] [INFO] Loading YOLO models...
+[2025-07-17 09:21:14,281] [DEBUG] Loaded backend Agg version v2.2.
+[2025-07-17 09:21:14,812] [INFO] Models loaded successfully
+[2025-07-17 09:21:14,873] [DEBUG] Using proactor: IocpProactor
+[2025-07-17 09:21:32,340] [INFO] Using CUDA device.
+[2025-07-17 09:21:32,340] [INFO] Version : 10.1.2 Up 05/20/2025
+[2025-07-17 09:21:32,526] [INFO] PocketBase stater 35936
+[2025-07-17 09:21:33,037] [INFO] Loading YOLO models...
+[2025-07-17 09:21:34,234] [DEBUG] Loaded backend Agg version v2.2.
+[2025-07-17 09:21:34,783] [INFO] Models loaded successfully
+[2025-07-17 09:21:34,840] [DEBUG] Using proactor: IocpProactor
+[2025-07-17 09:41:11,244] [INFO] Using CUDA device.
+[2025-07-17 09:41:11,244] [INFO] Version : 10.1.2 Up 05/20/2025
+[2025-07-17 09:41:11,427] [INFO] PocketBase stater 36708
+[2025-07-17 09:41:11,936] [INFO] Loading YOLO models...
+[2025-07-17 09:41:13,270] [DEBUG] Loaded backend Agg version v2.2.
+[2025-07-17 09:41:13,893] [INFO] Models loaded successfully
+[2025-07-17 09:41:13,950] [DEBUG] Using proactor: IocpProactor
+[2025-07-17 09:42:50,881] [INFO] Using CUDA device.
+[2025-07-17 09:42:50,881] [INFO] Version : 10.1.2 Up 05/20/2025
+[2025-07-17 09:42:51,082] [INFO] PocketBase stater 42736
+[2025-07-17 09:42:51,591] [INFO] Loading YOLO models...
+[2025-07-17 09:42:52,796] [DEBUG] Loaded backend Agg version v2.2.
+[2025-07-17 09:42:53,338] [INFO] Models loaded successfully
+[2025-07-17 09:42:53,387] [DEBUG] Using proactor: IocpProactor
+[2025-07-17 09:45:38,413] [INFO] Using CUDA device.
+[2025-07-17 09:45:38,413] [INFO] Version : 10.1.2 Up 05/20/2025
+[2025-07-17 09:45:38,590] [INFO] PocketBase stater 43576
+[2025-07-17 09:45:39,105] [INFO] Loading YOLO models...
+[2025-07-17 09:45:40,366] [DEBUG] Loaded backend Agg version v2.2.
+[2025-07-17 09:45:41,168] [INFO] Models loaded successfully
+[2025-07-17 09:45:41,229] [DEBUG] Using proactor: IocpProactor
+[2025-07-17 09:46:42,064] [INFO] Using CUDA device.
+[2025-07-17 09:46:42,064] [INFO] Version : 10.1.2 Up 05/20/2025
+[2025-07-17 09:46:42,232] [INFO] PocketBase stater 46956
+[2025-07-17 09:46:42,747] [INFO] Loading YOLO models...
+[2025-07-17 09:46:44,046] [DEBUG] Loaded backend Agg version v2.2.
+[2025-07-17 09:46:44,598] [INFO] Models loaded successfully
+[2025-07-17 09:46:44,643] [DEBUG] Using proactor: IocpProactor
+[2025-07-17 09:47:48,419] [INFO] Using CUDA device.
+[2025-07-17 09:47:48,419] [INFO] Version : 10.1.2 Up 05/20/2025
+[2025-07-17 09:47:48,610] [INFO] PocketBase stater 42556
+[2025-07-17 09:47:49,121] [INFO] Loading YOLO models...
+[2025-07-17 09:47:50,350] [DEBUG] Loaded backend Agg version v2.2.
+[2025-07-17 09:47:50,894] [INFO] Models loaded successfully
+[2025-07-17 09:47:50,954] [DEBUG] Using proactor: IocpProactor
+[2025-07-17 09:48:21,879] [INFO] Using CUDA device.
+[2025-07-17 09:48:21,879] [INFO] Version : 10.1.2 Up 05/20/2025
+[2025-07-17 09:48:22,072] [INFO] PocketBase stater 45832
+[2025-07-17 09:48:22,582] [INFO] Loading YOLO models...
+[2025-07-17 09:48:23,767] [DEBUG] Loaded backend Agg version v2.2.
+[2025-07-17 09:48:24,331] [INFO] Models loaded successfully
+[2025-07-17 09:48:24,393] [DEBUG] Using proactor: IocpProactor
+[2025-07-17 09:49:58,817] [INFO] Using CUDA device.
+[2025-07-17 09:49:58,817] [INFO] Version : 10.1.2 Up 05/20/2025
+[2025-07-17 09:49:59,015] [INFO] PocketBase stater 47888
+[2025-07-17 09:49:59,524] [INFO] Loading YOLO models...
+[2025-07-17 09:50:00,824] [DEBUG] Loaded backend Agg version v2.2.
+[2025-07-17 09:50:01,395] [INFO] Models loaded successfully
+[2025-07-17 09:50:01,449] [DEBUG] Using proactor: IocpProactor
+[2025-07-17 09:51:38,425] [INFO] Using CUDA device.
+[2025-07-17 09:51:38,425] [INFO] Version : 10.1.2 Up 05/20/2025
+[2025-07-17 09:51:38,604] [INFO] PocketBase stater 46936
+[2025-07-17 09:51:39,112] [INFO] Loading YOLO models...
+[2025-07-17 09:51:40,432] [DEBUG] Loaded backend Agg version v2.2.
+[2025-07-17 09:51:40,988] [INFO] Models loaded successfully
+[2025-07-17 09:51:41,049] [DEBUG] Using proactor: IocpProactor
+[2025-07-17 09:55:28,713] [INFO] Using CUDA device.
+[2025-07-17 09:55:28,713] [INFO] Version : 10.1.2 Up 05/20/2025
+[2025-07-17 09:55:28,883] [INFO] PocketBase stater 48276
+[2025-07-17 09:55:29,408] [INFO] Loading YOLO models...
+[2025-07-17 09:55:30,705] [DEBUG] Loaded backend Agg version v2.2.
+[2025-07-17 09:55:31,260] [INFO] Models loaded successfully
+[2025-07-17 09:55:31,321] [DEBUG] Using proactor: IocpProactor
+[2025-07-17 09:56:19,687] [INFO] Using CUDA device.
+[2025-07-17 09:56:19,687] [INFO] Version : 10.1.2 Up 05/20/2025
+[2025-07-17 09:56:19,853] [INFO] PocketBase stater 49368
+[2025-07-17 09:56:20,367] [INFO] Loading YOLO models...
+[2025-07-17 09:56:21,654] [DEBUG] Loaded backend Agg version v2.2.
+[2025-07-17 09:56:22,182] [INFO] Models loaded successfully
+[2025-07-17 09:56:22,242] [DEBUG] Using proactor: IocpProactor
+[2025-07-17 09:59:00,217] [INFO] Using CUDA device.
+[2025-07-17 09:59:00,217] [INFO] Version : 10.1.2 Up 05/20/2025
+[2025-07-17 09:59:00,380] [INFO] PocketBase stater 2504
+[2025-07-17 09:59:00,899] [INFO] Loading YOLO models...
+[2025-07-17 09:59:02,151] [DEBUG] Loaded backend Agg version v2.2.
+[2025-07-17 09:59:02,723] [INFO] Models loaded successfully
+[2025-07-17 09:59:02,783] [DEBUG] Using proactor: IocpProactor
+[2025-07-17 10:02:17,484] [INFO] Using CUDA device.
+[2025-07-17 10:02:17,484] [INFO] Version : 10.1.2 Up 05/20/2025
+[2025-07-17 10:02:17,658] [INFO] PocketBase stater 52196
+[2025-07-17 10:02:18,174] [INFO] Loading YOLO models...
+[2025-07-17 10:02:19,477] [DEBUG] Loaded backend Agg version v2.2.
+[2025-07-17 10:02:20,046] [INFO] Models loaded successfully
+[2025-07-17 10:02:20,106] [DEBUG] Using proactor: IocpProactor
+[2025-07-17 10:03:31,161] [INFO] Using CUDA device.
+[2025-07-17 10:03:31,161] [INFO] Version : 10.1.2 Up 05/20/2025
+[2025-07-17 10:03:31,324] [INFO] PocketBase stater 54048
+[2025-07-17 10:03:31,848] [INFO] Loading YOLO models...
+[2025-07-17 10:03:33,134] [DEBUG] Loaded backend Agg version v2.2.
+[2025-07-17 10:03:33,677] [INFO] Models loaded successfully
+[2025-07-17 10:03:33,735] [DEBUG] Using proactor: IocpProactor
+[2025-07-17 10:07:32,469] [INFO] Using CUDA device.
+[2025-07-17 10:07:32,469] [INFO] Version : 10.1.2 Up 05/20/2025
+[2025-07-17 10:07:32,674] [INFO] PocketBase stater 55020
+[2025-07-17 10:07:33,182] [INFO] Loading YOLO models...
+[2025-07-17 10:07:34,563] [DEBUG] Loaded backend Agg version v2.2.
+[2025-07-17 10:07:35,120] [INFO] Models loaded successfully
+[2025-07-17 10:07:35,182] [DEBUG] Using proactor: IocpProactor
+[2025-07-17 10:08:04,842] [INFO] Using CUDA device.
+[2025-07-17 10:08:04,842] [INFO] Version : 10.1.2 Up 05/20/2025
+[2025-07-17 10:08:05,045] [INFO] PocketBase stater 45796
+[2025-07-17 10:08:05,552] [INFO] Loading YOLO models...
+[2025-07-17 10:08:06,864] [DEBUG] Loaded backend Agg version v2.2.
+[2025-07-17 10:08:07,420] [INFO] Models loaded successfully
+[2025-07-17 10:08:07,482] [DEBUG] Using proactor: IocpProactor
+[2025-07-17 10:11:42,641] [INFO] Using CUDA device.
+[2025-07-17 10:11:42,641] [INFO] Version : 10.1.2 Up 05/20/2025
+[2025-07-17 10:11:42,813] [INFO] PocketBase stater 54792
+[2025-07-17 10:11:43,323] [INFO] Loading YOLO models...
+[2025-07-17 10:11:44,593] [DEBUG] Loaded backend Agg version v2.2.
+[2025-07-17 10:11:45,169] [INFO] Models loaded successfully
+[2025-07-17 10:11:45,222] [DEBUG] Using proactor: IocpProactor
+[2025-07-17 10:12:08,505] [INFO] m5ona092p41353a
+[2025-07-17 10:12:43,688] [INFO] Using CUDA device.
+[2025-07-17 10:12:43,688] [INFO] Version : 10.1.2 Up 05/20/2025
+[2025-07-17 10:12:43,877] [INFO] PocketBase stater 49328
+[2025-07-17 10:12:44,390] [INFO] Loading YOLO models...
+[2025-07-17 10:12:45,699] [DEBUG] Loaded backend Agg version v2.2.
+[2025-07-17 10:12:46,244] [INFO] Models loaded successfully
+[2025-07-17 10:12:46,300] [DEBUG] Using proactor: IocpProactor
+[2025-07-17 10:55:23,204] [INFO] cc0chlgf3l7u358
+[2025-07-17 10:55:32,507] [INFO] 6vtc926j2s5ci1b
+[2025-07-17 10:55:35,406] [INFO] i5q5ywei8r83847
+[2025-07-17 10:56:08,298] [INFO] 3776fsgk045k050
+[2025-07-17 10:56:08,370] [INFO] 721ie7ds0lxfrlp
+[2025-07-17 10:56:08,948] [INFO] c0905m0u32ruc7v
+[2025-07-17 10:56:44,583] [INFO] o9g1t45z2xbx8sc
+[2025-07-17 10:57:57,424] [INFO] 4svdq941jml96uu
+[2025-07-17 10:58:15,090] [INFO] 02jiwrxwoxv321a
+[2025-07-17 10:58:15,987] [INFO] 46e7y14137v8l20
+[2025-07-17 10:58:16,111] [INFO] 76iu1r154nt1s25
+[2025-07-17 10:58:16,417] [INFO] 56z26t8t8oh457i
+[2025-07-17 10:58:29,402] [INFO] 0t7kyd4z4ich4as
+[2025-07-17 10:59:10,253] [INFO] 64yhr640a5jktcr
+[2025-07-17 10:59:45,868] [INFO] k4j87521o9ofds8
+[2025-07-17 11:00:10,125] [INFO] 4f5fy12aum46v7g
+[2025-07-17 11:00:10,251] [INFO] 88pj6zqysmzokyz
+[2025-07-17 11:00:10,393] [INFO] zo9933cnaz1kojo
+[2025-07-17 11:00:32,270] [INFO] 92kt163xngay99n
+[2025-07-17 11:00:37,310] [INFO] 971cuxe22g610s3
+[2025-07-17 11:00:38,025] [INFO] 246mdz25bab00fc
+[2025-07-17 11:01:48,037] [INFO] 83v077r2urg2wq0
+[2025-07-17 11:01:48,226] [INFO] fg34993vpjxb1j0
+[2025-07-17 11:02:49,607] [INFO] od0u72jhyw6msf8
+[2025-07-17 11:03:08,922] [INFO] 3a76a2so59832o4
+[2025-07-17 11:03:09,167] [INFO] 34802ah7ey0b459
+[2025-07-17 11:03:30,262] [INFO] my997tpg7586d98
+[2025-07-17 11:03:51,126] [INFO] xx126hs777x03l4
+[2025-07-17 11:03:51,338] [INFO] 2n89zn2t00a3tjo
+[2025-07-17 11:03:52,348] [INFO] xa350b18r49898l
+[2025-07-17 11:03:59,150] [INFO] w4kz0dw3sby01v7

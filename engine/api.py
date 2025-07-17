@@ -1,27 +1,43 @@
 
 from contextlib import asynccontextmanager
 import json
+import os
 import socket
 import time
 from fastapi import FastAPI, Query, Request, Response
-from fastapi.responses import StreamingResponse
+from fastapi.responses import FileResponse, HTMLResponse, RedirectResponse, StreamingResponse
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi.staticfiles import StaticFiles
 from pydantic import BaseModel
-from engine import  generate_frames, graceful_shutdown, generate_rtsp, loadConfig, loadModels,emailHandler,loadDb
+from engine import generate_frames, graceful_shutdown, generate_rtsp, loadConfig, loadModels, emailHandler, loadDb
 from TcpConnector import TcpConnector
-from onvifmaneger import  get_rtsp_url
+from onvifmaneger import get_rtsp_url
 import uvicorn
 import webbrowser
+from fastapi.templating import Jinja2Templates
 
 
 @asynccontextmanager
-async def lifespan(app: FastAPI):  
+async def lifespan(app: FastAPI):
     yield
     graceful_shutdown()
 
 
 app = FastAPI(lifespan=lifespan)
 connection = TcpConnector()
+
+
+
+# @app.get("/", response_class=HTMLResponse)
+# async def serve_flutter():
+#     return FileResponse("build/web/index.html")
+
+# @app.get("/{full_path:path}", response_class=HTMLResponse)
+# async def catch_all(full_path: str):
+#     return FileResponse("build/web/index.html")
+
+
+
 
 class Relay(BaseModel):
     isconnect: bool
@@ -32,11 +48,13 @@ class EmailClass(BaseModel):
     eDate: str
     eTime: str
 
+
 class RtspFields(BaseModel):
-    ip:str
-    port:str
-    username:str
-    password:str
+    ip: str
+    port: str
+    username: str
+    password: str
+
 
 origins = ["*"]  # Change this to specific domains in production
 
@@ -51,8 +69,13 @@ app.add_middleware(
 )
 
 
+
+
+
+
 @app.get("/video_feed/{camera_id}")
 async def video_feed(camera_id: str, request: Request, source: str = Query(...)):
+
     if source == '0':
         source = int(source)
     """Stream video from a specific camera"""
@@ -147,9 +170,6 @@ def onOff(onOff, relay):
             else:
                 return {"massage": f"problem : {connection.receivePacket(23, 2)}"}
 
-
-
-
     # vioz mxiw nedg rybh
 
 
@@ -165,12 +185,12 @@ def sendEmail(request: EmailClass, email):
 
 def discover_onvif_stream():
     try:
-        
+
         ip_base = socket.gethostbyname(socket.gethostname())
-        ip_base=ip_base.split('.')
-        ip_base='.'.join(ip_base[0:3])
-    except Exception :
-        ip_base="192.168.1"
+        ip_base = ip_base.split('.')
+        ip_base = '.'.join(ip_base[0:3])
+    except Exception:
+        ip_base = "192.168.1"
 
     def event_generator():
         for i in range(1, 255):
@@ -194,25 +214,30 @@ def get_camera_stream():
 
 
 @app.post('/onvif/get-rtsp')
-async def get_camra_rtsp(request:RtspFields):
+async def get_camra_rtsp(request: RtspFields):
     print(request.ip)
-    request.port=int(request.port)
-    rtspUrl=get_rtsp_url(request.ip,request.port,request.username,request.password)
-    return {'rtsp':rtspUrl}
-    
+    request.port = int(request.port)
+    rtspUrl = get_rtsp_url(request.ip, request.port,
+                           request.username, request.password)
+    return {'rtsp': rtspUrl}
+
+
+
+
+app.mount("/web/app", StaticFiles(directory="build/web", html=True), name="flutter")
 
 
 if __name__ == "__main__":
     loadDb()
     host = '0.0.0.0'
     port = int(loadConfig())
-    
+
     loader = loadModels()
     if (loader):
-        
-        webbrowser.open(f'http://127.0.0.1:{port}')
+
+        webbrowser.open(f'http://127.0.0.1:{port}/web/app')
         uvicorn.run("api:app", log_level='info',
                     reload=False, port=port, host=host)
-    if KeyboardInterrupt:
-
-        graceful_shutdown()
+    # if KeyboardInterrupt:
+    #     graceful_shutdown()
+    #DO BUT DONT FORGER PORT

@@ -166,7 +166,8 @@ def should_insert(name):
 
 
 def db_entries_time(number, charConfAvg, plateConfAvg, croppedPlate, status, frame, isarvand, rtpath,quality):
-    url = f"http://127.0.0.1:8090/api/collections/database/records"
+    url = "http://127.0.0.1:8090/api/collections/database/records"
+
 
 
     timeNow = datetime.datetime.now()
@@ -180,34 +181,42 @@ def db_entries_time(number, charConfAvg, plateConfAvg, croppedPlate, status, fra
     else:
         pass
     if should_insert(number):
+
         frame_loc, crop_loc = savePicture(
             frame, croppedPlate, number, quality)
+        
         recent_names.append(RecentEntry(
-            number=number, time=datetime.datetime.now()))
-        with open(crop_loc, "rb") as file1, open(frame_loc, "rb") as file2:
-            files = {
-                # Change field name if needed
-                "scrnPath": (frame_loc, file2, "image/jpeg"),
-                # Change field name if needed
-                "imgpath": (crop_loc, file1, "image/jpeg"),
-            }
+            platenum=number, time=datetime.datetime.now()))
+        try:
+            with open(crop_loc, "rb") as file1, open(frame_loc, "rb") as file2:
 
-        response = requests.post(url, files=files, data={
-            "plateNum": number,
-            "eDate": display_date,
-            "eTime": display_time,
-            "status": status,
-            "isarvand": isarvand,
-            "rtpath": rtpath,
-            "charPercent": charConfAvg,
-            "platePercent": plateConfAvg,
-        })
-        if response.status_code in [200, 201]:
-            os.remove(crop_loc)
+                files = {
+                    # Change field name if needed
+                    "scrnPath": (frame_loc, file2, "image/jpeg"),
+                    # Change field name if needed
+                    "imgpath": (crop_loc, file1, "image/jpeg"),
+                }
+
+                response = requests.post(url, files=files, data={
+                    "plateNum": number,
+                    "eDate": display_date,
+                    "eTime": display_time,
+                    "status": status,
+                    "isarvand": isarvand,
+                    "rtpath": rtpath,
+                    "charPercent": charConfAvg,
+                    "platePercent": plateConfAvg,
+                })
+                
+                if response.status_code in [200, 201]:
+                    logging.info(response.json()['id'])
+                else:
+                    logging.error("Error:", response.text)
             os.remove(frame_loc)
-            logging.info(response.json()['id'])
-        else:
-            logging.error("Error:", response.text)
+            os.remove(crop_loc)
+        
+        except Exception as e:
+            logging.info(e)
 
     # result = dbGetPlateLatestEntry(number)
     # if number != '':
