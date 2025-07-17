@@ -832,3 +832,45 @@
 [2025-07-17 11:03:51,338] [INFO] 2n89zn2t00a3tjo
 [2025-07-17 11:03:52,348] [INFO] xa350b18r49898l
 [2025-07-17 11:03:59,150] [INFO] w4kz0dw3sby01v7
+[2025-07-17 11:59:22,781] [INFO] Using CUDA device.
+[2025-07-17 11:59:22,781] [INFO] Version : 10.1.2 Up 05/20/2025
+[2025-07-17 11:59:23,084] [INFO] PocketBase stater 86112
+[2025-07-17 11:59:23,595] [INFO] Loading YOLO models...
+[2025-07-17 11:59:28,876] [DEBUG] Loaded backend Agg version v2.2.
+[2025-07-17 11:59:29,693] [INFO] Models loaded successfully
+[2025-07-17 11:59:29,777] [DEBUG] Using proactor: IocpProactor
+[2025-07-17 11:59:35,049] [INFO] 8eq3h9qt6b6b85u
+[2025-07-17 11:59:39,638] [INFO] pny4zxymwzf7643
+[2025-07-17 11:59:49,834] [INFO] qa5283jqe86l572
+[2025-07-17 12:00:15,060] [INFO] 1k80qhlp3s970pq
+[2025-07-17 12:00:15,175] [INFO] v1z9f4q64n71b3k
+[2025-07-17 12:00:41,113] [INFO] n8xo091tv9ksj0d
+[2025-07-17 12:02:15,131] [INFO] Using CUDA device.
+[2025-07-17 12:02:15,131] [INFO] Version : 10.1.2 Up 05/20/2025
+[2025-07-17 12:02:15,307] [INFO] PocketBase stater 90672
+[2025-07-17 12:02:15,826] [INFO] Loading YOLO models...
+[2025-07-17 12:02:17,060] [DEBUG] Loaded backend Agg version v2.2.
+[2025-07-17 12:02:17,588] [INFO] Models loaded successfully
+[2025-07-17 12:02:17,633] [DEBUG] Using proactor: IocpProactor
+[2025-07-17 12:13:39,815] [INFO] Cleanup complete. Shutting down.
+[2025-07-17 12:16:53,431] [INFO] Using CUDA device.
+[2025-07-17 12:16:53,431] [INFO] Version : 10.1.2 Up 05/20/2025
+[2025-07-17 12:16:53,664] [INFO] PocketBase stater 72652
+[2025-07-17 12:16:54,170] [INFO] Loading YOLO models...
+[2025-07-17 12:16:56,009] [DEBUG] Loaded backend Agg version v2.2.
+[2025-07-17 12:16:56,652] [INFO] Models loaded successfully
+[2025-07-17 12:16:56,702] [DEBUG] Using proactor: IocpProactor
+[2025-07-17 12:21:36,721] [INFO] qh53ncze9419gl8
+[2025-07-17 12:22:16,530] [INFO] 6d4korzh8uo6936
+[2025-07-17 12:22:38,503] [INFO] u8x1mt18vfjj1q0
+[2025-07-17 12:24:09,161] [INFO] 42511qr832uu36x
+[2025-07-17 12:24:38,435] [INFO] 11299ohod2yys59
+[2025-07-17 12:25:15,326] [INFO] 02w59bt8e0a1i01
+[2025-07-17 12:25:15,443] [INFO] qspd8n06499erpn
+[2025-07-17 12:25:15,677] [INFO] a0wq488eueq2b77
+[2025-07-17 12:25:19,716] [INFO] 1490gh8gm98o9ci
+[2025-07-17 12:37:09,755] [INFO] Cleanup complete. Shutting down.
+[2025-07-17 12:37:14,932] [INFO] Using CUDA device.
+[2025-07-17 12:37:14,932] [INFO] Version : 10.1.2 Up 05/20/2025
+[2025-07-17 12:37:15,210] [INFO] PocketBase stater 92020
+[2025-07-17 12:37:15,742] [INFO] Loading YOLO models...
