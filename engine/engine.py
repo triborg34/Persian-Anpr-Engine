@@ -42,7 +42,7 @@ cv2.setNumThreads(multiprocessing.cpu_count())
 # Device setup
 device = torch.device(0 if torch.cuda.is_available() else "cpu")
 logging.info(f"Using {'CUDA' if torch.cuda.is_available() else 'CPU'} device.")
-logging.info(f"Version : 10.1.2 Up 05/20/2025")
+logging.info(f"Version : 11.1.2 Up 07/20/2025")
 
 
 # Frame rate limiter (FPS)
