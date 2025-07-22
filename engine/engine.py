@@ -68,7 +68,7 @@ def loadDb():
     try:
 
         process = subprocess.Popen(
-            ["pocketbase", "serve", "--http=0.0.0.0:8090"])
+            ["pocketbase", "serve", "--http=0.0.0.0:8090"],creationflags=subprocess.CREATE_NO_WINDOW,)
         logging.info(f"PocketBase stater {process.pid}")
     except Exception as e:
         print(e)
@@ -498,14 +498,16 @@ async def generate_rtsp(source, request: Request):
 
 def isConnectionAlive(source):
     ulr = urlparse(source).hostname
+    
     try:
         res = requests.get(f"http://{ulr}", timeout=1)
         if (res.status_code in [200, 201]):
             return True
         else:
             return False
-    except Exception:
-        return False
+    except Exception as e:
+        logging.info(e)
+        return True
 
 
 def emailHandler(email, plateNumber, edate, etime):

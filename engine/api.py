@@ -236,7 +236,7 @@ if __name__ == "__main__":
     if (loader):
 
         webbrowser.open(f'http://127.0.0.1:{port}/web/app')
-        uvicorn.run("api:app", log_level='info',
+        uvicorn.run("api:app", log_level='info',log_config=None,
                     reload=False, port=port, host=host)
     # if KeyboardInterrupt:
     #     graceful_shutdown()

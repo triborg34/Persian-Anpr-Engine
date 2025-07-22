@@ -908,3 +908,79 @@
 [2025-07-20 09:32:44,523] [INFO] Models loaded successfully
 [2025-07-20 09:32:44,610] [DEBUG] Using proactor: IocpProactor
 [2025-07-20 09:49:07,005] [INFO] Cleanup complete. Shutting down.
+[2025-07-20 10:40:52,470] [INFO] Using CUDA device.
+[2025-07-20 10:40:52,470] [INFO] Version : 11.1.2 Up 07/20/2025
+[2025-07-20 10:40:52,703] [INFO] PocketBase stater 52348
+[2025-07-20 10:40:53,228] [INFO] Loading YOLO models...
+[2025-07-20 10:40:55,158] [DEBUG] Loaded backend Agg version v2.2.
+[2025-07-20 10:40:56,303] [INFO] Models loaded successfully
+[2025-07-20 10:40:56,375] [DEBUG] Using proactor: IocpProactor
+[2025-07-20 10:40:56,432] [INFO] Started server process [51572]
+[2025-07-20 10:40:56,432] [INFO] Waiting for application startup.
+[2025-07-20 10:40:56,433] [INFO] Application startup complete.
+[2025-07-20 10:40:56,434] [INFO] Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+[2025-07-20 10:40:56,448] [INFO] 127.0.0.1:6245 - "GET /web/app HTTP/1.1" 307
+[2025-07-20 10:40:56,498] [INFO] 127.0.0.1:6245 - "GET /web/app/ HTTP/1.1" 304
+[2025-07-20 10:40:56,509] [INFO] 127.0.0.1:6245 - "GET /web/app/flutter_bootstrap.js HTTP/1.1" 304
+[2025-07-20 10:40:56,516] [INFO] 127.0.0.1:6245 - "GET /web/app/main.dart.js HTTP/1.1" 304
+[2025-07-20 10:40:56,658] [INFO] 127.0.0.1:6245 - "GET /web/app/assets/FontManifest.json HTTP/1.1" 304
+[2025-07-20 10:40:56,673] [INFO] 127.0.0.1:6245 - "GET /web/app/assets/fonts/MaterialIcons-Regular.otf HTTP/1.1" 304
+[2025-07-20 10:40:56,673] [INFO] 127.0.0.1:6246 - "GET /web/app/assets/packages/cupertino_icons/assets/CupertinoIcons.ttf HTTP/1.1" 304
+[2025-07-20 10:40:58,511] [INFO] 127.0.0.1:6246 - "GET /web/app/flutter_service_worker.js?v=402086266 HTTP/1.1" 304
+[2025-07-20 10:41:04,614] [INFO] Shutting down
+[2025-07-20 10:41:04,722] [INFO] Waiting for application shutdown.
+[2025-07-20 10:41:04,848] [INFO] Cleanup complete. Shutting down.
+[2025-07-22 14:17:04,230] [INFO] Using CUDA device.
+[2025-07-22 14:17:04,232] [INFO] Version : 11.1.2 Up 07/20/2025
+[2025-07-22 14:17:04,514] [INFO] PocketBase stater 32868
+[2025-07-22 14:17:06,047] [INFO] Loading YOLO models...
+[2025-07-22 14:17:11,514] [DEBUG] Loaded backend Agg version v2.2.
+[2025-07-22 14:17:12,464] [INFO] Models loaded successfully
+[2025-07-22 14:17:12,546] [DEBUG] Using proactor: IocpProactor
+[2025-07-22 14:17:12,629] [INFO] Started server process [35804]
+[2025-07-22 14:17:12,629] [INFO] Waiting for application startup.
+[2025-07-22 14:17:12,629] [INFO] Application startup complete.
+[2025-07-22 14:17:12,630] [INFO] Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+[2025-07-22 14:17:12,876] [INFO] 127.0.0.1:2740 - "GET /web/app HTTP/1.1" 307
+[2025-07-22 14:17:12,918] [INFO] 127.0.0.1:2740 - "GET /web/app/ HTTP/1.1" 304
+[2025-07-22 14:17:12,930] [INFO] 127.0.0.1:2740 - "GET /web/app/flutter_bootstrap.js HTTP/1.1" 304
+[2025-07-22 14:17:12,938] [INFO] 127.0.0.1:2741 - "GET /web/app/manifest.json HTTP/1.1" 304
+[2025-07-22 14:17:12,939] [INFO] 127.0.0.1:2740 - "GET /web/app/main.dart.js HTTP/1.1" 304
+[2025-07-22 14:17:13,010] [INFO] 127.0.0.1:2740 - "GET /web/app/assets/FontManifest.json HTTP/1.1" 304
+[2025-07-22 14:17:13,016] [INFO] 127.0.0.1:2740 - "GET /web/app/assets/fonts/MaterialIcons-Regular.otf HTTP/1.1" 304
+[2025-07-22 14:17:13,017] [INFO] 127.0.0.1:2740 - "GET /web/app/assets/packages/cupertino_icons/assets/CupertinoIcons.ttf HTTP/1.1" 304
+[2025-07-22 14:17:14,777] [INFO] 127.0.0.1:2740 - "GET /web/app/flutter_service_worker.js?v=3318785598 HTTP/1.1" 304
+[2025-07-22 14:17:23,053] [INFO] Shutting down
+[2025-07-22 14:17:23,161] [INFO] Finished server process [35804]
+[2025-07-22 14:17:23,218] [ERROR] Traceback (most recent call last):
+  File "C:\Users\Microsoft\AppData\Local\Programs\Python\Python310\lib\asyncio\runners.py", line 44, in run
+    return loop.run_until_complete(main)
+  File "C:\Users\Microsoft\AppData\Local\Programs\Python\Python310\lib\asyncio\base_events.py", line 636, in run_until_complete
+    self.run_forever()
+  File "C:\Users\Microsoft\AppData\Local\Programs\Python\Python310\lib\asyncio\windows_events.py", line 321, in run_forever
+    super().run_forever()
+  File "C:\Users\Microsoft\AppData\Local\Programs\Python\Python310\lib\asyncio\base_events.py", line 603, in run_forever
+    self._run_once()
+  File "C:\Users\Microsoft\AppData\Local\Programs\Python\Python310\lib\asyncio\base_events.py", line 1909, in _run_once
+    handle._run()
+  File "C:\Users\Microsoft\AppData\Local\Programs\Python\Python310\lib\asyncio\events.py", line 80, in _run
+    self._context.run(self._callback, *self._args)
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\uvicorn\server.py", line 69, in serve
+    with self.capture_signals():
+  File "C:\Users\Microsoft\AppData\Local\Programs\Python\Python310\lib\contextlib.py", line 142, in __exit__
+    next(self.gen)
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\uvicorn\server.py", line 330, in capture_signals
+    signal.raise_signal(captured_signal)
+KeyboardInterrupt
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\starlette\routing.py", line 700, in lifespan
+    await receive()
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\uvicorn\lifespan\on.py", line 137, in receive
+    return await self.receive_queue.get()
+  File "C:\Users\Microsoft\AppData\Local\Programs\Python\Python310\lib\asyncio\queues.py", line 159, in get
+    await getter
+asyncio.exceptions.CancelledError
+
