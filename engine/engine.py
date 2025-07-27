@@ -4,6 +4,7 @@ import gc
 import logging
 import multiprocessing
 import os
+import platform
 import time
 from urllib.parse import urlparse
 from fastapi import Request
@@ -68,7 +69,7 @@ def loadDb():
     try:
 
         process = subprocess.Popen(
-            ["pocketbase", "serve", "--http=0.0.0.0:8090"],creationflags=subprocess.CREATE_NO_WINDOW,)
+            ["pocketbase", "serve", "--http=0.0.0.0:8090"], creationflags=subprocess.CREATE_NO_WINDOW,)
         logging.info(f"PocketBase stater {process.pid}")
     except Exception as e:
         print(e)
@@ -299,7 +300,7 @@ async def process_frame(frame, path):
                             if char_conf_avg >= confidence and len(plate_text) >= 8:
                                 cv2.putText(cropped_car, f"Plate: {plate_text}", (x_min, y_min - 10),
                                             cv2.FONT_HERSHEY_SIMPLEX, 0.7, (0, 255, 128), 2, cv2.LINE_AA)
-                                
+
                                 await db_entries_time(
                                     number=plate_text,
                                     charConfAvg=char_conf_avg,
@@ -498,16 +499,19 @@ async def generate_rtsp(source, request: Request):
 
 def isConnectionAlive(source):
     ulr = urlparse(source).hostname
-    
+    param = "-n" if platform.system().lower() == "windows" else "-c"
+
+    # Build the ping command
+    command = ["ping", param, "1", ulr]
+
     try:
-        res = requests.get(f"http://{ulr}", timeout=1)
-        if (res.status_code in [200, 201]):
-            return True
-        else:
-            return False
-    except Exception as e:
-        logging.info(e)
-        return True
+        # Execute the ping command
+        result = subprocess.run(
+            command, capture_output=True, text=True, timeout=10)
+
+        return result.returncode == 0
+    except subprocess.TimeoutExpired:
+        return False
 
 
 def emailHandler(email, plateNumber, edate, etime):
