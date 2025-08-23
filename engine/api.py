@@ -16,14 +16,14 @@ import uvicorn
 import webbrowser
 
 
-cctv = None
+cctv = CcTvMonitor()
 
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
-    global cctv,port
-    cctv=CcTvMonitor()
-    
+    # global cctv
+    # cctv=CcTvMonitor()
+
     yield
     cctv.graceful_shutdown()
 
@@ -217,7 +217,7 @@ app.mount("/web/app", StaticFiles(directory="build/web",
 
 if __name__ == "__main__":
     host = '0.0.0.0'
-    port=8000
+    port=int(cctv.loadConfig()[3])
     webbrowser.open(f'http://127.0.0.1:{port}/web/app')
     uvicorn.run("api:app", log_level='info', log_config=None,
                 reload=False, port=port, host=host)

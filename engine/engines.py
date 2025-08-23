@@ -49,7 +49,7 @@ class CcTvMonitor:
         self.RETRY_LIMIT = 3
         self.lock = threading.Lock()
         self.model_car, self.model_plate, self.model_char = self.loadModels()
-        self.quality, self.charConfidence, self.plateConfidence, self.port = self.loadConfig()
+        self.quality, self.charConfidence, self.plateConfidence = self.loadConfig()[0:3]
         self.process = None
 
     def loadDb(self):
