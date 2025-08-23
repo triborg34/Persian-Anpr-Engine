@@ -9,34 +9,27 @@ from fastapi.responses import FileResponse, HTMLResponse, RedirectResponse, Stre
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.staticfiles import StaticFiles
 from pydantic import BaseModel
-from engine import generate_frames, graceful_shutdown, generate_rtsp, loadConfig, loadModels, emailHandler, loadDb
+from engines import CcTvMonitor, emailHandler
 from TcpConnector import TcpConnector
 from onvifmaneger import get_rtsp_url
 import uvicorn
 import webbrowser
-from fastapi.templating import Jinja2Templates
+
+
+cctv = None
 
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
+    global cctv,port
+    cctv=CcTvMonitor()
+    
     yield
-    graceful_shutdown()
+    cctv.graceful_shutdown()
 
 
 app = FastAPI(lifespan=lifespan)
 connection = TcpConnector()
-
-
-
-# @app.get("/", response_class=HTMLResponse)
-# async def serve_flutter():
-#     return FileResponse("build/web/index.html")
-
-# @app.get("/{full_path:path}", response_class=HTMLResponse)
-# async def catch_all(full_path: str):
-#     return FileResponse("build/web/index.html")
-
-
 
 
 class Relay(BaseModel):
@@ -69,10 +62,6 @@ app.add_middleware(
 )
 
 
-
-
-
-
 @app.get("/video_feed/{camera_id}")
 async def video_feed(camera_id: str, request: Request, source: str = Query(...)):
 
@@ -86,7 +75,7 @@ async def video_feed(camera_id: str, request: Request, source: str = Query(...))
 
         return StreamingResponse(
 
-            generate_frames(camera_idx, source, request),
+            cctv.generate_frames(camera_idx, source, request),
 
 
             media_type="multipart/x-mixed-replace; boundary=frame",
@@ -107,7 +96,7 @@ async def video_feed(camera_id: str, request: Request, source: str = Query(...))
 
     return StreamingResponse(
 
-        generate_rtsp(source, request),
+        cctv.generate_rtsp(source, request),
 
 
         media_type="multipart/x-mixed-replace; boundary=frame",
@@ -222,22 +211,16 @@ async def get_camra_rtsp(request: RtspFields):
     return {'rtsp': rtspUrl}
 
 
-
-
-app.mount("/web/app", StaticFiles(directory="build/web", html=True), name="flutter")
+app.mount("/web/app", StaticFiles(directory="build/web",
+          html=True), name="flutter")
 
 
 if __name__ == "__main__":
-    loadDb()
     host = '0.0.0.0'
-    port = int(loadConfig())
-
-    loader = loadModels()
-    if (loader):
-
-        webbrowser.open(f'http://127.0.0.1:{port}/web/app')
-        uvicorn.run("api:app", log_level='info',log_config=None,
-                    reload=False, port=port, host=host)
+    port=8000
+    webbrowser.open(f'http://127.0.0.1:{port}/web/app')
+    uvicorn.run("api:app", log_level='info', log_config=None,
+                reload=False, port=port, host=host)
     # if KeyboardInterrupt:
     #     graceful_shutdown()
-    #DO BUT DONT FORGER PORT
+    # DO BUT DONT FORGER PORT

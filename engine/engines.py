@@ -40,8 +40,9 @@ logging.basicConfig(
 cv2.setNumThreads(multiprocessing.cpu_count())
 
 
-class CCTVMonitor:
+class CcTvMonitor:
     def __init__(self):
+        self.loadDb()
         self.params = Parameters()
         self.device = torch.device(0 if torch.cuda.is_available() else 'cpu')
         self.RETRY_LIMIT = 5
@@ -214,11 +215,7 @@ class CCTVMonitor:
         try:
             # Create a lower-resolution copy for detection
             # lowres_for_detection=frame
-            lowres_for_detection = cv2.resize(
-                frame,
-                (640, int(frame.shape[0] * 640 / frame.shape[1])),
-                interpolation=cv2.INTER_AREA
-            )
+            lowres_for_detection = frame.copy()
             scale_x = frame.shape[1] / lowres_for_detection.shape[1]
             scale_y = frame.shape[0] / lowres_for_detection.shape[0]
 
@@ -275,16 +272,18 @@ class CCTVMonitor:
                                 if char_conf_avg >= confidence and len(plate_text) >= 8:
                                     cv2.putText(cropped_car, f"Plate: {plate_text}", (x_min, y_min - 10),
                                                 cv2.FONT_HERSHEY_SIMPLEX, 0.7, (0, 255, 128), 2, cv2.LINE_AA)
-                                    multiprocessing.Process(target=db_entries_time, args=[plate_text,
-                                                                                          char_conf_avg,
-                                                                                          plate_conf,
-                                                                                          cropped_plate,
-                                                                                          "Active",
-                                                                                          frame,
-                                                                                          'notarvand',
-                                                                                          path,
-                                                                                          self.quality],daemon=True).start()
-                                    
+                                    await db_entries_time(
+                                        number=plate_text,
+                                        charConfAvg=char_conf_avg,
+                                        plateConfAvg=plate_conf,
+                                        croppedPlate=cropped_plate,
+                                        status="Active",
+                                        frame=frame,
+                                        isarvand='notarvand',
+                                        rtpath=path,
+                                        quality=self.quality
+                                    )
+                                    break
 
                                 else:
                                     deskewed_plate, (newx1, newy1, newx2, newy2) = self.correct_perspective(
@@ -319,14 +318,17 @@ class CCTVMonitor:
                                             if len(plate_text_arvnad) >= 5 and char_conf_arvnad >= confidence - 3:
                                                 cv2.putText(cropped_car, f"Plate: {plate_text_arvnad}", (x_min, y_min - 10),
                                                             cv2.FONT_HERSHEY_SIMPLEX, 0.7, (0, 255, 128), 2, cv2.LINE_AA)
-                                                multiprocessing.Process(target=db_entries_time, args=[plate_text_arvnad,
-                                                                                                      char_conf_arvnad,
-                                                                                                      plate_conf,
-                                                                                                      cropped_plate,
-                                                                                                      "Active",
-                                                                                                      frame,
-                                                                                                      'arvand',
-                                                                                                      path, self.quality], daemon=True).start()
+                                                await db_entries_time(
+                                                    number=plate_text_arvnad,
+                                                    charConfAvg=char_conf_arvnad,
+                                                    plateConfAvg=plate_conf,
+                                                    croppedPlate=cropped_plate,
+                                                    status="Active",
+                                                    frame=frame,
+                                                    isarvand='arvand',
+                                                    rtpath=path,
+                                                    quality=self.quality
+                                                )
 
             try:
                 del plate_results, cropped_car, car_res
