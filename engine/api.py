@@ -16,13 +16,14 @@ import uvicorn
 import webbrowser
 
 
-cctv = CcTvMonitor()
+cctv = None
 
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
-    # global cctv
-    # cctv=CcTvMonitor()
+    global cctv
+    cctv=CcTvMonitor()
+    updatePort()
 
     yield
     cctv.graceful_shutdown()
@@ -215,9 +216,21 @@ app.mount("/web/app", StaticFiles(directory="build/web",
           html=True), name="flutter")
 
 
+def updatePort():
+    port=cctv.loadConfig()[3]
+    with open('hostname.json','w') as file:
+        json.dump({'port':port}, file, indent=4)
+    return 0
+    
+
+def readPort() -> int:
+    with open('hostname.json','r') as file:
+        data=json.load(file)
+        return data['port']
 if __name__ == "__main__":
     host = '0.0.0.0'
-    port=int(cctv.loadConfig()[3])
+    # port=int(cctv.loadConfig()[3])
+    port=int(readPort())
     webbrowser.open(f'http://127.0.0.1:{port}/web/app')
     uvicorn.run("api:app", log_level='info', log_config=None,
                 reload=False, port=port, host=host)

@@ -42,6 +42,7 @@ cv2.setNumThreads(multiprocessing.cpu_count())
 
 class CcTvMonitor:
     def __init__(self):
+        self.process = None
         self.loadDb()
         self.params = Parameters()
         self.device = torch.device(0 if torch.cuda.is_available() else 'cpu')
@@ -50,7 +51,7 @@ class CcTvMonitor:
         self.lock = threading.Lock()
         self.model_car, self.model_plate, self.model_char = self.loadModels()
         self.quality, self.charConfidence, self.plateConfidence = self.loadConfig()[0:3]
-        self.process = None
+        
 
     def loadDb(self):
 
@@ -92,7 +93,14 @@ class CcTvMonitor:
         gc.collect()
 
         # Stop observer if running
-        self.process.terminate()
+        # os.system(f'taskkill /PID {self.process.pid} /F')
+        self.process.kill()
+        self.process.wait(1)
+        # if self.process.returncode is not None:
+            
+        #    self.process.kill()
+        #    self.process.wait(1)
+        # # self.process.terminate()
 
         logging.info("Cleanup complete. Shutting down.")
 

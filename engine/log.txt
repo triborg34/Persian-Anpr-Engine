@@ -4610,3 +4610,606 @@ Traceback (most recent call last):
   File "C:\Users\Microsoft\AppData\Local\Programs\Python\Python310\lib\asyncio\locks.py", line 214, in wait
     await fut
 asyncio.exceptions.CancelledError
+[2025-08-30 12:42:40,357] [INFO] PocketBase stater 48904
+[2025-08-30 12:42:40,382] [INFO] Loading YOLO models...
+[2025-08-30 12:42:47,270] [DEBUG] Loaded backend Agg version v2.2.
+[2025-08-30 12:42:48,878] [INFO] Models loaded successfully
+[2025-08-30 12:42:48,989] [DEBUG] Using proactor: IocpProactor
+[2025-08-30 12:42:49,114] [INFO] PocketBase stater 49904
+[2025-08-30 12:42:49,114] [INFO] Loading YOLO models...
+[2025-08-30 12:42:49,747] [INFO] Models loaded successfully
+[2025-08-30 12:42:49,758] [INFO] Started server process [49356]
+[2025-08-30 12:42:49,758] [INFO] Waiting for application startup.
+[2025-08-30 12:42:49,759] [INFO] Application startup complete.
+[2025-08-30 12:42:49,760] [INFO] Uvicorn running on http://0.0.0.0:8001 (Press CTRL+C to quit)
+[2025-08-30 12:42:49,838] [INFO] 127.0.0.1:2665 - "GET /web/app HTTP/1.1" 307
+[2025-08-30 12:42:49,913] [INFO] 127.0.0.1:2665 - "GET /web/app/ HTTP/1.1" 304
+[2025-08-30 12:42:49,932] [INFO] 127.0.0.1:2665 - "GET /web/app/flutter_bootstrap.js HTTP/1.1" 304
+[2025-08-30 12:42:49,949] [INFO] 127.0.0.1:2665 - "GET /web/app/favicon.png HTTP/1.1" 200
+[2025-08-30 12:42:49,964] [INFO] 127.0.0.1:2665 - "GET /web/app/main.dart.js HTTP/1.1" 304
+[2025-08-30 12:42:50,195] [INFO] 127.0.0.1:2665 - "GET /web/app/assets/FontManifest.json HTTP/1.1" 304
+[2025-08-30 12:42:50,215] [INFO] 127.0.0.1:2665 - "GET /web/app/assets/fonts/MaterialIcons-Regular.otf HTTP/1.1" 304
+[2025-08-30 12:42:50,215] [INFO] 127.0.0.1:4185 - "GET /web/app/assets/packages/cupertino_icons/assets/CupertinoIcons.ttf HTTP/1.1" 304
+[2025-08-30 12:42:52,197] [INFO] 127.0.0.1:4185 - "GET /flutter_service_worker.js?v=1054727979 HTTP/1.1" 404
+[2025-08-30 12:42:52,200] [INFO] 127.0.0.1:2665 - "GET /web/app/flutter_service_worker.js?v=3318785598 HTTP/1.1" 304
+[2025-08-30 12:42:56,046] [INFO] 127.0.0.1:2665 - "GET /video_feed/rt1?source=rtsp://192.168.1.89:554/av0_0 HTTP/1.1" 200
+[2025-08-30 12:43:08,116] [INFO] 127.0.0.1:4901 - "GET /web/app/flutter_service_worker.js?v=3318785598 HTTP/1.1" 304
+[2025-08-30 12:43:20,110] [INFO] 127.0.0.1:1779 - "GET /flutter_service_worker.js?v=1054727979 HTTP/1.1" 404
+[2025-08-30 12:43:37,243] [INFO] 127.0.0.1:3311 - "GET /web/app/flutter_service_worker.js?v=3318785598 HTTP/1.1" 304
+[2025-08-30 12:43:43,789] [INFO] 127.0.0.1:6955 - "GET /video_feed/rt1?source=rtsp://192.168.1.89:554/av0_0 HTTP/1.1" 200
+[2025-08-30 12:43:50,896] [INFO] 8x12g186glpkp8s
+[2025-08-30 12:44:03,430] [INFO] 968lml6zqo08nx7
+[2025-08-30 12:44:03,586] [INFO] 99c751x17pfu5n4
+[2025-08-30 12:44:37,286] [INFO] 127.0.0.1:1521 - "GET /onvif/get-stream HTTP/1.1" 200
+[2025-08-30 12:45:52,553] [INFO] 127.0.0.1:12192 - "GET /onvif/get-stream HTTP/1.1" 200
+[2025-08-30 12:46:11,921] [INFO] 127.0.0.1:4126 - "GET /onvif/get-stream HTTP/1.1" 200
+[2025-08-30 12:46:42,919] [INFO] 127.0.0.1:4016 - "GET /flutter_service_worker.js?v=1054727979 HTTP/1.1" 404
+[2025-08-30 12:47:02,237] [INFO] 127.0.0.1:4117 - "GET /onvif/get-stream HTTP/1.1" 200
+[2025-08-30 12:47:06,882] [INFO] 127.0.0.1:7553 - "GET /flutter_service_worker.js?v=1054727979 HTTP/1.1" 404
+[2025-08-30 12:47:08,574] [INFO] Shutting down
+[2025-08-30 12:47:08,675] [INFO] Waiting for connections to close. (CTRL+C to force quit)
+[2025-08-30 12:47:08,772] [INFO] Finished server process [49356]
+[2025-08-30 12:47:08,867] [INFO] ASGI 'lifespan' protocol appears unsupported.
+[2025-08-30 12:47:08,868] [ERROR] Exception in ASGI application
+Traceback (most recent call last):
+  File "C:\Users\Microsoft\AppData\Local\Programs\Python\Python310\lib\asyncio\runners.py", line 44, in run
+    return loop.run_until_complete(main)
+  File "C:\Users\Microsoft\AppData\Local\Programs\Python\Python310\lib\asyncio\base_events.py", line 636, in run_until_complete
+    self.run_forever()
+  File "C:\Users\Microsoft\AppData\Local\Programs\Python\Python310\lib\asyncio\windows_events.py", line 321, in run_forever
+    super().run_forever()
+  File "C:\Users\Microsoft\AppData\Local\Programs\Python\Python310\lib\asyncio\base_events.py", line 603, in run_forever
+    self._run_once()
+  File "C:\Users\Microsoft\AppData\Local\Programs\Python\Python310\lib\asyncio\base_events.py", line 1909, in _run_once
+    handle._run()
+  File "C:\Users\Microsoft\AppData\Local\Programs\Python\Python310\lib\asyncio\events.py", line 80, in _run
+    self._context.run(self._callback, *self._args)
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\uvicorn\server.py", line 69, in serve
+    with self.capture_signals():
+  File "C:\Users\Microsoft\AppData\Local\Programs\Python\Python310\lib\contextlib.py", line 142, in __exit__
+    next(self.gen)
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\uvicorn\server.py", line 330, in capture_signals
+    signal.raise_signal(captured_signal)
+KeyboardInterrupt
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\uvicorn\protocols\http\h11_impl.py", line 403, in run_asgi
+    result = await app(  # type: ignore[func-returns-value]
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\uvicorn\middleware\proxy_headers.py", line 60, in __call__
+    return await self.app(scope, receive, send)
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\fastapi\applications.py", line 1054, in __call__
+    await super().__call__(scope, receive, send)
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\starlette\applications.py", line 113, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\starlette\middleware\errors.py", line 165, in __call__
+    await self.app(scope, receive, _send)
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\starlette\middleware\cors.py", line 85, in __call__
+    await self.app(scope, receive, send)
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\starlette\middleware\exceptions.py", line 62, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\starlette\_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\starlette\routing.py", line 715, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\starlette\routing.py", line 735, in app
+    await route.handle(scope, receive, send)
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\starlette\routing.py", line 288, in handle
+    await self.app(scope, receive, send)
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\starlette\routing.py", line 76, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\starlette\_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\starlette\routing.py", line 74, in app
+    await response(scope, receive, send)
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\starlette\responses.py", line 252, in __call__
+    async with anyio.create_task_group() as task_group:
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\anyio\_backends\_asyncio.py", line 771, in __aexit__
+    raise exc_val
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\starlette\responses.py", line 259, in __call__
+    await wrap(partial(self.listen_for_disconnect, receive))
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\starlette\responses.py", line 255, in wrap
+    await func()
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\starlette\responses.py", line 232, in listen_for_disconnect
+    message = await receive()
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\uvicorn\protocols\http\h11_impl.py", line 531, in receive
+    await self.message_event.wait()
+  File "C:\Users\Microsoft\AppData\Local\Programs\Python\Python310\lib\asyncio\locks.py", line 214, in wait
+    await fut
+asyncio.exceptions.CancelledError
+[2025-08-30 12:47:09,020] [ERROR] Exception in ASGI application
+Traceback (most recent call last):
+  File "C:\Users\Microsoft\AppData\Local\Programs\Python\Python310\lib\asyncio\runners.py", line 44, in run
+    return loop.run_until_complete(main)
+  File "C:\Users\Microsoft\AppData\Local\Programs\Python\Python310\lib\asyncio\base_events.py", line 636, in run_until_complete
+    self.run_forever()
+  File "C:\Users\Microsoft\AppData\Local\Programs\Python\Python310\lib\asyncio\windows_events.py", line 321, in run_forever
+    super().run_forever()
+  File "C:\Users\Microsoft\AppData\Local\Programs\Python\Python310\lib\asyncio\base_events.py", line 603, in run_forever
+    self._run_once()
+  File "C:\Users\Microsoft\AppData\Local\Programs\Python\Python310\lib\asyncio\base_events.py", line 1909, in _run_once
+    handle._run()
+  File "C:\Users\Microsoft\AppData\Local\Programs\Python\Python310\lib\asyncio\events.py", line 80, in _run
+    self._context.run(self._callback, *self._args)
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\uvicorn\server.py", line 69, in serve
+    with self.capture_signals():
+  File "C:\Users\Microsoft\AppData\Local\Programs\Python\Python310\lib\contextlib.py", line 142, in __exit__
+    next(self.gen)
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\uvicorn\server.py", line 330, in capture_signals
+    signal.raise_signal(captured_signal)
+KeyboardInterrupt
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\uvicorn\protocols\http\h11_impl.py", line 403, in run_asgi
+    result = await app(  # type: ignore[func-returns-value]
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\uvicorn\middleware\proxy_headers.py", line 60, in __call__
+    return await self.app(scope, receive, send)
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\fastapi\applications.py", line 1054, in __call__
+    await super().__call__(scope, receive, send)
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\starlette\applications.py", line 113, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\starlette\middleware\errors.py", line 165, in __call__
+    await self.app(scope, receive, _send)
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\starlette\middleware\cors.py", line 85, in __call__
+    await self.app(scope, receive, send)
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\starlette\middleware\exceptions.py", line 62, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\starlette\_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\starlette\routing.py", line 715, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\starlette\routing.py", line 735, in app
+    await route.handle(scope, receive, send)
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\starlette\routing.py", line 288, in handle
+    await self.app(scope, receive, send)
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\starlette\routing.py", line 76, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\starlette\_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\starlette\routing.py", line 74, in app
+    await response(scope, receive, send)
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\starlette\responses.py", line 252, in __call__
+    async with anyio.create_task_group() as task_group:
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\anyio\_backends\_asyncio.py", line 771, in __aexit__
+    raise exc_val
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\anyio\_backends\_asyncio.py", line 743, in __aexit__
+    await self._on_completed_fut
+asyncio.exceptions.CancelledError
+[2025-08-30 12:47:09,022] [ERROR] Exception in ASGI application
+Traceback (most recent call last):
+  File "C:\Users\Microsoft\AppData\Local\Programs\Python\Python310\lib\asyncio\runners.py", line 44, in run
+    return loop.run_until_complete(main)
+  File "C:\Users\Microsoft\AppData\Local\Programs\Python\Python310\lib\asyncio\base_events.py", line 636, in run_until_complete
+    self.run_forever()
+  File "C:\Users\Microsoft\AppData\Local\Programs\Python\Python310\lib\asyncio\windows_events.py", line 321, in run_forever
+    super().run_forever()
+  File "C:\Users\Microsoft\AppData\Local\Programs\Python\Python310\lib\asyncio\base_events.py", line 603, in run_forever
+    self._run_once()
+  File "C:\Users\Microsoft\AppData\Local\Programs\Python\Python310\lib\asyncio\base_events.py", line 1909, in _run_once
+    handle._run()
+  File "C:\Users\Microsoft\AppData\Local\Programs\Python\Python310\lib\asyncio\events.py", line 80, in _run
+    self._context.run(self._callback, *self._args)
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\uvicorn\server.py", line 69, in serve
+    with self.capture_signals():
+  File "C:\Users\Microsoft\AppData\Local\Programs\Python\Python310\lib\contextlib.py", line 142, in __exit__
+    next(self.gen)
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\uvicorn\server.py", line 330, in capture_signals
+    signal.raise_signal(captured_signal)
+KeyboardInterrupt
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\uvicorn\protocols\http\h11_impl.py", line 403, in run_asgi
+    result = await app(  # type: ignore[func-returns-value]
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\uvicorn\middleware\proxy_headers.py", line 60, in __call__
+    return await self.app(scope, receive, send)
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\fastapi\applications.py", line 1054, in __call__
+    await super().__call__(scope, receive, send)
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\starlette\applications.py", line 113, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\starlette\middleware\errors.py", line 165, in __call__
+    await self.app(scope, receive, _send)
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\starlette\middleware\cors.py", line 85, in __call__
+    await self.app(scope, receive, send)
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\starlette\middleware\exceptions.py", line 62, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\starlette\_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\starlette\routing.py", line 715, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\starlette\routing.py", line 735, in app
+    await route.handle(scope, receive, send)
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\starlette\routing.py", line 288, in handle
+    await self.app(scope, receive, send)
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\starlette\routing.py", line 76, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\starlette\_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\starlette\routing.py", line 74, in app
+    await response(scope, receive, send)
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\starlette\responses.py", line 252, in __call__
+    async with anyio.create_task_group() as task_group:
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\anyio\_backends\_asyncio.py", line 771, in __aexit__
+    raise exc_val
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\starlette\responses.py", line 259, in __call__
+    await wrap(partial(self.listen_for_disconnect, receive))
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\starlette\responses.py", line 255, in wrap
+    await func()
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\starlette\responses.py", line 232, in listen_for_disconnect
+    message = await receive()
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\uvicorn\protocols\http\h11_impl.py", line 531, in receive
+    await self.message_event.wait()
+  File "C:\Users\Microsoft\AppData\Local\Programs\Python\Python310\lib\asyncio\locks.py", line 214, in wait
+    await fut
+asyncio.exceptions.CancelledError
+[2025-09-04 08:24:55,743] [INFO] PocketBase stater 29040
+[2025-09-04 08:24:55,767] [INFO] Loading YOLO models...
+[2025-09-04 08:25:02,512] [DEBUG] Loaded backend Agg version v2.2.
+[2025-09-04 08:25:04,416] [INFO] Models loaded successfully
+[2025-09-21 08:53:12,865] [INFO] PocketBase stater 37764
+[2025-09-21 08:53:12,883] [INFO] Loading YOLO models...
+[2025-09-21 08:53:14,912] [DEBUG] Loaded backend Agg version v2.2.
+[2025-09-21 08:53:16,027] [INFO] Models loaded successfully
+[2025-09-21 08:53:16,105] [DEBUG] Using proactor: IocpProactor
+[2025-09-21 08:53:16,159] [INFO] PocketBase stater 5980
+[2025-09-21 08:53:16,159] [INFO] Loading YOLO models...
+[2025-09-21 08:53:16,632] [INFO] Models loaded successfully
+[2025-09-21 08:53:16,638] [INFO] Started server process [37740]
+[2025-09-21 08:53:16,638] [INFO] Waiting for application startup.
+[2025-09-21 08:53:16,643] [INFO] Application startup complete.
+[2025-09-21 08:53:16,643] [INFO] Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+[2025-09-21 08:53:16,666] [INFO] 127.0.0.1:3107 - "GET /web/app HTTP/1.1" 307
+[2025-09-21 08:53:18,702] [INFO] 127.0.0.1:3107 - "GET /web/app/flutter_service_worker.js?v=3318785598 HTTP/1.1" 304
+[2025-09-21 08:53:29,393] [INFO] Shutting down
+[2025-09-21 08:53:29,498] [INFO] Waiting for application shutdown.
+[2025-09-21 08:53:29,623] [INFO] Cleanup complete. Shutting down.
+[2025-09-21 08:53:47,992] [INFO] PocketBase stater 35088
+[2025-09-21 08:53:48,012] [INFO] Loading YOLO models...
+[2025-09-21 08:53:49,208] [DEBUG] Loaded backend Agg version v2.2.
+[2025-09-21 08:53:49,780] [INFO] Models loaded successfully
+[2025-09-21 08:53:49,835] [DEBUG] Using proactor: IocpProactor
+[2025-09-21 08:53:49,884] [INFO] PocketBase stater 38024
+[2025-09-21 08:53:49,884] [INFO] Loading YOLO models...
+[2025-09-21 08:53:50,341] [INFO] Models loaded successfully
+[2025-09-21 08:53:50,349] [INFO] Started server process [37904]
+[2025-09-21 08:53:50,349] [INFO] Waiting for application startup.
+[2025-09-21 08:53:50,349] [INFO] Application startup complete.
+[2025-09-21 08:53:50,351] [INFO] Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+[2025-09-21 08:53:50,412] [INFO] 127.0.0.1:3423 - "GET /web/app HTTP/1.1" 307
+[2025-09-21 08:53:52,389] [INFO] 127.0.0.1:3423 - "GET /web/app/flutter_service_worker.js?v=3318785598 HTTP/1.1" 304
+[2025-09-21 08:53:54,202] [INFO] Shutting down
+[2025-09-21 08:53:54,316] [INFO] Waiting for application shutdown.
+[2025-09-21 08:53:54,433] [INFO] Cleanup complete. Shutting down.
+[2025-09-21 08:54:47,679] [INFO] PocketBase stater 38308
+[2025-09-21 08:54:47,694] [INFO] Loading YOLO models...
+[2025-09-21 08:54:48,902] [DEBUG] Loaded backend Agg version v2.2.
+[2025-09-21 08:54:49,443] [INFO] Models loaded successfully
+[2025-09-21 08:54:49,497] [DEBUG] Using proactor: IocpProactor
+[2025-09-21 08:54:49,546] [INFO] PocketBase stater 37416
+[2025-09-21 08:54:49,546] [INFO] Loading YOLO models...
+[2025-09-21 08:54:49,980] [INFO] Models loaded successfully
+[2025-09-21 08:54:50,000] [INFO] Started server process [25872]
+[2025-09-21 08:54:50,000] [INFO] Waiting for application startup.
+[2025-09-21 08:54:50,001] [INFO] Application startup complete.
+[2025-09-21 08:54:50,002] [INFO] Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+[2025-09-21 08:54:50,080] [INFO] 127.0.0.1:11097 - "GET /web/app HTTP/1.1" 307
+[2025-09-21 08:54:52,015] [INFO] 127.0.0.1:11097 - "GET /web/app/flutter_service_worker.js?v=3318785598 HTTP/1.1" 304
+[2025-09-21 08:56:19,833] [INFO] Shutting down
+[2025-09-21 08:56:19,936] [INFO] Waiting for application shutdown.
+[2025-09-21 08:56:20,061] [INFO] Cleanup complete. Shutting down.
+[2025-09-21 08:58:46,586] [INFO] PocketBase stater 34252
+[2025-09-21 08:58:46,599] [INFO] Loading YOLO models...
+[2025-09-21 08:58:47,930] [DEBUG] Loaded backend Agg version v2.2.
+[2025-09-21 08:58:48,587] [INFO] Models loaded successfully
+[2025-09-21 08:58:48,663] [DEBUG] Using proactor: IocpProactor
+[2025-09-21 08:58:48,700] [INFO] PocketBase stater 37748
+[2025-09-21 08:58:48,700] [INFO] Loading YOLO models...
+[2025-09-21 08:58:49,160] [INFO] Models loaded successfully
+[2025-09-21 08:58:49,167] [INFO] Started server process [39844]
+[2025-09-21 08:58:49,167] [INFO] Waiting for application startup.
+[2025-09-21 08:58:49,167] [INFO] Application startup complete.
+[2025-09-21 08:58:49,168] [INFO] Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+[2025-09-21 08:58:49,248] [INFO] 127.0.0.1:5090 - "GET /web/app HTTP/1.1" 307
+[2025-09-21 08:58:51,241] [INFO] 127.0.0.1:5090 - "GET /web/app/flutter_service_worker.js?v=3318785598 HTTP/1.1" 304
+[2025-09-21 08:58:52,379] [INFO] Shutting down
+[2025-09-21 08:58:52,484] [INFO] Waiting for application shutdown.
+[2025-09-21 08:58:52,601] [INFO] Cleanup complete. Shutting down.
+[2025-09-21 09:01:41,180] [INFO] PocketBase stater 42836
+[2025-09-21 09:01:41,192] [INFO] Loading YOLO models...
+[2025-09-21 09:01:42,476] [DEBUG] Loaded backend Agg version v2.2.
+[2025-09-21 09:01:43,082] [INFO] Models loaded successfully
+[2025-09-21 09:01:43,158] [DEBUG] Using proactor: IocpProactor
+[2025-09-21 09:01:43,202] [INFO] PocketBase stater 42760
+[2025-09-21 09:01:43,203] [INFO] Loading YOLO models...
+[2025-09-21 09:01:43,704] [INFO] Models loaded successfully
+[2025-09-21 09:01:43,711] [INFO] Started server process [41432]
+[2025-09-21 09:01:43,711] [INFO] Waiting for application startup.
+[2025-09-21 09:01:43,712] [INFO] Application startup complete.
+[2025-09-21 09:01:43,712] [INFO] Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+[2025-09-21 09:01:43,754] [INFO] 127.0.0.1:13321 - "GET /web/app HTTP/1.1" 307
+[2025-09-21 09:01:45,718] [INFO] 127.0.0.1:13321 - "GET /web/app/flutter_service_worker.js?v=3318785598 HTTP/1.1" 304
+[2025-09-21 09:01:56,822] [INFO] Shutting down
+[2025-09-21 09:01:56,935] [INFO] Waiting for application shutdown.
+[2025-09-21 09:01:57,061] [ERROR] Traceback (most recent call last):
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\starlette\routing.py", line 693, in lifespan
+    async with self.lifespan_context(app) as maybe_state:
+  File "C:\Users\Microsoft\AppData\Local\Programs\Python\Python310\lib\contextlib.py", line 206, in __aexit__
+    await anext(self.gen)
+  File "D:\Codes\anprv8\engine\api.py", line 28, in lifespan
+    cctv.graceful_shutdown()
+  File "D:\Codes\anprv8\engine\engines.py", line 98, in graceful_shutdown
+    os.kill(self.process.pid,15)
+PermissionError: [WinError 5] Access is denied
+
+[2025-09-21 09:01:57,061] [ERROR] Application shutdown failed. Exiting.
+[2025-09-21 09:01:57,061] [INFO] Finished server process [41432]
+[2025-09-21 09:04:05,243] [INFO] PocketBase stater 33324
+[2025-09-21 09:04:05,266] [INFO] Loading YOLO models...
+[2025-09-21 09:04:06,507] [DEBUG] Loaded backend Agg version v2.2.
+[2025-09-21 09:04:07,168] [INFO] Models loaded successfully
+[2025-09-21 09:04:07,234] [DEBUG] Using proactor: IocpProactor
+[2025-09-21 09:04:07,299] [INFO] PocketBase stater 36080
+[2025-09-21 09:04:07,299] [INFO] Loading YOLO models...
+[2025-09-21 09:04:07,753] [INFO] Models loaded successfully
+[2025-09-21 09:04:07,760] [INFO] Started server process [39288]
+[2025-09-21 09:04:07,760] [INFO] Waiting for application startup.
+[2025-09-21 09:04:07,760] [INFO] Application startup complete.
+[2025-09-21 09:04:07,761] [INFO] Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+[2025-09-21 09:04:07,845] [INFO] 127.0.0.1:8470 - "GET /web/app HTTP/1.1" 307
+[2025-09-21 09:04:08,932] [INFO] Shutting down
+[2025-09-21 09:04:09,038] [INFO] Waiting for application shutdown.
+[2025-09-21 09:04:09,158] [INFO] Cleanup complete. Shutting down.
+[2025-09-21 09:05:42,365] [INFO] PocketBase stater 41136
+[2025-09-21 09:05:42,374] [INFO] Loading YOLO models...
+[2025-09-21 09:05:43,565] [DEBUG] Loaded backend Agg version v2.2.
+[2025-09-21 09:05:44,132] [INFO] Models loaded successfully
+[2025-09-21 09:05:44,188] [DEBUG] Using proactor: IocpProactor
+[2025-09-21 09:05:44,235] [INFO] PocketBase stater 38524
+[2025-09-21 09:05:44,235] [INFO] Loading YOLO models...
+[2025-09-21 09:05:44,694] [INFO] Models loaded successfully
+[2025-09-21 09:05:44,701] [INFO] Started server process [41732]
+[2025-09-21 09:05:44,701] [INFO] Waiting for application startup.
+[2025-09-21 09:05:44,702] [INFO] Application startup complete.
+[2025-09-21 09:05:44,703] [INFO] Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+[2025-09-21 09:05:44,780] [INFO] 127.0.0.1:9723 - "GET /web/app HTTP/1.1" 307
+[2025-09-21 09:05:48,053] [INFO] Shutting down
+[2025-09-21 09:05:48,168] [INFO] Waiting for application shutdown.
+[2025-09-21 09:05:48,288] [ERROR] Traceback (most recent call last):
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\starlette\routing.py", line 693, in lifespan
+    async with self.lifespan_context(app) as maybe_state:
+  File "C:\Users\Microsoft\AppData\Local\Programs\Python\Python310\lib\contextlib.py", line 206, in __aexit__
+    await anext(self.gen)
+  File "D:\Codes\anprv8\engine\api.py", line 28, in lifespan
+    cctv.graceful_shutdown()
+  File "D:\Codes\anprv8\engine\engines.py", line 98, in graceful_shutdown
+    os.kill(self.process.pid,9)
+PermissionError: [WinError 5] Access is denied
+
+[2025-09-21 09:05:48,288] [ERROR] Application shutdown failed. Exiting.
+[2025-09-21 09:05:48,288] [INFO] Finished server process [41732]
+[2025-09-21 09:06:11,147] [INFO] PocketBase stater 30468
+[2025-09-21 09:06:11,163] [INFO] Loading YOLO models...
+[2025-09-21 09:06:12,368] [DEBUG] Loaded backend Agg version v2.2.
+[2025-09-21 09:06:12,913] [INFO] Models loaded successfully
+[2025-09-21 09:06:12,983] [DEBUG] Using proactor: IocpProactor
+[2025-09-21 09:06:13,018] [INFO] PocketBase stater 43068
+[2025-09-21 09:06:13,018] [INFO] Loading YOLO models...
+[2025-09-21 09:06:13,461] [INFO] Models loaded successfully
+[2025-09-21 09:06:13,468] [INFO] Started server process [41840]
+[2025-09-21 09:06:13,468] [INFO] Waiting for application startup.
+[2025-09-21 09:06:13,468] [INFO] Application startup complete.
+[2025-09-21 09:06:13,469] [INFO] Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+[2025-09-21 09:06:13,567] [INFO] 127.0.0.1:11217 - "GET /web/app HTTP/1.1" 307
+[2025-09-21 09:06:18,975] [INFO] Shutting down
+[2025-09-21 09:06:19,101] [INFO] Waiting for application shutdown.
+[2025-09-21 09:06:19,221] [INFO] Cleanup complete. Shutting down.
+[2025-09-21 09:07:07,663] [INFO] PocketBase stater 43984
+[2025-09-21 09:07:07,689] [INFO] Loading YOLO models...
+[2025-09-21 09:07:08,899] [DEBUG] Loaded backend Agg version v2.2.
+[2025-09-21 09:07:09,546] [INFO] Models loaded successfully
+[2025-09-21 09:07:09,612] [DEBUG] Using proactor: IocpProactor
+[2025-09-21 09:07:09,649] [INFO] PocketBase stater 43708
+[2025-09-21 09:07:09,649] [INFO] Loading YOLO models...
+[2025-09-21 09:07:10,117] [INFO] Models loaded successfully
+[2025-09-21 09:07:10,124] [INFO] Started server process [34984]
+[2025-09-21 09:07:10,124] [INFO] Waiting for application startup.
+[2025-09-21 09:07:10,124] [INFO] Application startup complete.
+[2025-09-21 09:07:10,125] [INFO] Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+[2025-09-21 09:07:10,202] [INFO] 127.0.0.1:13154 - "GET /web/app HTTP/1.1" 307
+[2025-09-21 09:07:29,573] [INFO] Shutting down
+[2025-09-21 09:07:29,679] [INFO] Waiting for application shutdown.
+[2025-09-21 09:07:29,797] [INFO] Cleanup complete. Shutting down.
+[2025-09-21 09:11:04,350] [INFO] PocketBase stater 44348
+[2025-09-21 09:11:04,350] [INFO] Loading YOLO models...
+[2025-09-21 09:11:05,551] [DEBUG] Loaded backend Agg version v2.2.
+[2025-09-21 09:11:06,280] [INFO] Models loaded successfully
+[2025-09-21 09:11:06,362] [DEBUG] Using proactor: IocpProactor
+[2025-09-21 09:11:06,399] [INFO] PocketBase stater 43380
+[2025-09-21 09:11:06,399] [INFO] Loading YOLO models...
+[2025-09-21 09:11:06,870] [INFO] Models loaded successfully
+[2025-09-21 09:11:06,879] [INFO] Started server process [43504]
+[2025-09-21 09:11:06,880] [INFO] Waiting for application startup.
+[2025-09-21 09:11:06,880] [INFO] Application startup complete.
+[2025-09-21 09:11:06,880] [INFO] Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+[2025-09-21 09:11:06,953] [INFO] 127.0.0.1:4626 - "GET /web/app HTTP/1.1" 307
+[2025-09-21 09:11:12,320] [INFO] Shutting down
+[2025-09-21 09:11:12,430] [INFO] Waiting for application shutdown.
+[2025-09-21 09:11:12,661] [INFO] Cleanup complete. Shutting down.
+[2025-09-21 09:11:36,112] [INFO] PocketBase stater 5968
+[2025-09-21 09:11:36,122] [INFO] Loading YOLO models...
+[2025-09-21 09:11:37,383] [DEBUG] Loaded backend Agg version v2.2.
+[2025-09-21 09:11:37,925] [INFO] Models loaded successfully
+[2025-09-21 09:11:37,978] [DEBUG] Using proactor: IocpProactor
+[2025-09-21 09:11:38,029] [INFO] PocketBase stater 12688
+[2025-09-21 09:11:38,029] [INFO] Loading YOLO models...
+[2025-09-21 09:11:38,690] [INFO] Models loaded successfully
+[2025-09-21 09:11:38,700] [INFO] Started server process [43964]
+[2025-09-21 09:11:38,700] [INFO] Waiting for application startup.
+[2025-09-21 09:11:38,701] [INFO] Application startup complete.
+[2025-09-21 09:11:38,702] [INFO] Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+[2025-09-21 09:11:38,789] [INFO] 127.0.0.1:8644 - "GET /web/app HTTP/1.1" 307
+[2025-09-21 09:11:43,295] [INFO] 127.0.0.1:8644 - "GET /web/app/flutter_service_worker.js?v=3318785598 HTTP/1.1" 304
+[2025-09-21 09:11:43,472] [INFO] Shutting down
+[2025-09-21 09:11:43,575] [INFO] Waiting for application shutdown.
+[2025-09-21 09:11:43,794] [INFO] Cleanup complete. Shutting down.
+[2025-09-21 09:12:15,948] [INFO] PocketBase stater 38032
+[2025-09-21 09:12:15,963] [INFO] Loading YOLO models...
+[2025-09-21 09:12:17,355] [DEBUG] Loaded backend Agg version v2.2.
+[2025-09-21 09:12:17,898] [INFO] Models loaded successfully
+[2025-09-21 09:12:17,954] [DEBUG] Using proactor: IocpProactor
+[2025-09-21 09:12:17,999] [INFO] PocketBase stater 42248
+[2025-09-21 09:12:18,000] [INFO] Loading YOLO models...
+[2025-09-21 09:12:18,459] [INFO] Models loaded successfully
+[2025-09-21 09:12:18,473] [INFO] Started server process [44396]
+[2025-09-21 09:12:18,473] [INFO] Waiting for application startup.
+[2025-09-21 09:12:18,473] [INFO] Application startup complete.
+[2025-09-21 09:12:18,474] [INFO] Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+[2025-09-21 09:12:18,534] [INFO] 127.0.0.1:13401 - "GET /web/app HTTP/1.1" 307
+[2025-09-21 09:12:20,504] [INFO] 127.0.0.1:13401 - "GET /web/app/flutter_service_worker.js?v=3318785598 HTTP/1.1" 304
+[2025-09-21 09:14:15,321] [INFO] Shutting down
+[2025-09-21 09:14:15,421] [INFO] Waiting for application shutdown.
+[2025-09-21 09:14:15,625] [INFO] Cleanup complete. Shutting down.
+[2025-09-21 09:16:36,445] [DEBUG] Using proactor: IocpProactor
+[2025-09-21 09:16:36,486] [INFO] Started server process [38064]
+[2025-09-21 09:16:36,486] [INFO] Waiting for application startup.
+[2025-09-21 09:16:36,489] [INFO] PocketBase stater 32056
+[2025-09-21 09:16:36,506] [INFO] Loading YOLO models...
+[2025-09-21 09:16:37,932] [DEBUG] Loaded backend Agg version v2.2.
+[2025-09-21 09:16:38,488] [INFO] Models loaded successfully
+[2025-09-21 09:16:38,492] [INFO] Application startup complete.
+[2025-09-21 09:16:38,492] [INFO] Uvicorn running on http://0.0.0.0:8001 (Press CTRL+C to quit)
+[2025-09-21 09:16:38,556] [INFO] 127.0.0.1:6873 - "GET /web/app HTTP/1.1" 307
+[2025-09-21 09:16:38,598] [INFO] 127.0.0.1:6873 - "GET /web/app/ HTTP/1.1" 304
+[2025-09-21 09:16:38,616] [INFO] 127.0.0.1:6873 - "GET /web/app/flutter_service_worker.js?v=3318785598 HTTP/1.1" 304
+[2025-09-21 09:16:38,627] [INFO] 127.0.0.1:6873 - "GET /web/app/main.dart.js HTTP/1.1" 200
+[2025-09-21 09:16:38,627] [INFO] 127.0.0.1:7219 - "GET /web/app/index.html HTTP/1.1" 200
+[2025-09-21 09:16:38,648] [INFO] 127.0.0.1:7219 - "GET /web/app/flutter_bootstrap.js HTTP/1.1" 200
+[2025-09-21 09:16:38,652] [INFO] 127.0.0.1:10207 - "GET /web/app/assets/AssetManifest.bin.json HTTP/1.1" 200
+[2025-09-21 09:16:38,657] [INFO] 127.0.0.1:10207 - "GET /web/app/assets/FontManifest.json HTTP/1.1" 200
+[2025-09-21 09:16:39,660] [INFO] 127.0.0.1:6873 - "GET /web/app/flutter_service_worker.js?v=3318785598 HTTP/1.1" 304
+[2025-09-21 09:16:43,249] [INFO] Shutting down
+[2025-09-21 09:16:43,354] [INFO] Waiting for application shutdown.
+[2025-09-21 09:16:43,551] [INFO] Cleanup complete. Shutting down.
+[2025-09-21 09:22:39,552] [DEBUG] Using proactor: IocpProactor
+[2025-09-21 09:22:39,590] [INFO] Started server process [3916]
+[2025-09-21 09:22:39,590] [INFO] Waiting for application startup.
+[2025-09-21 09:22:39,593] [INFO] PocketBase stater 43088
+[2025-09-21 09:22:39,609] [INFO] Loading YOLO models...
+[2025-09-21 09:22:40,974] [DEBUG] Loaded backend Agg version v2.2.
+[2025-09-21 09:22:41,577] [INFO] Models loaded successfully
+[2025-09-21 09:22:41,581] [INFO] Application startup complete.
+[2025-09-21 09:22:41,582] [INFO] Uvicorn running on http://0.0.0.0:8001 (Press CTRL+C to quit)
+[2025-09-21 09:22:41,648] [INFO] 127.0.0.1:2664 - "GET /web/app HTTP/1.1" 307
+[2025-09-21 09:22:41,684] [INFO] 127.0.0.1:2664 - "GET /web/app/ HTTP/1.1" 304
+[2025-09-21 09:22:41,703] [INFO] 127.0.0.1:2664 - "GET /web/app/flutter_service_worker.js?v=402086266 HTTP/1.1" 200
+[2025-09-21 09:22:41,732] [INFO] 127.0.0.1:2664 - "GET /web/app/main.dart.js HTTP/1.1" 200
+[2025-09-21 09:22:41,733] [INFO] 127.0.0.1:11191 - "GET /web/app/index.html HTTP/1.1" 200
+[2025-09-21 09:22:41,736] [INFO] 127.0.0.1:11191 - "GET /web/app/flutter_bootstrap.js HTTP/1.1" 200
+[2025-09-21 09:22:41,739] [INFO] 127.0.0.1:8859 - "GET /web/app/assets/AssetManifest.bin.json HTTP/1.1" 200
+[2025-09-21 09:22:41,742] [INFO] 127.0.0.1:11191 - "GET /web/app/assets/FontManifest.json HTTP/1.1" 200
+[2025-09-21 09:22:42,037] [INFO] 127.0.0.1:2664 - "GET /web/app/flutter_service_worker.js?v=402086266 HTTP/1.1" 304
+[2025-09-21 09:22:46,752] [INFO] Shutting down
+[2025-09-21 09:22:46,857] [INFO] Waiting for application shutdown.
+[2025-09-21 09:22:46,977] [INFO] Cleanup complete. Shutting down.
+[2025-09-21 09:30:58,434] [DEBUG] Using proactor: IocpProactor
+[2025-09-21 09:30:58,474] [INFO] Started server process [46416]
+[2025-09-21 09:30:58,475] [INFO] Waiting for application startup.
+[2025-09-21 09:30:58,477] [INFO] PocketBase stater 348
+[2025-09-21 09:30:58,490] [INFO] Loading YOLO models...
+[2025-09-21 09:30:59,874] [DEBUG] Loaded backend Agg version v2.2.
+[2025-09-21 09:31:00,662] [INFO] Models loaded successfully
+[2025-09-21 09:31:00,667] [INFO] Application startup complete.
+[2025-09-21 09:31:00,668] [INFO] Uvicorn running on http://0.0.0.0:8001 (Press CTRL+C to quit)
+[2025-09-21 09:31:04,550] [INFO] Shutting down
+[2025-09-21 09:31:04,653] [INFO] Waiting for application shutdown.
+[2025-09-21 09:31:04,798] [INFO] Cleanup complete. Shutting down.
+[2025-09-21 09:31:09,752] [DEBUG] Using proactor: IocpProactor
+[2025-09-21 09:31:09,791] [INFO] Started server process [11316]
+[2025-09-21 09:31:09,791] [INFO] Waiting for application startup.
+[2025-09-21 09:31:09,798] [INFO] PocketBase stater 11404
+[2025-09-21 09:31:09,813] [INFO] Loading YOLO models...
+[2025-09-21 09:31:11,196] [DEBUG] Loaded backend Agg version v2.2.
+[2025-09-21 09:31:11,797] [INFO] Models loaded successfully
+[2025-09-21 09:31:11,802] [INFO] Application startup complete.
+[2025-09-21 09:31:11,802] [INFO] Uvicorn running on http://0.0.0.0:8001 (Press CTRL+C to quit)
+[2025-09-21 09:31:11,853] [INFO] 127.0.0.1:8671 - "GET /web/app HTTP/1.1" 307
+[2025-09-21 09:31:11,893] [INFO] 127.0.0.1:8671 - "GET /web/app/ HTTP/1.1" 304
+[2025-09-21 09:31:13,919] [INFO] 127.0.0.1:8671 - "GET /web/app/flutter_service_worker.js?v=402086266 HTTP/1.1" 304
+[2025-09-21 09:31:31,289] [INFO] Shutting down
+[2025-09-21 09:31:31,401] [INFO] Waiting for application shutdown.
+[2025-09-21 09:31:31,527] [INFO] Cleanup complete. Shutting down.
+[2025-09-21 09:31:34,360] [DEBUG] Using proactor: IocpProactor
+[2025-09-21 09:31:34,400] [INFO] Started server process [45332]
+[2025-09-21 09:31:34,400] [INFO] Waiting for application startup.
+[2025-09-21 09:31:34,404] [INFO] PocketBase stater 17648
+[2025-09-21 09:31:34,420] [INFO] Loading YOLO models...
+[2025-09-21 09:31:35,850] [DEBUG] Loaded backend Agg version v2.2.
+[2025-09-21 09:31:36,444] [INFO] Models loaded successfully
+[2025-09-21 09:31:36,448] [INFO] Application startup complete.
+[2025-09-21 09:31:36,448] [INFO] Uvicorn running on http://0.0.0.0:8001 (Press CTRL+C to quit)
+[2025-09-21 09:31:39,422] [INFO] Shutting down
+[2025-09-21 09:31:39,526] [INFO] Finished server process [45332]
+[2025-09-21 09:31:39,537] [ERROR] Traceback (most recent call last):
+  File "C:\Users\Microsoft\AppData\Local\Programs\Python\Python310\lib\asyncio\runners.py", line 44, in run
+    return loop.run_until_complete(main)
+  File "C:\Users\Microsoft\AppData\Local\Programs\Python\Python310\lib\asyncio\base_events.py", line 636, in run_until_complete
+    self.run_forever()
+  File "C:\Users\Microsoft\AppData\Local\Programs\Python\Python310\lib\asyncio\windows_events.py", line 321, in run_forever
+    super().run_forever()
+  File "C:\Users\Microsoft\AppData\Local\Programs\Python\Python310\lib\asyncio\base_events.py", line 603, in run_forever
+    self._run_once()
+  File "C:\Users\Microsoft\AppData\Local\Programs\Python\Python310\lib\asyncio\base_events.py", line 1909, in _run_once
+    handle._run()
+  File "C:\Users\Microsoft\AppData\Local\Programs\Python\Python310\lib\asyncio\events.py", line 80, in _run
+    self._context.run(self._callback, *self._args)
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\uvicorn\server.py", line 69, in serve
+    with self.capture_signals():
+  File "C:\Users\Microsoft\AppData\Local\Programs\Python\Python310\lib\contextlib.py", line 142, in __exit__
+    next(self.gen)
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\uvicorn\server.py", line 330, in capture_signals
+    signal.raise_signal(captured_signal)
+KeyboardInterrupt
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\starlette\routing.py", line 700, in lifespan
+    await receive()
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\uvicorn\lifespan\on.py", line 137, in receive
+    return await self.receive_queue.get()
+  File "C:\Users\Microsoft\AppData\Local\Programs\Python\Python310\lib\asyncio\queues.py", line 159, in get
+    await getter
+asyncio.exceptions.CancelledError
+
+[2025-09-21 09:32:07,185] [DEBUG] Using proactor: IocpProactor
+[2025-09-21 09:32:07,224] [INFO] Started server process [46832]
+[2025-09-21 09:32:07,225] [INFO] Waiting for application startup.
+[2025-09-21 09:32:07,227] [INFO] PocketBase stater 45196
+[2025-09-21 09:32:07,246] [INFO] Loading YOLO models...
+[2025-09-21 09:32:08,644] [DEBUG] Loaded backend Agg version v2.2.
+[2025-09-21 09:32:09,211] [INFO] Models loaded successfully
+[2025-09-21 09:32:09,214] [INFO] Application startup complete.
+[2025-09-21 09:32:09,215] [INFO] Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+[2025-09-21 09:32:09,295] [INFO] 127.0.0.1:7169 - "GET /web/app HTTP/1.1" 307
+[2025-09-21 09:32:11,279] [INFO] 127.0.0.1:7169 - "GET /web/app/flutter_service_worker.js?v=3318785598 HTTP/1.1" 304
+[2025-09-21 09:32:15,180] [INFO] Shutting down
+[2025-09-21 09:32:15,290] [INFO] Waiting for application shutdown.
+[2025-09-21 09:32:15,423] [INFO] Cleanup complete. Shutting down.
+[2025-09-21 09:34:41,075] [DEBUG] Using proactor: IocpProactor
+[2025-09-21 09:34:41,117] [INFO] Started server process [43980]
+[2025-09-21 09:34:41,118] [INFO] Waiting for application startup.
+[2025-09-21 09:34:41,121] [INFO] PocketBase stater 33444
+[2025-09-21 09:34:41,144] [INFO] Loading YOLO models...
+[2025-09-21 09:34:42,473] [DEBUG] Loaded backend Agg version v2.2.
+[2025-09-21 09:34:43,050] [INFO] Models loaded successfully
+[2025-09-21 09:34:43,056] [INFO] Application startup complete.
+[2025-09-21 09:34:43,056] [INFO] Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+[2025-09-21 09:34:43,172] [INFO] 127.0.0.1:4373 - "GET /web/app HTTP/1.1" 307
+[2025-09-21 09:34:45,228] [INFO] 127.0.0.1:4373 - "GET /web/app/flutter_service_worker.js?v=3318785598 HTTP/1.1" 304
+[2025-09-21 09:35:11,660] [INFO] Shutting down
+[2025-09-21 09:35:11,773] [INFO] Waiting for application shutdown.
+[2025-09-21 09:35:11,898] [INFO] Cleanup complete. Shutting down.
