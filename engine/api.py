@@ -223,7 +223,7 @@ def updatePort():
     return 0
     
 
-def readPort() -> int:
+def readPort() :
     with open('hostname.json','r') as file:
         data=json.load(file)
         return data['port']
