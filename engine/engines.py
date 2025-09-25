@@ -7,6 +7,7 @@ import os
 import platform
 import time
 from urllib.parse import urlparse
+import webbrowser
 from fastapi import Request
 import numpy as np
 import cv2
@@ -50,7 +51,13 @@ class CcTvMonitor:
         self.RETRY_LIMIT = 3
         self.lock = threading.Lock()
         self.model_car, self.model_plate, self.model_char = self.loadModels()
-        self.quality, self.charConfidence, self.plateConfidence = self.loadConfig()[0:3]
+        self.quality, self.charConfidence, self.plateConfidence,self.port = self.loadConfig()[0:4]
+        self.loadWebBrowser(self.port)
+        
+    
+    def loadWebBrowser(self,port):
+        webbrowser.open(f'http://127.0.0.1:{port}/web/app')
+        
         
 
     def loadDb(self):

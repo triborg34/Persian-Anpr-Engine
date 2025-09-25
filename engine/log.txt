@@ -5213,3 +5213,72 @@ asyncio.exceptions.CancelledError
 [2025-09-21 09:35:11,660] [INFO] Shutting down
 [2025-09-21 09:35:11,773] [INFO] Waiting for application shutdown.
 [2025-09-21 09:35:11,898] [INFO] Cleanup complete. Shutting down.
+[2025-09-25 08:36:57,280] [DEBUG] Using proactor: IocpProactor
+[2025-09-25 08:36:57,353] [INFO] Started server process [34332]
+[2025-09-25 08:36:57,353] [INFO] Waiting for application startup.
+[2025-09-25 08:36:57,465] [INFO] PocketBase stater 34296
+[2025-09-25 08:36:57,485] [INFO] Loading YOLO models...
+[2025-09-25 08:37:03,424] [DEBUG] Loaded backend Agg version v2.2.
+[2025-09-25 08:37:04,678] [INFO] Models loaded successfully
+[2025-09-25 08:37:04,762] [INFO] Application startup complete.
+[2025-09-25 08:37:04,762] [INFO] Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+[2025-09-25 08:37:05,080] [INFO] 127.0.0.1:9983 - "GET /web/app HTTP/1.1" 307
+[2025-09-25 08:37:05,157] [INFO] 127.0.0.1:9983 - "GET /web/app/ HTTP/1.1" 304
+[2025-09-25 08:37:05,211] [INFO] 127.0.0.1:9983 - "GET /web/app/flutter_bootstrap.js HTTP/1.1" 200
+[2025-09-25 08:37:05,245] [INFO] 127.0.0.1:9983 - "GET /web/app/flutter_service_worker.js?v=402086266 HTTP/1.1" 200
+[2025-09-25 08:37:05,276] [INFO] 127.0.0.1:9983 - "GET /web/app/main.dart.js HTTP/1.1" 200
+[2025-09-25 08:37:05,277] [INFO] 127.0.0.1:9922 - "GET /web/app/index.html HTTP/1.1" 200
+[2025-09-25 08:37:05,278] [INFO] 127.0.0.1:9823 - "GET /web/app/flutter_bootstrap.js HTTP/1.1" 200
+[2025-09-25 08:37:05,283] [INFO] 127.0.0.1:9823 - "GET /web/app/assets/AssetManifest.bin.json HTTP/1.1" 200
+[2025-09-25 08:37:05,298] [INFO] 127.0.0.1:9823 - "GET /web/app/assets/FontManifest.json HTTP/1.1" 200
+[2025-09-25 08:37:07,049] [INFO] 127.0.0.1:9984 - "GET /web/app/flutter_service_worker.js?v=402086266 HTTP/1.1" 304
+[2025-09-25 08:37:07,417] [INFO] 127.0.0.1:6540 - "GET /web/app/assets/fonts/MaterialIcons-Regular.otf HTTP/1.1" 304
+[2025-09-25 08:37:07,417] [INFO] 127.0.0.1:11773 - "GET /web/app/assets/packages/cupertino_icons/assets/CupertinoIcons.ttf HTTP/1.1" 304
+[2025-09-25 08:37:13,343] [INFO] Shutting down
+[2025-09-25 08:37:13,452] [INFO] Waiting for application shutdown.
+[2025-09-25 08:37:13,586] [INFO] Cleanup complete. Shutting down.
+[2025-09-25 08:38:28,070] [DEBUG] Using proactor: IocpProactor
+[2025-09-25 08:38:28,103] [INFO] Started server process [35876]
+[2025-09-25 08:38:28,103] [INFO] Waiting for application startup.
+[2025-09-25 08:38:28,106] [INFO] PocketBase stater 1944
+[2025-09-25 08:38:28,116] [INFO] Loading YOLO models...
+[2025-09-25 08:38:29,637] [DEBUG] Loaded backend Agg version v2.2.
+[2025-09-25 08:38:30,244] [INFO] Models loaded successfully
+[2025-09-25 08:38:30,320] [INFO] Application startup complete.
+[2025-09-25 08:38:30,320] [INFO] Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+[2025-09-25 08:38:30,368] [INFO] 127.0.0.1:2554 - "GET /web/app HTTP/1.1" 307
+[2025-09-25 08:38:32,446] [INFO] 127.0.0.1:2554 - "GET /web/app/flutter_service_worker.js?v=402086266 HTTP/1.1" 304
+[2025-09-25 08:38:54,200] [INFO] Shutting down
+[2025-09-25 08:38:54,305] [INFO] Waiting for application shutdown.
+[2025-09-25 08:38:54,446] [INFO] Cleanup complete. Shutting down.
+[2025-09-25 08:39:04,047] [DEBUG] Using proactor: IocpProactor
+[2025-09-25 08:39:04,078] [INFO] Started server process [6804]
+[2025-09-25 08:39:04,079] [INFO] Waiting for application startup.
+[2025-09-25 08:39:04,081] [INFO] PocketBase stater 36860
+[2025-09-25 08:39:04,092] [INFO] Loading YOLO models...
+[2025-09-25 08:39:05,380] [DEBUG] Loaded backend Agg version v2.2.
+[2025-09-25 08:39:05,929] [INFO] Models loaded successfully
+[2025-09-25 08:39:05,988] [INFO] Application startup complete.
+[2025-09-25 08:39:05,989] [INFO] Uvicorn running on http://0.0.0.0:8009 (Press CTRL+C to quit)
+[2025-09-25 08:39:06,057] [INFO] 127.0.0.1:9339 - "GET /web/app HTTP/1.1" 307
+[2025-09-25 08:39:06,100] [INFO] 127.0.0.1:9339 - "GET /web/app/ HTTP/1.1" 200
+[2025-09-25 08:39:06,112] [INFO] 127.0.0.1:9339 - "GET /web/app/flutter_bootstrap.js HTTP/1.1" 200
+[2025-09-25 08:39:06,126] [INFO] 127.0.0.1:7455 - "GET /web/app/manifest.json HTTP/1.1" 200
+[2025-09-25 08:39:06,127] [INFO] 127.0.0.1:9339 - "GET /web/app/favicon.png HTTP/1.1" 200
+[2025-09-25 08:39:06,140] [INFO] 127.0.0.1:9339 - "GET /web/app/icons/Icon-192.png HTTP/1.1" 200
+[2025-09-25 08:39:06,158] [INFO] 127.0.0.1:9339 - "GET /web/app/flutter_service_worker.js?v=402086266 HTTP/1.1" 200
+[2025-09-25 08:39:06,172] [INFO] 127.0.0.1:6648 - "GET /web/app/index.html HTTP/1.1" 200
+[2025-09-25 08:39:06,174] [INFO] 127.0.0.1:7522 - "GET /web/app/flutter_bootstrap.js HTTP/1.1" 200
+[2025-09-25 08:39:06,175] [INFO] 127.0.0.1:9339 - "GET /web/app/main.dart.js HTTP/1.1" 200
+[2025-09-25 08:39:06,180] [INFO] 127.0.0.1:7522 - "GET /web/app/assets/AssetManifest.bin.json HTTP/1.1" 200
+[2025-09-25 08:39:06,181] [INFO] 127.0.0.1:6648 - "GET /web/app/assets/FontManifest.json HTTP/1.1" 200
+[2025-09-25 08:39:06,692] [INFO] 127.0.0.1:9339 - "GET /web/app/assets/fonts/MaterialIcons-Regular.otf HTTP/1.1" 200
+[2025-09-25 08:39:06,693] [INFO] 127.0.0.1:6648 - "GET /web/app/assets/assets/fonts/arial.ttf HTTP/1.1" 200
+[2025-09-25 08:39:06,693] [INFO] 127.0.0.1:7522 - "GET /web/app/assets/assets/fonts/Yekan.ttf HTTP/1.1" 200
+[2025-09-25 08:39:06,694] [INFO] 127.0.0.1:2903 - "GET /web/app/assets/packages/cupertino_icons/assets/CupertinoIcons.ttf HTTP/1.1" 200
+[2025-09-25 08:39:06,789] [INFO] 127.0.0.1:6648 - "GET /web/app/assets/images/logo.jpg HTTP/1.1" 200
+[2025-09-25 08:39:08,787] [INFO] 127.0.0.1:6648 - "GET /web/app/assets/images/mainlogo2.png HTTP/1.1" 200
+[2025-09-25 08:39:08,787] [INFO] 127.0.0.1:9339 - "GET /web/app/assets/images/ban.jpg HTTP/1.1" 200
+[2025-09-25 08:39:11,205] [INFO] Shutting down
+[2025-09-25 08:39:11,310] [INFO] Waiting for application shutdown.
+[2025-09-25 08:39:11,447] [INFO] Cleanup complete. Shutting down.

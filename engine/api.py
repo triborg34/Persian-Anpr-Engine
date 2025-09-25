@@ -1,11 +1,10 @@
 
 from contextlib import asynccontextmanager
 import json
-import os
 import socket
 import time
 from fastapi import FastAPI, Query, Request, Response
-from fastapi.responses import FileResponse, HTMLResponse, RedirectResponse, StreamingResponse
+from fastapi.responses import  StreamingResponse
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.staticfiles import StaticFiles
 from pydantic import BaseModel
@@ -13,7 +12,6 @@ from engines import CcTvMonitor, emailHandler
 from TcpConnector import TcpConnector
 from onvifmaneger import get_rtsp_url
 import uvicorn
-import webbrowser
 
 
 cctv = None
@@ -23,9 +21,10 @@ cctv = None
 async def lifespan(app: FastAPI):
     global cctv
     cctv=CcTvMonitor()
-    updatePort()
+    
 
     yield
+    updatePort()
     cctv.graceful_shutdown()
 
 
@@ -231,7 +230,7 @@ if __name__ == "__main__":
     host = '0.0.0.0'
     # port=int(cctv.loadConfig()[3])
     port=int(readPort())
-    webbrowser.open(f'http://127.0.0.1:{port}/web/app')
+    
     uvicorn.run("api:app", log_level='info', log_config=None,
                 reload=False, port=port, host=host)
     # if KeyboardInterrupt:
