@@ -44,7 +44,7 @@ cv2.setNumThreads(multiprocessing.cpu_count())
 class CcTvMonitor:
     def __init__(self):
         self.process = None
-        self.loadDb()
+        # self.loadDb()
         self.params = Parameters()
         self.device = torch.device(0 if torch.cuda.is_available() else 'cpu')
         self.RETRY_LIMIT = 5
@@ -52,7 +52,7 @@ class CcTvMonitor:
         self.lock = threading.Lock()
         self.model_car, self.model_plate, self.model_char = self.loadModels()
         self.quality, self.charConfidence, self.plateConfidence,self.port = self.loadConfig()[0:4]
-        self.loadWebBrowser(self.port)
+        # self.loadWebBrowser(self.port)
         
     
     def loadWebBrowser(self,port):
