@@ -12,7 +12,7 @@ from engines import CcTvMonitor, emailHandler
 from TcpConnector import TcpConnector
 from onvifmaneger import get_rtsp_url
 import uvicorn
-
+from nrcpy import NrcDevice
 
 cctv = None
 
@@ -33,7 +33,12 @@ connection = TcpConnector()
 
 
 class Relay(BaseModel):
-    isconnect: bool
+    ip:str
+    port:str
+    username:str
+    password:str
+    relay_number:str
+    
 
 
 class EmailClass(BaseModel):
@@ -106,61 +111,40 @@ async def video_feed(camera_id: str, request: Request, source: str = Query(...))
     )
 
 
-@app.post("/iprelay")
-def connectrelay(request: Relay, ip, port):
-
-    connection.setConnectionProperties(f"{ip}", int(port))
-    if (request.isconnect):
-        # on
-        if (connection.connectToServer()):
-
-            return {"massage": "connect"}
-        else:
-
-            return {"massage": "problem connect"}
-    else:
-        if (connection.closeConnection()):
-            return {"massage": "disconnect"}
-        else:
-            return {"massage": "problem dissconnect"}
 
 
-@app.get("/iprelay")
-def onOff(onOff, relay):
-    # on
-    if (onOff == "true"):
-        if (int(relay) == 1):
-            data = b'\x00\x01\x02\x03\x04\x05\x06\x07\x08\x01\x00\x01\x01\x01\x00\x00\x00\x00\x00\x03\x01\x01\x02'  # relay 1
-            connection.sendPacket(bData=data)
-            # if (connection.sendPacket(bData=data)):
-            #     return {'massage': connection.receivePacket(23, 2)}
-            # else:
-            #     return {"massage":f"problem : {connection.receivePacket(23, 2)}"}
-        else:
-            data = b'\x00\x01\x02\x03\x04\x05\x06\x07\x08\x01\x00\x01\x01\x01\x00\x00\x00\x00\x00\x03\x02\x01\x02'  # relay 2
-            connection.sendPacket(bData=data)
-            # if ():
-            #     return {'massage': connection.receivePacket(23, 2)}
-            # else:
-            #     return {"massage":f"problem : {connection.receivePacket(23, 2)}"}
-            ########################
-            # of
-    else:
-        if (int(relay) == 1):
-            data = b'\x00\x01\x02\x03\x04\x05\x06\x07\x08\x01\x00\x01\x01\x01\x00\x00\x00\x00\x00\x03\x01\x00\x00'  # relay 1
-            if (connection.sendPacket(bData=data)):
-                return {'massage': connection.receivePacket(23, 2)}
-            else:
-                return {"massage": f"problem : {connection.receivePacket(23, 2)}"}
-        else:
-            data = b'\x00\x01\x02\x03\x04\x05\x06\x07\x08\x01\x00\x01\x01\x01\x00\x00\x00\x00\x00\x03\x02\x00\x00'  # relay 2
-            if (connection.sendPacket(bData=data)):
-                return {'massage': connection.receivePacket(23, 2)}
-            else:
-                return {"massage": f"problem : {connection.receivePacket(23, 2)}"}
+@app.post("/utils/iprelay")
+def onOff(data:Relay):
+    print(data)
+    ip=data.ip.strip()
+    port=int(data.port.strip())
+    username=data.username.strip()
+    password=data.password.strip()
+    relay_number=int(data.relay_number.strip())
+
+    handle_relay_operations(ip,port,username,password,relay_number)
+
+        
+        
 
     # vioz mxiw nedg rybh
 
+def handle_relay_operations(ip='192.168.1.200', port=23, username='admin', password='admin', relay_number=1):
+    """Handle IP relay operations - single execution"""
+    try:
+        print(f"Executing relay operation for {ip}")
+        nrc = NrcDevice((ip, port, username, password))
+
+        nrc.connect()
+        if nrc.login():
+            nrc.relayContact(relay_number, 300)
+            print(f"Relay operation completed for {ip}")
+        nrc.disconnect()
+    except Exception as e:
+        print(f"Relay error for {ip}: {e}")
+
+    except Exception as e:
+        print(f"Error in relay operations: {e}")
 
 @app.post('/email')
 def sendEmail(request: EmailClass, email):

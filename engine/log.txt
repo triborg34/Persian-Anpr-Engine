@@ -5282,3 +5282,1101 @@ asyncio.exceptions.CancelledError
 [2025-09-25 08:39:11,205] [INFO] Shutting down
 [2025-09-25 08:39:11,310] [INFO] Waiting for application shutdown.
 [2025-09-25 08:39:11,447] [INFO] Cleanup complete. Shutting down.
+[2025-09-30 13:39:25,524] [DEBUG] Using proactor: IocpProactor
+[2025-09-30 13:39:25,586] [INFO] Started server process [41296]
+[2025-09-30 13:39:25,586] [INFO] Waiting for application startup.
+[2025-09-30 13:39:25,618] [INFO] Loading YOLO models...
+[2025-09-30 13:39:31,766] [DEBUG] Loaded backend Agg version v2.2.
+[2025-09-30 13:39:32,884] [INFO] Models loaded successfully
+[2025-09-30 13:39:32,891] [INFO] Application startup complete.
+[2025-09-30 13:39:32,891] [INFO] Uvicorn running on http://0.0.0.0:8009 (Press CTRL+C to quit)
+[2025-09-30 13:50:09,144] [INFO] Shutting down
+[2025-09-30 13:50:09,234] [INFO] Finished server process [41296]
+[2025-09-30 13:50:09,244] [ERROR] Traceback (most recent call last):
+  File "C:\Users\Microsoft\AppData\Local\Programs\Python\Python310\lib\asyncio\runners.py", line 44, in run
+    return loop.run_until_complete(main)
+  File "C:\Users\Microsoft\AppData\Local\Programs\Python\Python310\lib\asyncio\base_events.py", line 636, in run_until_complete
+    self.run_forever()
+  File "C:\Users\Microsoft\AppData\Local\Programs\Python\Python310\lib\asyncio\windows_events.py", line 321, in run_forever
+    super().run_forever()
+  File "C:\Users\Microsoft\AppData\Local\Programs\Python\Python310\lib\asyncio\base_events.py", line 603, in run_forever
+    self._run_once()
+  File "C:\Users\Microsoft\AppData\Local\Programs\Python\Python310\lib\asyncio\base_events.py", line 1909, in _run_once
+    handle._run()
+  File "C:\Users\Microsoft\AppData\Local\Programs\Python\Python310\lib\asyncio\events.py", line 80, in _run
+    self._context.run(self._callback, *self._args)
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\uvicorn\server.py", line 69, in serve
+    with self.capture_signals():
+  File "C:\Users\Microsoft\AppData\Local\Programs\Python\Python310\lib\contextlib.py", line 142, in __exit__
+    next(self.gen)
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\uvicorn\server.py", line 330, in capture_signals
+    signal.raise_signal(captured_signal)
+KeyboardInterrupt
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\starlette\routing.py", line 700, in lifespan
+    await receive()
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\uvicorn\lifespan\on.py", line 137, in receive
+    return await self.receive_queue.get()
+  File "C:\Users\Microsoft\AppData\Local\Programs\Python\Python310\lib\asyncio\queues.py", line 159, in get
+    await getter
+asyncio.exceptions.CancelledError
+
+[2025-09-30 13:50:14,614] [DEBUG] Using proactor: IocpProactor
+[2025-09-30 13:50:14,659] [INFO] Started server process [44004]
+[2025-09-30 13:50:14,659] [INFO] Waiting for application startup.
+[2025-09-30 13:50:14,677] [INFO] Loading YOLO models...
+[2025-09-30 13:50:16,463] [DEBUG] Loaded backend Agg version v2.2.
+[2025-09-30 13:50:17,264] [INFO] Models loaded successfully
+[2025-09-30 13:50:17,270] [INFO] Application startup complete.
+[2025-09-30 13:50:17,271] [INFO] Uvicorn running on http://0.0.0.0:8009 (Press CTRL+C to quit)
+[2025-09-30 13:50:32,954] [INFO] 127.0.0.1:9754 - "POST /iprelay HTTP/1.1" 422
+[2025-09-30 13:51:24,741] [INFO] 127.0.0.1:9787 - "POST /iprelay HTTP/1.1" 500
+[2025-09-30 13:51:24,742] [ERROR] Exception in ASGI application
+Traceback (most recent call last):
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\uvicorn\protocols\http\h11_impl.py", line 403, in run_asgi
+    result = await app(  # type: ignore[func-returns-value]
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\uvicorn\middleware\proxy_headers.py", line 60, in __call__
+    return await self.app(scope, receive, send)
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\fastapi\applications.py", line 1054, in __call__
+    await super().__call__(scope, receive, send)
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\starlette\applications.py", line 113, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\starlette\middleware\errors.py", line 187, in __call__
+    raise exc
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\starlette\middleware\errors.py", line 165, in __call__
+    await self.app(scope, receive, _send)
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\starlette\middleware\cors.py", line 85, in __call__
+    await self.app(scope, receive, send)
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\starlette\middleware\exceptions.py", line 62, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\starlette\_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\starlette\_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\starlette\routing.py", line 715, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\starlette\routing.py", line 735, in app
+    await route.handle(scope, receive, send)
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\starlette\routing.py", line 288, in handle
+    await self.app(scope, receive, send)
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\starlette\routing.py", line 76, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\starlette\_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\starlette\_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\starlette\routing.py", line 73, in app
+    response = await f(request)
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\fastapi\routing.py", line 301, in app
+    raw_response = await run_endpoint_function(
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\fastapi\routing.py", line 214, in run_endpoint_function
+    return await run_in_threadpool(dependant.call, **values)
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\starlette\concurrency.py", line 39, in run_in_threadpool
+    return await anyio.to_thread.run_sync(func, *args)
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\anyio\to_thread.py", line 56, in run_sync
+    return await get_async_backend().run_sync_in_worker_thread(
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\anyio\_backends\_asyncio.py", line 2461, in run_sync_in_worker_thread
+    return await future
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\anyio\_backends\_asyncio.py", line 962, in run
+    result = context.run(func, *args)
+  File "D:\Codes\anprv8\engine\api.py", line 118, in onOff
+    ip=Relay.ip
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\pydantic\_internal\_model_construction.py", line 264, in __getattr__
+    raise AttributeError(item)
+AttributeError: ip
+[2025-09-30 13:51:25,690] [INFO] 127.0.0.1:9791 - "POST /iprelay HTTP/1.1" 500
+[2025-09-30 13:51:25,690] [ERROR] Exception in ASGI application
+Traceback (most recent call last):
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\uvicorn\protocols\http\h11_impl.py", line 403, in run_asgi
+    result = await app(  # type: ignore[func-returns-value]
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\uvicorn\middleware\proxy_headers.py", line 60, in __call__
+    return await self.app(scope, receive, send)
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\fastapi\applications.py", line 1054, in __call__
+    await super().__call__(scope, receive, send)
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\starlette\applications.py", line 113, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\starlette\middleware\errors.py", line 187, in __call__
+    raise exc
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\starlette\middleware\errors.py", line 165, in __call__
+    await self.app(scope, receive, _send)
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\starlette\middleware\cors.py", line 85, in __call__
+    await self.app(scope, receive, send)
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\starlette\middleware\exceptions.py", line 62, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\starlette\_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\starlette\_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\starlette\routing.py", line 715, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\starlette\routing.py", line 735, in app
+    await route.handle(scope, receive, send)
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\starlette\routing.py", line 288, in handle
+    await self.app(scope, receive, send)
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\starlette\routing.py", line 76, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\starlette\_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\starlette\_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\starlette\routing.py", line 73, in app
+    response = await f(request)
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\fastapi\routing.py", line 301, in app
+    raw_response = await run_endpoint_function(
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\fastapi\routing.py", line 214, in run_endpoint_function
+    return await run_in_threadpool(dependant.call, **values)
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\starlette\concurrency.py", line 39, in run_in_threadpool
+    return await anyio.to_thread.run_sync(func, *args)
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\anyio\to_thread.py", line 56, in run_sync
+    return await get_async_backend().run_sync_in_worker_thread(
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\anyio\_backends\_asyncio.py", line 2461, in run_sync_in_worker_thread
+    return await future
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\anyio\_backends\_asyncio.py", line 962, in run
+    result = context.run(func, *args)
+  File "D:\Codes\anprv8\engine\api.py", line 118, in onOff
+    ip=Relay.ip
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\pydantic\_internal\_model_construction.py", line 264, in __getattr__
+    raise AttributeError(item)
+AttributeError: ip
+[2025-09-30 13:51:43,978] [INFO] Shutting down
+[2025-09-30 13:51:44,083] [INFO] Waiting for application shutdown.
+[2025-09-30 13:51:44,246] [ERROR] Traceback (most recent call last):
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\starlette\routing.py", line 693, in lifespan
+    async with self.lifespan_context(app) as maybe_state:
+  File "C:\Users\Microsoft\AppData\Local\Programs\Python\Python310\lib\contextlib.py", line 206, in __aexit__
+    await anext(self.gen)
+  File "D:\Codes\anprv8\engine\api.py", line 28, in lifespan
+    cctv.graceful_shutdown()
+  File "D:\Codes\anprv8\engine\engines.py", line 104, in graceful_shutdown
+    self.process.kill()
+AttributeError: 'NoneType' object has no attribute 'kill'
+
+[2025-09-30 13:51:44,246] [ERROR] Application shutdown failed. Exiting.
+[2025-09-30 13:51:44,247] [INFO] Finished server process [44004]
+[2025-09-30 13:51:50,167] [DEBUG] Using proactor: IocpProactor
+[2025-09-30 13:51:50,199] [INFO] Started server process [44924]
+[2025-09-30 13:51:50,200] [INFO] Waiting for application startup.
+[2025-09-30 13:51:50,216] [INFO] Loading YOLO models...
+[2025-09-30 13:51:51,514] [DEBUG] Loaded backend Agg version v2.2.
+[2025-09-30 13:51:52,083] [INFO] Models loaded successfully
+[2025-09-30 13:51:52,087] [INFO] Application startup complete.
+[2025-09-30 13:51:52,088] [INFO] Uvicorn running on http://0.0.0.0:8009 (Press CTRL+C to quit)
+[2025-09-30 13:51:54,731] [INFO] 127.0.0.1:9821 - "POST /iprelay HTTP/1.1" 500
+[2025-09-30 13:51:54,731] [ERROR] Exception in ASGI application
+Traceback (most recent call last):
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\uvicorn\protocols\http\h11_impl.py", line 403, in run_asgi
+    result = await app(  # type: ignore[func-returns-value]
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\uvicorn\middleware\proxy_headers.py", line 60, in __call__
+    return await self.app(scope, receive, send)
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\fastapi\applications.py", line 1054, in __call__
+    await super().__call__(scope, receive, send)
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\starlette\applications.py", line 113, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\starlette\middleware\errors.py", line 187, in __call__
+    raise exc
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\starlette\middleware\errors.py", line 165, in __call__
+    await self.app(scope, receive, _send)
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\starlette\middleware\cors.py", line 85, in __call__
+    await self.app(scope, receive, send)
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\starlette\middleware\exceptions.py", line 62, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\starlette\_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\starlette\_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\starlette\routing.py", line 715, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\starlette\routing.py", line 735, in app
+    await route.handle(scope, receive, send)
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\starlette\routing.py", line 288, in handle
+    await self.app(scope, receive, send)
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\starlette\routing.py", line 76, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\starlette\_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\starlette\_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\starlette\routing.py", line 73, in app
+    response = await f(request)
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\fastapi\routing.py", line 301, in app
+    raw_response = await run_endpoint_function(
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\fastapi\routing.py", line 214, in run_endpoint_function
+    return await run_in_threadpool(dependant.call, **values)
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\starlette\concurrency.py", line 39, in run_in_threadpool
+    return await anyio.to_thread.run_sync(func, *args)
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\anyio\to_thread.py", line 56, in run_sync
+    return await get_async_backend().run_sync_in_worker_thread(
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\anyio\_backends\_asyncio.py", line 2461, in run_sync_in_worker_thread
+    return await future
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\anyio\_backends\_asyncio.py", line 962, in run
+    result = context.run(func, *args)
+  File "D:\Codes\anprv8\engine\api.py", line 118, in onOff
+    ip=Relay.ip.strip()
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\pydantic\_internal\_model_construction.py", line 264, in __getattr__
+    raise AttributeError(item)
+AttributeError: ip
+[2025-09-30 13:52:30,241] [INFO] Shutting down
+[2025-09-30 13:52:30,339] [INFO] Finished server process [44924]
+[2025-09-30 13:52:30,340] [ERROR] Traceback (most recent call last):
+  File "C:\Users\Microsoft\AppData\Local\Programs\Python\Python310\lib\asyncio\runners.py", line 44, in run
+    return loop.run_until_complete(main)
+  File "C:\Users\Microsoft\AppData\Local\Programs\Python\Python310\lib\asyncio\base_events.py", line 636, in run_until_complete
+    self.run_forever()
+  File "C:\Users\Microsoft\AppData\Local\Programs\Python\Python310\lib\asyncio\windows_events.py", line 321, in run_forever
+    super().run_forever()
+  File "C:\Users\Microsoft\AppData\Local\Programs\Python\Python310\lib\asyncio\base_events.py", line 603, in run_forever
+    self._run_once()
+  File "C:\Users\Microsoft\AppData\Local\Programs\Python\Python310\lib\asyncio\base_events.py", line 1909, in _run_once
+    handle._run()
+  File "C:\Users\Microsoft\AppData\Local\Programs\Python\Python310\lib\asyncio\events.py", line 80, in _run
+    self._context.run(self._callback, *self._args)
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\uvicorn\server.py", line 69, in serve
+    with self.capture_signals():
+  File "C:\Users\Microsoft\AppData\Local\Programs\Python\Python310\lib\contextlib.py", line 142, in __exit__
+    next(self.gen)
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\uvicorn\server.py", line 330, in capture_signals
+    signal.raise_signal(captured_signal)
+KeyboardInterrupt
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\starlette\routing.py", line 700, in lifespan
+    await receive()
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\uvicorn\lifespan\on.py", line 137, in receive
+    return await self.receive_queue.get()
+  File "C:\Users\Microsoft\AppData\Local\Programs\Python\Python310\lib\asyncio\queues.py", line 159, in get
+    await getter
+asyncio.exceptions.CancelledError
+
+[2025-09-30 13:52:34,657] [DEBUG] Using proactor: IocpProactor
+[2025-09-30 13:52:34,689] [INFO] Started server process [44856]
+[2025-09-30 13:52:34,689] [INFO] Waiting for application startup.
+[2025-09-30 13:52:34,700] [INFO] Loading YOLO models...
+[2025-09-30 13:52:36,086] [DEBUG] Loaded backend Agg version v2.2.
+[2025-09-30 13:52:36,643] [INFO] Models loaded successfully
+[2025-09-30 13:52:36,648] [INFO] Application startup complete.
+[2025-09-30 13:52:36,648] [INFO] Uvicorn running on http://0.0.0.0:8009 (Press CTRL+C to quit)
+[2025-09-30 13:52:38,182] [INFO] 127.0.0.1:9868 - "POST /iprelay HTTP/1.1" 500
+[2025-09-30 13:52:38,182] [ERROR] Exception in ASGI application
+Traceback (most recent call last):
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\uvicorn\protocols\http\h11_impl.py", line 403, in run_asgi
+    result = await app(  # type: ignore[func-returns-value]
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\uvicorn\middleware\proxy_headers.py", line 60, in __call__
+    return await self.app(scope, receive, send)
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\fastapi\applications.py", line 1054, in __call__
+    await super().__call__(scope, receive, send)
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\starlette\applications.py", line 113, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\starlette\middleware\errors.py", line 187, in __call__
+    raise exc
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\starlette\middleware\errors.py", line 165, in __call__
+    await self.app(scope, receive, _send)
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\starlette\middleware\cors.py", line 85, in __call__
+    await self.app(scope, receive, send)
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\starlette\middleware\exceptions.py", line 62, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\starlette\_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\starlette\_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\starlette\routing.py", line 715, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\starlette\routing.py", line 735, in app
+    await route.handle(scope, receive, send)
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\starlette\routing.py", line 288, in handle
+    await self.app(scope, receive, send)
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\starlette\routing.py", line 76, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\starlette\_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\starlette\_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\starlette\routing.py", line 73, in app
+    response = await f(request)
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\fastapi\routing.py", line 301, in app
+    raw_response = await run_endpoint_function(
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\fastapi\routing.py", line 214, in run_endpoint_function
+    return await run_in_threadpool(dependant.call, **values)
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\starlette\concurrency.py", line 39, in run_in_threadpool
+    return await anyio.to_thread.run_sync(func, *args)
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\anyio\to_thread.py", line 56, in run_sync
+    return await get_async_backend().run_sync_in_worker_thread(
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\anyio\_backends\_asyncio.py", line 2461, in run_sync_in_worker_thread
+    return await future
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\anyio\_backends\_asyncio.py", line 962, in run
+    result = context.run(func, *args)
+  File "D:\Codes\anprv8\engine\api.py", line 118, in onOff
+    ip=Relay.ip.strip()
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\pydantic\_internal\_model_construction.py", line 264, in __getattr__
+    raise AttributeError(item)
+AttributeError: ip
+[2025-09-30 13:53:05,569] [INFO] Shutting down
+[2025-09-30 13:53:05,674] [INFO] Finished server process [44856]
+[2025-09-30 13:53:05,675] [ERROR] Traceback (most recent call last):
+  File "C:\Users\Microsoft\AppData\Local\Programs\Python\Python310\lib\asyncio\runners.py", line 44, in run
+    return loop.run_until_complete(main)
+  File "C:\Users\Microsoft\AppData\Local\Programs\Python\Python310\lib\asyncio\base_events.py", line 636, in run_until_complete
+    self.run_forever()
+  File "C:\Users\Microsoft\AppData\Local\Programs\Python\Python310\lib\asyncio\windows_events.py", line 321, in run_forever
+    super().run_forever()
+  File "C:\Users\Microsoft\AppData\Local\Programs\Python\Python310\lib\asyncio\base_events.py", line 603, in run_forever
+    self._run_once()
+  File "C:\Users\Microsoft\AppData\Local\Programs\Python\Python310\lib\asyncio\base_events.py", line 1909, in _run_once
+    handle._run()
+  File "C:\Users\Microsoft\AppData\Local\Programs\Python\Python310\lib\asyncio\events.py", line 80, in _run
+    self._context.run(self._callback, *self._args)
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\uvicorn\server.py", line 69, in serve
+    with self.capture_signals():
+  File "C:\Users\Microsoft\AppData\Local\Programs\Python\Python310\lib\contextlib.py", line 142, in __exit__
+    next(self.gen)
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\uvicorn\server.py", line 330, in capture_signals
+    signal.raise_signal(captured_signal)
+KeyboardInterrupt
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\starlette\routing.py", line 700, in lifespan
+    await receive()
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\uvicorn\lifespan\on.py", line 137, in receive
+    return await self.receive_queue.get()
+  File "C:\Users\Microsoft\AppData\Local\Programs\Python\Python310\lib\asyncio\queues.py", line 159, in get
+    await getter
+asyncio.exceptions.CancelledError
+
+[2025-09-30 13:53:09,958] [DEBUG] Using proactor: IocpProactor
+[2025-09-30 13:53:09,987] [INFO] Started server process [44404]
+[2025-09-30 13:53:09,988] [INFO] Waiting for application startup.
+[2025-09-30 13:53:10,002] [INFO] Loading YOLO models...
+[2025-09-30 13:53:11,411] [DEBUG] Loaded backend Agg version v2.2.
+[2025-09-30 13:53:11,980] [INFO] Models loaded successfully
+[2025-09-30 13:53:11,985] [INFO] Application startup complete.
+[2025-09-30 13:53:11,985] [INFO] Uvicorn running on http://0.0.0.0:8009 (Press CTRL+C to quit)
+[2025-09-30 13:53:13,391] [INFO] 127.0.0.1:9899 - "POST /iprelay HTTP/1.1" 500
+[2025-09-30 13:53:13,392] [ERROR] Exception in ASGI application
+Traceback (most recent call last):
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\uvicorn\protocols\http\h11_impl.py", line 403, in run_asgi
+    result = await app(  # type: ignore[func-returns-value]
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\uvicorn\middleware\proxy_headers.py", line 60, in __call__
+    return await self.app(scope, receive, send)
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\fastapi\applications.py", line 1054, in __call__
+    await super().__call__(scope, receive, send)
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\starlette\applications.py", line 113, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\starlette\middleware\errors.py", line 187, in __call__
+    raise exc
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\starlette\middleware\errors.py", line 165, in __call__
+    await self.app(scope, receive, _send)
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\starlette\middleware\cors.py", line 85, in __call__
+    await self.app(scope, receive, send)
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\starlette\middleware\exceptions.py", line 62, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\starlette\_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\starlette\_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\starlette\routing.py", line 715, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\starlette\routing.py", line 735, in app
+    await route.handle(scope, receive, send)
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\starlette\routing.py", line 288, in handle
+    await self.app(scope, receive, send)
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\starlette\routing.py", line 76, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\starlette\_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\starlette\_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\starlette\routing.py", line 73, in app
+    response = await f(request)
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\fastapi\routing.py", line 301, in app
+    raw_response = await run_endpoint_function(
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\fastapi\routing.py", line 214, in run_endpoint_function
+    return await run_in_threadpool(dependant.call, **values)
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\starlette\concurrency.py", line 39, in run_in_threadpool
+    return await anyio.to_thread.run_sync(func, *args)
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\anyio\to_thread.py", line 56, in run_sync
+    return await get_async_backend().run_sync_in_worker_thread(
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\anyio\_backends\_asyncio.py", line 2461, in run_sync_in_worker_thread
+    return await future
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\anyio\_backends\_asyncio.py", line 962, in run
+    result = context.run(func, *args)
+  File "D:\Codes\anprv8\engine\api.py", line 118, in onOff
+    ipr=Relay.ip.strip()
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\pydantic\_internal\_model_construction.py", line 264, in __getattr__
+    raise AttributeError(item)
+AttributeError: ip
+[2025-09-30 13:53:46,995] [INFO] Shutting down
+[2025-09-30 13:53:47,115] [INFO] Finished server process [44404]
+[2025-09-30 13:53:47,116] [ERROR] Traceback (most recent call last):
+  File "C:\Users\Microsoft\AppData\Local\Programs\Python\Python310\lib\asyncio\runners.py", line 44, in run
+    return loop.run_until_complete(main)
+  File "C:\Users\Microsoft\AppData\Local\Programs\Python\Python310\lib\asyncio\base_events.py", line 636, in run_until_complete
+    self.run_forever()
+  File "C:\Users\Microsoft\AppData\Local\Programs\Python\Python310\lib\asyncio\windows_events.py", line 321, in run_forever
+    super().run_forever()
+  File "C:\Users\Microsoft\AppData\Local\Programs\Python\Python310\lib\asyncio\base_events.py", line 603, in run_forever
+    self._run_once()
+  File "C:\Users\Microsoft\AppData\Local\Programs\Python\Python310\lib\asyncio\base_events.py", line 1909, in _run_once
+    handle._run()
+  File "C:\Users\Microsoft\AppData\Local\Programs\Python\Python310\lib\asyncio\events.py", line 80, in _run
+    self._context.run(self._callback, *self._args)
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\uvicorn\server.py", line 69, in serve
+    with self.capture_signals():
+  File "C:\Users\Microsoft\AppData\Local\Programs\Python\Python310\lib\contextlib.py", line 142, in __exit__
+    next(self.gen)
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\uvicorn\server.py", line 330, in capture_signals
+    signal.raise_signal(captured_signal)
+KeyboardInterrupt
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\starlette\routing.py", line 700, in lifespan
+    await receive()
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\uvicorn\lifespan\on.py", line 137, in receive
+    return await self.receive_queue.get()
+  File "C:\Users\Microsoft\AppData\Local\Programs\Python\Python310\lib\asyncio\queues.py", line 159, in get
+    await getter
+asyncio.exceptions.CancelledError
+
+[2025-09-30 13:53:51,214] [DEBUG] Using proactor: IocpProactor
+[2025-09-30 13:53:51,245] [INFO] Started server process [44236]
+[2025-09-30 13:53:51,245] [INFO] Waiting for application startup.
+[2025-09-30 13:53:51,256] [INFO] Loading YOLO models...
+[2025-09-30 13:53:52,626] [DEBUG] Loaded backend Agg version v2.2.
+[2025-09-30 13:53:53,176] [INFO] Models loaded successfully
+[2025-09-30 13:53:53,180] [INFO] Application startup complete.
+[2025-09-30 13:53:53,180] [INFO] Uvicorn running on http://0.0.0.0:8009 (Press CTRL+C to quit)
+[2025-09-30 13:53:54,298] [INFO] 127.0.0.1:9932 - "POST /iprelay HTTP/1.1" 422
+[2025-09-30 13:53:56,504] [INFO] 127.0.0.1:9933 - "POST /iprelay HTTP/1.1" 422
+[2025-09-30 13:53:59,902] [INFO] 127.0.0.1:9937 - "POST /iprelay HTTP/1.1" 500
+[2025-09-30 13:53:59,902] [ERROR] Exception in ASGI application
+Traceback (most recent call last):
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\uvicorn\protocols\http\h11_impl.py", line 403, in run_asgi
+    result = await app(  # type: ignore[func-returns-value]
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\uvicorn\middleware\proxy_headers.py", line 60, in __call__
+    return await self.app(scope, receive, send)
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\fastapi\applications.py", line 1054, in __call__
+    await super().__call__(scope, receive, send)
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\starlette\applications.py", line 113, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\starlette\middleware\errors.py", line 187, in __call__
+    raise exc
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\starlette\middleware\errors.py", line 165, in __call__
+    await self.app(scope, receive, _send)
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\starlette\middleware\cors.py", line 85, in __call__
+    await self.app(scope, receive, send)
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\starlette\middleware\exceptions.py", line 62, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\starlette\_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\starlette\_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\starlette\routing.py", line 715, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\starlette\routing.py", line 735, in app
+    await route.handle(scope, receive, send)
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\starlette\routing.py", line 288, in handle
+    await self.app(scope, receive, send)
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\starlette\routing.py", line 76, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\starlette\_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\starlette\_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\starlette\routing.py", line 73, in app
+    response = await f(request)
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\fastapi\routing.py", line 301, in app
+    raw_response = await run_endpoint_function(
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\fastapi\routing.py", line 214, in run_endpoint_function
+    return await run_in_threadpool(dependant.call, **values)
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\starlette\concurrency.py", line 39, in run_in_threadpool
+    return await anyio.to_thread.run_sync(func, *args)
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\anyio\to_thread.py", line 56, in run_sync
+    return await get_async_backend().run_sync_in_worker_thread(
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\anyio\_backends\_asyncio.py", line 2461, in run_sync_in_worker_thread
+    return await future
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\anyio\_backends\_asyncio.py", line 962, in run
+    result = context.run(func, *args)
+  File "D:\Codes\anprv8\engine\api.py", line 118, in onOff
+    ipr=Relay.ipr.strip()
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\pydantic\_internal\_model_construction.py", line 264, in __getattr__
+    raise AttributeError(item)
+AttributeError: ipr
+[2025-09-30 13:54:16,810] [INFO] Shutting down
+[2025-09-30 13:54:16,921] [INFO] Waiting for application shutdown.
+[2025-09-30 13:54:17,076] [ERROR] Traceback (most recent call last):
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\starlette\routing.py", line 693, in lifespan
+    async with self.lifespan_context(app) as maybe_state:
+  File "C:\Users\Microsoft\AppData\Local\Programs\Python\Python310\lib\contextlib.py", line 206, in __aexit__
+    await anext(self.gen)
+  File "D:\Codes\anprv8\engine\api.py", line 28, in lifespan
+    cctv.graceful_shutdown()
+  File "D:\Codes\anprv8\engine\engines.py", line 104, in graceful_shutdown
+    self.process.kill()
+AttributeError: 'NoneType' object has no attribute 'kill'
+
+[2025-09-30 13:54:17,077] [ERROR] Application shutdown failed. Exiting.
+[2025-09-30 13:54:17,077] [INFO] Finished server process [44236]
+[2025-09-30 13:54:21,320] [DEBUG] Using proactor: IocpProactor
+[2025-09-30 13:54:21,361] [INFO] Started server process [43976]
+[2025-09-30 13:54:21,361] [INFO] Waiting for application startup.
+[2025-09-30 13:54:21,376] [INFO] Loading YOLO models...
+[2025-09-30 13:54:22,780] [DEBUG] Loaded backend Agg version v2.2.
+[2025-09-30 13:54:23,388] [INFO] Models loaded successfully
+[2025-09-30 13:54:23,392] [INFO] Application startup complete.
+[2025-09-30 13:54:23,392] [INFO] Uvicorn running on http://0.0.0.0:8009 (Press CTRL+C to quit)
+[2025-09-30 13:54:25,259] [INFO] 127.0.0.1:9959 - "POST /iprelay HTTP/1.1" 500
+[2025-09-30 13:54:25,260] [ERROR] Exception in ASGI application
+Traceback (most recent call last):
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\uvicorn\protocols\http\h11_impl.py", line 403, in run_asgi
+    result = await app(  # type: ignore[func-returns-value]
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\uvicorn\middleware\proxy_headers.py", line 60, in __call__
+    return await self.app(scope, receive, send)
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\fastapi\applications.py", line 1054, in __call__
+    await super().__call__(scope, receive, send)
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\starlette\applications.py", line 113, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\starlette\middleware\errors.py", line 187, in __call__
+    raise exc
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\starlette\middleware\errors.py", line 165, in __call__
+    await self.app(scope, receive, _send)
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\starlette\middleware\cors.py", line 85, in __call__
+    await self.app(scope, receive, send)
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\starlette\middleware\exceptions.py", line 62, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\starlette\_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\starlette\_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\starlette\routing.py", line 715, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\starlette\routing.py", line 735, in app
+    await route.handle(scope, receive, send)
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\starlette\routing.py", line 288, in handle
+    await self.app(scope, receive, send)
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\starlette\routing.py", line 76, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\starlette\_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\starlette\_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\starlette\routing.py", line 73, in app
+    response = await f(request)
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\fastapi\routing.py", line 301, in app
+    raw_response = await run_endpoint_function(
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\fastapi\routing.py", line 214, in run_endpoint_function
+    return await run_in_threadpool(dependant.call, **values)
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\starlette\concurrency.py", line 39, in run_in_threadpool
+    return await anyio.to_thread.run_sync(func, *args)
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\anyio\to_thread.py", line 56, in run_sync
+    return await get_async_backend().run_sync_in_worker_thread(
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\anyio\_backends\_asyncio.py", line 2461, in run_sync_in_worker_thread
+    return await future
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\anyio\_backends\_asyncio.py", line 962, in run
+    result = context.run(func, *args)
+  File "D:\Codes\anprv8\engine\api.py", line 119, in onOff
+    ipr=Relay.ipr.strip()
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\pydantic\_internal\_model_construction.py", line 264, in __getattr__
+    raise AttributeError(item)
+AttributeError: ipr
+[2025-09-30 13:54:35,250] [INFO] Shutting down
+[2025-09-30 13:54:35,355] [INFO] Waiting for application shutdown.
+[2025-09-30 13:54:35,512] [ERROR] Traceback (most recent call last):
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\starlette\routing.py", line 693, in lifespan
+    async with self.lifespan_context(app) as maybe_state:
+  File "C:\Users\Microsoft\AppData\Local\Programs\Python\Python310\lib\contextlib.py", line 206, in __aexit__
+    await anext(self.gen)
+  File "D:\Codes\anprv8\engine\api.py", line 28, in lifespan
+    cctv.graceful_shutdown()
+  File "D:\Codes\anprv8\engine\engines.py", line 104, in graceful_shutdown
+    self.process.kill()
+AttributeError: 'NoneType' object has no attribute 'kill'
+
+[2025-09-30 13:54:35,513] [ERROR] Application shutdown failed. Exiting.
+[2025-09-30 13:54:35,513] [INFO] Finished server process [43976]
+[2025-09-30 13:54:39,799] [DEBUG] Using proactor: IocpProactor
+[2025-09-30 13:54:39,831] [INFO] Started server process [43136]
+[2025-09-30 13:54:39,832] [INFO] Waiting for application startup.
+[2025-09-30 13:54:39,857] [INFO] Loading YOLO models...
+[2025-09-30 13:54:41,249] [DEBUG] Loaded backend Agg version v2.2.
+[2025-09-30 13:54:41,828] [INFO] Models loaded successfully
+[2025-09-30 13:54:41,832] [INFO] Application startup complete.
+[2025-09-30 13:54:41,832] [INFO] Uvicorn running on http://0.0.0.0:8009 (Press CTRL+C to quit)
+[2025-09-30 13:54:42,823] [INFO] 127.0.0.1:9977 - "POST /iprelay HTTP/1.1" 500
+[2025-09-30 13:54:42,823] [ERROR] Exception in ASGI application
+Traceback (most recent call last):
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\uvicorn\protocols\http\h11_impl.py", line 403, in run_asgi
+    result = await app(  # type: ignore[func-returns-value]
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\uvicorn\middleware\proxy_headers.py", line 60, in __call__
+    return await self.app(scope, receive, send)
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\fastapi\applications.py", line 1054, in __call__
+    await super().__call__(scope, receive, send)
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\starlette\applications.py", line 113, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\starlette\middleware\errors.py", line 187, in __call__
+    raise exc
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\starlette\middleware\errors.py", line 165, in __call__
+    await self.app(scope, receive, _send)
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\starlette\middleware\cors.py", line 85, in __call__
+    await self.app(scope, receive, send)
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\starlette\middleware\exceptions.py", line 62, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\starlette\_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\starlette\_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\starlette\routing.py", line 715, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\starlette\routing.py", line 735, in app
+    await route.handle(scope, receive, send)
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\starlette\routing.py", line 288, in handle
+    await self.app(scope, receive, send)
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\starlette\routing.py", line 76, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\starlette\_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\starlette\_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\starlette\routing.py", line 73, in app
+    response = await f(request)
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\fastapi\routing.py", line 301, in app
+    raw_response = await run_endpoint_function(
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\fastapi\routing.py", line 214, in run_endpoint_function
+    return await run_in_threadpool(dependant.call, **values)
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\starlette\concurrency.py", line 39, in run_in_threadpool
+    return await anyio.to_thread.run_sync(func, *args)
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\anyio\to_thread.py", line 56, in run_sync
+    return await get_async_backend().run_sync_in_worker_thread(
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\anyio\_backends\_asyncio.py", line 2461, in run_sync_in_worker_thread
+    return await future
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\anyio\_backends\_asyncio.py", line 962, in run
+    result = context.run(func, *args)
+  File "D:\Codes\anprv8\engine\api.py", line 118, in onOff
+    print(Relay.ipr)
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\pydantic\_internal\_model_construction.py", line 264, in __getattr__
+    raise AttributeError(item)
+AttributeError: ipr
+[2025-09-30 13:55:49,647] [INFO] Shutting down
+[2025-09-30 13:55:49,752] [INFO] Finished server process [43136]
+[2025-09-30 13:55:49,753] [ERROR] Traceback (most recent call last):
+  File "C:\Users\Microsoft\AppData\Local\Programs\Python\Python310\lib\asyncio\runners.py", line 44, in run
+    return loop.run_until_complete(main)
+  File "C:\Users\Microsoft\AppData\Local\Programs\Python\Python310\lib\asyncio\base_events.py", line 636, in run_until_complete
+    self.run_forever()
+  File "C:\Users\Microsoft\AppData\Local\Programs\Python\Python310\lib\asyncio\windows_events.py", line 321, in run_forever
+    super().run_forever()
+  File "C:\Users\Microsoft\AppData\Local\Programs\Python\Python310\lib\asyncio\base_events.py", line 603, in run_forever
+    self._run_once()
+  File "C:\Users\Microsoft\AppData\Local\Programs\Python\Python310\lib\asyncio\base_events.py", line 1909, in _run_once
+    handle._run()
+  File "C:\Users\Microsoft\AppData\Local\Programs\Python\Python310\lib\asyncio\events.py", line 80, in _run
+    self._context.run(self._callback, *self._args)
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\uvicorn\server.py", line 69, in serve
+    with self.capture_signals():
+  File "C:\Users\Microsoft\AppData\Local\Programs\Python\Python310\lib\contextlib.py", line 142, in __exit__
+    next(self.gen)
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\uvicorn\server.py", line 330, in capture_signals
+    signal.raise_signal(captured_signal)
+KeyboardInterrupt
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\starlette\routing.py", line 700, in lifespan
+    await receive()
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\uvicorn\lifespan\on.py", line 137, in receive
+    return await self.receive_queue.get()
+  File "C:\Users\Microsoft\AppData\Local\Programs\Python\Python310\lib\asyncio\queues.py", line 159, in get
+    await getter
+asyncio.exceptions.CancelledError
+
+[2025-09-30 13:55:53,702] [DEBUG] Using proactor: IocpProactor
+[2025-09-30 13:55:53,734] [INFO] Started server process [45844]
+[2025-09-30 13:55:53,734] [INFO] Waiting for application startup.
+[2025-09-30 13:55:53,749] [INFO] Loading YOLO models...
+[2025-09-30 13:55:55,101] [DEBUG] Loaded backend Agg version v2.2.
+[2025-09-30 13:55:55,687] [INFO] Models loaded successfully
+[2025-09-30 13:55:55,691] [INFO] Application startup complete.
+[2025-09-30 13:55:55,691] [INFO] Uvicorn running on http://0.0.0.0:8009 (Press CTRL+C to quit)
+[2025-09-30 13:55:57,763] [INFO] 127.0.0.1:10030 - "POST /utils/iprelay HTTP/1.1" 500
+[2025-09-30 13:55:57,763] [ERROR] Exception in ASGI application
+Traceback (most recent call last):
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\uvicorn\protocols\http\h11_impl.py", line 403, in run_asgi
+    result = await app(  # type: ignore[func-returns-value]
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\uvicorn\middleware\proxy_headers.py", line 60, in __call__
+    return await self.app(scope, receive, send)
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\fastapi\applications.py", line 1054, in __call__
+    await super().__call__(scope, receive, send)
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\starlette\applications.py", line 113, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\starlette\middleware\errors.py", line 187, in __call__
+    raise exc
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\starlette\middleware\errors.py", line 165, in __call__
+    await self.app(scope, receive, _send)
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\starlette\middleware\cors.py", line 85, in __call__
+    await self.app(scope, receive, send)
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\starlette\middleware\exceptions.py", line 62, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\starlette\_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\starlette\_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\starlette\routing.py", line 715, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\starlette\routing.py", line 735, in app
+    await route.handle(scope, receive, send)
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\starlette\routing.py", line 288, in handle
+    await self.app(scope, receive, send)
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\starlette\routing.py", line 76, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\starlette\_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\starlette\_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\starlette\routing.py", line 73, in app
+    response = await f(request)
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\fastapi\routing.py", line 301, in app
+    raw_response = await run_endpoint_function(
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\fastapi\routing.py", line 214, in run_endpoint_function
+    return await run_in_threadpool(dependant.call, **values)
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\starlette\concurrency.py", line 39, in run_in_threadpool
+    return await anyio.to_thread.run_sync(func, *args)
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\anyio\to_thread.py", line 56, in run_sync
+    return await get_async_backend().run_sync_in_worker_thread(
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\anyio\_backends\_asyncio.py", line 2461, in run_sync_in_worker_thread
+    return await future
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\anyio\_backends\_asyncio.py", line 962, in run
+    result = context.run(func, *args)
+  File "D:\Codes\anprv8\engine\api.py", line 118, in onOff
+    print(Relay.ipr)
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\pydantic\_internal\_model_construction.py", line 264, in __getattr__
+    raise AttributeError(item)
+AttributeError: ipr
+[2025-09-30 13:56:45,940] [INFO] Shutting down
+[2025-09-30 13:56:46,045] [INFO] Finished server process [45844]
+[2025-09-30 13:56:46,046] [ERROR] Traceback (most recent call last):
+  File "C:\Users\Microsoft\AppData\Local\Programs\Python\Python310\lib\asyncio\runners.py", line 44, in run
+    return loop.run_until_complete(main)
+  File "C:\Users\Microsoft\AppData\Local\Programs\Python\Python310\lib\asyncio\base_events.py", line 636, in run_until_complete
+    self.run_forever()
+  File "C:\Users\Microsoft\AppData\Local\Programs\Python\Python310\lib\asyncio\windows_events.py", line 321, in run_forever
+    super().run_forever()
+  File "C:\Users\Microsoft\AppData\Local\Programs\Python\Python310\lib\asyncio\base_events.py", line 603, in run_forever
+    self._run_once()
+  File "C:\Users\Microsoft\AppData\Local\Programs\Python\Python310\lib\asyncio\base_events.py", line 1909, in _run_once
+    handle._run()
+  File "C:\Users\Microsoft\AppData\Local\Programs\Python\Python310\lib\asyncio\events.py", line 80, in _run
+    self._context.run(self._callback, *self._args)
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\uvicorn\server.py", line 69, in serve
+    with self.capture_signals():
+  File "C:\Users\Microsoft\AppData\Local\Programs\Python\Python310\lib\contextlib.py", line 142, in __exit__
+    next(self.gen)
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\uvicorn\server.py", line 330, in capture_signals
+    signal.raise_signal(captured_signal)
+KeyboardInterrupt
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\starlette\routing.py", line 700, in lifespan
+    await receive()
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\uvicorn\lifespan\on.py", line 137, in receive
+    return await self.receive_queue.get()
+  File "C:\Users\Microsoft\AppData\Local\Programs\Python\Python310\lib\asyncio\queues.py", line 159, in get
+    await getter
+asyncio.exceptions.CancelledError
+
+[2025-09-30 13:56:50,345] [DEBUG] Using proactor: IocpProactor
+[2025-09-30 13:56:50,376] [INFO] Started server process [43704]
+[2025-09-30 13:56:50,376] [INFO] Waiting for application startup.
+[2025-09-30 13:56:50,390] [INFO] Loading YOLO models...
+[2025-09-30 13:56:51,961] [DEBUG] Loaded backend Agg version v2.2.
+[2025-09-30 13:56:52,530] [INFO] Models loaded successfully
+[2025-09-30 13:56:52,534] [INFO] Application startup complete.
+[2025-09-30 13:56:52,534] [INFO] Uvicorn running on http://0.0.0.0:8009 (Press CTRL+C to quit)
+[2025-09-30 13:56:54,168] [INFO] 127.0.0.1:10074 - "POST /utils/iprelay HTTP/1.1" 500
+[2025-09-30 13:56:54,169] [ERROR] Exception in ASGI application
+Traceback (most recent call last):
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\uvicorn\protocols\http\h11_impl.py", line 403, in run_asgi
+    result = await app(  # type: ignore[func-returns-value]
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\uvicorn\middleware\proxy_headers.py", line 60, in __call__
+    return await self.app(scope, receive, send)
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\fastapi\applications.py", line 1054, in __call__
+    await super().__call__(scope, receive, send)
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\starlette\applications.py", line 113, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\starlette\middleware\errors.py", line 187, in __call__
+    raise exc
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\starlette\middleware\errors.py", line 165, in __call__
+    await self.app(scope, receive, _send)
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\starlette\middleware\cors.py", line 85, in __call__
+    await self.app(scope, receive, send)
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\starlette\middleware\exceptions.py", line 62, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\starlette\_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\starlette\_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\starlette\routing.py", line 715, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\starlette\routing.py", line 735, in app
+    await route.handle(scope, receive, send)
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\starlette\routing.py", line 288, in handle
+    await self.app(scope, receive, send)
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\starlette\routing.py", line 76, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\starlette\_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\starlette\_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\starlette\routing.py", line 73, in app
+    response = await f(request)
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\fastapi\routing.py", line 301, in app
+    raw_response = await run_endpoint_function(
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\fastapi\routing.py", line 214, in run_endpoint_function
+    return await run_in_threadpool(dependant.call, **values)
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\starlette\concurrency.py", line 39, in run_in_threadpool
+    return await anyio.to_thread.run_sync(func, *args)
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\anyio\to_thread.py", line 56, in run_sync
+    return await get_async_backend().run_sync_in_worker_thread(
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\anyio\_backends\_asyncio.py", line 2461, in run_sync_in_worker_thread
+    return await future
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\anyio\_backends\_asyncio.py", line 962, in run
+    result = context.run(func, *args)
+  File "D:\Codes\anprv8\engine\api.py", line 118, in onOff
+    print(Relay.port)
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\pydantic\_internal\_model_construction.py", line 264, in __getattr__
+    raise AttributeError(item)
+AttributeError: port
+[2025-09-30 13:57:12,503] [INFO] Shutting down
+[2025-09-30 13:57:12,608] [INFO] Waiting for application shutdown.
+[2025-09-30 13:57:12,754] [ERROR] Traceback (most recent call last):
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\starlette\routing.py", line 693, in lifespan
+    async with self.lifespan_context(app) as maybe_state:
+  File "C:\Users\Microsoft\AppData\Local\Programs\Python\Python310\lib\contextlib.py", line 206, in __aexit__
+    await anext(self.gen)
+  File "D:\Codes\anprv8\engine\api.py", line 28, in lifespan
+    cctv.graceful_shutdown()
+  File "D:\Codes\anprv8\engine\engines.py", line 104, in graceful_shutdown
+    self.process.kill()
+AttributeError: 'NoneType' object has no attribute 'kill'
+
+[2025-09-30 13:57:12,754] [ERROR] Application shutdown failed. Exiting.
+[2025-09-30 13:57:12,755] [INFO] Finished server process [43704]
+[2025-09-30 13:57:17,408] [DEBUG] Using proactor: IocpProactor
+[2025-09-30 13:57:17,438] [INFO] Started server process [45800]
+[2025-09-30 13:57:17,439] [INFO] Waiting for application startup.
+[2025-09-30 13:57:17,451] [INFO] Loading YOLO models...
+[2025-09-30 13:57:18,752] [DEBUG] Loaded backend Agg version v2.2.
+[2025-09-30 13:57:19,339] [INFO] Models loaded successfully
+[2025-09-30 13:57:19,343] [INFO] Application startup complete.
+[2025-09-30 13:57:19,343] [INFO] Uvicorn running on http://0.0.0.0:8009 (Press CTRL+C to quit)
+[2025-09-30 13:57:19,614] [INFO] 127.0.0.1:10100 - "POST /utils/iprelay HTTP/1.1" 200
+[2025-09-30 13:57:21,311] [INFO] 127.0.0.1:10102 - "POST /utils/iprelay HTTP/1.1" 200
+[2025-09-30 13:57:22,212] [INFO] 127.0.0.1:10105 - "POST /utils/iprelay HTTP/1.1" 200
+[2025-09-30 13:57:23,030] [INFO] 127.0.0.1:10107 - "POST /utils/iprelay HTTP/1.1" 200
+[2025-09-30 13:57:44,800] [INFO] Shutting down
+[2025-09-30 13:57:44,908] [INFO] Waiting for application shutdown.
+[2025-09-30 13:57:45,045] [ERROR] Traceback (most recent call last):
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\starlette\routing.py", line 693, in lifespan
+    async with self.lifespan_context(app) as maybe_state:
+  File "C:\Users\Microsoft\AppData\Local\Programs\Python\Python310\lib\contextlib.py", line 206, in __aexit__
+    await anext(self.gen)
+  File "D:\Codes\anprv8\engine\api.py", line 28, in lifespan
+    cctv.graceful_shutdown()
+  File "D:\Codes\anprv8\engine\engines.py", line 104, in graceful_shutdown
+    self.process.kill()
+AttributeError: 'NoneType' object has no attribute 'kill'
+
+[2025-09-30 13:57:45,045] [ERROR] Application shutdown failed. Exiting.
+[2025-09-30 13:57:45,045] [INFO] Finished server process [45800]
+[2025-09-30 13:57:50,745] [DEBUG] Using proactor: IocpProactor
+[2025-09-30 13:57:50,777] [INFO] Started server process [45132]
+[2025-09-30 13:57:50,777] [INFO] Waiting for application startup.
+[2025-09-30 13:57:50,788] [INFO] Loading YOLO models...
+[2025-09-30 13:57:52,259] [DEBUG] Loaded backend Agg version v2.2.
+[2025-09-30 13:57:52,843] [INFO] Models loaded successfully
+[2025-09-30 13:57:52,847] [INFO] Application startup complete.
+[2025-09-30 13:57:52,847] [INFO] Uvicorn running on http://0.0.0.0:8009 (Press CTRL+C to quit)
+[2025-09-30 13:57:53,645] [INFO] 127.0.0.1:10138 - "POST /utils/iprelay HTTP/1.1" 422
+[2025-09-30 13:57:55,065] [INFO] 127.0.0.1:10140 - "POST /utils/iprelay HTTP/1.1" 422
+[2025-09-30 13:57:58,338] [INFO] 127.0.0.1:10143 - "POST /utils/iprelay HTTP/1.1" 200
+[2025-09-30 13:57:59,793] [INFO] 127.0.0.1:10146 - "POST /utils/iprelay HTTP/1.1" 200
+[2025-09-30 13:58:00,752] [INFO] 127.0.0.1:10149 - "POST /utils/iprelay HTTP/1.1" 200
+[2025-09-30 13:58:07,356] [INFO] Shutting down
+[2025-09-30 13:58:07,462] [INFO] Waiting for application shutdown.
+[2025-09-30 13:58:07,605] [ERROR] Traceback (most recent call last):
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\starlette\routing.py", line 693, in lifespan
+    async with self.lifespan_context(app) as maybe_state:
+  File "C:\Users\Microsoft\AppData\Local\Programs\Python\Python310\lib\contextlib.py", line 206, in __aexit__
+    await anext(self.gen)
+  File "D:\Codes\anprv8\engine\api.py", line 28, in lifespan
+    cctv.graceful_shutdown()
+  File "D:\Codes\anprv8\engine\engines.py", line 104, in graceful_shutdown
+    self.process.kill()
+AttributeError: 'NoneType' object has no attribute 'kill'
+
+[2025-09-30 13:58:07,605] [ERROR] Application shutdown failed. Exiting.
+[2025-09-30 13:58:07,605] [INFO] Finished server process [45132]
+[2025-09-30 14:07:59,509] [DEBUG] Using proactor: IocpProactor
+[2025-09-30 14:07:59,539] [INFO] Started server process [47340]
+[2025-09-30 14:07:59,539] [INFO] Waiting for application startup.
+[2025-09-30 14:07:59,552] [INFO] Loading YOLO models...
+[2025-09-30 14:08:00,954] [DEBUG] Loaded backend Agg version v2.2.
+[2025-09-30 14:08:01,703] [INFO] Models loaded successfully
+[2025-09-30 14:08:01,707] [INFO] Application startup complete.
+[2025-09-30 14:08:01,707] [INFO] Uvicorn running on http://0.0.0.0:8009 (Press CTRL+C to quit)
+[2025-09-30 14:08:08,346] [INFO] 127.0.0.1:1593 - "GET /video_feed/rt1?source=rtsp://admin:admin@192.168.1.89:554/mainstream HTTP/1.1" 200
+[2025-09-30 14:09:06,721] [INFO] 127.0.0.1:1595 - "GET /video_feed/rt1?source=rtsp://admin:admin@192.168.1.89:554/mainstream HTTP/1.1" 200
+[2025-09-30 14:10:04,870] [INFO] 7n43jd1iwlgbghj
+[2025-09-30 14:10:49,442] [INFO] 127.0.0.1:5290 - "GET /video_feed/rt1?source=rtsp://admin:admin@192.168.1.89:554/mainstream HTTP/1.1" 200
+[2025-09-30 14:10:56,055] [INFO] 0s263wud77pu2j2
+[2025-09-30 14:11:24,523] [INFO] 127.0.0.1:11789 - "GET /video_feed/rt1?source=rtsp://admin:admin@192.168.1.89:554/mainstream HTTP/1.1" 200
+[2025-09-30 14:12:14,824] [INFO] u0ys49u30rc5218
+[2025-09-30 14:12:35,246] [INFO] 127.0.0.1:11854 - "GET /video_feed/rt1?source=rtsp://admin:admin@192.168.1.89:554/mainstream HTTP/1.1" 200
+[2025-09-30 14:12:37,541] [INFO] 65l136415tb80xa
+[2025-09-30 14:12:42,917] [INFO] 9c5cglk0b0x782f
+[2025-09-30 14:12:52,755] [INFO] 127.0.0.1:11856 - "GET /video_feed/rt1?source=rtsp://admin:admin@192.168.1.89:554/mainstream HTTP/1.1" 200
+[2025-09-30 14:13:46,513] [INFO] p488esjkgild6gk
+[2025-09-30 14:13:55,331] [INFO] 127.0.0.1:11931 - "GET /video_feed/rt1?source=rtsp://admin:admin@192.168.1.89:554/mainstream HTTP/1.1" 200
+[2025-09-30 14:13:57,071] [INFO] 127.0.0.1:11937 - "POST /iprelay?onOff=true&relay=1 HTTP/1.1" 404
+[2025-09-30 14:14:29,055] [INFO] 127.0.0.1:11933 - "GET /video_feed/rt1?source=rtsp://admin:admin@192.168.1.89:554/mainstream HTTP/1.1" 200
+[2025-09-30 14:14:30,455] [INFO] 127.0.0.1:11938 - "POST /iprelay HTTP/1.1" 404
+[2025-09-30 14:14:55,261] [INFO] 127.0.0.1:11987 - "GET /video_feed/rt1?source=rtsp://admin:admin@192.168.1.89:554/mainstream HTTP/1.1" 200
+[2025-09-30 14:14:56,589] [INFO] 127.0.0.1:11992 - "POST /utils/iprelay HTTP/1.1" 422
+[2025-09-30 14:15:37,248] [INFO] 127.0.0.1:12036 - "GET /video_feed/rt1?source=rtsp://admin:admin@192.168.1.89:554/mainstream HTTP/1.1" 200
+[2025-09-30 14:16:04,447] [INFO] k160iqt6f05r8q9
+[2025-09-30 14:16:18,317] [INFO] n4k44op9v303rmy
+[2025-09-30 14:16:21,817] [INFO] g5qwsjb2gfv329j
+[2025-09-30 14:16:38,805] [INFO] mwr53xjg9d5n8g6
+[2025-09-30 14:16:43,177] [INFO] Shutting down
+[2025-09-30 14:16:43,340] [INFO] Finished server process [47340]
+[2025-09-30 14:16:49,690] [DEBUG] Using proactor: IocpProactor
+[2025-09-30 14:16:49,723] [INFO] Started server process [49828]
+[2025-09-30 14:16:49,724] [INFO] Waiting for application startup.
+[2025-09-30 14:16:49,742] [INFO] Loading YOLO models...
+[2025-09-30 14:16:51,140] [DEBUG] Loaded backend Agg version v2.2.
+[2025-09-30 14:16:51,843] [INFO] Models loaded successfully
+[2025-09-30 14:16:51,849] [INFO] Application startup complete.
+[2025-09-30 14:16:51,850] [INFO] Uvicorn running on http://0.0.0.0:8009 (Press CTRL+C to quit)
+[2025-09-30 14:17:10,370] [INFO] 127.0.0.1:12142 - "GET /video_feed/rt1?source=rtsp://admin:admin@192.168.1.89:554/mainstream HTTP/1.1" 200
+[2025-09-30 14:17:12,321] [INFO] 127.0.0.1:12148 - "POST /utils/iprelay HTTP/1.1" 422
+[2025-09-30 14:17:39,924] [INFO] 127.0.0.1:12165 - "POST /utils/iprelay HTTP/1.1" 422
+[2025-09-30 14:17:41,298] [INFO] 127.0.0.1:12167 - "POST /utils/iprelay HTTP/1.1" 422
+[2025-09-30 14:17:43,911] [INFO] x9o75h54jyq5uy0
+[2025-09-30 14:17:49,254] [INFO] 127.0.0.1:12193 - "POST /utils/iprelay HTTP/1.1" 200
+[2025-09-30 14:18:00,002] [INFO] c2wsnq0h4kqmh7h
+[2025-09-30 14:18:09,938] [INFO] 127.0.0.1:12144 - "GET /video_feed/rt1?source=rtsp://admin:admin@192.168.1.89:554/mainstream HTTP/1.1" 200
+[2025-09-30 14:18:11,026] [INFO] 127.0.0.1:12149 - "POST /utils/iprelay HTTP/1.1" 422
+[2025-09-30 14:18:24,812] [INFO] Shutting down
+[2025-09-30 14:18:25,038] [INFO] Finished server process [49828]
+[2025-09-30 14:18:25,103] [ERROR] Traceback (most recent call last):
+  File "C:\Users\Microsoft\AppData\Local\Programs\Python\Python310\lib\asyncio\runners.py", line 44, in run
+    return loop.run_until_complete(main)
+  File "C:\Users\Microsoft\AppData\Local\Programs\Python\Python310\lib\asyncio\base_events.py", line 636, in run_until_complete
+    self.run_forever()
+  File "C:\Users\Microsoft\AppData\Local\Programs\Python\Python310\lib\asyncio\windows_events.py", line 321, in run_forever
+    super().run_forever()
+  File "C:\Users\Microsoft\AppData\Local\Programs\Python\Python310\lib\asyncio\base_events.py", line 603, in run_forever
+    self._run_once()
+  File "C:\Users\Microsoft\AppData\Local\Programs\Python\Python310\lib\asyncio\base_events.py", line 1909, in _run_once
+    handle._run()
+  File "C:\Users\Microsoft\AppData\Local\Programs\Python\Python310\lib\asyncio\events.py", line 80, in _run
+    self._context.run(self._callback, *self._args)
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\uvicorn\server.py", line 69, in serve
+    with self.capture_signals():
+  File "C:\Users\Microsoft\AppData\Local\Programs\Python\Python310\lib\contextlib.py", line 142, in __exit__
+    next(self.gen)
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\uvicorn\server.py", line 330, in capture_signals
+    signal.raise_signal(captured_signal)
+KeyboardInterrupt
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\starlette\routing.py", line 700, in lifespan
+    await receive()
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\uvicorn\lifespan\on.py", line 137, in receive
+    return await self.receive_queue.get()
+  File "C:\Users\Microsoft\AppData\Local\Programs\Python\Python310\lib\asyncio\queues.py", line 159, in get
+    await getter
+asyncio.exceptions.CancelledError
+
+[2025-09-30 14:18:25,104] [ERROR] Exception in ASGI application
+Traceback (most recent call last):
+  File "C:\Users\Microsoft\AppData\Local\Programs\Python\Python310\lib\asyncio\runners.py", line 44, in run
+    return loop.run_until_complete(main)
+  File "C:\Users\Microsoft\AppData\Local\Programs\Python\Python310\lib\asyncio\base_events.py", line 636, in run_until_complete
+    self.run_forever()
+  File "C:\Users\Microsoft\AppData\Local\Programs\Python\Python310\lib\asyncio\windows_events.py", line 321, in run_forever
+    super().run_forever()
+  File "C:\Users\Microsoft\AppData\Local\Programs\Python\Python310\lib\asyncio\base_events.py", line 603, in run_forever
+    self._run_once()
+  File "C:\Users\Microsoft\AppData\Local\Programs\Python\Python310\lib\asyncio\base_events.py", line 1909, in _run_once
+    handle._run()
+  File "C:\Users\Microsoft\AppData\Local\Programs\Python\Python310\lib\asyncio\events.py", line 80, in _run
+    self._context.run(self._callback, *self._args)
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\uvicorn\server.py", line 69, in serve
+    with self.capture_signals():
+  File "C:\Users\Microsoft\AppData\Local\Programs\Python\Python310\lib\contextlib.py", line 142, in __exit__
+    next(self.gen)
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\uvicorn\server.py", line 330, in capture_signals
+    signal.raise_signal(captured_signal)
+KeyboardInterrupt
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\uvicorn\protocols\http\h11_impl.py", line 403, in run_asgi
+    result = await app(  # type: ignore[func-returns-value]
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\uvicorn\middleware\proxy_headers.py", line 60, in __call__
+    return await self.app(scope, receive, send)
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\fastapi\applications.py", line 1054, in __call__
+    await super().__call__(scope, receive, send)
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\starlette\applications.py", line 113, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\starlette\middleware\errors.py", line 165, in __call__
+    await self.app(scope, receive, _send)
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\starlette\middleware\cors.py", line 85, in __call__
+    await self.app(scope, receive, send)
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\starlette\middleware\exceptions.py", line 62, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\starlette\_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\starlette\routing.py", line 715, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\starlette\routing.py", line 735, in app
+    await route.handle(scope, receive, send)
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\starlette\routing.py", line 288, in handle
+    await self.app(scope, receive, send)
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\starlette\routing.py", line 76, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\starlette\_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\starlette\routing.py", line 74, in app
+    await response(scope, receive, send)
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\starlette\responses.py", line 252, in __call__
+    async with anyio.create_task_group() as task_group:
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\anyio\_backends\_asyncio.py", line 771, in __aexit__
+    raise exc_val
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\starlette\responses.py", line 259, in __call__
+    await wrap(partial(self.listen_for_disconnect, receive))
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\starlette\responses.py", line 255, in wrap
+    await func()
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\starlette\responses.py", line 232, in listen_for_disconnect
+    message = await receive()
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\uvicorn\protocols\http\h11_impl.py", line 531, in receive
+    await self.message_event.wait()
+  File "C:\Users\Microsoft\AppData\Local\Programs\Python\Python310\lib\asyncio\locks.py", line 214, in wait
+    await fut
+asyncio.exceptions.CancelledError
+[2025-09-30 14:18:28,924] [DEBUG] Using proactor: IocpProactor
+[2025-09-30 14:18:28,953] [INFO] Started server process [47536]
+[2025-09-30 14:18:28,954] [INFO] Waiting for application startup.
+[2025-09-30 14:18:28,965] [INFO] Loading YOLO models...
