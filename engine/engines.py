@@ -44,7 +44,7 @@ cv2.setNumThreads(multiprocessing.cpu_count())
 class CcTvMonitor:
     def __init__(self):
         self.process = None
-        # self.loadDb()
+        self.loadDb()
         self.params = Parameters()
         self.device = torch.device(0 if torch.cuda.is_available() else 'cpu')
         self.RETRY_LIMIT = 5
@@ -52,7 +52,7 @@ class CcTvMonitor:
         self.lock = threading.Lock()
         self.model_car, self.model_plate, self.model_char = self.loadModels()
         self.quality, self.charConfidence, self.plateConfidence,self.port = self.loadConfig()[0:4]
-        # self.loadWebBrowser(self.port)
+        self.loadWebBrowser(self.port)
         
     
     def loadWebBrowser(self,port):
@@ -70,14 +70,32 @@ class CcTvMonitor:
         except Exception as e:
             logging.info(e)
 
+    def chechOnnx(self):
+        directory = 'model'
+        for filename in os.listdir(directory):
+    # Get full file path
+            filepath = os.path.join(directory, filename)
+            
+            # Check if it's a file (not a directory)
+            if os.path.isfile(filepath):
+                # Check if filename is exactly "onnx"
+                if filename == "onnx":
+                    print(f"Found the 'onnx' file!")
+                    
+                    # Read and process the onnx file
+                    return True
+                else:
+                    return False
     def loadModels(self):
-
+        print(self.chechOnnx())
+        fileEx='onnx' if self.chechOnnx() else 'pt'
         logging.info("Loading YOLO models...")
         model_char = torch.hub.load(
-            'yolov5', 'custom', 'model/CharsYolo.pt', source='local', device=self.device, force_reload=True)
+            'yolov5', 'custom', f'model/CharsYolo.{fileEx}', source='local', device=self.device, force_reload=True)
         model_plate = torch.hub.load(
-            'yolov5', 'custom', 'model/plateYolo.pt', source='local', device=self.device, force_reload=True)
-        model_car = YOLO('model/yolo11n.pt', verbose=False).to(self.device)
+            'yolov5', 'custom', f'model/plateYolo.{fileEx}', source='local', device=self.device, force_reload=True)
+        model_car = YOLO(f'model/yolo11n.{fileEx}',task='detect')
+        print(model_car.names)
         logging.info("Models loaded successfully")
         with self.lock:
             return model_car, model_plate, model_char
