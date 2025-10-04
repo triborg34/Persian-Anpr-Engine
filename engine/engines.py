@@ -80,14 +80,13 @@ class CcTvMonitor:
             if os.path.isfile(filepath):
                 # Check if filename is exactly "onnx"
                 if filename == "onnx":
-                    print(f"Found the 'onnx' file!")
+                    logging.info(f"Found the 'onnx' file!")
                     
                     # Read and process the onnx file
                     return True
-                else:
-                    return False
+
+        return False
     def loadModels(self):
-        print(self.chechOnnx())
         fileEx='onnx' if self.chechOnnx() else 'pt'
         logging.info("Loading YOLO models...")
         model_char = torch.hub.load(
@@ -95,7 +94,6 @@ class CcTvMonitor:
         model_plate = torch.hub.load(
             'yolov5', 'custom', f'model/plateYolo.{fileEx}', source='local', device=self.device, force_reload=True)
         model_car = YOLO(f'model/yolo11n.{fileEx}',task='detect')
-        print(model_car.names)
         logging.info("Models loaded successfully")
         with self.lock:
             return model_car, model_plate, model_char

@@ -7392,3 +7392,141 @@ asyncio.exceptions.CancelledError
 [2025-10-04 10:49:20,705] [INFO] Shutting down
 [2025-10-04 10:49:20,810] [INFO] Waiting for application shutdown.
 [2025-10-04 10:49:20,935] [INFO] Cleanup complete. Shutting down.
+[2025-10-04 10:50:51,795] [DEBUG] Using proactor: IocpProactor
+[2025-10-04 10:50:51,826] [INFO] Started server process [34572]
+[2025-10-04 10:50:51,827] [INFO] Waiting for application startup.
+[2025-10-04 10:50:51,830] [INFO] PocketBase stater 31384
+[2025-10-04 10:50:51,846] [INFO] Loading YOLO models...
+[2025-10-04 10:50:53,286] [DEBUG] Loaded backend Agg version v2.2.
+[2025-10-04 10:50:53,918] [INFO] Models loaded successfully
+[2025-10-04 10:50:53,988] [INFO] Application startup complete.
+[2025-10-04 10:50:53,989] [INFO] Uvicorn running on http://0.0.0.0:8009 (Press CTRL+C to quit)
+[2025-10-04 10:50:54,057] [INFO] 127.0.0.1:11668 - "GET /web/app HTTP/1.1" 307
+[2025-10-04 10:50:56,066] [INFO] 127.0.0.1:11668 - "GET /web/app/flutter_service_worker.js?v=402086266 HTTP/1.1" 304
+[2025-10-04 10:51:03,249] [INFO] Shutting down
+[2025-10-04 10:51:03,354] [INFO] Waiting for application shutdown.
+[2025-10-04 10:51:03,497] [INFO] Cleanup complete. Shutting down.
+[2025-10-04 10:51:06,821] [DEBUG] Using proactor: IocpProactor
+[2025-10-04 10:51:06,851] [INFO] Started server process [47500]
+[2025-10-04 10:51:06,851] [INFO] Waiting for application startup.
+[2025-10-04 10:51:06,856] [INFO] PocketBase stater 46784
+[2025-10-04 10:51:06,872] [INFO] Loading YOLO models...
+[2025-10-04 10:51:08,138] [DEBUG] Loaded backend Agg version v2.2.
+[2025-10-04 10:51:08,713] [INFO] Models loaded successfully
+[2025-10-04 10:51:08,781] [INFO] Application startup complete.
+[2025-10-04 10:51:08,782] [INFO] Uvicorn running on http://0.0.0.0:8009 (Press CTRL+C to quit)
+[2025-10-04 10:51:08,844] [INFO] 127.0.0.1:11375 - "GET /web/app HTTP/1.1" 307
+[2025-10-04 10:51:10,843] [INFO] 127.0.0.1:11375 - "GET /web/app/flutter_service_worker.js?v=402086266 HTTP/1.1" 304
+[2025-10-04 10:51:29,390] [INFO] Shutting down
+[2025-10-04 10:51:29,498] [INFO] Waiting for application shutdown.
+[2025-10-04 10:51:29,625] [INFO] Cleanup complete. Shutting down.
+[2025-10-04 10:52:39,841] [DEBUG] Using proactor: IocpProactor
+[2025-10-04 10:52:39,871] [INFO] Started server process [51468]
+[2025-10-04 10:52:39,871] [INFO] Waiting for application startup.
+[2025-10-04 10:52:39,874] [INFO] PocketBase stater 7332
+[2025-10-04 10:52:39,887] [INFO] Loading YOLO models...
+[2025-10-04 10:52:41,157] [DEBUG] Loaded backend Agg version v2.2.
+[2025-10-04 10:52:41,506] [INFO] Models loaded successfully
+[2025-10-04 10:52:41,563] [INFO] Application startup complete.
+[2025-10-04 10:52:41,564] [INFO] Uvicorn running on http://0.0.0.0:8009 (Press CTRL+C to quit)
+[2025-10-04 10:52:41,624] [INFO] 127.0.0.1:14583 - "GET /web/app HTTP/1.1" 307
+[2025-10-04 10:52:43,546] [INFO] 127.0.0.1:14583 - "GET /web/app/flutter_service_worker.js?v=402086266 HTTP/1.1" 304
+[2025-10-04 10:52:57,841] [INFO] Shutting down
+[2025-10-04 10:52:57,947] [INFO] Waiting for application shutdown.
+[2025-10-04 10:52:58,071] [INFO] Cleanup complete. Shutting down.
+[2025-10-04 10:53:07,806] [DEBUG] Using proactor: IocpProactor
+[2025-10-04 10:53:07,836] [INFO] Started server process [13516]
+[2025-10-04 10:53:07,836] [INFO] Waiting for application startup.
+[2025-10-04 10:53:07,839] [INFO] PocketBase stater 50260
+[2025-10-04 10:53:07,854] [INFO] Loading YOLO models...
+[2025-10-04 10:53:09,130] [DEBUG] Loaded backend Agg version v2.2.
+[2025-10-04 10:53:09,395] [INFO] Models loaded successfully
+[2025-10-04 10:53:09,451] [INFO] Application startup complete.
+[2025-10-04 10:53:09,452] [INFO] Uvicorn running on http://0.0.0.0:8009 (Press CTRL+C to quit)
+[2025-10-04 10:53:09,510] [INFO] 127.0.0.1:5646 - "GET /web/app HTTP/1.1" 307
+[2025-10-04 10:53:11,437] [INFO] 127.0.0.1:5646 - "GET /web/app/flutter_service_worker.js?v=402086266 HTTP/1.1" 304
+[2025-10-04 10:53:17,848] [INFO] Shutting down
+[2025-10-04 10:53:17,953] [INFO] Waiting for application shutdown.
+[2025-10-04 10:53:18,089] [INFO] Cleanup complete. Shutting down.
+[2025-10-04 10:53:29,976] [DEBUG] Using proactor: IocpProactor
+[2025-10-04 10:53:30,005] [INFO] Started server process [24444]
+[2025-10-04 10:53:30,005] [INFO] Waiting for application startup.
+[2025-10-04 10:53:30,009] [INFO] PocketBase stater 34684
+[2025-10-04 10:53:30,025] [INFO] Loading YOLO models...
+[2025-10-04 10:53:31,360] [DEBUG] Loaded backend Agg version v2.2.
+[2025-10-04 10:53:31,651] [INFO] Models loaded successfully
+[2025-10-04 10:53:31,710] [INFO] Application startup complete.
+[2025-10-04 10:53:31,710] [INFO] Uvicorn running on http://0.0.0.0:8009 (Press CTRL+C to quit)
+[2025-10-04 10:53:31,776] [INFO] 127.0.0.1:6038 - "GET /web/app HTTP/1.1" 307
+[2025-10-04 10:53:33,790] [INFO] 127.0.0.1:6038 - "GET /web/app/flutter_service_worker.js?v=402086266 HTTP/1.1" 304
+[2025-10-04 10:53:42,509] [INFO] Shutting down
+[2025-10-04 10:53:42,625] [INFO] Waiting for application shutdown.
+[2025-10-04 10:53:42,752] [INFO] Cleanup complete. Shutting down.
+[2025-10-04 10:53:46,211] [DEBUG] Using proactor: IocpProactor
+[2025-10-04 10:53:46,241] [INFO] Started server process [59296]
+[2025-10-04 10:53:46,242] [INFO] Waiting for application startup.
+[2025-10-04 10:53:46,245] [INFO] PocketBase stater 56092
+[2025-10-04 10:53:46,261] [INFO] Loading YOLO models...
+[2025-10-04 10:53:47,579] [DEBUG] Loaded backend Agg version v2.2.
+[2025-10-04 10:53:47,847] [INFO] Models loaded successfully
+[2025-10-04 10:53:47,902] [INFO] Application startup complete.
+[2025-10-04 10:53:47,903] [INFO] Uvicorn running on http://0.0.0.0:8009 (Press CTRL+C to quit)
+[2025-10-04 10:53:47,963] [INFO] 127.0.0.1:8440 - "GET /web/app HTTP/1.1" 307
+[2025-10-04 10:54:19,153] [INFO] 127.0.0.1:5581 - "GET /web/app/flutter_service_worker.js?v=402086266 HTTP/1.1" 304
+[2025-10-04 10:54:39,419] [INFO] Shutting down
+[2025-10-04 10:54:39,524] [INFO] Waiting for application shutdown.
+[2025-10-04 10:54:39,647] [INFO] Cleanup complete. Shutting down.
+[2025-10-04 10:54:42,894] [DEBUG] Using proactor: IocpProactor
+[2025-10-04 10:54:42,921] [INFO] Started server process [62180]
+[2025-10-04 10:54:42,922] [INFO] Waiting for application startup.
+[2025-10-04 10:54:42,925] [INFO] PocketBase stater 61636
+[2025-10-04 10:54:42,942] [INFO] Loading YOLO models...
+[2025-10-04 10:54:44,279] [DEBUG] Loaded backend Agg version v2.2.
+[2025-10-04 10:54:44,570] [ERROR] Traceback (most recent call last):
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\starlette\routing.py", line 693, in lifespan
+    async with self.lifespan_context(app) as maybe_state:
+  File "C:\Users\Microsoft\AppData\Local\Programs\Python\Python310\lib\contextlib.py", line 199, in __aenter__
+    return await anext(self.gen)
+  File "D:\Codes\anprv8\engine\api.py", line 23, in lifespan
+    cctv=CcTvMonitor()
+  File "D:\Codes\anprv8\engine\engines.py", line 53, in __init__
+    self.model_car, self.model_plate, self.model_char = self.loadModels()
+  File "D:\Codes\anprv8\engine\engines.py", line 98, in loadModels
+    print(model_car.info())
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\ultralytics\engine\model.py", line 439, in info
+    self._check_is_pytorch_model()
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\ultralytics\engine\model.py", line 322, in _check_is_pytorch_model
+    raise TypeError(
+TypeError: model='model/yolo11n.onnx' should be a *.pt PyTorch model to run this method, but is a different format. PyTorch models can train, val, predict and export, i.e. 'model.train(data=...)', but exported formats like ONNX, TensorRT etc. only support 'predict' and 'val' modes, i.e. 'yolo predict model=yolov8n.onnx'.
+To run CUDA or MPS inference please pass the device argument directly in your inference command, i.e. 'model.predict(source=..., device=0)'
+
+[2025-10-04 10:54:44,571] [ERROR] Application startup failed. Exiting.
+[2025-10-04 11:11:08,423] [DEBUG] Using proactor: IocpProactor
+[2025-10-04 11:11:08,463] [INFO] Started server process [63120]
+[2025-10-04 11:11:08,464] [INFO] Waiting for application startup.
+[2025-10-04 11:11:08,467] [INFO] PocketBase stater 51524
+[2025-10-04 11:11:08,484] [INFO] Loading YOLO models...
+[2025-10-04 11:11:10,028] [DEBUG] Loaded backend Agg version v2.2.
+[2025-10-04 11:11:10,341] [INFO] Models loaded successfully
+[2025-10-04 11:11:10,413] [INFO] Application startup complete.
+[2025-10-04 11:11:10,414] [INFO] Uvicorn running on http://0.0.0.0:8009 (Press CTRL+C to quit)
+[2025-10-04 11:11:10,488] [INFO] 127.0.0.1:2297 - "GET /web/app HTTP/1.1" 307
+[2025-10-04 11:11:12,590] [INFO] 127.0.0.1:2297 - "GET /web/app/flutter_service_worker.js?v=402086266 HTTP/1.1" 304
+[2025-10-04 11:11:21,342] [INFO] Shutting down
+[2025-10-04 11:11:21,448] [INFO] Waiting for application shutdown.
+[2025-10-04 11:11:21,578] [INFO] Cleanup complete. Shutting down.
+[2025-10-04 11:11:25,426] [DEBUG] Using proactor: IocpProactor
+[2025-10-04 11:11:25,463] [INFO] Started server process [65388]
+[2025-10-04 11:11:25,463] [INFO] Waiting for application startup.
+[2025-10-04 11:11:25,467] [INFO] PocketBase stater 63548
+[2025-10-04 11:11:25,481] [INFO] Found the 'onnx' file!
+[2025-10-04 11:11:25,482] [INFO] Loading YOLO models...
+[2025-10-04 11:11:26,993] [DEBUG] Loaded backend Agg version v2.2.
+[2025-10-04 11:11:27,332] [INFO] Models loaded successfully
+[2025-10-04 11:11:27,399] [INFO] Application startup complete.
+[2025-10-04 11:11:27,400] [INFO] Uvicorn running on http://0.0.0.0:8009 (Press CTRL+C to quit)
+[2025-10-04 11:11:27,476] [INFO] 127.0.0.1:2319 - "GET /web/app HTTP/1.1" 307
+[2025-10-04 11:11:29,547] [INFO] 127.0.0.1:2319 - "GET /web/app/flutter_service_worker.js?v=402086266 HTTP/1.1" 304
+[2025-10-04 11:11:58,937] [INFO] Shutting down
+[2025-10-04 11:11:59,042] [INFO] Waiting for application shutdown.
+[2025-10-04 11:11:59,191] [INFO] Cleanup complete. Shutting down.
