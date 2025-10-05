@@ -7530,3 +7530,1311 @@ To run CUDA or MPS inference please pass the device argument directly in your in
 [2025-10-04 11:11:58,937] [INFO] Shutting down
 [2025-10-04 11:11:59,042] [INFO] Waiting for application shutdown.
 [2025-10-04 11:11:59,191] [INFO] Cleanup complete. Shutting down.
+[2025-10-04 12:42:21,327] [DEBUG] Using proactor: IocpProactor
+[2025-10-04 12:42:21,397] [INFO] Started server process [77944]
+[2025-10-04 12:42:21,399] [INFO] Waiting for application startup.
+[2025-10-04 12:42:21,488] [INFO] PocketBase stater 45224
+[2025-10-04 12:42:21,504] [INFO] Found the 'onnx' file!
+[2025-10-04 12:42:21,504] [INFO] Loading YOLO models...
+[2025-10-04 12:42:29,154] [DEBUG] Loaded backend Agg version v2.2.
+[2025-10-04 12:42:31,741] [INFO] Models loaded successfully
+[2025-10-04 12:42:31,812] [INFO] Application startup complete.
+[2025-10-04 12:42:31,813] [INFO] Uvicorn running on http://0.0.0.0:8009 (Press CTRL+C to quit)
+[2025-10-04 12:42:31,881] [INFO] 127.0.0.1:9041 - "GET /web/app HTTP/1.1" 307
+[2025-10-04 12:42:31,977] [INFO] 127.0.0.1:9041 - "GET /web/app/flutter_service_worker.js?v=4090166194 HTTP/1.1" 200
+[2025-10-04 12:42:32,011] [INFO] 127.0.0.1:9041 - "GET /web/app/main.dart.js HTTP/1.1" 200
+[2025-10-04 12:42:32,012] [INFO] 127.0.0.1:5400 - "GET /web/app/index.html HTTP/1.1" 200
+[2025-10-04 12:42:32,012] [INFO] 127.0.0.1:13324 - "GET /web/app/flutter_bootstrap.js HTTP/1.1" 200
+[2025-10-04 12:42:32,034] [INFO] 127.0.0.1:5400 - "GET /web/app/assets/AssetManifest.bin.json HTTP/1.1" 200
+[2025-10-04 12:42:32,040] [INFO] 127.0.0.1:5400 - "GET /web/app/assets/FontManifest.json HTTP/1.1" 200
+[2025-10-04 12:42:33,058] [INFO] 127.0.0.1:9041 - "GET /web/app/flutter_service_worker.js?v=4090166194 HTTP/1.1" 304
+[2025-10-04 12:42:38,571] [INFO] 127.0.0.1:9153 - "GET /video_feed/rt1?source=rtsp://admin:admin@192.168.1.89:554/mainstream HTTP/1.1" 200
+[2025-10-04 12:42:58,764] [INFO] 1k4c26luv6f2wl8
+[2025-10-04 12:43:02,196] [INFO] Shutting down
+[2025-10-04 12:43:02,357] [INFO] Waiting for connections to close. (CTRL+C to force quit)
+[2025-10-04 12:43:03,190] [INFO] Finished server process [77944]
+[2025-10-04 12:43:03,221] [ERROR] Traceback (most recent call last):
+  File "C:\Users\Microsoft\AppData\Local\Programs\Python\Python310\lib\asyncio\runners.py", line 44, in run
+    return loop.run_until_complete(main)
+  File "C:\Users\Microsoft\AppData\Local\Programs\Python\Python310\lib\asyncio\base_events.py", line 636, in run_until_complete
+    self.run_forever()
+  File "C:\Users\Microsoft\AppData\Local\Programs\Python\Python310\lib\asyncio\windows_events.py", line 321, in run_forever
+    super().run_forever()
+  File "C:\Users\Microsoft\AppData\Local\Programs\Python\Python310\lib\asyncio\base_events.py", line 603, in run_forever
+    self._run_once()
+  File "C:\Users\Microsoft\AppData\Local\Programs\Python\Python310\lib\asyncio\base_events.py", line 1909, in _run_once
+    handle._run()
+  File "C:\Users\Microsoft\AppData\Local\Programs\Python\Python310\lib\asyncio\events.py", line 80, in _run
+    self._context.run(self._callback, *self._args)
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\uvicorn\server.py", line 69, in serve
+    with self.capture_signals():
+  File "C:\Users\Microsoft\AppData\Local\Programs\Python\Python310\lib\contextlib.py", line 142, in __exit__
+    next(self.gen)
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\uvicorn\server.py", line 330, in capture_signals
+    signal.raise_signal(captured_signal)
+KeyboardInterrupt
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\starlette\routing.py", line 700, in lifespan
+    await receive()
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\uvicorn\lifespan\on.py", line 137, in receive
+    return await self.receive_queue.get()
+  File "C:\Users\Microsoft\AppData\Local\Programs\Python\Python310\lib\asyncio\queues.py", line 159, in get
+    await getter
+asyncio.exceptions.CancelledError
+
+[2025-10-04 12:43:03,222] [ERROR] Exception in ASGI application
+Traceback (most recent call last):
+  File "C:\Users\Microsoft\AppData\Local\Programs\Python\Python310\lib\asyncio\runners.py", line 44, in run
+    return loop.run_until_complete(main)
+  File "C:\Users\Microsoft\AppData\Local\Programs\Python\Python310\lib\asyncio\base_events.py", line 636, in run_until_complete
+    self.run_forever()
+  File "C:\Users\Microsoft\AppData\Local\Programs\Python\Python310\lib\asyncio\windows_events.py", line 321, in run_forever
+    super().run_forever()
+  File "C:\Users\Microsoft\AppData\Local\Programs\Python\Python310\lib\asyncio\base_events.py", line 603, in run_forever
+    self._run_once()
+  File "C:\Users\Microsoft\AppData\Local\Programs\Python\Python310\lib\asyncio\base_events.py", line 1909, in _run_once
+    handle._run()
+  File "C:\Users\Microsoft\AppData\Local\Programs\Python\Python310\lib\asyncio\events.py", line 80, in _run
+    self._context.run(self._callback, *self._args)
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\uvicorn\server.py", line 69, in serve
+    with self.capture_signals():
+  File "C:\Users\Microsoft\AppData\Local\Programs\Python\Python310\lib\contextlib.py", line 142, in __exit__
+    next(self.gen)
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\uvicorn\server.py", line 330, in capture_signals
+    signal.raise_signal(captured_signal)
+KeyboardInterrupt
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\uvicorn\protocols\http\h11_impl.py", line 403, in run_asgi
+    result = await app(  # type: ignore[func-returns-value]
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\uvicorn\middleware\proxy_headers.py", line 60, in __call__
+    return await self.app(scope, receive, send)
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\fastapi\applications.py", line 1054, in __call__
+    await super().__call__(scope, receive, send)
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\starlette\applications.py", line 113, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\starlette\middleware\errors.py", line 165, in __call__
+    await self.app(scope, receive, _send)
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\starlette\middleware\cors.py", line 85, in __call__
+    await self.app(scope, receive, send)
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\starlette\middleware\exceptions.py", line 62, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\starlette\_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\starlette\routing.py", line 715, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\starlette\routing.py", line 735, in app
+    await route.handle(scope, receive, send)
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\starlette\routing.py", line 288, in handle
+    await self.app(scope, receive, send)
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\starlette\routing.py", line 76, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\starlette\_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\starlette\routing.py", line 74, in app
+    await response(scope, receive, send)
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\starlette\responses.py", line 252, in __call__
+    async with anyio.create_task_group() as task_group:
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\starlette\responses.py", line 259, in __call__
+    await wrap(partial(self.listen_for_disconnect, receive))
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\starlette\responses.py", line 255, in wrap
+    await func()
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\starlette\responses.py", line 232, in listen_for_disconnect
+    message = await receive()
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\uvicorn\protocols\http\h11_impl.py", line 531, in receive
+    await self.message_event.wait()
+  File "C:\Users\Microsoft\AppData\Local\Programs\Python\Python310\lib\asyncio\locks.py", line 214, in wait
+    await fut
+asyncio.exceptions.CancelledError
+[2025-10-04 12:43:51,023] [DEBUG] Using proactor: IocpProactor
+[2025-10-04 12:43:51,055] [INFO] Started server process [12504]
+[2025-10-04 12:43:51,056] [INFO] Waiting for application startup.
+[2025-10-04 12:43:51,059] [INFO] PocketBase stater 6228
+[2025-10-04 12:43:51,073] [INFO] Found the 'onnx' file!
+[2025-10-04 12:43:51,073] [INFO] Loading YOLO models...
+[2025-10-04 12:43:52,628] [DEBUG] Loaded backend Agg version v2.2.
+[2025-10-04 12:43:52,946] [INFO] Models loaded successfully
+[2025-10-04 12:43:53,015] [INFO] Application startup complete.
+[2025-10-04 12:43:53,016] [INFO] Uvicorn running on http://0.0.0.0:8009 (Press CTRL+C to quit)
+[2025-10-04 12:43:53,078] [INFO] 127.0.0.1:8169 - "GET /web/app HTTP/1.1" 307
+[2025-10-04 12:43:53,166] [INFO] 127.0.0.1:8169 - "GET /web/app/flutter_service_worker.js?v=402086266 HTTP/1.1" 304
+[2025-10-04 12:43:53,180] [INFO] 127.0.0.1:8169 - "GET /web/app/main.dart.js HTTP/1.1" 200
+[2025-10-04 12:43:53,181] [INFO] 127.0.0.1:2941 - "GET /web/app/index.html HTTP/1.1" 200
+[2025-10-04 12:43:53,181] [INFO] 127.0.0.1:5842 - "GET /web/app/flutter_bootstrap.js HTTP/1.1" 200
+[2025-10-04 12:43:53,188] [INFO] 127.0.0.1:5842 - "GET /web/app/assets/FontManifest.json HTTP/1.1" 200
+[2025-10-04 12:43:53,188] [INFO] 127.0.0.1:2941 - "GET /web/app/assets/AssetManifest.bin.json HTTP/1.1" 200
+[2025-10-04 12:43:53,538] [INFO] 127.0.0.1:8169 - "GET /web/app/flutter_service_worker.js?v=402086266 HTTP/1.1" 304
+[2025-10-04 12:44:04,305] [INFO] 127.0.0.1:9894 - "GET /video_feed/rt1?source=rtsp://admin:admin@192.168.1.89:554/mainstream HTTP/1.1" 200
+[2025-10-04 12:44:14,495] [INFO] Shutting down
+[2025-10-04 12:44:14,601] [INFO] Waiting for application shutdown.
+[2025-10-04 12:44:14,757] [INFO] Cleanup complete. Shutting down.
+[2025-10-04 12:44:30,238] [DEBUG] Using proactor: IocpProactor
+[2025-10-04 12:44:30,273] [INFO] Started server process [67760]
+[2025-10-04 12:44:30,273] [INFO] Waiting for application startup.
+[2025-10-04 12:44:30,276] [INFO] PocketBase stater 78648
+[2025-10-04 12:44:30,291] [INFO] Found the 'onnx' file!
+[2025-10-04 12:44:30,291] [INFO] Loading YOLO models...
+[2025-10-04 12:44:31,914] [DEBUG] Loaded backend Agg version v2.2.
+[2025-10-04 12:44:32,264] [INFO] Models loaded successfully
+[2025-10-04 12:44:32,332] [INFO] Application startup complete.
+[2025-10-04 12:44:32,332] [INFO] Uvicorn running on http://0.0.0.0:8009 (Press CTRL+C to quit)
+[2025-10-04 12:44:32,403] [INFO] 127.0.0.1:6104 - "GET /web/app HTTP/1.1" 307
+[2025-10-04 12:44:34,611] [INFO] 127.0.0.1:6104 - "GET /web/app/flutter_service_worker.js?v=402086266 HTTP/1.1" 304
+[2025-10-04 12:44:37,223] [INFO] 127.0.0.1:6104 - "GET /video_feed/rt1?source=rtsp://admin:admin@192.168.1.89:554/mainstream HTTP/1.1" 200
+[2025-10-04 12:44:45,714] [INFO] Shutting down
+[2025-10-04 12:44:45,820] [INFO] Waiting for application shutdown.
+[2025-10-04 12:44:45,966] [INFO] Cleanup complete. Shutting down.
+[2025-10-04 12:44:59,379] [DEBUG] Using proactor: IocpProactor
+[2025-10-04 12:44:59,410] [INFO] Started server process [76644]
+[2025-10-04 12:44:59,411] [INFO] Waiting for application startup.
+[2025-10-04 12:44:59,414] [INFO] PocketBase stater 80140
+[2025-10-04 12:44:59,427] [INFO] Found the 'onnx' file!
+[2025-10-04 12:44:59,427] [INFO] Loading YOLO models...
+[2025-10-04 12:45:00,960] [DEBUG] Loaded backend Agg version v2.2.
+[2025-10-04 12:45:01,267] [INFO] Models loaded successfully
+[2025-10-04 12:45:01,330] [INFO] Application startup complete.
+[2025-10-04 12:45:01,331] [INFO] Uvicorn running on http://0.0.0.0:8009 (Press CTRL+C to quit)
+[2025-10-04 12:45:01,393] [INFO] 127.0.0.1:9878 - "GET /web/app HTTP/1.1" 307
+[2025-10-04 12:45:03,462] [INFO] 127.0.0.1:9878 - "GET /web/app/flutter_service_worker.js?v=402086266 HTTP/1.1" 304
+[2025-10-04 12:45:06,467] [INFO] 127.0.0.1:9878 - "GET /video_feed/rt1?source=rtsp://admin:admin@192.168.1.89:554/mainstream HTTP/1.1" 200
+[2025-10-04 12:45:21,292] [INFO] Shutting down
+[2025-10-04 12:45:21,455] [INFO] Waiting for connections to close. (CTRL+C to force quit)
+[2025-10-04 12:45:26,831] [INFO] 1i3v68942485dbw
+[2025-10-04 12:45:30,403] [INFO] Waiting for background tasks to complete. (CTRL+C to force quit)
+[2025-10-04 12:45:30,510] [INFO] Waiting for application shutdown.
+[2025-10-04 12:45:30,681] [INFO] Cleanup complete. Shutting down.
+[2025-10-04 12:46:01,645] [DEBUG] Using proactor: IocpProactor
+[2025-10-04 12:46:01,682] [INFO] Started server process [41944]
+[2025-10-04 12:46:01,682] [INFO] Waiting for application startup.
+[2025-10-04 12:46:01,685] [INFO] PocketBase stater 79536
+[2025-10-04 12:46:01,708] [INFO] Found the 'onnx' file!
+[2025-10-04 12:46:01,708] [INFO] Loading YOLO models...
+[2025-10-04 12:46:03,333] [DEBUG] Loaded backend Agg version v2.2.
+[2025-10-04 12:46:03,367] [ERROR] Traceback (most recent call last):
+  File "D:\Codes\anprv8\engine\yolov5\hubconf.py", line 47, in _create
+    device = select_device(device)
+  File "D:\Codes\anprv8\engine\yolov5\utils\torch_utils.py", line 118, in select_device
+    assert torch.cuda.is_available() and torch.cuda.device_count() >= len(
+AssertionError: Invalid CUDA '--device cuda' requested, use '--device cpu' or pass valid CUDA device(s)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\starlette\routing.py", line 693, in lifespan
+    async with self.lifespan_context(app) as maybe_state:
+  File "C:\Users\Microsoft\AppData\Local\Programs\Python\Python310\lib\contextlib.py", line 199, in __aenter__
+    return await anext(self.gen)
+  File "D:\Codes\anprv8\engine\api.py", line 23, in lifespan
+    cctv=CcTvMonitor()
+  File "D:\Codes\anprv8\engine\engines.py", line 54, in __init__
+    self.model_car, self.model_plate, self.model_char = self.loadModels()
+  File "D:\Codes\anprv8\engine\engines.py", line 93, in loadModels
+    model_char = torch.hub.load(
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\torch\hub.py", line 647, in load
+    model = _load_local(repo_or_dir, model, *args, **kwargs)
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\torch\hub.py", line 676, in _load_local
+    model = entry(*args, **kwargs)
+  File "D:\Codes\anprv8\engine\yolov5\hubconf.py", line 88, in custom
+    return _create(path, autoshape=autoshape, verbose=_verbose, device=device)
+  File "D:\Codes\anprv8\engine\yolov5\hubconf.py", line 83, in _create
+    raise Exception(s) from e
+Exception: Invalid CUDA '--device cuda' requested, use '--device cpu' or pass valid CUDA device(s). Cache may be out of date, try `force_reload=True` or see https://docs.ultralytics.com/yolov5/tutorials/pytorch_hub_model_loading for help.
+
+[2025-10-04 12:46:03,368] [ERROR] Application startup failed. Exiting.
+[2025-10-04 12:46:33,598] [DEBUG] Using proactor: IocpProactor
+[2025-10-04 12:46:33,629] [INFO] Started server process [47240]
+[2025-10-04 12:46:33,629] [INFO] Waiting for application startup.
+[2025-10-04 12:46:33,634] [INFO] PocketBase stater 80400
+[2025-10-04 12:46:33,649] [INFO] Found the 'onnx' file!
+[2025-10-04 12:46:33,649] [INFO] Loading YOLO models...
+[2025-10-04 12:46:35,173] [DEBUG] Loaded backend Agg version v2.2.
+[2025-10-04 12:46:35,494] [INFO] Models loaded successfully
+[2025-10-04 12:46:35,556] [INFO] Application startup complete.
+[2025-10-04 12:46:35,558] [INFO] Uvicorn running on http://0.0.0.0:8009 (Press CTRL+C to quit)
+[2025-10-04 12:46:35,622] [INFO] 127.0.0.1:1173 - "GET /web/app HTTP/1.1" 307
+[2025-10-04 12:46:37,714] [INFO] 127.0.0.1:1173 - "GET /web/app/flutter_service_worker.js?v=402086266 HTTP/1.1" 304
+[2025-10-04 12:46:42,346] [INFO] 127.0.0.1:1173 - "GET /video_feed/rt1?source=rtsp://admin:admin@192.168.1.89:554/mainstream HTTP/1.1" 200
+[2025-10-04 12:46:48,790] [INFO] m95w95dwnr12m04
+[2025-10-04 12:46:52,248] [INFO] Shutting down
+[2025-10-04 12:46:52,353] [INFO] Waiting for application shutdown.
+[2025-10-04 12:46:52,481] [INFO] Cleanup complete. Shutting down.
+[2025-10-04 12:50:10,713] [DEBUG] Using proactor: IocpProactor
+[2025-10-04 12:50:10,760] [INFO] Started server process [81588]
+[2025-10-04 12:50:10,760] [INFO] Waiting for application startup.
+[2025-10-04 12:50:10,764] [INFO] PocketBase stater 12592
+[2025-10-04 12:50:10,778] [INFO] Found the 'onnx' file!
+[2025-10-04 12:50:10,779] [INFO] Loading YOLO models...
+[2025-10-04 12:50:12,421] [DEBUG] Loaded backend Agg version v2.2.
+[2025-10-04 12:50:12,775] [INFO] Models loaded successfully
+[2025-10-04 12:50:12,851] [INFO] Application startup complete.
+[2025-10-04 12:50:12,852] [INFO] Uvicorn running on http://0.0.0.0:8009 (Press CTRL+C to quit)
+[2025-10-04 12:50:12,929] [INFO] 127.0.0.1:2258 - "GET /web/app HTTP/1.1" 307
+[2025-10-04 12:50:15,096] [INFO] 127.0.0.1:2258 - "GET /web/app/flutter_service_worker.js?v=402086266 HTTP/1.1" 304
+[2025-10-04 12:50:20,055] [INFO] 127.0.0.1:2258 - "GET /video_feed/rt1?source=rtsp://admin:admin@192.168.1.89:554/mainstream HTTP/1.1" 200
+[2025-10-04 12:50:26,210] [INFO] Shutting down
+[2025-10-04 12:50:26,385] [INFO] Waiting for connections to close. (CTRL+C to force quit)
+[2025-10-04 12:50:28,469] [INFO] Waiting for background tasks to complete. (CTRL+C to force quit)
+[2025-10-04 12:50:28,572] [INFO] Waiting for application shutdown.
+[2025-10-04 12:50:28,739] [INFO] Cleanup complete. Shutting down.
+[2025-10-04 12:51:09,715] [DEBUG] Using proactor: IocpProactor
+[2025-10-04 12:51:09,759] [INFO] Started server process [82600]
+[2025-10-04 12:51:09,760] [INFO] Waiting for application startup.
+[2025-10-04 12:51:09,764] [INFO] PocketBase stater 68604
+[2025-10-04 12:51:09,777] [INFO] Found the 'onnx' file!
+[2025-10-04 12:51:09,778] [INFO] Loading YOLO models...
+[2025-10-04 12:51:11,473] [DEBUG] Loaded backend Agg version v2.2.
+[2025-10-04 12:51:11,814] [ERROR] Traceback (most recent call last):
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\starlette\routing.py", line 693, in lifespan
+    async with self.lifespan_context(app) as maybe_state:
+  File "C:\Users\Microsoft\AppData\Local\Programs\Python\Python310\lib\contextlib.py", line 199, in __aenter__
+    return await anext(self.gen)
+  File "D:\Codes\anprv8\engine\api.py", line 23, in lifespan
+    cctv=CcTvMonitor()
+  File "D:\Codes\anprv8\engine\engines.py", line 54, in __init__
+    self.model_car, self.model_plate, self.model_char = self.loadModels()
+  File "D:\Codes\anprv8\engine\engines.py", line 97, in loadModels
+    model_car = YOLO(f'model/yolo11n.{fileEx}',task='detect',device=0)
+TypeError: YOLO.__init__() got an unexpected keyword argument 'device'
+
+[2025-10-04 12:51:11,814] [ERROR] Application startup failed. Exiting.
+[2025-10-04 12:51:38,505] [DEBUG] Using proactor: IocpProactor
+[2025-10-04 12:51:38,535] [INFO] Started server process [44760]
+[2025-10-04 12:51:38,535] [INFO] Waiting for application startup.
+[2025-10-04 12:51:38,539] [INFO] PocketBase stater 80004
+[2025-10-04 12:51:38,550] [INFO] Found the 'onnx' file!
+[2025-10-04 12:51:38,550] [INFO] Loading YOLO models...
+[2025-10-04 12:51:40,039] [DEBUG] Loaded backend Agg version v2.2.
+[2025-10-04 12:51:40,422] [INFO] Models loaded successfully
+[2025-10-04 12:51:40,501] [INFO] Application startup complete.
+[2025-10-04 12:51:40,503] [INFO] Uvicorn running on http://0.0.0.0:8009 (Press CTRL+C to quit)
+[2025-10-04 12:51:40,580] [INFO] 127.0.0.1:13068 - "GET /web/app HTTP/1.1" 307
+[2025-10-04 12:51:42,623] [INFO] 127.0.0.1:13068 - "GET /web/app/flutter_service_worker.js?v=402086266 HTTP/1.1" 304
+[2025-10-04 12:51:44,604] [INFO] 127.0.0.1:13068 - "GET /video_feed/rt1?source=rtsp://admin:admin@192.168.1.89:554/mainstream HTTP/1.1" 200
+[2025-10-04 12:52:01,608] [INFO] d2f109i85od425u
+[2025-10-04 12:52:13,150] [INFO] zq3ywor92on15d5
+[2025-10-04 12:52:24,987] [INFO] Shutting down
+[2025-10-04 12:52:25,148] [INFO] Waiting for connections to close. (CTRL+C to force quit)
+[2025-10-04 12:52:27,384] [INFO] Waiting for background tasks to complete. (CTRL+C to force quit)
+[2025-10-04 12:52:27,495] [INFO] Waiting for application shutdown.
+[2025-10-04 12:52:27,641] [INFO] Cleanup complete. Shutting down.
+[2025-10-04 13:05:15,507] [DEBUG] Using proactor: IocpProactor
+[2025-10-04 13:05:15,540] [INFO] Started server process [79832]
+[2025-10-04 13:05:15,541] [INFO] Waiting for application startup.
+[2025-10-04 13:05:15,550] [INFO] PocketBase stater 63996
+[2025-10-04 13:05:15,570] [INFO] Found the 'onnx' file!
+[2025-10-04 13:05:15,570] [INFO] Loading YOLO models...
+[2025-10-04 13:05:17,789] [DEBUG] Loaded backend Agg version v2.2.
+[2025-10-04 13:05:33,989] [INFO] Models loaded successfully
+[2025-10-04 13:05:34,067] [INFO] Application startup complete.
+[2025-10-04 13:05:34,068] [INFO] Uvicorn running on http://0.0.0.0:8009 (Press CTRL+C to quit)
+[2025-10-04 13:05:34,069] [ERROR] Traceback (most recent call last):
+  File "C:\Users\Microsoft\AppData\Local\Programs\Python\Python310\lib\asyncio\runners.py", line 44, in run
+    return loop.run_until_complete(main)
+  File "C:\Users\Microsoft\AppData\Local\Programs\Python\Python310\lib\asyncio\base_events.py", line 636, in run_until_complete
+    self.run_forever()
+  File "C:\Users\Microsoft\AppData\Local\Programs\Python\Python310\lib\asyncio\windows_events.py", line 321, in run_forever
+    super().run_forever()
+  File "C:\Users\Microsoft\AppData\Local\Programs\Python\Python310\lib\asyncio\base_events.py", line 603, in run_forever
+    self._run_once()
+  File "C:\Users\Microsoft\AppData\Local\Programs\Python\Python310\lib\asyncio\base_events.py", line 1909, in _run_once
+    handle._run()
+  File "C:\Users\Microsoft\AppData\Local\Programs\Python\Python310\lib\asyncio\events.py", line 80, in _run
+    self._context.run(self._callback, *self._args)
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\uvicorn\server.py", line 69, in serve
+    with self.capture_signals():
+  File "C:\Users\Microsoft\AppData\Local\Programs\Python\Python310\lib\contextlib.py", line 142, in __exit__
+    next(self.gen)
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\uvicorn\server.py", line 330, in capture_signals
+    signal.raise_signal(captured_signal)
+KeyboardInterrupt
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\starlette\routing.py", line 700, in lifespan
+    await receive()
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\uvicorn\lifespan\on.py", line 137, in receive
+    return await self.receive_queue.get()
+  File "C:\Users\Microsoft\AppData\Local\Programs\Python\Python310\lib\asyncio\queues.py", line 159, in get
+    await getter
+asyncio.exceptions.CancelledError
+
+[2025-10-04 13:06:04,463] [DEBUG] Using proactor: IocpProactor
+[2025-10-04 13:06:04,508] [INFO] Started server process [82680]
+[2025-10-04 13:06:04,508] [INFO] Waiting for application startup.
+[2025-10-04 13:06:04,512] [INFO] PocketBase stater 84196
+[2025-10-04 13:06:04,527] [INFO] Found the 'onnx' file!
+[2025-10-04 13:06:04,527] [INFO] Loading YOLO models...
+[2025-10-04 13:06:06,213] [DEBUG] Loaded backend Agg version v2.2.
+[2025-10-04 13:06:06,833] [INFO] Models loaded successfully
+[2025-10-04 13:06:06,901] [INFO] Application startup complete.
+[2025-10-04 13:06:06,902] [INFO] Uvicorn running on http://0.0.0.0:8009 (Press CTRL+C to quit)
+[2025-10-04 13:06:06,964] [INFO] 127.0.0.1:2041 - "GET /web/app HTTP/1.1" 307
+[2025-10-04 13:06:09,071] [INFO] 127.0.0.1:2041 - "GET /web/app/flutter_service_worker.js?v=402086266 HTTP/1.1" 304
+[2025-10-04 13:06:15,575] [INFO] Shutting down
+[2025-10-04 13:06:15,681] [INFO] Waiting for application shutdown.
+[2025-10-04 13:06:15,830] [INFO] Cleanup complete. Shutting down.
+[2025-10-04 13:06:21,269] [DEBUG] Using proactor: IocpProactor
+[2025-10-04 13:06:21,300] [INFO] Started server process [85648]
+[2025-10-04 13:06:21,300] [INFO] Waiting for application startup.
+[2025-10-04 13:06:21,305] [INFO] PocketBase stater 79088
+[2025-10-04 13:06:21,316] [INFO] Found the 'onnx' file!
+[2025-10-04 13:06:21,316] [INFO] Loading YOLO models...
+[2025-10-04 13:06:22,766] [DEBUG] Loaded backend Agg version v2.2.
+[2025-10-04 13:06:23,117] [INFO] Models loaded successfully
+[2025-10-04 13:06:23,180] [INFO] Application startup complete.
+[2025-10-04 13:06:23,180] [INFO] Uvicorn running on http://0.0.0.0:8009 (Press CTRL+C to quit)
+[2025-10-04 13:06:23,244] [INFO] 127.0.0.1:6396 - "GET /web/app HTTP/1.1" 307
+[2025-10-04 13:06:25,237] [INFO] 127.0.0.1:6396 - "GET /web/app/flutter_service_worker.js?v=402086266 HTTP/1.1" 304
+[2025-10-04 13:06:36,704] [INFO] Shutting down
+[2025-10-04 13:06:36,809] [INFO] Waiting for application shutdown.
+[2025-10-04 13:06:36,947] [INFO] Cleanup complete. Shutting down.
+[2025-10-04 13:07:05,841] [DEBUG] Using proactor: IocpProactor
+[2025-10-04 13:07:05,871] [INFO] Started server process [85872]
+[2025-10-04 13:07:05,872] [INFO] Waiting for application startup.
+[2025-10-04 13:07:05,875] [INFO] PocketBase stater 85280
+[2025-10-04 13:07:05,894] [INFO] Found the 'onnx' file!
+[2025-10-04 13:07:05,894] [INFO] Loading YOLO models...
+[2025-10-04 13:07:07,833] [DEBUG] Loaded backend Agg version v2.2.
+[2025-10-04 13:07:07,891] [ERROR] Traceback (most recent call last):
+  File "D:\Codes\anprv8\engine\yolov5\hubconf.py", line 50, in _create
+    model = DetectMultiBackend(path, device=device, fuse=autoshape)  # detection model
+  File "D:\Codes\anprv8\engine\yolov5\models\common.py", line 393, in __init__
+    import onnxruntime
+ModuleNotFoundError: No module named 'onnxruntime'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\Codes\anprv8\engine\yolov5\hubconf.py", line 65, in _create
+    model = attempt_load(path, device=device, fuse=False)  # arbitrary model
+  File "D:\Codes\anprv8\engine\yolov5\models\experimental.py", line 78, in attempt_load
+    ckpt = torch.load(attempt_download(w), map_location="cpu")  # load
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\ultralytics\utils\patches.py", line 86, in torch_load
+    return _torch_load(*args, **kwargs)
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\torch\serialization.py", line 1384, in load
+    return _legacy_load(
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\torch\serialization.py", line 1628, in _legacy_load
+    magic_number = pickle_module.load(f, **pickle_load_args)
+_pickle.UnpicklingError: invalid load key, '\x08'.
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\starlette\routing.py", line 693, in lifespan
+    async with self.lifespan_context(app) as maybe_state:
+  File "C:\Users\Microsoft\AppData\Local\Programs\Python\Python310\lib\contextlib.py", line 199, in __aenter__
+    return await anext(self.gen)
+  File "D:\Codes\anprv8\engine\api.py", line 23, in lifespan
+    cctv=CcTvMonitor()
+  File "D:\Codes\anprv8\engine\engines.py", line 54, in __init__
+    self.model_car, self.model_plate, self.model_char = self.loadModels()
+  File "D:\Codes\anprv8\engine\engines.py", line 93, in loadModels
+    model_char = torch.hub.load(
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\torch\hub.py", line 647, in load
+    model = _load_local(repo_or_dir, model, *args, **kwargs)
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\torch\hub.py", line 676, in _load_local
+    model = entry(*args, **kwargs)
+  File "D:\Codes\anprv8\engine\yolov5\hubconf.py", line 88, in custom
+    return _create(path, autoshape=autoshape, verbose=_verbose, device=device)
+  File "D:\Codes\anprv8\engine\yolov5\hubconf.py", line 83, in _create
+    raise Exception(s) from e
+Exception: invalid load key, '\x08'.. Cache may be out of date, try `force_reload=True` or see https://docs.ultralytics.com/yolov5/tutorials/pytorch_hub_model_loading for help.
+
+[2025-10-04 13:07:07,893] [ERROR] Application startup failed. Exiting.
+[2025-10-04 13:07:26,689] [DEBUG] Using proactor: IocpProactor
+[2025-10-04 13:07:26,724] [INFO] Started server process [81960]
+[2025-10-04 13:07:26,724] [INFO] Waiting for application startup.
+[2025-10-04 13:07:26,727] [INFO] PocketBase stater 85092
+[2025-10-04 13:07:26,754] [INFO] Found the 'onnx' file!
+[2025-10-04 13:07:26,754] [INFO] Loading YOLO models...
+[2025-10-04 13:07:28,286] [DEBUG] Loaded backend Agg version v2.2.
+[2025-10-04 13:07:28,304] [ERROR] Traceback (most recent call last):
+  File "D:\Codes\anprv8\engine\yolov5\hubconf.py", line 50, in _create
+    model = DetectMultiBackend(path, device=device, fuse=autoshape)  # detection model
+  File "D:\Codes\anprv8\engine\yolov5\models\common.py", line 393, in __init__
+    import onnxruntime
+ModuleNotFoundError: No module named 'onnxruntime'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\Codes\anprv8\engine\yolov5\hubconf.py", line 65, in _create
+    model = attempt_load(path, device=device, fuse=False)  # arbitrary model
+  File "D:\Codes\anprv8\engine\yolov5\models\experimental.py", line 78, in attempt_load
+    ckpt = torch.load(attempt_download(w), map_location="cpu")  # load
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\ultralytics\utils\patches.py", line 86, in torch_load
+    return _torch_load(*args, **kwargs)
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\torch\serialization.py", line 1384, in load
+    return _legacy_load(
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\torch\serialization.py", line 1628, in _legacy_load
+    magic_number = pickle_module.load(f, **pickle_load_args)
+_pickle.UnpicklingError: invalid load key, '\x08'.
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\starlette\routing.py", line 693, in lifespan
+    async with self.lifespan_context(app) as maybe_state:
+  File "C:\Users\Microsoft\AppData\Local\Programs\Python\Python310\lib\contextlib.py", line 199, in __aenter__
+    return await anext(self.gen)
+  File "D:\Codes\anprv8\engine\api.py", line 23, in lifespan
+    cctv=CcTvMonitor()
+  File "D:\Codes\anprv8\engine\engines.py", line 54, in __init__
+    self.model_car, self.model_plate, self.model_char = self.loadModels()
+  File "D:\Codes\anprv8\engine\engines.py", line 93, in loadModels
+    model_char = torch.hub.load(
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\torch\hub.py", line 647, in load
+    model = _load_local(repo_or_dir, model, *args, **kwargs)
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\torch\hub.py", line 676, in _load_local
+    model = entry(*args, **kwargs)
+  File "D:\Codes\anprv8\engine\yolov5\hubconf.py", line 88, in custom
+    return _create(path, autoshape=autoshape, verbose=_verbose, device=device)
+  File "D:\Codes\anprv8\engine\yolov5\hubconf.py", line 83, in _create
+    raise Exception(s) from e
+Exception: invalid load key, '\x08'.. Cache may be out of date, try `force_reload=True` or see https://docs.ultralytics.com/yolov5/tutorials/pytorch_hub_model_loading for help.
+
+[2025-10-04 13:07:28,305] [ERROR] Application startup failed. Exiting.
+[2025-10-04 13:08:00,223] [DEBUG] Using proactor: IocpProactor
+[2025-10-04 13:08:00,261] [INFO] Started server process [85132]
+[2025-10-04 13:08:00,261] [INFO] Waiting for application startup.
+[2025-10-04 13:08:00,265] [INFO] PocketBase stater 83588
+[2025-10-04 13:08:00,286] [INFO] Found the 'onnx' file!
+[2025-10-04 13:08:00,286] [INFO] Loading YOLO models...
+[2025-10-04 13:08:02,321] [DEBUG] Loaded backend Agg version v2.2.
+[2025-10-04 13:08:09,353] [ERROR] Traceback (most recent call last):
+  File "D:\Codes\anprv8\engine\yolov5\hubconf.py", line 50, in _create
+    model = DetectMultiBackend(path, device=device, fuse=autoshape)  # detection model
+  File "D:\Codes\anprv8\engine\yolov5\models\common.py", line 393, in __init__
+    import onnxruntime
+ModuleNotFoundError: No module named 'onnxruntime'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\Codes\anprv8\engine\yolov5\hubconf.py", line 65, in _create
+    model = attempt_load(path, device=device, fuse=False)  # arbitrary model
+  File "D:\Codes\anprv8\engine\yolov5\models\experimental.py", line 78, in attempt_load
+    ckpt = torch.load(attempt_download(w), map_location="cpu")  # load
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\ultralytics\utils\patches.py", line 86, in torch_load
+    return _torch_load(*args, **kwargs)
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\torch\serialization.py", line 1384, in load
+    return _legacy_load(
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\torch\serialization.py", line 1628, in _legacy_load
+    magic_number = pickle_module.load(f, **pickle_load_args)
+_pickle.UnpicklingError: invalid load key, '\x08'.
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\starlette\routing.py", line 693, in lifespan
+    async with self.lifespan_context(app) as maybe_state:
+  File "C:\Users\Microsoft\AppData\Local\Programs\Python\Python310\lib\contextlib.py", line 199, in __aenter__
+    return await anext(self.gen)
+  File "D:\Codes\anprv8\engine\api.py", line 23, in lifespan
+    cctv=CcTvMonitor()
+  File "D:\Codes\anprv8\engine\engines.py", line 54, in __init__
+    self.model_car, self.model_plate, self.model_char = self.loadModels()
+  File "D:\Codes\anprv8\engine\engines.py", line 93, in loadModels
+    model_char = torch.hub.load(
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\torch\hub.py", line 647, in load
+    model = _load_local(repo_or_dir, model, *args, **kwargs)
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\torch\hub.py", line 676, in _load_local
+    model = entry(*args, **kwargs)
+  File "D:\Codes\anprv8\engine\yolov5\hubconf.py", line 88, in custom
+    return _create(path, autoshape=autoshape, verbose=_verbose, device=device)
+  File "D:\Codes\anprv8\engine\yolov5\hubconf.py", line 83, in _create
+    raise Exception(s) from e
+Exception: invalid load key, '\x08'.. Cache may be out of date, try `force_reload=True` or see https://docs.ultralytics.com/yolov5/tutorials/pytorch_hub_model_loading for help.
+
+[2025-10-04 13:08:09,354] [ERROR] Application startup failed. Exiting.
+[2025-10-04 13:08:34,332] [DEBUG] Using proactor: IocpProactor
+[2025-10-04 13:08:34,365] [INFO] Started server process [85560]
+[2025-10-04 13:08:34,365] [INFO] Waiting for application startup.
+[2025-10-04 13:08:34,372] [INFO] PocketBase stater 80024
+[2025-10-04 13:08:34,390] [INFO] Found the 'onnx' file!
+[2025-10-04 13:08:34,390] [INFO] Loading YOLO models...
+[2025-10-04 13:08:35,864] [DEBUG] Loaded backend Agg version v2.2.
+[2025-10-04 13:08:36,425] [INFO] Models loaded successfully
+[2025-10-04 13:08:36,506] [INFO] Application startup complete.
+[2025-10-04 13:08:36,506] [INFO] Uvicorn running on http://0.0.0.0:8009 (Press CTRL+C to quit)
+[2025-10-04 13:08:36,591] [INFO] 127.0.0.1:9444 - "GET /web/app HTTP/1.1" 307
+[2025-10-04 13:08:38,732] [INFO] 127.0.0.1:9444 - "GET /web/app/flutter_service_worker.js?v=402086266 HTTP/1.1" 304
+[2025-10-04 13:08:45,861] [INFO] Shutting down
+[2025-10-04 13:08:45,953] [INFO] Finished server process [85560]
+[2025-10-04 13:08:45,955] [ERROR] Traceback (most recent call last):
+  File "C:\Users\Microsoft\AppData\Local\Programs\Python\Python310\lib\asyncio\runners.py", line 44, in run
+    return loop.run_until_complete(main)
+  File "C:\Users\Microsoft\AppData\Local\Programs\Python\Python310\lib\asyncio\base_events.py", line 636, in run_until_complete
+    self.run_forever()
+  File "C:\Users\Microsoft\AppData\Local\Programs\Python\Python310\lib\asyncio\windows_events.py", line 321, in run_forever
+    super().run_forever()
+  File "C:\Users\Microsoft\AppData\Local\Programs\Python\Python310\lib\asyncio\base_events.py", line 603, in run_forever
+    self._run_once()
+  File "C:\Users\Microsoft\AppData\Local\Programs\Python\Python310\lib\asyncio\base_events.py", line 1909, in _run_once
+    handle._run()
+  File "C:\Users\Microsoft\AppData\Local\Programs\Python\Python310\lib\asyncio\events.py", line 80, in _run
+    self._context.run(self._callback, *self._args)
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\uvicorn\server.py", line 69, in serve
+    with self.capture_signals():
+  File "C:\Users\Microsoft\AppData\Local\Programs\Python\Python310\lib\contextlib.py", line 142, in __exit__
+    next(self.gen)
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\uvicorn\server.py", line 330, in capture_signals
+    signal.raise_signal(captured_signal)
+KeyboardInterrupt
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\starlette\routing.py", line 700, in lifespan
+    await receive()
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\uvicorn\lifespan\on.py", line 137, in receive
+    return await self.receive_queue.get()
+  File "C:\Users\Microsoft\AppData\Local\Programs\Python\Python310\lib\asyncio\queues.py", line 159, in get
+    await getter
+asyncio.exceptions.CancelledError
+
+[2025-10-04 13:09:22,106] [DEBUG] Using proactor: IocpProactor
+[2025-10-04 13:09:22,142] [INFO] Started server process [86836]
+[2025-10-04 13:09:22,142] [INFO] Waiting for application startup.
+[2025-10-04 13:09:22,146] [INFO] PocketBase stater 86720
+[2025-10-04 13:09:22,159] [INFO] Found the 'onnx' file!
+[2025-10-04 13:09:22,159] [INFO] Loading YOLO models...
+[2025-10-04 13:09:23,755] [DEBUG] Loaded backend Agg version v2.2.
+[2025-10-04 13:09:24,101] [ERROR] Traceback (most recent call last):
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\starlette\routing.py", line 693, in lifespan
+    async with self.lifespan_context(app) as maybe_state:
+  File "C:\Users\Microsoft\AppData\Local\Programs\Python\Python310\lib\contextlib.py", line 199, in __aenter__
+    return await anext(self.gen)
+  File "D:\Codes\anprv8\engine\api.py", line 23, in lifespan
+    cctv=CcTvMonitor()
+  File "D:\Codes\anprv8\engine\engines.py", line 54, in __init__
+    self.model_car, self.model_plate, self.model_char = self.loadModels()
+  File "D:\Codes\anprv8\engine\engines.py", line 98, in loadModels
+    print(model_car.info())
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\ultralytics\engine\model.py", line 439, in info
+    self._check_is_pytorch_model()
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\ultralytics\engine\model.py", line 322, in _check_is_pytorch_model
+    raise TypeError(
+TypeError: model='model/yolo11n.onnx' should be a *.pt PyTorch model to run this method, but is a different format. PyTorch models can train, val, predict and export, i.e. 'model.train(data=...)', but exported formats like ONNX, TensorRT etc. only support 'predict' and 'val' modes, i.e. 'yolo predict model=yolov8n.onnx'.
+To run CUDA or MPS inference please pass the device argument directly in your inference command, i.e. 'model.predict(source=..., device=0)'
+
+[2025-10-04 13:09:24,102] [ERROR] Application startup failed. Exiting.
+[2025-10-04 13:09:41,902] [DEBUG] Using proactor: IocpProactor
+[2025-10-04 13:09:41,930] [INFO] Started server process [86220]
+[2025-10-04 13:09:41,930] [INFO] Waiting for application startup.
+[2025-10-04 13:09:41,934] [INFO] PocketBase stater 82804
+[2025-10-04 13:09:41,947] [INFO] Found the 'onnx' file!
+[2025-10-04 13:09:41,947] [INFO] Loading YOLO models...
+[2025-10-04 13:09:43,390] [DEBUG] Loaded backend Agg version v2.2.
+[2025-10-04 13:09:43,695] [ERROR] Traceback (most recent call last):
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\starlette\routing.py", line 693, in lifespan
+    async with self.lifespan_context(app) as maybe_state:
+  File "C:\Users\Microsoft\AppData\Local\Programs\Python\Python310\lib\contextlib.py", line 199, in __aenter__
+    return await anext(self.gen)
+  File "D:\Codes\anprv8\engine\api.py", line 23, in lifespan
+    cctv=CcTvMonitor()
+  File "D:\Codes\anprv8\engine\engines.py", line 54, in __init__
+    self.model_car, self.model_plate, self.model_char = self.loadModels()
+  File "D:\Codes\anprv8\engine\engines.py", line 97, in loadModels
+    model_car = YOLO(f'model/yolo11n.{fileEx}',task='detect',device=0)
+TypeError: YOLO.__init__() got an unexpected keyword argument 'device'
+
+[2025-10-04 13:09:43,695] [ERROR] Application startup failed. Exiting.
+[2025-10-04 13:10:12,067] [DEBUG] Using proactor: IocpProactor
+[2025-10-04 13:10:12,100] [INFO] Started server process [87048]
+[2025-10-04 13:10:12,100] [INFO] Waiting for application startup.
+[2025-10-04 13:10:12,104] [INFO] PocketBase stater 85276
+[2025-10-04 13:10:12,127] [INFO] Found the 'onnx' file!
+[2025-10-04 13:10:12,128] [INFO] Loading YOLO models...
+[2025-10-04 13:10:13,676] [DEBUG] Loaded backend Agg version v2.2.
+[2025-10-04 13:10:14,031] [INFO] Models loaded successfully
+[2025-10-04 13:10:14,107] [INFO] Application startup complete.
+[2025-10-04 13:10:14,108] [INFO] Uvicorn running on http://0.0.0.0:8009 (Press CTRL+C to quit)
+[2025-10-04 13:10:14,212] [INFO] 127.0.0.1:5832 - "GET /web/app HTTP/1.1" 307
+[2025-10-04 13:10:16,537] [INFO] Shutting down
+[2025-10-04 13:10:16,643] [INFO] Waiting for application shutdown.
+[2025-10-04 13:10:16,785] [INFO] Cleanup complete. Shutting down.
+[2025-10-04 13:10:28,316] [DEBUG] Using proactor: IocpProactor
+[2025-10-04 13:10:28,346] [INFO] Started server process [87932]
+[2025-10-04 13:10:28,346] [INFO] Waiting for application startup.
+[2025-10-04 13:10:28,351] [INFO] PocketBase stater 87852
+[2025-10-04 13:10:28,365] [INFO] Found the 'onnx' file!
+[2025-10-04 13:10:28,365] [INFO] Loading YOLO models...
+[2025-10-04 13:10:29,783] [DEBUG] Loaded backend Agg version v2.2.
+[2025-10-04 13:10:30,089] [INFO] Models loaded successfully
+[2025-10-04 13:10:30,165] [INFO] Application startup complete.
+[2025-10-04 13:10:30,166] [INFO] Uvicorn running on http://0.0.0.0:8009 (Press CTRL+C to quit)
+[2025-10-04 13:10:30,245] [INFO] 127.0.0.1:9820 - "GET /web/app HTTP/1.1" 307
+[2025-10-04 13:10:37,665] [INFO] Shutting down
+[2025-10-04 13:10:37,770] [INFO] Finished server process [87932]
+[2025-10-04 13:10:37,772] [ERROR] Traceback (most recent call last):
+  File "C:\Users\Microsoft\AppData\Local\Programs\Python\Python310\lib\asyncio\runners.py", line 44, in run
+    return loop.run_until_complete(main)
+  File "C:\Users\Microsoft\AppData\Local\Programs\Python\Python310\lib\asyncio\base_events.py", line 636, in run_until_complete
+    self.run_forever()
+  File "C:\Users\Microsoft\AppData\Local\Programs\Python\Python310\lib\asyncio\windows_events.py", line 321, in run_forever
+    super().run_forever()
+  File "C:\Users\Microsoft\AppData\Local\Programs\Python\Python310\lib\asyncio\base_events.py", line 603, in run_forever
+    self._run_once()
+  File "C:\Users\Microsoft\AppData\Local\Programs\Python\Python310\lib\asyncio\base_events.py", line 1909, in _run_once
+    handle._run()
+  File "C:\Users\Microsoft\AppData\Local\Programs\Python\Python310\lib\asyncio\events.py", line 80, in _run
+    self._context.run(self._callback, *self._args)
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\uvicorn\server.py", line 69, in serve
+    with self.capture_signals():
+  File "C:\Users\Microsoft\AppData\Local\Programs\Python\Python310\lib\contextlib.py", line 142, in __exit__
+    next(self.gen)
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\uvicorn\server.py", line 330, in capture_signals
+    signal.raise_signal(captured_signal)
+KeyboardInterrupt
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\starlette\routing.py", line 700, in lifespan
+    await receive()
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\uvicorn\lifespan\on.py", line 137, in receive
+    return await self.receive_queue.get()
+  File "C:\Users\Microsoft\AppData\Local\Programs\Python\Python310\lib\asyncio\queues.py", line 159, in get
+    await getter
+asyncio.exceptions.CancelledError
+
+[2025-10-04 13:10:41,800] [DEBUG] Using proactor: IocpProactor
+[2025-10-04 13:10:41,834] [INFO] Started server process [87752]
+[2025-10-04 13:10:41,834] [INFO] Waiting for application startup.
+[2025-10-04 13:10:41,837] [INFO] PocketBase stater 85976
+[2025-10-04 13:10:41,852] [INFO] Found the 'onnx' file!
+[2025-10-04 13:10:41,852] [INFO] Loading YOLO models...
+[2025-10-04 13:10:43,371] [DEBUG] Loaded backend Agg version v2.2.
+[2025-10-04 13:10:43,700] [INFO] Models loaded successfully
+[2025-10-04 13:10:43,771] [INFO] Application startup complete.
+[2025-10-04 13:10:43,772] [INFO] Uvicorn running on http://0.0.0.0:8009 (Press CTRL+C to quit)
+[2025-10-04 13:10:43,863] [INFO] 127.0.0.1:9904 - "GET /web/app HTTP/1.1" 307
+[2025-10-04 13:10:58,622] [INFO] 127.0.0.1:2803 - "GET /web/app/flutter_service_worker.js?v=402086266 HTTP/1.1" 304
+[2025-10-04 13:11:00,904] [INFO] 127.0.0.1:2803 - "GET /video_feed/rt1?source=rtsp://admin:admin@192.168.1.89:554/mainstream HTTP/1.1" 200
+[2025-10-04 13:11:20,568] [INFO] Shutting down
+[2025-10-04 13:11:20,671] [INFO] Finished server process [87752]
+[2025-10-04 13:11:20,673] [ERROR] Traceback (most recent call last):
+  File "C:\Users\Microsoft\AppData\Local\Programs\Python\Python310\lib\asyncio\runners.py", line 44, in run
+    return loop.run_until_complete(main)
+  File "C:\Users\Microsoft\AppData\Local\Programs\Python\Python310\lib\asyncio\base_events.py", line 636, in run_until_complete
+    self.run_forever()
+  File "C:\Users\Microsoft\AppData\Local\Programs\Python\Python310\lib\asyncio\windows_events.py", line 321, in run_forever
+    super().run_forever()
+  File "C:\Users\Microsoft\AppData\Local\Programs\Python\Python310\lib\asyncio\base_events.py", line 603, in run_forever
+    self._run_once()
+  File "C:\Users\Microsoft\AppData\Local\Programs\Python\Python310\lib\asyncio\base_events.py", line 1909, in _run_once
+    handle._run()
+  File "C:\Users\Microsoft\AppData\Local\Programs\Python\Python310\lib\asyncio\events.py", line 80, in _run
+    self._context.run(self._callback, *self._args)
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\uvicorn\server.py", line 69, in serve
+    with self.capture_signals():
+  File "C:\Users\Microsoft\AppData\Local\Programs\Python\Python310\lib\contextlib.py", line 142, in __exit__
+    next(self.gen)
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\uvicorn\server.py", line 330, in capture_signals
+    signal.raise_signal(captured_signal)
+KeyboardInterrupt
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\starlette\routing.py", line 700, in lifespan
+    await receive()
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\uvicorn\lifespan\on.py", line 137, in receive
+    return await self.receive_queue.get()
+  File "C:\Users\Microsoft\AppData\Local\Programs\Python\Python310\lib\asyncio\queues.py", line 159, in get
+    await getter
+asyncio.exceptions.CancelledError
+
+[2025-10-04 13:11:33,912] [DEBUG] Using proactor: IocpProactor
+[2025-10-04 13:11:33,941] [INFO] Started server process [50460]
+[2025-10-04 13:11:33,941] [INFO] Waiting for application startup.
+[2025-10-04 13:11:33,946] [INFO] PocketBase stater 86084
+[2025-10-04 13:11:33,968] [INFO] Found the 'onnx' file!
+[2025-10-04 13:11:33,968] [INFO] Loading YOLO models...
+[2025-10-04 13:11:35,539] [DEBUG] Loaded backend Agg version v2.2.
+[2025-10-04 13:11:35,824] [INFO] Models loaded successfully
+[2025-10-04 13:11:35,897] [INFO] Application startup complete.
+[2025-10-04 13:11:35,898] [INFO] Uvicorn running on http://0.0.0.0:8009 (Press CTRL+C to quit)
+[2025-10-04 13:11:35,969] [INFO] 127.0.0.1:9794 - "GET /web/app HTTP/1.1" 307
+[2025-10-04 13:11:37,988] [INFO] 127.0.0.1:9794 - "GET /web/app/flutter_service_worker.js?v=402086266 HTTP/1.1" 304
+[2025-10-04 13:11:39,273] [INFO] 127.0.0.1:9794 - "GET /video_feed/rt1?source=rtsp://admin:admin@192.168.1.89:554/mainstream HTTP/1.1" 200
+[2025-10-04 13:11:53,875] [INFO] Shutting down
+[2025-10-04 13:11:53,987] [INFO] Finished server process [50460]
+[2025-10-04 13:11:53,988] [ERROR] Traceback (most recent call last):
+  File "C:\Users\Microsoft\AppData\Local\Programs\Python\Python310\lib\asyncio\runners.py", line 44, in run
+    return loop.run_until_complete(main)
+  File "C:\Users\Microsoft\AppData\Local\Programs\Python\Python310\lib\asyncio\base_events.py", line 636, in run_until_complete
+    self.run_forever()
+  File "C:\Users\Microsoft\AppData\Local\Programs\Python\Python310\lib\asyncio\windows_events.py", line 321, in run_forever
+    super().run_forever()
+  File "C:\Users\Microsoft\AppData\Local\Programs\Python\Python310\lib\asyncio\base_events.py", line 603, in run_forever
+    self._run_once()
+  File "C:\Users\Microsoft\AppData\Local\Programs\Python\Python310\lib\asyncio\base_events.py", line 1909, in _run_once
+    handle._run()
+  File "C:\Users\Microsoft\AppData\Local\Programs\Python\Python310\lib\asyncio\events.py", line 80, in _run
+    self._context.run(self._callback, *self._args)
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\uvicorn\server.py", line 69, in serve
+    with self.capture_signals():
+  File "C:\Users\Microsoft\AppData\Local\Programs\Python\Python310\lib\contextlib.py", line 142, in __exit__
+    next(self.gen)
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\uvicorn\server.py", line 330, in capture_signals
+    signal.raise_signal(captured_signal)
+KeyboardInterrupt
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\starlette\routing.py", line 700, in lifespan
+    await receive()
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\uvicorn\lifespan\on.py", line 137, in receive
+    return await self.receive_queue.get()
+  File "C:\Users\Microsoft\AppData\Local\Programs\Python\Python310\lib\asyncio\queues.py", line 159, in get
+    await getter
+asyncio.exceptions.CancelledError
+
+[2025-10-04 13:11:58,298] [DEBUG] Using proactor: IocpProactor
+[2025-10-04 13:11:58,329] [INFO] Started server process [87164]
+[2025-10-04 13:11:58,329] [INFO] Waiting for application startup.
+[2025-10-04 13:11:58,333] [INFO] PocketBase stater 86088
+[2025-10-04 13:11:58,344] [INFO] Found the 'onnx' file!
+[2025-10-04 13:11:58,344] [INFO] Loading YOLO models...
+[2025-10-04 13:11:59,742] [DEBUG] Loaded backend Agg version v2.2.
+[2025-10-04 13:12:00,024] [INFO] Models loaded successfully
+[2025-10-04 13:12:00,089] [INFO] Application startup complete.
+[2025-10-04 13:12:00,090] [INFO] Uvicorn running on http://0.0.0.0:8009 (Press CTRL+C to quit)
+[2025-10-04 13:12:00,158] [INFO] 127.0.0.1:2253 - "GET /web/app HTTP/1.1" 307
+[2025-10-04 13:12:02,123] [INFO] 127.0.0.1:2253 - "GET /web/app/flutter_service_worker.js?v=402086266 HTTP/1.1" 304
+[2025-10-04 13:12:02,573] [INFO] 127.0.0.1:2253 - "GET /video_feed/rt1?source=rtsp://admin:admin@192.168.1.89:554/mainstream HTTP/1.1" 200
+[2025-10-04 13:12:21,688] [INFO] Shutting down
+[2025-10-04 13:12:21,794] [INFO] Waiting for application shutdown.
+[2025-10-04 13:12:21,947] [INFO] Cleanup complete. Shutting down.
+[2025-10-04 13:12:39,583] [DEBUG] Using proactor: IocpProactor
+[2025-10-04 13:12:39,648] [INFO] Started server process [88432]
+[2025-10-04 13:12:39,649] [INFO] Waiting for application startup.
+[2025-10-04 13:12:39,653] [INFO] PocketBase stater 88924
+[2025-10-04 13:12:39,671] [INFO] Found the 'onnx' file!
+[2025-10-04 13:12:39,671] [INFO] Loading YOLO models...
+[2025-10-04 13:12:41,605] [DEBUG] Loaded backend Agg version v2.2.
+[2025-10-04 13:12:41,958] [INFO] Models loaded successfully
+[2025-10-04 13:12:42,033] [INFO] Application startup complete.
+[2025-10-04 13:12:42,034] [INFO] Uvicorn running on http://0.0.0.0:8009 (Press CTRL+C to quit)
+[2025-10-04 13:12:42,113] [INFO] 127.0.0.1:11063 - "GET /web/app HTTP/1.1" 307
+[2025-10-04 13:12:44,209] [INFO] 127.0.0.1:11063 - "GET /web/app/flutter_service_worker.js?v=402086266 HTTP/1.1" 304
+[2025-10-04 13:12:44,829] [INFO] 127.0.0.1:11063 - "GET /video_feed/rt1?source=rtsp://admin:admin@192.168.1.89:554/mainstream HTTP/1.1" 200
+[2025-10-04 13:12:58,285] [INFO] 698l3avvwk34qcz
+[2025-10-04 13:13:02,338] [INFO] g30uszw1s10oae9
+[2025-10-04 13:13:15,728] [INFO] Shutting down
+[2025-10-04 13:13:15,834] [INFO] Waiting for application shutdown.
+[2025-10-04 13:13:15,978] [INFO] Cleanup complete. Shutting down.
+[2025-10-04 13:13:34,819] [DEBUG] Using proactor: IocpProactor
+[2025-10-04 13:13:34,850] [INFO] Started server process [87724]
+[2025-10-04 13:13:34,850] [INFO] Waiting for application startup.
+[2025-10-04 13:13:34,856] [INFO] PocketBase stater 88456
+[2025-10-04 13:13:34,876] [INFO] Found the 'onnx' file!
+[2025-10-04 13:13:34,876] [INFO] Loading YOLO models...
+[2025-10-04 13:13:36,421] [DEBUG] Loaded backend Agg version v2.2.
+[2025-10-04 13:13:36,930] [INFO] Models loaded successfully
+[2025-10-04 13:13:36,996] [INFO] Application startup complete.
+[2025-10-04 13:13:36,997] [INFO] Uvicorn running on http://0.0.0.0:8009 (Press CTRL+C to quit)
+[2025-10-04 13:13:37,066] [INFO] 127.0.0.1:6916 - "GET /web/app HTTP/1.1" 307
+[2025-10-04 13:13:44,494] [INFO] Shutting down
+[2025-10-04 13:13:44,598] [INFO] Waiting for application shutdown.
+[2025-10-04 13:13:44,733] [INFO] Cleanup complete. Shutting down.
+[2025-10-04 13:17:50,004] [DEBUG] Using proactor: IocpProactor
+[2025-10-04 13:17:50,034] [INFO] Started server process [89376]
+[2025-10-04 13:17:50,035] [INFO] Waiting for application startup.
+[2025-10-04 13:17:50,038] [INFO] PocketBase stater 89888
+[2025-10-04 13:17:50,052] [INFO] Found the 'onnx' file!
+[2025-10-04 13:17:50,052] [INFO] Loading YOLO models...
+[2025-10-04 13:17:51,695] [DEBUG] Loaded backend Agg version v2.2.
+[2025-10-04 13:17:52,321] [INFO] Models loaded successfully
+[2025-10-04 13:17:52,381] [INFO] Application startup complete.
+[2025-10-04 13:17:52,382] [INFO] Uvicorn running on http://0.0.0.0:8009 (Press CTRL+C to quit)
+[2025-10-04 13:17:52,448] [INFO] 127.0.0.1:8750 - "GET /web/app HTTP/1.1" 307
+[2025-10-04 13:18:00,497] [INFO] 127.0.0.1:14235 - "GET /video_feed/rt1?source=rtsp://admin:admin@192.168.1.89:554/mainstream HTTP/1.1" 200
+[2025-10-04 13:18:05,042] [INFO] 127.0.0.1:6345 - "GET /web/app/flutter_service_worker.js?v=402086266 HTTP/1.1" 304
+[2025-10-04 13:18:33,382] [INFO] Shutting down
+[2025-10-04 13:18:33,488] [INFO] Waiting for application shutdown.
+[2025-10-04 13:18:33,624] [INFO] Cleanup complete. Shutting down.
+[2025-10-04 13:19:06,138] [DEBUG] Using proactor: IocpProactor
+[2025-10-04 13:19:06,174] [INFO] Started server process [89968]
+[2025-10-04 13:19:06,175] [INFO] Waiting for application startup.
+[2025-10-04 13:19:06,180] [INFO] PocketBase stater 89812
+[2025-10-04 13:19:06,203] [INFO] Found the 'onnx' file!
+[2025-10-04 13:19:06,203] [INFO] Loading YOLO models...
+[2025-10-04 13:19:07,807] [DEBUG] Loaded backend Agg version v2.2.
+[2025-10-04 13:19:08,214] [INFO] Models loaded successfully
+[2025-10-04 13:19:08,276] [INFO] Application startup complete.
+[2025-10-04 13:19:08,276] [INFO] Uvicorn running on http://0.0.0.0:8009 (Press CTRL+C to quit)
+[2025-10-04 13:19:08,344] [INFO] 127.0.0.1:12251 - "GET /web/app HTTP/1.1" 307
+[2025-10-04 13:19:11,489] [INFO] 127.0.0.1:12251 - "GET /video_feed/rt1?source=rtsp://admin:admin@192.168.1.89:554/mainstream HTTP/1.1" 200
+[2025-10-04 13:19:43,498] [INFO] Shutting down
+[2025-10-04 13:19:43,607] [INFO] Waiting for application shutdown.
+[2025-10-04 13:19:43,746] [INFO] Cleanup complete. Shutting down.
+[2025-10-04 13:20:21,183] [DEBUG] Using proactor: IocpProactor
+[2025-10-04 13:20:21,216] [INFO] Started server process [90972]
+[2025-10-04 13:20:21,216] [INFO] Waiting for application startup.
+[2025-10-04 13:20:21,219] [INFO] PocketBase stater 89260
+[2025-10-04 13:20:21,231] [INFO] Loading YOLO models...
+[2025-10-04 13:20:22,679] [DEBUG] Loaded backend Agg version v2.2.
+[2025-10-04 13:20:23,300] [INFO] Models loaded successfully
+[2025-10-04 13:20:23,365] [INFO] Application startup complete.
+[2025-10-04 13:20:23,365] [INFO] Uvicorn running on http://0.0.0.0:8009 (Press CTRL+C to quit)
+[2025-10-04 13:20:23,429] [INFO] 127.0.0.1:8349 - "GET /web/app HTTP/1.1" 307
+[2025-10-04 13:20:26,333] [INFO] 127.0.0.1:8349 - "GET /video_feed/rt1?source=rtsp://admin:admin@192.168.1.89:554/mainstream HTTP/1.1" 200
+[2025-10-04 13:21:07,264] [INFO] Shutting down
+[2025-10-04 13:21:07,369] [INFO] Waiting for application shutdown.
+[2025-10-04 13:21:07,503] [INFO] Cleanup complete. Shutting down.
+[2025-10-04 13:21:11,224] [DEBUG] Using proactor: IocpProactor
+[2025-10-04 13:21:11,258] [INFO] Started server process [86676]
+[2025-10-04 13:21:11,259] [INFO] Waiting for application startup.
+[2025-10-04 13:21:11,262] [INFO] PocketBase stater 90228
+[2025-10-04 13:21:11,274] [INFO] Loading YOLO models...
+[2025-10-04 13:21:12,769] [DEBUG] Loaded backend Agg version v2.2.
+[2025-10-04 13:21:13,431] [INFO] Models loaded successfully
+[2025-10-04 13:21:13,498] [INFO] Application startup complete.
+[2025-10-04 13:21:13,499] [INFO] Uvicorn running on http://0.0.0.0:8009 (Press CTRL+C to quit)
+[2025-10-04 13:21:13,550] [INFO] 127.0.0.1:5047 - "GET /web/app HTTP/1.1" 307
+[2025-10-04 13:21:19,396] [INFO] 127.0.0.1:7173 - "GET /video_feed/rt1?source=rtsp://admin:admin@192.168.1.89:554/mainstream HTTP/1.1" 200
+[2025-10-04 13:21:34,968] [INFO] Shutting down
+[2025-10-04 13:21:35,074] [INFO] Waiting for application shutdown.
+[2025-10-04 13:21:35,221] [INFO] Cleanup complete. Shutting down.
+[2025-10-04 13:22:30,310] [DEBUG] Using proactor: IocpProactor
+[2025-10-04 13:22:30,344] [INFO] Started server process [91288]
+[2025-10-04 13:22:30,344] [INFO] Waiting for application startup.
+[2025-10-04 13:22:30,348] [INFO] PocketBase stater 88588
+[2025-10-04 13:22:30,360] [INFO] Loading YOLO models...
+[2025-10-04 13:22:31,866] [DEBUG] Loaded backend Agg version v2.2.
+[2025-10-04 13:22:32,449] [INFO] Models loaded successfully
+[2025-10-04 13:22:32,514] [INFO] Application startup complete.
+[2025-10-04 13:22:32,514] [INFO] Uvicorn running on http://0.0.0.0:8009 (Press CTRL+C to quit)
+[2025-10-04 13:22:32,577] [INFO] 127.0.0.1:4261 - "GET /web/app HTTP/1.1" 307
+[2025-10-04 13:22:34,658] [INFO] 127.0.0.1:4261 - "GET /web/app/flutter_service_worker.js?v=402086266 HTTP/1.1" 304
+[2025-10-04 13:22:40,297] [INFO] Shutting down
+[2025-10-04 13:22:40,403] [INFO] Waiting for application shutdown.
+[2025-10-04 13:22:40,556] [INFO] Cleanup complete. Shutting down.
+[2025-10-04 13:22:53,656] [DEBUG] Using proactor: IocpProactor
+[2025-10-04 13:22:53,696] [INFO] Started server process [91376]
+[2025-10-04 13:22:53,696] [INFO] Waiting for application startup.
+[2025-10-04 13:22:53,701] [INFO] PocketBase stater 88716
+[2025-10-04 13:22:53,723] [INFO] Found the 'onnx' file!
+[2025-10-04 13:22:53,723] [INFO] Loading YOLO models...
+[2025-10-04 13:22:55,546] [DEBUG] Loaded backend Agg version v2.2.
+[2025-10-04 13:22:55,950] [INFO] Models loaded successfully
+[2025-10-04 13:22:56,015] [INFO] Application startup complete.
+[2025-10-04 13:22:56,016] [INFO] Uvicorn running on http://0.0.0.0:8009 (Press CTRL+C to quit)
+[2025-10-04 13:22:56,074] [INFO] 127.0.0.1:4186 - "GET /web/app HTTP/1.1" 307
+[2025-10-04 13:22:58,086] [INFO] 127.0.0.1:4186 - "GET /web/app/flutter_service_worker.js?v=402086266 HTTP/1.1" 304
+[2025-10-04 13:22:59,747] [INFO] 127.0.0.1:4186 - "GET /video_feed/rt1?source=rtsp://admin:admin@192.168.1.89:554/mainstream HTTP/1.1" 200
+[2025-10-04 13:23:24,671] [INFO] Shutting down
+[2025-10-04 13:23:24,780] [INFO] Waiting for application shutdown.
+[2025-10-04 13:23:24,911] [INFO] Cleanup complete. Shutting down.
+[2025-10-04 13:32:52,394] [DEBUG] Using proactor: IocpProactor
+[2025-10-04 13:32:52,424] [INFO] Started server process [89768]
+[2025-10-04 13:32:52,424] [INFO] Waiting for application startup.
+[2025-10-04 13:32:52,428] [INFO] PocketBase stater 92644
+[2025-10-04 13:32:52,450] [INFO] Found the 'onnx' file!
+[2025-10-04 13:32:52,450] [INFO] Loading YOLO models...
+[2025-10-04 13:32:54,083] [DEBUG] Loaded backend Agg version v2.2.
+[2025-10-04 13:32:54,449] [INFO] Models loaded successfully
+[2025-10-04 13:32:54,511] [INFO] Application startup complete.
+[2025-10-04 13:32:54,512] [INFO] Uvicorn running on http://0.0.0.0:8009 (Press CTRL+C to quit)
+[2025-10-04 13:32:54,573] [INFO] 127.0.0.1:1173 - "GET /web/app HTTP/1.1" 307
+[2025-10-04 13:32:56,681] [INFO] 127.0.0.1:1173 - "GET /web/app/flutter_service_worker.js?v=402086266 HTTP/1.1" 304
+[2025-10-04 13:32:59,019] [INFO] 127.0.0.1:1173 - "GET /video_feed/rt1?source=rtsp://admin:admin@192.168.1.89:554/mainstream HTTP/1.1" 200
+[2025-10-04 13:33:24,668] [INFO] 2700f73hk73027z
+[2025-10-04 13:33:32,271] [INFO] Shutting down
+[2025-10-04 13:33:32,426] [INFO] Waiting for connections to close. (CTRL+C to force quit)
+[2025-10-04 13:33:35,977] [INFO] Waiting for background tasks to complete. (CTRL+C to force quit)
+[2025-10-04 13:33:36,078] [INFO] Waiting for application shutdown.
+[2025-10-04 13:33:36,222] [INFO] Cleanup complete. Shutting down.
+[2025-10-04 13:34:32,524] [DEBUG] Using proactor: IocpProactor
+[2025-10-04 13:34:32,563] [INFO] Started server process [92604]
+[2025-10-04 13:34:32,563] [INFO] Waiting for application startup.
+[2025-10-04 13:34:32,567] [INFO] PocketBase stater 72536
+[2025-10-04 13:34:32,586] [INFO] Found the 'onnx' file!
+[2025-10-04 13:34:32,586] [INFO] Loading YOLO models...
+[2025-10-04 13:34:34,147] [DEBUG] Loaded backend Agg version v2.2.
+[2025-10-04 13:34:34,521] [INFO] Models loaded successfully
+[2025-10-04 13:34:34,583] [INFO] Application startup complete.
+[2025-10-04 13:34:34,583] [INFO] Uvicorn running on http://0.0.0.0:8009 (Press CTRL+C to quit)
+[2025-10-04 13:34:34,646] [INFO] 127.0.0.1:5104 - "GET /web/app HTTP/1.1" 307
+[2025-10-04 13:34:36,659] [INFO] 127.0.0.1:5104 - "GET /web/app/flutter_service_worker.js?v=402086266 HTTP/1.1" 304
+[2025-10-04 13:34:54,136] [INFO] 127.0.0.1:2892 - "GET /video_feed/rt1?source=rtsp://admin:admin@192.168.1.89:554/mainstream HTTP/1.1" 200
+[2025-10-04 13:35:07,394] [INFO] gm7kxx09id4dujl
+[2025-10-04 13:35:09,639] [INFO] Shutting down
+[2025-10-04 13:35:09,745] [INFO] Waiting for application shutdown.
+[2025-10-04 13:35:09,888] [INFO] Cleanup complete. Shutting down.
+[2025-10-05 09:45:26,523] [DEBUG] Using proactor: IocpProactor
+[2025-10-05 09:45:26,597] [INFO] Started server process [45740]
+[2025-10-05 09:45:26,598] [INFO] Waiting for application startup.
+[2025-10-05 09:45:26,710] [INFO] PocketBase stater 44132
+[2025-10-05 09:45:26,739] [INFO] Found the 'onnx' file!
+[2025-10-05 09:45:26,739] [INFO] Loading YOLO models...
+[2025-10-05 09:45:32,917] [DEBUG] Loaded backend Agg version v2.2.
+[2025-10-05 09:45:34,874] [INFO] Models loaded successfully
+[2025-10-05 09:45:34,956] [INFO] Application startup complete.
+[2025-10-05 09:45:34,956] [INFO] Uvicorn running on http://0.0.0.0:8009 (Press CTRL+C to quit)
+[2025-10-05 09:45:35,010] [INFO] 127.0.0.1:6347 - "GET /web/app HTTP/1.1" 307
+[2025-10-05 09:45:36,980] [INFO] 127.0.0.1:6347 - "GET /web/app/flutter_service_worker.js?v=402086266 HTTP/1.1" 304
+[2025-10-05 09:45:40,597] [INFO] 127.0.0.1:6347 - "GET /video_feed/rt1?source=rtsp://admin:admin@192.168.1.89:554/mainstream HTTP/1.1" 200
+[2025-10-05 09:46:57,526] [INFO] n0cq70545snsp92
+[2025-10-05 09:47:08,880] [INFO] 5z9iz662dcqp66x
+[2025-10-05 09:47:18,943] [INFO] hsh73hmsu72d6sw
+[2025-10-05 09:47:29,003] [INFO] 880n3509616h416
+[2025-10-05 09:47:39,233] [INFO] 27o886knp27bipp
+[2025-10-05 09:47:49,272] [INFO] d4kz463p0p603k5
+[2025-10-05 09:47:59,736] [INFO] ddj9n584w6b2d7o
+[2025-10-05 09:48:09,977] [INFO] r2m8fsd3tv8411s
+[2025-10-05 09:48:20,258] [INFO] p28w1404t4xs248
+[2025-10-05 09:48:30,391] [INFO] 0h90rlc4b80kz36
+[2025-10-05 09:48:40,436] [INFO] ewh0p4ly5rcrr8z
+[2025-10-05 09:48:43,893] [INFO] y7m609skc4d97zu
+[2025-10-05 09:48:50,676] [INFO] 567h2z03pctg8z6
+[2025-10-05 09:49:25,273] [INFO] yi2zc763c7do7rq
+[2025-10-05 09:50:11,447] [INFO] 0rc82r72728pywo
+[2025-10-05 09:50:48,795] [INFO] 6iiye8770i5uo23
+[2025-10-05 09:51:10,670] [INFO] j56b8y91ek3l064
+[2025-10-05 09:51:12,170] [INFO] pa8co2viq9il446
+[2025-10-05 09:52:39,787] [INFO] 29te5fd46p9e596
+[2025-10-05 09:53:05,197] [INFO] b30p6vg726t0564
+[2025-10-05 09:54:09,792] [INFO] 17t5rug9kbzzn1v
+[2025-10-05 09:54:12,251] [INFO] c62ikqh6c01bam8
+[2025-10-05 09:54:34,819] [INFO] Shutting down
+[2025-10-05 09:54:34,923] [INFO] Waiting for application shutdown.
+[2025-10-05 09:54:35,060] [INFO] Cleanup complete. Shutting down.
+[2025-10-05 10:25:06,154] [DEBUG] Using proactor: IocpProactor
+[2025-10-05 10:25:06,194] [INFO] Started server process [51616]
+[2025-10-05 10:25:06,194] [INFO] Waiting for application startup.
+[2025-10-05 10:25:06,273] [INFO] PocketBase stater 55272
+[2025-10-05 10:25:06,288] [INFO] Found the 'onnx' file!
+[2025-10-05 10:25:06,288] [INFO] Loading YOLO models...
+[2025-10-05 10:25:08,262] [DEBUG] Loaded backend Agg version v2.2.
+[2025-10-05 10:25:08,913] [INFO] Models loaded successfully
+[2025-10-05 10:25:08,981] [INFO] Application startup complete.
+[2025-10-05 10:25:08,982] [INFO] Uvicorn running on http://0.0.0.0:8009 (Press CTRL+C to quit)
+[2025-10-05 10:25:09,043] [INFO] 127.0.0.1:14764 - "GET /web/app HTTP/1.1" 307
+[2025-10-05 10:25:11,072] [INFO] 127.0.0.1:14764 - "GET /web/app/flutter_service_worker.js?v=402086266 HTTP/1.1" 304
+[2025-10-05 10:25:29,064] [INFO] Shutting down
+[2025-10-05 10:25:29,172] [INFO] Waiting for application shutdown.
+[2025-10-05 10:25:29,307] [INFO] Cleanup complete. Shutting down.
+[2025-10-05 10:25:33,336] [DEBUG] Using proactor: IocpProactor
+[2025-10-05 10:25:33,366] [INFO] Started server process [54960]
+[2025-10-05 10:25:33,366] [INFO] Waiting for application startup.
+[2025-10-05 10:25:33,370] [INFO] PocketBase stater 54804
+[2025-10-05 10:25:33,385] [INFO] Found the 'onnx' file!
+[2025-10-05 10:25:33,385] [INFO] Loading YOLO models...
+[2025-10-05 10:25:34,666] [DEBUG] Loaded backend Agg version v2.2.
+[2025-10-05 10:25:35,054] [INFO] Models loaded successfully
+[2025-10-05 10:25:35,113] [INFO] Application startup complete.
+[2025-10-05 10:25:35,114] [INFO] Uvicorn running on http://0.0.0.0:8009 (Press CTRL+C to quit)
+[2025-10-05 10:25:35,173] [INFO] 127.0.0.1:6371 - "GET /web/app HTTP/1.1" 307
+[2025-10-05 10:25:36,602] [INFO] Shutting down
+[2025-10-05 10:25:36,693] [INFO] Waiting for application shutdown.
+[2025-10-05 10:25:36,829] [INFO] Cleanup complete. Shutting down.
+[2025-10-05 10:25:49,058] [DEBUG] Using proactor: IocpProactor
+[2025-10-05 10:25:49,087] [INFO] Started server process [52108]
+[2025-10-05 10:25:49,087] [INFO] Waiting for application startup.
+[2025-10-05 10:25:49,090] [INFO] PocketBase stater 54452
+[2025-10-05 10:25:49,101] [INFO] Found the 'onnx' file!
+[2025-10-05 10:25:49,102] [ERROR] Traceback (most recent call last):
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\starlette\routing.py", line 693, in lifespan
+    async with self.lifespan_context(app) as maybe_state:
+  File "C:\Users\Microsoft\AppData\Local\Programs\Python\Python310\lib\contextlib.py", line 199, in __aenter__
+    return await anext(self.gen)
+  File "D:\Codes\anprv8\engine\api.py", line 23, in lifespan
+    cctv=CcTvMonitor()
+  File "D:\Codes\anprv8\engine\engines.py", line 53, in __init__
+    self.model_car, self.model_plate, self.model_char = self.loadModels()
+  File "D:\Codes\anprv8\engine\engines.py", line 91, in loadModels
+    print(self.device['cuda'])
+TypeError: 'torch.device' object is not subscriptable
+
+[2025-10-05 10:25:49,102] [ERROR] Application startup failed. Exiting.
+[2025-10-05 10:26:08,299] [DEBUG] Using proactor: IocpProactor
+[2025-10-05 10:26:08,329] [INFO] Started server process [53772]
+[2025-10-05 10:26:08,330] [INFO] Waiting for application startup.
+[2025-10-05 10:26:08,333] [INFO] PocketBase stater 50504
+[2025-10-05 10:26:08,344] [INFO] Found the 'onnx' file!
+[2025-10-05 10:26:08,344] [INFO] Loading YOLO models...
+[2025-10-05 10:26:09,614] [DEBUG] Loaded backend Agg version v2.2.
+[2025-10-05 10:26:09,989] [INFO] Models loaded successfully
+[2025-10-05 10:26:10,049] [INFO] Application startup complete.
+[2025-10-05 10:26:10,050] [INFO] Uvicorn running on http://0.0.0.0:8009 (Press CTRL+C to quit)
+[2025-10-05 10:26:10,115] [INFO] 127.0.0.1:4331 - "GET /web/app HTTP/1.1" 307
+[2025-10-05 10:26:11,850] [INFO] Shutting down
+[2025-10-05 10:26:11,956] [INFO] Waiting for application shutdown.
+[2025-10-05 10:26:12,078] [INFO] Cleanup complete. Shutting down.
+[2025-10-05 10:26:26,892] [DEBUG] Using proactor: IocpProactor
+[2025-10-05 10:26:26,922] [INFO] Started server process [53648]
+[2025-10-05 10:26:26,923] [INFO] Waiting for application startup.
+[2025-10-05 10:26:26,927] [INFO] PocketBase stater 55892
+[2025-10-05 10:26:26,943] [INFO] Found the 'onnx' file!
+[2025-10-05 10:26:26,944] [INFO] Loading YOLO models...
+[2025-10-05 10:26:28,318] [DEBUG] Loaded backend Agg version v2.2.
+[2025-10-05 10:26:28,707] [INFO] Models loaded successfully
+[2025-10-05 10:26:28,764] [INFO] Application startup complete.
+[2025-10-05 10:26:28,765] [INFO] Uvicorn running on http://0.0.0.0:8009 (Press CTRL+C to quit)
+[2025-10-05 10:26:28,823] [INFO] 127.0.0.1:4907 - "GET /web/app HTTP/1.1" 307
+[2025-10-05 10:26:30,849] [INFO] 127.0.0.1:4907 - "GET /web/app/flutter_service_worker.js?v=402086266 HTTP/1.1" 304
+[2025-10-05 10:26:31,091] [INFO] Shutting down
+[2025-10-05 10:26:31,196] [INFO] Waiting for application shutdown.
+[2025-10-05 10:26:31,320] [INFO] Cleanup complete. Shutting down.
+[2025-10-05 10:27:21,928] [DEBUG] Using proactor: IocpProactor
+[2025-10-05 10:27:21,959] [INFO] Started server process [47580]
+[2025-10-05 10:27:21,961] [INFO] Waiting for application startup.
+[2025-10-05 10:27:21,965] [INFO] PocketBase stater 56260
+[2025-10-05 10:27:21,981] [INFO] Found the 'onnx' file!
+[2025-10-05 10:27:21,981] [INFO] Loading YOLO models...
+[2025-10-05 10:27:23,285] [DEBUG] Loaded backend Agg version v2.2.
+[2025-10-05 10:27:23,630] [ERROR] Traceback (most recent call last):
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\starlette\routing.py", line 693, in lifespan
+    async with self.lifespan_context(app) as maybe_state:
+  File "C:\Users\Microsoft\AppData\Local\Programs\Python\Python310\lib\contextlib.py", line 199, in __aenter__
+    return await anext(self.gen)
+  File "D:\Codes\anprv8\engine\api.py", line 23, in lifespan
+    cctv=CcTvMonitor()
+  File "D:\Codes\anprv8\engine\engines.py", line 53, in __init__
+    self.model_car, self.model_plate, self.model_char = self.loadModels()
+  File "D:\Codes\anprv8\engine\engines.py", line 100, in loadModels
+    print(model_car.type())
+TypeError: Module.type() missing 1 required positional argument: 'dst_type'
+
+[2025-10-05 10:27:23,630] [ERROR] Application startup failed. Exiting.
+[2025-10-05 10:27:33,345] [DEBUG] Using proactor: IocpProactor
+[2025-10-05 10:27:33,377] [INFO] Started server process [55224]
+[2025-10-05 10:27:33,377] [INFO] Waiting for application startup.
+[2025-10-05 10:27:33,381] [INFO] PocketBase stater 46260
+[2025-10-05 10:27:33,398] [INFO] Found the 'onnx' file!
+[2025-10-05 10:27:33,398] [INFO] Loading YOLO models...
+[2025-10-05 10:27:34,761] [DEBUG] Loaded backend Agg version v2.2.
+[2025-10-05 10:27:35,121] [ERROR] Traceback (most recent call last):
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\starlette\routing.py", line 693, in lifespan
+    async with self.lifespan_context(app) as maybe_state:
+  File "C:\Users\Microsoft\AppData\Local\Programs\Python\Python310\lib\contextlib.py", line 199, in __aenter__
+    return await anext(self.gen)
+  File "D:\Codes\anprv8\engine\api.py", line 23, in lifespan
+    cctv=CcTvMonitor()
+  File "D:\Codes\anprv8\engine\engines.py", line 53, in __init__
+    self.model_car, self.model_plate, self.model_char = self.loadModels()
+  File "D:\Codes\anprv8\engine\engines.py", line 100, in loadModels
+    print(model_car.info())
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\ultralytics\engine\model.py", line 439, in info
+    self._check_is_pytorch_model()
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\ultralytics\engine\model.py", line 322, in _check_is_pytorch_model
+    raise TypeError(
+TypeError: model='model/yolo11n.engine' should be a *.pt PyTorch model to run this method, but is a different format. PyTorch models can train, val, predict and export, i.e. 'model.train(data=...)', but exported formats like ONNX, TensorRT etc. only support 'predict' and 'val' modes, i.e. 'yolo predict model=yolov8n.onnx'.
+To run CUDA or MPS inference please pass the device argument directly in your inference command, i.e. 'model.predict(source=..., device=0)'
+
+[2025-10-05 10:27:35,121] [ERROR] Application startup failed. Exiting.
+[2025-10-05 10:27:52,337] [DEBUG] Using proactor: IocpProactor
+[2025-10-05 10:27:52,366] [INFO] Started server process [56136]
+[2025-10-05 10:27:52,366] [INFO] Waiting for application startup.
+[2025-10-05 10:27:52,369] [INFO] PocketBase stater 52460
+[2025-10-05 10:27:52,384] [INFO] Found the 'onnx' file!
+[2025-10-05 10:27:52,384] [INFO] Loading YOLO models...
+[2025-10-05 10:27:53,707] [DEBUG] Loaded backend Agg version v2.2.
+[2025-10-05 10:27:54,022] [INFO] Models loaded successfully
+[2025-10-05 10:27:54,089] [INFO] Application startup complete.
+[2025-10-05 10:27:54,089] [INFO] Uvicorn running on http://0.0.0.0:8009 (Press CTRL+C to quit)
+[2025-10-05 10:27:54,156] [INFO] 127.0.0.1:2922 - "GET /web/app HTTP/1.1" 307
+[2025-10-05 10:27:56,164] [INFO] 127.0.0.1:2922 - "GET /web/app/flutter_service_worker.js?v=402086266 HTTP/1.1" 304
+[2025-10-05 10:27:58,293] [INFO] 127.0.0.1:2922 - "GET /video_feed/rt1?source=rtsp://admin:admin@192.168.1.89:554/mainstream HTTP/1.1" 200
+[2025-10-05 10:28:43,705] [INFO] Shutting down
+[2025-10-05 10:28:43,811] [INFO] Waiting for application shutdown.
+[2025-10-05 10:28:43,930] [INFO] Cleanup complete. Shutting down.
+[2025-10-05 10:28:55,859] [DEBUG] Using proactor: IocpProactor
+[2025-10-05 10:28:55,891] [INFO] Started server process [13640]
+[2025-10-05 10:28:55,891] [INFO] Waiting for application startup.
+[2025-10-05 10:28:55,895] [INFO] PocketBase stater 55652
+[2025-10-05 10:28:55,909] [INFO] Found the 'onnx' file!
+[2025-10-05 10:28:55,909] [INFO] Loading YOLO models...
+[2025-10-05 10:28:57,244] [DEBUG] Loaded backend Agg version v2.2.
+[2025-10-05 10:28:57,632] [ERROR] Traceback (most recent call last):
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\ultralytics\nn\autobackend.py", line 266, in __init__
+    import tensorrt as trt  # noqa https://developer.nvidia.com/nvidia-tensorrt-download
+ModuleNotFoundError: No module named 'tensorrt'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\starlette\routing.py", line 693, in lifespan
+    async with self.lifespan_context(app) as maybe_state:
+  File "C:\Users\Microsoft\AppData\Local\Programs\Python\Python310\lib\contextlib.py", line 199, in __aenter__
+    return await anext(self.gen)
+  File "D:\Codes\anprv8\engine\api.py", line 23, in lifespan
+    cctv=CcTvMonitor()
+  File "D:\Codes\anprv8\engine\engines.py", line 53, in __init__
+    self.model_car, self.model_plate, self.model_char = self.loadModels()
+  File "D:\Codes\anprv8\engine\engines.py", line 100, in loadModels
+    print(model_car.names)
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\ultralytics\engine\model.py", line 913, in names
+    self.predictor.setup_model(model=self.model, verbose=False)
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\ultralytics\engine\predictor.py", line 308, in setup_model
+    self.model = AutoBackend(
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\torch\utils\_contextlib.py", line 116, in decorate_context
+    return func(*args, **kwargs)
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\ultralytics\nn\autobackend.py", line 270, in __init__
+    import tensorrt as trt  # noqa
+ModuleNotFoundError: No module named 'tensorrt'
+
+[2025-10-05 10:28:57,633] [ERROR] Application startup failed. Exiting.
+[2025-10-05 10:36:54,980] [DEBUG] Using proactor: IocpProactor
+[2025-10-05 10:36:55,039] [INFO] Started server process [11680]
+[2025-10-05 10:36:55,039] [INFO] Waiting for application startup.
+[2025-10-05 10:36:55,042] [INFO] PocketBase stater 56512
+[2025-10-05 10:36:55,160] [INFO] Found the 'onnx' file!
+[2025-10-05 10:36:55,160] [INFO] Loading YOLO models...
+[2025-10-05 10:36:57,541] [DEBUG] Loaded backend Agg version v2.2.
+[2025-10-05 10:36:58,508] [INFO] Models loaded successfully
+[2025-10-05 10:36:58,573] [INFO] Application startup complete.
+[2025-10-05 10:36:58,574] [INFO] Uvicorn running on http://0.0.0.0:8009 (Press CTRL+C to quit)
+[2025-10-05 10:36:58,641] [INFO] 127.0.0.1:7129 - "GET /web/app HTTP/1.1" 307
+[2025-10-05 10:37:05,325] [INFO] 127.0.0.1:9527 - "GET /video_feed/rt1?source=rtsp://admin:admin@192.168.1.89:554/mainstream HTTP/1.1" 200
+[2025-10-05 10:37:27,905] [INFO] bev28219knxrz2i
+[2025-10-05 10:37:47,439] [INFO] Shutting down
+[2025-10-05 10:37:47,545] [INFO] Waiting for application shutdown.
+[2025-10-05 10:37:47,670] [INFO] Cleanup complete. Shutting down.
+[2025-10-05 10:53:42,450] [DEBUG] Using proactor: IocpProactor
+[2025-10-05 10:53:42,507] [INFO] Started server process [58560]
+[2025-10-05 10:53:42,507] [INFO] Waiting for application startup.
+[2025-10-05 10:53:42,581] [INFO] PocketBase stater 58136
+[2025-10-05 10:53:42,598] [INFO] Found the 'onnx' file!
+[2025-10-05 10:53:42,598] [INFO] Loading YOLO models...
+[2025-10-05 10:53:48,436] [DEBUG] Loaded backend Agg version v2.2.
+[2025-10-05 10:53:50,291] [INFO] Models loaded successfully
+[2025-10-05 10:53:50,348] [INFO] Application startup complete.
+[2025-10-05 10:53:50,349] [INFO] Uvicorn running on http://0.0.0.0:8009 (Press CTRL+C to quit)
+[2025-10-05 10:53:50,407] [INFO] 127.0.0.1:11185 - "GET /web/app HTTP/1.1" 307
+[2025-10-05 10:53:52,433] [INFO] 127.0.0.1:11185 - "GET /web/app/flutter_service_worker.js?v=402086266 HTTP/1.1" 304
+[2025-10-05 10:53:55,777] [INFO] 127.0.0.1:11185 - "GET /video_feed/rt1?source=rtsp://admin:admin@192.168.1.89:554/mainstream HTTP/1.1" 200
+[2025-10-05 10:53:59,007] [INFO] j5x9hcys01wmu6p
+[2025-10-05 10:54:08,369] [INFO] xe8w7wp4pm9g0mc
+[2025-10-05 10:54:10,183] [INFO] ided28x3159zrlz
+[2025-10-05 10:54:10,378] [INFO] v9f285d2zlxumtj
+[2025-10-05 10:54:16,090] [INFO] Shutting down
+[2025-10-05 10:54:16,195] [INFO] Waiting for application shutdown.
+[2025-10-05 10:54:16,336] [INFO] Cleanup complete. Shutting down.
+[2025-10-05 11:10:33,983] [DEBUG] Using proactor: IocpProactor
+[2025-10-05 11:10:34,015] [INFO] Started server process [61700]
+[2025-10-05 11:10:34,016] [INFO] Waiting for application startup.
+[2025-10-05 11:10:34,020] [INFO] PocketBase stater 62020
+[2025-10-05 11:10:34,034] [INFO] Found the 'onnx' file!
+[2025-10-05 11:10:34,034] [INFO] Loading YOLO models...
+[2025-10-05 11:10:35,409] [DEBUG] Loaded backend Agg version v2.2.
+[2025-10-05 11:11:02,138] [ERROR] Traceback (most recent call last):
+  File "D:\Codes\anprv8\engine\yolov5\hubconf.py", line 50, in _create
+    model = DetectMultiBackend(path, device=device, fuse=autoshape)  # detection model
+  File "D:\Codes\anprv8\engine\yolov5\models\common.py", line 404, in __init__
+    from openvino.runtime import Core, Layout, get_batch
+ModuleNotFoundError: No module named 'openvino'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\Codes\anprv8\engine\yolov5\hubconf.py", line 65, in _create
+    model = attempt_load(path, device=device, fuse=False)  # arbitrary model
+  File "D:\Codes\anprv8\engine\yolov5\models\experimental.py", line 78, in attempt_load
+    ckpt = torch.load(attempt_download(w), map_location="cpu")  # load
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\ultralytics\utils\patches.py", line 86, in torch_load
+    return _torch_load(*args, **kwargs)
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\torch\serialization.py", line 1319, in load
+    with _open_file_like(f, "rb") as opened_file:
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\torch\serialization.py", line 659, in _open_file_like
+    return _open_file(name_or_buffer, mode)
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\torch\serialization.py", line 640, in __init__
+    super().__init__(open(name, mode))
+PermissionError: [Errno 13] Permission denied: 'model\\CharsYolo_openvino_model'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\starlette\routing.py", line 693, in lifespan
+    async with self.lifespan_context(app) as maybe_state:
+  File "C:\Users\Microsoft\AppData\Local\Programs\Python\Python310\lib\contextlib.py", line 199, in __aenter__
+    return await anext(self.gen)
+  File "D:\Codes\anprv8\engine\api.py", line 23, in lifespan
+    cctv=CcTvMonitor()
+  File "D:\Codes\anprv8\engine\engines.py", line 53, in __init__
+    self.model_car, self.model_plate, self.model_char = self.loadModels()
+  File "D:\Codes\anprv8\engine\engines.py", line 92, in loadModels
+    model_char = torch.hub.load(
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\torch\hub.py", line 647, in load
+    model = _load_local(repo_or_dir, model, *args, **kwargs)
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\torch\hub.py", line 676, in _load_local
+    model = entry(*args, **kwargs)
+  File "D:\Codes\anprv8\engine\yolov5\hubconf.py", line 88, in custom
+    return _create(path, autoshape=autoshape, verbose=_verbose, device=device)
+  File "D:\Codes\anprv8\engine\yolov5\hubconf.py", line 83, in _create
+    raise Exception(s) from e
+Exception: [Errno 13] Permission denied: 'model\\CharsYolo_openvino_model'. Cache may be out of date, try `force_reload=True` or see https://docs.ultralytics.com/yolov5/tutorials/pytorch_hub_model_loading for help.
+
+[2025-10-05 11:11:02,139] [ERROR] Application startup failed. Exiting.
+[2025-10-05 11:12:03,409] [DEBUG] Using proactor: IocpProactor
+[2025-10-05 11:12:03,440] [INFO] Started server process [64356]
+[2025-10-05 11:12:03,440] [INFO] Waiting for application startup.
+[2025-10-05 11:12:03,443] [INFO] PocketBase stater 64436
+[2025-10-05 11:12:03,457] [INFO] Found the 'onnx' file!
+[2025-10-05 11:12:03,457] [INFO] Loading YOLO models...
+[2025-10-05 11:12:05,217] [DEBUG] Loaded backend Agg version v2.2.
+[2025-10-05 11:12:06,954] [INFO] Models loaded successfully
+[2025-10-05 11:12:07,011] [INFO] Application startup complete.
+[2025-10-05 11:12:07,012] [INFO] Uvicorn running on http://0.0.0.0:8009 (Press CTRL+C to quit)
+[2025-10-05 11:12:07,073] [INFO] 127.0.0.1:2799 - "GET /web/app HTTP/1.1" 307
+[2025-10-05 11:12:09,217] [INFO] 127.0.0.1:2799 - "GET /web/app/flutter_service_worker.js?v=402086266 HTTP/1.1" 304
+[2025-10-05 11:12:25,516] [INFO] 127.0.0.1:12687 - "GET /video_feed/rt1?source=rtsp://admin:admin@192.168.1.89:554/mainstream HTTP/1.1" 200
+[2025-10-05 11:12:54,972] [INFO] Shutting down
+[2025-10-05 11:12:55,077] [INFO] Waiting for application shutdown.
+[2025-10-05 11:12:55,207] [INFO] Cleanup complete. Shutting down.
+[2025-10-05 11:13:05,237] [DEBUG] Using proactor: IocpProactor
+[2025-10-05 11:13:05,269] [INFO] Started server process [60344]
+[2025-10-05 11:13:05,269] [INFO] Waiting for application startup.
+[2025-10-05 11:13:05,273] [INFO] PocketBase stater 64224
+[2025-10-05 11:13:05,287] [INFO] Found the 'onnx' file!
+[2025-10-05 11:13:05,287] [INFO] Loading YOLO models...
+[2025-10-05 11:13:06,687] [DEBUG] Loaded backend Agg version v2.2.
+[2025-10-05 11:13:07,776] [INFO] Models loaded successfully
+[2025-10-05 11:13:07,835] [INFO] Application startup complete.
+[2025-10-05 11:13:07,836] [INFO] Uvicorn running on http://0.0.0.0:8009 (Press CTRL+C to quit)
+[2025-10-05 11:13:07,914] [INFO] 127.0.0.1:2623 - "GET /web/app HTTP/1.1" 307
+[2025-10-05 11:13:09,978] [INFO] 127.0.0.1:2623 - "GET /web/app/flutter_service_worker.js?v=402086266 HTTP/1.1" 304
+[2025-10-05 11:13:47,411] [INFO] Shutting down
+[2025-10-05 11:13:47,517] [INFO] Waiting for application shutdown.
+[2025-10-05 11:13:47,645] [INFO] Cleanup complete. Shutting down.
+[2025-10-05 11:13:50,921] [DEBUG] Using proactor: IocpProactor
+[2025-10-05 11:13:50,951] [INFO] Started server process [64156]
+[2025-10-05 11:13:50,951] [INFO] Waiting for application startup.
+[2025-10-05 11:13:50,954] [INFO] PocketBase stater 60124
+[2025-10-05 11:13:50,955] [INFO] Found the 'onnx' file!
+[2025-10-05 11:13:50,955] [INFO] Loading YOLO models...
+[2025-10-05 11:13:52,228] [DEBUG] Loaded backend Agg version v2.2.
+[2025-10-05 11:13:54,957] [INFO] Models loaded successfully
+[2025-10-05 11:13:55,016] [INFO] Application startup complete.
+[2025-10-05 11:13:55,016] [INFO] Uvicorn running on http://0.0.0.0:8009 (Press CTRL+C to quit)
+[2025-10-05 11:13:55,077] [INFO] 127.0.0.1:8500 - "GET /web/app HTTP/1.1" 307
+[2025-10-05 11:13:57,099] [INFO] 127.0.0.1:8500 - "GET /web/app/flutter_service_worker.js?v=402086266 HTTP/1.1" 304
+[2025-10-05 11:14:05,354] [INFO] 127.0.0.1:6360 - "GET /video_feed/rt1?source=rtsp://admin:admin@192.168.1.89:554/mainstream HTTP/1.1" 200
+[2025-10-05 11:14:18,818] [INFO] Shutting down
+[2025-10-05 11:14:18,924] [INFO] Waiting for application shutdown.
+[2025-10-05 11:14:19,046] [INFO] Cleanup complete. Shutting down.
+[2025-10-05 11:18:14,047] [DEBUG] Using proactor: IocpProactor
+[2025-10-05 11:18:14,079] [INFO] Started server process [64460]
+[2025-10-05 11:18:14,079] [INFO] Waiting for application startup.
+[2025-10-05 11:18:14,083] [INFO] PocketBase stater 54908
+[2025-10-05 11:18:14,101] [INFO] Found the 'onnx' file!
+[2025-10-05 11:18:14,101] [INFO] Loading YOLO models...
+[2025-10-05 11:18:15,618] [DEBUG] Loaded backend Agg version v2.2.
+[2025-10-05 11:18:16,126] [INFO] Models loaded successfully
+[2025-10-05 11:18:16,187] [INFO] Application startup complete.
+[2025-10-05 11:18:16,187] [INFO] Uvicorn running on http://0.0.0.0:8009 (Press CTRL+C to quit)
+[2025-10-05 11:18:16,249] [INFO] 127.0.0.1:13033 - "GET /web/app HTTP/1.1" 307
+[2025-10-05 11:18:40,381] [INFO] Shutting down
+[2025-10-05 11:18:40,487] [INFO] Waiting for application shutdown.
+[2025-10-05 11:18:40,608] [INFO] Cleanup complete. Shutting down.

@@ -23,7 +23,7 @@ import threading
 
 
 # Logging configuration
-logging.getLogger('torch').setLevel(logging.ERROR)
+# logging.getLogger('torch').setLevel(logging.ERROR)
 # warnings.filterwarnings("ignore", category=UserWarning)
 logging.getLogger('ultralytics').setLevel(logging.ERROR)
 logging.basicConfig(
@@ -84,17 +84,39 @@ class CcTvMonitor:
                     
                     # Read and process the onnx file
                     return True
+    def chechOpenvino(self):
+        directory = 'model'
+        for filename in os.listdir(directory):
+    # Get full file path
+            filepath = os.path.join(directory, filename)
+            
+            # Check if it's a file (not a directory)
+            if os.path.isfile(filepath):
+                # Check if filename is exactly "onnx"
+                if filename == "openvino":
+                    logging.info(f"Found the 'openvino' file!")
+                    
+                    # Read and process the onnx file
+                    return True
 
         return False
     def loadModels(self):
         fileEx='onnx' if self.chechOnnx() else 'pt'
         logging.info("Loading YOLO models...")
-        model_char = torch.hub.load(
+        if self.chechOpenvino() and self.device.type =='cpu':
+            model_char = torch.hub.load(
             'yolov5', 'custom', f'model/CharsYolo.{fileEx}', source='local', device=self.device, force_reload=True)
-        model_plate = torch.hub.load(
+            model_plate = torch.hub.load(
             'yolov5', 'custom', f'model/plateYolo.{fileEx}', source='local', device=self.device, force_reload=True)
-        model_car = YOLO(f'model/yolo11n.{fileEx}',task='detect')
-        logging.info("Models loaded successfully")
+            model_car = YOLO(f'model/yolo11n.{fileEx}',task='detect')
+        
+        else:
+            model_char = torch.hub.load(
+                'yolov5', 'custom', f'model/CharsYolo.{fileEx}', source='local', device=self.device, force_reload=True)
+            model_plate = torch.hub.load(
+                'yolov5', 'custom', f'model/plateYolo.{fileEx}', source='local', device=self.device, force_reload=True)
+            model_car = YOLO(f'model/yolo11n.{fileEx}',task='detect')
+            logging.info("Models loaded successfully")
         with self.lock:
             return model_car, model_plate, model_char
 
