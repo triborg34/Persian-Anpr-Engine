@@ -8838,3 +8838,478 @@ Exception: [Errno 13] Permission denied: 'model\\CharsYolo_openvino_model'. Cach
 [2025-10-05 11:18:40,381] [INFO] Shutting down
 [2025-10-05 11:18:40,487] [INFO] Waiting for application shutdown.
 [2025-10-05 11:18:40,608] [INFO] Cleanup complete. Shutting down.
+[2025-10-05 14:46:35,504] [DEBUG] Using proactor: IocpProactor
+[2025-10-05 14:46:35,561] [INFO] Started server process [44436]
+[2025-10-05 14:46:35,561] [INFO] Waiting for application startup.
+[2025-10-05 14:46:35,638] [INFO] PocketBase stater 39052
+[2025-10-05 14:46:35,654] [INFO] Found the 'onnx' file!
+[2025-10-05 14:46:35,654] [INFO] Loading YOLO models...
+[2025-10-05 14:46:35,654] [INFO] Found the 'openvino' file!
+[2025-10-05 14:46:41,564] [DEBUG] Loaded backend Agg version v2.2.
+[2025-10-05 14:46:43,258] [INFO] Models loaded successfully
+[2025-10-05 14:46:43,321] [INFO] Application startup complete.
+[2025-10-05 14:46:43,322] [INFO] Uvicorn running on http://0.0.0.0:8009 (Press CTRL+C to quit)
+[2025-10-05 14:46:43,388] [INFO] 127.0.0.1:6588 - "GET /web/app HTTP/1.1" 307
+[2025-10-05 14:46:43,437] [INFO] 127.0.0.1:6588 - "GET /web/app/ HTTP/1.1" 200
+[2025-10-05 14:46:43,459] [INFO] 127.0.0.1:6588 - "GET /web/app/flutter_bootstrap.js HTTP/1.1" 200
+[2025-10-05 14:46:43,502] [INFO] 127.0.0.1:6588 - "GET /web/app/main.dart.js HTTP/1.1" 200
+[2025-10-05 14:46:43,503] [INFO] 127.0.0.1:10546 - "GET /web/app/manifest.json HTTP/1.1" 200
+[2025-10-05 14:46:43,508] [INFO] 127.0.0.1:3483 - "GET /web/app/icons/Icon-192.png HTTP/1.1" 200
+[2025-10-05 14:46:44,257] [INFO] 127.0.0.1:6588 - "GET /web/app/assets/FontManifest.json HTTP/1.1" 200
+[2025-10-05 14:46:44,269] [INFO] 127.0.0.1:6588 - "GET /web/app/assets/fonts/MaterialIcons-Regular.otf HTTP/1.1" 200
+[2025-10-05 14:46:44,270] [INFO] 127.0.0.1:3483 - "GET /web/app/assets/assets/fonts/Yekan.ttf HTTP/1.1" 200
+[2025-10-05 14:46:44,271] [INFO] 127.0.0.1:2712 - "GET /web/app/assets/assets/fonts/arial.ttf HTTP/1.1" 200
+[2025-10-05 14:46:44,271] [INFO] 127.0.0.1:10925 - "GET /web/app/assets/packages/cupertino_icons/assets/CupertinoIcons.ttf HTTP/1.1" 200
+[2025-10-05 14:46:44,387] [INFO] 127.0.0.1:2712 - "GET /web/app/assets/images/logo.jpg HTTP/1.1" 200
+[2025-10-05 14:46:44,998] [INFO] 127.0.0.1:2712 - "GET /web/app/flutter_service_worker.js?v=402086266 HTTP/1.1" 200
+[2025-10-05 14:46:45,030] [INFO] 127.0.0.1:6588 - "GET /web/app/flutter_bootstrap.js HTTP/1.1" 200
+[2025-10-05 14:46:45,031] [INFO] 127.0.0.1:3483 - "GET /web/app/index.html HTTP/1.1" 200
+[2025-10-05 14:46:45,032] [INFO] 127.0.0.1:2712 - "GET /web/app/main.dart.js HTTP/1.1" 200
+[2025-10-05 14:46:45,037] [INFO] 127.0.0.1:6588 - "GET /web/app/assets/FontManifest.json HTTP/1.1" 200
+[2025-10-05 14:46:45,038] [INFO] 127.0.0.1:3483 - "GET /web/app/assets/AssetManifest.bin.json HTTP/1.1" 200
+[2025-10-05 14:46:46,430] [INFO] 127.0.0.1:3483 - "GET /web/app/assets/images/ban.jpg HTTP/1.1" 200
+[2025-10-05 14:46:46,431] [INFO] 127.0.0.1:2712 - "GET /web/app/assets/images/mainlogo2.png HTTP/1.1" 200
+[2025-10-05 14:48:51,242] [INFO] Shutting down
+[2025-10-05 14:48:51,347] [INFO] Waiting for application shutdown.
+[2025-10-05 14:48:51,488] [INFO] Cleanup complete. Shutting down.
+[2025-10-05 14:49:36,773] [DEBUG] Using proactor: IocpProactor
+[2025-10-05 14:49:36,803] [INFO] Started server process [40004]
+[2025-10-05 14:49:36,803] [INFO] Waiting for application startup.
+[2025-10-05 14:49:36,806] [INFO] PocketBase stater 37912
+[2025-10-05 14:49:36,819] [INFO] Found the 'onnx' file!
+[2025-10-05 14:49:36,819] [INFO] Loading YOLO models...
+[2025-10-05 14:49:36,819] [INFO] Found the 'openvino' file!
+[2025-10-05 14:49:36,819] [INFO] Loading onnx/torchscript
+[2025-10-05 14:49:38,090] [DEBUG] Loaded backend Agg version v2.2.
+[2025-10-05 14:49:38,418] [INFO] Models loaded successfully
+[2025-10-05 14:49:38,474] [INFO] Application startup complete.
+[2025-10-05 14:49:38,475] [INFO] Uvicorn running on http://0.0.0.0:8009 (Press CTRL+C to quit)
+[2025-10-05 14:49:38,527] [INFO] 127.0.0.1:12633 - "GET /web/app HTTP/1.1" 307
+[2025-10-05 14:49:40,565] [INFO] 127.0.0.1:12633 - "GET /web/app/flutter_service_worker.js?v=402086266 HTTP/1.1" 304
+[2025-10-05 14:49:43,100] [INFO] Shutting down
+[2025-10-05 14:49:43,205] [INFO] Waiting for application shutdown.
+[2025-10-05 14:49:43,335] [INFO] Cleanup complete. Shutting down.
+[2025-10-06 08:45:59,569] [DEBUG] Using proactor: IocpProactor
+[2025-10-06 08:45:59,626] [INFO] Started server process [34480]
+[2025-10-06 08:45:59,627] [INFO] Waiting for application startup.
+[2025-10-06 08:45:59,703] [INFO] PocketBase stater 35920
+[2025-10-06 08:45:59,732] [INFO] Loading YOLO models...
+[2025-10-06 08:45:59,732] [INFO] Found the 'openvino' file!
+[2025-10-06 08:45:59,732] [INFO] Loading onnx/torchscript
+[2025-10-06 08:46:05,706] [DEBUG] Loaded backend Agg version v2.2.
+[2025-10-06 08:46:06,387] [INFO] Models loaded successfully
+[2025-10-06 08:46:06,463] [INFO] Application startup complete.
+[2025-10-06 08:46:06,464] [INFO] Uvicorn running on http://0.0.0.0:8009 (Press CTRL+C to quit)
+[2025-10-06 08:46:06,519] [INFO] 127.0.0.1:12731 - "GET /web/app HTTP/1.1" 307
+[2025-10-06 08:46:08,656] [INFO] 127.0.0.1:12731 - "GET /web/app/flutter_service_worker.js?v=402086266 HTTP/1.1" 304
+[2025-10-06 08:55:35,973] [INFO] 127.0.0.1:1187 - "GET /video_feed/rt1?source=rtsp://admin:admin@192.168.1.89:554/mainstream HTTP/1.1" 200
+[2025-10-06 08:55:39,802] [INFO] 127.0.0.1:10159 - "GET /web/app/assets/images/iranFlag.png HTTP/1.1" 200
+[2025-10-06 09:00:36,996] [INFO] Shutting down
+[2025-10-06 09:00:37,102] [INFO] Waiting for application shutdown.
+[2025-10-06 09:00:37,261] [INFO] Cleanup complete. Shutting down.
+[2025-10-06 09:03:42,829] [DEBUG] Using proactor: IocpProactor
+[2025-10-06 09:03:42,858] [INFO] Started server process [43136]
+[2025-10-06 09:03:42,858] [INFO] Waiting for application startup.
+[2025-10-06 09:03:42,861] [INFO] PocketBase stater 37732
+[2025-10-06 09:03:42,874] [INFO] Loading YOLO models...
+[2025-10-06 09:03:42,875] [INFO] Found the 'openvino' file!
+[2025-10-06 09:03:42,875] [INFO] Loading onnx/torchscript
+[2025-10-06 09:03:44,160] [DEBUG] Loaded backend Agg version v2.2.
+[2025-10-06 09:03:44,498] [INFO] Models loaded successfully
+[2025-10-06 09:03:44,554] [INFO] Application startup complete.
+[2025-10-06 09:03:44,555] [INFO] Uvicorn running on http://0.0.0.0:8009 (Press CTRL+C to quit)
+[2025-10-06 09:03:44,604] [INFO] 127.0.0.1:9703 - "GET /web/app HTTP/1.1" 307
+[2025-10-06 09:03:46,525] [INFO] 127.0.0.1:9703 - "GET /web/app/flutter_service_worker.js?v=402086266 HTTP/1.1" 304
+[2025-10-06 09:03:50,213] [INFO] 127.0.0.1:9703 - "GET /video_feed/rt1?source=rtsp://admin:admin@192.168.1.89:554/mainstream HTTP/1.1" 200
+[2025-10-06 09:05:04,404] [INFO] Shutting down
+[2025-10-06 09:05:04,546] [INFO] Waiting for connections to close. (CTRL+C to force quit)
+[2025-10-06 09:05:07,667] [INFO] Waiting for background tasks to complete. (CTRL+C to force quit)
+[2025-10-06 09:05:07,781] [INFO] Waiting for application shutdown.
+[2025-10-06 09:05:07,931] [INFO] Cleanup complete. Shutting down.
+[2025-10-06 09:05:17,323] [DEBUG] Using proactor: IocpProactor
+[2025-10-06 09:05:17,352] [INFO] Started server process [41600]
+[2025-10-06 09:05:17,352] [INFO] Waiting for application startup.
+[2025-10-06 09:05:17,355] [INFO] PocketBase stater 43192
+[2025-10-06 09:05:17,367] [INFO] Loading YOLO models...
+[2025-10-06 09:05:17,367] [INFO] Found the 'openvino' file!
+[2025-10-06 09:05:17,367] [INFO] Loading onnx/torchscript
+[2025-10-06 09:05:18,696] [DEBUG] Loaded backend Agg version v2.2.
+[2025-10-06 09:05:19,089] [INFO] Models loaded successfully
+[2025-10-06 09:05:19,157] [INFO] Application startup complete.
+[2025-10-06 09:05:19,158] [INFO] Uvicorn running on http://0.0.0.0:8009 (Press CTRL+C to quit)
+[2025-10-06 09:05:19,219] [INFO] 127.0.0.1:7817 - "GET /web/app HTTP/1.1" 307
+[2025-10-06 09:05:21,231] [INFO] 127.0.0.1:7817 - "GET /web/app/flutter_service_worker.js?v=402086266 HTTP/1.1" 304
+[2025-10-06 09:05:24,010] [INFO] 127.0.0.1:7817 - "GET /video_feed/rt1?source=rtsp://admin:admin@192.168.1.89:554/mainstream HTTP/1.1" 200
+[2025-10-06 09:05:38,676] [INFO] Shutting down
+[2025-10-06 09:05:38,832] [INFO] Waiting for connections to close. (CTRL+C to force quit)
+[2025-10-06 09:05:41,223] [INFO] Waiting for background tasks to complete. (CTRL+C to force quit)
+[2025-10-06 09:05:41,334] [INFO] Waiting for application shutdown.
+[2025-10-06 09:05:41,473] [INFO] Cleanup complete. Shutting down.
+[2025-10-06 09:05:45,362] [DEBUG] Using proactor: IocpProactor
+[2025-10-06 09:05:45,392] [INFO] Started server process [42636]
+[2025-10-06 09:05:45,392] [INFO] Waiting for application startup.
+[2025-10-06 09:05:45,396] [INFO] PocketBase stater 12668
+[2025-10-06 09:05:45,413] [INFO] Loading YOLO models...
+[2025-10-06 09:05:45,414] [INFO] Found the 'openvino' file!
+[2025-10-06 09:05:45,414] [INFO] Loading onnx/torchscript
+[2025-10-06 09:05:46,687] [DEBUG] Loaded backend Agg version v2.2.
+[2025-10-06 09:05:47,167] [INFO] Models loaded successfully
+[2025-10-06 09:05:47,222] [INFO] Application startup complete.
+[2025-10-06 09:05:47,223] [INFO] Uvicorn running on http://0.0.0.0:8009 (Press CTRL+C to quit)
+[2025-10-06 09:05:47,282] [INFO] 127.0.0.1:9557 - "GET /web/app HTTP/1.1" 307
+[2025-10-06 09:05:49,289] [INFO] 127.0.0.1:9557 - "GET /web/app/flutter_service_worker.js?v=402086266 HTTP/1.1" 304
+[2025-10-06 09:05:55,228] [INFO] 127.0.0.1:1888 - "GET /video_feed/rt1?source=rtsp://admin:admin@192.168.1.89:554/mainstream HTTP/1.1" 200
+[2025-10-06 09:14:26,289] [INFO] Shutting down
+[2025-10-06 09:14:26,504] [INFO] Waiting for connections to close. (CTRL+C to force quit)
+[2025-10-06 09:14:30,318] [INFO] Waiting for background tasks to complete. (CTRL+C to force quit)
+[2025-10-06 09:14:30,428] [INFO] Waiting for application shutdown.
+[2025-10-06 09:14:30,573] [INFO] Cleanup complete. Shutting down.
+[2025-10-06 09:14:36,192] [DEBUG] Using proactor: IocpProactor
+[2025-10-06 09:14:36,221] [INFO] Started server process [42432]
+[2025-10-06 09:14:36,221] [INFO] Waiting for application startup.
+[2025-10-06 09:14:36,224] [INFO] PocketBase stater 41808
+[2025-10-06 09:14:36,238] [INFO] Loading YOLO models...
+[2025-10-06 09:14:36,238] [INFO] Found the 'openvino' file!
+[2025-10-06 09:14:36,239] [INFO] Loading onnx/torchscript
+[2025-10-06 09:14:37,517] [DEBUG] Loaded backend Agg version v2.2.
+[2025-10-06 09:14:37,976] [INFO] Models loaded successfully
+[2025-10-06 09:14:38,031] [INFO] Application startup complete.
+[2025-10-06 09:14:38,032] [INFO] Uvicorn running on http://0.0.0.0:8009 (Press CTRL+C to quit)
+[2025-10-06 09:14:38,086] [INFO] 127.0.0.1:1883 - "GET /web/app HTTP/1.1" 307
+[2025-10-06 09:14:39,970] [INFO] 127.0.0.1:1883 - "GET /web/app/flutter_service_worker.js?v=402086266 HTTP/1.1" 304
+[2025-10-06 09:14:42,273] [INFO] 127.0.0.1:1883 - "GET /video_feed/rt1?source=rtsp://admin:admin@192.168.1.89:554/mainstream HTTP/1.1" 200
+[2025-10-06 09:16:21,329] [INFO] Shutting down
+[2025-10-06 09:16:21,434] [INFO] Waiting for application shutdown.
+[2025-10-06 09:16:21,574] [INFO] Cleanup complete. Shutting down.
+[2025-10-06 09:16:48,729] [DEBUG] Using proactor: IocpProactor
+[2025-10-06 09:16:48,762] [INFO] Started server process [37896]
+[2025-10-06 09:16:48,762] [INFO] Waiting for application startup.
+[2025-10-06 09:16:48,766] [INFO] PocketBase stater 42840
+[2025-10-06 09:16:48,780] [INFO] Loading YOLO models...
+[2025-10-06 09:16:48,780] [INFO] Found the 'openvino' file!
+[2025-10-06 09:16:48,780] [INFO] Loading onnx/torchscript
+[2025-10-06 09:16:50,147] [DEBUG] Loaded backend Agg version v2.2.
+[2025-10-06 09:16:50,648] [INFO] Models loaded successfully
+[2025-10-06 09:16:50,706] [INFO] Application startup complete.
+[2025-10-06 09:16:50,707] [INFO] Uvicorn running on http://0.0.0.0:8009 (Press CTRL+C to quit)
+[2025-10-06 09:16:50,765] [INFO] 127.0.0.1:2207 - "GET /web/app HTTP/1.1" 307
+[2025-10-06 09:16:52,778] [INFO] 127.0.0.1:2207 - "GET /web/app/flutter_service_worker.js?v=402086266 HTTP/1.1" 304
+[2025-10-06 09:16:53,680] [INFO] 127.0.0.1:2207 - "GET /video_feed/rt1?source=rtsp://admin:admin@192.168.1.89:554/mainstream HTTP/1.1" 200
+[2025-10-06 09:17:17,197] [INFO] Shutting down
+[2025-10-06 09:17:17,302] [INFO] Waiting for application shutdown.
+[2025-10-06 09:17:17,436] [INFO] Cleanup complete. Shutting down.
+[2025-10-06 09:17:25,295] [DEBUG] Using proactor: IocpProactor
+[2025-10-06 09:17:25,323] [INFO] Started server process [41868]
+[2025-10-06 09:17:25,323] [INFO] Waiting for application startup.
+[2025-10-06 09:17:25,326] [INFO] PocketBase stater 43300
+[2025-10-06 09:17:25,341] [INFO] Loading YOLO models...
+[2025-10-06 09:17:25,342] [INFO] Found the 'openvino' file!
+[2025-10-06 09:17:25,342] [INFO] Loading onnx/torchscript
+[2025-10-06 09:17:26,724] [DEBUG] Loaded backend Agg version v2.2.
+[2025-10-06 09:17:27,199] [INFO] Models loaded successfully
+[2025-10-06 09:17:27,254] [INFO] Application startup complete.
+[2025-10-06 09:17:27,255] [INFO] Uvicorn running on http://0.0.0.0:8009 (Press CTRL+C to quit)
+[2025-10-06 09:17:27,309] [INFO] 127.0.0.1:12256 - "GET /web/app HTTP/1.1" 307
+[2025-10-06 09:17:29,321] [INFO] 127.0.0.1:12256 - "GET /web/app/flutter_service_worker.js?v=402086266 HTTP/1.1" 304
+[2025-10-06 09:17:30,810] [INFO] 127.0.0.1:12256 - "GET /video_feed/rt1?source=rtsp://admin:admin@192.168.1.89:554/mainstream HTTP/1.1" 200
+[2025-10-06 09:17:33,113] [INFO] OpenCV(4.11.0) D:\a\opencv-python\opencv-python\opencv\modules\imgcodecs\src\loadsave.cpp:1308: error: (-215:Assertion failed) !_img.empty() in function 'cv::imencode'
+
+[2025-10-06 09:17:33,256] [INFO] Cleanup complete. Shutting down.
+[2025-10-06 09:17:40,789] [DEBUG] Using proactor: IocpProactor
+[2025-10-06 09:17:40,818] [INFO] Started server process [42660]
+[2025-10-06 09:17:40,818] [INFO] Waiting for application startup.
+[2025-10-06 09:17:40,821] [INFO] PocketBase stater 40764
+[2025-10-06 09:17:40,834] [INFO] Loading YOLO models...
+[2025-10-06 09:17:40,835] [INFO] Found the 'openvino' file!
+[2025-10-06 09:17:40,835] [INFO] Loading onnx/torchscript
+[2025-10-06 09:17:42,162] [DEBUG] Loaded backend Agg version v2.2.
+[2025-10-06 09:17:42,646] [INFO] Models loaded successfully
+[2025-10-06 09:17:42,702] [INFO] Application startup complete.
+[2025-10-06 09:17:42,703] [INFO] Uvicorn running on http://0.0.0.0:8009 (Press CTRL+C to quit)
+[2025-10-06 09:17:42,761] [INFO] 127.0.0.1:12916 - "GET /web/app HTTP/1.1" 307
+[2025-10-06 09:17:44,772] [INFO] 127.0.0.1:12916 - "GET /web/app/flutter_service_worker.js?v=402086266 HTTP/1.1" 304
+[2025-10-06 09:17:46,488] [INFO] 127.0.0.1:12916 - "GET /video_feed/rt1?source=rtsp://admin:admin@192.168.1.89:554/mainstream HTTP/1.1" 200
+[2025-10-06 09:17:48,256] [INFO] OpenCV(4.11.0) D:\a\opencv-python\opencv-python\opencv\modules\imgcodecs\src\loadsave.cpp:1308: error: (-215:Assertion failed) !_img.empty() in function 'cv::imencode'
+
+[2025-10-06 09:17:48,407] [INFO] Cleanup complete. Shutting down.
+[2025-10-06 09:18:28,163] [DEBUG] Using proactor: IocpProactor
+[2025-10-06 09:18:28,190] [INFO] Started server process [39464]
+[2025-10-06 09:18:28,191] [INFO] Waiting for application startup.
+[2025-10-06 09:18:28,193] [INFO] PocketBase stater 42816
+[2025-10-06 09:18:28,206] [INFO] Loading YOLO models...
+[2025-10-06 09:18:28,206] [INFO] Found the 'openvino' file!
+[2025-10-06 09:18:28,207] [INFO] Loading onnx/torchscript
+[2025-10-06 09:18:29,484] [DEBUG] Loaded backend Agg version v2.2.
+[2025-10-06 09:18:29,960] [INFO] Models loaded successfully
+[2025-10-06 09:18:30,015] [INFO] Application startup complete.
+[2025-10-06 09:18:30,016] [INFO] Uvicorn running on http://0.0.0.0:8009 (Press CTRL+C to quit)
+[2025-10-06 09:18:30,072] [INFO] 127.0.0.1:7404 - "GET /web/app HTTP/1.1" 307
+[2025-10-06 09:18:32,005] [INFO] 127.0.0.1:7404 - "GET /web/app/flutter_service_worker.js?v=402086266 HTTP/1.1" 304
+[2025-10-06 09:18:35,170] [INFO] 127.0.0.1:7404 - "GET /video_feed/rt1?source=rtsp://admin:admin@192.168.1.89:554/mainstream HTTP/1.1" 200
+[2025-10-06 09:18:59,454] [INFO] 2162658l0la36j9
+[2025-10-06 09:19:10,952] [INFO] g613yt4y837q8za
+[2025-10-06 09:19:19,875] [INFO] 127.0.0.1:12861 - "GET /video_feed/rt1?source=rtsp://admin:admin@192.168.1.89:554/mainstream HTTP/1.1" 200
+[2025-10-06 09:19:30,178] [INFO] vc254cbzg322t33
+[2025-10-06 09:19:35,812] [INFO] 127.0.0.1:4378 - "GET /video_feed/rt1?source=rtsp://admin:admin@192.168.1.89:554/mainstream HTTP/1.1" 200
+[2025-10-06 09:19:37,562] [INFO] 127.0.0.1:4830 - "GET /web/app/ HTTP/1.1" 304
+[2025-10-06 09:19:37,731] [INFO] 127.0.0.1:4830 - "GET /web/app/favicon.png HTTP/1.1" 200
+[2025-10-06 09:19:39,264] [INFO] 127.0.0.1:4830 - "GET /web/app/flutter_service_worker.js?v=402086266 HTTP/1.1" 304
+[2025-10-06 09:19:41,904] [INFO] 127.0.0.1:4830 - "GET /video_feed/rt1?source=rtsp://admin:admin@192.168.1.89:554/mainstream HTTP/1.1" 200
+[2025-10-06 09:20:33,205] [INFO] m2blz27b83606kq
+[2025-10-06 09:20:48,214] [INFO] Shutting down
+[2025-10-06 09:20:48,319] [INFO] Waiting for application shutdown.
+[2025-10-06 09:20:48,481] [INFO] Cleanup complete. Shutting down.
+[2025-10-06 09:21:00,864] [DEBUG] Using proactor: IocpProactor
+[2025-10-06 09:21:00,891] [INFO] Started server process [35892]
+[2025-10-06 09:21:00,891] [INFO] Waiting for application startup.
+[2025-10-06 09:21:00,895] [INFO] PocketBase stater 38724
+[2025-10-06 09:21:00,907] [INFO] Loading YOLO models...
+[2025-10-06 09:21:00,907] [INFO] Found the 'openvino' file!
+[2025-10-06 09:21:00,907] [INFO] Loading onnx/torchscript
+[2025-10-06 09:21:02,213] [DEBUG] Loaded backend Agg version v2.2.
+[2025-10-06 09:21:02,715] [INFO] Models loaded successfully
+[2025-10-06 09:21:02,772] [INFO] Application startup complete.
+[2025-10-06 09:21:02,772] [INFO] Uvicorn running on http://0.0.0.0:8009 (Press CTRL+C to quit)
+[2025-10-06 09:21:02,834] [INFO] 127.0.0.1:14222 - "GET /web/app HTTP/1.1" 307
+[2025-10-06 09:21:04,484] [INFO] 127.0.0.1:14222 - "GET /video_feed/rt1?source=rtsp://admin:admin@192.168.1.89:554/mainstream HTTP/1.1" 200
+[2025-10-06 09:21:07,212] [INFO] 127.0.0.1:7605 - "GET /web/app/flutter_service_worker.js?v=402086266 HTTP/1.1" 304
+[2025-10-06 09:23:08,058] [INFO] z64o2t13k3vd6pk
+[2025-10-06 09:23:08,059] [INFO] object NoneType can't be used in 'await' expression
+[2025-10-06 09:23:08,215] [INFO] Cleanup complete. Shutting down.
+[2025-10-06 09:24:54,160] [DEBUG] Using proactor: IocpProactor
+[2025-10-06 09:24:54,189] [INFO] Started server process [43420]
+[2025-10-06 09:24:54,189] [INFO] Waiting for application startup.
+[2025-10-06 09:24:54,192] [INFO] PocketBase stater 38436
+[2025-10-06 09:24:54,205] [INFO] Loading YOLO models...
+[2025-10-06 09:24:54,205] [INFO] Found the 'openvino' file!
+[2025-10-06 09:24:54,205] [INFO] Loading onnx/torchscript
+[2025-10-06 09:24:55,456] [DEBUG] Loaded backend Agg version v2.2.
+[2025-10-06 09:24:55,941] [INFO] Models loaded successfully
+[2025-10-06 09:24:55,999] [INFO] Application startup complete.
+[2025-10-06 09:24:56,000] [INFO] Uvicorn running on http://0.0.0.0:8009 (Press CTRL+C to quit)
+[2025-10-06 09:24:56,054] [INFO] 127.0.0.1:4812 - "GET /web/app HTTP/1.1" 307
+[2025-10-06 09:24:58,074] [INFO] 127.0.0.1:4812 - "GET /web/app/flutter_service_worker.js?v=402086266 HTTP/1.1" 304
+[2025-10-06 09:24:59,048] [INFO] 127.0.0.1:4812 - "GET /video_feed/rt1?source=rtsp://admin:admin@192.168.1.89:554/mainstream HTTP/1.1" 200
+[2025-10-06 09:25:04,595] [INFO] 5yf52rz870pjag0
+[2025-10-06 09:25:09,943] [INFO] 0a9680qgaj3hra3
+[2025-10-06 09:25:37,283] [INFO] d6v4rpolhi15mpf
+[2025-10-06 09:25:39,713] [INFO] 127.0.0.1:14809 - "GET /web/app/assets/images/arvand.png HTTP/1.1" 200
+[2025-10-06 09:25:58,114] [INFO] n86n19w425q7vgv
+[2025-10-06 09:26:18,645] [INFO] Shutting down
+[2025-10-06 09:26:18,759] [INFO] Waiting for application shutdown.
+[2025-10-06 09:26:18,905] [INFO] Cleanup complete. Shutting down.
+[2025-10-06 09:26:22,242] [DEBUG] Using proactor: IocpProactor
+[2025-10-06 09:26:22,270] [INFO] Started server process [30724]
+[2025-10-06 09:26:22,270] [INFO] Waiting for application startup.
+[2025-10-06 09:26:22,274] [INFO] PocketBase stater 42564
+[2025-10-06 09:26:22,286] [INFO] Loading YOLO models...
+[2025-10-06 09:26:22,286] [INFO] Found the 'openvino' file!
+[2025-10-06 09:26:22,286] [INFO] Loading onnx/torchscript
+[2025-10-06 09:26:23,515] [DEBUG] Loaded backend Agg version v2.2.
+[2025-10-06 09:26:23,986] [INFO] Models loaded successfully
+[2025-10-06 09:26:24,044] [INFO] Application startup complete.
+[2025-10-06 09:26:24,044] [INFO] Uvicorn running on http://0.0.0.0:8009 (Press CTRL+C to quit)
+[2025-10-06 09:26:24,100] [INFO] 127.0.0.1:2125 - "GET /web/app HTTP/1.1" 307
+[2025-10-06 09:26:25,988] [INFO] 127.0.0.1:2125 - "GET /web/app/flutter_service_worker.js?v=402086266 HTTP/1.1" 304
+[2025-10-06 09:26:26,479] [INFO] 127.0.0.1:2125 - "GET /video_feed/rt1?source=rtsp://admin:admin@192.168.1.89:554/mainstream HTTP/1.1" 200
+[2025-10-06 09:26:44,308] [INFO] k6bqv5o454pffnj
+[2025-10-06 09:27:01,423] [INFO] Shutting down
+[2025-10-06 09:27:01,528] [INFO] Waiting for application shutdown.
+[2025-10-06 09:27:01,676] [INFO] Cleanup complete. Shutting down.
+[2025-10-06 09:27:34,483] [DEBUG] Using proactor: IocpProactor
+[2025-10-06 09:27:34,512] [INFO] Started server process [42968]
+[2025-10-06 09:27:34,512] [INFO] Waiting for application startup.
+[2025-10-06 09:27:34,515] [INFO] PocketBase stater 11592
+[2025-10-06 09:27:34,529] [INFO] Loading YOLO models...
+[2025-10-06 09:27:34,529] [INFO] Found the 'openvino' file!
+[2025-10-06 09:27:34,529] [INFO] Loading onnx/torchscript
+[2025-10-06 09:27:35,762] [DEBUG] Loaded backend Agg version v2.2.
+[2025-10-06 09:27:36,225] [INFO] Models loaded successfully
+[2025-10-06 09:27:36,281] [INFO] Application startup complete.
+[2025-10-06 09:27:36,282] [INFO] Uvicorn running on http://0.0.0.0:8009 (Press CTRL+C to quit)
+[2025-10-06 09:27:36,337] [INFO] 127.0.0.1:9927 - "GET /web/app HTTP/1.1" 307
+[2025-10-06 09:27:38,214] [INFO] 127.0.0.1:9927 - "GET /web/app/flutter_service_worker.js?v=402086266 HTTP/1.1" 304
+[2025-10-06 09:27:38,283] [INFO] 127.0.0.1:9927 - "GET /video_feed/rt1?source=rtsp://admin:admin@192.168.1.89:554/mainstream HTTP/1.1" 200
+[2025-10-06 09:27:40,668] [INFO] 3302p8zcon141e9
+[2025-10-06 09:28:35,481] [INFO] 6yp388wgqe28czr
+[2025-10-06 09:28:37,062] [INFO] p411sgii5145zw4
+[2025-10-06 09:28:45,395] [INFO] ppod2jv37rw57x0
+[2025-10-06 09:29:03,906] [INFO] 127.0.0.1:14384 - "GET /video_feed/rt1?source=rtsp://admin:admin@192.168.1.89:554/mainstream HTTP/1.1" 200
+[2025-10-06 09:29:06,540] [INFO] Shutting down
+[2025-10-06 09:29:06,645] [INFO] Waiting for application shutdown.
+[2025-10-06 09:29:06,791] [INFO] Cleanup complete. Shutting down.
+[2025-10-06 09:29:42,233] [DEBUG] Using proactor: IocpProactor
+[2025-10-06 09:29:42,261] [INFO] Started server process [2260]
+[2025-10-06 09:29:42,261] [INFO] Waiting for application startup.
+[2025-10-06 09:29:42,264] [INFO] PocketBase stater 4804
+[2025-10-06 09:29:42,274] [INFO] Loading YOLO models...
+[2025-10-06 09:29:42,274] [INFO] Found the 'openvino' file!
+[2025-10-06 09:29:42,274] [INFO] Loading onnx/torchscript
+[2025-10-06 09:29:43,508] [DEBUG] Loaded backend Agg version v2.2.
+[2025-10-06 09:29:43,976] [INFO] Models loaded successfully
+[2025-10-06 09:29:44,032] [INFO] Application startup complete.
+[2025-10-06 09:29:44,032] [INFO] Uvicorn running on http://0.0.0.0:8009 (Press CTRL+C to quit)
+[2025-10-06 09:29:44,083] [INFO] 127.0.0.1:9411 - "GET /web/app HTTP/1.1" 307
+[2025-10-06 09:29:45,991] [INFO] 127.0.0.1:9411 - "GET /web/app/flutter_service_worker.js?v=402086266 HTTP/1.1" 304
+[2025-10-06 09:29:46,720] [INFO] 127.0.0.1:9411 - "GET /video_feed/rt1?source=rtsp://admin:admin@192.168.1.89:554/mainstream HTTP/1.1" 200
+[2025-10-06 09:30:25,363] [INFO] ns0ob8933g92pnz
+[2025-10-06 09:30:40,586] [INFO] Shutting down
+[2025-10-06 09:30:40,691] [INFO] Waiting for application shutdown.
+[2025-10-06 09:30:40,833] [INFO] Cleanup complete. Shutting down.
+[2025-10-06 09:31:19,866] [DEBUG] Using proactor: IocpProactor
+[2025-10-06 09:31:19,895] [INFO] Started server process [44376]
+[2025-10-06 09:31:19,895] [INFO] Waiting for application startup.
+[2025-10-06 09:31:19,898] [INFO] PocketBase stater 44976
+[2025-10-06 09:31:19,909] [INFO] Loading YOLO models...
+[2025-10-06 09:31:19,910] [INFO] Found the 'openvino' file!
+[2025-10-06 09:31:19,910] [INFO] Loading onnx/torchscript
+[2025-10-06 09:31:21,176] [DEBUG] Loaded backend Agg version v2.2.
+[2025-10-06 09:31:21,631] [INFO] Models loaded successfully
+[2025-10-06 09:31:21,687] [INFO] Application startup complete.
+[2025-10-06 09:31:21,688] [INFO] Uvicorn running on http://0.0.0.0:8009 (Press CTRL+C to quit)
+[2025-10-06 09:31:21,749] [INFO] 127.0.0.1:1316 - "GET /web/app HTTP/1.1" 307
+[2025-10-06 09:31:23,690] [INFO] 127.0.0.1:1316 - "GET /web/app/flutter_service_worker.js?v=402086266 HTTP/1.1" 304
+[2025-10-06 09:31:25,037] [INFO] 127.0.0.1:1316 - "GET /video_feed/rt1?source=rtsp://admin:admin@192.168.1.89:554/mainstream HTTP/1.1" 200
+[2025-10-06 09:32:45,132] [INFO] m6e9zfnazcn5ts0
+[2025-10-06 09:33:38,995] [INFO] 5sg5qog45v0k9tx
+[2025-10-06 09:34:10,923] [INFO] Shutting down
+[2025-10-06 09:34:11,028] [INFO] Waiting for application shutdown.
+[2025-10-06 09:34:11,173] [INFO] Cleanup complete. Shutting down.
+[2025-10-06 09:34:15,718] [DEBUG] Using proactor: IocpProactor
+[2025-10-06 09:34:15,746] [INFO] Started server process [37512]
+[2025-10-06 09:34:15,746] [INFO] Waiting for application startup.
+[2025-10-06 09:34:15,749] [INFO] PocketBase stater 20004
+[2025-10-06 09:34:15,763] [INFO] Loading YOLO models...
+[2025-10-06 09:34:15,763] [INFO] Found the 'openvino' file!
+[2025-10-06 09:34:15,763] [INFO] Loading onnx/torchscript
+[2025-10-06 09:34:17,020] [DEBUG] Loaded backend Agg version v2.2.
+[2025-10-06 09:34:17,480] [INFO] Models loaded successfully
+[2025-10-06 09:34:17,535] [INFO] Application startup complete.
+[2025-10-06 09:34:17,536] [INFO] Uvicorn running on http://0.0.0.0:8009 (Press CTRL+C to quit)
+[2025-10-06 09:34:17,595] [INFO] 127.0.0.1:5986 - "GET /web/app HTTP/1.1" 307
+[2025-10-06 09:34:19,551] [INFO] 127.0.0.1:5986 - "GET /web/app/flutter_service_worker.js?v=402086266 HTTP/1.1" 304
+[2025-10-06 09:34:20,000] [INFO] 127.0.0.1:5986 - "GET /video_feed/rt1?source=rtsp://admin:admin@192.168.1.89:554/mainstream HTTP/1.1" 200
+[2025-10-06 09:34:31,935] [INFO] 2u99relaie0109i
+[2025-10-06 09:35:16,309] [INFO] 298g4m9qxwdc89k
+[2025-10-06 09:35:55,879] [INFO] u40dx88q351w59d
+[2025-10-06 09:36:31,180] [INFO] oc8h9069u45xn19
+[2025-10-06 09:36:38,843] [INFO] Shutting down
+[2025-10-06 09:36:38,948] [INFO] Waiting for application shutdown.
+[2025-10-06 09:36:39,090] [INFO] Cleanup complete. Shutting down.
+[2025-10-06 09:36:42,667] [DEBUG] Using proactor: IocpProactor
+[2025-10-06 09:36:42,695] [INFO] Started server process [35284]
+[2025-10-06 09:36:42,695] [INFO] Waiting for application startup.
+[2025-10-06 09:36:42,698] [INFO] PocketBase stater 45044
+[2025-10-06 09:36:42,713] [INFO] Loading YOLO models...
+[2025-10-06 09:36:42,713] [INFO] Found the 'openvino' file!
+[2025-10-06 09:36:42,713] [INFO] Loading onnx/torchscript
+[2025-10-06 09:36:44,056] [DEBUG] Loaded backend Agg version v2.2.
+[2025-10-06 09:36:44,566] [INFO] Models loaded successfully
+[2025-10-06 09:36:44,625] [INFO] Application startup complete.
+[2025-10-06 09:36:44,626] [INFO] Uvicorn running on http://0.0.0.0:8009 (Press CTRL+C to quit)
+[2025-10-06 09:36:44,686] [INFO] 127.0.0.1:3944 - "GET /web/app HTTP/1.1" 307
+[2025-10-06 09:36:46,604] [INFO] 127.0.0.1:3944 - "GET /web/app/flutter_service_worker.js?v=402086266 HTTP/1.1" 304
+[2025-10-06 09:36:48,455] [INFO] 127.0.0.1:3944 - "GET /video_feed/rt1?source=rtsp://admin:admin@192.168.1.89:554/mainstream HTTP/1.1" 200
+[2025-10-06 09:37:39,650] [INFO] Shutting down
+[2025-10-06 09:37:39,755] [INFO] Waiting for application shutdown.
+[2025-10-06 09:37:39,891] [INFO] Cleanup complete. Shutting down.
+[2025-10-06 09:37:43,249] [DEBUG] Using proactor: IocpProactor
+[2025-10-06 09:37:43,280] [INFO] Started server process [44580]
+[2025-10-06 09:37:43,280] [INFO] Waiting for application startup.
+[2025-10-06 09:37:43,283] [INFO] PocketBase stater 46020
+[2025-10-06 09:37:43,296] [INFO] Loading YOLO models...
+[2025-10-06 09:37:43,297] [INFO] Found the 'openvino' file!
+[2025-10-06 09:37:43,297] [INFO] Loading onnx/torchscript
+[2025-10-06 09:37:44,681] [DEBUG] Loaded backend Agg version v2.2.
+[2025-10-06 09:37:45,200] [INFO] Models loaded successfully
+[2025-10-06 09:37:45,259] [INFO] Application startup complete.
+[2025-10-06 09:37:45,259] [INFO] Uvicorn running on http://0.0.0.0:8009 (Press CTRL+C to quit)
+[2025-10-06 09:37:45,305] [INFO] 127.0.0.1:6492 - "GET /web/app HTTP/1.1" 307
+[2025-10-06 09:37:47,331] [INFO] 127.0.0.1:6492 - "GET /web/app/flutter_service_worker.js?v=402086266 HTTP/1.1" 304
+[2025-10-06 09:37:48,422] [INFO] 127.0.0.1:6492 - "GET /video_feed/rt1?source=rtsp://admin:admin@192.168.1.89:554/mainstream HTTP/1.1" 200
+[2025-10-06 09:37:54,798] [INFO] 9237nu807843nd9
+[2025-10-06 09:38:36,521] [INFO] nva35x9h5kjhdkd
+[2025-10-06 09:40:23,428] [INFO] Shutting down
+[2025-10-06 09:40:23,533] [INFO] Waiting for application shutdown.
+[2025-10-06 09:40:23,676] [INFO] Cleanup complete. Shutting down.
+[2025-10-06 09:40:26,935] [DEBUG] Using proactor: IocpProactor
+[2025-10-06 09:40:26,965] [INFO] Started server process [46980]
+[2025-10-06 09:40:26,965] [INFO] Waiting for application startup.
+[2025-10-06 09:40:26,968] [INFO] PocketBase stater 46424
+[2025-10-06 09:40:26,982] [INFO] Loading YOLO models...
+[2025-10-06 09:40:26,982] [INFO] Found the 'openvino' file!
+[2025-10-06 09:40:26,982] [INFO] Loading onnx/torchscript
+[2025-10-06 09:40:28,244] [DEBUG] Loaded backend Agg version v2.2.
+[2025-10-06 09:40:28,814] [INFO] Models loaded successfully
+[2025-10-06 09:40:28,879] [INFO] Application startup complete.
+[2025-10-06 09:40:28,880] [INFO] Uvicorn running on http://0.0.0.0:8009 (Press CTRL+C to quit)
+[2025-10-06 09:40:28,928] [INFO] 127.0.0.1:12208 - "GET /web/app HTTP/1.1" 307
+[2025-10-06 09:40:30,139] [INFO] 127.0.0.1:12208 - "GET /video_feed/rt1?source=rtsp://admin:admin@192.168.1.89:554/mainstream HTTP/1.1" 200
+[2025-10-06 09:40:33,513] [INFO] 127.0.0.1:8043 - "GET /web/app/flutter_service_worker.js?v=402086266 HTTP/1.1" 304
+[2025-10-06 09:40:57,377] [INFO] 5u4e4p55n75xl1y
+[2025-10-06 09:41:08,042] [INFO] 60906j8tymo7p70
+[2025-10-06 09:41:14,486] [INFO] rld668acvw76rh0
+[2025-10-06 09:41:14,708] [INFO] g1rcdu534bx3pw4
+[2025-10-06 09:41:16,900] [INFO] Shutting down
+[2025-10-06 09:41:17,006] [INFO] Waiting for application shutdown.
+[2025-10-06 09:41:17,175] [INFO] Cleanup complete. Shutting down.
+[2025-10-06 09:41:35,546] [DEBUG] Using proactor: IocpProactor
+[2025-10-06 09:41:35,573] [INFO] Started server process [46316]
+[2025-10-06 09:41:35,573] [INFO] Waiting for application startup.
+[2025-10-06 09:41:35,576] [INFO] PocketBase stater 44772
+[2025-10-06 09:41:35,588] [INFO] Loading YOLO models...
+[2025-10-06 09:41:35,588] [INFO] Found the 'openvino' file!
+[2025-10-06 09:41:35,588] [INFO] Loading onnx/torchscript
+[2025-10-06 09:41:36,835] [DEBUG] Loaded backend Agg version v2.2.
+[2025-10-06 09:41:37,619] [INFO] Models loaded successfully
+[2025-10-06 09:41:37,683] [INFO] Application startup complete.
+[2025-10-06 09:41:37,683] [INFO] Uvicorn running on http://0.0.0.0:8009 (Press CTRL+C to quit)
+[2025-10-06 09:41:37,747] [INFO] 127.0.0.1:5108 - "GET /web/app HTTP/1.1" 307
+[2025-10-06 09:41:39,751] [INFO] 127.0.0.1:5108 - "GET /web/app/flutter_service_worker.js?v=402086266 HTTP/1.1" 304
+[2025-10-06 09:41:40,147] [INFO] 127.0.0.1:5108 - "GET /video_feed/rt1?source=rtsp://admin:admin@192.168.1.89:554/mainstream HTTP/1.1" 200
+[2025-10-06 09:42:16,130] [INFO] kx1kdl83urh0sbn
+[2025-10-06 09:42:32,110] [INFO] ws61b0aeb0umi03
+[2025-10-06 09:42:32,214] [INFO] 2s6whj6n26q6hm1
+[2025-10-06 09:43:02,481] [INFO] mdtu9u038y205cj
+[2025-10-06 09:44:01,118] [INFO] 551z4p26y8ewp8o
+[2025-10-06 09:44:21,043] [INFO] 3b4nh4f0ba204ul
+[2025-10-06 09:44:24,058] [INFO] w066jj0d29w9y59
+[2025-10-06 09:44:51,329] [INFO] Shutting down
+[2025-10-06 09:44:51,434] [INFO] Waiting for application shutdown.
+[2025-10-06 09:44:51,584] [INFO] Cleanup complete. Shutting down.
+[2025-10-06 09:45:04,434] [DEBUG] Using proactor: IocpProactor
+[2025-10-06 09:45:04,464] [INFO] Started server process [40660]
+[2025-10-06 09:45:04,464] [INFO] Waiting for application startup.
+[2025-10-06 09:45:04,467] [INFO] PocketBase stater 47416
+[2025-10-06 09:45:04,478] [INFO] Loading YOLO models...
+[2025-10-06 09:45:04,479] [INFO] Found the 'openvino' file!
+[2025-10-06 09:45:04,479] [INFO] Loading onnx/torchscript
+[2025-10-06 09:45:05,717] [DEBUG] Loaded backend Agg version v2.2.
+[2025-10-06 09:45:06,190] [INFO] Models loaded successfully
+[2025-10-06 09:45:06,245] [INFO] Application startup complete.
+[2025-10-06 09:45:06,246] [INFO] Uvicorn running on http://0.0.0.0:8009 (Press CTRL+C to quit)
+[2025-10-06 09:45:06,302] [INFO] 127.0.0.1:14283 - "GET /web/app HTTP/1.1" 307
+[2025-10-06 09:45:08,236] [INFO] 127.0.0.1:14283 - "GET /web/app/flutter_service_worker.js?v=402086266 HTTP/1.1" 304
+[2025-10-06 09:45:09,612] [INFO] 127.0.0.1:14283 - "GET /video_feed/rt1?source=rtsp://admin:admin@192.168.1.89:554/mainstream HTTP/1.1" 200
+[2025-10-06 09:45:45,900] [INFO] Shutting down
+[2025-10-06 09:45:46,006] [INFO] Waiting for application shutdown.
+[2025-10-06 09:45:46,147] [INFO] Cleanup complete. Shutting down.
+[2025-10-06 09:45:49,562] [DEBUG] Using proactor: IocpProactor
+[2025-10-06 09:45:49,593] [INFO] Started server process [47116]
+[2025-10-06 09:45:49,593] [INFO] Waiting for application startup.
+[2025-10-06 09:45:49,596] [INFO] PocketBase stater 47484
+[2025-10-06 09:45:49,608] [INFO] Found the 'onnx' file!
+[2025-10-06 09:45:49,608] [INFO] Loading YOLO models...
+[2025-10-06 09:45:49,608] [INFO] Found the 'openvino' file!
+[2025-10-06 09:45:49,608] [INFO] Loading onnx/torchscript
+[2025-10-06 09:45:50,923] [DEBUG] Loaded backend Agg version v2.2.
+[2025-10-06 09:45:52,929] [INFO] Models loaded successfully
+[2025-10-06 09:45:52,993] [INFO] Application startup complete.
+[2025-10-06 09:45:52,994] [INFO] Uvicorn running on http://0.0.0.0:8009 (Press CTRL+C to quit)
+[2025-10-06 09:45:53,050] [INFO] 127.0.0.1:12562 - "GET /web/app HTTP/1.1" 307
+[2025-10-06 09:45:54,989] [INFO] 127.0.0.1:12562 - "GET /web/app/flutter_service_worker.js?v=402086266 HTTP/1.1" 304
+[2025-10-06 09:45:55,447] [INFO] 127.0.0.1:12562 - "GET /video_feed/rt1?source=rtsp://admin:admin@192.168.1.89:554/mainstream HTTP/1.1" 200
+[2025-10-06 09:47:26,475] [INFO] r3c3r79q4693l02
+[2025-10-06 09:47:36,548] [INFO] Shutting down
+[2025-10-06 09:47:36,659] [INFO] Waiting for application shutdown.
+[2025-10-06 09:47:36,809] [INFO] Cleanup complete. Shutting down.

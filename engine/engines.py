@@ -92,7 +92,7 @@ class CcTvMonitor:
             
             # Check if it's a file (not a directory)
             if os.path.isfile(filepath):
-                # Check if filename is exactly "onnx"
+                # Check if filename is exactly "openvino"
                 if filename == "openvino":
                     logging.info(f"Found the 'openvino' file!")
                     
@@ -104,19 +104,24 @@ class CcTvMonitor:
         fileEx='onnx' if self.chechOnnx() else 'pt'
         logging.info("Loading YOLO models...")
         if self.chechOpenvino() and self.device.type =='cpu':
+            logging.info("Loading openvino")
             model_char = torch.hub.load(
-            'yolov5', 'custom', f'model/CharsYolo.{fileEx}', source='local', device=self.device, force_reload=True)
+            'yolov5', 'custom', f'model/CharsYolo_openvino_model', source='local', device=self.device, force_reload=True)
             model_plate = torch.hub.load(
-            'yolov5', 'custom', f'model/plateYolo.{fileEx}', source='local', device=self.device, force_reload=True)
-            model_car = YOLO(f'model/yolo11n.{fileEx}',task='detect')
+            'yolov5', 'custom', f'model/plateYolo_openvino_model', source='local', device=self.device, force_reload=True)
+            model_car = YOLO(f'model/yolo11n_openvino_model',task='detect')
+            
         
         else:
+            
+            logging.info("Loading onnx/pt")
             model_char = torch.hub.load(
                 'yolov5', 'custom', f'model/CharsYolo.{fileEx}', source='local', device=self.device, force_reload=True)
             model_plate = torch.hub.load(
                 'yolov5', 'custom', f'model/plateYolo.{fileEx}', source='local', device=self.device, force_reload=True)
             model_car = YOLO(f'model/yolo11n.{fileEx}',task='detect')
-            logging.info("Models loaded successfully")
+            print(model_car.names)
+        logging.info("Models loaded successfully")
         with self.lock:
             return model_car, model_plate, model_char
 
@@ -325,18 +330,21 @@ class CcTvMonitor:
                                 if char_conf_avg >= confidence and len(plate_text) >= 8:
                                     cv2.putText(cropped_car, f"Plate: {plate_text}", (x_min, y_min - 10),
                                                 cv2.FONT_HERSHEY_SIMPLEX, 0.7, (0, 255, 128), 2, cv2.LINE_AA)
-                                    await db_entries_time(
-                                        number=plate_text,
-                                        charConfAvg=char_conf_avg,
-                                        plateConfAvg=plate_conf,
-                                        croppedPlate=cropped_plate,
-                                        status="Active",
-                                        frame=frame,
-                                        isarvand='notarvand',
-                                        rtpath=path,
-                                        quality=self.quality
-                                    )
+                                    
+                                 
+                                    db_entries_time(
+                                            number=plate_text,
+                                            charConfAvg=char_conf_avg,
+                                            plateConfAvg=plate_conf,
+                                            croppedPlate=cropped_plate,
+                                            status="Active",
+                                            frame=frame,
+                                            isarvand='notarvand',
+                                            rtpath=path,
+                                            quality=self.quality
+                                        )
                                     break
+                       
 
                                 else:
                                     deskewed_plate, (newx1, newy1, newx2, newy2) = self.correct_perspective(
@@ -371,7 +379,8 @@ class CcTvMonitor:
                                             if len(plate_text_arvnad) >= 5 and char_conf_arvnad >= confidence - 3:
                                                 cv2.putText(cropped_car, f"Plate: {plate_text_arvnad}", (x_min, y_min - 10),
                                                             cv2.FONT_HERSHEY_SIMPLEX, 0.7, (0, 255, 128), 2, cv2.LINE_AA)
-                                                await db_entries_time(
+                                                
+                                                db_entries_time(
                                                     number=plate_text_arvnad,
                                                     charConfAvg=char_conf_arvnad,
                                                     plateConfAvg=plate_conf,
@@ -386,10 +395,12 @@ class CcTvMonitor:
             try:
                 del plate_results, cropped_car, car_res
             except Exception as e:
+                
                 pass
             return frame
 
-        except Exception as e:
+        except Exception as ex:
+            print(ex)
             return frame
 
     def realseFreshest(self, fresh: FreshestFrame, cap: cv2.VideoCapture):
@@ -449,6 +460,7 @@ class CcTvMonitor:
                     cv2.putText(frame, "No signal", (220, 240),
                                 cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 0, 255), 2)
                 else:
+                    
                     frame = await self.process_frame(frame, f'/rt{camera_idx}')
 
                 # Encode and yield the frame

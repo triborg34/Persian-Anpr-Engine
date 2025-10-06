@@ -30,3 +30,4 @@ engine/pb_data
 engine/pb_migrations
 engine/pocketbase.exe
 engine/log.txt
+engine/model
