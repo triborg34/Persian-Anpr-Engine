@@ -1,6 +1,7 @@
 import asyncio
 from asyncio import subprocess
 import gc
+import json
 import logging
 import multiprocessing
 import os
@@ -41,10 +42,17 @@ logging.basicConfig(
 cv2.setNumThreads(multiprocessing.cpu_count())
 
 
+
+        
 class CcTvMonitor:
     def __init__(self):
         self.process = None
         self.loadDb()
+        self.regionMode=self.isRegionMode()
+        if self.regionMode:
+            self.background_subtractor = cv2.createBackgroundSubtractorMOG2()
+            self.k = []
+        
         self.params = Parameters()
         self.device = torch.device(0 if torch.cuda.is_available() else 'cpu')
         self.RETRY_LIMIT = 5
@@ -57,10 +65,30 @@ class CcTvMonitor:
     
     def loadWebBrowser(self,port):
         webbrowser.open(f'http://127.0.0.1:{port}/web/app')
-        
-        
+    
+    def loadRegions(self,soruce,file_path='regions.json'):
+        url = urlparse(soruce).hostname
+        """Load regions from JSON file"""
+        try:
+            with open(file_path, 'r') as f:
+                datas = json.load(f)
+                for data in datas:
+                    if url == data['ip']:
+                        return data.get('regions', {})
+                    else:
+                        pass
+
+        except Exception as e:
+            print(f"Error loading regions: {e}")
+            return {}
+    
+    def isRegionMode(self) -> bool:
+        if os.path.isfile('regions.json'):
+            return True
+        else : return False
 
     def loadDb(self):
+        
 
         try:
 
@@ -156,7 +184,102 @@ class CcTvMonitor:
 
         # Use os._exit instead of sys.exit for more forceful termination
         os._exit(0)
+    def draw_regions_on_frame(self, frame, regions):
+        """Draw region boundaries on frame"""
+        overlay = frame.copy()
 
+        for region_name, region_data in regions.items():
+            points = region_data.get('points', [])
+            color_name = region_data.get('color', 'red')
+            shape_type = region_data.get('shape_type', 'polygon')
+
+            # Convert color name to BGR
+            color_map = {
+                'red': (0, 0, 255), 'blue': (255, 0, 0), 'green': (0, 255, 0),
+                'yellow': (0, 255, 255), 'purple': (128, 0, 128),
+                'orange': (0, 165, 255), 'cyan': (255, 255, 0), 'magenta': (255, 0, 255)
+            }
+            color = color_map.get(color_name, (0, 0, 255))
+
+            if shape_type == 'polygon' and len(points) > 2:
+                pts = np.array(points, dtype=np.int32)
+                cv2.polylines(overlay, [pts], True, color, 2)
+
+            elif shape_type == 'rectangle' and len(points) == 4:
+                x1, y1 = int(points[0][0]), int(points[0][1])
+                x2, y2 = int(points[2][0]), int(points[2][1])
+                cv2.rectangle(overlay, (x1, y1), (x2, y2), color, 2)
+
+            elif shape_type == 'line' and len(points) == 2:
+                x1, y1 = int(points[0][0]), int(points[0][1])
+                x2, y2 = int(points[1][0]), int(points[1][1])
+                cv2.line(overlay, (x1, y1), (x2, y2), color, 2)
+
+            # Add region label
+            if points:
+                center_x = int(sum(p[0] for p in points) / len(points))
+                center_y = int(sum(p[1] for p in points) / len(points))
+
+                # Add background for text
+                text = f"{region_name} (ID: {region_data.get('id', 'N/A')})"
+                text_size = cv2.getTextSize(
+                    text, cv2.FONT_HERSHEY_SIMPLEX, 0.5, 1)[0]
+                # cv2.rectangle(overlay, (center_x - text_size[0]//2 - 5, center_y - text_size[1] - 5),
+                #               (center_x + text_size[0]//2 + 5, center_y + 5), (0, 0, 0), -1)
+                # cv2.putText(overlay, text, (center_x - text_size[0]//2, center_y),
+                #             cv2.FONT_HERSHEY_SIMPLEX, 0.5, color, 1)
+
+        return overlay
+    def onDisplay(self, region, frame):
+        """Display region names on frame"""
+        if not region:  # More pythonic than len(region) == 0
+            return
+
+        # Display up to the first few regions with proper spacing
+        y_offset = 30  # Starting Y position
+        line_height = 50  # Space between lines
+
+        # Limit to 5 regions to avoid overcrowding
+        for i, reg in enumerate(region[:5]):
+            if 'name' in reg:
+                y_pos = y_offset + (i * line_height)
+                cv2.putText(frame, reg['name'], (10, y_pos),
+                            cv2.FONT_HERSHEY_COMPLEX_SMALL, 1, (255, 255, 255))
+    def get_detection_region(self, detection_box, region_masks):
+
+        cx = int((detection_box[0] + detection_box[2]) / 2)
+        cy = int((detection_box[1] + detection_box[3]) / 2)
+        for region_name, mask in region_masks.items():
+
+            if cy < mask.shape[0] and cx < mask.shape[1] and mask[cy, cx] > 0:
+                return region_name  # First match wins
+        return None
+    def generate_region_masks(self, frame_shape, regions):
+        """Create binary masks for each region (once)"""
+        h, w, _ = frame_shape
+        masks = {}
+        for region_name, region_data in regions.items():
+            points = region_data.get('points', [])
+            shape_type = region_data.get('shape_type', 'polygon')
+
+            mask = np.zeros((h, w), dtype=np.uint8)
+
+            if shape_type == 'polygon' and len(points) > 2:
+                pts = np.array(points, dtype=np.int32)
+                cv2.fillPoly(mask, [pts], 255)
+
+            elif shape_type == 'rectangle' and len(points) == 4:
+                x1, y1 = int(points[0][0]), int(points[0][1])
+                x2, y2 = int(points[2][0]), int(points[2][1])
+                cv2.rectangle(mask, (x1, y1), (x2, y2), 255, -1)
+
+            elif shape_type == 'line' and len(points) == 2:
+                x1, y1 = int(points[0][0]), int(points[0][1])
+                x2, y2 = int(points[1][0]), int(points[1][1])
+                cv2.line(mask, (x1, y1), (x2, y2), 255, 2)  # use thickness
+
+            masks[region_name] = mask
+        return masks
     def correct_perspective(self, image, scale_factor):
         try:
             # Preprocessing
@@ -268,30 +391,55 @@ class CcTvMonitor:
                               * 100) if confidences else 0
         return ''.join(chars), char_conf_avg
 
-    async def process_frame(self, frame, path):
+    async def process_frame(self, frame, path,regions):
 
         try:
             # Create a lower-resolution copy for detection
             # lowres_for_detection=frame
-            lowres_for_detection = frame.copy()
-            scale_x = frame.shape[1] / lowres_for_detection.shape[1]
-            scale_y = frame.shape[0] / lowres_for_detection.shape[0]
+            # lowres_for_detection = frame.copy()
+            # scale_x = frame.shape[1] / lowres_for_detection.shape[1]
+            # scale_y = frame.shape[0] / lowres_for_detection.shape[0]
 
+            if self.regionMode:
+                # frame = cv2.resize(frame, (1920, 1080))
+                region_masks = self.generate_region_masks(
+                    frame.shape, regions)
+                combined_mask = np.zeros(
+                    frame.shape[:2], dtype=np.uint8)
+                for mask in region_masks.values():
+                    combined_mask = cv2.bitwise_or(combined_mask, mask)
+                masked_frame = cv2.bitwise_and(
+                    frame, frame, mask=combined_mask)
+                self.k.clear()
+                current_regions = []
+            
+            
             # Detect vehicles in low-res
             car_res = self.model_car(
-                lowres_for_detection, device=self.device, classes=[2, 5, 7])
+                masked_frame if self.regionMode else frame, device=self.device, classes=[2, 5, 7])
 
             if len(car_res[0]) > 0:
                 for box in car_res[0].boxes:
                     x1, y1, x2, y2 = map(int, box.xyxy[0][:4])
+                    if self.regionMode:
+                        region_name = self.get_detection_region(
+                            (x1, y1, x2, y2), region_masks)
+                        if region_name and region_name in regions:
+                            region_data = regions[region_name]
+                            if region_data not in current_regions:
+                                current_regions.append(region_data)
+                    else:
+                        region_data = None
+                        
                     # Scale back to original resolution
-                    x1 = int(x1 * scale_x)
-                    y1 = int(y1 * scale_y)
-                    x2 = int(x2 * scale_x)
-                    y2 = int(y2 * scale_y)
+                    # x1 = int(x1 * scale_x)
+                    # y1 = int(y1 * scale_y)
+                    # x2 = int(x2 * scale_x)
+                    # y2 = int(y2 * scale_y)
 
                     cv2.rectangle(frame, (x1, y1), (x2, y2), (255, 0, 0), 2)
-                    cropped_car = frame[y1:y2, x1:x2]
+                    cropped_car = masked_frame[y1:y2,
+                                              x1:x2] if self.regionMode else frame[y1:y2, x1:x2]
 
                     plate_results = self.model_plate(
                         cropped_car).pandas().xyxy[0]
@@ -391,16 +539,20 @@ class CcTvMonitor:
                                                     rtpath=path,
                                                     quality=self.quality
                                                 )
+            
+            if self.regionMode:
+                self.k = current_regions
+                self.onDisplay(self.k, frame)
+                frame = self.draw_regions_on_frame(
+                    frame, regions)
 
             try:
                 del plate_results, cropped_car, car_res
             except Exception as e:
-                
                 pass
             return frame
 
         except Exception as ex:
-            print(ex)
             return frame
 
     def realseFreshest(self, fresh: FreshestFrame, cap: cv2.VideoCapture):
@@ -417,7 +569,12 @@ class CcTvMonitor:
 
         check_interval = 60  # seconds
         last_check = 0
-
+        if self.regionMode:
+            regions = self.loadRegions(soruce=source)
+            if not hasattr(self, 'k'):
+                self.k = []
+        else:
+            regions = None
         def open_capture(source):
             cap = cv2.VideoCapture(source)
             return cap if cap.isOpened() else None
@@ -453,6 +610,7 @@ class CcTvMonitor:
                     self.realseFreshest(fresh, cap)
                     break
                 success, frame = fresh.read()
+          
                 if not success:
 
                     # Generate blank frame if we can't read from camera
@@ -461,7 +619,7 @@ class CcTvMonitor:
                                 cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 0, 255), 2)
                 else:
                     
-                    frame = await self.process_frame(frame, f'/rt{camera_idx}')
+                    frame = await self.process_frame(frame, f'/rt{camera_idx}',regions)
 
                 # Encode and yield the frame
                 _, buffer = cv2.imencode('.jpg', frame)
@@ -596,3 +754,4 @@ def emailHandler(email, plateNumber, edate, etime):
 
     finally:
         server.quit()  # Close the connection
+
