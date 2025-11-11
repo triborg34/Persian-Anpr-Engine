@@ -56,7 +56,7 @@ class CcTvMonitor:
         self.params = Parameters()
         self.device = torch.device(0 if torch.cuda.is_available() else 'cpu')
         self.RETRY_LIMIT = 5
-        self.RETRY_LIMIT = 3
+        self.RETRY_DELAY = 3
         self.lock = threading.Lock()
         self.model_car, self.model_plate, self.model_char = self.loadModels()
         self.quality, self.charConfidence, self.plateConfidence,self.port = self.loadConfig()[0:4]
