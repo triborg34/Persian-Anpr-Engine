@@ -73,20 +73,32 @@ async def video_feed(camera_id: str, request: Request, source: str = Query(...))
     if source == '0':
         source = int(source)
     """Stream video from a specific camera"""
-
+    
     try:
         # Extract camera index from ID (rt1 -> 1)
         camera_idx = int(camera_id[2:])
+        if cctv.RECORDMODE:
+            return StreamingResponse(
 
-        return StreamingResponse(
-
-            cctv.generate_frames(camera_idx, source, request),
+                cctv.recording_frames(camera_idx, source, request),
 
 
-            media_type="multipart/x-mixed-replace; boundary=frame",
-            headers={
-                "Cache-Control": "no-store"
-            }
+                media_type="multipart/x-mixed-replace; boundary=frame",
+                headers={
+                    "Cache-Control": "no-store"
+                })
+        else:
+            
+            return StreamingResponse(
+
+                cctv.generate_frames(camera_idx, source, request),
+
+
+                media_type="multipart/x-mixed-replace; boundary=frame",
+                headers={
+                    "Cache-Control": "no-store"
+                }
+                
         )
     except ValueError:
         return Response(f"Invalid camera ID: {camera_id}. Use format: rt1, rt2, etc.",

@@ -1,11 +1,13 @@
 import asyncio
 from asyncio import subprocess
+import datetime
 import gc
 import json
 import logging
 import multiprocessing
 import os
 import platform
+import queue
 import time
 from urllib.parse import urlparse
 import webbrowser
@@ -42,31 +44,34 @@ logging.basicConfig(
 cv2.setNumThreads(multiprocessing.cpu_count())
 
 
-
-        
 class CcTvMonitor:
     def __init__(self):
         self.process = None
         self.loadDb()
-        self.regionMode=self.isRegionMode()
+        self.regionMode = self.isRegionMode()
         if self.regionMode:
             self.background_subtractor = cv2.createBackgroundSubtractorMOG2()
             self.k = []
-        
+
         self.params = Parameters()
         self.device = torch.device(0 if torch.cuda.is_available() else 'cpu')
         self.RETRY_LIMIT = 5
         self.RETRY_DELAY = 3
+        self.RECORDMODE = self.checkrecordMode()
+        if self.RECORDMODE:
+            self.video_queue = queue.Queue()
+            self.yolo_thread = threading.Thread(target=self.yolo_worker, daemon=True)
+            self.yolo_thread.start()
         self.lock = threading.Lock()
         self.model_car, self.model_plate, self.model_char = self.loadModels()
-        self.quality, self.charConfidence, self.plateConfidence,self.port = self.loadConfig()[0:4]
+        self.quality, self.charConfidence, self.plateConfidence, self.port = self.loadConfig()[
+            0:4]
         self.loadWebBrowser(self.port)
-        
-    
-    def loadWebBrowser(self,port):
+
+    def loadWebBrowser(self, port):
         webbrowser.open(f'http://127.0.0.1:{port}/web/app')
-    
-    def loadRegions(self,soruce,file_path='regions.json'):
+
+    def loadRegions(self, soruce, file_path='regions.json'):
         url = urlparse(soruce).hostname
         """Load regions from JSON file"""
         try:
@@ -81,14 +86,14 @@ class CcTvMonitor:
         except Exception as e:
             print(f"Error loading regions: {e}")
             return {}
-    
+
     def isRegionMode(self) -> bool:
         if os.path.isfile('regions.json'):
             return True
-        else : return False
+        else:
+            return False
 
     def loadDb(self):
-        
 
         try:
 
@@ -98,56 +103,65 @@ class CcTvMonitor:
         except Exception as e:
             logging.info(e)
 
+    def checkrecordMode(self):
+        dirctory='.'
+        for filename in os.listdir(dirctory):
+            filepath=os.path.join(dirctory,filename)
+            if os.path.isfile(filepath):
+                if filename=='recordingmode':
+                    return True
+        return False
     def chechOnnx(self):
         directory = 'model'
         for filename in os.listdir(directory):
-    # Get full file path
+            # Get full file path
             filepath = os.path.join(directory, filename)
-            
+
             # Check if it's a file (not a directory)
             if os.path.isfile(filepath):
                 # Check if filename is exactly "onnx"
                 if filename == "onnx":
                     logging.info(f"Found the 'onnx' file!")
-                    
+
                     # Read and process the onnx file
                     return True
+
     def chechOpenvino(self):
         directory = 'model'
         for filename in os.listdir(directory):
-    # Get full file path
+            # Get full file path
             filepath = os.path.join(directory, filename)
-            
+
             # Check if it's a file (not a directory)
             if os.path.isfile(filepath):
                 # Check if filename is exactly "openvino"
                 if filename == "openvino":
                     logging.info(f"Found the 'openvino' file!")
-                    
+
                     # Read and process the onnx file
                     return True
 
         return False
+
     def loadModels(self):
-        fileEx='onnx' if self.chechOnnx() else 'pt'
+        fileEx = 'onnx' if self.chechOnnx() else 'pt'
         logging.info("Loading YOLO models...")
-        if self.chechOpenvino() and self.device.type =='cpu':
+        if self.chechOpenvino() and self.device.type == 'cpu':
             logging.info("Loading openvino")
             model_char = torch.hub.load(
-            'yolov5', 'custom', f'model/CharsYolo_openvino_model', source='local', device=self.device, force_reload=True)
+                'yolov5', 'custom', f'model/CharsYolo_openvino_model', source='local', device=self.device, force_reload=True)
             model_plate = torch.hub.load(
-            'yolov5', 'custom', f'model/plateYolo_openvino_model', source='local', device=self.device, force_reload=True)
-            model_car = YOLO(f'model/yolo11n_openvino_model',task='detect')
-            
-        
+                'yolov5', 'custom', f'model/plateYolo_openvino_model', source='local', device=self.device, force_reload=True)
+            model_car = YOLO(f'model/yolo11n_openvino_model', task='detect')
+
         else:
-            
+
             logging.info("Loading onnx/pt")
             model_char = torch.hub.load(
                 'yolov5', 'custom', f'model/CharsYolo.{fileEx}', source='local', device=self.device, force_reload=True)
             model_plate = torch.hub.load(
                 'yolov5', 'custom', f'model/plateYolo.{fileEx}', source='local', device=self.device, force_reload=True)
-            model_car = YOLO(f'model/yolo11n.{fileEx}',task='detect')
+            model_car = YOLO(f'model/yolo11n.{fileEx}', task='detect')
             print(model_car.names)
         logging.info("Models loaded successfully")
         with self.lock:
@@ -175,7 +189,7 @@ class CcTvMonitor:
         self.process.kill()
         self.process.wait(1)
         # if self.process.returncode is not None:
-            
+
         #    self.process.kill()
         #    self.process.wait(1)
         # # self.process.terminate()
@@ -184,6 +198,7 @@ class CcTvMonitor:
 
         # Use os._exit instead of sys.exit for more forceful termination
         os._exit(0)
+
     def draw_regions_on_frame(self, frame, regions):
         """Draw region boundaries on frame"""
         overlay = frame.copy()
@@ -230,6 +245,7 @@ class CcTvMonitor:
                 #             cv2.FONT_HERSHEY_SIMPLEX, 0.5, color, 1)
 
         return overlay
+
     def onDisplay(self, region, frame):
         """Display region names on frame"""
         if not region:  # More pythonic than len(region) == 0
@@ -245,6 +261,7 @@ class CcTvMonitor:
                 y_pos = y_offset + (i * line_height)
                 cv2.putText(frame, reg['name'], (10, y_pos),
                             cv2.FONT_HERSHEY_COMPLEX_SMALL, 1, (255, 255, 255))
+
     def get_detection_region(self, detection_box, region_masks):
 
         cx = int((detection_box[0] + detection_box[2]) / 2)
@@ -254,6 +271,7 @@ class CcTvMonitor:
             if cy < mask.shape[0] and cx < mask.shape[1] and mask[cy, cx] > 0:
                 return region_name  # First match wins
         return None
+
     def generate_region_masks(self, frame_shape, regions):
         """Create binary masks for each region (once)"""
         h, w, _ = frame_shape
@@ -280,6 +298,7 @@ class CcTvMonitor:
 
             masks[region_name] = mask
         return masks
+
     def correct_perspective(self, image, scale_factor):
         try:
             # Preprocessing
@@ -391,7 +410,7 @@ class CcTvMonitor:
                               * 100) if confidences else 0
         return ''.join(chars), char_conf_avg
 
-    async def process_frame(self, frame, path,regions):
+    async def process_frame(self, frame, path, regions):
 
         try:
             # Create a lower-resolution copy for detection
@@ -412,8 +431,7 @@ class CcTvMonitor:
                     frame, frame, mask=combined_mask)
                 self.k.clear()
                 current_regions = []
-            
-            
+
             # Detect vehicles in low-res
             car_res = self.model_car(
                 masked_frame if self.regionMode else frame, device=self.device, classes=[2, 5, 7])
@@ -430,7 +448,7 @@ class CcTvMonitor:
                                 current_regions.append(region_data)
                     else:
                         region_data = None
-                        
+
                     # Scale back to original resolution
                     # x1 = int(x1 * scale_x)
                     # y1 = int(y1 * scale_y)
@@ -439,7 +457,7 @@ class CcTvMonitor:
 
                     cv2.rectangle(frame, (x1, y1), (x2, y2), (255, 0, 0), 2)
                     cropped_car = masked_frame[y1:y2,
-                                              x1:x2] if self.regionMode else frame[y1:y2, x1:x2]
+                                               x1:x2] if self.regionMode else frame[y1:y2, x1:x2]
 
                     plate_results = self.model_plate(
                         cropped_car).pandas().xyxy[0]
@@ -478,21 +496,19 @@ class CcTvMonitor:
                                 if char_conf_avg >= confidence and len(plate_text) >= 8:
                                     cv2.putText(cropped_car, f"Plate: {plate_text}", (x_min, y_min - 10),
                                                 cv2.FONT_HERSHEY_SIMPLEX, 0.7, (0, 255, 128), 2, cv2.LINE_AA)
-                                    
-                                 
+
                                     db_entries_time(
-                                            number=plate_text,
-                                            charConfAvg=char_conf_avg,
-                                            plateConfAvg=plate_conf,
-                                            croppedPlate=cropped_plate,
-                                            status="Active",
-                                            frame=frame,
-                                            isarvand='notarvand',
-                                            rtpath=path,
-                                            quality=self.quality
-                                        )
+                                        number=plate_text,
+                                        charConfAvg=char_conf_avg,
+                                        plateConfAvg=plate_conf,
+                                        croppedPlate=cropped_plate,
+                                        status="Active",
+                                        frame=frame,
+                                        isarvand='notarvand',
+                                        rtpath=path,
+                                        quality=self.quality
+                                    )
                                     break
-                       
 
                                 else:
                                     deskewed_plate, (newx1, newy1, newx2, newy2) = self.correct_perspective(
@@ -527,7 +543,7 @@ class CcTvMonitor:
                                             if len(plate_text_arvnad) >= 5 and char_conf_arvnad >= confidence - 3:
                                                 cv2.putText(cropped_car, f"Plate: {plate_text_arvnad}", (x_min, y_min - 10),
                                                             cv2.FONT_HERSHEY_SIMPLEX, 0.7, (0, 255, 128), 2, cv2.LINE_AA)
-                                                
+
                                                 db_entries_time(
                                                     number=plate_text_arvnad,
                                                     charConfAvg=char_conf_arvnad,
@@ -539,7 +555,7 @@ class CcTvMonitor:
                                                     rtpath=path,
                                                     quality=self.quality
                                                 )
-            
+
             if self.regionMode:
                 self.k = current_regions
                 self.onDisplay(self.k, frame)
@@ -575,12 +591,12 @@ class CcTvMonitor:
                 self.k = []
         else:
             regions = None
+
         def open_capture(source):
             cap = cv2.VideoCapture(source)
             return cap if cap.isOpened() else None
 
         retries = 0
-        tryconnection = 0
         cap = open_capture(source)
 
         while cap is None and retries < self.RETRY_LIMIT:
@@ -610,7 +626,7 @@ class CcTvMonitor:
                     self.realseFreshest(fresh, cap)
                     break
                 success, frame = fresh.read()
-          
+
                 if not success:
 
                     # Generate blank frame if we can't read from camera
@@ -618,8 +634,8 @@ class CcTvMonitor:
                     cv2.putText(frame, "No signal", (220, 240),
                                 cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 0, 255), 2)
                 else:
-                    
-                    frame = await self.process_frame(frame, f'/rt{camera_idx}',regions)
+
+                    frame = await self.process_frame(frame, f'/rt{camera_idx}', regions)
 
                 # Encode and yield the frame
                 _, buffer = cv2.imencode('.jpg', frame)
@@ -631,6 +647,281 @@ class CcTvMonitor:
             self.graceful_shutdown()
         finally:
 
+            self.realseFreshest(fresh, cap)
+            print("Camera released.")
+
+    def yolo_worker(self):
+        """Background thread that processes videos from the queue"""
+        print("🚀 [YOLO] Worker thread started")
+        while True:
+            try:
+                if self.video_queue is None:
+                    break
+                video_path,path,regions = self.video_queue.get(timeout=1)
+                
+                if video_path is None:  # Poison pill to stop thread
+                    print("🛑 [YOLO] Worker thread stopping")
+                    break
+                self.yolo_runner(video_path,path,regions)
+                self.video_queue.task_done()
+            except queue.Empty:
+                continue
+    def yolo_runner(self,video_path,path,regions):
+        
+        cap_detect = cv2.VideoCapture(video_path)
+        while cap_detect.isOpened():
+            ret , frame=cap_detect.read()
+            if not ret:
+                break
+            try:
+                if self.regionMode:
+                # frame = cv2.resize(frame, (1920, 1080))
+                    region_masks = self.generate_region_masks(
+                        frame.shape, regions)
+                    combined_mask = np.zeros(
+                        frame.shape[:2], dtype=np.uint8)
+                    for mask in region_masks.values():
+                        combined_mask = cv2.bitwise_or(combined_mask, mask)
+                    masked_frame = cv2.bitwise_and(
+                        frame, frame, mask=combined_mask)
+                    self.k.clear()
+                    current_regions = []
+                # Detect vehicles in low-res
+                car_res = self.model_car(
+                    frame, device=self.device, classes=[2, 5, 7])
+
+                if len(car_res[0]) > 0:
+                    for box in car_res[0].boxes:
+                        x1, y1, x2, y2 = map(int, box.xyxy[0][:4])
+                        if self.regionMode:
+                            region_name = self.get_detection_region(
+                                (x1, y1, x2, y2), region_masks)
+                            if region_name and region_name in regions:
+                                region_data = regions[region_name]
+                                if region_data not in current_regions:
+                                    current_regions.append(region_data)
+                        else:
+                            region_data = None
+                        
+
+                        # Scale back to original resolution
+                        # x1 = int(x1 * scale_x)
+                        # y1 = int(y1 * scale_y)
+                        # x2 = int(x2 * scale_x)
+                        # y2 = int(y2 * scale_y)
+
+                        cv2.rectangle(frame, (x1, y1), (x2, y2), (255, 0, 0), 2)
+                        cropped_car = masked_frame[y1:y2,
+                                                x1:x2] if self.regionMode else frame[y1:y2, x1:x2]
+
+                        plate_results = self.model_plate(
+                            cropped_car).pandas().xyxy[0]
+
+                        if not plate_results.empty:
+                            for _, plate in plate_results.iterrows():
+                                plate_conf = int(plate['confidence'] * 100)
+                                if plate_conf >= int(self.plateConfidence*100):
+                                    x_min, y_min, x_max, y_max = (
+                                        int(plate['xmin']), int(plate['ymin']),
+                                        int(plate['xmax']), int(plate['ymax'])
+                                    )
+
+                                    # Safety check to prevent out-of-bounds issues
+                                    if (y_min >= y_max or x_min >= x_max or
+                                        y_min < 0 or x_min < 0 or
+                                        y_max > cropped_car.shape[0] or
+                                            x_max > cropped_car.shape[1]):
+                                        continue
+
+                                    cropped_plate = cropped_car[y_min:y_max,
+                                                                x_min:x_max]
+
+                                    # Skip if the cropped plate is empty
+                                    if cropped_plate.size == 0:
+                                        continue
+
+                                    plate_text, char_conf_avg = self.detect_plate_chars(
+                                        cropped_plate)
+
+                                    cv2.rectangle(
+                                        cropped_car, (x_min, y_min), (x_max, y_max), (0, 0, 255), 2)
+                                    plate_text = plate_text.replace('Taxi', 'x')
+                                    confidence = float(self.charConfidence) * 100
+
+                                    if char_conf_avg >= confidence and len(plate_text) >= 8:
+                                        cv2.putText(cropped_car, f"Plate: {plate_text}", (x_min, y_min - 10),
+                                                    cv2.FONT_HERSHEY_SIMPLEX, 0.7, (0, 255, 128), 2, cv2.LINE_AA)
+
+                                        db_entries_time(
+                                            number=plate_text,
+                                            charConfAvg=char_conf_avg,
+                                            plateConfAvg=plate_conf,
+                                            croppedPlate=cropped_plate,
+                                            status="Active",
+                                            frame=frame,
+                                            isarvand='notarvand',
+                                            rtpath=path,
+                                            quality=self.quality
+                                        )
+                                        break
+
+                                    else:
+                                        deskewed_plate, (newx1, newy1, newx2, newy2) = self.correct_perspective(
+                                            cropped_plate, 1.0)
+                                        if deskewed_plate.size == 0:
+                                            continue
+
+                                        newx1 = max(0, newx1)
+                                        newy1 = max(0, newy1)
+                                        newx2 = min(deskewed_plate.shape[1], newx2)
+                                        newy2 = min(deskewed_plate.shape[0], newy2)
+
+                                        if (newx2 <= newx1) or (newy2 <= newy1):
+                                            newx1, newy1 = 0, 0
+                                            newx2, newy2 = deskewed_plate.shape[1], deskewed_plate.shape[0]
+
+                                        d = newy2 - newy1
+                                        tempyMax = newy1 + int(d / 2)
+
+                                        # Safety check before cropping
+                                        if (tempyMax > newy1 and newx2 > newx1 and
+                                            newy1 >= 0 and newx1 >= 0 and
+                                            tempyMax <= deskewed_plate.shape[0] and
+                                                newx2 <= deskewed_plate.shape[1]):
+
+                                            cropped_plate_nesf = deskewed_plate[newy1:tempyMax, newx1:newx2]
+
+                                            if cropped_plate_nesf.size > 0:
+                                                plate_text_arvnad, char_conf_arvnad = self.detect_plate_chars(
+                                                    cropped_plate_nesf)
+
+                                                if len(plate_text_arvnad) >= 5 and char_conf_arvnad >= confidence - 3:
+                                                    cv2.putText(cropped_car, f"Plate: {plate_text_arvnad}", (x_min, y_min - 10),
+                                                                cv2.FONT_HERSHEY_SIMPLEX, 0.7, (0, 255, 128), 2, cv2.LINE_AA)
+
+                                                    db_entries_time(
+                                                        number=plate_text_arvnad,
+                                                        charConfAvg=char_conf_arvnad,
+                                                        plateConfAvg=plate_conf,
+                                                        croppedPlate=cropped_plate,
+                                                        status="Active",
+                                                        frame=frame,
+                                                        isarvand='arvand',
+                                                        rtpath=path,
+                                                        quality=self.quality
+                                                    )
+                if self.regionMode:
+                    self.k = current_regions
+                    self.onDisplay(self.k, frame)
+        
+            except Exception as ex:
+                print(ex)
+  
+        cap_detect.release()
+    
+    # Delete the original video after processing
+        try:
+            os.remove(video_path)
+            print(f"🗑️ Deleted original: {os.path.basename(video_path)}")
+        except Exception as e:
+            print(f"⚠️ Failed to delete {video_path}: {e}")        
+        
+    def create_new_video_writer(self,fps,frame_width,frame_height):
+        fourcc = cv2.VideoWriter_fourcc(*"XVID")
+        """Create a new video writer with timestamp filename"""
+        timestamp = datetime.datetime.now().strftime("%Y%m%d_%H%M%S")
+        filename = os.path.join('recording', f'capture_{timestamp}.avi')
+        return cv2.VideoWriter(filename, fourcc, fps, (frame_width, frame_height)), filename
+    async def recording_frames(self, camera_idx, source, request: Request):
+        if not self.isConnectionAlive(source):
+            return
+        """Generate frames from a specific camera feed"""
+
+        check_interval = 60  # seconds
+        last_check = 0
+
+        # Create new video writer for this segment
+
+        if self.regionMode:
+            regions = self.loadRegions(soruce=source)
+            if not hasattr(self, 'k'):
+                self.k = []
+        else:
+            regions = None
+
+        def open_capture(source):
+            cap = cv2.VideoCapture(source)
+            return cap if cap.isOpened() else None
+
+        retries = 0
+        cap = open_capture(source)
+        os.makedirs('recording', exist_ok=True)
+        # os.makedirs('detection', exist_ok=True)
+        frame_width = int(cap.get(cv2.CAP_PROP_FRAME_WIDTH))
+        frame_height = int(cap.get(cv2.CAP_PROP_FRAME_HEIGHT))
+        fps = cap.get(cv2.CAP_PROP_FPS)
+
+        while cap is None and retries < self.RETRY_LIMIT:
+            print(
+                f"[Camera {camera_idx}] Failed to open source. Retrying ({retries + 1}/{self.RETRY_LIMIT})...")
+            await asyncio.sleep(self.RETRY_DELAY)
+            retries += 1
+            cap = open_capture(source)
+
+        if cap is None:
+            print(
+                f"[Camera {camera_idx}] Could not open source after {self.RETRY_LIMIT} retries.")
+            return
+        fresh = FreshestFrame(cap)
+
+        try:
+            while fresh.is_alive():
+                
+                out, video_filename = self.create_new_video_writer(fps=fps,frame_height=frame_height,frame_width=frame_width)
+                start_time = time.time()
+                now = time.time()
+                if now - last_check >= check_interval:
+
+                    if not self.isConnectionAlive(source):
+                        break
+                    last_check = now
+
+                if await request.is_disconnected():
+                    print("Client disconnected, releasing camera.")
+                    out.release()
+                    self.realseFreshest(fresh, cap)
+                    break
+                while (time.time() - start_time) < 60:
+                    success, frame = fresh.read()
+
+                    if not success:
+                        break
+                    out.write(frame)  
+                    cv2.putText(frame,"recording",(10,30),cv2.FONT_HERSHEY_PLAIN,1,(255,255,255))
+                    if self.isRegionMode:
+                        frame = self.draw_regions_on_frame(
+                    frame, regions)
+                        
+
+                    # Encode and yield the frame
+                    _, buffer = cv2.imencode('.jpg', frame)
+                    frame_bytes = buffer.tobytes()
+                    yield (b'--frame\r\n'
+                           b'Content-Type: image/jpeg\r\n\r\n' + frame_bytes + b'\r\n')
+                out.release()
+                self.video_queue.put((video_filename,f'/rt{camera_idx}',regions))
+        except Exception as e:
+            logging.info(e)
+            out.release()
+            self.graceful_shutdown()
+            
+
+        finally:
+            self.video_queue.join()
+    # Stop YOLO worker thread
+            self.video_queue.put(None)
+            self.yolo_thread.join(timeout=5)
+            out.release()
             self.realseFreshest(fresh, cap)
             print("Camera released.")
 
@@ -682,6 +973,7 @@ class CcTvMonitor:
                 frame_bytes = buffer.tobytes()
                 yield (b'--frame\r\n'
                        b'Content-Type: image/jpeg\r\n\r\n' + frame_bytes + b'\r\n')
+            
 
         except Exception as e:
             print(e)
@@ -755,3 +1047,6 @@ def emailHandler(email, plateNumber, edate, etime):
     finally:
         server.quit()  # Close the connection
 
+
+
+#TODO:recive RecordMode
