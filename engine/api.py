@@ -69,11 +69,15 @@ app.add_middleware(
 
 @app.get("/video_feed/{camera_id}")
 async def video_feed(camera_id: str, request: Request, source: str = Query(...)):
-
+    
     if source == '0':
         source = int(source)
     """Stream video from a specific camera"""
     
+    if cctv.RECORDMODE:
+        print("RECORD MODE")
+    else:
+        print("NORMAL MODE")
     try:
         # Extract camera index from ID (rt1 -> 1)
         camera_idx = int(camera_id[2:])

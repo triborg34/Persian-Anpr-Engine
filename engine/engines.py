@@ -104,13 +104,10 @@ class CcTvMonitor:
             logging.info(e)
 
     def checkrecordMode(self):
-        dirctory='.'
-        for filename in os.listdir(dirctory):
-            filepath=os.path.join(dirctory,filename)
-            if os.path.isfile(filepath):
-                if filename=='recordingmode':
-                    return True
-        return False
+        if os.path.isfile('recordingmode'):
+            return True
+        else:
+            return False
     def chechOnnx(self):
         directory = 'model'
         for filename in os.listdir(directory):
@@ -162,7 +159,6 @@ class CcTvMonitor:
             model_plate = torch.hub.load(
                 'yolov5', 'custom', f'model/plateYolo.{fileEx}', source='local', device=self.device, force_reload=True)
             model_car = YOLO(f'model/yolo11n.{fileEx}', task='detect')
-            print(model_car.names)
         logging.info("Models loaded successfully")
         with self.lock:
             return model_car, model_plate, model_char
@@ -657,7 +653,12 @@ class CcTvMonitor:
             try:
                 if self.video_queue is None:
                     break
-                video_path,path,regions = self.video_queue.get(timeout=1)
+                item = self.video_queue.get(timeout=1)
+                if item is None:  # Poison pill to stop thread
+                    print("🛑 [YOLO] Worker thread stopping")
+                    self.video_queue.task_done()  # Don't forget to mark as done
+                    break
+                video_path,path,regions = item 
                 
                 if video_path is None:  # Poison pill to stop thread
                     print("🛑 [YOLO] Worker thread stopping")
@@ -826,11 +827,11 @@ class CcTvMonitor:
         except Exception as e:
             print(f"⚠️ Failed to delete {video_path}: {e}")        
         
-    def create_new_video_writer(self,fps,frame_width,frame_height):
+    def create_new_video_writer(self,fps,frame_width,frame_height,cameraidx):
         fourcc = cv2.VideoWriter_fourcc(*"XVID")
         """Create a new video writer with timestamp filename"""
         timestamp = datetime.datetime.now().strftime("%Y%m%d_%H%M%S")
-        filename = os.path.join('recording', f'capture_{timestamp}.avi')
+        filename = os.path.join('recording', f'capture{cameraidx}_{timestamp}.avi')
         return cv2.VideoWriter(filename, fourcc, fps, (frame_width, frame_height)), filename
     async def recording_frames(self, camera_idx, source, request: Request):
         if not self.isConnectionAlive(source):
@@ -877,7 +878,7 @@ class CcTvMonitor:
         try:
             while fresh.is_alive():
                 
-                out, video_filename = self.create_new_video_writer(fps=fps,frame_height=frame_height,frame_width=frame_width)
+                out, video_filename = self.create_new_video_writer(fps=fps,frame_height=frame_height,frame_width=frame_width,cameraidx=camera_idx)
                 start_time = time.time()
                 now = time.time()
                 if now - last_check >= check_interval:
@@ -898,9 +899,12 @@ class CcTvMonitor:
                         break
                     out.write(frame)  
                     cv2.putText(frame,"recording",(10,30),cv2.FONT_HERSHEY_PLAIN,1,(255,255,255))
-                    if self.isRegionMode:
+                    if self.regionMode:
+                
                         frame = self.draw_regions_on_frame(
-                    frame, regions)
+                        frame, regions)
+                
+                        
                         
 
                     # Encode and yield the frame

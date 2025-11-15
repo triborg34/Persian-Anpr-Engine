@@ -11030,3 +11030,571 @@ FileNotFoundError: [WinError 3] The system cannot find the path specified: ''
 [2025-11-12 11:24:50,520] [INFO] 33q9g1x74wo75r8
 [2025-11-12 11:24:56,769] [INFO] 4xsf67y29kpavon
 [2025-11-12 11:24:56,872] [INFO] ify0c4w3v3a854r
+[2025-11-12 11:25:44,846] [INFO] 0mw326zr8f719uq
+[2025-11-12 11:25:48,500] [INFO] i2397820tqhx081
+[2025-11-12 11:26:16,026] [INFO] v996q0687p4n31u
+[2025-11-12 11:26:16,120] [INFO] 941ew4t6o42izm4
+[2025-11-12 11:26:21,171] [INFO] f7g8g46250norlk
+[2025-11-12 11:27:38,315] [INFO] w8nl9ay19751eov
+[2025-11-12 11:27:38,404] [INFO] 3051225yf844po6
+[2025-11-12 11:27:38,640] [INFO] 6ljh19w8z856hc8
+[2025-11-12 11:27:47,432] [INFO] m4un7e37oj9e73o
+[2025-11-12 11:27:47,844] [INFO] r9h86h9h1k5qj12
+[2025-11-12 11:27:57,766] [INFO] 1j363d9xp15to0m
+[2025-11-12 11:28:17,462] [INFO] 4qtvu27livt433u
+[2025-11-12 11:28:19,596] [INFO] k102kou8ro99ynr
+[2025-11-12 11:28:45,139] [INFO] ef5an0397286q5y
+[2025-11-12 11:28:45,224] [INFO] ek7im8xc6y4lu6c
+[2025-11-12 11:28:45,389] [INFO] ct96851ohqr043f
+[2025-11-12 11:28:46,035] [INFO] 5jy2bqxa526n8m8
+[2025-11-12 11:28:55,381] [INFO] u5677609ctrio6v
+[2025-11-12 11:30:17,516] [INFO] d55880361hiae56
+[2025-11-12 11:30:37,691] [INFO] 869i6f8v8s5948l
+[2025-11-12 11:30:52,277] [INFO] 2u7f0vl646hq48y
+[2025-11-12 11:31:01,122] [INFO] jm1600n46irlc36
+[2025-11-12 11:32:01,588] [INFO] Shutting down
+[2025-11-12 11:32:01,693] [INFO] Waiting for application shutdown.
+[2025-11-12 11:32:01,819] [INFO] Cleanup complete. Shutting down.
+[2025-11-12 11:34:58,109] [DEBUG] Using proactor: IocpProactor
+[2025-11-12 11:34:58,141] [INFO] Started server process [50024]
+[2025-11-12 11:34:58,141] [INFO] Waiting for application startup.
+[2025-11-12 11:34:58,145] [INFO] PocketBase stater 33184
+[2025-11-12 11:34:58,159] [INFO] Found the 'onnx' file!
+[2025-11-12 11:34:58,160] [INFO] Loading YOLO models...
+[2025-11-12 11:34:58,160] [INFO] Found the 'openvino' file!
+[2025-11-12 11:34:58,160] [INFO] Loading onnx/pt
+[2025-11-12 11:34:59,650] [DEBUG] Loaded backend Agg version v2.2.
+[2025-11-12 11:35:00,110] [INFO] Models loaded successfully
+[2025-11-12 11:35:00,182] [INFO] Application startup complete.
+[2025-11-12 11:35:00,182] [INFO] Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+[2025-11-12 11:35:00,233] [INFO] 127.0.0.1:1333 - "GET /web/app HTTP/1.1" 307
+[2025-11-12 11:35:02,215] [INFO] 127.0.0.1:1333 - "GET /web/app/flutter_service_worker.js?v=402086266 HTTP/1.1" 304
+[2025-11-12 11:35:05,652] [INFO] 127.0.0.1:1333 - "GET /video_feed/rt1?source=rtsp://admin:admin@192.168.1.89:554/mainstream HTTP/1.1" 200
+[2025-11-12 11:36:21,011] [INFO] r91sf130a97fmey
+[2025-11-12 11:37:30,219] [INFO] i365fjs27f71h53
+[2025-11-12 11:37:40,624] [INFO] 6339981o09y0mm3
+[2025-11-12 11:37:42,448] [INFO] n6y59m1370vdhp8
+[2025-11-12 11:37:43,833] [INFO] h7nf8xp71062fsu
+[2025-11-12 11:39:50,017] [INFO] Shutting down
+[2025-11-12 11:39:50,123] [INFO] Waiting for application shutdown.
+[2025-11-12 11:39:50,245] [INFO] Cleanup complete. Shutting down.
+[2025-11-12 11:51:02,948] [DEBUG] Using proactor: IocpProactor
+[2025-11-12 11:51:03,004] [INFO] Started server process [2452]
+[2025-11-12 11:51:03,004] [INFO] Waiting for application startup.
+[2025-11-12 11:51:03,008] [INFO] PocketBase stater 51712
+[2025-11-12 11:51:03,023] [INFO] Found the 'onnx' file!
+[2025-11-12 11:51:03,024] [INFO] Loading YOLO models...
+[2025-11-12 11:51:03,024] [INFO] Found the 'openvino' file!
+[2025-11-12 11:51:03,024] [INFO] Loading onnx/pt
+[2025-11-12 11:51:07,848] [DEBUG] Loaded backend Agg version v2.2.
+[2025-11-12 11:51:08,776] [INFO] Models loaded successfully
+[2025-11-12 11:51:08,832] [INFO] Application startup complete.
+[2025-11-12 11:51:08,833] [ERROR] [Errno 10048] error while attempting to bind on address ('0.0.0.0', 8000): only one usage of each socket address (protocol/network address/port) is normally permitted
+[2025-11-12 11:51:08,833] [INFO] Waiting for application shutdown.
+[2025-11-12 11:51:08,986] [INFO] Cleanup complete. Shutting down.
+[2025-11-12 11:51:52,342] [DEBUG] Using proactor: IocpProactor
+[2025-11-12 11:51:52,370] [INFO] Started server process [48196]
+[2025-11-12 11:51:52,370] [INFO] Waiting for application startup.
+[2025-11-12 11:51:52,374] [INFO] PocketBase stater 53572
+[2025-11-12 11:51:52,388] [INFO] Found the 'onnx' file!
+[2025-11-12 11:51:52,388] [INFO] Loading YOLO models...
+[2025-11-12 11:51:52,389] [INFO] Found the 'openvino' file!
+[2025-11-12 11:51:52,389] [INFO] Loading onnx/pt
+[2025-11-12 11:51:53,644] [DEBUG] Loaded backend Agg version v2.2.
+[2025-11-12 11:51:54,054] [INFO] Models loaded successfully
+[2025-11-12 11:51:54,109] [INFO] Application startup complete.
+[2025-11-12 11:51:54,109] [INFO] Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+[2025-11-12 11:51:54,171] [INFO] 127.0.0.1:7858 - "GET /web/app HTTP/1.1" 307
+[2025-11-12 11:51:56,097] [INFO] 127.0.0.1:7858 - "GET /web/app/flutter_service_worker.js?v=4090166194 HTTP/1.1" 304
+[2025-11-12 11:52:19,219] [INFO] 127.0.0.1:1587 - "GET /video_feed/rt1?source=rtsp://admin:admin@192.168.1.89:554/mainstream HTTP/1.1" 200
+[2025-11-12 11:53:34,791] [INFO] p3fq7d749asd15i
+[2025-11-12 11:54:20,666] [INFO] Shutting down
+[2025-11-12 11:54:20,774] [INFO] Waiting for application shutdown.
+[2025-11-12 11:54:20,899] [INFO] Cleanup complete. Shutting down.
+[2025-11-12 12:03:33,363] [DEBUG] Using proactor: IocpProactor
+[2025-11-12 12:03:33,403] [INFO] Started server process [55216]
+[2025-11-12 12:03:33,403] [INFO] Waiting for application startup.
+[2025-11-12 12:03:33,407] [INFO] PocketBase stater 55496
+[2025-11-12 12:03:33,423] [INFO] Found the 'onnx' file!
+[2025-11-12 12:03:33,423] [INFO] Loading YOLO models...
+[2025-11-12 12:03:33,424] [INFO] Found the 'openvino' file!
+[2025-11-12 12:03:33,424] [INFO] Loading onnx/pt
+[2025-11-12 12:03:37,897] [DEBUG] Loaded backend Agg version v2.2.
+[2025-11-12 12:03:38,770] [INFO] Models loaded successfully
+[2025-11-12 12:03:38,828] [INFO] Application startup complete.
+[2025-11-12 12:03:38,829] [INFO] Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+[2025-11-12 12:03:38,893] [INFO] 127.0.0.1:11175 - "GET /web/app HTTP/1.1" 307
+[2025-11-12 12:03:40,870] [INFO] 127.0.0.1:11175 - "GET /web/app/flutter_service_worker.js?v=4090166194 HTTP/1.1" 304
+[2025-11-12 12:03:43,364] [INFO] 127.0.0.1:11175 - "GET /video_feed/rt1?source=rtsp://admin:admin@192.168.1.89:554/mainstream HTTP/1.1" 200
+[2025-11-12 12:04:49,444] [INFO] 2c931t13enoewh8
+[2025-11-12 12:04:50,103] [INFO] 0tin872h5yj9vt7
+[2025-11-12 12:05:47,200] [INFO] Shutting down
+[2025-11-12 12:05:47,306] [INFO] Waiting for application shutdown.
+[2025-11-12 12:05:47,426] [INFO] Cleanup complete. Shutting down.
+[2025-11-12 12:14:35,715] [DEBUG] Using proactor: IocpProactor
+[2025-11-12 12:14:35,771] [INFO] Started server process [55456]
+[2025-11-12 12:14:35,771] [INFO] Waiting for application startup.
+[2025-11-12 12:14:35,774] [INFO] PocketBase stater 58084
+[2025-11-12 12:14:35,789] [INFO] Found the 'onnx' file!
+[2025-11-12 12:14:35,790] [INFO] Loading YOLO models...
+[2025-11-12 12:14:35,790] [INFO] Found the 'openvino' file!
+[2025-11-12 12:14:35,790] [INFO] Loading onnx/pt
+[2025-11-12 12:14:40,772] [DEBUG] Loaded backend Agg version v2.2.
+[2025-11-12 12:14:41,589] [INFO] Models loaded successfully
+[2025-11-12 12:14:41,643] [INFO] Application startup complete.
+[2025-11-12 12:14:41,644] [ERROR] [Errno 10048] error while attempting to bind on address ('0.0.0.0', 8000): only one usage of each socket address (protocol/network address/port) is normally permitted
+[2025-11-12 12:14:41,644] [INFO] Waiting for application shutdown.
+[2025-11-12 12:14:41,808] [INFO] Cleanup complete. Shutting down.
+[2025-11-12 12:14:53,725] [DEBUG] Using proactor: IocpProactor
+[2025-11-12 12:14:53,754] [INFO] Started server process [52104]
+[2025-11-12 12:14:53,754] [INFO] Waiting for application startup.
+[2025-11-12 12:14:53,757] [INFO] PocketBase stater 56208
+[2025-11-12 12:14:53,770] [INFO] Found the 'onnx' file!
+[2025-11-12 12:14:53,770] [INFO] Loading YOLO models...
+[2025-11-12 12:14:53,770] [INFO] Found the 'openvino' file!
+[2025-11-12 12:14:53,770] [INFO] Loading onnx/pt
+[2025-11-12 12:14:55,009] [DEBUG] Loaded backend Agg version v2.2.
+[2025-11-12 12:14:55,341] [INFO] Models loaded successfully
+[2025-11-12 12:14:55,396] [INFO] Application startup complete.
+[2025-11-12 12:14:55,397] [INFO] Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+[2025-11-12 12:14:55,458] [INFO] 127.0.0.1:12850 - "GET /web/app HTTP/1.1" 307
+[2025-11-12 12:16:27,832] [DEBUG] Using proactor: IocpProactor
+[2025-11-12 12:16:27,887] [INFO] Started server process [32264]
+[2025-11-12 12:16:27,887] [INFO] Waiting for application startup.
+[2025-11-12 12:16:27,953] [INFO] PocketBase stater 32816
+[2025-11-12 12:16:28,002] [INFO] Found the 'onnx' file!
+[2025-11-12 12:16:28,002] [INFO] Loading YOLO models...
+[2025-11-12 12:16:28,002] [INFO] Found the 'openvino' file!
+[2025-11-12 12:16:28,002] [INFO] Loading onnx/pt
+[2025-11-12 12:16:33,897] [DEBUG] Loaded backend Agg version v2.2.
+[2025-11-12 12:16:34,739] [INFO] Models loaded successfully
+[2025-11-12 12:16:34,799] [INFO] Application startup complete.
+[2025-11-12 12:16:34,799] [INFO] Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+[2025-11-12 12:16:35,223] [INFO] 127.0.0.1:13543 - "GET /web/app HTTP/1.1" 307
+[2025-11-12 12:16:38,164] [INFO] 127.0.0.1:12992 - "GET /web/app/flutter_service_worker.js?v=4090166194 HTTP/1.1" 304
+[2025-11-12 12:16:56,119] [INFO] 127.0.0.1:2406 - "GET /video_feed/rt1?source=rtsp://admin:admin@192.168.1.89:554/mainstream HTTP/1.1" 200
+[2025-11-12 12:16:56,634] [INFO] 'NoneType' object has no attribute 'items'
+[2025-11-12 12:16:56,776] [INFO] Cleanup complete. Shutting down.
+[2025-11-12 12:17:20,281] [DEBUG] Using proactor: IocpProactor
+[2025-11-12 12:17:20,334] [INFO] Started server process [33400]
+[2025-11-12 12:17:20,335] [INFO] Waiting for application startup.
+[2025-11-12 12:17:20,338] [INFO] PocketBase stater 13396
+[2025-11-12 12:17:20,359] [INFO] Found the 'onnx' file!
+[2025-11-12 12:17:20,359] [INFO] Loading YOLO models...
+[2025-11-12 12:17:20,359] [INFO] Found the 'openvino' file!
+[2025-11-12 12:17:20,359] [INFO] Loading onnx/pt
+[2025-11-12 12:17:26,014] [DEBUG] Loaded backend Agg version v2.2.
+[2025-11-12 12:17:26,571] [INFO] Models loaded successfully
+[2025-11-12 12:17:26,636] [INFO] Application startup complete.
+[2025-11-12 12:17:26,637] [INFO] Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+[2025-11-12 12:17:26,692] [INFO] 127.0.0.1:6031 - "GET /web/app HTTP/1.1" 307
+[2025-11-12 12:17:28,693] [INFO] 127.0.0.1:6031 - "GET /web/app/flutter_service_worker.js?v=4090166194 HTTP/1.1" 304
+[2025-11-12 12:17:32,681] [INFO] 127.0.0.1:6031 - "GET /video_feed/rt1?source=rtsp://admin:admin@192.168.1.89:554/mainstream HTTP/1.1" 200
+[2025-11-12 12:17:33,458] [INFO] 'NoneType' object has no attribute 'items'
+[2025-11-12 12:17:33,604] [INFO] Cleanup complete. Shutting down.
+[2025-11-12 12:19:27,929] [DEBUG] Using proactor: IocpProactor
+[2025-11-12 12:19:27,957] [INFO] Started server process [11348]
+[2025-11-12 12:19:27,957] [INFO] Waiting for application startup.
+[2025-11-12 12:19:27,960] [INFO] PocketBase stater 1372
+[2025-11-12 12:19:27,978] [INFO] Found the 'onnx' file!
+[2025-11-12 12:19:27,978] [INFO] Loading YOLO models...
+[2025-11-12 12:19:27,978] [INFO] Found the 'openvino' file!
+[2025-11-12 12:19:27,978] [INFO] Loading onnx/pt
+[2025-11-12 12:19:29,230] [DEBUG] Loaded backend Agg version v2.2.
+[2025-11-12 12:19:29,579] [INFO] Models loaded successfully
+[2025-11-12 12:19:29,637] [INFO] Application startup complete.
+[2025-11-12 12:19:29,638] [INFO] Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+[2025-11-12 12:19:29,701] [INFO] 127.0.0.1:6383 - "GET /web/app HTTP/1.1" 307
+[2025-11-12 12:19:31,498] [INFO] 127.0.0.1:6383 - "GET /web/app/flutter_service_worker.js?v=4090166194 HTTP/1.1" 304
+[2025-11-12 12:19:32,723] [INFO] 127.0.0.1:6383 - "GET /video_feed/rt1?source=rtsp://admin:admin@192.168.1.89:554/mainstream HTTP/1.1" 200
+[2025-11-12 12:21:27,256] [INFO] Shutting down
+[2025-11-12 12:21:27,368] [INFO] Waiting for application shutdown.
+[2025-11-12 12:21:27,501] [INFO] Cleanup complete. Shutting down.
+[2025-11-12 12:21:34,933] [DEBUG] Using proactor: IocpProactor
+[2025-11-12 12:21:34,963] [INFO] Started server process [16880]
+[2025-11-12 12:21:34,963] [INFO] Waiting for application startup.
+[2025-11-12 12:21:34,966] [INFO] PocketBase stater 14676
+[2025-11-12 12:21:34,984] [INFO] Found the 'onnx' file!
+[2025-11-12 12:21:34,984] [INFO] Loading YOLO models...
+[2025-11-12 12:21:34,985] [INFO] Found the 'openvino' file!
+[2025-11-12 12:21:34,985] [INFO] Loading onnx/pt
+[2025-11-12 12:21:36,343] [DEBUG] Loaded backend Agg version v2.2.
+[2025-11-12 12:21:36,666] [INFO] Models loaded successfully
+[2025-11-12 12:21:36,721] [INFO] Application startup complete.
+[2025-11-12 12:21:36,721] [INFO] Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+[2025-11-12 12:21:36,779] [INFO] 127.0.0.1:7313 - "GET /web/app HTTP/1.1" 307
+[2025-11-12 12:21:38,752] [INFO] 127.0.0.1:7313 - "GET /web/app/flutter_service_worker.js?v=4090166194 HTTP/1.1" 304
+[2025-11-12 12:21:42,434] [INFO] 127.0.0.1:7313 - "GET /video_feed/rt1?source=rtsp://admin:admin@192.168.1.89:554/mainstream HTTP/1.1" 200
+[2025-11-12 12:21:43,985] [INFO] gr6e6s0yc8t2pu2
+[2025-11-12 12:21:47,318] [INFO] Shutting down
+[2025-11-12 12:21:47,423] [INFO] Waiting for application shutdown.
+[2025-11-12 12:21:47,564] [INFO] Cleanup complete. Shutting down.
+[2025-11-12 12:22:52,570] [DEBUG] Using proactor: IocpProactor
+[2025-11-12 12:22:52,598] [INFO] Started server process [32160]
+[2025-11-12 12:22:52,598] [INFO] Waiting for application startup.
+[2025-11-12 12:22:52,601] [INFO] PocketBase stater 8216
+[2025-11-12 12:22:52,614] [INFO] Found the 'onnx' file!
+[2025-11-12 12:22:52,614] [INFO] Loading YOLO models...
+[2025-11-12 12:22:52,614] [INFO] Found the 'openvino' file!
+[2025-11-12 12:22:52,614] [INFO] Loading onnx/pt
+[2025-11-12 12:22:53,843] [DEBUG] Loaded backend Agg version v2.2.
+[2025-11-12 12:22:54,170] [INFO] Models loaded successfully
+[2025-11-12 12:22:54,223] [INFO] Application startup complete.
+[2025-11-12 12:22:54,223] [INFO] Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+[2025-11-12 12:22:54,277] [INFO] 127.0.0.1:4760 - "GET /web/app HTTP/1.1" 307
+[2025-11-12 12:22:56,285] [INFO] 127.0.0.1:4760 - "GET /web/app/flutter_service_worker.js?v=4090166194 HTTP/1.1" 304
+[2025-11-12 12:22:56,760] [INFO] 127.0.0.1:4760 - "GET /video_feed/rt1?source=rtsp://admin:admin@192.168.1.89:554/mainstream HTTP/1.1" 200
+[2025-11-12 12:22:57,712] [INFO] 'NoneType' object has no attribute 'items'
+[2025-11-12 12:22:57,856] [INFO] Cleanup complete. Shutting down.
+[2025-11-12 12:23:39,067] [DEBUG] Using proactor: IocpProactor
+[2025-11-12 12:23:39,095] [INFO] Started server process [22960]
+[2025-11-12 12:23:39,095] [INFO] Waiting for application startup.
+[2025-11-12 12:23:39,098] [INFO] PocketBase stater 20380
+[2025-11-12 12:23:39,110] [INFO] Found the 'onnx' file!
+[2025-11-12 12:23:39,110] [INFO] Loading YOLO models...
+[2025-11-12 12:23:39,111] [INFO] Found the 'openvino' file!
+[2025-11-12 12:23:39,111] [INFO] Loading onnx/pt
+[2025-11-12 12:23:40,414] [DEBUG] Loaded backend Agg version v2.2.
+[2025-11-12 12:23:40,727] [INFO] Models loaded successfully
+[2025-11-12 12:23:40,785] [INFO] Application startup complete.
+[2025-11-12 12:23:40,785] [INFO] Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+[2025-11-12 12:23:40,839] [INFO] 127.0.0.1:3399 - "GET /web/app HTTP/1.1" 307
+[2025-11-12 12:23:42,848] [INFO] 127.0.0.1:3399 - "GET /web/app/flutter_service_worker.js?v=4090166194 HTTP/1.1" 304
+[2025-11-12 12:23:44,247] [INFO] 127.0.0.1:3399 - "GET /video_feed/rt1?source=rtsp://admin:admin@192.168.1.89:554/mainstream HTTP/1.1" 200
+[2025-11-12 12:23:45,041] [ERROR] Exception in ASGI application
+Traceback (most recent call last):
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\starlette\responses.py", line 259, in __call__
+    await wrap(partial(self.listen_for_disconnect, receive))
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\starlette\responses.py", line 255, in wrap
+    await func()
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\starlette\responses.py", line 232, in listen_for_disconnect
+    message = await receive()
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\uvicorn\protocols\http\h11_impl.py", line 531, in receive
+    await self.message_event.wait()
+  File "C:\Users\Microsoft\AppData\Local\Programs\Python\Python310\lib\asyncio\locks.py", line 214, in wait
+    await fut
+asyncio.exceptions.CancelledError: Cancelled by cancel scope 295a8ebb6a0
+
+During handling of the above exception, another exception occurred:
+
+  + Exception Group Traceback (most recent call last):
+  |   File "D:\Codes\anprv8\mainenv\lib\site-packages\uvicorn\protocols\http\h11_impl.py", line 403, in run_asgi
+  |     result = await app(  # type: ignore[func-returns-value]
+  |   File "D:\Codes\anprv8\mainenv\lib\site-packages\uvicorn\middleware\proxy_headers.py", line 60, in __call__
+  |     return await self.app(scope, receive, send)
+  |   File "D:\Codes\anprv8\mainenv\lib\site-packages\fastapi\applications.py", line 1054, in __call__
+  |     await super().__call__(scope, receive, send)
+  |   File "D:\Codes\anprv8\mainenv\lib\site-packages\starlette\applications.py", line 113, in __call__
+  |     await self.middleware_stack(scope, receive, send)
+  |   File "D:\Codes\anprv8\mainenv\lib\site-packages\starlette\middleware\errors.py", line 187, in __call__
+  |     raise exc
+  |   File "D:\Codes\anprv8\mainenv\lib\site-packages\starlette\middleware\errors.py", line 165, in __call__
+  |     await self.app(scope, receive, _send)
+  |   File "D:\Codes\anprv8\mainenv\lib\site-packages\starlette\middleware\cors.py", line 85, in __call__
+  |     await self.app(scope, receive, send)
+  |   File "D:\Codes\anprv8\mainenv\lib\site-packages\starlette\middleware\exceptions.py", line 62, in __call__
+  |     await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+  |   File "D:\Codes\anprv8\mainenv\lib\site-packages\starlette\_exception_handler.py", line 53, in wrapped_app
+  |     raise exc
+  |   File "D:\Codes\anprv8\mainenv\lib\site-packages\starlette\_exception_handler.py", line 42, in wrapped_app
+  |     await app(scope, receive, sender)
+  |   File "D:\Codes\anprv8\mainenv\lib\site-packages\starlette\routing.py", line 715, in __call__
+  |     await self.middleware_stack(scope, receive, send)
+  |   File "D:\Codes\anprv8\mainenv\lib\site-packages\starlette\routing.py", line 735, in app
+  |     await route.handle(scope, receive, send)
+  |   File "D:\Codes\anprv8\mainenv\lib\site-packages\starlette\routing.py", line 288, in handle
+  |     await self.app(scope, receive, send)
+  |   File "D:\Codes\anprv8\mainenv\lib\site-packages\starlette\routing.py", line 76, in app
+  |     await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+  |   File "D:\Codes\anprv8\mainenv\lib\site-packages\starlette\_exception_handler.py", line 53, in wrapped_app
+  |     raise exc
+  |   File "D:\Codes\anprv8\mainenv\lib\site-packages\starlette\_exception_handler.py", line 42, in wrapped_app
+  |     await app(scope, receive, sender)
+  |   File "D:\Codes\anprv8\mainenv\lib\site-packages\starlette\routing.py", line 74, in app
+  |     await response(scope, receive, send)
+  |   File "D:\Codes\anprv8\mainenv\lib\site-packages\starlette\responses.py", line 252, in __call__
+  |     async with anyio.create_task_group() as task_group:
+  |   File "D:\Codes\anprv8\mainenv\lib\site-packages\anyio\_backends\_asyncio.py", line 767, in __aexit__
+  |     raise BaseExceptionGroup(
+  | exceptiongroup.ExceptionGroup: unhandled errors in a TaskGroup (1 sub-exception)
+  +-+---------------- 1 ----------------
+    | Traceback (most recent call last):
+    |   File "D:\Codes\anprv8\mainenv\lib\site-packages\starlette\responses.py", line 255, in wrap
+    |     await func()
+    |   File "D:\Codes\anprv8\mainenv\lib\site-packages\starlette\responses.py", line 244, in stream_response
+    |     async for chunk in self.body_iterator:
+    |   File "D:\Codes\anprv8\engine\engines.py", line 903, in recording_frames
+    |     frame = self.draw_regions_on_frame(
+    |   File "D:\Codes\anprv8\engine\engines.py", line 202, in draw_regions_on_frame
+    |     for region_name, region_data in regions.items():
+    | AttributeError: 'NoneType' object has no attribute 'items'
+    +------------------------------------
+[2025-11-12 12:24:25,525] [INFO] Shutting down
+[2025-11-12 12:24:25,630] [INFO] Waiting for application shutdown.
+[2025-11-12 12:24:25,766] [INFO] Cleanup complete. Shutting down.
+[2025-11-12 12:24:28,950] [DEBUG] Using proactor: IocpProactor
+[2025-11-12 12:24:28,979] [INFO] Started server process [8656]
+[2025-11-12 12:24:28,979] [INFO] Waiting for application startup.
+[2025-11-12 12:24:28,982] [INFO] PocketBase stater 16868
+[2025-11-12 12:24:29,002] [INFO] Found the 'onnx' file!
+[2025-11-12 12:24:29,002] [INFO] Loading YOLO models...
+[2025-11-12 12:24:29,002] [INFO] Found the 'openvino' file!
+[2025-11-12 12:24:29,002] [INFO] Loading onnx/pt
+[2025-11-12 12:24:30,317] [DEBUG] Loaded backend Agg version v2.2.
+[2025-11-12 12:24:30,650] [INFO] Models loaded successfully
+[2025-11-12 12:24:30,706] [INFO] Application startup complete.
+[2025-11-12 12:24:30,707] [INFO] Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+[2025-11-12 12:24:30,766] [INFO] 127.0.0.1:8772 - "GET /web/app HTTP/1.1" 307
+[2025-11-12 12:24:32,766] [INFO] 127.0.0.1:8772 - "GET /web/app/flutter_service_worker.js?v=4090166194 HTTP/1.1" 304
+[2025-11-12 12:24:35,735] [INFO] 127.0.0.1:8772 - "GET /video_feed/rt1?source=rtsp://admin:admin@192.168.1.89:554/mainstream HTTP/1.1" 200
+[2025-11-12 12:24:36,482] [ERROR] Exception in ASGI application
+Traceback (most recent call last):
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\starlette\responses.py", line 259, in __call__
+    await wrap(partial(self.listen_for_disconnect, receive))
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\starlette\responses.py", line 255, in wrap
+    await func()
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\starlette\responses.py", line 232, in listen_for_disconnect
+    message = await receive()
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\uvicorn\protocols\http\h11_impl.py", line 531, in receive
+    await self.message_event.wait()
+  File "C:\Users\Microsoft\AppData\Local\Programs\Python\Python310\lib\asyncio\locks.py", line 214, in wait
+    await fut
+asyncio.exceptions.CancelledError: Cancelled by cancel scope 1ccb03c76a0
+
+During handling of the above exception, another exception occurred:
+
+  + Exception Group Traceback (most recent call last):
+  |   File "D:\Codes\anprv8\mainenv\lib\site-packages\uvicorn\protocols\http\h11_impl.py", line 403, in run_asgi
+  |     result = await app(  # type: ignore[func-returns-value]
+  |   File "D:\Codes\anprv8\mainenv\lib\site-packages\uvicorn\middleware\proxy_headers.py", line 60, in __call__
+  |     return await self.app(scope, receive, send)
+  |   File "D:\Codes\anprv8\mainenv\lib\site-packages\fastapi\applications.py", line 1054, in __call__
+  |     await super().__call__(scope, receive, send)
+  |   File "D:\Codes\anprv8\mainenv\lib\site-packages\starlette\applications.py", line 113, in __call__
+  |     await self.middleware_stack(scope, receive, send)
+  |   File "D:\Codes\anprv8\mainenv\lib\site-packages\starlette\middleware\errors.py", line 187, in __call__
+  |     raise exc
+  |   File "D:\Codes\anprv8\mainenv\lib\site-packages\starlette\middleware\errors.py", line 165, in __call__
+  |     await self.app(scope, receive, _send)
+  |   File "D:\Codes\anprv8\mainenv\lib\site-packages\starlette\middleware\cors.py", line 85, in __call__
+  |     await self.app(scope, receive, send)
+  |   File "D:\Codes\anprv8\mainenv\lib\site-packages\starlette\middleware\exceptions.py", line 62, in __call__
+  |     await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+  |   File "D:\Codes\anprv8\mainenv\lib\site-packages\starlette\_exception_handler.py", line 53, in wrapped_app
+  |     raise exc
+  |   File "D:\Codes\anprv8\mainenv\lib\site-packages\starlette\_exception_handler.py", line 42, in wrapped_app
+  |     await app(scope, receive, sender)
+  |   File "D:\Codes\anprv8\mainenv\lib\site-packages\starlette\routing.py", line 715, in __call__
+  |     await self.middleware_stack(scope, receive, send)
+  |   File "D:\Codes\anprv8\mainenv\lib\site-packages\starlette\routing.py", line 735, in app
+  |     await route.handle(scope, receive, send)
+  |   File "D:\Codes\anprv8\mainenv\lib\site-packages\starlette\routing.py", line 288, in handle
+  |     await self.app(scope, receive, send)
+  |   File "D:\Codes\anprv8\mainenv\lib\site-packages\starlette\routing.py", line 76, in app
+  |     await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+  |   File "D:\Codes\anprv8\mainenv\lib\site-packages\starlette\_exception_handler.py", line 53, in wrapped_app
+  |     raise exc
+  |   File "D:\Codes\anprv8\mainenv\lib\site-packages\starlette\_exception_handler.py", line 42, in wrapped_app
+  |     await app(scope, receive, sender)
+  |   File "D:\Codes\anprv8\mainenv\lib\site-packages\starlette\routing.py", line 74, in app
+  |     await response(scope, receive, send)
+  |   File "D:\Codes\anprv8\mainenv\lib\site-packages\starlette\responses.py", line 252, in __call__
+  |     async with anyio.create_task_group() as task_group:
+  |   File "D:\Codes\anprv8\mainenv\lib\site-packages\anyio\_backends\_asyncio.py", line 767, in __aexit__
+  |     raise BaseExceptionGroup(
+  | exceptiongroup.ExceptionGroup: unhandled errors in a TaskGroup (1 sub-exception)
+  +-+---------------- 1 ----------------
+    | Traceback (most recent call last):
+    |   File "D:\Codes\anprv8\mainenv\lib\site-packages\starlette\responses.py", line 255, in wrap
+    |     await func()
+    |   File "D:\Codes\anprv8\mainenv\lib\site-packages\starlette\responses.py", line 244, in stream_response
+    |     async for chunk in self.body_iterator:
+    |   File "D:\Codes\anprv8\engine\engines.py", line 903, in recording_frames
+    |     frame = self.draw_regions_on_frame(
+    |   File "D:\Codes\anprv8\engine\engines.py", line 202, in draw_regions_on_frame
+    |     for region_name, region_data in regions.items():
+    | AttributeError: 'NoneType' object has no attribute 'items'
+    +------------------------------------
+[2025-11-12 12:24:50,991] [INFO] Shutting down
+[2025-11-12 12:24:51,094] [INFO] Waiting for application shutdown.
+[2025-11-12 12:24:51,230] [INFO] Cleanup complete. Shutting down.
+[2025-11-12 12:24:54,645] [DEBUG] Using proactor: IocpProactor
+[2025-11-12 12:24:54,674] [INFO] Started server process [11604]
+[2025-11-12 12:24:54,675] [INFO] Waiting for application startup.
+[2025-11-12 12:24:54,678] [INFO] PocketBase stater 24436
+[2025-11-12 12:24:54,693] [INFO] Found the 'onnx' file!
+[2025-11-12 12:24:54,693] [INFO] Loading YOLO models...
+[2025-11-12 12:24:54,693] [INFO] Found the 'openvino' file!
+[2025-11-12 12:24:54,693] [INFO] Loading onnx/pt
+[2025-11-12 12:24:55,926] [DEBUG] Loaded backend Agg version v2.2.
+[2025-11-12 12:24:56,271] [INFO] Models loaded successfully
+[2025-11-12 12:24:56,328] [INFO] Application startup complete.
+[2025-11-12 12:24:56,329] [INFO] Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+[2025-11-12 12:24:56,389] [INFO] 127.0.0.1:1644 - "GET /web/app HTTP/1.1" 307
+[2025-11-12 12:24:58,176] [INFO] 127.0.0.1:1644 - "GET /web/app/flutter_service_worker.js?v=4090166194 HTTP/1.1" 304
+[2025-11-12 12:24:59,566] [INFO] 127.0.0.1:1644 - "GET /video_feed/rt1?source=rtsp://admin:admin@192.168.1.89:554/mainstream HTTP/1.1" 200
+[2025-11-12 12:25:00,003] [ERROR] Exception in ASGI application
+Traceback (most recent call last):
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\starlette\responses.py", line 259, in __call__
+    await wrap(partial(self.listen_for_disconnect, receive))
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\starlette\responses.py", line 255, in wrap
+    await func()
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\starlette\responses.py", line 232, in listen_for_disconnect
+    message = await receive()
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\uvicorn\protocols\http\h11_impl.py", line 531, in receive
+    await self.message_event.wait()
+  File "C:\Users\Microsoft\AppData\Local\Programs\Python\Python310\lib\asyncio\locks.py", line 214, in wait
+    await fut
+asyncio.exceptions.CancelledError: Cancelled by cancel scope 18e9c3f33d0
+
+During handling of the above exception, another exception occurred:
+
+  + Exception Group Traceback (most recent call last):
+  |   File "D:\Codes\anprv8\mainenv\lib\site-packages\uvicorn\protocols\http\h11_impl.py", line 403, in run_asgi
+  |     result = await app(  # type: ignore[func-returns-value]
+  |   File "D:\Codes\anprv8\mainenv\lib\site-packages\uvicorn\middleware\proxy_headers.py", line 60, in __call__
+  |     return await self.app(scope, receive, send)
+  |   File "D:\Codes\anprv8\mainenv\lib\site-packages\fastapi\applications.py", line 1054, in __call__
+  |     await super().__call__(scope, receive, send)
+  |   File "D:\Codes\anprv8\mainenv\lib\site-packages\starlette\applications.py", line 113, in __call__
+  |     await self.middleware_stack(scope, receive, send)
+  |   File "D:\Codes\anprv8\mainenv\lib\site-packages\starlette\middleware\errors.py", line 187, in __call__
+  |     raise exc
+  |   File "D:\Codes\anprv8\mainenv\lib\site-packages\starlette\middleware\errors.py", line 165, in __call__
+  |     await self.app(scope, receive, _send)
+  |   File "D:\Codes\anprv8\mainenv\lib\site-packages\starlette\middleware\cors.py", line 85, in __call__
+  |     await self.app(scope, receive, send)
+  |   File "D:\Codes\anprv8\mainenv\lib\site-packages\starlette\middleware\exceptions.py", line 62, in __call__
+  |     await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+  |   File "D:\Codes\anprv8\mainenv\lib\site-packages\starlette\_exception_handler.py", line 53, in wrapped_app
+  |     raise exc
+  |   File "D:\Codes\anprv8\mainenv\lib\site-packages\starlette\_exception_handler.py", line 42, in wrapped_app
+  |     await app(scope, receive, sender)
+  |   File "D:\Codes\anprv8\mainenv\lib\site-packages\starlette\routing.py", line 715, in __call__
+  |     await self.middleware_stack(scope, receive, send)
+  |   File "D:\Codes\anprv8\mainenv\lib\site-packages\starlette\routing.py", line 735, in app
+  |     await route.handle(scope, receive, send)
+  |   File "D:\Codes\anprv8\mainenv\lib\site-packages\starlette\routing.py", line 288, in handle
+  |     await self.app(scope, receive, send)
+  |   File "D:\Codes\anprv8\mainenv\lib\site-packages\starlette\routing.py", line 76, in app
+  |     await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+  |   File "D:\Codes\anprv8\mainenv\lib\site-packages\starlette\_exception_handler.py", line 53, in wrapped_app
+  |     raise exc
+  |   File "D:\Codes\anprv8\mainenv\lib\site-packages\starlette\_exception_handler.py", line 42, in wrapped_app
+  |     await app(scope, receive, sender)
+  |   File "D:\Codes\anprv8\mainenv\lib\site-packages\starlette\routing.py", line 74, in app
+  |     await response(scope, receive, send)
+  |   File "D:\Codes\anprv8\mainenv\lib\site-packages\starlette\responses.py", line 252, in __call__
+  |     async with anyio.create_task_group() as task_group:
+  |   File "D:\Codes\anprv8\mainenv\lib\site-packages\anyio\_backends\_asyncio.py", line 767, in __aexit__
+  |     raise BaseExceptionGroup(
+  | exceptiongroup.ExceptionGroup: unhandled errors in a TaskGroup (1 sub-exception)
+  +-+---------------- 1 ----------------
+    | Traceback (most recent call last):
+    |   File "D:\Codes\anprv8\mainenv\lib\site-packages\starlette\responses.py", line 255, in wrap
+    |     await func()
+    |   File "D:\Codes\anprv8\mainenv\lib\site-packages\starlette\responses.py", line 244, in stream_response
+    |     async for chunk in self.body_iterator:
+    |   File "D:\Codes\anprv8\engine\engines.py", line 904, in recording_frames
+    |     frame = self.draw_regions_on_frame(
+    |   File "D:\Codes\anprv8\engine\engines.py", line 202, in draw_regions_on_frame
+    |     for region_name, region_data in regions.items():
+    | AttributeError: 'NoneType' object has no attribute 'items'
+    +------------------------------------
+[2025-11-12 12:25:35,828] [INFO] Shutting down
+[2025-11-12 12:25:35,933] [INFO] Waiting for application shutdown.
+[2025-11-12 12:25:36,065] [INFO] Cleanup complete. Shutting down.
+[2025-11-12 12:25:41,583] [DEBUG] Using proactor: IocpProactor
+[2025-11-12 12:25:41,612] [INFO] Started server process [5092]
+[2025-11-12 12:25:41,612] [INFO] Waiting for application startup.
+[2025-11-12 12:25:41,615] [INFO] PocketBase stater 33324
+[2025-11-12 12:25:41,630] [INFO] Found the 'onnx' file!
+[2025-11-12 12:25:41,630] [INFO] Loading YOLO models...
+[2025-11-12 12:25:41,631] [INFO] Found the 'openvino' file!
+[2025-11-12 12:25:41,631] [INFO] Loading onnx/pt
+[2025-11-12 12:25:42,866] [DEBUG] Loaded backend Agg version v2.2.
+[2025-11-12 12:25:43,193] [INFO] Models loaded successfully
+[2025-11-12 12:25:43,247] [INFO] Application startup complete.
+[2025-11-12 12:25:43,248] [INFO] Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+[2025-11-12 12:25:43,301] [INFO] 127.0.0.1:7499 - "GET /web/app HTTP/1.1" 307
+[2025-11-12 12:25:45,313] [INFO] 127.0.0.1:7499 - "GET /web/app/flutter_service_worker.js?v=4090166194 HTTP/1.1" 304
+[2025-11-12 12:25:45,913] [INFO] 127.0.0.1:7499 - "GET /video_feed/rt1?source=rtsp://admin:admin@192.168.1.89:554/mainstream HTTP/1.1" 200
+[2025-11-15 08:53:19,416] [DEBUG] Using proactor: IocpProactor
+[2025-11-15 08:53:19,478] [INFO] Started server process [37832]
+[2025-11-15 08:53:19,478] [INFO] Waiting for application startup.
+[2025-11-15 08:53:19,557] [INFO] PocketBase stater 37024
+[2025-11-15 08:53:19,577] [INFO] Found the 'onnx' file!
+[2025-11-15 08:53:19,577] [INFO] Loading YOLO models...
+[2025-11-15 08:53:19,578] [INFO] Found the 'openvino' file!
+[2025-11-15 08:53:19,578] [INFO] Loading onnx/pt
+[2025-11-15 08:53:25,846] [DEBUG] Loaded backend Agg version v2.2.
+[2025-11-15 08:53:26,713] [INFO] Models loaded successfully
+[2025-11-15 08:53:26,780] [INFO] Application startup complete.
+[2025-11-15 08:53:26,781] [INFO] Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+[2025-11-15 08:53:26,851] [INFO] 127.0.0.1:10660 - "GET /web/app HTTP/1.1" 307
+[2025-11-15 08:53:28,991] [INFO] 127.0.0.1:10660 - "GET /web/app/flutter_service_worker.js?v=4090166194 HTTP/1.1" 304
+[2025-11-15 08:54:00,191] [INFO] 127.0.0.1:11349 - "GET /web/app/flutter_service_worker.js?v=4090166194 HTTP/1.1" 304
+[2025-11-15 08:55:35,558] [INFO] 127.0.0.1:4223 - "GET /video_feed/rt1?source=rtsp://admin:admin@192.168.1.89:554/mainstream HTTP/1.1" 200
+[2025-11-15 08:55:36,375] [INFO] 127.0.0.1:7748 - "GET /video_feed/rt2?source=rtsp://admin:123456@192.168.1.4:554/stream HTTP/1.1" 200
+[2025-11-15 08:55:38,239] [INFO] 'NoneType' object has no attribute 'items'
+[2025-11-15 08:55:38,433] [INFO] Cleanup complete. Shutting down.
+[2025-11-15 08:56:17,263] [DEBUG] Using proactor: IocpProactor
+[2025-11-15 08:56:17,294] [INFO] Started server process [38624]
+[2025-11-15 08:56:17,294] [INFO] Waiting for application startup.
+[2025-11-15 08:56:17,297] [INFO] PocketBase stater 37896
+[2025-11-15 08:56:17,314] [INFO] Found the 'onnx' file!
+[2025-11-15 08:56:17,314] [INFO] Loading YOLO models...
+[2025-11-15 08:56:17,314] [INFO] Found the 'openvino' file!
+[2025-11-15 08:56:17,314] [INFO] Loading onnx/pt
+[2025-11-15 08:56:18,625] [DEBUG] Loaded backend Agg version v2.2.
+[2025-11-15 08:56:18,950] [INFO] Models loaded successfully
+[2025-11-15 08:56:19,010] [INFO] Application startup complete.
+[2025-11-15 08:56:19,011] [INFO] Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+[2025-11-15 08:56:19,074] [INFO] 127.0.0.1:14618 - "GET /web/app HTTP/1.1" 307
+[2025-11-15 08:56:21,265] [INFO] 127.0.0.1:14618 - "GET /web/app/flutter_service_worker.js?v=4090166194 HTTP/1.1" 304
+[2025-11-15 08:56:23,347] [INFO] 127.0.0.1:14618 - "GET /video_feed/rt1?source=rtsp://admin:admin@192.168.1.89:554/mainstream HTTP/1.1" 200
+[2025-11-15 08:56:23,878] [INFO] 127.0.0.1:14870 - "GET /video_feed/rt2?source=rtsp://admin:123456@192.168.1.4:554/stream HTTP/1.1" 200
+[2025-11-15 08:56:25,795] [INFO] 'NoneType' object has no attribute 'items'
+[2025-11-15 08:56:25,958] [INFO] Cleanup complete. Shutting down.
+[2025-11-15 08:56:42,425] [DEBUG] Using proactor: IocpProactor
+[2025-11-15 08:56:42,457] [INFO] Started server process [4832]
+[2025-11-15 08:56:42,458] [INFO] Waiting for application startup.
+[2025-11-15 08:56:42,461] [INFO] PocketBase stater 33876
+[2025-11-15 08:56:42,475] [INFO] Found the 'onnx' file!
+[2025-11-15 08:56:42,476] [INFO] Loading YOLO models...
+[2025-11-15 08:56:42,476] [INFO] Found the 'openvino' file!
+[2025-11-15 08:56:42,476] [INFO] Loading onnx/pt
+[2025-11-15 08:56:43,872] [DEBUG] Loaded backend Agg version v2.2.
+[2025-11-15 08:56:44,227] [INFO] Models loaded successfully
+[2025-11-15 08:56:44,285] [INFO] Application startup complete.
+[2025-11-15 08:56:44,286] [INFO] Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+[2025-11-15 08:56:44,349] [INFO] 127.0.0.1:2670 - "GET /web/app HTTP/1.1" 307
+[2025-11-15 08:56:46,381] [INFO] 127.0.0.1:2670 - "GET /web/app/flutter_service_worker.js?v=4090166194 HTTP/1.1" 304
+[2025-11-15 08:56:46,792] [INFO] 127.0.0.1:2670 - "GET /video_feed/rt1?source=rtsp://admin:admin@192.168.1.89:554/mainstream HTTP/1.1" 200
+[2025-11-15 08:56:47,592] [INFO] 127.0.0.1:6622 - "GET /video_feed/rt2?source=rtsp://admin:123456@192.168.1.4:554/stream HTTP/1.1" 200
+[2025-11-15 08:58:01,700] [INFO] df7bw5126102513
+[2025-11-15 08:58:19,681] [INFO] 2plkkd458309543
+[2025-11-15 08:58:23,241] [INFO] 5rk26s9ha17bs83
+[2025-11-15 08:58:49,825] [INFO] djvh71yhhgzpl13
+[2025-11-15 08:58:55,075] [INFO] 5jzis86lh7ql100
+[2025-11-15 08:59:51,761] [INFO] esp67cpj4915d4r
+[2025-11-15 09:00:04,710] [INFO] aja9as9pv04bywb
+[2025-11-15 09:00:10,887] [INFO] 8y6m54g3fbp2qju
+[2025-11-15 09:00:13,652] [INFO] 1dft51jibs9rn3i
+[2025-11-15 09:00:19,202] [INFO] 341xvgdqim7t9ox
+[2025-11-15 09:00:51,114] [INFO] v70tkvea91zmsqw
+[2025-11-15 09:01:03,696] [INFO] 5i678k6l33a37l0
+[2025-11-15 09:01:04,117] [INFO] 1jr15e1kvke953p
+[2025-11-15 09:01:11,637] [INFO] 58c0677q640g304
+[2025-11-15 09:02:02,636] [INFO] f6nb5mwf10i57vm
+[2025-11-15 09:02:07,465] [INFO] 2cz7z121d7f23c3
+[2025-11-15 09:03:11,429] [INFO] 3t06seq70bluq11
+[2025-11-15 09:03:12,153] [INFO] yx5c276k7qgk8lc
+[2025-11-15 09:03:55,882] [INFO] ezgg35f8u814u6t
+[2025-11-15 09:04:07,639] [INFO] 11136m0636qnx97
+[2025-11-15 09:04:09,386] [INFO] a85wxm42805auv3
+[2025-11-15 09:04:19,714] [INFO] 4697tu640u79302
+[2025-11-15 09:05:02,378] [INFO] 05x7mqox32lhl2q
+[2025-11-15 09:05:15,620] [INFO] 840y36f52dzr57c
+[2025-11-15 09:06:15,667] [INFO] c9p0ke868i8f0ra
+[2025-11-15 09:06:32,492] [INFO] lb17fg9ekl9wmn3
