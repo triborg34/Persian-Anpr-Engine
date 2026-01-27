@@ -1,4 +1,4 @@
-import asyncio
+
 from asyncio import subprocess
 import datetime
 import gc
@@ -28,7 +28,7 @@ import threading
 # Logging configuration
 # logging.getLogger('torch').setLevel(logging.ERROR)
 # warnings.filterwarnings("ignore", category=UserWarning)
-logging.getLogger('ultralytics').setLevel(logging.ERROR)
+# logging.getLogger('ultralytics').setLevel(logging.ERROR)
 logging.basicConfig(
     level=logging.DEBUG,  # Capture everything from DEBUG and above
 
@@ -41,7 +41,8 @@ logging.basicConfig(
 )
 
 
-cv2.setNumThreads(multiprocessing.cpu_count())
+# cv2.setNumThreads(multiprocessing.cpu_count())
+logging.info(cv2.__version__)
 
 
 class CcTvMonitor:
@@ -52,7 +53,8 @@ class CcTvMonitor:
         if self.regionMode:
             self.background_subtractor = cv2.createBackgroundSubtractorMOG2()
             self.k = []
-
+        self.SEGMENT = 60
+        self.carConf = 0.6
         self.params = Parameters()
         self.device = torch.device(0 if torch.cuda.is_available() else 'cpu')
         self.RETRY_LIMIT = 5
@@ -60,7 +62,8 @@ class CcTvMonitor:
         self.RECORDMODE = self.checkrecordMode()
         if self.RECORDMODE:
             self.video_queue = queue.Queue()
-            self.yolo_thread = threading.Thread(target=self.yolo_worker, daemon=True)
+            self.yolo_thread = threading.Thread(
+                target=self.yolo_worker, daemon=True)
             self.yolo_thread.start()
         self.lock = threading.Lock()
         self.model_car, self.model_plate, self.model_char = self.loadModels()
@@ -108,6 +111,7 @@ class CcTvMonitor:
             return True
         else:
             return False
+
     def chechOnnx(self):
         directory = 'model'
         for filename in os.listdir(directory):
@@ -409,14 +413,8 @@ class CcTvMonitor:
     async def process_frame(self, frame, path, regions):
 
         try:
-            # Create a lower-resolution copy for detection
-            # lowres_for_detection=frame
-            # lowres_for_detection = frame.copy()
-            # scale_x = frame.shape[1] / lowres_for_detection.shape[1]
-            # scale_y = frame.shape[0] / lowres_for_detection.shape[0]
 
             if self.regionMode:
-                # frame = cv2.resize(frame, (1920, 1080))
                 region_masks = self.generate_region_masks(
                     frame.shape, regions)
                 combined_mask = np.zeros(
@@ -429,12 +427,14 @@ class CcTvMonitor:
                 current_regions = []
 
             # Detect vehicles in low-res
+            
             car_res = self.model_car(
-                masked_frame if self.regionMode else frame, device=self.device, classes=[2, 5, 7])
+                masked_frame if self.regionMode else frame, device=self.device, classes=[2, 5, 7], verbose=False, conf=self.carConf)
 
             if len(car_res[0]) > 0:
                 for box in car_res[0].boxes:
                     x1, y1, x2, y2 = map(int, box.xyxy[0][:4])
+
                     if self.regionMode:
                         region_name = self.get_detection_region(
                             (x1, y1, x2, y2), region_masks)
@@ -444,12 +444,6 @@ class CcTvMonitor:
                                 current_regions.append(region_data)
                     else:
                         region_data = None
-
-                    # Scale back to original resolution
-                    # x1 = int(x1 * scale_x)
-                    # y1 = int(y1 * scale_y)
-                    # x2 = int(x2 * scale_x)
-                    # y2 = int(y2 * scale_y)
 
                     cv2.rectangle(frame, (x1, y1), (x2, y2), (255, 0, 0), 2)
                     cropped_car = masked_frame[y1:y2,
@@ -567,20 +561,19 @@ class CcTvMonitor:
         except Exception as ex:
             return frame
 
-    def realseFreshest(self, fresh: FreshestFrame, cap: cv2.VideoCapture):
+    def realseFreshest(self, fresh: FreshestFrame):
         try:
             fresh.release()
-            cap.release()
+
         except Exception as e:
             logging.error(f"Error to Realse Cameras : {e}")
 
     async def generate_frames(self, camera_idx, source, request: Request):
         if not self.isConnectionAlive(source):
+
             return
         """Generate frames from a specific camera feed"""
 
-        check_interval = 60  # seconds
-        last_check = 0
         if self.regionMode:
             regions = self.loadRegions(soruce=source)
             if not hasattr(self, 'k'):
@@ -588,50 +581,22 @@ class CcTvMonitor:
         else:
             regions = None
 
-        def open_capture(source):
-            cap = cv2.VideoCapture(source)
-            return cap if cap.isOpened() else None
-
-        retries = 0
-        cap = open_capture(source)
-
-        while cap is None and retries < self.RETRY_LIMIT:
-            print(
-                f"[Camera {camera_idx}] Failed to open source. Retrying ({retries + 1}/{self.RETRY_LIMIT})...")
-            await asyncio.sleep(self.RETRY_DELAY)
-            retries += 1
-            cap = open_capture(source)
-
-        if cap is None:
-            print(
-                f"[Camera {camera_idx}] Could not open source after {self.RETRY_LIMIT} retries.")
-            return
-        fresh = FreshestFrame(cap)
+        fresh = FreshestFrame(source)
 
         try:
             while fresh.is_alive():
-                now = time.time()
-                if now - last_check >= check_interval:
-
-                    if not self.isConnectionAlive(source):
-                        break
-                    last_check = now
+                # if not self.isConnectionAlive(source):
+                #     break
 
                 if await request.is_disconnected():
                     print("Client disconnected, releasing camera.")
-                    self.realseFreshest(fresh, cap)
+                    self.realseFreshest(fresh)
                     break
                 success, frame = fresh.read()
+                if frame is None:
+                    continue
 
-                if not success:
-
-                    # Generate blank frame if we can't read from camera
-                    frame = np.zeros((480, 640, 3), dtype=np.uint8)
-                    cv2.putText(frame, "No signal", (220, 240),
-                                cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 0, 255), 2)
-                else:
-
-                    frame = await self.process_frame(frame, f'/rt{camera_idx}', regions)
+                frame = await self.process_frame(frame, f'/rt{camera_idx}', regions)
 
                 # Encode and yield the frame
                 _, buffer = cv2.imencode('.jpg', frame)
@@ -643,40 +608,41 @@ class CcTvMonitor:
             self.graceful_shutdown()
         finally:
 
-            self.realseFreshest(fresh, cap)
+            self.realseFreshest(fresh)
             print("Camera released.")
 
     def yolo_worker(self):
         """Background thread that processes videos from the queue"""
-        print("🚀 [YOLO] Worker thread started")
+        print(" [YOLO] Worker thread started")
         while True:
             try:
                 if self.video_queue is None:
                     break
                 item = self.video_queue.get(timeout=1)
                 if item is None:  # Poison pill to stop thread
-                    print("🛑 [YOLO] Worker thread stopping")
+                    print(" [YOLO] Worker thread stopping")
                     self.video_queue.task_done()  # Don't forget to mark as done
                     break
-                video_path,path,regions = item 
-                
+                video_path, path, regions = item
+
                 if video_path is None:  # Poison pill to stop thread
-                    print("🛑 [YOLO] Worker thread stopping")
+                    print(" [YOLO] Worker thread stopping")
                     break
-                self.yolo_runner(video_path,path,regions)
+                self.yolo_runner(video_path, path, regions)
                 self.video_queue.task_done()
             except queue.Empty:
                 continue
-    def yolo_runner(self,video_path,path,regions):
-        
+
+    def yolo_runner(self, video_path, path, regions):
+
         cap_detect = cv2.VideoCapture(video_path)
         while cap_detect.isOpened():
-            ret , frame=cap_detect.read()
+            ret, frame = cap_detect.read()
             if not ret:
                 break
             try:
                 if self.regionMode:
-                # frame = cv2.resize(frame, (1920, 1080))
+       
                     region_masks = self.generate_region_masks(
                         frame.shape, regions)
                     combined_mask = np.zeros(
@@ -703,17 +669,11 @@ class CcTvMonitor:
                                     current_regions.append(region_data)
                         else:
                             region_data = None
-                        
 
-                        # Scale back to original resolution
-                        # x1 = int(x1 * scale_x)
-                        # y1 = int(y1 * scale_y)
-                        # x2 = int(x2 * scale_x)
-                        # y2 = int(y2 * scale_y)
-
-                        cv2.rectangle(frame, (x1, y1), (x2, y2), (255, 0, 0), 2)
+                        cv2.rectangle(frame, (x1, y1),
+                                      (x2, y2), (255, 0, 0), 2)
                         cropped_car = masked_frame[y1:y2,
-                                                x1:x2] if self.regionMode else frame[y1:y2, x1:x2]
+                                                   x1:x2] if self.regionMode else frame[y1:y2, x1:x2]
 
                         plate_results = self.model_plate(
                             cropped_car).pandas().xyxy[0]
@@ -746,8 +706,10 @@ class CcTvMonitor:
 
                                     cv2.rectangle(
                                         cropped_car, (x_min, y_min), (x_max, y_max), (0, 0, 255), 2)
-                                    plate_text = plate_text.replace('Taxi', 'x')
-                                    confidence = float(self.charConfidence) * 100
+                                    plate_text = plate_text.replace(
+                                        'Taxi', 'x')
+                                    confidence = float(
+                                        self.charConfidence) * 100
 
                                     if char_conf_avg >= confidence and len(plate_text) >= 8:
                                         cv2.putText(cropped_car, f"Plate: {plate_text}", (x_min, y_min - 10),
@@ -774,8 +736,10 @@ class CcTvMonitor:
 
                                         newx1 = max(0, newx1)
                                         newy1 = max(0, newy1)
-                                        newx2 = min(deskewed_plate.shape[1], newx2)
-                                        newy2 = min(deskewed_plate.shape[0], newy2)
+                                        newx2 = min(
+                                            deskewed_plate.shape[1], newx2)
+                                        newy2 = min(
+                                            deskewed_plate.shape[0], newy2)
 
                                         if (newx2 <= newx1) or (newy2 <= newy1):
                                             newx1, newy1 = 0, 0
@@ -814,32 +778,32 @@ class CcTvMonitor:
                 if self.regionMode:
                     self.k = current_regions
                     self.onDisplay(self.k, frame)
-        
+
             except Exception as ex:
                 print(ex)
-  
+
         cap_detect.release()
-    
+
     # Delete the original video after processing
         try:
             os.remove(video_path)
-            print(f"🗑️ Deleted original: {os.path.basename(video_path)}")
+            print(f" Deleted original: {os.path.basename(video_path)}")
         except Exception as e:
-            print(f"⚠️ Failed to delete {video_path}: {e}")        
-        
-    def create_new_video_writer(self,fps,frame_width,frame_height,cameraidx):
+            print(f" Failed to delete {video_path}: {e}")
+
+    def create_new_video_writer(self, fps, frame_width, frame_height, cameraidx):
         fourcc = cv2.VideoWriter_fourcc(*"XVID")
         """Create a new video writer with timestamp filename"""
         timestamp = datetime.datetime.now().strftime("%Y%m%d_%H%M%S")
-        filename = os.path.join('recording', f'capture{cameraidx}_{timestamp}.avi')
+        filename = os.path.join(
+            'recording', f'capture{cameraidx}_{timestamp}.avi')
         return cv2.VideoWriter(filename, fourcc, fps, (frame_width, frame_height)), filename
+
     async def recording_frames(self, camera_idx, source, request: Request):
         if not self.isConnectionAlive(source):
             return
         """Generate frames from a specific camera feed"""
 
-        check_interval = 60  # seconds
-        last_check = 0
 
         # Create new video writer for this segment
 
@@ -850,62 +814,42 @@ class CcTvMonitor:
         else:
             regions = None
 
-        def open_capture(source):
-            cap = cv2.VideoCapture(source)
-            return cap if cap.isOpened() else None
 
-        retries = 0
-        cap = open_capture(source)
+  
+
         os.makedirs('recording', exist_ok=True)
         # os.makedirs('detection', exist_ok=True)
-        frame_width = int(cap.get(cv2.CAP_PROP_FRAME_WIDTH))
-        frame_height = int(cap.get(cv2.CAP_PROP_FRAME_HEIGHT))
-        fps = cap.get(cv2.CAP_PROP_FPS)
 
-        while cap is None and retries < self.RETRY_LIMIT:
-            print(
-                f"[Camera {camera_idx}] Failed to open source. Retrying ({retries + 1}/{self.RETRY_LIMIT})...")
-            await asyncio.sleep(self.RETRY_DELAY)
-            retries += 1
-            cap = open_capture(source)
-
-        if cap is None:
-            print(
-                f"[Camera {camera_idx}] Could not open source after {self.RETRY_LIMIT} retries.")
-            return
-        fresh = FreshestFrame(cap)
-
+        fresh = FreshestFrame(source)
+        frame_width = int(fresh.get(cv2.CAP_PROP_FRAME_WIDTH))
+        frame_height = int(fresh.get(cv2.CAP_PROP_FRAME_HEIGHT))
+        fps = fresh.get(cv2.CAP_PROP_FPS)
         try:
             while fresh.is_alive():
-                
-                out, video_filename = self.create_new_video_writer(fps=fps,frame_height=frame_height,frame_width=frame_width,cameraidx=camera_idx)
+
+                out, video_filename = self.create_new_video_writer(
+                    fps=fps, frame_height=frame_height, frame_width=frame_width, cameraidx=camera_idx)
                 start_time = time.time()
                 now = time.time()
-                if now - last_check >= check_interval:
 
-                    if not self.isConnectionAlive(source):
-                        break
-                    last_check = now
 
                 if await request.is_disconnected():
                     print("Client disconnected, releasing camera.")
                     out.release()
-                    self.realseFreshest(fresh, cap)
+                    self.realseFreshest(fresh)
                     break
-                while (time.time() - start_time) < 60:
+                while (time.time() - start_time) < self.SEGMENT:
                     success, frame = fresh.read()
 
                     if not success:
                         break
-                    out.write(frame)  
-                    cv2.putText(frame,"recording",(10,30),cv2.FONT_HERSHEY_PLAIN,1,(255,255,255))
+                    out.write(frame)
+                    cv2.putText(frame, "recording", (10, 30),
+                                cv2.FONT_HERSHEY_PLAIN, 1, (255, 255, 255))
                     if self.regionMode:
-                
+
                         frame = self.draw_regions_on_frame(
-                        frame, regions)
-                
-                        
-                        
+                            frame, regions)
 
                     # Encode and yield the frame
                     _, buffer = cv2.imencode('.jpg', frame)
@@ -913,12 +857,12 @@ class CcTvMonitor:
                     yield (b'--frame\r\n'
                            b'Content-Type: image/jpeg\r\n\r\n' + frame_bytes + b'\r\n')
                 out.release()
-                self.video_queue.put((video_filename,f'/rt{camera_idx}',regions))
+                self.video_queue.put(
+                    (video_filename, f'/rt{camera_idx}', regions))
         except Exception as e:
             logging.info(e)
             out.release()
             self.graceful_shutdown()
-            
 
         finally:
             self.video_queue.join()
@@ -926,7 +870,7 @@ class CcTvMonitor:
             self.video_queue.put(None)
             self.yolo_thread.join(timeout=5)
             out.release()
-            self.realseFreshest(fresh, cap)
+            self.realseFreshest(fresh)
             print("Camera released.")
 
     async def generate_rtsp(self, source, request: Request):
@@ -934,24 +878,9 @@ class CcTvMonitor:
             return
         """Generate frames from a specific camera feed"""
 
-        def open_capture(source):
-            cap = cv2.VideoCapture(source)
-            return cap if cap.isOpened() else None
-
-        retries = 0
-        cap = open_capture(source)
-
-        while cap is None and retries < self.RETRY_LIMIT:
-
-            await asyncio.sleep(self.RETRY_DELAY)
-            retries += 1
-            cap = open_capture(source)
-
-        if cap is None:
-
-            return
+    
         try:
-            fresh = FreshestFrame(cap)
+            fresh = FreshestFrame(source)
         except Exception:
             self.graceful_shutdown()
 
@@ -962,28 +891,24 @@ class CcTvMonitor:
 
                 if await request.is_disconnected():
                     print("Client disconnected, releasing camera.")
-                    self.realseFreshest(fresh, cap)
+                    self.realseFreshest(fresh)
                     break
                 success, frame = fresh.read()
-                if not success:
+                if frame is None :
 
-                    # Generate blank frame if we can't read from camera
-                    frame = np.zeros((480, 640, 3), dtype=np.uint8)
-                    cv2.putText(frame, "No signal", (220, 240),
-                                cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 0, 255), 2)
+                   continue
 
                 # Encode and yield the frame
                 _, buffer = cv2.imencode('.jpg', frame)
                 frame_bytes = buffer.tobytes()
                 yield (b'--frame\r\n'
                        b'Content-Type: image/jpeg\r\n\r\n' + frame_bytes + b'\r\n')
-            
 
         except Exception as e:
             print(e)
             self.graceful_shutdown()
         finally:
-            self.realseFreshest(fresh, cap)
+            self.realseFreshest(fresh)
             print("Camera released.")
 
     def isConnectionAlive(self, source):
@@ -997,8 +922,11 @@ class CcTvMonitor:
             # Execute the ping command
             result = subprocess.run(
                 command, capture_output=True, text=True, timeout=10)
+            if 'unreachable' not in result.stdout:
+                return True
+            else:
 
-            return result.returncode == 0
+                return False
         except subprocess.TimeoutExpired:
             return False
 
@@ -1052,5 +980,4 @@ def emailHandler(email, plateNumber, edate, etime):
         server.quit()  # Close the connection
 
 
-
-#TODO:recive RecordMode
+# TODO:recive RecordMode

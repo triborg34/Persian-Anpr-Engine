@@ -1,4 +1,4 @@
-
+#TODO: BEST OF BOTH WORLD?
 from contextlib import asynccontextmanager
 import json
 import socket
@@ -75,8 +75,10 @@ async def video_feed(camera_id: str, request: Request, source: str = Query(...))
     """Stream video from a specific camera"""
     
     if cctv.RECORDMODE:
+        cctv.SEGMENT=300
         print("RECORD MODE")
     else:
+        cctv.carConf=0.1
         print("NORMAL MODE")
     try:
         # Extract camera index from ID (rt1 -> 1)
