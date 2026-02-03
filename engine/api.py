@@ -1,21 +1,25 @@
 #TODO: BEST OF BOTH WORLD?
+import asyncio
 from contextlib import asynccontextmanager
 import json
 import socket
+import threading
 import time
 from fastapi import FastAPI, Query, Request, Response
 from fastapi.responses import  StreamingResponse
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.staticfiles import StaticFiles
 from pydantic import BaseModel
-from engines import CcTvMonitor, emailHandler
+
+from engines import CcTvMonitor, emailHandler ,CameraManager
 from TcpConnector import TcpConnector
 from onvifmaneger import get_rtsp_url
 import uvicorn
 from nrcpy import NrcDevice
 
 cctv = None
-
+camera_registry = {}
+camera_registry_lock = threading.Lock()
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
@@ -68,47 +72,45 @@ app.add_middleware(
 
 
 @app.get("/video_feed/{camera_id}")
-async def video_feed(camera_id: str, request: Request, source: str = Query(...)):
-    
-    if source == '0':
-        source = int(source)
-    """Stream video from a specific camera"""
+async def video_feed(
+    camera_id: str,
+    request: Request,
+    source: str = Query(...),
+
+):
     
     if cctv.RECORDMODE:
         cctv.SEGMENT=300
         print("RECORD MODE")
     else:
         cctv.carConf=0.1
+        cctv.iou=0.5
         print("NORMAL MODE")
-    try:
-        # Extract camera index from ID (rt1 -> 1)
-        camera_idx = int(camera_id[2:])
-        if cctv.RECORDMODE:
-            return StreamingResponse(
+    if source == "0":
+        source = int(source)
+    camera_idx = int(camera_id[2:])
+    # get or create camera
+    with camera_registry_lock:
+        if source not in camera_registry:
+            camera_registry[source] = CameraManager(source, cctv,camera_idx)
 
-                cctv.recording_frames(camera_idx, source, request),
+        cam = camera_registry[source]
 
+    cam.add_client()
 
-                media_type="multipart/x-mixed-replace; boundary=frame",
-                headers={
-                    "Cache-Control": "no-store"
-                })
-        else:
-            
-            return StreamingResponse(
+    async def watch_disconnect():
+        while True:
+            if await request.is_disconnected():
+                cam.remove_client()
+                break
+            await asyncio.sleep(0.2)
 
-                cctv.generate_frames(camera_idx, source, request),
+    asyncio.create_task(watch_disconnect())
 
-
-                media_type="multipart/x-mixed-replace; boundary=frame",
-                headers={
-                    "Cache-Control": "no-store"
-                }
-                
-        )
-    except ValueError:
-        return Response(f"Invalid camera ID: {camera_id}. Use format: rt1, rt2, etc.",
-                        status_code=400)
+    return StreamingResponse(
+        cam.sendFrames(),
+        media_type="multipart/x-mixed-replace; boundary=frame",
+    )
 
 
 @app.get("/rtsp_feed/{camera_id}")
