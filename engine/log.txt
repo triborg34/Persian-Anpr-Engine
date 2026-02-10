@@ -1,0 +1,1338 @@
+[2026-02-08 08:02:12,636] [INFO] 4.10.0
+[2026-02-08 08:02:12,926] [DEBUG] Using proactor: IocpProactor
+[2026-02-08 08:02:12,988] [INFO] Started server process [4948]
+[2026-02-08 08:02:12,988] [INFO] Waiting for application startup.
+[2026-02-08 08:02:13,062] [INFO] PocketBase stater 26080
+[2026-02-08 08:02:13,120] [INFO] Loading YOLO models...
+[2026-02-08 08:02:13,121] [INFO] Found the 'openvino' file!
+[2026-02-08 08:02:13,121] [INFO] Loading onnx/pt
+[2026-02-08 08:02:19,101] [DEBUG] Loaded backend Agg version v2.2.
+[2026-02-08 08:02:20,354] [INFO] Models loaded successfully
+[2026-02-08 08:02:20,438] [INFO] Application startup complete.
+[2026-02-08 08:02:20,438] [INFO] Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+[2026-02-08 08:02:20,882] [INFO] 127.0.0.1:8206 - "GET /web/app HTTP/1.1" 307
+[2026-02-08 08:02:20,950] [INFO] 127.0.0.1:8206 - "GET /web/app/ HTTP/1.1" 304
+[2026-02-08 08:02:20,964] [INFO] 127.0.0.1:8206 - "GET /web/app/flutter_bootstrap.js HTTP/1.1" 200
+[2026-02-08 08:02:21,007] [INFO] 127.0.0.1:8206 - "GET /web/app/flutter_service_worker.js?v=3512346584 HTTP/1.1" 304
+[2026-02-08 08:02:21,023] [INFO] 127.0.0.1:8206 - "GET /web/app/main.dart.js HTTP/1.1" 200
+[2026-02-08 08:02:21,025] [INFO] 127.0.0.1:6502 - "GET /web/app/index.html HTTP/1.1" 200
+[2026-02-08 08:02:21,026] [INFO] 127.0.0.1:6425 - "GET /web/app/flutter_bootstrap.js HTTP/1.1" 200
+[2026-02-08 08:02:21,032] [INFO] 127.0.0.1:6425 - "GET /web/app/assets/FontManifest.json HTTP/1.1" 200
+[2026-02-08 08:02:21,033] [INFO] 127.0.0.1:6502 - "GET /web/app/assets/AssetManifest.bin.json HTTP/1.1" 200
+[2026-02-08 08:02:21,968] [INFO] 127.0.0.1:11905 - "GET /web/app/flutter_service_worker.js HTTP/1.1" 304
+[2026-02-08 08:02:21,975] [INFO] 127.0.0.1:11905 - "GET /web/app/main.dart.js HTTP/1.1" 200
+[2026-02-08 08:02:21,976] [INFO] 127.0.0.1:5676 - "GET /web/app/flutter_bootstrap.js HTTP/1.1" 200
+[2026-02-08 08:02:21,976] [INFO] 127.0.0.1:10687 - "GET /web/app/index.html HTTP/1.1" 200
+[2026-02-08 08:02:21,992] [INFO] 127.0.0.1:10687 - "GET /web/app/assets/FontManifest.json HTTP/1.1" 200
+[2026-02-08 08:02:21,993] [INFO] 127.0.0.1:5676 - "GET /web/app/assets/AssetManifest.bin.json HTTP/1.1" 200
+[2026-02-08 08:02:22,900] [INFO] 127.0.0.1:11905 - "GET /web/app/flutter_service_worker.js HTTP/1.1" 304
+[2026-02-08 08:02:23,478] [INFO] 127.0.0.1:12399 - "GET /web/app/assets/packages/cupertino_icons/assets/CupertinoIcons.ttf HTTP/1.1" 304
+[2026-02-08 08:02:23,479] [INFO] 127.0.0.1:9421 - "GET /web/app/assets/fonts/MaterialIcons-Regular.otf HTTP/1.1" 304
+[2026-02-08 08:02:29,077] [INFO] 127.0.0.1:13200 - "GET /video_feed/rt1?source=rtsp://admin:admin@192.168.1.89:554/mainstream HTTP/1.1" 200
+[2026-02-08 08:02:29,081] [INFO] 127.0.0.1:14783 - "GET /video_feed/rt2?source=rtsp://:@192.168.1.12:554/stream HTTP/1.1" 200
+[2026-02-08 08:02:31,880] [WARNING] [Camera 2] Connection not available
+[2026-02-08 08:02:39,945] [INFO] 0c0a60w098bpdap
+[2026-02-08 08:02:43,632] [INFO] Releasing camera resources
+[2026-02-08 08:03:16,873] [INFO] 127.0.0.1:9295 - "GET /video_feed/rt1?source=rtsp://admin:admin@192.168.1.89:554/mainstream HTTP/1.1" 200
+[2026-02-08 08:03:16,877] [INFO] 127.0.0.1:10263 - "GET /video_feed/rt2?source=rtsp://:@192.168.1.10:554/stream HTTP/1.1" 200
+[2026-02-08 08:03:33,839] [INFO] Releasing camera resources
+[2026-02-08 08:03:34,050] [INFO] Releasing camera resources
+[2026-02-08 08:03:38,941] [INFO] 127.0.0.1:6455 - "GET /video_feed/rt1?source=rtsp://admin:admin@192.168.1.89:554/mainstream HTTP/1.1" 200
+[2026-02-08 08:03:38,944] [INFO] 127.0.0.1:8419 - "GET /video_feed/rt2?source=rtsp://:@192.168.1.10:554/stream HTTP/1.1" 200
+[2026-02-08 08:03:59,691] [INFO] q5w3072cqfsq9z7
+[2026-02-08 08:04:20,015] [INFO] 15bg8x4f1j820f7
+[2026-02-08 08:04:24,999] [INFO] f9h6wr49ej40651
+[2026-02-08 08:04:26,656] [INFO] 7l8auphtal36890
+[2026-02-08 08:04:44,443] [INFO] n680y5btd5388w5
+[2026-02-08 08:04:54,488] [INFO] m7e49dfp2781xau
+[2026-02-08 08:05:06,429] [INFO] 40i1q7wm8yrwjsv
+[2026-02-08 08:05:23,963] [INFO] 0112795118k2ja3
+[2026-02-08 08:05:24,068] [INFO] de21fw6c4w0hh89
+[2026-02-08 08:05:56,621] [INFO] mnb9l332iy4f40v
+[2026-02-08 08:06:34,394] [INFO] 373mzl2195i56e2
+[2026-02-08 08:06:52,100] [INFO] 4ta9w9b08ds8s8w
+[2026-02-08 08:06:57,377] [INFO] r224pd13k48r4mq
+[2026-02-08 08:07:08,513] [INFO] 7c4plm42k5un71l
+[2026-02-08 08:07:08,612] [INFO] y287q58inc1ht1t
+[2026-02-08 08:07:21,488] [INFO] yjrq0qva2e9ybv7
+[2026-02-08 08:07:27,974] [INFO] 8il1s3asj2q42mb
+[2026-02-08 08:07:31,051] [INFO] 55667k227cq14h7
+[2026-02-08 08:07:33,094] [INFO] apeg9by91fs63o4
+[2026-02-08 08:07:33,461] [INFO] jq40129170y530s
+[2026-02-08 08:07:35,772] [INFO] 77805s59flx1uf3
+[2026-02-08 08:07:35,864] [INFO] h42625qz2a6nn4n
+[2026-02-08 08:07:44,312] [INFO] 28v5mg0cc8767ka
+[2026-02-08 08:07:47,287] [INFO] btk6626hv0ye29m
+[2026-02-08 08:08:00,891] [INFO] c98vf363wr3yn35
+[2026-02-08 08:08:12,479] [INFO] a1rnzd5xtr18f9j
+[2026-02-08 08:08:16,454] [INFO] wr0692ll4miq226
+[2026-02-08 08:08:16,571] [INFO] 25rqba9yp57d8c5
+[2026-02-08 08:09:17,586] [INFO] n95n0g7r2075z47
+[2026-02-08 08:09:27,396] [INFO] 8g5t756d6v0tvz9
+[2026-02-08 08:09:40,724] [INFO] raawewj4559o1ma
+[2026-02-08 08:10:24,584] [INFO] 2i9ot8sgh82u542
+[2026-02-08 08:10:46,545] [INFO] g9s0m47ajds1148
+[2026-02-08 08:10:53,589] [INFO] d54s9agu3902oh2
+[2026-02-08 08:11:00,568] [INFO] qv99d3qesdzrj42
+[2026-02-08 08:11:08,778] [INFO] 25x5r0482119ss1
+[2026-02-08 08:11:09,137] [INFO] 0vni3ri0k465307
+[2026-02-08 08:11:25,460] [INFO] hdldr0h3o8z4gpn
+[2026-02-08 08:11:50,012] [INFO] k96k1u0167sci0s
+[2026-02-08 08:12:16,110] [INFO] d2pk49f5113q590
+[2026-02-08 08:12:16,410] [INFO] 954x55chpn5e184
+[2026-02-08 08:12:58,770] [INFO] c2lyeg213b6e401
+[2026-02-08 08:13:23,234] [INFO] 1ew0805b89frgc0
+[2026-02-08 08:14:04,616] [INFO] 1908fs465552074
+[2026-02-08 08:14:29,445] [INFO] v2bk0t0oyqrl000
+[2026-02-08 08:15:21,077] [INFO] 9p0bqecjfv6e649
+[2026-02-08 08:15:21,233] [INFO] 7180fdzw71i1k3q
+[2026-02-08 08:15:39,113] [INFO] 336qw6iw05k5v55
+[2026-02-08 08:15:48,955] [INFO] b2698kv0gqk306a
+[2026-02-08 08:15:49,220] [INFO] 32t98gfmggg1on9
+[2026-02-08 08:15:58,084] [INFO] mvbv8p70uvttoiq
+[2026-02-08 08:16:15,470] [INFO] v9fjl67g0pua42j
+[2026-02-08 08:16:40,026] [INFO] x347g7506ia9f24
+[2026-02-08 08:16:43,510] [INFO] 08r2bq02b71z796
+[2026-02-08 08:16:54,874] [INFO] bvqy9jpefy40t00
+[2026-02-08 08:17:32,280] [INFO] 39v10203x8l0s50
+[2026-02-08 08:17:42,232] [INFO] 8x940o1za0j7e04
+[2026-02-08 08:17:51,597] [INFO] 3cm7f6kic4lk987
+[2026-02-08 08:18:00,628] [INFO] h8l98k6bmv85e4y
+[2026-02-08 08:18:02,821] [INFO] tdw314z867eoye9
+[2026-02-08 08:18:04,133] [INFO] 3n7b8588h1360md
+[2026-02-08 08:18:05,229] [INFO] txoz59yxwt3n6v6
+[2026-02-08 08:18:07,112] [INFO] zz64i6039153118
+[2026-02-08 08:18:16,047] [INFO] 023766p4mlsl324
+[2026-02-08 08:18:50,570] [INFO] c38b18nc63k2kwd
+[2026-02-08 08:18:52,758] [INFO] o7ivahp50q27m8w
+[2026-02-08 08:18:54,743] [INFO] o6q0z8tfdpp980z
+[2026-02-08 08:18:56,636] [INFO] u39ldhjbx848w8f
+[2026-02-08 08:19:06,851] [INFO] ct8bc8c12a9n065
+[2026-02-08 08:19:06,975] [INFO] 0e6j1t5sb118qn4
+[2026-02-08 08:19:13,083] [INFO] mo6ug187y8pr1wg
+[2026-02-08 08:19:23,384] [INFO] 57o29580qj8s68v
+[2026-02-08 08:19:39,459] [INFO] 61g7207028hur26
+[2026-02-08 08:19:41,035] [INFO] 207arjnt61axq9s
+[2026-02-08 08:19:44,063] [INFO] 0g7784q4x8d98y1
+[2026-02-08 08:19:49,398] [INFO] wp8c9j44i0693k6
+[2026-02-08 08:19:52,023] [INFO] 28qc4khf5j7xjbe
+[2026-02-08 08:20:00,148] [INFO] ge571175h2f4ke2
+[2026-02-08 08:20:07,327] [INFO] j7z22g2x1p122t3
+[2026-02-08 08:20:10,573] [INFO] n04013oluxjhg60
+[2026-02-08 08:20:13,237] [INFO] 91b1a3r8r674638
+[2026-02-08 08:20:13,416] [INFO] 8j5s2f8s868s59i
+[2026-02-08 08:20:36,286] [INFO] 82d6dw2o6d33212
+[2026-02-08 08:20:36,437] [INFO] s86m7838d6r1wrv
+[2026-02-08 08:20:39,695] [INFO] 942uag86h0m12vx
+[2026-02-08 08:21:17,460] [INFO] 3l9qf76k96vmkda
+[2026-02-08 08:21:45,883] [INFO] fv98evrfv72qr10
+[2026-02-08 08:21:58,232] [INFO] 8fw9v6y965od23e
+[2026-02-08 08:22:24,866] [INFO] n90ct65336ojkc7
+[2026-02-08 08:22:27,717] [INFO] 6l548d2z9q83ayk
+[2026-02-08 08:22:31,793] [INFO] r4z3461t5etuft8
+[2026-02-08 08:22:31,888] [INFO] hl9u589y4yqd3v0
+[2026-02-08 08:22:47,967] [INFO] b3oa79gjrxnx4v6
+[2026-02-08 08:23:03,402] [INFO] 2i12z8g08x1y6j9
+[2026-02-08 08:23:13,431] [INFO] 779k02e995ux02k
+[2026-02-08 08:23:42,065] [INFO] 341256m70gc2802
+[2026-02-08 08:24:23,697] [INFO] 658189207b4xcr7
+[2026-02-08 08:24:41,509] [INFO] qcx5i3qvjw0b36s
+[2026-02-08 08:24:49,199] [INFO] 34fvewc198y1y79
+[2026-02-08 08:26:30,427] [INFO] 3y10t16947o91yv
+[2026-02-08 08:26:30,890] [INFO] zug5z2213u139lp
+[2026-02-08 08:26:57,772] [INFO] t99e96yx518wmfj
+[2026-02-08 08:27:34,971] [INFO] d8y7v8nsdshr33u
+[2026-02-08 08:28:45,701] [INFO] h1hvi352317l101
+[2026-02-08 08:28:45,839] [INFO] q9360jkq9oa82mo
+[2026-02-08 08:28:59,908] [INFO] h7nt4s2g2x90wb7
+[2026-02-08 08:29:25,314] [INFO] 1434j4eq90t94k0
+[2026-02-08 08:29:58,769] [INFO] kgjd09s21j45b9f
+[2026-02-08 08:30:34,351] [INFO] zxro659l2fm9588
+[2026-02-08 08:31:16,239] [INFO] nr3xrh2267wisob
+[2026-02-08 08:31:28,177] [INFO] l029qp8341cyt90
+[2026-02-08 08:31:28,423] [INFO] 5nh6v05vn431zga
+[2026-02-08 08:31:30,449] [INFO] 0092fuhq8n2d1vt
+[2026-02-08 08:31:48,142] [INFO] w3439er5o668aq5
+[2026-02-08 08:32:28,309] [INFO] i8704j27u3vvcrc
+[2026-02-08 08:32:30,679] [INFO] 5o6b5ql86684ur3
+[2026-02-08 08:32:55,844] [INFO] 1l9mcsr4e411nbt
+[2026-02-08 08:33:12,704] [INFO] tz6gw417qvh864b
+[2026-02-08 08:33:22,305] [INFO] jufatb97ho7496x
+[2026-02-08 08:33:35,192] [INFO] 907tz8lwcc8b7js
+[2026-02-08 08:34:23,286] [INFO] 99849092o63tsy2
+[2026-02-08 08:34:51,164] [INFO] q0q29afvlkh1f0r
+[2026-02-08 08:34:51,396] [INFO] 70j37d1k48vupm8
+[2026-02-08 08:35:39,425] [INFO] 16uwo97137mw3dm
+[2026-02-08 08:36:14,331] [INFO] 82b76t5q4cj56tv
+[2026-02-08 08:36:21,213] [INFO] 05ese77uyp6jxgx
+[2026-02-08 08:36:54,238] [INFO] 1z390cxjjw55vy2
+[2026-02-08 08:37:13,076] [INFO] sl6z861a024p657
+[2026-02-08 08:38:24,348] [INFO] e28q4n1e1cy9j0o
+[2026-02-08 08:39:05,108] [INFO] 5259t8j8174d181
+[2026-02-08 08:39:20,224] [INFO] faqf4edcuqd8f76
+[2026-02-08 08:39:25,787] [INFO] 9858my29iswr159
+[2026-02-08 08:39:42,566] [INFO] ahhx66h1r6d3uz4
+[2026-02-08 08:41:13,703] [INFO] v64a3f768pp18pe
+[2026-02-08 08:41:38,394] [INFO] 9hdcr31bv89fk7u
+[2026-02-08 08:42:09,575] [INFO] 1s49a4j6e6re673
+[2026-02-08 08:42:47,064] [INFO] g625o58g6g4v90z
+[2026-02-08 08:43:00,993] [INFO] 05m68074z7fh080
+[2026-02-08 08:44:01,725] [INFO] fwtj387s3pi9fsj
+[2026-02-08 08:44:20,383] [INFO] 013hv9t77ru204n
+[2026-02-08 08:44:20,491] [INFO] 2995qw143erl62u
+[2026-02-08 08:46:11,735] [INFO] 8tnl8p1q0t004kh
+[2026-02-08 08:47:01,458] [INFO] qtayrp94pa60y84
+[2026-02-08 08:47:11,220] [INFO] j86028235c9r623
+[2026-02-08 08:47:13,683] [INFO] h1f10f7ga049y62
+[2026-02-08 08:47:45,585] [INFO] 4293m4mak30b911
+[2026-02-08 08:49:52,645] [INFO] 4j5y033domujcex
+[2026-02-08 08:50:19,705] [INFO] 3q1804qzl3z6agf
+[2026-02-08 08:50:19,829] [INFO] lmk0bn6l3hk2l30
+[2026-02-08 08:51:39,006] [INFO] i23c4npiy8r2wd8
+[2026-02-08 08:51:43,097] [INFO] 85z68v9u07i186c
+[2026-02-08 08:51:43,214] [INFO] 4p32dy0tkml2p3i
+[2026-02-08 08:52:00,970] [INFO] a24pgg052o6s21e
+[2026-02-08 08:52:15,363] [INFO] s4za33l6kz1129w
+[2026-02-08 08:52:30,141] [INFO] 23695175062aj19
+[2026-02-08 08:52:30,373] [INFO] wi963u0o5i5e3f5
+[2026-02-08 08:53:13,474] [INFO] bz0zd0v5loj7q6w
+[2026-02-08 08:53:15,357] [INFO] a5w1369i6ap4e90
+[2026-02-08 08:53:19,693] [INFO] 4x141qp8xy45c6l
+[2026-02-08 08:53:19,829] [INFO] 020o5d876z6uw9s
+[2026-02-08 08:54:24,264] [INFO] c24q732fvtphr0d
+[2026-02-08 08:54:25,896] [INFO] 885s6jc55445mci
+[2026-02-08 08:54:47,555] [INFO] 3k933436652n826
+[2026-02-08 08:55:20,995] [INFO] ub2i34w79cnxx13
+[2026-02-08 08:55:21,089] [INFO] 75337749su09dbd
+[2026-02-08 08:55:55,860] [INFO] oqeiz70tl089894
+[2026-02-08 08:56:25,914] [INFO] des42qx10030oc1
+[2026-02-08 08:56:26,044] [INFO] 12rfyr5f4lrug3o
+[2026-02-08 08:57:18,230] [INFO] 426bp829191z223
+[2026-02-08 08:57:26,407] [INFO] 2c5707s122u07e4
+[2026-02-08 08:57:26,532] [INFO] 29ca630671lbb7f
+[2026-02-08 08:57:26,696] [INFO] 8clemj5l3hnk128
+[2026-02-08 08:57:41,458] [INFO] a7inu02t2hgct61
+[2026-02-08 08:58:23,605] [INFO] 61yioiuml9jv1s6
+[2026-02-08 08:58:32,799] [INFO] p9w94kjp53ycw2a
+[2026-02-08 08:59:07,161] [INFO] 127.0.0.1:6870 - "GET /web/app/ HTTP/1.1" 304
+[2026-02-08 08:59:17,210] [INFO] 127.0.0.1:13288 - "GET / HTTP/1.1" 404
+[2026-02-08 08:59:17,258] [INFO] 127.0.0.1:13288 - "GET /favicon.ico HTTP/1.1" 404
+[2026-02-08 08:59:19,476] [INFO] Releasing camera resources
+[2026-02-08 08:59:19,666] [INFO] Releasing camera resources
+[2026-02-08 08:59:20,456] [INFO] 127.0.0.1:13288 - "GET /web/app/flutter_service_worker.js HTTP/1.1" 304
+[2026-02-08 08:59:27,228] [INFO] 127.0.0.1:4927 - "GET /web/app/flutter_service_worker.js?v=3512346584 HTTP/1.1" 304
+[2026-02-08 08:59:27,241] [INFO] 127.0.0.1:4927 - "GET /web/app/main.dart.js HTTP/1.1" 200
+[2026-02-08 08:59:27,243] [INFO] 127.0.0.1:4223 - "GET /web/app/index.html HTTP/1.1" 200
+[2026-02-08 08:59:27,244] [INFO] 127.0.0.1:4527 - "GET /web/app/flutter_bootstrap.js HTTP/1.1" 200
+[2026-02-08 08:59:27,253] [INFO] 127.0.0.1:4223 - "GET /web/app/assets/AssetManifest.bin.json HTTP/1.1" 200
+[2026-02-08 08:59:27,254] [INFO] 127.0.0.1:4527 - "GET /web/app/assets/FontManifest.json HTTP/1.1" 200
+[2026-02-08 08:59:27,569] [INFO] 127.0.0.1:4927 - "GET /web/app/flutter_service_worker.js HTTP/1.1" 304
+[2026-02-08 08:59:27,576] [INFO] 127.0.0.1:4927 - "GET /web/app/main.dart.js HTTP/1.1" 200
+[2026-02-08 08:59:27,577] [INFO] 127.0.0.1:4527 - "GET /web/app/flutter_bootstrap.js HTTP/1.1" 200
+[2026-02-08 08:59:27,577] [INFO] 127.0.0.1:4223 - "GET /web/app/index.html HTTP/1.1" 200
+[2026-02-08 08:59:27,589] [INFO] 127.0.0.1:4223 - "GET /web/app/assets/AssetManifest.bin.json HTTP/1.1" 200
+[2026-02-08 08:59:27,590] [INFO] 127.0.0.1:4527 - "GET /web/app/assets/FontManifest.json HTTP/1.1" 200
+[2026-02-08 08:59:27,889] [INFO] 127.0.0.1:4927 - "GET /web/app/flutter_service_worker.js HTTP/1.1" 304
+[2026-02-08 08:59:33,811] [INFO] Shutting down
+[2026-02-08 08:59:33,918] [INFO] Waiting for application shutdown.
+[2026-02-08 08:59:34,190] [INFO] Cleanup complete. Shutting down.
+[2026-02-08 09:03:18,606] [INFO] 4.10.0
+[2026-02-08 09:03:18,848] [DEBUG] Using proactor: IocpProactor
+[2026-02-08 09:03:18,897] [INFO] Started server process [39964]
+[2026-02-08 09:03:18,898] [INFO] Waiting for application startup.
+[2026-02-08 09:03:18,901] [INFO] PocketBase stater 34480
+[2026-02-08 09:03:18,980] [INFO] Loading YOLO models...
+[2026-02-08 09:03:18,980] [INFO] Found the 'openvino' file!
+[2026-02-08 09:03:18,980] [INFO] Loading onnx/pt
+[2026-02-08 09:03:21,619] [DEBUG] Loaded backend Agg version v2.2.
+[2026-02-08 09:03:22,662] [INFO] Models loaded successfully
+[2026-02-08 09:03:22,739] [INFO] Application startup complete.
+[2026-02-08 09:03:22,740] [INFO] Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+[2026-02-08 09:03:22,824] [INFO] 127.0.0.1:3719 - "GET /web/app HTTP/1.1" 307
+[2026-02-08 09:03:22,893] [INFO] 127.0.0.1:3719 - "GET /web/app/flutter_service_worker.js?v=3512346584 HTTP/1.1" 304
+[2026-02-08 09:03:22,907] [INFO] 127.0.0.1:3719 - "GET /web/app/main.dart.js HTTP/1.1" 200
+[2026-02-08 09:03:22,908] [INFO] 127.0.0.1:12983 - "GET /web/app/index.html HTTP/1.1" 200
+[2026-02-08 09:03:22,909] [INFO] 127.0.0.1:6993 - "GET /web/app/flutter_bootstrap.js HTTP/1.1" 200
+[2026-02-08 09:03:22,914] [INFO] 127.0.0.1:6993 - "GET /web/app/assets/AssetManifest.bin.json HTTP/1.1" 200
+[2026-02-08 09:03:22,915] [INFO] 127.0.0.1:12983 - "GET /web/app/assets/FontManifest.json HTTP/1.1" 200
+[2026-02-08 09:03:23,264] [INFO] 127.0.0.1:3719 - "GET /web/app/flutter_service_worker.js HTTP/1.1" 304
+[2026-02-08 09:03:23,272] [INFO] 127.0.0.1:6993 - "GET /web/app/flutter_bootstrap.js HTTP/1.1" 200
+[2026-02-08 09:03:23,273] [INFO] 127.0.0.1:3719 - "GET /web/app/main.dart.js HTTP/1.1" 200
+[2026-02-08 09:03:23,273] [INFO] 127.0.0.1:12983 - "GET /web/app/index.html HTTP/1.1" 200
+[2026-02-08 09:03:23,278] [INFO] 127.0.0.1:12983 - "GET /web/app/assets/FontManifest.json HTTP/1.1" 200
+[2026-02-08 09:03:23,278] [INFO] 127.0.0.1:6993 - "GET /web/app/assets/AssetManifest.bin.json HTTP/1.1" 200
+[2026-02-08 09:03:23,622] [INFO] 127.0.0.1:3719 - "GET /web/app/flutter_service_worker.js HTTP/1.1" 304
+[2026-02-08 09:03:29,554] [INFO] 127.0.0.1:6147 - "GET /video_feed/rt1?source=rtsp://admin:admin@192.168.1.89:554/mainstream HTTP/1.1" 500
+[2026-02-08 09:03:29,555] [ERROR] Exception in ASGI application
+Traceback (most recent call last):
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\uvicorn\protocols\http\h11_impl.py", line 403, in run_asgi
+    result = await app(  # type: ignore[func-returns-value]
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\uvicorn\middleware\proxy_headers.py", line 60, in __call__
+    return await self.app(scope, receive, send)
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\fastapi\applications.py", line 1054, in __call__
+    await super().__call__(scope, receive, send)
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\starlette\applications.py", line 113, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\starlette\middleware\errors.py", line 187, in __call__
+    raise exc
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\starlette\middleware\errors.py", line 165, in __call__
+    await self.app(scope, receive, _send)
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\starlette\middleware\cors.py", line 85, in __call__
+    await self.app(scope, receive, send)
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\starlette\middleware\exceptions.py", line 62, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\starlette\_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\starlette\_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\starlette\routing.py", line 715, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\starlette\routing.py", line 735, in app
+    await route.handle(scope, receive, send)
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\starlette\routing.py", line 288, in handle
+    await self.app(scope, receive, send)
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\starlette\routing.py", line 76, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\starlette\_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\starlette\_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\starlette\routing.py", line 73, in app
+    response = await f(request)
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\fastapi\routing.py", line 301, in app
+    raw_response = await run_endpoint_function(
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\fastapi\routing.py", line 212, in run_endpoint_function
+    return await dependant.call(**values)
+  File "D:\Codes\anprv8\engine\api.py", line 111, in video_feed
+    cam.generate_frames(),
+TypeError: CameraManager.generate_frames() missing 2 required positional arguments: 'camera_idx' and 'source'
+[2026-02-08 09:03:29,595] [INFO] 127.0.0.1:8300 - "GET /video_feed/rt2?source=rtsp://:@192.168.1.10:554/stream HTTP/1.1" 500
+[2026-02-08 09:03:29,595] [ERROR] Exception in ASGI application
+Traceback (most recent call last):
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\uvicorn\protocols\http\h11_impl.py", line 403, in run_asgi
+    result = await app(  # type: ignore[func-returns-value]
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\uvicorn\middleware\proxy_headers.py", line 60, in __call__
+    return await self.app(scope, receive, send)
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\fastapi\applications.py", line 1054, in __call__
+    await super().__call__(scope, receive, send)
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\starlette\applications.py", line 113, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\starlette\middleware\errors.py", line 187, in __call__
+    raise exc
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\starlette\middleware\errors.py", line 165, in __call__
+    await self.app(scope, receive, _send)
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\starlette\middleware\cors.py", line 85, in __call__
+    await self.app(scope, receive, send)
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\starlette\middleware\exceptions.py", line 62, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\starlette\_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\starlette\_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\starlette\routing.py", line 715, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\starlette\routing.py", line 735, in app
+    await route.handle(scope, receive, send)
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\starlette\routing.py", line 288, in handle
+    await self.app(scope, receive, send)
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\starlette\routing.py", line 76, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\starlette\_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\starlette\_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\starlette\routing.py", line 73, in app
+    response = await f(request)
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\fastapi\routing.py", line 301, in app
+    raw_response = await run_endpoint_function(
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\fastapi\routing.py", line 212, in run_endpoint_function
+    return await dependant.call(**values)
+  File "D:\Codes\anprv8\engine\api.py", line 111, in video_feed
+    cam.generate_frames(),
+TypeError: CameraManager.generate_frames() missing 2 required positional arguments: 'camera_idx' and 'source'
+[2026-02-08 09:04:00,061] [INFO] Shutting down
+[2026-02-08 09:04:00,168] [INFO] Waiting for application shutdown.
+[2026-02-08 09:04:00,328] [INFO] Cleanup complete. Shutting down.
+[2026-02-08 09:04:03,796] [INFO] 4.10.0
+[2026-02-08 09:04:03,948] [DEBUG] Using proactor: IocpProactor
+[2026-02-08 09:04:03,980] [INFO] Started server process [41424]
+[2026-02-08 09:04:03,980] [INFO] Waiting for application startup.
+[2026-02-08 09:04:03,982] [INFO] PocketBase stater 41980
+[2026-02-08 09:04:03,996] [INFO] Loading YOLO models...
+[2026-02-08 09:04:03,996] [INFO] Found the 'openvino' file!
+[2026-02-08 09:04:03,997] [INFO] Loading onnx/pt
+[2026-02-08 09:04:05,360] [DEBUG] Loaded backend Agg version v2.2.
+[2026-02-08 09:04:05,924] [INFO] Models loaded successfully
+[2026-02-08 09:04:05,993] [INFO] Application startup complete.
+[2026-02-08 09:04:05,993] [INFO] Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+[2026-02-08 09:04:06,064] [INFO] 127.0.0.1:10695 - "GET /web/app HTTP/1.1" 307
+[2026-02-08 09:04:06,135] [INFO] 127.0.0.1:10695 - "GET /web/app/flutter_service_worker.js?v=3512346584 HTTP/1.1" 304
+[2026-02-08 09:04:06,150] [INFO] 127.0.0.1:10695 - "GET /web/app/main.dart.js HTTP/1.1" 200
+[2026-02-08 09:04:06,152] [INFO] 127.0.0.1:7191 - "GET /web/app/index.html HTTP/1.1" 200
+[2026-02-08 09:04:06,153] [INFO] 127.0.0.1:1372 - "GET /web/app/flutter_bootstrap.js HTTP/1.1" 200
+[2026-02-08 09:04:06,160] [INFO] 127.0.0.1:7191 - "GET /web/app/assets/FontManifest.json HTTP/1.1" 200
+[2026-02-08 09:04:06,161] [INFO] 127.0.0.1:1372 - "GET /web/app/assets/AssetManifest.bin.json HTTP/1.1" 200
+[2026-02-08 09:04:06,682] [INFO] 127.0.0.1:10695 - "GET /web/app/flutter_service_worker.js HTTP/1.1" 304
+[2026-02-08 09:04:06,690] [INFO] 127.0.0.1:10695 - "GET /web/app/main.dart.js HTTP/1.1" 200
+[2026-02-08 09:04:06,691] [INFO] 127.0.0.1:1372 - "GET /web/app/flutter_bootstrap.js HTTP/1.1" 200
+[2026-02-08 09:04:06,691] [INFO] 127.0.0.1:7191 - "GET /web/app/index.html HTTP/1.1" 200
+[2026-02-08 09:04:06,707] [INFO] 127.0.0.1:1372 - "GET /web/app/assets/FontManifest.json HTTP/1.1" 200
+[2026-02-08 09:04:06,707] [INFO] 127.0.0.1:7191 - "GET /web/app/assets/AssetManifest.bin.json HTTP/1.1" 200
+[2026-02-08 09:04:07,042] [INFO] 127.0.0.1:10695 - "GET /web/app/flutter_service_worker.js HTTP/1.1" 304
+[2026-02-08 09:04:12,608] [INFO] 127.0.0.1:5638 - "GET /video_feed/rt1?source=rtsp://admin:admin@192.168.1.89:554/mainstream HTTP/1.1" 200
+[2026-02-08 09:04:13,426] [ERROR] Error in generate_frames: OpenCV(4.10.0) D:\a\opencv-python\opencv-python\opencv\modules\imgcodecs\src\loadsave.cpp:1134: error: (-215:Assertion failed) !image.empty() in function 'cv::imencode'
+
+[2026-02-08 09:04:13,426] [INFO] Releasing camera resources
+[2026-02-08 09:04:13,443] [INFO] 127.0.0.1:9318 - "GET /video_feed/rt2?source=rtsp://:@192.168.1.10:554/stream HTTP/1.1" 200
+[2026-02-08 09:04:15,431] [ERROR] Error in generate_frames: OpenCV(4.10.0) D:\a\opencv-python\opencv-python\opencv\modules\imgcodecs\src\loadsave.cpp:1134: error: (-215:Assertion failed) !image.empty() in function 'cv::imencode'
+
+[2026-02-08 09:04:15,432] [INFO] Releasing camera resources
+[2026-02-08 09:04:32,461] [INFO] 127.0.0.1:14177 - "GET /video_feed/rt1?source=rtsp://admin:admin@192.168.1.89:554/mainstream HTTP/1.1" 200
+[2026-02-08 09:04:33,544] [INFO] 127.0.0.1:1562 - "GET /video_feed/rt2?source=rtsp://:@192.168.1.10:554/stream HTTP/1.1" 200
+[2026-02-08 09:05:34,748] [INFO] 4u4108y8rilc150
+[2026-02-08 09:05:34,916] [INFO] 3y5837uu54tmns0
+[2026-02-08 09:06:10,632] [INFO] 9anay85hkg41i43
+[2026-02-08 09:06:32,424] [INFO] 91qhu8a657qe6gv
+[2026-02-08 09:06:32,535] [INFO] 167ud1awr66elh8
+[2026-02-08 09:06:44,412] [INFO] 4.10.0
+[2026-02-08 09:06:44,579] [DEBUG] Using proactor: IocpProactor
+[2026-02-08 09:06:44,613] [INFO] Started server process [39696]
+[2026-02-08 09:06:44,614] [INFO] Waiting for application startup.
+[2026-02-08 09:06:44,617] [INFO] PocketBase stater 40220
+[2026-02-08 09:06:44,627] [INFO] Loading YOLO models...
+[2026-02-08 09:06:44,628] [INFO] Found the 'openvino' file!
+[2026-02-08 09:06:44,628] [INFO] Loading onnx/pt
+[2026-02-08 09:06:45,902] [DEBUG] Loaded backend Agg version v2.2.
+[2026-02-08 09:06:46,489] [INFO] Models loaded successfully
+[2026-02-08 09:06:46,557] [INFO] Application startup complete.
+[2026-02-08 09:06:46,557] [INFO] Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+[2026-02-08 09:06:46,641] [INFO] 127.0.0.1:9316 - "GET /web/app HTTP/1.1" 307
+[2026-02-08 09:06:46,712] [INFO] 127.0.0.1:9316 - "GET /web/app/flutter_service_worker.js?v=3512346584 HTTP/1.1" 304
+[2026-02-08 09:06:46,724] [INFO] 127.0.0.1:9316 - "GET /web/app/main.dart.js HTTP/1.1" 200
+[2026-02-08 09:06:46,726] [INFO] 127.0.0.1:8672 - "GET /web/app/index.html HTTP/1.1" 200
+[2026-02-08 09:06:46,726] [INFO] 127.0.0.1:5499 - "GET /web/app/flutter_bootstrap.js HTTP/1.1" 200
+[2026-02-08 09:06:46,732] [INFO] 127.0.0.1:8672 - "GET /web/app/assets/AssetManifest.bin.json HTTP/1.1" 200
+[2026-02-08 09:06:46,733] [INFO] 127.0.0.1:5499 - "GET /web/app/assets/FontManifest.json HTTP/1.1" 200
+[2026-02-08 09:06:47,069] [INFO] 127.0.0.1:9316 - "GET /web/app/flutter_service_worker.js HTTP/1.1" 304
+[2026-02-08 09:06:47,077] [INFO] 127.0.0.1:8672 - "GET /web/app/flutter_bootstrap.js HTTP/1.1" 200
+[2026-02-08 09:06:47,077] [INFO] 127.0.0.1:9316 - "GET /web/app/main.dart.js HTTP/1.1" 200
+[2026-02-08 09:06:47,077] [INFO] 127.0.0.1:5499 - "GET /web/app/index.html HTTP/1.1" 200
+[2026-02-08 09:06:47,096] [INFO] 127.0.0.1:8672 - "GET /web/app/assets/FontManifest.json HTTP/1.1" 200
+[2026-02-08 09:06:47,097] [INFO] 127.0.0.1:5499 - "GET /web/app/assets/AssetManifest.bin.json HTTP/1.1" 200
+[2026-02-08 09:06:47,432] [INFO] 127.0.0.1:9316 - "GET /web/app/flutter_service_worker.js HTTP/1.1" 304
+[2026-02-08 09:06:49,112] [INFO] 127.0.0.1:9316 - "GET /video_feed/rt1?source=rtsp://admin:admin@192.168.1.89:554/mainstream HTTP/1.1" 200
+[2026-02-08 09:06:49,730] [ERROR] Error in generate_frames: OpenCV(4.10.0) D:\a\opencv-python\opencv-python\opencv\modules\imgcodecs\src\loadsave.cpp:1134: error: (-215:Assertion failed) !image.empty() in function 'cv::imencode'
+
+[2026-02-08 09:06:49,731] [INFO] Releasing camera resources
+[2026-02-08 09:06:53,949] [INFO] 127.0.0.1:9316 - "GET /video_feed/rt1?source=rtsp://admin:admin@192.168.1.89:554/mainstream HTTP/1.1" 200
+[2026-02-08 09:07:15,229] [INFO] ld4z771yjdxfiaf
+[2026-02-08 09:28:58,676] [INFO] 4.10.0
+[2026-02-08 09:28:58,836] [DEBUG] Using proactor: IocpProactor
+[2026-02-08 09:28:58,870] [INFO] Started server process [4728]
+[2026-02-08 09:28:58,870] [INFO] Waiting for application startup.
+[2026-02-08 09:28:58,873] [INFO] PocketBase stater 46420
+[2026-02-08 09:28:58,890] [INFO] Loading YOLO models...
+[2026-02-08 09:28:58,890] [INFO] Found the 'openvino' file!
+[2026-02-08 09:28:58,890] [INFO] Loading onnx/pt
+[2026-02-08 09:29:00,265] [DEBUG] Loaded backend Agg version v2.2.
+[2026-02-08 09:29:00,932] [INFO] Models loaded successfully
+[2026-02-08 09:29:01,030] [INFO] Application startup complete.
+[2026-02-08 09:29:01,031] [INFO] Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+[2026-02-08 09:29:01,103] [INFO] 127.0.0.1:4251 - "GET /web/app HTTP/1.1" 307
+[2026-02-08 09:29:01,177] [INFO] 127.0.0.1:4251 - "GET /web/app/flutter_service_worker.js?v=3512346584 HTTP/1.1" 304
+[2026-02-08 09:29:01,191] [INFO] 127.0.0.1:4251 - "GET /web/app/main.dart.js HTTP/1.1" 200
+[2026-02-08 09:29:01,192] [INFO] 127.0.0.1:4155 - "GET /web/app/index.html HTTP/1.1" 200
+[2026-02-08 09:29:01,194] [INFO] 127.0.0.1:8459 - "GET /web/app/flutter_bootstrap.js HTTP/1.1" 200
+[2026-02-08 09:29:01,199] [INFO] 127.0.0.1:4155 - "GET /web/app/assets/FontManifest.json HTTP/1.1" 200
+[2026-02-08 09:29:01,200] [INFO] 127.0.0.1:8459 - "GET /web/app/assets/AssetManifest.bin.json HTTP/1.1" 200
+[2026-02-08 09:29:01,537] [INFO] 127.0.0.1:4251 - "GET /web/app/flutter_service_worker.js HTTP/1.1" 304
+[2026-02-08 09:29:01,545] [INFO] 127.0.0.1:4251 - "GET /web/app/main.dart.js HTTP/1.1" 200
+[2026-02-08 09:29:01,546] [INFO] 127.0.0.1:8459 - "GET /web/app/index.html HTTP/1.1" 200
+[2026-02-08 09:29:01,546] [INFO] 127.0.0.1:4155 - "GET /web/app/flutter_bootstrap.js HTTP/1.1" 200
+[2026-02-08 09:29:01,553] [INFO] 127.0.0.1:4155 - "GET /web/app/assets/AssetManifest.bin.json HTTP/1.1" 200
+[2026-02-08 09:29:01,553] [INFO] 127.0.0.1:8459 - "GET /web/app/assets/FontManifest.json HTTP/1.1" 200
+[2026-02-08 09:29:01,886] [INFO] 127.0.0.1:4251 - "GET /web/app/flutter_service_worker.js HTTP/1.1" 304
+[2026-02-08 09:29:25,774] [INFO] 127.0.0.1:5002 - "GET /video_feed/rt1?source=rtsp://admin:admin@192.168.1.89:554/mainstream HTTP/1.1" 200
+[2026-02-08 09:29:30,548] [INFO] oel92lc9v4s2h59
+[2026-02-08 09:29:41,331] [INFO] Releasing camera resources
+[2026-02-08 09:30:02,542] [INFO] 127.0.0.1:8299 - "GET /video_feed/rt1?source=rtsp://admin:admin@192.168.1.89:554/mainstream HTTP/1.1" 200
+[2026-02-08 09:30:02,548] [INFO] 127.0.0.1:7970 - "GET /video_feed/rt2?source=rtsp://:@192.168.1.7:554/stream HTTP/1.1" 200
+[2026-02-08 09:30:04,601] [INFO] 9q33n30572hc0xl
+[2026-02-08 09:30:11,156] [INFO] m3cz5a3xv45893u
+[2026-02-08 09:30:15,887] [INFO] jc9bc2l1h8wx7c9
+[2026-02-08 09:31:03,516] [INFO] 6jv35tyjn99tm9e
+[2026-02-08 09:31:19,091] [INFO] x0jky577n7p3326
+[2026-02-08 09:31:56,369] [INFO] Releasing camera resources
+[2026-02-08 09:31:56,369] [INFO] Releasing camera resources
+[2026-02-08 09:32:11,312] [INFO] 127.0.0.1:1749 - "GET /web/app/flutter_service_worker.js?v=3512346584 HTTP/1.1" 304
+[2026-02-08 09:32:11,328] [INFO] 127.0.0.1:1749 - "GET /web/app/main.dart.js HTTP/1.1" 200
+[2026-02-08 09:32:11,330] [INFO] 127.0.0.1:8334 - "GET /web/app/index.html HTTP/1.1" 200
+[2026-02-08 09:32:11,331] [INFO] 127.0.0.1:8111 - "GET /web/app/flutter_bootstrap.js HTTP/1.1" 200
+[2026-02-08 09:32:11,336] [INFO] 127.0.0.1:8334 - "GET /web/app/assets/FontManifest.json HTTP/1.1" 200
+[2026-02-08 09:32:11,337] [INFO] 127.0.0.1:8111 - "GET /web/app/assets/AssetManifest.bin.json HTTP/1.1" 200
+[2026-02-08 09:32:11,648] [INFO] 127.0.0.1:1749 - "GET /web/app/flutter_service_worker.js HTTP/1.1" 304
+[2026-02-08 09:32:11,655] [INFO] 127.0.0.1:8111 - "GET /web/app/flutter_bootstrap.js HTTP/1.1" 200
+[2026-02-08 09:32:11,656] [INFO] 127.0.0.1:1749 - "GET /web/app/main.dart.js HTTP/1.1" 200
+[2026-02-08 09:32:11,656] [INFO] 127.0.0.1:8334 - "GET /web/app/index.html HTTP/1.1" 200
+[2026-02-08 09:32:11,661] [INFO] 127.0.0.1:8334 - "GET /web/app/assets/FontManifest.json HTTP/1.1" 200
+[2026-02-08 09:32:11,661] [INFO] 127.0.0.1:8111 - "GET /web/app/assets/AssetManifest.bin.json HTTP/1.1" 200
+[2026-02-08 09:32:11,973] [INFO] 127.0.0.1:1749 - "GET /web/app/flutter_service_worker.js HTTP/1.1" 304
+[2026-02-08 09:32:19,810] [INFO] 127.0.0.1:10172 - "GET /video_feed/rt1?source=rtsp://admin:admin@192.168.1.89:554/mainstream HTTP/1.1" 200
+[2026-02-08 09:32:19,816] [INFO] 127.0.0.1:3238 - "GET /video_feed/rt2?source=rtsp://:@192.168.1.7:554/stream HTTP/1.1" 200
+[2026-02-08 09:33:12,408] [INFO] wuuz4y49nxt34ww
+[2026-02-08 09:33:48,791] [INFO] c73zymh3cm206lj
+[2026-02-08 09:34:23,368] [INFO] h725l0v372nd34d
+[2026-02-08 09:34:29,871] [INFO] xrj742a2c2q2v45
+[2026-02-08 09:34:35,650] [INFO] 2by0w56vio95hw1
+[2026-02-08 09:34:36,064] [INFO] 2752b76763h2e37
+[2026-02-08 09:34:55,921] [INFO] 69end8e913473tq
+[2026-02-08 09:35:40,094] [INFO] 8c7lzcuzwi36tkw
+[2026-02-08 09:35:57,836] [INFO] Releasing camera resources
+[2026-02-08 09:35:57,853] [INFO] Releasing camera resources
+[2026-02-08 09:45:43,653] [INFO] Shutting down
+[2026-02-08 09:45:43,767] [INFO] Waiting for application shutdown.
+[2026-02-08 09:45:43,910] [INFO] Cleanup complete. Shutting down.
+[2026-02-08 10:12:31,788] [INFO] 4.10.0
+[2026-02-08 10:12:31,947] [DEBUG] Using proactor: IocpProactor
+[2026-02-08 10:12:31,976] [INFO] Started server process [52956]
+[2026-02-08 10:12:31,976] [INFO] Waiting for application startup.
+[2026-02-08 10:12:31,980] [INFO] PocketBase stater 54196
+[2026-02-08 10:12:31,996] [INFO] Loading YOLO models...
+[2026-02-08 10:12:31,996] [INFO] Found the 'openvino' file!
+[2026-02-08 10:12:31,996] [INFO] Loading onnx/pt
+[2026-02-08 10:12:33,304] [DEBUG] Loaded backend Agg version v2.2.
+[2026-02-08 10:12:33,902] [INFO] Models loaded successfully
+[2026-02-08 10:12:33,975] [INFO] Application startup complete.
+[2026-02-08 10:12:33,976] [INFO] Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+[2026-02-08 10:12:34,050] [INFO] 127.0.0.1:4056 - "GET /web/app HTTP/1.1" 307
+[2026-02-08 10:12:34,126] [INFO] 127.0.0.1:4056 - "GET /web/app/flutter_service_worker.js?v=3512346584 HTTP/1.1" 304
+[2026-02-08 10:12:34,141] [INFO] 127.0.0.1:4056 - "GET /web/app/main.dart.js HTTP/1.1" 200
+[2026-02-08 10:12:34,142] [INFO] 127.0.0.1:1292 - "GET /web/app/index.html HTTP/1.1" 200
+[2026-02-08 10:12:34,143] [INFO] 127.0.0.1:6337 - "GET /web/app/flutter_bootstrap.js HTTP/1.1" 200
+[2026-02-08 10:12:34,151] [INFO] 127.0.0.1:1292 - "GET /web/app/assets/AssetManifest.bin.json HTTP/1.1" 200
+[2026-02-08 10:12:34,152] [INFO] 127.0.0.1:6337 - "GET /web/app/assets/FontManifest.json HTTP/1.1" 200
+[2026-02-08 10:12:34,741] [INFO] 127.0.0.1:4056 - "GET /web/app/flutter_service_worker.js HTTP/1.1" 304
+[2026-02-08 10:12:34,749] [INFO] 127.0.0.1:6337 - "GET /web/app/flutter_bootstrap.js HTTP/1.1" 200
+[2026-02-08 10:12:34,750] [INFO] 127.0.0.1:1292 - "GET /web/app/index.html HTTP/1.1" 200
+[2026-02-08 10:12:34,750] [INFO] 127.0.0.1:4056 - "GET /web/app/main.dart.js HTTP/1.1" 200
+[2026-02-08 10:12:34,754] [INFO] 127.0.0.1:6337 - "GET /web/app/assets/AssetManifest.bin.json HTTP/1.1" 200
+[2026-02-08 10:12:34,755] [INFO] 127.0.0.1:1292 - "GET /web/app/assets/FontManifest.json HTTP/1.1" 200
+[2026-02-08 10:12:35,262] [INFO] 127.0.0.1:4056 - "GET /web/app/flutter_service_worker.js HTTP/1.1" 304
+[2026-02-08 10:12:51,783] [INFO] 127.0.0.1:4671 - "GET /video_feed/rt1?source=rtsp://admin:admin@192.168.1.89:554/mainstream HTTP/1.1" 200
+[2026-02-08 10:12:51,786] [INFO] 127.0.0.1:14602 - "GET /video_feed/rt2?source=rtsp://:@192.168.1.7:554/stream HTTP/1.1" 200
+[2026-02-08 10:13:08,808] [INFO] Releasing camera resources
+[2026-02-08 10:13:08,819] [INFO] Releasing camera resources
+[2026-02-08 10:13:09,324] [INFO] 127.0.0.1:2905 - "GET /video_feed/rt1?source=rtsp://admin:admin@192.168.1.89:554/mainstream HTTP/1.1" 200
+[2026-02-08 10:13:09,328] [INFO] 127.0.0.1:6691 - "GET /video_feed/rt2?source=rtsp://:@192.168.1.7:554/stream HTTP/1.1" 200
+[2026-02-08 10:13:27,841] [INFO] e56171272upbodm
+[2026-02-08 10:13:44,001] [INFO] 80e3y9vgpin75fx
+[2026-02-08 10:13:53,255] [INFO] Releasing camera resources
+[2026-02-08 10:13:53,256] [INFO] Releasing camera resources
+[2026-02-08 10:15:21,509] [INFO] Shutting down
+[2026-02-08 10:15:21,617] [INFO] Waiting for application shutdown.
+[2026-02-08 10:15:21,762] [INFO] Cleanup complete. Shutting down.
+[2026-02-08 10:15:24,927] [INFO] 4.10.0
+[2026-02-08 10:15:25,079] [DEBUG] Using proactor: IocpProactor
+[2026-02-08 10:15:25,107] [INFO] Started server process [55760]
+[2026-02-08 10:15:25,107] [INFO] Waiting for application startup.
+[2026-02-08 10:15:25,111] [INFO] PocketBase stater 55124
+[2026-02-08 10:15:25,122] [INFO] Loading YOLO models...
+[2026-02-08 10:15:25,123] [INFO] Found the 'openvino' file!
+[2026-02-08 10:15:25,123] [INFO] Loading onnx/pt
+[2026-02-08 10:15:26,355] [DEBUG] Loaded backend Agg version v2.2.
+[2026-02-08 10:15:26,916] [INFO] Models loaded successfully
+[2026-02-08 10:15:26,984] [INFO] Application startup complete.
+[2026-02-08 10:15:26,984] [INFO] Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+[2026-02-08 10:15:27,074] [INFO] 127.0.0.1:10916 - "GET /web/app HTTP/1.1" 307
+[2026-02-08 10:15:27,143] [INFO] 127.0.0.1:10916 - "GET /web/app/flutter_service_worker.js?v=3512346584 HTTP/1.1" 304
+[2026-02-08 10:15:27,155] [INFO] 127.0.0.1:10916 - "GET /web/app/main.dart.js HTTP/1.1" 200
+[2026-02-08 10:15:27,156] [INFO] 127.0.0.1:11045 - "GET /web/app/index.html HTTP/1.1" 200
+[2026-02-08 10:15:27,157] [INFO] 127.0.0.1:14111 - "GET /web/app/flutter_bootstrap.js HTTP/1.1" 200
+[2026-02-08 10:15:27,162] [INFO] 127.0.0.1:14111 - "GET /web/app/assets/AssetManifest.bin.json HTTP/1.1" 200
+[2026-02-08 10:15:27,162] [INFO] 127.0.0.1:11045 - "GET /web/app/assets/FontManifest.json HTTP/1.1" 200
+[2026-02-08 10:15:27,514] [INFO] 127.0.0.1:10916 - "GET /web/app/flutter_service_worker.js HTTP/1.1" 304
+[2026-02-08 10:15:27,524] [INFO] 127.0.0.1:10916 - "GET /web/app/main.dart.js HTTP/1.1" 200
+[2026-02-08 10:15:27,524] [INFO] 127.0.0.1:14111 - "GET /web/app/index.html HTTP/1.1" 200
+[2026-02-08 10:15:27,525] [INFO] 127.0.0.1:11045 - "GET /web/app/flutter_bootstrap.js HTTP/1.1" 200
+[2026-02-08 10:15:27,530] [INFO] 127.0.0.1:11045 - "GET /web/app/assets/AssetManifest.bin.json HTTP/1.1" 200
+[2026-02-08 10:15:27,531] [INFO] 127.0.0.1:14111 - "GET /web/app/assets/FontManifest.json HTTP/1.1" 200
+[2026-02-08 10:15:27,872] [INFO] 127.0.0.1:10916 - "GET /web/app/flutter_service_worker.js HTTP/1.1" 304
+[2026-02-08 10:15:32,926] [INFO] 127.0.0.1:5531 - "GET /video_feed/rt1?source=rtsp://admin:admin@192.168.1.89:554/mainstream HTTP/1.1" 200
+[2026-02-08 10:15:32,928] [INFO] 127.0.0.1:4143 - "GET /video_feed/rt2?source=rtsp://:@192.168.1.7:554/stream HTTP/1.1" 200
+[2026-02-08 10:15:44,343] [INFO] Releasing camera resources
+[2026-02-08 10:15:44,350] [INFO] Releasing camera resources
+[2026-02-08 10:16:01,881] [INFO] Shutting down
+[2026-02-08 10:16:01,988] [INFO] Waiting for application shutdown.
+[2026-02-08 10:16:02,125] [INFO] Cleanup complete. Shutting down.
+[2026-02-08 10:16:05,182] [INFO] 4.10.0
+[2026-02-08 10:16:05,333] [DEBUG] Using proactor: IocpProactor
+[2026-02-08 10:16:05,360] [INFO] Started server process [53844]
+[2026-02-08 10:16:05,361] [INFO] Waiting for application startup.
+[2026-02-08 10:16:05,365] [INFO] PocketBase stater 40308
+[2026-02-08 10:16:05,379] [INFO] Loading YOLO models...
+[2026-02-08 10:16:05,379] [INFO] Found the 'openvino' file!
+[2026-02-08 10:16:05,379] [INFO] Loading onnx/pt
+[2026-02-08 10:16:06,602] [DEBUG] Loaded backend Agg version v2.2.
+[2026-02-08 10:16:07,143] [INFO] Models loaded successfully
+[2026-02-08 10:16:07,206] [INFO] Application startup complete.
+[2026-02-08 10:16:07,207] [INFO] Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+[2026-02-08 10:16:07,272] [INFO] 127.0.0.1:4380 - "GET /web/app HTTP/1.1" 307
+[2026-02-08 10:16:07,342] [INFO] 127.0.0.1:4380 - "GET /web/app/flutter_service_worker.js?v=3512346584 HTTP/1.1" 304
+[2026-02-08 10:16:07,354] [INFO] 127.0.0.1:4380 - "GET /web/app/main.dart.js HTTP/1.1" 200
+[2026-02-08 10:16:07,357] [INFO] 127.0.0.1:2387 - "GET /web/app/index.html HTTP/1.1" 200
+[2026-02-08 10:16:07,357] [INFO] 127.0.0.1:6888 - "GET /web/app/flutter_bootstrap.js HTTP/1.1" 200
+[2026-02-08 10:16:07,362] [INFO] 127.0.0.1:6888 - "GET /web/app/assets/AssetManifest.bin.json HTTP/1.1" 200
+[2026-02-08 10:16:07,362] [INFO] 127.0.0.1:2387 - "GET /web/app/assets/FontManifest.json HTTP/1.1" 200
+[2026-02-08 10:16:07,691] [INFO] 127.0.0.1:4380 - "GET /web/app/flutter_service_worker.js HTTP/1.1" 304
+[2026-02-08 10:16:07,698] [INFO] 127.0.0.1:6888 - "GET /web/app/flutter_bootstrap.js HTTP/1.1" 200
+[2026-02-08 10:16:07,699] [INFO] 127.0.0.1:2387 - "GET /web/app/index.html HTTP/1.1" 200
+[2026-02-08 10:16:07,699] [INFO] 127.0.0.1:4380 - "GET /web/app/main.dart.js HTTP/1.1" 200
+[2026-02-08 10:16:07,704] [INFO] 127.0.0.1:6888 - "GET /web/app/assets/AssetManifest.bin.json HTTP/1.1" 200
+[2026-02-08 10:16:07,705] [INFO] 127.0.0.1:2387 - "GET /web/app/assets/FontManifest.json HTTP/1.1" 200
+[2026-02-08 10:16:08,054] [INFO] 127.0.0.1:4380 - "GET /web/app/flutter_service_worker.js HTTP/1.1" 304
+[2026-02-08 10:16:23,010] [INFO] 127.0.0.1:14084 - "GET /video_feed/rt1?source=rtsp://admin:admin@192.168.1.89:554/mainstream HTTP/1.1" 200
+[2026-02-08 10:16:23,011] [INFO] 127.0.0.1:11928 - "GET /video_feed/rt2?source=rtsp://:@192.168.1.7:554/stream HTTP/1.1" 200
+[2026-02-08 10:17:43,242] [INFO] Shutting down
+[2026-02-08 10:17:43,334] [INFO] Waiting for connections to close. (CTRL+C to force quit)
+[2026-02-08 10:17:46,865] [INFO] Waiting for background tasks to complete. (CTRL+C to force quit)
+[2026-02-08 10:17:46,959] [INFO] Waiting for application shutdown.
+[2026-02-08 10:17:47,112] [INFO] Releasing camera resources
+[2026-02-08 10:17:47,119] [INFO] Releasing camera resources
+[2026-02-08 10:17:47,148] [INFO] Cleanup complete. Shutting down.
+[2026-02-08 10:17:52,015] [INFO] 4.10.0
+[2026-02-08 10:17:52,164] [DEBUG] Using proactor: IocpProactor
+[2026-02-08 10:17:52,194] [INFO] Started server process [55620]
+[2026-02-08 10:17:52,194] [INFO] Waiting for application startup.
+[2026-02-08 10:17:52,197] [INFO] PocketBase stater 56328
+[2026-02-08 10:17:52,210] [INFO] Loading YOLO models...
+[2026-02-08 10:17:52,211] [INFO] Found the 'openvino' file!
+[2026-02-08 10:17:52,211] [INFO] Loading onnx/pt
+[2026-02-08 10:17:53,436] [DEBUG] Loaded backend Agg version v2.2.
+[2026-02-08 10:17:53,990] [INFO] Models loaded successfully
+[2026-02-08 10:17:54,053] [INFO] Application startup complete.
+[2026-02-08 10:17:54,053] [INFO] Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+[2026-02-08 10:17:54,118] [INFO] 127.0.0.1:5397 - "GET /web/app HTTP/1.1" 307
+[2026-02-08 10:17:54,191] [INFO] 127.0.0.1:5397 - "GET /web/app/flutter_service_worker.js?v=3512346584 HTTP/1.1" 304
+[2026-02-08 10:17:54,205] [INFO] 127.0.0.1:5397 - "GET /web/app/main.dart.js HTTP/1.1" 200
+[2026-02-08 10:17:54,206] [INFO] 127.0.0.1:6224 - "GET /web/app/index.html HTTP/1.1" 200
+[2026-02-08 10:17:54,207] [INFO] 127.0.0.1:2362 - "GET /web/app/flutter_bootstrap.js HTTP/1.1" 200
+[2026-02-08 10:17:54,213] [INFO] 127.0.0.1:6224 - "GET /web/app/assets/FontManifest.json HTTP/1.1" 200
+[2026-02-08 10:17:54,213] [INFO] 127.0.0.1:2362 - "GET /web/app/assets/AssetManifest.bin.json HTTP/1.1" 200
+[2026-02-08 10:17:54,547] [INFO] 127.0.0.1:5397 - "GET /web/app/flutter_service_worker.js HTTP/1.1" 304
+[2026-02-08 10:17:54,555] [INFO] 127.0.0.1:2362 - "GET /web/app/index.html HTTP/1.1" 200
+[2026-02-08 10:17:54,555] [INFO] 127.0.0.1:6224 - "GET /web/app/flutter_bootstrap.js HTTP/1.1" 200
+[2026-02-08 10:17:54,556] [INFO] 127.0.0.1:5397 - "GET /web/app/main.dart.js HTTP/1.1" 200
+[2026-02-08 10:17:54,561] [INFO] 127.0.0.1:2362 - "GET /web/app/assets/AssetManifest.bin.json HTTP/1.1" 200
+[2026-02-08 10:17:54,561] [INFO] 127.0.0.1:6224 - "GET /web/app/assets/FontManifest.json HTTP/1.1" 200
+[2026-02-08 10:17:54,871] [INFO] 127.0.0.1:5397 - "GET /web/app/flutter_service_worker.js HTTP/1.1" 304
+[2026-02-08 10:18:01,177] [INFO] 127.0.0.1:12439 - "GET /video_feed/rt1?source=rtsp://admin:admin@192.168.1.89:554/mainstream HTTP/1.1" 200
+[2026-02-08 10:18:01,181] [INFO] 127.0.0.1:13320 - "GET /video_feed/rt2?source=rtsp://:@192.168.1.7:554/stream HTTP/1.1" 200
+[2026-02-08 10:20:02,485] [INFO] h9lyyw5y92947cy
+[2026-02-08 10:20:03,579] [INFO] 47b0jb6hew1a22i
+[2026-02-08 10:20:07,477] [INFO] 4sxsy547556r97a
+[2026-02-08 10:21:01,063] [INFO] Shutting down
+[2026-02-08 10:21:01,150] [INFO] Waiting for connections to close. (CTRL+C to force quit)
+[2026-02-08 10:21:05,045] [INFO] Releasing camera resources
+[2026-02-08 10:21:05,053] [INFO] Releasing camera resources
+[2026-02-08 10:21:05,059] [INFO] Waiting for application shutdown.
+[2026-02-08 10:21:05,233] [INFO] Cleanup complete. Shutting down.
+[2026-02-08 10:21:09,898] [INFO] 4.10.0
+[2026-02-08 10:21:10,045] [DEBUG] Using proactor: IocpProactor
+[2026-02-08 10:21:10,074] [INFO] Started server process [57140]
+[2026-02-08 10:21:10,075] [INFO] Waiting for application startup.
+[2026-02-08 10:21:10,078] [INFO] PocketBase stater 49800
+[2026-02-08 10:21:10,090] [INFO] Loading YOLO models...
+[2026-02-08 10:21:10,090] [INFO] Found the 'openvino' file!
+[2026-02-08 10:21:10,090] [INFO] Loading onnx/pt
+[2026-02-08 10:21:11,327] [DEBUG] Loaded backend Agg version v2.2.
+[2026-02-08 10:21:11,883] [INFO] Models loaded successfully
+[2026-02-08 10:21:11,946] [INFO] Application startup complete.
+[2026-02-08 10:21:11,947] [INFO] Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+[2026-02-08 10:21:12,022] [INFO] 127.0.0.1:10105 - "GET /web/app HTTP/1.1" 307
+[2026-02-08 10:21:12,096] [INFO] 127.0.0.1:10105 - "GET /web/app/flutter_service_worker.js?v=3512346584 HTTP/1.1" 304
+[2026-02-08 10:21:12,112] [INFO] 127.0.0.1:10105 - "GET /web/app/main.dart.js HTTP/1.1" 200
+[2026-02-08 10:21:12,114] [INFO] 127.0.0.1:5428 - "GET /web/app/index.html HTTP/1.1" 200
+[2026-02-08 10:21:12,114] [INFO] 127.0.0.1:8967 - "GET /web/app/flutter_bootstrap.js HTTP/1.1" 200
+[2026-02-08 10:21:12,121] [INFO] 127.0.0.1:5428 - "GET /web/app/assets/FontManifest.json HTTP/1.1" 200
+[2026-02-08 10:21:12,123] [INFO] 127.0.0.1:8967 - "GET /web/app/assets/AssetManifest.bin.json HTTP/1.1" 200
+[2026-02-08 10:21:12,453] [INFO] 127.0.0.1:10105 - "GET /web/app/flutter_service_worker.js HTTP/1.1" 304
+[2026-02-08 10:21:12,461] [INFO] 127.0.0.1:8967 - "GET /web/app/index.html HTTP/1.1" 200
+[2026-02-08 10:21:12,461] [INFO] 127.0.0.1:10105 - "GET /web/app/main.dart.js HTTP/1.1" 200
+[2026-02-08 10:21:12,462] [INFO] 127.0.0.1:5428 - "GET /web/app/flutter_bootstrap.js HTTP/1.1" 200
+[2026-02-08 10:21:12,465] [INFO] 127.0.0.1:8967 - "GET /web/app/assets/FontManifest.json HTTP/1.1" 200
+[2026-02-08 10:21:12,466] [INFO] 127.0.0.1:5428 - "GET /web/app/assets/AssetManifest.bin.json HTTP/1.1" 200
+[2026-02-08 10:21:12,806] [INFO] 127.0.0.1:10105 - "GET /web/app/flutter_service_worker.js HTTP/1.1" 304
+[2026-02-08 10:21:19,063] [INFO] 127.0.0.1:13969 - "GET /video_feed/rt1?source=rtsp://admin:admin@192.168.1.89:554/mainstream HTTP/1.1" 200
+[2026-02-08 10:21:19,067] [INFO] 127.0.0.1:12364 - "GET /video_feed/rt2?source=rtsp://:@192.168.1.7:554/stream HTTP/1.1" 200
+[2026-02-08 10:21:31,168] [INFO] vb16769vxnjc626
+[2026-02-08 10:22:04,658] [INFO] u0u4rsv718cjh7w
+[2026-02-08 10:22:07,477] [INFO] u7yikhkigjy477w
+[2026-02-08 10:22:54,141] [INFO] 0815qx44688k8bg
+[2026-02-08 10:23:09,499] [INFO] 3rc16x35ht426et
+[2026-02-08 10:23:30,469] [INFO] Releasing camera resources
+[2026-02-08 10:23:30,523] [INFO] Releasing camera resources
+[2026-02-08 10:23:33,230] [INFO] Shutting down
+[2026-02-08 10:23:33,339] [INFO] Waiting for application shutdown.
+[2026-02-08 10:23:33,485] [INFO] Cleanup complete. Shutting down.
+[2026-02-08 10:23:36,816] [INFO] 4.10.0
+[2026-02-08 10:23:36,973] [DEBUG] Using proactor: IocpProactor
+[2026-02-08 10:23:37,003] [INFO] Started server process [55632]
+[2026-02-08 10:23:37,004] [INFO] Waiting for application startup.
+[2026-02-08 10:23:37,007] [INFO] PocketBase stater 53284
+[2026-02-08 10:23:37,019] [INFO] Loading YOLO models...
+[2026-02-08 10:23:37,021] [INFO] Found the 'openvino' file!
+[2026-02-08 10:23:37,021] [INFO] Loading onnx/pt
+[2026-02-08 10:23:38,353] [DEBUG] Loaded backend Agg version v2.2.
+[2026-02-08 10:23:38,925] [INFO] Models loaded successfully
+[2026-02-08 10:23:38,988] [INFO] Application startup complete.
+[2026-02-08 10:23:38,989] [INFO] Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+[2026-02-08 10:23:39,051] [INFO] 127.0.0.1:7827 - "GET /web/app HTTP/1.1" 307
+[2026-02-08 10:23:39,157] [INFO] 127.0.0.1:7827 - "GET /web/app/flutter_service_worker.js?v=3512346584 HTTP/1.1" 304
+[2026-02-08 10:23:39,169] [INFO] 127.0.0.1:7827 - "GET /web/app/main.dart.js HTTP/1.1" 200
+[2026-02-08 10:23:39,171] [INFO] 127.0.0.1:2810 - "GET /web/app/index.html HTTP/1.1" 200
+[2026-02-08 10:23:39,171] [INFO] 127.0.0.1:7667 - "GET /web/app/flutter_bootstrap.js HTTP/1.1" 200
+[2026-02-08 10:23:39,194] [INFO] 127.0.0.1:2810 - "GET /web/app/assets/FontManifest.json HTTP/1.1" 200
+[2026-02-08 10:23:39,195] [INFO] 127.0.0.1:7667 - "GET /web/app/assets/AssetManifest.bin.json HTTP/1.1" 200
+[2026-02-08 10:23:39,540] [INFO] 127.0.0.1:7827 - "GET /web/app/flutter_service_worker.js HTTP/1.1" 304
+[2026-02-08 10:23:39,548] [INFO] 127.0.0.1:7827 - "GET /web/app/main.dart.js HTTP/1.1" 200
+[2026-02-08 10:23:39,549] [INFO] 127.0.0.1:7667 - "GET /web/app/flutter_bootstrap.js HTTP/1.1" 200
+[2026-02-08 10:23:39,549] [INFO] 127.0.0.1:2810 - "GET /web/app/index.html HTTP/1.1" 200
+[2026-02-08 10:23:39,554] [INFO] 127.0.0.1:7667 - "GET /web/app/assets/AssetManifest.bin.json HTTP/1.1" 200
+[2026-02-08 10:23:39,554] [INFO] 127.0.0.1:2810 - "GET /web/app/assets/FontManifest.json HTTP/1.1" 200
+[2026-02-08 10:23:39,890] [INFO] 127.0.0.1:7827 - "GET /web/app/flutter_service_worker.js HTTP/1.1" 304
+[2026-02-08 10:23:41,822] [INFO] 127.0.0.1:7827 - "GET /video_feed/rt1?source=rtsp://admin:admin@192.168.1.89:554/mainstream HTTP/1.1" 200
+[2026-02-08 10:23:41,825] [INFO] 127.0.0.1:7667 - "GET /video_feed/rt2?source=rtsp://:@192.168.1.7:554/stream HTTP/1.1" 200
+[2026-02-08 10:24:04,064] [INFO] Shutting down
+[2026-02-08 10:24:04,155] [INFO] Waiting for connections to close. (CTRL+C to force quit)
+[2026-02-08 10:24:05,464] [INFO] Waiting for background tasks to complete. (CTRL+C to force quit)
+[2026-02-08 10:24:05,552] [INFO] Releasing camera resources
+[2026-02-08 10:24:05,572] [INFO] Releasing camera resources
+[2026-02-08 10:24:05,584] [INFO] Waiting for application shutdown.
+[2026-02-08 10:24:05,770] [INFO] Cleanup complete. Shutting down.
+[2026-02-08 10:24:10,491] [INFO] 4.10.0
+[2026-02-08 10:24:10,675] [DEBUG] Using proactor: IocpProactor
+[2026-02-08 10:24:10,711] [INFO] Started server process [57988]
+[2026-02-08 10:24:10,711] [INFO] Waiting for application startup.
+[2026-02-08 10:24:10,715] [INFO] PocketBase stater 54644
+[2026-02-08 10:24:10,729] [INFO] Loading YOLO models...
+[2026-02-08 10:24:10,730] [INFO] Found the 'openvino' file!
+[2026-02-08 10:24:10,730] [INFO] Loading onnx/pt
+[2026-02-08 10:24:12,170] [DEBUG] Loaded backend Agg version v2.2.
+[2026-02-08 10:24:12,742] [INFO] Models loaded successfully
+[2026-02-08 10:24:12,817] [INFO] Application startup complete.
+[2026-02-08 10:24:12,818] [INFO] Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+[2026-02-08 10:24:12,904] [INFO] 127.0.0.1:1356 - "GET /web/app HTTP/1.1" 307
+[2026-02-08 10:24:12,982] [INFO] 127.0.0.1:1356 - "GET /web/app/flutter_service_worker.js?v=3512346584 HTTP/1.1" 304
+[2026-02-08 10:24:12,997] [INFO] 127.0.0.1:1356 - "GET /web/app/main.dart.js HTTP/1.1" 200
+[2026-02-08 10:24:12,999] [INFO] 127.0.0.1:2249 - "GET /web/app/index.html HTTP/1.1" 200
+[2026-02-08 10:24:13,000] [INFO] 127.0.0.1:8754 - "GET /web/app/flutter_bootstrap.js HTTP/1.1" 200
+[2026-02-08 10:24:13,005] [INFO] 127.0.0.1:2249 - "GET /web/app/assets/FontManifest.json HTTP/1.1" 200
+[2026-02-08 10:24:13,005] [INFO] 127.0.0.1:8754 - "GET /web/app/assets/AssetManifest.bin.json HTTP/1.1" 200
+[2026-02-08 10:24:13,336] [INFO] 127.0.0.1:1356 - "GET /web/app/flutter_service_worker.js HTTP/1.1" 304
+[2026-02-08 10:24:13,345] [INFO] 127.0.0.1:1356 - "GET /web/app/main.dart.js HTTP/1.1" 200
+[2026-02-08 10:24:13,345] [INFO] 127.0.0.1:8754 - "GET /web/app/index.html HTTP/1.1" 200
+[2026-02-08 10:24:13,346] [INFO] 127.0.0.1:2249 - "GET /web/app/flutter_bootstrap.js HTTP/1.1" 200
+[2026-02-08 10:24:13,350] [INFO] 127.0.0.1:8754 - "GET /web/app/assets/FontManifest.json HTTP/1.1" 200
+[2026-02-08 10:24:13,351] [INFO] 127.0.0.1:2249 - "GET /web/app/assets/AssetManifest.bin.json HTTP/1.1" 200
+[2026-02-08 10:24:13,686] [INFO] 127.0.0.1:1356 - "GET /web/app/flutter_service_worker.js HTTP/1.1" 304
+[2026-02-08 10:24:16,807] [INFO] 127.0.0.1:1356 - "GET /video_feed/rt1?source=rtsp://admin:admin@192.168.1.89:554/mainstream HTTP/1.1" 200
+[2026-02-08 10:24:16,807] [INFO] 127.0.0.1:8754 - "GET /video_feed/rt2?source=rtsp://:@192.168.1.7:554/stream HTTP/1.1" 200
+[2026-02-08 10:24:50,208] [INFO] d932expf6zr2952
+[2026-02-08 10:24:57,808] [INFO] flhtvgqjt5805n2
+[2026-02-08 10:25:26,615] [INFO] 4119x977198nqy2
+[2026-02-08 10:25:39,558] [INFO] 9fvx699qm2f1431
+[2026-02-08 10:26:39,257] [INFO] nt109ghivz1ek3l
+[2026-02-08 10:26:50,142] [INFO] a2z4lj04143yy2x
+[2026-02-08 10:27:00,631] [INFO] 37jouz743gmsizy
+[2026-02-08 10:28:17,353] [INFO] Shutting down
+[2026-02-08 10:28:17,471] [INFO] Waiting for connections to close. (CTRL+C to force quit)
+[2026-02-08 10:28:21,644] [INFO] vk4x59x6a00g9yc
+[2026-02-08 10:28:24,158] [INFO] Waiting for background tasks to complete. (CTRL+C to force quit)
+[2026-02-08 10:28:24,285] [INFO] Releasing camera resources
+[2026-02-08 10:28:24,352] [INFO] Releasing camera resources
+[2026-02-08 10:28:24,400] [INFO] Waiting for application shutdown.
+[2026-02-08 10:28:24,581] [INFO] Cleanup complete. Shutting down.
+[2026-02-08 10:29:46,614] [INFO] 4.10.0
+[2026-02-08 10:29:46,766] [DEBUG] Using proactor: IocpProactor
+[2026-02-08 10:29:46,795] [INFO] Started server process [60824]
+[2026-02-08 10:29:46,795] [INFO] Waiting for application startup.
+[2026-02-08 10:29:46,798] [INFO] PocketBase stater 58644
+[2026-02-08 10:29:46,810] [INFO] Loading YOLO models...
+[2026-02-08 10:29:46,810] [INFO] Found the 'openvino' file!
+[2026-02-08 10:29:46,810] [INFO] Loading onnx/pt
+[2026-02-08 10:29:48,039] [DEBUG] Loaded backend Agg version v2.2.
+[2026-02-08 10:29:48,575] [INFO] Models loaded successfully
+[2026-02-08 10:29:48,638] [INFO] Application startup complete.
+[2026-02-08 10:29:48,639] [INFO] Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+[2026-02-08 10:29:48,699] [INFO] 127.0.0.1:9536 - "GET /web/app HTTP/1.1" 307
+[2026-02-08 10:29:48,774] [INFO] 127.0.0.1:9536 - "GET /web/app/flutter_service_worker.js?v=3512346584 HTTP/1.1" 304
+[2026-02-08 10:29:48,789] [INFO] 127.0.0.1:9536 - "GET /web/app/main.dart.js HTTP/1.1" 200
+[2026-02-08 10:29:48,791] [INFO] 127.0.0.1:12053 - "GET /web/app/index.html HTTP/1.1" 200
+[2026-02-08 10:29:48,791] [INFO] 127.0.0.1:6168 - "GET /web/app/flutter_bootstrap.js HTTP/1.1" 200
+[2026-02-08 10:29:48,797] [INFO] 127.0.0.1:12053 - "GET /web/app/assets/AssetManifest.bin.json HTTP/1.1" 200
+[2026-02-08 10:29:48,797] [INFO] 127.0.0.1:6168 - "GET /web/app/assets/FontManifest.json HTTP/1.1" 200
+[2026-02-08 10:29:49,133] [INFO] 127.0.0.1:9536 - "GET /web/app/flutter_service_worker.js HTTP/1.1" 304
+[2026-02-08 10:29:49,140] [INFO] 127.0.0.1:9536 - "GET /web/app/main.dart.js HTTP/1.1" 200
+[2026-02-08 10:29:49,140] [INFO] 127.0.0.1:12053 - "GET /web/app/flutter_bootstrap.js HTTP/1.1" 200
+[2026-02-08 10:29:49,141] [INFO] 127.0.0.1:6168 - "GET /web/app/index.html HTTP/1.1" 200
+[2026-02-08 10:29:49,145] [INFO] 127.0.0.1:12053 - "GET /web/app/assets/AssetManifest.bin.json HTTP/1.1" 200
+[2026-02-08 10:29:49,145] [INFO] 127.0.0.1:6168 - "GET /web/app/assets/FontManifest.json HTTP/1.1" 200
+[2026-02-08 10:29:49,473] [INFO] 127.0.0.1:9536 - "GET /web/app/flutter_service_worker.js HTTP/1.1" 304
+[2026-02-08 10:29:51,923] [INFO] 127.0.0.1:9536 - "GET /video_feed/rt1?source=rtsp://admin:admin@192.168.1.89:554/mainstream HTTP/1.1" 200
+[2026-02-08 10:29:51,924] [INFO] 127.0.0.1:12053 - "GET /video_feed/rt2?source=rtsp://:@192.168.1.7:554/stream HTTP/1.1" 200
+[2026-02-08 10:30:08,984] [INFO] Releasing camera resources
+[2026-02-08 10:30:09,559] [INFO] Releasing camera resources
+[2026-02-08 10:30:12,196] [INFO] Shutting down
+[2026-02-08 10:30:12,302] [INFO] Waiting for application shutdown.
+[2026-02-08 10:30:12,442] [INFO] Cleanup complete. Shutting down.
+[2026-02-08 10:31:22,773] [INFO] 4.10.0
+[2026-02-08 10:31:22,937] [DEBUG] Using proactor: IocpProactor
+[2026-02-08 10:31:22,968] [INFO] Started server process [12580]
+[2026-02-08 10:31:22,969] [INFO] Waiting for application startup.
+[2026-02-08 10:31:22,972] [INFO] PocketBase stater 58660
+[2026-02-08 10:31:22,984] [INFO] Loading YOLO models...
+[2026-02-08 10:31:22,985] [INFO] Found the 'openvino' file!
+[2026-02-08 10:31:22,985] [INFO] Loading onnx/pt
+[2026-02-08 10:31:24,223] [DEBUG] Loaded backend Agg version v2.2.
+[2026-02-08 10:31:24,762] [INFO] Models loaded successfully
+[2026-02-08 10:31:24,828] [INFO] Application startup complete.
+[2026-02-08 10:31:24,829] [INFO] Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+[2026-02-08 10:31:24,908] [INFO] 127.0.0.1:10161 - "GET /web/app HTTP/1.1" 307
+[2026-02-08 10:31:25,004] [INFO] 127.0.0.1:10161 - "GET /web/app/flutter_service_worker.js?v=3512346584 HTTP/1.1" 304
+[2026-02-08 10:31:25,022] [INFO] 127.0.0.1:10161 - "GET /web/app/main.dart.js HTTP/1.1" 200
+[2026-02-08 10:31:25,024] [INFO] 127.0.0.1:6893 - "GET /web/app/index.html HTTP/1.1" 200
+[2026-02-08 10:31:25,025] [INFO] 127.0.0.1:8503 - "GET /web/app/flutter_bootstrap.js HTTP/1.1" 200
+[2026-02-08 10:31:25,033] [INFO] 127.0.0.1:8503 - "GET /web/app/assets/AssetManifest.bin.json HTTP/1.1" 200
+[2026-02-08 10:31:25,034] [INFO] 127.0.0.1:6893 - "GET /web/app/assets/FontManifest.json HTTP/1.1" 200
+[2026-02-08 10:31:25,415] [INFO] 127.0.0.1:10161 - "GET /web/app/flutter_service_worker.js HTTP/1.1" 304
+[2026-02-08 10:31:25,423] [INFO] 127.0.0.1:10161 - "GET /web/app/main.dart.js HTTP/1.1" 200
+[2026-02-08 10:31:25,424] [INFO] 127.0.0.1:8503 - "GET /web/app/flutter_bootstrap.js HTTP/1.1" 200
+[2026-02-08 10:31:25,424] [INFO] 127.0.0.1:6893 - "GET /web/app/index.html HTTP/1.1" 200
+[2026-02-08 10:31:25,431] [INFO] 127.0.0.1:8503 - "GET /web/app/assets/FontManifest.json HTTP/1.1" 200
+[2026-02-08 10:31:25,432] [INFO] 127.0.0.1:6893 - "GET /web/app/assets/AssetManifest.bin.json HTTP/1.1" 200
+[2026-02-08 10:31:25,757] [INFO] 127.0.0.1:10161 - "GET /web/app/flutter_service_worker.js HTTP/1.1" 304
+[2026-02-08 10:31:27,926] [INFO] 127.0.0.1:10161 - "GET /video_feed/rt1?source=rtsp://admin:admin@192.168.1.89:554/mainstream HTTP/1.1" 200
+[2026-02-08 10:31:27,928] [INFO] 127.0.0.1:6893 - "GET /video_feed/rt2?source=rtsp://:@192.168.1.7:554/stream HTTP/1.1" 200
+[2026-02-08 10:32:16,348] [INFO] Releasing camera resources
+[2026-02-08 10:32:16,537] [INFO] Releasing camera resources
+[2026-02-08 10:32:18,467] [INFO] Shutting down
+[2026-02-08 10:32:18,573] [INFO] Waiting for application shutdown.
+[2026-02-08 10:32:18,720] [INFO] Cleanup complete. Shutting down.
+[2026-02-08 10:32:40,207] [INFO] 4.10.0
+[2026-02-08 10:32:40,357] [DEBUG] Using proactor: IocpProactor
+[2026-02-08 10:32:40,385] [INFO] Started server process [61620]
+[2026-02-08 10:32:40,385] [INFO] Waiting for application startup.
+[2026-02-08 10:32:40,388] [INFO] PocketBase stater 60356
+[2026-02-08 10:32:40,401] [INFO] Loading YOLO models...
+[2026-02-08 10:32:40,401] [INFO] Found the 'openvino' file!
+[2026-02-08 10:32:40,401] [INFO] Loading onnx/pt
+[2026-02-08 10:32:41,635] [DEBUG] Loaded backend Agg version v2.2.
+[2026-02-08 10:32:42,167] [INFO] Models loaded successfully
+[2026-02-08 10:32:42,228] [INFO] Application startup complete.
+[2026-02-08 10:32:42,229] [INFO] Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+[2026-02-08 10:32:42,291] [INFO] 127.0.0.1:14004 - "GET /web/app HTTP/1.1" 307
+[2026-02-08 10:32:42,366] [INFO] 127.0.0.1:14004 - "GET /web/app/flutter_service_worker.js?v=3512346584 HTTP/1.1" 304
+[2026-02-08 10:32:42,379] [INFO] 127.0.0.1:14004 - "GET /web/app/main.dart.js HTTP/1.1" 200
+[2026-02-08 10:32:42,380] [INFO] 127.0.0.1:6579 - "GET /web/app/index.html HTTP/1.1" 200
+[2026-02-08 10:32:42,381] [INFO] 127.0.0.1:8131 - "GET /web/app/flutter_bootstrap.js HTTP/1.1" 200
+[2026-02-08 10:32:42,408] [INFO] 127.0.0.1:6579 - "GET /web/app/assets/FontManifest.json HTTP/1.1" 200
+[2026-02-08 10:32:42,409] [INFO] 127.0.0.1:8131 - "GET /web/app/assets/AssetManifest.bin.json HTTP/1.1" 200
+[2026-02-08 10:32:42,753] [INFO] 127.0.0.1:14004 - "GET /web/app/flutter_service_worker.js HTTP/1.1" 304
+[2026-02-08 10:32:42,760] [INFO] 127.0.0.1:14004 - "GET /web/app/main.dart.js HTTP/1.1" 200
+[2026-02-08 10:32:42,761] [INFO] 127.0.0.1:8131 - "GET /web/app/index.html HTTP/1.1" 200
+[2026-02-08 10:32:42,761] [INFO] 127.0.0.1:6579 - "GET /web/app/flutter_bootstrap.js HTTP/1.1" 200
+[2026-02-08 10:32:42,766] [INFO] 127.0.0.1:6579 - "GET /web/app/assets/FontManifest.json HTTP/1.1" 200
+[2026-02-08 10:32:42,766] [INFO] 127.0.0.1:8131 - "GET /web/app/assets/AssetManifest.bin.json HTTP/1.1" 200
+[2026-02-08 10:32:43,112] [INFO] 127.0.0.1:14004 - "GET /web/app/flutter_service_worker.js HTTP/1.1" 304
+[2026-02-08 10:32:48,780] [INFO] 127.0.0.1:1721 - "GET /video_feed/rt1?source=rtsp://admin:admin@192.168.1.89:554/mainstream HTTP/1.1" 200
+[2026-02-08 10:32:48,784] [INFO] 127.0.0.1:3133 - "GET /video_feed/rt2?source=rtsp://:@192.168.1.7:554/stream HTTP/1.1" 200
+[2026-02-08 10:33:25,169] [INFO] 0y4595u7bu0hf49
+[2026-02-08 10:33:32,188] [INFO] so1n8by3o67s3y7
+[2026-02-08 10:33:38,018] [INFO] 598sde2z8py736h
+[2026-02-08 10:33:39,527] [INFO] 0p953e562i7npe4
+[2026-02-08 10:34:41,971] [INFO] Releasing camera resources
+[2026-02-08 10:34:44,291] [INFO] Releasing camera resources
+[2026-02-08 10:35:01,304] [INFO] 127.0.0.1:2847 - "GET /video_feed/rt1?source=rtsp://admin:admin@192.168.1.89:554/mainstream HTTP/1.1" 200
+[2026-02-08 10:35:01,309] [INFO] 127.0.0.1:14038 - "GET /video_feed/rt2?source=rtsp://:@192.168.1.10:554/stream HTTP/1.1" 200
+[2026-02-08 10:35:31,653] [INFO] 4xn683g08e4e5r1
+[2026-02-08 10:36:24,787] [INFO] k96w3603c8xemj4
+[2026-02-08 10:36:26,949] [INFO] 6r3a444i82d2415
+[2026-02-08 10:36:40,604] [INFO] Shutting down
+[2026-02-08 10:36:40,700] [INFO] Waiting for connections to close. (CTRL+C to force quit)
+[2026-02-08 10:36:43,001] [INFO] Releasing camera resources
+[2026-02-08 10:36:43,023] [INFO] Waiting for application shutdown.
+[2026-02-08 10:36:43,221] [INFO] Cleanup complete. Shutting down.
+[2026-02-08 10:36:49,012] [INFO] 4.10.0
+[2026-02-08 10:36:49,157] [DEBUG] Using proactor: IocpProactor
+[2026-02-08 10:36:49,186] [INFO] Started server process [62148]
+[2026-02-08 10:36:49,187] [INFO] Waiting for application startup.
+[2026-02-08 10:36:49,189] [INFO] PocketBase stater 63016
+[2026-02-08 10:36:49,203] [INFO] Loading YOLO models...
+[2026-02-08 10:36:49,204] [INFO] Found the 'openvino' file!
+[2026-02-08 10:36:49,204] [INFO] Loading onnx/pt
+[2026-02-08 10:36:50,454] [DEBUG] Loaded backend Agg version v2.2.
+[2026-02-08 10:36:51,024] [INFO] Models loaded successfully
+[2026-02-08 10:36:51,086] [INFO] Application startup complete.
+[2026-02-08 10:36:51,086] [INFO] Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+[2026-02-08 10:36:51,157] [INFO] 127.0.0.1:2518 - "GET /web/app HTTP/1.1" 307
+[2026-02-08 10:36:51,227] [INFO] 127.0.0.1:2518 - "GET /web/app/flutter_service_worker.js?v=3512346584 HTTP/1.1" 304
+[2026-02-08 10:36:51,241] [INFO] 127.0.0.1:2518 - "GET /web/app/main.dart.js HTTP/1.1" 200
+[2026-02-08 10:36:51,243] [INFO] 127.0.0.1:4620 - "GET /web/app/index.html HTTP/1.1" 200
+[2026-02-08 10:36:51,244] [INFO] 127.0.0.1:6383 - "GET /web/app/flutter_bootstrap.js HTTP/1.1" 200
+[2026-02-08 10:36:51,249] [INFO] 127.0.0.1:4620 - "GET /web/app/assets/AssetManifest.bin.json HTTP/1.1" 200
+[2026-02-08 10:36:51,249] [INFO] 127.0.0.1:6383 - "GET /web/app/assets/FontManifest.json HTTP/1.1" 200
+[2026-02-08 10:36:51,606] [INFO] 127.0.0.1:2518 - "GET /web/app/flutter_service_worker.js HTTP/1.1" 304
+[2026-02-08 10:36:51,614] [INFO] 127.0.0.1:2518 - "GET /web/app/main.dart.js HTTP/1.1" 200
+[2026-02-08 10:36:51,614] [INFO] 127.0.0.1:4620 - "GET /web/app/index.html HTTP/1.1" 200
+[2026-02-08 10:36:51,615] [INFO] 127.0.0.1:6383 - "GET /web/app/flutter_bootstrap.js HTTP/1.1" 200
+[2026-02-08 10:36:51,619] [INFO] 127.0.0.1:6383 - "GET /web/app/assets/FontManifest.json HTTP/1.1" 200
+[2026-02-08 10:36:51,620] [INFO] 127.0.0.1:4620 - "GET /web/app/assets/AssetManifest.bin.json HTTP/1.1" 200
+[2026-02-08 10:36:51,958] [INFO] 127.0.0.1:2518 - "GET /web/app/flutter_service_worker.js HTTP/1.1" 304
+[2026-02-08 10:36:58,300] [INFO] 127.0.0.1:12344 - "GET /video_feed/rt1?source=rtsp://admin:admin@192.168.1.89:554/mainstream HTTP/1.1" 200
+[2026-02-08 10:36:58,303] [INFO] 127.0.0.1:2832 - "GET /video_feed/rt2?source=rtsp://:@192.168.1.10:554/stream HTTP/1.1" 200
+[2026-02-08 10:37:19,396] [INFO] p13bu3p8uqg1hm6
+[2026-02-08 10:37:30,783] [INFO] Shutting down
+[2026-02-08 10:37:30,879] [INFO] Waiting for connections to close. (CTRL+C to force quit)
+[2026-02-08 10:37:32,948] [INFO] 7idd6j7wf78z250
+[2026-02-08 10:37:32,988] [INFO] Waiting for application shutdown.
+[2026-02-08 10:37:33,138] [INFO] Releasing camera resources
+[2026-02-08 10:37:33,138] [INFO] Releasing camera resources
+[2026-02-08 10:37:33,182] [INFO] Cleanup complete. Shutting down.
+[2026-02-08 10:37:39,140] [INFO] 4.10.0
+[2026-02-08 10:37:39,290] [DEBUG] Using proactor: IocpProactor
+[2026-02-08 10:37:39,319] [INFO] Started server process [61928]
+[2026-02-08 10:37:39,319] [INFO] Waiting for application startup.
+[2026-02-08 10:37:39,323] [INFO] PocketBase stater 60728
+[2026-02-08 10:37:39,336] [INFO] Loading YOLO models...
+[2026-02-08 10:37:39,336] [INFO] Found the 'openvino' file!
+[2026-02-08 10:37:39,337] [INFO] Loading onnx/pt
+[2026-02-08 10:37:40,568] [DEBUG] Loaded backend Agg version v2.2.
+[2026-02-08 10:37:41,124] [INFO] Models loaded successfully
+[2026-02-08 10:37:41,189] [INFO] Application startup complete.
+[2026-02-08 10:37:41,190] [INFO] Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+[2026-02-08 10:37:41,251] [INFO] 127.0.0.1:14630 - "GET /web/app HTTP/1.1" 307
+[2026-02-08 10:37:41,327] [INFO] 127.0.0.1:14630 - "GET /web/app/flutter_service_worker.js?v=3512346584 HTTP/1.1" 304
+[2026-02-08 10:37:41,343] [INFO] 127.0.0.1:14630 - "GET /web/app/main.dart.js HTTP/1.1" 200
+[2026-02-08 10:37:41,345] [INFO] 127.0.0.1:3061 - "GET /web/app/index.html HTTP/1.1" 200
+[2026-02-08 10:37:41,346] [INFO] 127.0.0.1:6285 - "GET /web/app/flutter_bootstrap.js HTTP/1.1" 200
+[2026-02-08 10:37:41,352] [INFO] 127.0.0.1:3061 - "GET /web/app/assets/FontManifest.json HTTP/1.1" 200
+[2026-02-08 10:37:41,352] [INFO] 127.0.0.1:6285 - "GET /web/app/assets/AssetManifest.bin.json HTTP/1.1" 200
+[2026-02-08 10:37:41,696] [INFO] 127.0.0.1:14630 - "GET /web/app/flutter_service_worker.js HTTP/1.1" 304
+[2026-02-08 10:37:41,705] [INFO] 127.0.0.1:3061 - "GET /web/app/flutter_bootstrap.js HTTP/1.1" 200
+[2026-02-08 10:37:41,706] [INFO] 127.0.0.1:14630 - "GET /web/app/main.dart.js HTTP/1.1" 200
+[2026-02-08 10:37:41,707] [INFO] 127.0.0.1:6285 - "GET /web/app/index.html HTTP/1.1" 200
+[2026-02-08 10:37:41,712] [INFO] 127.0.0.1:3061 - "GET /web/app/assets/AssetManifest.bin.json HTTP/1.1" 200
+[2026-02-08 10:37:41,712] [INFO] 127.0.0.1:6285 - "GET /web/app/assets/FontManifest.json HTTP/1.1" 200
+[2026-02-08 10:37:42,079] [INFO] 127.0.0.1:14630 - "GET /web/app/flutter_service_worker.js HTTP/1.1" 304
+[2026-02-08 10:37:53,292] [INFO] 127.0.0.1:14708 - "GET /video_feed/rt1?source=rtsp://admin:admin@192.168.1.89:554/mainstream HTTP/1.1" 200
+[2026-02-08 10:37:53,293] [INFO] 127.0.0.1:14285 - "GET /video_feed/rt2?source=rtsp://:@192.168.1.10:554/stream HTTP/1.1" 200
+[2026-02-08 10:38:27,725] [INFO] 9fvt9ff4k6746m1
+[2026-02-08 10:40:07,427] [INFO] gw7356s31zgw8sf
+[2026-02-08 10:40:20,548] [INFO] 5q8co0tysgn83g7
+[2026-02-08 10:40:52,262] [INFO] n3ld6fh3ll75iu6
+[2026-02-08 10:41:31,343] [INFO] zsz42xrsqhaig10
+[2026-02-08 10:41:41,404] [INFO] w92x6snl9s26w7u
+[2026-02-08 10:42:00,726] [INFO] 3p62g527h57e2yi
+[2026-02-08 10:42:36,526] [INFO] r8oi9j13md32872
+[2026-02-08 10:42:54,749] [INFO] n3h7958m57ky484
+[2026-02-08 10:43:51,767] [INFO] bbf0sr2zwj7y7nn
+[2026-02-08 10:43:51,894] [INFO] 9ey2hk5a8b237ax
+[2026-02-08 10:44:13,826] [INFO] 074b23jwvc59rjs
+[2026-02-08 10:45:18,592] [INFO] ltl8sm64g94oo23
+[2026-02-08 10:47:10,301] [INFO] m771z4wy9d48zdd
+[2026-02-08 10:47:13,661] [INFO] 61wq93d3zbh1uf7
+[2026-02-08 10:47:21,242] [INFO] jgw0ll5x61p2qz6
+[2026-02-08 10:47:45,161] [INFO] 97q75vaha5kw327
+[2026-02-08 10:47:53,059] [INFO] 1d6hb71hr3p39zh
+[2026-02-08 10:49:17,847] [INFO] muun861hs999xf8
+[2026-02-08 10:49:28,500] [INFO] 33dy7xia3wv8vun
+[2026-02-08 10:50:28,953] [INFO] 9421v3tm6q32b2d
+[2026-02-08 10:50:44,279] [INFO] p64844520431r5n
+[2026-02-08 10:52:08,544] [INFO] 8923at39vbfk5c7
+[2026-02-08 10:52:09,178] [INFO] a27631f97j4wgim
+[2026-02-08 10:52:20,868] [INFO] 6y764l92ft44090
+[2026-02-08 10:52:55,709] [INFO] 23z064vj377523v
+[2026-02-08 10:52:55,824] [INFO] 73p254vg3236443
+[2026-02-08 10:53:03,445] [INFO] 2svpdbp96obb87l
+[2026-02-08 10:53:31,294] [INFO] x2yzr4d64r1evy7
+[2026-02-08 10:53:31,421] [INFO] kxo6411ixo8y7ez
+[2026-02-08 10:53:36,001] [INFO] 314917r31wqh2x3
+[2026-02-08 10:53:47,448] [INFO] hp39617q9j49720
+[2026-02-08 10:54:05,788] [INFO] 7c3h364094t63ql
+[2026-02-08 10:54:06,764] [INFO] 09938376mda0d92
+[2026-02-08 10:54:23,348] [INFO] 4649sq0n1i7w059
+[2026-02-08 10:54:29,819] [INFO] 4522a1yo4p17wo4
+[2026-02-08 10:54:49,324] [INFO] 9embrg1y0il44l1
+[2026-02-08 10:56:11,293] [INFO] r828ot228z35i65
+[2026-02-08 10:57:09,751] [INFO] 582zf4ul2133hzu
+[2026-02-08 10:57:09,938] [INFO] 900w174a8yw5256
+[2026-02-08 10:57:27,310] [INFO] 0n6xf3o5x1r9kx5
+[2026-02-08 10:57:56,429] [INFO] b2g15kw69ze7cn8
+[2026-02-08 10:57:57,605] [INFO] ye28bt05nepwkyv
+[2026-02-08 10:58:09,478] [INFO] rz31630zq0j79fg
+[2026-02-08 10:58:41,327] [INFO] Releasing camera resources
+[2026-02-08 10:58:41,333] [INFO] Releasing camera resources
+[2026-02-08 10:58:43,528] [INFO] 127.0.0.1:13242 - "GET /video_feed/rt1?source=rtsp://admin:admin@192.168.1.89:554/mainstream HTTP/1.1" 200
+[2026-02-08 10:59:09,581] [INFO] 8e9xpr9ew6rh280
+[2026-02-08 10:59:34,308] [INFO] ncee5skdsw3yk9i
+[2026-02-08 10:59:40,384] [INFO] o3i8a07t40i5j0h
+[2026-02-08 11:00:23,711] [INFO] v84r913my503gy8
+[2026-02-08 11:00:39,667] [INFO] e90606k7je965jw
+[2026-02-08 11:00:41,949] [INFO] 5kko7627do09j03
+[2026-02-08 11:00:56,169] [INFO] zbfp4bsss3wnqr1
+[2026-02-08 11:01:05,369] [INFO] 9194w70en183whs
+[2026-02-08 11:01:08,282] [INFO] a9od051my7v997n
+[2026-02-08 11:01:26,272] [INFO] au7m1lld1i92k4f
+[2026-02-08 11:01:44,405] [INFO] 5855crh10h5j4n4
+[2026-02-08 11:01:44,500] [INFO] g0t5o2o1914zlge
+[2026-02-08 11:02:08,724] [INFO] 4z58l2hf57z102b
+[2026-02-08 11:02:09,116] [INFO] 863xixxtf2smio6
+[2026-02-08 11:02:09,258] [INFO] 613r4e6s65d0583
+[2026-02-08 11:04:51,496] [INFO] 38k6fntu8qn142e
+[2026-02-08 11:05:01,246] [INFO] odlbg997r95y41e
+[2026-02-08 11:05:24,246] [INFO] 0g706f1gg1rha3i
+[2026-02-08 11:05:24,321] [INFO] 54w452974x9jwsw
+[2026-02-08 11:05:27,455] [INFO] hairet2d6f4ngwo
+[2026-02-08 11:05:46,534] [INFO] 3q462w43s123n15
+[2026-02-08 11:06:39,783] [INFO] 21ot8w60o705o38
+[2026-02-08 11:06:40,051] [INFO] lx6ooy1kczg913c
+[2026-02-08 11:06:44,649] [INFO] bv0q0361u49a783
+[2026-02-08 11:07:00,618] [INFO] 0u900fa6ef2wc0k
+[2026-02-08 11:07:53,863] [INFO] r89g1mga9n1ceo7
+[2026-02-08 11:08:47,605] [INFO] lmw38o79b7sra60
+[2026-02-08 11:09:01,746] [INFO] ij8qlt7tk5lh1gu
+[2026-02-08 11:09:09,113] [INFO] ylu2sjo0ylv35n1
+[2026-02-08 11:09:09,249] [INFO] 59n8ouxd26lxb47
+[2026-02-08 11:09:53,050] [INFO] Releasing camera resources
+[2026-02-08 11:11:43,823] [INFO] 127.0.0.1:14365 - "GET /video_feed/rt1?source=rtsp://admin:admin@192.168.1.89:554/mainstream HTTP/1.1" 200
+[2026-02-08 11:12:55,839] [INFO] 7v353x8ih7q7my4
+[2026-02-08 11:13:02,947] [INFO] ogc7s8oa4zi68hr
+[2026-02-08 11:14:01,392] [INFO] 6c60162d2d6o75k
+[2026-02-08 11:15:22,074] [INFO] u878yg2j1j71f91
+[2026-02-08 11:15:27,702] [INFO] Releasing camera resources
+[2026-02-08 11:15:38,459] [INFO] 127.0.0.1:12937 - "GET /video_feed/rt1?source=rtsp://admin:admin@192.168.1.89:554/mainstream HTTP/1.1" 200
+[2026-02-08 11:15:38,463] [INFO] 127.0.0.1:7058 - "GET /video_feed/rt2?source=rtsp://:@192.168.1.7:554/stream HTTP/1.1" 200
+[2026-02-08 11:15:49,769] [INFO] z8a887939309s1n
+[2026-02-08 11:15:56,010] [INFO] ktw11050276wlrz
+[2026-02-08 11:16:00,826] [INFO] Releasing camera resources
+[2026-02-08 11:16:00,836] [INFO] Releasing camera resources
+[2026-02-08 11:16:10,754] [INFO] 127.0.0.1:6858 - "GET /video_feed/rt1?source=rtsp://admin:admin@192.168.1.89:554/mainstream HTTP/1.1" 200
+[2026-02-08 11:16:10,758] [INFO] 127.0.0.1:8489 - "GET /video_feed/rt2?source=rtsp://:@192.168.1.10:554/stream HTTP/1.1" 200
+[2026-02-08 11:16:35,327] [INFO] ewzb4ti98pv4e4w
+[2026-02-08 11:16:35,480] [INFO] z88etcyi37x0ty3
+[2026-02-08 11:16:35,745] [INFO] hvtdw5k7v75tfow
+[2026-02-08 11:17:57,742] [INFO] 5b2fs165nbih392
+[2026-02-08 11:20:01,666] [INFO] r80tto7sgi4yy4h
+[2026-02-08 11:21:14,987] [INFO] 4538ar8eu38050i
+[2026-02-08 11:21:17,232] [INFO] hou4f0i0cef637m
+[2026-02-08 11:22:02,459] [INFO] 8s98486y84mx5g8
+[2026-02-08 11:22:22,955] [INFO] 88o923xtmwsn933
+[2026-02-08 11:22:56,693] [INFO] t27jlrt3e1z6j0r
+[2026-02-08 11:23:08,838] [INFO] 9676obmb7ly5a5m
+[2026-02-08 11:24:12,793] [INFO] b5dgxjnf39jmzh4
+[2026-02-08 11:24:12,976] [INFO] e5c808700i3c1nl
+[2026-02-08 11:24:44,676] [INFO] 175i6ec7gys91a9
+[2026-02-08 11:26:44,977] [INFO] tlqtxqw40s7524c
+[2026-02-08 11:26:45,310] [INFO] 4inw5k065aq1y75
+[2026-02-08 11:27:19,043] [INFO] r1lg4mhw070xz1w
+[2026-02-08 11:27:58,244] [INFO] 150tg0897756i1l
+[2026-02-08 11:28:19,308] [INFO] 11z2o7t6m8m2k44
+[2026-02-08 11:28:19,598] [INFO] 9s9eix3a9fnp7ff
+[2026-02-08 11:28:25,377] [INFO] ylgxygfx93469br
+[2026-02-08 11:29:16,258] [INFO] s44851b0dzf0er6
+[2026-02-08 11:29:31,393] [INFO] l350am1w8lg0i6t
+[2026-02-08 11:29:43,455] [INFO] f95z45fn7s1h550
+[2026-02-08 11:30:01,460] [INFO] 0j339g2442fl92k
+[2026-02-08 11:30:32,698] [INFO] s798u23c0j5cmcq
+[2026-02-08 11:32:30,478] [INFO] gva9z0e75f9hke7
+[2026-02-08 11:32:43,261] [INFO] p36wsl23let00ta
+[2026-02-08 11:33:06,417] [INFO] 44zz7ph7103aqm0
+[2026-02-08 11:33:12,491] [INFO] m0s8592g33t8m3o
+[2026-02-08 11:33:12,904] [INFO] hwewfell5ofuu03
+[2026-02-08 11:33:49,812] [INFO] y9534os738sf9x5
+[2026-02-08 11:44:19,689] [INFO] ifh2z57g38q0k29
+[2026-02-08 11:44:20,538] [INFO] f32w72q0mls9tt2
+[2026-02-08 11:47:05,053] [INFO] o3pgr2x5040x067
+[2026-02-08 11:47:27,489] [INFO] nud17j4cf9073rh
+[2026-02-08 11:47:35,675] [INFO] 36bl82vya94a278
+[2026-02-08 11:47:49,625] [INFO] 04h15au2y19wfx7
+[2026-02-08 11:50:45,713] [INFO] z9i24159c0cql4d
+[2026-02-08 11:50:45,932] [INFO] 9x269881p3i716p
+[2026-02-08 11:51:06,933] [INFO] 3hsg2aes2f0d4s3
+[2026-02-08 11:52:18,024] [INFO] 3hc427fnx5x9ag3
+[2026-02-08 11:52:34,690] [INFO] p8292hlqd812901
+[2026-02-08 11:52:41,572] [INFO] 0y023oa884yjitk
+[2026-02-08 11:52:41,672] [INFO] 18ck798l91960ea
+[2026-02-08 11:52:41,805] [INFO] qb7g40t4dojs2df
+[2026-02-08 11:53:27,076] [INFO] Releasing camera resources
+[2026-02-08 11:53:27,093] [INFO] Releasing camera resources
+[2026-02-08 11:53:33,061] [INFO] 127.0.0.1:8164 - "GET /web/app/ HTTP/1.1" 200
+[2026-02-08 11:53:33,071] [INFO] 127.0.0.1:8164 - "GET /web/app/flutter_bootstrap.js HTTP/1.1" 200
+[2026-02-08 11:53:33,088] [INFO] 127.0.0.1:5734 - "GET /web/app/manifest.json HTTP/1.1" 304
+[2026-02-08 11:53:33,101] [INFO] 127.0.0.1:8164 - "GET /web/app/favicon.png HTTP/1.1" 304
+[2026-02-08 11:53:33,102] [INFO] 127.0.0.1:4614 - "GET /web/app/flutter_service_worker.js?v=3512346584 HTTP/1.1" 200
+[2026-02-08 11:53:33,113] [INFO] 127.0.0.1:8164 - "GET /web/app/icons/Icon-192.png HTTP/1.1" 304
+[2026-02-08 11:53:33,136] [INFO] 127.0.0.1:4614 - "GET /web/app/main.dart.js HTTP/1.1" 200
+[2026-02-08 11:53:33,136] [INFO] 127.0.0.1:8164 - "GET /web/app/index.html HTTP/1.1" 200
+[2026-02-08 11:53:33,137] [INFO] 127.0.0.1:12192 - "GET /web/app/flutter_bootstrap.js HTTP/1.1" 200
+[2026-02-08 11:53:33,144] [INFO] 127.0.0.1:8164 - "GET /web/app/assets/AssetManifest.bin.json HTTP/1.1" 200
+[2026-02-08 11:53:33,145] [INFO] 127.0.0.1:12192 - "GET /web/app/assets/FontManifest.json HTTP/1.1" 200
+[2026-02-08 11:53:33,486] [INFO] 127.0.0.1:4614 - "GET /web/app/flutter_service_worker.js HTTP/1.1" 200
+[2026-02-08 11:53:33,498] [INFO] 127.0.0.1:12192 - "GET /web/app/flutter_bootstrap.js HTTP/1.1" 200
+[2026-02-08 11:53:33,499] [INFO] 127.0.0.1:8164 - "GET /web/app/index.html HTTP/1.1" 200
+[2026-02-08 11:53:33,499] [INFO] 127.0.0.1:4614 - "GET /web/app/main.dart.js HTTP/1.1" 200
+[2026-02-08 11:53:33,504] [INFO] 127.0.0.1:8164 - "GET /web/app/assets/FontManifest.json HTTP/1.1" 200
+[2026-02-08 11:53:33,505] [INFO] 127.0.0.1:12192 - "GET /web/app/assets/AssetManifest.bin.json HTTP/1.1" 200
+[2026-02-08 11:53:33,688] [INFO] 127.0.0.1:4614 - "GET /web/app/assets/fonts/MaterialIcons-Regular.otf HTTP/1.1" 200
+[2026-02-08 11:53:33,689] [INFO] 127.0.0.1:12192 - "GET /web/app/assets/assets/fonts/Yekan.ttf HTTP/1.1" 200
+[2026-02-08 11:53:33,689] [INFO] 127.0.0.1:8164 - "GET /web/app/assets/assets/fonts/arial.ttf HTTP/1.1" 200
+[2026-02-08 11:53:33,690] [INFO] 127.0.0.1:8393 - "GET /web/app/assets/packages/cupertino_icons/assets/CupertinoIcons.ttf HTTP/1.1" 200
+[2026-02-08 11:53:33,798] [INFO] 127.0.0.1:8164 - "GET /web/app/assets/images/logo.jpg HTTP/1.1" 200
+[2026-02-08 11:53:33,799] [INFO] 127.0.0.1:12192 - "GET /web/app/assets/images/mainlogo2.png HTTP/1.1" 200
+[2026-02-08 11:53:35,791] [INFO] 127.0.0.1:12192 - "GET /web/app/assets/images/ban.jpg HTTP/1.1" 200
+[2026-02-08 11:53:39,387] [INFO] 127.0.0.1:12192 - "GET /video_feed/rt1?source=rtsp://admin:admin@192.168.1.89:554/mainstream HTTP/1.1" 200
+[2026-02-08 11:53:39,943] [INFO] 127.0.0.1:3341 - "GET /video_feed/rt2?source=rtsp://:@192.168.1.10:554/stream HTTP/1.1" 200
+[2026-02-08 11:53:39,945] [INFO] 127.0.0.1:5320 - "GET /web/app/assets/images/iranFlag.png HTTP/1.1" 200
+[2026-02-08 11:53:59,449] [INFO] 94xv8hxje75afci
+[2026-02-08 11:54:06,622] [INFO] c4h7l4176ua42di
+[2026-02-08 11:55:17,575] [INFO] 7e703absy94cppj
+[2026-02-08 11:56:43,264] [INFO] mq7t70w4dwd2b94
+[2026-02-08 11:56:43,569] [INFO] f2g22m5p52i6s82
+[2026-02-08 11:56:44,162] [INFO] 296cjx9g9n6rzv2
+[2026-02-08 11:57:01,625] [INFO] 33u4703r7zy9uyj
+[2026-02-08 11:57:33,511] [INFO] 735jwy770esm7ld
+[2026-02-08 11:58:09,552] [INFO] g03saw482s0tdvs
+[2026-02-08 12:00:29,337] [INFO] 61konv672199g6h
+[2026-02-08 12:00:29,385] [INFO] 127.0.0.1:13016 - "GET /web/app/assets/images/arvand.png HTTP/1.1" 200
+[2026-02-08 12:01:31,951] [INFO] y814x1gqw97k5k6
+[2026-02-08 12:02:40,691] [INFO] 5g056nfjz04h5fr
+[2026-02-08 12:02:47,700] [INFO] zc6lc618xgl9x6n
+[2026-02-08 12:02:59,539] [INFO] nc9w9ue88obr2qt
+[2026-02-08 12:03:14,086] [INFO] 398k6p8j82o6g86
+[2026-02-08 12:03:43,180] [INFO] c9783kol5e7ji91
+[2026-02-08 12:04:08,122] [INFO] q65e5i0g48y50j0
+[2026-02-08 12:04:49,347] [INFO] 0od8o0448n2ino1
+[2026-02-08 12:04:54,561] [INFO] nri0u8d8a2c6g6j
+[2026-02-08 12:05:39,174] [INFO] epuico351a8u569
+[2026-02-08 12:06:03,714] [INFO] d344ke4a01ma37v
+[2026-02-08 12:06:03,864] [INFO] 9p9j918n12979h8
+[2026-02-08 12:06:04,304] [INFO] 2v88hsa2oy9vo62
+[2026-02-08 12:06:48,167] [INFO] bt03uk5e75er6z7
+[2026-02-08 12:06:49,023] [INFO] 43o9627v314v02p
+[2026-02-08 12:07:48,297] [INFO] 399883634tsit0w
+[2026-02-08 12:07:53,833] [INFO] yxx2df3j4pen863
+[2026-02-08 12:08:14,387] [INFO] w4253650yfixp3e
+[2026-02-08 12:08:14,830] [INFO] r3gh7t5llk1y805
+[2026-02-08 12:09:09,790] [INFO] x5ngu2rc0spwf24
+[2026-02-08 12:09:56,484] [INFO] 8627a9gv016092i
+[2026-02-08 12:09:56,565] [INFO] mdni5yssms9k598
+[2026-02-08 12:12:12,987] [INFO] r1g0u9x35m1e1an
+[2026-02-08 12:13:45,350] [INFO] v51n1do7ft0j5m9
+[2026-02-08 12:14:34,619] [INFO] es436jo97k14628
+[2026-02-08 12:16:41,826] [INFO] gof539n1xwrh55i
+[2026-02-08 12:18:03,722] [INFO] 506qo9q926tko7j
+[2026-02-08 12:19:58,346] [INFO] ac4qqpjpv77bgzh
+[2026-02-08 12:20:04,191] [INFO] j70j44snhm8r471
+[2026-02-08 12:21:28,157] [INFO] drf5a23eqg2720c
+[2026-02-08 12:21:29,915] [INFO] mmo47s2i58cn6ji
+[2026-02-08 12:21:36,288] [INFO] 2oyinppz8dz4d57
+[2026-02-08 12:21:38,211] [INFO] f8xq3pi9186z8a0
+[2026-02-08 12:21:38,745] [INFO] kcw7o23b129j10h
+[2026-02-08 12:21:40,562] [INFO] j7l876deofy6ehy
+[2026-02-08 12:21:40,659] [INFO] 3ofqsxgtp7935a9
+[2026-02-08 12:21:57,785] [INFO] 5m771kx21127456
+[2026-02-08 12:21:57,923] [INFO] 90ham68m4x0223r
+[2026-02-08 12:21:58,027] [INFO] qlw77tt5ya59w3c
+[2026-02-08 12:22:05,125] [INFO] 20spkq9v75rm7pw
+[2026-02-08 12:22:05,658] [INFO] c1d242f3d3lyf38
+[2026-02-08 12:22:15,310] [INFO] 13m90q209o4fdc0
+[2026-02-08 12:22:15,735] [INFO] 2mrv27h3u68m21n
+[2026-02-08 12:25:15,758] [INFO] w46bs368mh2z2kj
+[2026-02-08 12:25:24,614] [INFO] 74064irf3n08149
+[2026-02-08 12:26:34,256] [INFO] e5b47uz8f7hqffj
+[2026-02-08 12:26:41,104] [INFO] p5506x8olu2wdf6
+[2026-02-08 12:28:05,834] [INFO] r630a69m716i127
+[2026-02-08 12:28:06,015] [INFO] 828z25j935y6h47
+[2026-02-08 12:29:09,369] [INFO] 4eog1x3b615f115
+[2026-02-08 12:29:16,821] [INFO] rhopzwj7m2914w5
+[2026-02-08 12:30:15,826] [INFO] eb01as9mx0t745u
+[2026-02-08 12:30:23,110] [INFO] h6pde740379261x
+[2026-02-08 12:31:52,124] [INFO] u4jqraxgbgr9sxx
+[2026-02-08 12:32:03,158] [INFO] pv7zqv9744d4h5c
+[2026-02-08 12:33:04,658] [INFO] a3299234h7kv6n9
+[2026-02-08 12:33:27,520] [INFO] v4rdyez163f9qg7
+[2026-02-08 12:33:28,023] [INFO] 3kbbhy0z5s3uc05
+[2026-02-08 12:34:14,251] [INFO] rg63962dn226884
+[2026-02-08 12:36:08,131] [INFO] 18ayx04cmbk4mii
+[2026-02-08 12:36:48,711] [INFO] 563ser99dnks0x8
+[2026-02-08 12:37:06,551] [INFO] ea3pd26d6u208jm
+[2026-02-08 12:37:57,096] [INFO] 2p23oz700m89573
+[2026-02-08 12:37:57,270] [INFO] kn5kb3dqkt6t540
+[2026-02-08 12:38:58,473] [INFO] 5kure1xkp6npnhy
+[2026-02-08 12:39:02,555] [INFO] 4p3chqxv84lv613
+[2026-02-08 12:40:49,997] [INFO] a8f990w3m72t77q
+[2026-02-08 12:40:52,293] [INFO] xtb432vn1c474os
+[2026-02-08 12:41:54,358] [INFO] q3v91u5phda8690
+[2026-02-08 12:43:13,238] [INFO] 51f721vi4pn05l8
+[2026-02-08 12:43:38,105] [INFO] z739p4p0w090z89
+[2026-02-08 12:44:03,915] [INFO] p3am2st942ba3r6
+[2026-02-08 12:44:09,550] [INFO] 791y5xvsptj015t
+[2026-02-08 12:44:28,099] [INFO] cc2a5tu0k10811u
+[2026-02-08 12:44:28,176] [INFO] e85s56l1u84c01t
+[2026-02-08 12:45:24,415] [INFO] xoplm07m9munk04
+[2026-02-08 12:45:56,545] [INFO] i9ogv71en31l38s
+[2026-02-08 12:46:52,362] [INFO] 0blnjsi6z20yy60
+[2026-02-08 12:47:30,490] [INFO] 0euiol2gy67075d
+[2026-02-08 12:48:03,885] [INFO] 0cxk0f4w79uce6p
+[2026-02-08 12:48:12,718] [INFO] wi49996ie013k43
+[2026-02-08 12:49:59,694] [INFO] s1t6h35cmr8r9n1
+[2026-02-08 12:50:26,336] [INFO] a34270y20kb4hcr
+[2026-02-08 12:50:29,515] [INFO] Releasing camera resources
+[2026-02-08 12:50:29,525] [INFO] Releasing camera resources
+[2026-02-08 12:50:31,614] [INFO] 127.0.0.1:2858 - "GET /video_feed/rt1?source=rtsp://admin:admin@192.168.1.89:554/mainstream HTTP/1.1" 200
+[2026-02-08 12:50:31,619] [INFO] 127.0.0.1:12970 - "GET /video_feed/rt2?source=rtsp://:@192.168.1.10:554/stream HTTP/1.1" 200
+[2026-02-08 12:50:40,008] [INFO] 4o7z9w9rk1avi60
+[2026-02-08 12:51:02,553] [INFO] 40yy78m29rnxs82
+[2026-02-08 12:51:43,407] [INFO] 1g6d03s3x33ts5u
+[2026-02-08 12:52:28,492] [INFO] l8u52vc0q419397
+[2026-02-08 12:53:23,395] [INFO] b3fsz4p49m9pl82
+[2026-02-08 12:53:23,662] [INFO] whsutm04xm6r04p
+[2026-02-08 12:54:36,492] [INFO] 831ye50oshw8354
+[2026-02-08 12:55:13,096] [INFO] h1v41445nnuh3n6
+[2026-02-08 12:55:16,117] [INFO] sw6f6me2l78ql42
+[2026-02-08 12:55:30,059] [INFO] 1t58u4nio0cefo0
+[2026-02-08 12:55:45,424] [INFO] g39mm591fbf8983
+[2026-02-08 12:56:08,738] [INFO] g7u3f0gx5b8huyj
+[2026-02-08 12:56:22,560] [INFO] 19463kdv2srbqcv
+[2026-02-08 12:57:33,811] [INFO] bo9m4ne7y26811j
+[2026-02-08 12:57:43,697] [INFO] 6m16b9qab2s16x1
+[2026-02-08 12:58:03,416] [INFO] 9y3oq4a3ose3r8k
+[2026-02-08 12:59:14,604] [INFO] fzvppfa34wpqna5
+[2026-02-08 12:59:56,216] [INFO] g280ium980496n5
+[2026-02-08 12:59:56,312] [INFO] 6vr6p60u202k92h
+[2026-02-08 13:00:24,655] [INFO] wo25anl68qp0fj1
+[2026-02-08 13:00:25,215] [INFO] 2356kc1vp1960sb
+[2026-02-08 13:01:07,880] [INFO] 3qsvdq1y259skdw
+[2026-02-08 13:01:20,194] [INFO] 26gae349g523ggq
+[2026-02-08 13:01:42,621] [INFO] r74ab8p2dae4ttg
+[2026-02-08 13:02:01,361] [INFO] b6h96u63jnmvsx4
+[2026-02-08 13:02:23,942] [INFO] 20m79d72923arb8
+[2026-02-08 13:02:24,323] [INFO] t078hzk48q823yb
+[2026-02-08 13:02:26,989] [INFO] 7um34ml20wd4c41
+[2026-02-08 13:02:49,607] [INFO] 06g41o7q28475mg
+[2026-02-08 13:03:45,980] [INFO] 5hb8xw477fuqna7
+[2026-02-08 13:04:46,661] [INFO] 0867eei0oz9of31
+[2026-02-08 13:04:46,932] [INFO] 43em92yhsb667x2
+[2026-02-08 13:05:02,358] [INFO] s6h37q7g6388xw0
+[2026-02-08 13:05:28,980] [INFO] t80uk851111s5z8
+[2026-02-08 13:05:54,329] [INFO] 35o10o44pzeh74m
+[2026-02-08 13:06:02,548] [INFO] p759zm1xy22s3r0
+[2026-02-08 13:06:02,677] [INFO] 9qse83qdss37849
+[2026-02-08 13:06:24,579] [INFO] 78p8eo5k1arnf0h
+[2026-02-08 13:07:10,641] [INFO] e7y03903209m3g9
+[2026-02-08 13:07:10,877] [INFO] gro3cdo041ez39p
+[2026-02-08 13:07:42,258] [INFO] 169yndt0li3sh44
+[2026-02-08 13:08:14,028] [INFO] 48q0ll18527hj53
+[2026-02-08 13:08:30,390] [INFO] vhfhhgbamn6b44b
+[2026-02-08 13:10:24,738] [INFO] 6w723h4uwy4b711
+[2026-02-08 13:11:35,731] [INFO] 6h16f1c5hp6mu71
+[2026-02-08 13:12:35,687] [INFO] x4s0m78r6yqzm7z
+[2026-02-08 13:12:54,140] [INFO] 3h31o18jwxpn1l7
+[2026-02-08 13:15:21,346] [INFO] qrf3zql3d60mqii
+[2026-02-08 13:16:07,005] [INFO] 2u4al2b4pof09a9
+[2026-02-08 13:16:07,459] [INFO] p13862n7y7d3il9
+[2026-02-08 13:16:11,081] [INFO] 3m1v72wi5210l58
+[2026-02-08 13:16:11,204] [INFO] 77fw05bt800xqo3
+[2026-02-08 13:16:11,440] [INFO] q065h1c394c3e0y
+[2026-02-08 13:16:11,560] [INFO] 1om62q21ebj156c
+[2026-02-08 13:18:07,226] [INFO] lmwxkt179l72ss8
+[2026-02-08 13:18:07,364] [INFO] 8e426bt9gfg2t9x
+[2026-02-08 13:18:07,545] [INFO] 0555fvfwn56amv4
+[2026-02-08 13:18:26,818] [INFO] 108u293383jv7mf
+[2026-02-08 13:18:29,303] [INFO] k3381f5671gv67c
+[2026-02-08 13:18:46,182] [INFO] oz0tpp80vvi1bv1
+[2026-02-08 13:18:46,336] [INFO] mto1r29d77wjgus
+[2026-02-08 13:19:12,005] [INFO] 08bi0105o946394
+[2026-02-08 13:19:38,978] [INFO] v3a96prv5a4t60a
+[2026-02-08 13:20:16,220] [INFO] 93mwpsm1mhk0dx4
+[2026-02-08 13:20:53,044] [INFO] 69k88q3vnp263u6
+[2026-02-08 13:21:17,610] [INFO] ns9kzbsfa4s0y0g
+[2026-02-08 13:21:38,393] [INFO] 6fe0w0d2fxcl2cq
+[2026-02-08 13:23:48,239] [INFO] 0la86j4324csx5z
+[2026-02-08 13:24:00,633] [INFO] igx7txxlo3v3zc2
+[2026-02-08 13:25:02,159] [INFO] f922rvgk96857qf
+[2026-02-08 13:25:02,545] [INFO] 84q60mvi89jq154
+[2026-02-08 13:25:42,955] [INFO] x3rg4cjiai3d7cf
+[2026-02-08 13:26:33,945] [INFO] 7f1111i44ul1u0p
+[2026-02-08 13:27:04,238] [INFO] 4u25f65vveufhu3
+[2026-02-08 13:27:22,094] [INFO] p5sh146k2n78ggj
+[2026-02-08 13:27:48,503] [INFO] djz1r8208hqd6s3
+[2026-02-08 13:27:55,915] [INFO] cf2s1eg4br1l19g
+[2026-02-08 13:27:56,354] [INFO] 6c46qf6t0c3h97m
+[2026-02-08 13:29:34,160] [INFO] e0av6qz189t2p2e
+[2026-02-08 13:30:27,238] [INFO] 94c9wqk0k250v0y
+[2026-02-08 13:30:43,625] [INFO] z8edo382hp1pz76
+[2026-02-08 13:30:46,111] [INFO] 7fwt0z91s4ye6dc
+[2026-02-08 13:31:08,744] [INFO] 7ku99aftcdm0tvp
+[2026-02-08 13:31:16,885] [INFO] pilrmf4u69f151a
+[2026-02-08 13:31:36,251] [INFO] z47367045qdj4qi
+[2026-02-08 13:32:13,617] [INFO] k797fh02kn5voya
+[2026-02-08 13:33:08,193] [INFO] 0wqw0qwmjc5e06w
+[2026-02-08 13:33:08,307] [INFO] 198r01sv090zj5y
+[2026-02-08 13:33:22,145] [INFO] y3iyfl71ocu3h9e
+[2026-02-08 13:34:14,205] [INFO] 2j59ejl7i5uvpyc
+[2026-02-08 13:34:22,949] [INFO] 0k68tuj84k7uqu1
+[2026-02-08 13:35:09,081] [INFO] 724nxe4nkuejuoz
+[2026-02-08 13:35:09,188] [INFO] 89vsyhz7fav1z54
+[2026-02-08 13:35:09,460] [INFO] r2cm6e6dgz7mb66
+[2026-02-08 13:35:26,258] [INFO] kx75e806f8e9864
+[2026-02-08 13:35:32,204] [INFO] ir14jpudl1g647s
+[2026-02-08 13:36:03,639] [INFO] y7gq160g3c02608
+[2026-02-08 13:36:03,728] [INFO] 79mw6r33jh8gf4w
+[2026-02-08 13:36:03,824] [INFO] 33a451r36a8y3c6
+[2026-02-08 13:36:06,455] [INFO] 54q35x06n4a0aop
+[2026-02-08 13:36:18,055] [INFO] 567h08dm921t3gf
+[2026-02-08 13:36:48,850] [INFO] 99l09z90n32mwlu
+[2026-02-08 13:36:48,974] [INFO] d5cya506l3l8g16
+[2026-02-08 13:36:53,374] [INFO] iy53068z1n2sfva
+[2026-02-08 13:37:59,879] [INFO] ms4am1f01ijht88
+[2026-02-08 13:37:59,984] [INFO] 764wi7xw6lgfjqj
+[2026-02-08 13:40:01,007] [INFO] ccc9vj006m7ja9k
+[2026-02-08 13:40:24,865] [INFO] oyg61dzcc8z101d
+[2026-02-08 13:41:52,876] [INFO] dpl8cvs9cu3nu1h
+[2026-02-08 13:43:18,319] [INFO] 5hi11mzgl5im0ys
+[2026-02-08 13:43:28,314] [INFO] o4ffv9s72058mut
+[2026-02-08 13:43:37,445] [INFO] kbo225dp148q1e9
+[2026-02-08 13:44:10,369] [INFO] y620eczc6twlj06
+[2026-02-08 13:45:03,071] [INFO] 52dr5802l9o4l20
+[2026-02-08 13:45:46,489] [INFO] 8e9hya72woc58dm
+[2026-02-08 13:45:53,336] [INFO] 7k4o33955363926
+[2026-02-08 13:45:57,120] [INFO] 05yq10vn7zz096r
+[2026-02-08 13:45:57,612] [INFO] 8cu82gmxbqg2kib
+[2026-02-08 13:46:40,644] [INFO] 58uo5806f17a0x2
+[2026-02-08 13:46:59,903] [INFO] 7ozf36ig2sb006i
+[2026-02-08 13:47:42,424] [INFO] o8m88rt8zkp3t93
+[2026-02-08 13:48:08,667] [INFO] zqe3t5ea0gne8b0
+[2026-02-08 13:48:08,870] [INFO] 3mx6b45dlw2d613
+[2026-02-08 13:49:53,960] [INFO] 9r0tjdf3c48q4r6
+[2026-02-08 13:54:05,664] [INFO] etro8r4xzv2t452
+[2026-02-08 13:54:09,386] [INFO] 05wy80v8km6mgs9
+[2026-02-08 13:55:54,693] [INFO] 9h3h3y654a3jm2x
+[2026-02-08 13:55:55,604] [INFO] 1a0e14l48b7i0l4
+[2026-02-08 13:55:55,857] [INFO] uqe76q55vd34226
+[2026-02-08 13:56:42,100] [INFO] a23k50l8915x9z5
+[2026-02-08 13:56:42,282] [INFO] 2h7m514c499gj31
+[2026-02-08 13:57:19,377] [INFO] 86w564735ang45d
+[2026-02-08 13:57:30,203] [INFO] 1mpqs09ho7324hc
+[2026-02-08 13:57:30,317] [INFO] 24k244iyqbd8u1g
+[2026-02-08 13:58:24,441] [INFO] 6wk5k4eqc057f51
+[2026-02-08 13:59:11,102] [INFO] 94s6f21d08k76ch
+[2026-02-08 13:59:28,464] [INFO] 701890wt1f8a6z1
+[2026-02-08 13:59:38,512] [INFO] 524o08m58l1o3t2
+[2026-02-08 14:02:39,853] [INFO] 302s7w21qdy8z8c
+[2026-02-08 14:05:21,282] [INFO] n4prf62403a765a
+[2026-02-08 14:07:05,761] [INFO] Releasing camera resources
+[2026-02-08 14:07:05,768] [INFO] Releasing camera resources
+[2026-02-08 14:24:32,909] [INFO] Shutting down
+[2026-02-08 14:24:33,017] [INFO] Waiting for application shutdown.
+[2026-02-08 14:24:33,809] [INFO] Cleanup complete. Shutting down.

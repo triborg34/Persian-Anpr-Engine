@@ -446,7 +446,8 @@ class CameraManager:
         self.running = False
         self.client_count = 0
         self.client_lock = threading.Lock()
-
+        self.latest_frame=None
+        self.resuilt_frame=None
         # ---------- THREADS ----------
         self.capture_thread = None
         self.process_thread = None
@@ -518,14 +519,14 @@ class CameraManager:
         last_version = -1
 
         while self.running:
-
-            current_version = self.display_version
-            if current_version == last_version:
-                time.sleep(0.005)  # 5ms sleep when waiting
-                continue
-            last_version = current_version
-            read_idx = self.display_read_idx
-            frame = self.display_buffer[read_idx]
+            frame = self.resuilt_frame
+            # current_version = self.display_version
+            # if current_version == last_version:
+            #     time.sleep(0.005)  # 5ms sleep when waiting
+            #     continue
+            # last_version = current_version
+            # read_idx = self.display_read_idx
+            # frame = self.display_buffer[read_idx]
 
             if frame is None:
                 time.sleep(0.005)
@@ -569,13 +570,14 @@ class CameraManager:
 
                 if frame is None:
                     continue
-                write_idx = self.capture_write_idx
-                self.capture_buffer[write_idx] = frame
+                self.latest_frame = frame
+                # write_idx = self.capture_write_idx
+                # self.capture_buffer[write_idx] = frame
 
-                # Swap buffers atomically
-                self.capture_read_idx = write_idx
-                self.capture_write_idx = 1 - write_idx
-                self.capture_version += 1
+                # # Swap buffers atomically
+                # self.capture_read_idx = write_idx
+                # self.capture_write_idx = 1 - write_idx
+                # self.capture_version += 1
                 try:
 
                     self.frame_queue.put_nowait(
@@ -605,12 +607,13 @@ class CameraManager:
                 logging.info("process_frame shutdown signal received")
                 break
             path, counter, regions = item
-            current_capture_version = self.capture_version
-            if current_capture_version == last_capture_version:
-                continue
-            last_capture_version = current_capture_version
-            read_idx = self.capture_read_idx
-            frame = self.capture_buffer[read_idx]
+            frame=self.latest_frame
+            # current_capture_version = self.capture_version
+            # if current_capture_version == last_capture_version:
+            #     continue
+            # last_capture_version = current_capture_version
+            # read_idx = self.capture_read_idx
+            # frame = self.capture_buffer[read_idx]
             if frame is None or frame.size == 0:
                 continue
 
@@ -764,29 +767,32 @@ class CameraManager:
                 else:
                     display_frame = processed_frame
 
-                write_idx = self.display_write_idx
-                self.display_buffer[write_idx] = display_frame
+                # write_idx = self.display_write_idx
+                # self.display_buffer[write_idx] = display_frame
 
-                # Swap buffers atomically
-                self.display_read_idx = write_idx
-                self.display_write_idx = 1 - write_idx
-                self.display_version += 1
+                # # Swap buffers atomically
+                # self.display_read_idx = write_idx
+                # self.display_write_idx = 1 - write_idx
+                # self.display_version += 1
 
                 # try:
                 #     del plate_results, cropped_car, car_res
                 # except Exception as e:
                 #     pass
+                self.resuilt_frame=display_frame
                 # with self.result_lock:
                 #         self.result_frame = frame
 
             except Exception as ex:
-                write_idx = self.display_write_idx
-                self.display_buffer[write_idx] = frame
+                
+                self.resuilt_frame=frame
+                # write_idx = self.display_write_idx
+                # self.display_buffer[write_idx] = frame
 
-                # Swap buffers atomically
-                self.display_read_idx = write_idx
-                self.display_write_idx = 1 - write_idx
-                self.display_version += 1
+                # # Swap buffers atomically
+                # self.display_read_idx = write_idx
+                # self.display_write_idx = 1 - write_idx
+                # self.display_version += 1
 
     def is_connection_alive(self, source):
         """Check if network connection to source is alive"""
