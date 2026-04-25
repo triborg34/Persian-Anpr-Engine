@@ -1,25 +1,21 @@
 #TODO: BEST OF BOTH WORLD?
-import asyncio
 from contextlib import asynccontextmanager
 import json
 import socket
-import threading
 import time
 from fastapi import FastAPI, Query, Request, Response
 from fastapi.responses import  StreamingResponse
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.staticfiles import StaticFiles
-import psutil
 from pydantic import BaseModel
-from engines import CcTvMonitor, emailHandler ,CameraManager
+from oldengines import CcTvMonitor, emailHandler
 from TcpConnector import TcpConnector
 from onvifmaneger import get_rtsp_url
 import uvicorn
 from nrcpy import NrcDevice
 
 cctv = None
-camera_registry = {}
-camera_registry_lock = threading.Lock()
+
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
@@ -72,45 +68,48 @@ app.add_middleware(
 
 
 @app.get("/video_feed/{camera_id}")
-async def video_feed(
-    camera_id: str,
-    request: Request,
-    source: str = Query(...),
-
-):
+async def video_feed(camera_id: str, request: Request, source: str = Query(...)):
+    
+    if source == '0':
+        source = int(source)
+    """Stream video from a specific camera"""
     
     if cctv.RECORDMODE:
         cctv.SEGMENT=300
         print("RECORD MODE")
     else:
         cctv.carConf=0.1
-        cctv.iou=0.5
+        cctv.iou=0.1
         print("NORMAL MODE")
-    if source == "0":
-        source = int(source)
-    camera_idx = int(camera_id[2:])
-    # get or create camera
-    with camera_registry_lock:
-        if source not in camera_registry:
-            camera_registry[source] = CameraManager(source, cctv,camera_idx)
+    try:
+        # Extract camera index from ID (rt1 -> 1)
+        camera_idx = int(camera_id[2:])
+        if cctv.RECORDMODE:
+            return StreamingResponse(
 
-        cam = camera_registry[source]
+                cctv.recording_frames(camera_idx, source, request),
 
-    cam.add_client()
 
-    async def watch_disconnect():
-        while True:
-            if await request.is_disconnected():
-                cam.remove_client()
-                break
-            await asyncio.sleep(0.2)
+                media_type="multipart/x-mixed-replace; boundary=frame",
+                headers={
+                    "Cache-Control": "no-store"
+                })
+        else:
+            
+            return StreamingResponse(
 
-    asyncio.create_task(watch_disconnect())
+                cctv.generate_frames(camera_idx, source, request),
 
-    return StreamingResponse(
-        cam.sendFrames(),
-        media_type="multipart/x-mixed-replace; boundary=frame",
-    )
+
+                media_type="multipart/x-mixed-replace; boundary=frame",
+                headers={
+                    "Cache-Control": "no-store"
+                }
+                
+        )
+    except ValueError:
+        return Response(f"Invalid camera ID: {camera_id}. Use format: rt1, rt2, etc.",
+                        status_code=400)
 
 
 @app.get("/rtsp_feed/{camera_id}")
@@ -215,19 +214,6 @@ async def get_camra_rtsp(request: RtspFields):
     return {'rtsp': rtspUrl}
 
 
-@app.get('/system/utils')
-def get_system_health():
-    
-    return {
-        "cpu": psutil.cpu_percent(),
-        "ram": psutil.virtual_memory().percent,
-        "disk": psutil.disk_usage('/').percent,
-        
-    }
-    
-
-
-
 app.mount("/web/app", StaticFiles(directory="build/web",
           html=True), name="flutter")
 
@@ -248,7 +234,7 @@ if __name__ == "__main__":
     # port=int(cctv.loadConfig()[3])
     port=int(readPort())
     
-    uvicorn.run("api:app", log_level='info', log_config=None,
+    uvicorn.run("oldapi:app", log_level='info', log_config=None,
                 reload=False, port=port, host=host)
     # if KeyboardInterrupt:
     #     graceful_shutdown()
