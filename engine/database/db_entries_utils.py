@@ -6,12 +6,9 @@ import cv2
 import datetime
 import time
 import requests
-
-from configParams import Parameters
 from PIL import Image
 
 
-params = Parameters()
 logging.basicConfig(
     level=logging.DEBUG,  # Capture everything from DEBUG and above
 
