@@ -588,3 +588,85 @@
 [2026-04-20 13:37:18,962] [INFO] Waiting for background tasks to complete. (CTRL+C to force quit)
 [2026-04-20 13:37:19,071] [INFO] Waiting for application shutdown.
 [2026-04-20 13:37:19,270] [INFO] Cleanup complete. Shutting down.
+[2026-05-11 13:04:02,411] [INFO] 4.10.0
+[2026-05-11 13:04:02,662] [DEBUG] Using proactor: IocpProactor
+[2026-05-11 13:04:02,712] [INFO] Started server process [26556]
+[2026-05-11 13:04:02,712] [INFO] Waiting for application startup.
+[2026-05-11 13:04:02,779] [INFO] PocketBase stater 28932
+[2026-05-11 13:04:02,859] [INFO] Loading YOLO models...
+[2026-05-11 13:04:02,860] [INFO] Loading onnx/pt
+[2026-05-11 13:04:08,931] [DEBUG] Loaded backend Agg version v2.2.
+[2026-05-11 13:04:10,085] [INFO] Models loaded successfully
+[2026-05-11 13:04:10,181] [INFO] Application startup complete.
+[2026-05-11 13:04:10,181] [INFO] Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+[2026-05-11 13:04:10,251] [INFO] 127.0.0.1:8673 - "GET /web/app HTTP/1.1" 307
+[2026-05-11 13:04:10,418] [INFO] 127.0.0.1:8673 - "GET /web/app/ HTTP/1.1" 304
+[2026-05-11 13:04:10,431] [INFO] 127.0.0.1:8673 - "GET /web/app/flutter_bootstrap.js HTTP/1.1" 304
+[2026-05-11 13:04:10,448] [INFO] 127.0.0.1:8673 - "GET /web/app/main.dart.js HTTP/1.1" 304
+[2026-05-11 13:04:10,583] [INFO] 127.0.0.1:8673 - "GET /web/app/assets/FontManifest.json HTTP/1.1" 304
+[2026-05-11 13:04:10,592] [INFO] 127.0.0.1:8673 - "GET /web/app/assets/fonts/MaterialIcons-Regular.otf HTTP/1.1" 304
+[2026-05-11 13:04:10,593] [INFO] 127.0.0.1:9967 - "GET /web/app/assets/packages/cupertino_icons/assets/CupertinoIcons.ttf HTTP/1.1" 304
+[2026-05-11 13:04:12,657] [INFO] 127.0.0.1:9967 - "GET /web/app/assets/images/mainlogo2.png HTTP/1.1" 200
+[2026-05-11 13:04:12,662] [INFO] 127.0.0.1:8673 - "GET /web/app/assets/images/ban.jpg HTTP/1.1" 200
+[2026-05-11 13:04:15,203] [INFO] 127.0.0.1:8673 - "GET /web/app/assets/images/iranFlag.png HTTP/1.1" 200
+[2026-05-11 13:04:15,266] [INFO] 127.0.0.1:8673 - "GET /video_feed/rt1?source=rtsp://admin:admin@192.168.1.89:554/mainstream HTTP/1.1" 200
+[2026-05-11 13:07:55,889] [INFO] g3gd25z7d08acap
+[2026-05-11 13:09:58,522] [INFO] 96748iiq98ifruz
+[2026-05-11 13:10:37,991] [INFO] 210rayc7j7iy35j
+[2026-05-11 13:11:48,985] [INFO] Releasing camera resources
+[2026-05-11 13:11:53,503] [INFO] Shutting down
+[2026-05-11 13:11:53,607] [INFO] Waiting for application shutdown.
+[2026-05-11 13:11:53,742] [INFO] Cleanup complete. Shutting down.
+[2026-05-11 13:57:32,846] [INFO] 4.10.0
+[2026-05-11 13:57:33,045] [DEBUG] Using proactor: IocpProactor
+[2026-05-11 13:57:33,083] [INFO] Started server process [36796]
+[2026-05-11 13:57:33,083] [INFO] Waiting for application startup.
+[2026-05-11 13:57:33,092] [INFO] PocketBase stater 13848
+[2026-05-11 13:57:33,146] [INFO] Loading YOLO models...
+[2026-05-11 13:57:33,146] [INFO] Loading onnx/pt
+[2026-05-11 13:57:35,106] [DEBUG] Loaded backend Agg version v2.2.
+[2026-05-11 13:57:36,104] [INFO] Models loaded successfully
+[2026-05-11 13:57:36,186] [INFO] Application startup complete.
+[2026-05-11 13:57:36,190] [INFO] Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+[2026-05-11 13:57:36,271] [INFO] 127.0.0.1:14874 - "GET /web/app HTTP/1.1" 307
+[2026-05-11 13:57:46,298] [INFO] 127.0.0.1:3143 - "GET /onvif/get-stream HTTP/1.1" 200
+[2026-05-11 13:59:32,783] [INFO] 127.0.0.1:3143 - "GET /favicon.ico HTTP/1.1" 404
+[2026-05-11 13:59:44,165] [INFO] 127.0.0.1:5200 - "GET /onvif/get-stream HTTP/1.1" 200
+[2026-05-11 13:59:57,943] [INFO] 127.0.0.1:12261 - "GET / HTTP/1.1" 404
+[2026-05-11 14:00:13,327] [INFO] 127.0.0.1:2733 - "GET /email HTTP/1.1" 405
+[2026-05-11 14:11:42,514] [INFO] Shutting down
+[2026-05-11 14:11:42,624] [INFO] Waiting for application shutdown.
+[2026-05-11 14:11:42,756] [INFO] Cleanup complete. Shutting down.
+[2026-05-12 14:21:52,066] [INFO] 4.10.0
+[2026-05-12 14:21:52,067] [INFO] 2.6.0+cu126
+[2026-05-12 14:21:52,351] [DEBUG] Using proactor: IocpProactor
+[2026-05-12 14:21:52,418] [INFO] Started server process [34176]
+[2026-05-12 14:21:52,418] [INFO] Waiting for application startup.
+[2026-05-12 14:21:52,502] [INFO] PocketBase stater 55376
+[2026-05-12 14:21:52,574] [INFO] Loading YOLO models...
+[2026-05-12 14:21:52,575] [INFO] Loading onnx/pt
+[2026-05-12 14:21:58,965] [DEBUG] Loaded backend Agg version v2.2.
+[2026-05-12 14:22:00,172] [INFO] Models loaded successfully
+[2026-05-12 14:22:00,242] [INFO] Application startup complete.
+[2026-05-12 14:22:00,243] [INFO] Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+[2026-05-12 14:22:00,315] [INFO] 127.0.0.1:3840 - "GET /web/app HTTP/1.1" 307
+[2026-05-12 14:22:00,492] [INFO] 127.0.0.1:3840 - "GET /web/app/ HTTP/1.1" 200
+[2026-05-12 14:22:00,513] [INFO] 127.0.0.1:3840 - "GET /web/app/flutter_bootstrap.js HTTP/1.1" 200
+[2026-05-12 14:22:00,516] [INFO] 127.0.0.1:10952 - "GET /web/app/manifest.json HTTP/1.1" 200
+[2026-05-12 14:22:00,555] [INFO] 127.0.0.1:1753 - "GET /web/app/canvaskit/chromium/canvaskit.js HTTP/1.1" 200
+[2026-05-12 14:22:00,556] [INFO] 127.0.0.1:3840 - "GET /web/app/canvaskit/chromium/canvaskit.wasm HTTP/1.1" 200
+[2026-05-12 14:22:00,556] [INFO] 127.0.0.1:3120 - "GET /web/app/main.dart.js HTTP/1.1" 200
+[2026-05-12 14:22:01,974] [INFO] 127.0.0.1:3120 - "GET /web/app/assets/FontManifest.json HTTP/1.1" 200
+[2026-05-12 14:22:01,979] [INFO] 127.0.0.1:1753 - "GET /web/app/icons/Icon-192.png HTTP/1.1" 200
+[2026-05-12 14:22:01,987] [INFO] 127.0.0.1:3120 - "GET /web/app/assets/fonts/MaterialIcons-Regular.otf HTTP/1.1" 200
+[2026-05-12 14:22:01,988] [INFO] 127.0.0.1:3840 - "GET /web/app/assets/assets/fonts/Yekan.ttf HTTP/1.1" 200
+[2026-05-12 14:22:01,989] [INFO] 127.0.0.1:5421 - "GET /web/app/assets/assets/fonts/arial.ttf HTTP/1.1" 200
+[2026-05-12 14:22:01,989] [INFO] 127.0.0.1:1094 - "GET /web/app/assets/packages/cupertino_icons/assets/CupertinoIcons.ttf HTTP/1.1" 200
+[2026-05-12 14:22:12,211] [INFO] 127.0.0.1:5850 - "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404
+[2026-05-12 14:22:12,503] [INFO] 127.0.0.1:5850 - "GET /web/app/flutter.js.map HTTP/1.1" 404
+[2026-05-12 14:22:23,088] [INFO] 127.0.0.1:2503 - "GET /web/app/assets/images/logo.jpg HTTP/1.1" 200
+[2026-05-12 14:22:38,609] [INFO] 127.0.0.1:5626 - "GET /web/app/assets/images/mainlogo2.png HTTP/1.1" 200
+[2026-05-12 14:22:38,632] [INFO] 127.0.0.1:5626 - "GET /web/app/assets/images/ban.jpg HTTP/1.1" 200
+[2026-05-12 14:22:45,207] [INFO] Shutting down
+[2026-05-12 14:22:45,317] [INFO] Waiting for application shutdown.
+[2026-05-12 14:22:45,447] [INFO] Cleanup complete. Shutting down.

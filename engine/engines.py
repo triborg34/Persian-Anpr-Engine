@@ -18,7 +18,6 @@ import torch
 import subprocess
 import statistics
 from ultralytics import YOLO
-from configParams import Parameters
 from database.db_entries_utils import db_entries_time
 from camera import FreshestFrame
 import threading
@@ -37,6 +36,7 @@ logging.basicConfig(
 
 
 logging.info(cv2.__version__)
+logging.info(torch.__version__)
 
 
 class CcTvMonitor:
@@ -50,7 +50,6 @@ class CcTvMonitor:
         self.SEGMENT = 60
         self.carConf = 0.6
         self.iou=0.5
-        self.params = Parameters()
         self.device = torch.device(0 if torch.cuda.is_available() else 'cpu')
         self.RETRY_LIMIT = 5
         self.RETRY_DELAY = 3
