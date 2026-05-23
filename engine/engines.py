@@ -21,6 +21,7 @@ from ultralytics import YOLO
 from database.db_entries_utils import db_entries_time
 from camera import FreshestFrame
 import threading
+from configParams import Parameters
 
 
 logging.basicConfig(
@@ -53,6 +54,7 @@ class CcTvMonitor:
         self.device = torch.device(0 if torch.cuda.is_available() else 'cpu')
         self.RETRY_LIMIT = 5
         self.RETRY_DELAY = 3
+        self.params = Parameters()
         self.RECORDMODE = self.checkrecordMode()
         if self.RECORDMODE:
             self.video_queue = queue.Queue()
