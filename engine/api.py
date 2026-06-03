@@ -79,13 +79,10 @@ async def video_feed(
 
 ):
     
-    if cctv.RECORDMODE:
-        cctv.SEGMENT=300
-        print("RECORD MODE")
-    else:
-        cctv.carConf=0.1
-        cctv.iou=0.5
-        print("NORMAL MODE")
+
+    cctv.carConf=0.1
+    cctv.iou=0.5
+    print("NORMAL MODE")
     if source == "0":
         source = int(source)
     camera_idx = int(camera_id[2:])

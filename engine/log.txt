@@ -1934,3 +1934,1891 @@ asyncio.exceptions.CancelledError
 [2026-05-23 12:00:57,900] [INFO] Shutting down
 [2026-05-23 12:00:58,014] [INFO] Waiting for application shutdown.
 [2026-05-23 12:00:58,840] [INFO] Cleanup complete. Shutting down.
+[2026-05-25 12:10:08,623] [INFO] 4.10.0
+[2026-05-25 12:10:08,624] [INFO] 2.6.0+cu126
+[2026-05-25 12:10:08,901] [DEBUG] Using proactor: IocpProactor
+[2026-05-25 12:10:08,926] [INFO] Started server process [65492]
+[2026-05-25 12:10:08,926] [INFO] Waiting for application startup.
+[2026-05-25 12:10:09,041] [INFO] PocketBase stater 62108
+[2026-05-25 12:10:09,140] [INFO] Loading YOLO models...
+[2026-05-25 12:10:09,141] [INFO] Loading onnx/pt
+[2026-05-25 12:10:15,495] [DEBUG] Loaded backend Agg version v2.2.
+[2026-05-25 12:10:16,870] [INFO] Models loaded successfully
+[2026-05-25 12:10:16,956] [INFO] Application startup complete.
+[2026-05-25 12:10:16,956] [INFO] Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+[2026-05-25 12:10:17,025] [INFO] 127.0.0.1:3904 - "GET /web/app HTTP/1.1" 307
+[2026-05-25 12:10:17,121] [INFO] 127.0.0.1:3904 - "GET /web/app/canvaskit/chromium/canvaskit.wasm HTTP/1.1" 304
+[2026-05-25 12:10:17,122] [INFO] 127.0.0.1:1793 - "GET /web/app/canvaskit/chromium/canvaskit.js HTTP/1.1" 304
+[2026-05-25 12:10:41,291] [INFO] 127.0.0.1:14365 - "GET /video_feed/rt1?source=rtsp://admin:admin@192.168.1.109:554/11 HTTP/1.1" 200
+[2026-05-25 12:10:45,423] [INFO] Releasing camera resources
+[2026-05-25 12:10:49,778] [INFO] 127.0.0.1:7781 - "GET /video_feed/rt1?source=rtsp://admin:admin@192.168.1.109:554/11 HTTP/1.1" 200
+[2026-05-25 12:10:58,985] [INFO] 127.0.0.1:3700 - "GET /web/app/assets/images/arvand.png HTTP/1.1" 200
+[2026-05-25 12:11:01,063] [INFO] 127.0.0.1:3700 - "GET /web/app/ HTTP/1.1" 304
+[2026-05-25 12:11:01,156] [INFO] Releasing camera resources
+[2026-05-25 12:11:05,789] [INFO] 127.0.0.1:3700 - "GET /video_feed/rt1?source=rtsp://admin:admin@192.168.1.109:554/11 HTTP/1.1" 200
+[2026-05-25 12:11:39,862] [INFO] 127.0.0.1:12873 - "GET /web/app/ HTTP/1.1" 304
+[2026-05-25 12:11:40,029] [INFO] Releasing camera resources
+[2026-05-25 12:11:45,842] [INFO] 127.0.0.1:8309 - "GET /video_feed/rt1?source=rtsp://admin:admin@192.168.1.109:554/11 HTTP/1.1" 200
+[2026-05-25 12:11:56,022] [INFO] n74cbmdjv8owicm
+[2026-05-25 12:11:56,735] [INFO] z37do39hqtu26fj
+[2026-05-25 12:12:12,778] [INFO] ld9mdaohxp57u42
+[2026-05-25 12:12:12,850] [INFO] ph662kc29b6t302
+[2026-05-25 12:12:21,900] [INFO] f618htnl6288n24
+[2026-05-25 12:12:21,980] [INFO] 1rag55q4s2e5fq9
+[2026-05-25 12:12:22,181] [INFO] 6v8frk2b7p8wov4
+[2026-05-25 12:12:22,636] [INFO] 8xl3u00u84i2ppk
+[2026-05-25 12:12:22,746] [INFO] 9ho3qkp24172x8i
+[2026-05-25 12:12:24,273] [INFO] 26x4f8ydxa5pquq
+[2026-05-25 12:13:08,570] [INFO] 127.0.0.1:2826 - "GET /web/app/ HTTP/1.1" 304
+[2026-05-25 12:13:08,758] [INFO] Releasing camera resources
+[2026-05-25 12:13:13,266] [INFO] 127.0.0.1:2826 - "GET /video_feed/rt1?source=rtsp://admin:admin@192.168.1.109:554/11 HTTP/1.1" 200
+[2026-05-25 12:13:21,172] [INFO] 127.0.0.1:2108 - "GET /web/app/ HTTP/1.1" 304
+[2026-05-25 12:13:21,289] [INFO] Releasing camera resources
+[2026-05-25 12:13:25,675] [INFO] 127.0.0.1:2108 - "GET /video_feed/rt1?source=rtsp://admin:admin@192.168.1.109:554/11 HTTP/1.1" 200
+[2026-05-25 12:17:49,460] [INFO] 40m85h7c5hemc3i
+[2026-05-25 12:17:49,540] [INFO] 7a33yzb78oe29yn
+[2026-05-25 12:17:49,698] [INFO] o60p939m4343tg8
+[2026-05-25 12:17:49,820] [INFO] gr9p97l9o9u554l
+[2026-05-25 12:21:19,877] [INFO] 0e800sui0gtyzo7
+[2026-05-25 12:21:23,428] [INFO] gfg020924e9buh9
+[2026-05-25 12:21:23,747] [INFO] l88b6l8oya505mm
+[2026-05-25 12:21:26,549] [INFO] 45483rmt66owf7y
+[2026-05-25 12:21:26,819] [INFO] 7309smsx80n91vg
+[2026-05-25 12:21:26,879] [INFO] h2w4n74820hfrye
+[2026-05-25 12:21:26,976] [INFO] 96wf1e7a7cds2c2
+[2026-05-25 12:21:27,028] [INFO] x499ut379j7w9yl
+[2026-05-25 12:21:27,087] [INFO] 3dw2016slv46v8l
+[2026-05-25 12:21:27,410] [INFO] 3rp5tf81x933hj5
+[2026-05-25 12:21:27,472] [INFO] lhko5t0i0q4y855
+[2026-05-25 12:21:27,665] [INFO] jz776d5o87h3lk2
+[2026-05-25 12:21:30,369] [INFO] 1g3p27h9qf8g687
+[2026-05-25 12:21:30,433] [INFO] z72852f2vtrj454
+[2026-05-25 12:21:30,811] [INFO] 44zvs2529ae1d80
+[2026-05-25 12:21:33,496] [INFO] 6dc24475890o909
+[2026-05-25 12:21:35,677] [INFO] o00tv9eiloqdsas
+[2026-05-25 12:21:35,908] [INFO] s40o4mkqodo092j
+[2026-05-25 12:21:36,311] [INFO] 1a54f71irsobqrh
+[2026-05-25 12:21:36,684] [INFO] v82j501z598g71q
+[2026-05-25 12:21:37,009] [INFO] po1301h9h631t01
+[2026-05-25 12:21:44,844] [INFO] 05cz213xg5vaxi6
+[2026-05-25 12:21:45,233] [INFO] xog3ug2u07q6wa1
+[2026-05-25 12:21:45,361] [INFO] 821r2n1236o9u2z
+[2026-05-25 12:21:45,451] [INFO] 53ku2828qwl1q0o
+[2026-05-25 12:21:45,566] [INFO] 0q08cuphr3kt8tk
+[2026-05-25 12:22:14,408] [INFO] 8b8h309h2npgy37
+[2026-05-25 12:23:02,518] [INFO] hx910j814tgyoj0
+[2026-05-25 12:23:02,728] [INFO] 4cj33q5i3lmag68
+[2026-05-25 12:23:25,551] [INFO] o46n8199a256pe8
+[2026-05-25 12:24:12,955] [INFO] t8o80fx22xv3lj7
+[2026-05-25 12:24:13,212] [INFO] jae076wwbd92p43
+[2026-05-25 12:24:32,031] [INFO] 8ds1678c835x1t3
+[2026-05-25 12:24:32,209] [INFO] 8yo89167esh6r2i
+[2026-05-25 12:24:32,456] [INFO] nu2rwnxc11bel85
+[2026-05-25 12:24:32,526] [INFO] k2o207k12d2n0qa
+[2026-05-25 12:24:43,318] [INFO] 5bb5t06x46liyf3
+[2026-05-25 12:24:43,684] [INFO] 6ntc5cxefzl641c
+[2026-05-25 12:24:43,761] [INFO] t0047507258t7dn
+[2026-05-25 12:24:43,939] [INFO] ne5hylt9q0w31jp
+[2026-05-25 12:24:51,664] [INFO] Shutting down
+[2026-05-25 12:24:51,779] [INFO] Waiting for connections to close. (CTRL+C to force quit)
+[2026-05-25 12:24:55,650] [INFO] Waiting for application shutdown.
+[2026-05-25 12:24:55,653] [INFO] Releasing camera resources
+[2026-05-25 12:24:55,825] [INFO] Cleanup complete. Shutting down.
+[2026-05-25 12:25:13,702] [INFO] 4.10.0
+[2026-05-25 12:25:13,703] [INFO] 2.6.0+cu126
+[2026-05-25 12:25:13,849] [DEBUG] Using proactor: IocpProactor
+[2026-05-25 12:25:13,865] [INFO] Started server process [35692]
+[2026-05-25 12:25:13,865] [INFO] Waiting for application startup.
+[2026-05-25 12:25:13,869] [INFO] PocketBase stater 61884
+[2026-05-25 12:25:13,885] [INFO] Loading YOLO models...
+[2026-05-25 12:25:13,885] [INFO] Loading onnx/pt
+[2026-05-25 12:25:15,249] [DEBUG] Loaded backend Agg version v2.2.
+[2026-05-25 12:25:16,118] [INFO] Models loaded successfully
+[2026-05-25 12:25:16,186] [INFO] Application startup complete.
+[2026-05-25 12:25:16,187] [INFO] Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+[2026-05-25 12:25:16,248] [INFO] 127.0.0.1:9942 - "GET /web/app HTTP/1.1" 307
+[2026-05-25 12:25:20,730] [INFO] 127.0.0.1:9942 - "GET /video_feed/rt1?source=rtsp://admin:admin@192.168.1.109:554/11 HTTP/1.1" 200
+[2026-05-25 12:25:37,777] [INFO] 6lsgcw1uc2eapq2
+[2026-05-25 12:25:41,116] [INFO] d6g1luoux6cbgb1
+[2026-05-25 12:25:41,180] [INFO] k5pt72q8ifoe9za
+[2026-05-25 12:25:44,409] [INFO] t7h5m2j00j834vo
+[2026-05-25 12:25:44,751] [INFO] jzn78kf766wcjf6
+[2026-05-25 12:26:34,222] [INFO] 33415ny2io286fx
+[2026-05-25 12:26:34,423] [INFO] 8j0vj50lk5w6j2w
+[2026-05-25 12:26:34,499] [INFO] j5r9qhz9v2gu64f
+[2026-05-25 12:26:59,133] [INFO] k5375b18u4y884m
+[2026-05-25 12:26:59,438] [INFO] 1w4j7f2e3p2hl1j
+[2026-05-25 12:26:59,554] [INFO] 1m4485bya7b1iqz
+[2026-05-25 12:29:14,029] [INFO] Shutting down
+[2026-05-25 12:29:14,116] [INFO] Waiting for connections to close. (CTRL+C to force quit)
+[2026-05-25 12:29:16,674] [INFO] Waiting for background tasks to complete. (CTRL+C to force quit)
+[2026-05-25 12:29:16,787] [INFO] Waiting for application shutdown.
+[2026-05-25 12:29:16,935] [INFO] Releasing camera resources
+[2026-05-25 12:29:16,949] [INFO] Cleanup complete. Shutting down.
+[2026-05-25 12:29:25,471] [INFO] 4.10.0
+[2026-05-25 12:29:25,471] [INFO] 2.6.0+cu126
+[2026-05-25 12:29:25,622] [DEBUG] Using proactor: IocpProactor
+[2026-05-25 12:29:25,638] [INFO] Started server process [57756]
+[2026-05-25 12:29:25,638] [INFO] Waiting for application startup.
+[2026-05-25 12:29:25,641] [INFO] PocketBase stater 11428
+[2026-05-25 12:29:25,656] [INFO] Loading YOLO models...
+[2026-05-25 12:29:25,656] [INFO] Loading onnx/pt
+[2026-05-25 12:29:27,010] [DEBUG] Loaded backend Agg version v2.2.
+[2026-05-25 12:29:27,684] [INFO] Models loaded successfully
+[2026-05-25 12:29:27,749] [INFO] Application startup complete.
+[2026-05-25 12:29:27,750] [INFO] Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+[2026-05-25 12:29:27,811] [INFO] 127.0.0.1:4377 - "GET /web/app HTTP/1.1" 307
+[2026-05-25 12:29:29,840] [INFO] 127.0.0.1:4377 - "GET /video_feed/rt1?source=rtsp://admin:admin@192.168.1.109:554/11 HTTP/1.1" 200
+[2026-05-25 12:35:50,472] [INFO] Shutting down
+[2026-05-25 12:35:50,558] [INFO] Waiting for connections to close. (CTRL+C to force quit)
+[2026-05-25 12:35:52,801] [INFO] Waiting for application shutdown.
+[2026-05-25 12:35:52,961] [INFO] Cleanup complete. Shutting down.
+[2026-05-25 12:36:04,730] [INFO] 4.10.0
+[2026-05-25 12:36:04,730] [INFO] 2.6.0+cu126
+[2026-05-25 12:36:04,879] [DEBUG] Using proactor: IocpProactor
+[2026-05-25 12:36:04,896] [INFO] Started server process [68500]
+[2026-05-25 12:36:04,896] [INFO] Waiting for application startup.
+[2026-05-25 12:36:04,899] [INFO] PocketBase stater 66756
+[2026-05-25 12:36:04,913] [INFO] Loading YOLO models...
+[2026-05-25 12:36:04,913] [INFO] Loading onnx/pt
+[2026-05-25 12:36:06,578] [DEBUG] Loaded backend Agg version v2.2.
+[2026-05-25 12:36:07,495] [INFO] Models loaded successfully
+[2026-05-25 12:36:07,576] [INFO] Application startup complete.
+[2026-05-25 12:36:07,577] [INFO] Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+[2026-05-25 12:36:07,651] [INFO] 127.0.0.1:1710 - "GET /web/app HTTP/1.1" 307
+[2026-05-25 12:36:25,985] [INFO] 127.0.0.1:4218 - "GET /video_feed/rt1?source=rtsp://admin:admin@192.168.1.109:554/11 HTTP/1.1" 200
+[2026-05-25 12:36:45,937] [INFO] i4kwfx0xw0zp9yw
+[2026-05-25 12:36:46,075] [INFO] hn38sgj4lshdq5z
+[2026-05-25 12:37:22,235] [INFO] lcxz6t9oqhwm5v6
+[2026-05-25 12:37:22,341] [INFO] yvjo4zvaq8urry3
+[2026-05-25 12:37:22,459] [INFO] j3xxu8tb2x7100p
+[2026-05-25 12:37:22,530] [INFO] 3207c2chttj7297
+[2026-05-25 12:37:22,597] [INFO] ov20iqa61v6c86g
+[2026-05-25 12:37:22,660] [INFO] 3vlgv9s2s09xa87
+[2026-05-25 12:37:34,252] [INFO] 721q315779353be
+[2026-05-25 12:37:47,372] [INFO] 5765z20xehjv6l9
+[2026-05-25 12:37:47,435] [INFO] q50ha06gb455dp9
+[2026-05-25 12:37:47,507] [INFO] 253pl1zse8z2bzr
+[2026-05-25 12:37:48,131] [INFO] 8mbf47w29kyz13q
+[2026-05-25 12:40:08,775] [INFO] Shutting down
+[2026-05-25 12:40:08,882] [INFO] Waiting for connections to close. (CTRL+C to force quit)
+[2026-05-25 12:40:11,308] [INFO] Waiting for application shutdown.
+[2026-05-25 12:40:11,471] [INFO] Cleanup complete. Shutting down.
+[2026-05-25 12:40:20,785] [INFO] 4.10.0
+[2026-05-25 12:40:20,786] [INFO] 2.6.0+cu126
+[2026-05-25 12:40:20,947] [DEBUG] Using proactor: IocpProactor
+[2026-05-25 12:40:20,965] [INFO] Started server process [68104]
+[2026-05-25 12:40:20,965] [INFO] Waiting for application startup.
+[2026-05-25 12:40:20,968] [INFO] PocketBase stater 68304
+[2026-05-25 12:40:20,980] [INFO] Loading YOLO models...
+[2026-05-25 12:40:20,981] [INFO] Loading onnx/pt
+[2026-05-25 12:40:22,337] [DEBUG] Loaded backend Agg version v2.2.
+[2026-05-25 12:40:23,105] [INFO] Models loaded successfully
+[2026-05-25 12:40:23,175] [INFO] Application startup complete.
+[2026-05-25 12:40:23,176] [INFO] Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+[2026-05-25 12:40:23,232] [INFO] 127.0.0.1:1157 - "GET /web/app HTTP/1.1" 307
+[2026-05-25 12:40:35,260] [INFO] 127.0.0.1:11755 - "GET /video_feed/rt1?source=rtsp://admin:admin@192.168.1.109:554/11 HTTP/1.1" 200
+[2026-05-25 12:40:54,110] [INFO] 8224gmq97t71w55
+[2026-05-25 12:40:54,264] [INFO] k49zy1881r59y10
+[2026-05-25 12:41:55,871] [INFO] ja5038kjc78wpp3
+[2026-05-25 12:41:56,493] [INFO] 5qasconl443897s
+[2026-05-25 12:41:56,615] [INFO] pw57864nea67t4d
+[2026-05-25 12:42:37,429] [INFO] q2y43p6wz5d6g00
+[2026-05-25 12:42:44,501] [INFO] 7ym850c2b6972kw
+[2026-05-25 12:42:44,828] [INFO] 8406408vt0fy62l
+[2026-05-25 12:44:38,752] [INFO] ja5gcv9w9s33g7f
+[2026-05-25 12:44:38,842] [INFO] piv10wq3jm1tjw4
+[2026-05-25 12:45:34,340] [INFO] 43l6ctv54n59jo7
+[2026-05-25 12:45:34,409] [INFO] 16q01m426xo7s39
+[2026-05-25 12:45:34,743] [INFO] 7324mt88m4f60tf
+[2026-05-25 12:45:34,822] [INFO] 891z26os23pz0n4
+[2026-05-25 12:45:34,932] [INFO] avlwmw08y903310
+[2026-05-25 12:45:35,233] [INFO] vk08m8ju55mn228
+[2026-05-25 12:45:43,629] [INFO] d3b9e825owsh881
+[2026-05-25 12:46:10,180] [INFO] 5dj6ya4nz84sa01
+[2026-05-25 12:46:10,421] [INFO] 336wx45o2w88nqy
+[2026-05-25 12:46:28,772] [INFO] ki3dwfqv8br3w09
+[2026-05-25 12:46:29,228] [INFO] ru3x8h050b2g65p
+[2026-05-25 12:46:59,897] [INFO] e57k8n0sqf4ph1g
+[2026-05-25 12:47:00,012] [INFO] h5ne974l05g9252
+[2026-05-25 12:47:00,676] [INFO] f8t0qnmmroem7m8
+[2026-05-25 12:47:02,994] [INFO] 1886b066amcyg72
+[2026-05-25 12:47:03,092] [INFO] 8qdsmmc6icie7g8
+[2026-05-25 12:47:03,146] [INFO] 509ymi10av3g41t
+[2026-05-25 12:47:03,491] [INFO] bx6987m7e458o68
+[2026-05-25 12:48:12,362] [INFO] 1hh3m6x3uhwb9f0
+[2026-05-25 12:48:13,251] [INFO] 322s3iq5700064h
+[2026-05-25 12:48:44,177] [INFO] 947aa6864egf92s
+[2026-05-25 12:48:44,265] [INFO] m36imh292jrn4s3
+[2026-05-25 12:48:44,576] [INFO] g0i7ex67fs9vo87
+[2026-05-25 12:49:33,957] [INFO] j9pv43fdm02p6t2
+[2026-05-25 12:49:34,052] [INFO] qzrn7x5lgvt5cl5
+[2026-05-25 12:49:34,636] [INFO] n9203mw092d1rlq
+[2026-05-25 12:50:08,750] [INFO] plcixb50gtcgu9z
+[2026-05-25 12:50:08,989] [INFO] n17hrl1wv4qw5j7
+[2026-05-25 12:50:25,032] [INFO] 302clfeu33vfnif
+[2026-05-25 12:50:25,098] [INFO] 24ga8iaiuo411ic
+[2026-05-25 12:50:25,148] [INFO] 366mmcs8m08b04y
+[2026-05-25 12:50:25,283] [INFO] s9d7r31058mqo24
+[2026-05-25 12:50:25,711] [INFO] aiop7jca25xrpz0
+[2026-05-25 12:50:25,805] [INFO] 7443np4k9dc98p2
+[2026-05-25 12:50:58,954] [INFO] yoll40muh13kygr
+[2026-05-25 12:50:59,077] [INFO] j031u9r91543yk7
+[2026-05-25 12:50:59,130] [INFO] 024477golj6n2gw
+[2026-05-25 12:50:59,234] [INFO] 6lg9a9094qm38v2
+[2026-05-25 12:51:36,988] [INFO] nl5o6cj6n8q183j
+[2026-05-25 12:51:37,095] [INFO] u59txsl62i3b16m
+[2026-05-25 12:51:37,181] [INFO] 3z3295fcy725q1f
+[2026-05-25 12:51:37,400] [INFO] 1066zn329i21k7z
+[2026-05-25 12:52:13,704] [INFO] 6g23a35eqfj8nxl
+[2026-05-25 12:52:13,782] [INFO] q199txc21000r7o
+[2026-05-25 12:52:13,989] [INFO] 899853dgh2eyqg2
+[2026-05-25 12:52:14,054] [INFO] 0dvg1s4752dj62q
+[2026-05-25 12:52:14,119] [INFO] 1jqa80181k92830
+[2026-05-25 12:52:42,445] [INFO] 556b2raqu96nzdb
+[2026-05-25 12:54:16,093] [INFO] yc3a20u8j1nttif
+[2026-05-25 12:54:39,974] [INFO] 3rnape0n9gep16v
+[2026-05-25 12:54:40,036] [INFO] fvv18b59r3vjlh2
+[2026-05-25 12:54:40,209] [INFO] 66p1k5o63r1j5zb
+[2026-05-25 12:55:17,177] [INFO] 53r5k0e02rmh6a4
+[2026-05-25 12:55:17,326] [INFO] u62jji9s137rtqc
+[2026-05-25 12:56:07,804] [INFO] m56084s68jm624l
+[2026-05-25 12:56:07,860] [INFO] s96k8sz4bgi73y7
+[2026-05-25 12:56:07,920] [INFO] 273vl18x8163cad
+[2026-05-25 12:56:08,010] [INFO] 3r7o278onvlvo3u
+[2026-05-25 12:56:08,093] [INFO] bnkdbsvax52rzw1
+[2026-05-25 12:56:08,386] [INFO] 34688if28ibv0ys
+[2026-05-25 12:56:08,450] [INFO] pen2rv1no39v0g9
+[2026-05-25 12:56:08,657] [INFO] 3j040i6636n1g7z
+[2026-05-25 12:56:08,803] [INFO] jvz94v57hxsc64z
+[2026-05-25 12:58:58,965] [INFO] 41e3cdc7jb9wt80
+[2026-05-25 12:58:59,029] [INFO] 4g0yi14o2wqjud9
+[2026-05-25 12:58:59,468] [INFO] 42c87775xly2xw1
+[2026-05-25 12:59:16,212] [INFO] 0k1x0h52yoe9701
+[2026-05-25 12:59:17,333] [INFO] s583o7a4o483i31
+[2026-05-25 12:59:43,676] [INFO] p0xzh5nr2xxnzl8
+[2026-05-25 13:00:03,095] [INFO] 0o5o96an3f8960l
+[2026-05-25 13:00:03,732] [INFO] srs8w7863k8a9m6
+[2026-05-25 13:00:05,248] [INFO] 7427a85lijt25p5
+[2026-05-25 13:00:05,311] [INFO] z7q5s343nr5539m
+[2026-05-25 13:00:42,376] [INFO] 2061xw80s8wgn4q
+[2026-05-25 13:01:12,979] [INFO] edeug23766w3wv5
+[2026-05-25 13:01:13,105] [INFO] 95ix3tb8b0ig79a
+[2026-05-25 13:01:13,884] [INFO] 6b78e1y70016y3z
+[2026-05-25 13:02:17,855] [INFO] irbk3c8852i61dv
+[2026-05-25 13:02:17,958] [INFO] qq85o341h93d92l
+[2026-05-25 13:02:23,192] [INFO] 3yiq5u6wqa1jttn
+[2026-05-25 13:02:29,503] [INFO] r86nd7n9e25yxjs
+[2026-05-25 13:02:31,142] [INFO] yzel19vgl6a469j
+[2026-05-25 13:02:45,696] [INFO] ymrx12pabz1r36e
+[2026-05-25 13:02:46,262] [INFO] mkz7a5317fedusc
+[2026-05-25 13:02:46,322] [INFO] 81yk9us56lyj974
+[2026-05-25 13:02:46,383] [INFO] f269i06n547i5pr
+[2026-05-25 13:02:46,444] [INFO] wg3ryur5bmzua0j
+[2026-05-25 13:03:01,544] [INFO] i5unx6rt2cgtha7
+[2026-05-25 13:03:01,626] [INFO] 36v40g13lwyjt28
+[2026-05-25 13:03:01,734] [INFO] 70sz6w5867f63zg
+[2026-05-25 13:03:01,796] [INFO] 5t51254v9zb3zs5
+[2026-05-25 13:03:01,869] [INFO] 0xf6x8q330q7mwz
+[2026-05-25 13:03:01,934] [INFO] 7u5ae2wa81qvm1c
+[2026-05-25 13:03:46,595] [INFO] 28xv2y49nb4324w
+[2026-05-25 13:03:46,747] [INFO] gqgt8t0myw7u24r
+[2026-05-25 13:03:47,182] [INFO] qyo2mbk5x5712rp
+[2026-05-25 13:05:47,371] [INFO] n2moym10yfi92f5
+[2026-05-25 13:05:48,311] [INFO] 6i5sfm45scz764o
+[2026-05-25 13:05:48,429] [INFO] vm5f67b2005f0w7
+[2026-05-25 13:05:48,610] [INFO] l3hxfc45b52858a
+[2026-05-25 13:05:48,664] [INFO] y3smbtg17t18bs5
+[2026-05-25 13:06:36,373] [INFO] r4m6dbd19k0b2me
+[2026-05-25 13:06:36,466] [INFO] 65i68616756c2hy
+[2026-05-25 13:06:36,715] [INFO] 1u4inisoz0vd7k9
+[2026-05-25 13:07:11,584] [INFO] cfjg7fgn147y5hn
+[2026-05-25 13:07:11,680] [INFO] 3aju4287136qnsn
+[2026-05-25 13:07:25,037] [INFO] 3rwtd0g8c1j0p22
+[2026-05-25 13:07:25,100] [INFO] f557k34718ba63r
+[2026-05-25 13:07:52,809] [INFO] 0cau34tu7t56rz6
+[2026-05-25 13:07:53,010] [INFO] 4if5m9wp0kwayxi
+[2026-05-25 13:07:53,072] [INFO] 8bk9gb0o77s9700
+[2026-05-25 13:07:53,133] [INFO] 3l14x2gi143037t
+[2026-05-25 13:07:53,248] [INFO] yp5bozwm9ftmt18
+[2026-05-25 13:08:43,820] [INFO] 9i8wcds9p8yani2
+[2026-05-25 13:08:43,893] [INFO] 6avb2z2851ij3tl
+[2026-05-25 13:09:13,968] [INFO] j6m6034crc645ch
+[2026-05-25 13:09:15,050] [INFO] s9afb8odcf9hnd5
+[2026-05-25 13:09:48,210] [INFO] 6ep18o8dca9x6dg
+[2026-05-25 13:11:20,098] [INFO] 7j0g62225xx3s7j
+[2026-05-25 13:11:20,205] [INFO] s8fl1w3ydjozak2
+[2026-05-25 13:11:20,270] [INFO] 0d35e8xeitbm83r
+[2026-05-25 13:11:20,336] [INFO] 6e4m8r586p79epo
+[2026-05-25 13:11:20,400] [INFO] op19075r2006rjh
+[2026-05-25 13:11:20,464] [INFO] um7ohe238e4u604
+[2026-05-25 13:11:20,527] [INFO] 9u8m07h8jq0ghb9
+[2026-05-25 13:11:20,591] [INFO] qfxj12l512y03x2
+[2026-05-25 13:11:20,705] [INFO] 23h31632nr4r0h2
+[2026-05-25 13:11:20,770] [INFO] 4z3023u5902lh6a
+[2026-05-25 13:11:20,997] [INFO] n471w5n6g9bgr9v
+[2026-05-25 13:11:21,095] [INFO] v5hpo515ef7i464
+[2026-05-25 13:11:21,157] [INFO] affc2ec2wg9kb80
+[2026-05-25 13:11:21,221] [INFO] 641vrm74y4p9ji8
+[2026-05-25 13:11:21,284] [INFO] 7y3b0d895247985
+[2026-05-25 13:11:21,349] [INFO] v43f98xqnppze83
+[2026-05-25 13:11:21,411] [INFO] psilklg0d2y14a8
+[2026-05-25 13:11:21,473] [INFO] uetxdmluc0pxh9e
+[2026-05-25 13:11:21,534] [INFO] a695z9cg707g3ip
+[2026-05-25 13:11:21,634] [INFO] 756it0f54c38xw0
+[2026-05-25 13:11:21,696] [INFO] v70ms7py2p4nhvd
+[2026-05-25 13:11:21,801] [INFO] 5i25949xd724dl8
+[2026-05-25 13:11:21,919] [INFO] l70ckonh6s05p6z
+[2026-05-25 13:11:40,710] [INFO] q795b2hmx4wx7hv
+[2026-05-25 13:14:49,434] [INFO] 9rg38r1lo3ph955
+[2026-05-25 13:14:49,494] [INFO] fznq816d44uzn1c
+[2026-05-25 13:14:49,649] [INFO] x6mbxlwu9nna96d
+[2026-05-25 13:14:49,914] [INFO] 9oua959746h6z1q
+[2026-05-25 13:15:29,623] [INFO] 00pl9pb871njv3l
+[2026-05-25 13:17:09,022] [INFO] cibm6jll7yl4a4a
+[2026-05-25 13:18:26,938] [INFO] c6vapr5214rl77h
+[2026-05-25 13:19:12,527] [INFO] 302p068b858cf2b
+[2026-05-25 13:19:12,588] [INFO] 8uk8zc1024z3t8x
+[2026-05-25 13:19:12,956] [INFO] 57rp174n2jxwc94
+[2026-05-25 13:19:13,534] [INFO] 7ci830vn6mth5vt
+[2026-05-25 13:19:16,973] [INFO] 3ot9xn7e9g009i0
+[2026-05-25 13:19:55,353] [INFO] r021610ym3s7wzj
+[2026-05-25 13:19:56,984] [INFO] 2kw35331wyb1z05
+[2026-05-25 13:19:57,166] [INFO] r491u5y30713kw1
+[2026-05-25 13:19:57,269] [INFO] 9947310ecv1k93u
+[2026-05-25 13:21:25,476] [INFO] 1gov80m4ls07556
+[2026-05-25 13:23:29,551] [INFO] lc46bp7l2e7ih70
+[2026-05-25 13:23:29,612] [INFO] kc4133ttv5el9kh
+[2026-05-25 13:23:30,729] [INFO] jhmk9jg4pr4lu5n
+[2026-05-25 13:23:33,703] [INFO] zp88p13p3y4tu30
+[2026-05-25 13:23:34,132] [INFO] zhb4m9zc8khbh0g
+[2026-05-25 13:23:36,187] [INFO] s69abb5064ui7i9
+[2026-05-25 13:23:36,436] [INFO] 5795p6ofwy54xxu
+[2026-05-25 13:24:16,271] [INFO] i5sbkyj47amr7l8
+[2026-05-25 13:24:30,816] [INFO] 5mowwk69mme7374
+[2026-05-25 13:25:41,781] [INFO] ezej5w30n59n8kg
+[2026-05-25 13:27:48,281] [INFO] gxdllrq2l18w0j4
+[2026-05-25 13:27:48,517] [INFO] 47zc4gey8b090y3
+[2026-05-25 13:27:52,924] [INFO] u6x8a11zaipm6n1
+[2026-05-25 13:27:53,580] [INFO] exzsrl5l5c52p71
+[2026-05-25 13:27:53,910] [INFO] 4e0yx7d346c6r23
+[2026-05-25 13:29:24,807] [INFO] pg93a61k549y623
+[2026-05-25 13:29:25,083] [INFO] 63mz13s42347se1
+[2026-05-25 13:29:41,027] [INFO] Shutting down
+[2026-05-25 13:29:41,117] [INFO] Waiting for connections to close. (CTRL+C to force quit)
+[2026-05-25 13:29:43,951] [INFO] Waiting for application shutdown.
+[2026-05-25 13:29:44,086] [INFO] Releasing camera resources
+[2026-05-25 13:29:44,099] [INFO] Cleanup complete. Shutting down.
+[2026-06-01 09:34:07,954] [INFO] 4.10.0
+[2026-06-01 09:34:07,954] [INFO] 2.6.0+cu126
+[2026-06-01 09:34:08,200] [DEBUG] Using proactor: IocpProactor
+[2026-06-01 09:34:08,223] [INFO] Started server process [38072]
+[2026-06-01 09:34:08,223] [INFO] Waiting for application startup.
+[2026-06-01 09:34:08,298] [INFO] PocketBase stater 45668
+[2026-06-01 09:34:08,315] [INFO] Loading YOLO models...
+[2026-06-01 09:34:08,316] [INFO] Loading onnx/pt
+[2026-06-01 09:34:14,565] [DEBUG] Loaded backend Agg version v2.2.
+[2026-06-01 09:34:15,891] [INFO] Models loaded successfully
+[2026-06-01 09:34:16,001] [INFO] Application startup complete.
+[2026-06-01 09:34:16,002] [INFO] Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+[2026-06-01 09:34:16,063] [INFO] 127.0.0.1:1631 - "GET /web/app HTTP/1.1" 307
+[2026-06-01 09:34:16,116] [INFO] 127.0.0.1:1631 - "GET /web/app/ HTTP/1.1" 200
+[2026-06-01 09:34:16,134] [INFO] 127.0.0.1:1631 - "GET /web/app/flutter_bootstrap.js HTTP/1.1" 200
+[2026-06-01 09:34:16,140] [INFO] 127.0.0.1:1530 - "GET /web/app/manifest.json HTTP/1.1" 200
+[2026-06-01 09:34:16,183] [INFO] 127.0.0.1:1631 - "GET /web/app/canvaskit/chromium/canvaskit.wasm HTTP/1.1" 200
+[2026-06-01 09:34:16,187] [INFO] 127.0.0.1:9041 - "GET /web/app/canvaskit/chromium/canvaskit.js HTTP/1.1" 200
+[2026-06-01 09:34:16,189] [INFO] 127.0.0.1:14989 - "GET /web/app/main.dart.js HTTP/1.1" 200
+[2026-06-01 09:34:16,464] [INFO] 127.0.0.1:12064 - "GET /web/app/canvaskit/chromium/canvaskit.js HTTP/1.1" 200
+[2026-06-01 09:34:16,464] [INFO] 127.0.0.1:13816 - "GET /web/app/flutter_bootstrap.js HTTP/1.1" 200
+[2026-06-01 09:34:17,363] [INFO] 127.0.0.1:12064 - "GET /web/app/main.dart.js HTTP/1.1" 200
+[2026-06-01 09:34:17,405] [ERROR] Exception in callback _ProactorBasePipeTransport._call_connection_lost(None)
+handle: <Handle _ProactorBasePipeTransport._call_connection_lost(None)>
+Traceback (most recent call last):
+  File "C:\Users\Microsoft\AppData\Local\Programs\Python\Python310\lib\asyncio\events.py", line 80, in _run
+    self._context.run(self._callback, *self._args)
+  File "C:\Users\Microsoft\AppData\Local\Programs\Python\Python310\lib\asyncio\proactor_events.py", line 165, in _call_connection_lost
+    self._sock.shutdown(socket.SHUT_RDWR)
+ConnectionResetError: [WinError 10054] An existing connection was forcibly closed by the remote host
+[2026-06-01 09:34:17,508] [INFO] 127.0.0.1:14989 - "GET /web/app/assets/FontManifest.json HTTP/1.1" 200
+[2026-06-01 09:34:17,514] [INFO] 127.0.0.1:1631 - "GET /web/app/icons/Icon-192.png HTTP/1.1" 200
+[2026-06-01 09:34:17,514] [INFO] 127.0.0.1:9041 - "GET /web/app/favicon.png HTTP/1.1" 200
+[2026-06-01 09:34:17,526] [INFO] 127.0.0.1:14989 - "GET /web/app/assets/fonts/MaterialIcons-Regular.otf HTTP/1.1" 200
+[2026-06-01 09:34:17,527] [INFO] 127.0.0.1:13273 - "GET /web/app/assets/assets/fonts/Yekan.ttf HTTP/1.1" 200
+[2026-06-01 09:34:17,528] [INFO] 127.0.0.1:4155 - "GET /web/app/assets/assets/fonts/arial.ttf HTTP/1.1" 200
+[2026-06-01 09:34:17,529] [INFO] 127.0.0.1:13090 - "GET /web/app/assets/packages/cupertino_icons/assets/CupertinoIcons.ttf HTTP/1.1" 200
+[2026-06-01 09:34:18,408] [INFO] 127.0.0.1:4155 - "GET /web/app/assets/images/logo.jpg HTTP/1.1" 200
+[2026-06-01 09:34:46,569] [INFO] Shutting down
+[2026-06-01 09:34:46,678] [INFO] Waiting for application shutdown.
+[2026-06-01 09:34:46,814] [INFO] Cleanup complete. Shutting down.
+[2026-06-01 09:34:49,997] [INFO] 4.10.0
+[2026-06-01 09:34:49,997] [INFO] 2.6.0+cu126
+[2026-06-01 09:34:50,143] [DEBUG] Using proactor: IocpProactor
+[2026-06-01 09:34:50,158] [INFO] Started server process [44116]
+[2026-06-01 09:34:50,158] [INFO] Waiting for application startup.
+[2026-06-01 09:34:50,161] [INFO] PocketBase stater 44520
+[2026-06-01 09:34:50,174] [INFO] Loading YOLO models...
+[2026-06-01 09:34:50,174] [INFO] Loading onnx/pt
+[2026-06-01 09:34:51,447] [DEBUG] Loaded backend Agg version v2.2.
+[2026-06-01 09:34:52,385] [INFO] Models loaded successfully
+[2026-06-01 09:34:52,455] [INFO] Application startup complete.
+[2026-06-01 09:34:52,456] [INFO] Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+[2026-06-01 09:34:52,536] [INFO] 127.0.0.1:4305 - "GET /web/app HTTP/1.1" 307
+[2026-06-01 09:34:53,250] [INFO] 127.0.0.1:2357 - "GET /web/app/main.dart.js HTTP/1.1" 206
+[2026-06-01 09:34:53,268] [INFO] 127.0.0.1:2357 - "GET /web/app/main.dart.js HTTP/1.1" 206
+[2026-06-01 09:34:53,861] [INFO] 127.0.0.1:4305 - "GET /web/app/assets/images/mainlogo2.png HTTP/1.1" 200
+[2026-06-01 09:34:53,879] [INFO] 127.0.0.1:4305 - "GET /web/app/assets/images/ban.jpg HTTP/1.1" 200
+[2026-06-01 09:34:59,559] [INFO] Shutting down
+[2026-06-01 09:34:59,670] [INFO] Waiting for application shutdown.
+[2026-06-01 09:34:59,798] [INFO] Cleanup complete. Shutting down.
+[2026-06-01 09:35:02,777] [INFO] 4.10.0
+[2026-06-01 09:35:02,777] [INFO] 2.6.0+cu126
+[2026-06-01 09:35:02,927] [DEBUG] Using proactor: IocpProactor
+[2026-06-01 09:35:02,943] [INFO] Started server process [45316]
+[2026-06-01 09:35:02,943] [INFO] Waiting for application startup.
+[2026-06-01 09:35:02,946] [INFO] PocketBase stater 24084
+[2026-06-01 09:35:02,961] [INFO] Found the 'CharsYolo.onnx' file!
+[2026-06-01 09:35:02,961] [INFO] Loading YOLO models...
+[2026-06-01 09:35:02,962] [INFO] Loading onnx/pt
+[2026-06-01 09:35:04,335] [DEBUG] Loaded backend Agg version v2.2.
+[2026-06-01 09:35:04,703] [INFO] Models loaded successfully
+[2026-06-01 09:35:04,763] [INFO] Application startup complete.
+[2026-06-01 09:35:04,763] [INFO] Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+[2026-06-01 09:35:04,828] [INFO] 127.0.0.1:2069 - "GET /web/app HTTP/1.1" 307
+[2026-06-01 09:35:41,110] [INFO] Shutting down
+[2026-06-01 09:35:41,219] [INFO] Waiting for application shutdown.
+[2026-06-01 09:35:41,346] [INFO] Cleanup complete. Shutting down.
+[2026-06-01 09:35:44,245] [INFO] 4.10.0
+[2026-06-01 09:35:44,246] [INFO] 2.6.0+cu126
+[2026-06-01 09:35:44,392] [DEBUG] Using proactor: IocpProactor
+[2026-06-01 09:35:44,407] [INFO] Started server process [34636]
+[2026-06-01 09:35:44,408] [INFO] Waiting for application startup.
+[2026-06-01 09:35:44,411] [INFO] PocketBase stater 42400
+[2026-06-01 09:35:44,423] [INFO] Found the 'CharsYolo.onnx' file!
+[2026-06-01 09:35:44,423] [INFO] Loading YOLO models...
+[2026-06-01 09:35:44,423] [INFO] Loading onnx/pt
+[2026-06-01 09:35:45,677] [DEBUG] Loaded backend Agg version v2.2.
+[2026-06-01 09:35:45,993] [INFO] Models loaded successfully
+[2026-06-01 09:35:46,058] [INFO] Application startup complete.
+[2026-06-01 09:35:46,058] [INFO] Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+[2026-06-01 09:35:46,122] [INFO] 127.0.0.1:9916 - "GET /web/app HTTP/1.1" 307
+[2026-06-01 09:36:57,469] [INFO] Shutting down
+[2026-06-01 09:36:57,579] [INFO] Waiting for application shutdown.
+[2026-06-01 09:36:57,706] [INFO] Cleanup complete. Shutting down.
+[2026-06-01 09:37:00,765] [INFO] 4.10.0
+[2026-06-01 09:37:00,765] [INFO] 2.6.0+cu126
+[2026-06-01 09:37:00,917] [DEBUG] Using proactor: IocpProactor
+[2026-06-01 09:37:00,933] [INFO] Started server process [47712]
+[2026-06-01 09:37:00,933] [INFO] Waiting for application startup.
+[2026-06-01 09:37:00,936] [INFO] PocketBase stater 47808
+[2026-06-01 09:37:00,948] [INFO] Loading YOLO models...
+[2026-06-01 09:37:00,949] [INFO] Loading onnx/pt
+[2026-06-01 09:37:02,325] [DEBUG] Loaded backend Agg version v2.2.
+[2026-06-01 09:37:02,696] [INFO] Models loaded successfully
+[2026-06-01 09:37:02,753] [INFO] Application startup complete.
+[2026-06-01 09:37:02,754] [INFO] Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+[2026-06-01 09:37:02,806] [INFO] 127.0.0.1:11396 - "GET /web/app HTTP/1.1" 307
+[2026-06-01 09:37:14,621] [INFO] Shutting down
+[2026-06-01 09:37:14,736] [INFO] Waiting for application shutdown.
+[2026-06-01 09:37:14,866] [INFO] Cleanup complete. Shutting down.
+[2026-06-01 09:37:26,740] [INFO] 4.10.0
+[2026-06-01 09:37:26,740] [INFO] 2.6.0+cu126
+[2026-06-01 09:37:26,892] [DEBUG] Using proactor: IocpProactor
+[2026-06-01 09:37:26,910] [INFO] Started server process [47600]
+[2026-06-01 09:37:26,910] [INFO] Waiting for application startup.
+[2026-06-01 09:37:26,913] [INFO] PocketBase stater 47384
+[2026-06-01 09:37:26,928] [INFO] Loading YOLO models...
+[2026-06-01 09:37:26,929] [INFO] Loading onnx/pt
+[2026-06-01 09:37:28,213] [DEBUG] Loaded backend Agg version v2.2.
+[2026-06-01 09:37:30,034] [ERROR] Traceback (most recent call last):
+  File "D:\Codes\anprv8\engine\yolov5\hubconf.py", line 50, in _create
+    model = DetectMultiBackend(path, device=device, fuse=autoshape)  # detection model
+  File "D:\Codes\anprv8\engine\yolov5\models\common.py", line 419, in __init__
+    import tensorrt as trt  # https://developer.nvidia.com/nvidia-tensorrt-download
+ModuleNotFoundError: No module named 'tensorrt'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\Codes\anprv8\engine\yolov5\hubconf.py", line 65, in _create
+    model = attempt_load(path, device=device, fuse=False)  # arbitrary model
+  File "D:\Codes\anprv8\engine\yolov5\models\experimental.py", line 78, in attempt_load
+    ckpt = torch.load(attempt_download(w), map_location="cpu")  # load
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\ultralytics\utils\patches.py", line 86, in torch_load
+    return _torch_load(*args, **kwargs)
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\torch\serialization.py", line 1425, in load
+    with _open_file_like(f, "rb") as opened_file:
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\torch\serialization.py", line 751, in _open_file_like
+    return _open_file(name_or_buffer, mode)
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\torch\serialization.py", line 732, in __init__
+    super().__init__(open(name, mode))
+FileNotFoundError: [Errno 2] No such file or directory: 'model\\CharsYolo..engine'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\starlette\routing.py", line 693, in lifespan
+    async with self.lifespan_context(app) as maybe_state:
+  File "C:\Users\Microsoft\AppData\Local\Programs\Python\Python310\lib\contextlib.py", line 199, in __aenter__
+    return await anext(self.gen)
+  File "D:\Codes\anprv8\engine\api.py", line 27, in lifespan
+    cctv=CcTvMonitor()
+  File "D:\Codes\anprv8\engine\engines.py", line 65, in __init__
+    self.model_car, self.model_plate, self.model_char, self.dolatimodel = self.loadModels()
+  File "D:\Codes\anprv8\engine\engines.py", line 147, in loadModels
+    model_char = torch.hub.load(
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\torch\hub.py", line 647, in load
+    model = _load_local(repo_or_dir, model, *args, **kwargs)
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\torch\hub.py", line 676, in _load_local
+    model = entry(*args, **kwargs)
+  File "D:\Codes\anprv8\engine\yolov5\hubconf.py", line 88, in custom
+    return _create(path, autoshape=autoshape, verbose=_verbose, device=device)
+  File "D:\Codes\anprv8\engine\yolov5\hubconf.py", line 83, in _create
+    raise Exception(s) from e
+Exception: [Errno 2] No such file or directory: 'model\\CharsYolo..engine'. Cache may be out of date, try `force_reload=True` or see https://docs.ultralytics.com/yolov5/tutorials/pytorch_hub_model_loading for help.
+
+[2026-06-01 09:37:30,035] [ERROR] Application startup failed. Exiting.
+[2026-06-01 09:37:52,278] [INFO] 4.10.0
+[2026-06-01 09:37:52,278] [INFO] 2.6.0+cu126
+[2026-06-01 09:37:52,438] [DEBUG] Using proactor: IocpProactor
+[2026-06-01 09:37:52,453] [INFO] Started server process [36884]
+[2026-06-01 09:37:52,453] [INFO] Waiting for application startup.
+[2026-06-01 09:37:52,457] [INFO] PocketBase stater 46724
+[2026-06-01 09:37:52,468] [INFO] Loading YOLO models...
+[2026-06-01 09:37:52,469] [INFO] Loading onnx/pt
+[2026-06-01 09:37:53,706] [DEBUG] Loaded backend Agg version v2.2.
+[2026-06-01 09:37:55,294] [ERROR] Traceback (most recent call last):
+  File "D:\Codes\anprv8\engine\yolov5\hubconf.py", line 50, in _create
+    model = DetectMultiBackend(path, device=device, fuse=autoshape)  # detection model
+  File "D:\Codes\anprv8\engine\yolov5\models\common.py", line 419, in __init__
+    import tensorrt as trt  # https://developer.nvidia.com/nvidia-tensorrt-download
+ModuleNotFoundError: No module named 'tensorrt'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\Codes\anprv8\engine\yolov5\hubconf.py", line 65, in _create
+    model = attempt_load(path, device=device, fuse=False)  # arbitrary model
+  File "D:\Codes\anprv8\engine\yolov5\models\experimental.py", line 78, in attempt_load
+    ckpt = torch.load(attempt_download(w), map_location="cpu")  # load
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\ultralytics\utils\patches.py", line 86, in torch_load
+    return _torch_load(*args, **kwargs)
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\torch\serialization.py", line 1425, in load
+    with _open_file_like(f, "rb") as opened_file:
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\torch\serialization.py", line 751, in _open_file_like
+    return _open_file(name_or_buffer, mode)
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\torch\serialization.py", line 732, in __init__
+    super().__init__(open(name, mode))
+FileNotFoundError: [Errno 2] No such file or directory: 'model\\CharsYolo.engine'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\starlette\routing.py", line 693, in lifespan
+    async with self.lifespan_context(app) as maybe_state:
+  File "C:\Users\Microsoft\AppData\Local\Programs\Python\Python310\lib\contextlib.py", line 199, in __aenter__
+    return await anext(self.gen)
+  File "D:\Codes\anprv8\engine\api.py", line 27, in lifespan
+    cctv=CcTvMonitor()
+  File "D:\Codes\anprv8\engine\engines.py", line 65, in __init__
+    self.model_car, self.model_plate, self.model_char, self.dolatimodel = self.loadModels()
+  File "D:\Codes\anprv8\engine\engines.py", line 146, in loadModels
+    model_char = torch.hub.load(
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\torch\hub.py", line 647, in load
+    model = _load_local(repo_or_dir, model, *args, **kwargs)
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\torch\hub.py", line 676, in _load_local
+    model = entry(*args, **kwargs)
+  File "D:\Codes\anprv8\engine\yolov5\hubconf.py", line 88, in custom
+    return _create(path, autoshape=autoshape, verbose=_verbose, device=device)
+  File "D:\Codes\anprv8\engine\yolov5\hubconf.py", line 83, in _create
+    raise Exception(s) from e
+Exception: [Errno 2] No such file or directory: 'model\\CharsYolo.engine'. Cache may be out of date, try `force_reload=True` or see https://docs.ultralytics.com/yolov5/tutorials/pytorch_hub_model_loading for help.
+
+[2026-06-01 09:37:55,294] [ERROR] Application startup failed. Exiting.
+[2026-06-01 09:38:34,186] [INFO] 4.10.0
+[2026-06-01 09:38:34,186] [INFO] 2.6.0+cu126
+[2026-06-01 09:38:34,331] [DEBUG] Using proactor: IocpProactor
+[2026-06-01 09:38:34,348] [INFO] Started server process [47312]
+[2026-06-01 09:38:34,348] [INFO] Waiting for application startup.
+[2026-06-01 09:38:34,352] [INFO] PocketBase stater 47412
+[2026-06-01 09:38:34,363] [INFO] Loading YOLO models...
+[2026-06-01 09:38:34,363] [INFO] Loading onnx/pt
+[2026-06-01 09:38:35,614] [DEBUG] Loaded backend Agg version v2.2.
+[2026-06-01 09:38:37,334] [ERROR] Traceback (most recent call last):
+  File "D:\Codes\anprv8\engine\yolov5\hubconf.py", line 50, in _create
+    model = DetectMultiBackend(path, device=device, fuse=autoshape)  # detection model
+  File "D:\Codes\anprv8\engine\yolov5\models\common.py", line 419, in __init__
+    import tensorrt as trt  # https://developer.nvidia.com/nvidia-tensorrt-download
+ModuleNotFoundError: No module named 'tensorrt'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\Codes\anprv8\engine\yolov5\hubconf.py", line 65, in _create
+    model = attempt_load(path, device=device, fuse=False)  # arbitrary model
+  File "D:\Codes\anprv8\engine\yolov5\models\experimental.py", line 78, in attempt_load
+    ckpt = torch.load(attempt_download(w), map_location="cpu")  # load
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\ultralytics\utils\patches.py", line 86, in torch_load
+    return _torch_load(*args, **kwargs)
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\torch\serialization.py", line 1425, in load
+    with _open_file_like(f, "rb") as opened_file:
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\torch\serialization.py", line 751, in _open_file_like
+    return _open_file(name_or_buffer, mode)
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\torch\serialization.py", line 732, in __init__
+    super().__init__(open(name, mode))
+FileNotFoundError: [Errno 2] No such file or directory: 'model\\CharsYolo.engine'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\starlette\routing.py", line 693, in lifespan
+    async with self.lifespan_context(app) as maybe_state:
+  File "C:\Users\Microsoft\AppData\Local\Programs\Python\Python310\lib\contextlib.py", line 199, in __aenter__
+    return await anext(self.gen)
+  File "D:\Codes\anprv8\engine\api.py", line 27, in lifespan
+    cctv=CcTvMonitor()
+  File "D:\Codes\anprv8\engine\engines.py", line 65, in __init__
+    self.model_car, self.model_plate, self.model_char, self.dolatimodel = self.loadModels()
+  File "D:\Codes\anprv8\engine\engines.py", line 145, in loadModels
+    model_char = torch.hub.load(
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\torch\hub.py", line 647, in load
+    model = _load_local(repo_or_dir, model, *args, **kwargs)
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\torch\hub.py", line 676, in _load_local
+    model = entry(*args, **kwargs)
+  File "D:\Codes\anprv8\engine\yolov5\hubconf.py", line 88, in custom
+    return _create(path, autoshape=autoshape, verbose=_verbose, device=device)
+  File "D:\Codes\anprv8\engine\yolov5\hubconf.py", line 83, in _create
+    raise Exception(s) from e
+Exception: [Errno 2] No such file or directory: 'model\\CharsYolo.engine'. Cache may be out of date, try `force_reload=True` or see https://docs.ultralytics.com/yolov5/tutorials/pytorch_hub_model_loading for help.
+
+[2026-06-01 09:38:37,335] [ERROR] Application startup failed. Exiting.
+[2026-06-01 09:38:49,354] [INFO] 4.10.0
+[2026-06-01 09:38:49,354] [INFO] 2.6.0+cu126
+[2026-06-01 09:38:49,498] [DEBUG] Using proactor: IocpProactor
+[2026-06-01 09:38:49,512] [INFO] Started server process [44328]
+[2026-06-01 09:38:49,513] [INFO] Waiting for application startup.
+[2026-06-01 09:38:49,516] [INFO] PocketBase stater 47908
+[2026-06-01 09:38:49,528] [INFO] Loading YOLO models...
+[2026-06-01 09:38:49,528] [INFO] Loading onnx/pt
+[2026-06-01 09:38:50,789] [DEBUG] Loaded backend Agg version v2.2.
+[2026-06-01 09:38:52,337] [ERROR] Traceback (most recent call last):
+  File "D:\Codes\anprv8\engine\yolov5\hubconf.py", line 50, in _create
+    model = DetectMultiBackend(path, device=device, fuse=autoshape)  # detection model
+  File "D:\Codes\anprv8\engine\yolov5\models\common.py", line 419, in __init__
+    import tensorrt as trt  # https://developer.nvidia.com/nvidia-tensorrt-download
+ModuleNotFoundError: No module named 'tensorrt'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\Codes\anprv8\engine\yolov5\hubconf.py", line 65, in _create
+    model = attempt_load(path, device=device, fuse=False)  # arbitrary model
+  File "D:\Codes\anprv8\engine\yolov5\models\experimental.py", line 78, in attempt_load
+    ckpt = torch.load(attempt_download(w), map_location="cpu")  # load
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\ultralytics\utils\patches.py", line 86, in torch_load
+    return _torch_load(*args, **kwargs)
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\torch\serialization.py", line 1425, in load
+    with _open_file_like(f, "rb") as opened_file:
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\torch\serialization.py", line 751, in _open_file_like
+    return _open_file(name_or_buffer, mode)
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\torch\serialization.py", line 732, in __init__
+    super().__init__(open(name, mode))
+FileNotFoundError: [Errno 2] No such file or directory: 'model\\CharsYolo.engine'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\starlette\routing.py", line 693, in lifespan
+    async with self.lifespan_context(app) as maybe_state:
+  File "C:\Users\Microsoft\AppData\Local\Programs\Python\Python310\lib\contextlib.py", line 199, in __aenter__
+    return await anext(self.gen)
+  File "D:\Codes\anprv8\engine\api.py", line 27, in lifespan
+    cctv=CcTvMonitor()
+  File "D:\Codes\anprv8\engine\engines.py", line 65, in __init__
+    self.model_car, self.model_plate, self.model_char, self.dolatimodel = self.loadModels()
+  File "D:\Codes\anprv8\engine\engines.py", line 146, in loadModels
+    model_char = torch.hub.load(
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\torch\hub.py", line 647, in load
+    model = _load_local(repo_or_dir, model, *args, **kwargs)
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\torch\hub.py", line 676, in _load_local
+    model = entry(*args, **kwargs)
+  File "D:\Codes\anprv8\engine\yolov5\hubconf.py", line 88, in custom
+    return _create(path, autoshape=autoshape, verbose=_verbose, device=device)
+  File "D:\Codes\anprv8\engine\yolov5\hubconf.py", line 83, in _create
+    raise Exception(s) from e
+Exception: [Errno 2] No such file or directory: 'model\\CharsYolo.engine'. Cache may be out of date, try `force_reload=True` or see https://docs.ultralytics.com/yolov5/tutorials/pytorch_hub_model_loading for help.
+
+[2026-06-01 09:38:52,338] [ERROR] Application startup failed. Exiting.
+[2026-06-01 09:39:17,779] [INFO] 4.10.0
+[2026-06-01 09:39:17,779] [INFO] 2.6.0+cu126
+[2026-06-01 09:39:17,925] [DEBUG] Using proactor: IocpProactor
+[2026-06-01 09:39:17,941] [INFO] Started server process [48948]
+[2026-06-01 09:39:17,942] [INFO] Waiting for application startup.
+[2026-06-01 09:39:17,945] [INFO] PocketBase stater 49036
+[2026-06-01 09:39:17,960] [INFO] Loading YOLO models...
+[2026-06-01 09:39:17,961] [INFO] Loading onnx/pt
+[2026-06-01 09:39:19,218] [DEBUG] Loaded backend Agg version v2.2.
+[2026-06-01 09:39:20,778] [ERROR] Traceback (most recent call last):
+  File "D:\Codes\anprv8\engine\yolov5\hubconf.py", line 50, in _create
+    model = DetectMultiBackend(path, device=device, fuse=autoshape)  # detection model
+  File "D:\Codes\anprv8\engine\yolov5\models\common.py", line 419, in __init__
+    import tensorrt as trt  # https://developer.nvidia.com/nvidia-tensorrt-download
+ModuleNotFoundError: No module named 'tensorrt'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\Codes\anprv8\engine\yolov5\hubconf.py", line 65, in _create
+    model = attempt_load(path, device=device, fuse=False)  # arbitrary model
+  File "D:\Codes\anprv8\engine\yolov5\models\experimental.py", line 78, in attempt_load
+    ckpt = torch.load(attempt_download(w), map_location="cpu")  # load
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\ultralytics\utils\patches.py", line 86, in torch_load
+    return _torch_load(*args, **kwargs)
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\torch\serialization.py", line 1425, in load
+    with _open_file_like(f, "rb") as opened_file:
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\torch\serialization.py", line 751, in _open_file_like
+    return _open_file(name_or_buffer, mode)
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\torch\serialization.py", line 732, in __init__
+    super().__init__(open(name, mode))
+FileNotFoundError: [Errno 2] No such file or directory: 'model\\CharsYolo.engine'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\starlette\routing.py", line 693, in lifespan
+    async with self.lifespan_context(app) as maybe_state:
+  File "C:\Users\Microsoft\AppData\Local\Programs\Python\Python310\lib\contextlib.py", line 199, in __aenter__
+    return await anext(self.gen)
+  File "D:\Codes\anprv8\engine\api.py", line 27, in lifespan
+    cctv=CcTvMonitor()
+  File "D:\Codes\anprv8\engine\engines.py", line 65, in __init__
+    self.model_car, self.model_plate, self.model_char, self.dolatimodel = self.loadModels()
+  File "D:\Codes\anprv8\engine\engines.py", line 146, in loadModels
+    model_char = torch.hub.load(
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\torch\hub.py", line 647, in load
+    model = _load_local(repo_or_dir, model, *args, **kwargs)
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\torch\hub.py", line 676, in _load_local
+    model = entry(*args, **kwargs)
+  File "D:\Codes\anprv8\engine\yolov5\hubconf.py", line 88, in custom
+    return _create(path, autoshape=autoshape, verbose=_verbose, device=device)
+  File "D:\Codes\anprv8\engine\yolov5\hubconf.py", line 83, in _create
+    raise Exception(s) from e
+Exception: [Errno 2] No such file or directory: 'model\\CharsYolo.engine'. Cache may be out of date, try `force_reload=True` or see https://docs.ultralytics.com/yolov5/tutorials/pytorch_hub_model_loading for help.
+
+[2026-06-01 09:39:20,779] [ERROR] Application startup failed. Exiting.
+[2026-06-01 09:40:01,698] [INFO] 4.10.0
+[2026-06-01 09:40:01,699] [INFO] 2.6.0+cu126
+[2026-06-01 09:40:01,853] [DEBUG] Using proactor: IocpProactor
+[2026-06-01 09:40:01,869] [INFO] Started server process [48808]
+[2026-06-01 09:40:01,870] [INFO] Waiting for application startup.
+[2026-06-01 09:40:01,873] [INFO] PocketBase stater 39444
+[2026-06-01 09:40:01,886] [INFO] Found the '' file!
+[2026-06-01 09:40:01,886] [INFO] Loading YOLO models...
+[2026-06-01 09:40:01,887] [INFO] Loading onnx/pt
+[2026-06-01 09:40:03,220] [DEBUG] Loaded backend Agg version v2.2.
+[2026-06-01 09:40:03,550] [INFO] Models loaded successfully
+[2026-06-01 09:40:03,608] [INFO] Application startup complete.
+[2026-06-01 09:40:03,609] [INFO] Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+[2026-06-01 09:40:03,664] [INFO] 127.0.0.1:3001 - "GET /web/app HTTP/1.1" 307
+[2026-06-01 09:40:56,908] [INFO] Shutting down
+[2026-06-01 09:40:57,017] [INFO] Waiting for application shutdown.
+[2026-06-01 09:40:57,135] [INFO] Cleanup complete. Shutting down.
+[2026-06-01 09:41:00,100] [INFO] 4.10.0
+[2026-06-01 09:41:00,100] [INFO] 2.6.0+cu126
+[2026-06-01 09:41:00,241] [DEBUG] Using proactor: IocpProactor
+[2026-06-01 09:41:00,264] [INFO] Started server process [49460]
+[2026-06-01 09:41:00,264] [INFO] Waiting for application startup.
+[2026-06-01 09:41:00,267] [INFO] PocketBase stater 47708
+[2026-06-01 09:41:00,287] [INFO] Found the '' file!
+[2026-06-01 09:41:00,287] [INFO] Loading YOLO models...
+[2026-06-01 09:41:00,288] [INFO] Loading onnx/pt
+[2026-06-01 09:41:01,541] [DEBUG] Loaded backend Agg version v2.2.
+[2026-06-01 09:41:02,301] [INFO] Models loaded successfully
+[2026-06-01 09:41:02,369] [INFO] Application startup complete.
+[2026-06-01 09:41:02,370] [INFO] Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+[2026-06-01 09:41:02,435] [INFO] 127.0.0.1:10595 - "GET /web/app HTTP/1.1" 307
+[2026-06-01 09:42:24,579] [INFO] Shutting down
+[2026-06-01 09:42:24,687] [INFO] Waiting for application shutdown.
+[2026-06-01 09:42:24,812] [INFO] Cleanup complete. Shutting down.
+[2026-06-01 09:42:27,838] [INFO] 4.10.0
+[2026-06-01 09:42:27,838] [INFO] 2.6.0+cu126
+[2026-06-01 09:42:27,984] [DEBUG] Using proactor: IocpProactor
+[2026-06-01 09:42:27,999] [INFO] Started server process [51104]
+[2026-06-01 09:42:27,999] [INFO] Waiting for application startup.
+[2026-06-01 09:42:28,003] [INFO] PocketBase stater 47176
+[2026-06-01 09:42:28,017] [INFO] Found the '' file!
+[2026-06-01 09:42:28,017] [INFO] Loading YOLO models...
+[2026-06-01 09:42:28,018] [INFO] Loading onnx/pt
+[2026-06-01 09:42:29,300] [DEBUG] Loaded backend Agg version v2.2.
+[2026-06-01 09:42:29,973] [INFO] Models loaded successfully
+[2026-06-01 09:42:30,038] [INFO] Application startup complete.
+[2026-06-01 09:42:30,039] [INFO] Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+[2026-06-01 09:42:30,101] [INFO] 127.0.0.1:11035 - "GET /web/app HTTP/1.1" 307
+[2026-06-01 09:42:45,970] [INFO] Shutting down
+[2026-06-01 09:42:46,080] [INFO] Waiting for application shutdown.
+[2026-06-01 09:42:46,203] [INFO] Cleanup complete. Shutting down.
+[2026-06-01 09:42:49,340] [INFO] 4.10.0
+[2026-06-01 09:42:49,340] [INFO] 2.6.0+cu126
+[2026-06-01 09:42:49,481] [DEBUG] Using proactor: IocpProactor
+[2026-06-01 09:42:49,497] [INFO] Started server process [35568]
+[2026-06-01 09:42:49,497] [INFO] Waiting for application startup.
+[2026-06-01 09:42:49,501] [INFO] PocketBase stater 51132
+[2026-06-01 09:42:49,513] [INFO] Found the '' file!
+[2026-06-01 09:42:49,513] [INFO] Loading YOLO models...
+[2026-06-01 09:42:49,514] [INFO] Loading onnx/pt
+[2026-06-01 09:42:50,887] [DEBUG] Loaded backend Agg version v2.2.
+[2026-06-01 09:42:51,565] [INFO] Models loaded successfully
+[2026-06-01 09:42:51,625] [INFO] Application startup complete.
+[2026-06-01 09:42:51,625] [INFO] Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+[2026-06-01 09:42:51,702] [INFO] 127.0.0.1:7143 - "GET /web/app HTTP/1.1" 307
+[2026-06-01 09:43:47,282] [INFO] Shutting down
+[2026-06-01 09:43:47,392] [INFO] Waiting for application shutdown.
+[2026-06-01 09:43:47,514] [INFO] Cleanup complete. Shutting down.
+[2026-06-01 09:43:50,522] [INFO] 4.10.0
+[2026-06-01 09:43:50,522] [INFO] 2.6.0+cu126
+[2026-06-01 09:43:50,674] [DEBUG] Using proactor: IocpProactor
+[2026-06-01 09:43:50,689] [INFO] Started server process [52936]
+[2026-06-01 09:43:50,689] [INFO] Waiting for application startup.
+[2026-06-01 09:43:50,693] [INFO] PocketBase stater 51712
+[2026-06-01 09:43:50,703] [INFO] Found the 'pt' file!
+[2026-06-01 09:43:50,703] [INFO] Loading YOLO models...
+[2026-06-01 09:43:50,704] [INFO] Loading onnx/pt
+[2026-06-01 09:43:51,981] [DEBUG] Loaded backend Agg version v2.2.
+[2026-06-01 09:43:52,649] [INFO] Models loaded successfully
+[2026-06-01 09:43:52,712] [INFO] Application startup complete.
+[2026-06-01 09:43:52,713] [INFO] Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+[2026-06-01 09:43:52,782] [INFO] 127.0.0.1:2106 - "GET /web/app HTTP/1.1" 307
+[2026-06-01 09:43:57,467] [INFO] Shutting down
+[2026-06-01 09:43:57,576] [INFO] Waiting for application shutdown.
+[2026-06-01 09:43:57,703] [INFO] Cleanup complete. Shutting down.
+[2026-06-01 09:44:01,010] [INFO] 4.10.0
+[2026-06-01 09:44:01,010] [INFO] 2.6.0+cu126
+[2026-06-01 09:44:01,167] [DEBUG] Using proactor: IocpProactor
+[2026-06-01 09:44:01,182] [INFO] Started server process [53172]
+[2026-06-01 09:44:01,182] [INFO] Waiting for application startup.
+[2026-06-01 09:44:01,186] [INFO] PocketBase stater 37696
+[2026-06-01 09:44:01,198] [INFO] Found the 'pt' file!
+[2026-06-01 09:44:01,199] [INFO] Loading YOLO models...
+[2026-06-01 09:44:01,199] [INFO] Loading onnx/pt
+[2026-06-01 09:44:02,574] [DEBUG] Loaded backend Agg version v2.2.
+[2026-06-01 09:44:03,223] [INFO] Models loaded successfully
+[2026-06-01 09:44:03,288] [INFO] Application startup complete.
+[2026-06-01 09:44:03,288] [INFO] Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+[2026-06-01 09:44:03,360] [INFO] 127.0.0.1:4607 - "GET /web/app HTTP/1.1" 307
+[2026-06-01 09:45:44,192] [INFO] Shutting down
+[2026-06-01 09:45:44,304] [INFO] Waiting for application shutdown.
+[2026-06-01 09:45:44,432] [INFO] Cleanup complete. Shutting down.
+[2026-06-01 09:45:47,856] [INFO] 4.10.0
+[2026-06-01 09:45:47,856] [INFO] 2.6.0+cu126
+[2026-06-01 09:45:48,037] [DEBUG] Using proactor: IocpProactor
+[2026-06-01 09:45:48,058] [INFO] Started server process [47804]
+[2026-06-01 09:45:48,059] [INFO] Waiting for application startup.
+[2026-06-01 09:45:48,062] [INFO] PocketBase stater 52344
+[2026-06-01 09:45:48,074] [INFO] Found the 'pt' file!
+[2026-06-01 09:45:48,075] [INFO] Loading YOLO models...
+[2026-06-01 09:45:48,075] [INFO] Loading onnx/pt
+[2026-06-01 09:45:49,678] [DEBUG] Loaded backend Agg version v2.2.
+[2026-06-01 09:45:50,405] [INFO] Models loaded successfully
+[2026-06-01 09:45:50,481] [INFO] Application startup complete.
+[2026-06-01 09:45:50,481] [INFO] Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+[2026-06-01 09:45:50,538] [INFO] 127.0.0.1:4319 - "GET /web/app HTTP/1.1" 307
+[2026-06-01 09:46:07,371] [INFO] 127.0.0.1:3075 - "GET /web/app/assets/images/iranFlag.png HTTP/1.1" 200
+[2026-06-01 09:46:07,376] [INFO] 127.0.0.1:13757 - "GET /video_feed/rt1?source=rtsp://admin:admin@192.168.1.109:554/11 HTTP/1.1" 200
+[2026-06-01 09:46:10,379] [WARNING] [Camera 1] Connection not available
+[2026-06-01 09:46:18,745] [INFO] 127.0.0.1:5014 - "GET /video_feed/rt1?source=rtsp://admin:admin@192.168.1.109:554/11 HTTP/1.1" 200
+[2026-06-01 09:46:21,379] [WARNING] [Camera 1] Connection not available
+[2026-06-01 09:46:32,410] [INFO] 127.0.0.1:11431 - "GET /video_feed/rt1?source=rtsp://admin:admin@192.168.1.89:554/mainstream HTTP/1.1" 200
+[2026-06-01 09:46:35,322] [INFO] 3xwr285v6j1d400
+[2026-06-01 09:46:36,557] [INFO] rps0joayzw77602
+[2026-06-01 09:46:38,858] [INFO] 9xa7s34g578o2u4
+[2026-06-01 09:46:41,617] [INFO] 2x2v2zwof73y0rv
+[2026-06-01 09:46:41,914] [INFO] y51js398s9393vz
+[2026-06-01 09:46:43,345] [INFO] Releasing camera resources
+[2026-06-01 09:46:53,530] [INFO] 127.0.0.1:9782 - "GET /video_feed/rt1?source=rtsp://admin:admin@192.168.1.89:554/mainstream HTTP/1.1" 200
+[2026-06-01 09:46:54,465] [INFO] gar96sve6403m60
+[2026-06-01 09:46:54,799] [INFO] zhyz5au0rd7359z
+[2026-06-01 09:46:54,883] [INFO] zbmhh0m6s4z7ze0
+[2026-06-01 09:47:00,127] [INFO] Releasing camera resources
+[2026-06-01 09:47:00,206] [INFO] 7vn087q0xt2n93o
+[2026-06-01 10:20:10,426] [INFO] 127.0.0.1:10676 - "GET /web/app/ HTTP/1.1" 304
+[2026-06-03 10:45:40,893] [INFO] 4.10.0
+[2026-06-03 10:45:40,894] [INFO] 2.6.0+cu126
+[2026-06-03 10:45:41,165] [DEBUG] Using proactor: IocpProactor
+[2026-06-03 10:45:41,189] [INFO] Started server process [47832]
+[2026-06-03 10:45:41,189] [INFO] Waiting for application startup.
+[2026-06-03 10:45:41,274] [INFO] PocketBase stater 41144
+[2026-06-03 10:45:41,299] [INFO] Found the 'pt' file!
+[2026-06-03 10:45:41,299] [INFO] Loading YOLO models...
+[2026-06-03 10:45:41,300] [INFO] Loading onnx/pt
+[2026-06-03 10:45:48,441] [DEBUG] Loaded backend Agg version v2.2.
+[2026-06-03 10:45:50,197] [INFO] Models loaded successfully
+[2026-06-03 10:45:50,280] [INFO] Application startup complete.
+[2026-06-03 10:45:50,281] [INFO] Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+[2026-06-03 10:45:50,336] [INFO] 127.0.0.1:3545 - "GET /web/app HTTP/1.1" 307
+[2026-06-03 10:45:50,378] [INFO] 127.0.0.1:3545 - "GET /web/app/ HTTP/1.1" 200
+[2026-06-03 10:45:50,397] [INFO] 127.0.0.1:3545 - "GET /web/app/flutter_bootstrap.js HTTP/1.1" 200
+[2026-06-03 10:45:50,406] [INFO] 127.0.0.1:9418 - "GET /web/app/manifest.json HTTP/1.1" 200
+[2026-06-03 10:45:50,449] [INFO] 127.0.0.1:3545 - "GET /web/app/canvaskit/chromium/canvaskit.wasm HTTP/1.1" 200
+[2026-06-03 10:45:50,450] [INFO] 127.0.0.1:5442 - "GET /web/app/canvaskit/chromium/canvaskit.js HTTP/1.1" 200
+[2026-06-03 10:45:50,451] [INFO] 127.0.0.1:8668 - "GET /web/app/main.dart.js HTTP/1.1" 200
+[2026-06-03 10:45:51,836] [INFO] 127.0.0.1:8668 - "GET /web/app/assets/FontManifest.json HTTP/1.1" 200
+[2026-06-03 10:45:51,843] [INFO] 127.0.0.1:5442 - "GET /web/app/icons/Icon-192.png HTTP/1.1" 200
+[2026-06-03 10:45:51,843] [INFO] 127.0.0.1:3545 - "GET /web/app/favicon.png HTTP/1.1" 200
+[2026-06-03 10:45:51,853] [INFO] 127.0.0.1:3545 - "GET /web/app/assets/fonts/MaterialIcons-Regular.otf HTTP/1.1" 200
+[2026-06-03 10:45:51,853] [INFO] 127.0.0.1:8668 - "GET /web/app/assets/assets/fonts/Yekan.ttf HTTP/1.1" 200
+[2026-06-03 10:45:51,855] [INFO] 127.0.0.1:2986 - "GET /web/app/assets/assets/fonts/arial.ttf HTTP/1.1" 200
+[2026-06-03 10:45:51,856] [INFO] 127.0.0.1:13210 - "GET /web/app/assets/packages/cupertino_icons/assets/CupertinoIcons.ttf HTTP/1.1" 200
+[2026-06-03 10:46:01,556] [INFO] 127.0.0.1:2590 - "GET /web/app/assets/images/logo.jpg HTTP/1.1" 200
+[2026-06-03 10:46:03,573] [INFO] 127.0.0.1:2590 - "GET /web/app/assets/images/mainlogo2.png HTTP/1.1" 200
+[2026-06-03 10:46:03,591] [INFO] 127.0.0.1:2590 - "GET /web/app/assets/images/ban.jpg HTTP/1.1" 200
+[2026-06-03 10:46:15,499] [INFO] 127.0.0.1:7079 - "GET /web/app/assets/images/iranFlag.png HTTP/1.1" 200
+[2026-06-03 10:46:41,124] [INFO] 127.0.0.1:9886 - "GET /video_feed/rt1?source=rtsp://admin:admin@192.168.1.89:554/mainstream HTTP/1.1" 500
+[2026-06-03 10:46:41,125] [ERROR] Exception in ASGI application
+Traceback (most recent call last):
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\uvicorn\protocols\http\h11_impl.py", line 403, in run_asgi
+    result = await app(  # type: ignore[func-returns-value]
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\uvicorn\middleware\proxy_headers.py", line 60, in __call__
+    return await self.app(scope, receive, send)
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\fastapi\applications.py", line 1054, in __call__
+    await super().__call__(scope, receive, send)
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\starlette\applications.py", line 113, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\starlette\middleware\errors.py", line 187, in __call__
+    raise exc
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\starlette\middleware\errors.py", line 165, in __call__
+    await self.app(scope, receive, _send)
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\starlette\middleware\cors.py", line 85, in __call__
+    await self.app(scope, receive, send)
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\starlette\middleware\exceptions.py", line 62, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\starlette\_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\starlette\_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\starlette\routing.py", line 715, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\starlette\routing.py", line 735, in app
+    await route.handle(scope, receive, send)
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\starlette\routing.py", line 288, in handle
+    await self.app(scope, receive, send)
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\starlette\routing.py", line 76, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\starlette\_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\starlette\_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\starlette\routing.py", line 73, in app
+    response = await f(request)
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\fastapi\routing.py", line 301, in app
+    raw_response = await run_endpoint_function(
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\fastapi\routing.py", line 212, in run_endpoint_function
+    return await dependant.call(**values)
+  File "D:\Codes\anprv8\engine\api.py", line 82, in video_feed
+    if cctv.RECORDMODE:
+AttributeError: 'CcTvMonitor' object has no attribute 'RECORDMODE'
+[2026-06-03 10:47:00,145] [INFO] Shutting down
+[2026-06-03 10:47:00,249] [INFO] Waiting for application shutdown.
+[2026-06-03 10:47:00,407] [INFO] Cleanup complete. Shutting down.
+[2026-06-03 10:47:04,560] [INFO] 4.10.0
+[2026-06-03 10:47:04,560] [INFO] 2.6.0+cu126
+[2026-06-03 10:47:04,771] [DEBUG] Using proactor: IocpProactor
+[2026-06-03 10:47:04,794] [INFO] Started server process [22732]
+[2026-06-03 10:47:04,796] [INFO] Waiting for application startup.
+[2026-06-03 10:47:04,799] [INFO] PocketBase stater 31916
+[2026-06-03 10:47:04,815] [INFO] Found the 'pt' file!
+[2026-06-03 10:47:04,815] [INFO] Loading YOLO models...
+[2026-06-03 10:47:04,816] [INFO] Loading onnx/pt
+[2026-06-03 10:47:06,686] [DEBUG] Loaded backend Agg version v2.2.
+[2026-06-03 10:47:07,584] [INFO] Models loaded successfully
+[2026-06-03 10:47:07,659] [INFO] Application startup complete.
+[2026-06-03 10:47:07,660] [INFO] Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+[2026-06-03 10:47:07,725] [INFO] 127.0.0.1:6838 - "GET /web/app HTTP/1.1" 307
+[2026-06-03 10:47:13,706] [INFO] 127.0.0.1:6820 - "GET /video_feed/rt1?source=rtsp://admin:admin@192.168.1.89:554/mainstream HTTP/1.1" 200
+[2026-06-03 10:47:16,390] [INFO] sw7c666rmpieslw
+[2026-06-03 10:47:16,685] [INFO] kpbwv78e64plv15
+[2026-06-03 10:47:18,819] [INFO] qg89zrj4ts166f1
+[2026-06-03 10:47:24,047] [INFO] 2r425784i8887c7
+[2026-06-03 10:47:26,419] [INFO] j40f5z21r8ipfdb
+[2026-06-03 10:47:28,246] [INFO] 2v97yt25894uv7b
+[2026-06-03 10:47:29,290] [INFO] 8624w2q5l84pu5y
+[2026-06-03 10:47:29,413] [INFO] q6l4pg3w7m2342t
+[2026-06-03 10:47:36,480] [INFO] 386l40d34n8t388
+[2026-06-03 10:47:38,484] [INFO] 85j0sc3fp7ygj26
+[2026-06-03 10:47:41,796] [INFO] xi732d23iob6ky3
+[2026-06-03 10:47:44,115] [INFO] 6z1a2q5zit59c10
+[2026-06-03 10:47:46,365] [INFO] 4oebhi8sudyp6uh
+[2026-06-03 10:47:46,554] [INFO] 94tvtan8pc82938
+[2026-06-03 10:47:53,177] [INFO] q16yirq43j7mmk6
+[2026-06-03 10:47:55,384] [INFO] yj8gcm23yn6a0f2
+[2026-06-03 10:47:56,565] [INFO] r4fws3k12f8t94t
+[2026-06-03 10:47:59,133] [INFO] t46d0ssh91134nm
+[2026-06-03 10:48:03,255] [INFO] 679mmx4e97n7ypn
+[2026-06-03 10:48:06,652] [INFO] 24smzx6347v2hg2
+[2026-06-03 10:48:21,765] [INFO] 3qky65zwi4u7w1m
+[2026-06-03 10:48:24,583] [INFO] mthcv9rpvsslwa0
+[2026-06-03 10:48:30,345] [INFO] z5l3986zt58btfl
+[2026-06-03 10:48:31,799] [INFO] l9jimi84c0der6t
+[2026-06-03 10:48:34,894] [INFO] 8q8s8qhy23n77z2
+[2026-06-03 10:49:14,318] [INFO] t955l2wytx3c8yr
+[2026-06-03 10:49:27,546] [INFO] n7a956tr3t2w9l5
+[2026-06-03 10:49:50,579] [INFO] 9l7751d764egat6
+[2026-06-03 10:50:46,685] [INFO] sr5kf727p2w8au4
+[2026-06-03 10:50:46,772] [INFO] zxftenopl0740hd
+[2026-06-03 10:51:09,566] [INFO] 1meu3trsibe06d9
+[2026-06-03 10:51:09,743] [INFO] 9k9073vm4bd180f
+[2026-06-03 10:51:12,892] [INFO] t20677p13ksy7qo
+[2026-06-03 10:51:13,402] [INFO] 73q81751365bgog
+[2026-06-03 10:51:22,087] [INFO] 97yx6me3s926cn6
+[2026-06-03 10:51:35,859] [INFO] fsy782r83326789
+[2026-06-03 10:51:35,995] [INFO] 7lvux89c2178r0b
+[2026-06-03 10:51:36,771] [INFO] 127.0.0.1:11184 - "GET /web/app/assets/images/arvand.png HTTP/1.1" 200
+[2026-06-03 10:51:38,108] [INFO] Releasing camera resources
+[2026-06-03 10:51:42,527] [INFO] 127.0.0.1:7280 - "GET /video_feed/rt1?source=rtsp://admin:admin@192.168.1.89:554/mainstream HTTP/1.1" 200
+[2026-06-03 10:51:47,921] [INFO] mg4bwg20ou13y9t
+[2026-06-03 10:51:48,045] [INFO] os4167749d72p0t
+[2026-06-03 10:51:58,215] [INFO] y664166natg7g32
+[2026-06-03 10:51:59,471] [INFO] 127.0.0.1:3054 - "GET /web/app/ HTTP/1.1" 304
+[2026-06-03 10:51:59,630] [INFO] Releasing camera resources
+[2026-06-03 10:52:05,380] [INFO] 127.0.0.1:4325 - "GET /video_feed/rt1?source=rtsp://admin:admin@192.168.1.89:554/mainstream HTTP/1.1" 200
+[2026-06-03 10:52:07,282] [INFO] 5t834ln188kv3g3
+[2026-06-03 10:52:10,584] [INFO] 9k77t40p9tme650
+[2026-06-03 10:52:11,453] [INFO] 9a38cvvc7mnk02t
+[2026-06-03 10:52:28,910] [INFO] 718b2cb8h41wmwl
+[2026-06-03 10:52:40,329] [INFO] Shutting down
+[2026-06-03 10:52:40,415] [INFO] Waiting for connections to close. (CTRL+C to force quit)
+[2026-06-03 10:53:02,858] [INFO] 057e8912oz7lg9s
+[2026-06-03 10:53:05,101] [INFO] rq9gu36ih488133
+[2026-06-03 10:53:05,303] [INFO] Waiting for application shutdown.
+[2026-06-03 10:53:05,686] [INFO] Cleanup complete. Shutting down.
+[2026-06-03 10:53:15,385] [INFO] 4.10.0
+[2026-06-03 10:53:15,385] [INFO] 2.6.0+cu126
+[2026-06-03 10:53:15,617] [DEBUG] Using proactor: IocpProactor
+[2026-06-03 10:53:15,638] [INFO] Started server process [59764]
+[2026-06-03 10:53:15,638] [INFO] Waiting for application startup.
+[2026-06-03 10:53:15,642] [INFO] PocketBase stater 38596
+[2026-06-03 10:53:15,672] [INFO] Found the 'pt' file!
+[2026-06-03 10:53:15,672] [INFO] Loading YOLO models...
+[2026-06-03 10:53:15,673] [INFO] Loading onnx/pt
+[2026-06-03 10:53:17,947] [DEBUG] Loaded backend Agg version v2.2.
+[2026-06-03 10:53:18,966] [INFO] Models loaded successfully
+[2026-06-03 10:53:19,039] [INFO] Application startup complete.
+[2026-06-03 10:53:19,040] [INFO] Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+[2026-06-03 10:53:19,128] [INFO] 127.0.0.1:9753 - "GET /web/app HTTP/1.1" 307
+[2026-06-03 10:53:41,414] [INFO] 127.0.0.1:7484 - "GET /video_feed/rt1?source=rtsp://admin:admin@192.168.1.89:554/mainstream HTTP/1.1" 200
+[2026-06-03 10:53:46,970] [INFO] Releasing camera resources
+[2026-06-03 10:57:50,640] [INFO] Shutting down
+[2026-06-03 10:57:50,750] [INFO] Waiting for application shutdown.
+[2026-06-03 10:57:50,943] [INFO] Cleanup complete. Shutting down.
+[2026-06-03 10:57:58,262] [INFO] 4.10.0
+[2026-06-03 10:57:58,262] [INFO] 2.6.0+cu126
+[2026-06-03 10:57:58,532] [DEBUG] Using proactor: IocpProactor
+[2026-06-03 10:57:58,550] [INFO] Started server process [59732]
+[2026-06-03 10:57:58,550] [INFO] Waiting for application startup.
+[2026-06-03 10:57:58,553] [INFO] PocketBase stater 53944
+[2026-06-03 10:57:58,582] [INFO] Found the 'pt' file!
+[2026-06-03 10:57:58,582] [INFO] Loading YOLO models...
+[2026-06-03 10:57:58,583] [INFO] Loading onnx/pt
+[2026-06-03 10:58:00,739] [DEBUG] Loaded backend Agg version v2.2.
+[2026-06-03 10:58:01,832] [INFO] Models loaded successfully
+[2026-06-03 10:58:01,908] [INFO] Application startup complete.
+[2026-06-03 10:58:01,909] [INFO] Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+[2026-06-03 10:58:01,999] [INFO] 127.0.0.1:4693 - "GET /web/app HTTP/1.1" 307
+[2026-06-03 11:00:16,836] [INFO] 127.0.0.1:9729 - "GET /video_feed/rt1?source=rtsp://admin:admin@192.168.1.89:554/mainstream HTTP/1.1" 200
+[2026-06-03 11:00:37,403] [INFO] 0h902iwy16e065g
+[2026-06-03 11:00:59,483] [INFO] yo43250g42sm91q
+[2026-06-03 11:00:59,655] [INFO] ci1kn3hp1s3oie7
+[2026-06-03 11:01:03,763] [INFO] 062h7bq5luo0302
+[2026-06-03 11:01:17,110] [INFO] oimg93vo2dss747
+[2026-06-03 11:01:17,268] [INFO] 1j33p4s970ouu95
+[2026-06-03 11:01:29,806] [INFO] Releasing camera resources
+[2026-06-03 11:01:32,095] [INFO] Shutting down
+[2026-06-03 11:01:32,204] [INFO] Waiting for application shutdown.
+[2026-06-03 11:01:32,402] [INFO] Cleanup complete. Shutting down.
+[2026-06-03 11:01:39,191] [INFO] 4.10.0
+[2026-06-03 11:01:39,191] [INFO] 2.6.0+cu126
+[2026-06-03 11:01:39,394] [DEBUG] Using proactor: IocpProactor
+[2026-06-03 11:01:39,411] [INFO] Started server process [52972]
+[2026-06-03 11:01:39,413] [INFO] Waiting for application startup.
+[2026-06-03 11:01:39,416] [INFO] PocketBase stater 59784
+[2026-06-03 11:01:39,438] [INFO] Found the 'pt' file!
+[2026-06-03 11:01:39,438] [INFO] Loading YOLO models...
+[2026-06-03 11:01:39,439] [INFO] Loading onnx/pt
+[2026-06-03 11:01:41,183] [DEBUG] Loaded backend Agg version v2.2.
+[2026-06-03 11:01:41,959] [INFO] Models loaded successfully
+[2026-06-03 11:01:42,025] [INFO] Application startup complete.
+[2026-06-03 11:01:42,026] [INFO] Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+[2026-06-03 11:01:42,107] [INFO] 127.0.0.1:13196 - "GET /web/app HTTP/1.1" 307
+[2026-06-03 11:01:44,627] [INFO] 127.0.0.1:13196 - "GET /video_feed/rt1?source=rtsp://admin:admin@192.168.1.89:554/mainstream HTTP/1.1" 200
+[2026-06-03 11:03:11,524] [INFO] Releasing camera resources
+[2026-06-03 11:04:17,148] [INFO] 127.0.0.1:4070 - "GET /video_feed/rt1?source=rtsp://admin:admin@192.168.1.89:554/mainstream HTTP/1.1" 200
+[2026-06-03 11:05:06,151] [INFO] 44uq969klwc6k2v
+[2026-06-03 11:05:06,266] [INFO] 295u9j21oi7s2nh
+[2026-06-03 11:05:58,099] [INFO] jxgf8i9r4aeop7z
+[2026-06-03 11:05:58,280] [INFO] 9240e2bi8kt0sqj
+[2026-06-03 11:05:58,482] [INFO] rfujdc71068cob4
+[2026-06-03 11:05:58,550] [INFO] p7b7dvdzqh35d6m
+[2026-06-03 11:05:59,013] [INFO] 0bvq91ayaj55g61
+[2026-06-03 11:06:23,880] [INFO] p0b1120k922c14o
+[2026-06-03 11:06:36,141] [INFO] 69cvl01l9e5vb2s
+[2026-06-03 11:06:36,352] [INFO] 2574w0nh256ht3s
+[2026-06-03 11:06:36,613] [INFO] 7yw2y29mf29p1a6
+[2026-06-03 11:07:28,066] [INFO] q92zbt8r7k9h9k5
+[2026-06-03 11:07:28,398] [INFO] gs3ci4v6wv249hj
+[2026-06-03 11:08:02,759] [INFO] 4xt8lcyjz7ftyx4
+[2026-06-03 11:08:17,401] [INFO] 0vg6a8lssw6436s
+[2026-06-03 11:09:14,876] [INFO] 442046il109010u
+[2026-06-03 11:09:25,823] [INFO] eh89rotnx5074ic
+[2026-06-03 11:09:26,281] [INFO] b6xihr2u45hfqbm
+[2026-06-03 11:09:26,604] [INFO] v1aajvd0z86d27v
+[2026-06-03 11:09:34,761] [INFO] u3p0beg87481211
+[2026-06-03 11:09:39,051] [INFO] 9v6v00gayt6wi51
+[2026-06-03 11:09:39,416] [INFO] 8kr7r7073tb3hf7
+[2026-06-03 11:09:51,812] [INFO] 8rp9cice7y053vw
+[2026-06-03 11:09:51,904] [INFO] 2390mr64e82fe14
+[2026-06-03 11:09:52,029] [INFO] 499i5w9szt254u2
+[2026-06-03 11:09:52,123] [INFO] 08oyb2y3yh89z6m
+[2026-06-03 11:10:04,455] [INFO] sm22y737amzy598
+[2026-06-03 11:10:20,120] [INFO] tjf19h1op319t0n
+[2026-06-03 11:10:29,065] [INFO] 301z621npzr8s4r
+[2026-06-03 11:12:00,063] [INFO] 26s7w88n8jf502i
+[2026-06-03 11:12:35,427] [INFO] 8lle5615wni9qzh
+[2026-06-03 11:14:05,529] [INFO] ix7og3f982nwk57
+[2026-06-03 11:14:06,079] [INFO] rn72vnba2pg347e
+[2026-06-03 11:14:20,323] [INFO] 522x3287z8t7n0i
+[2026-06-03 11:14:20,490] [INFO] u85v5r5x6lxm3q8
+[2026-06-03 11:14:20,621] [INFO] x390ypp4joyppj4
+[2026-06-03 11:14:21,077] [INFO] la7esdb1a5k8pzh
+[2026-06-03 11:14:21,247] [INFO] dmy4kf4yjk2q9vh
+[2026-06-03 11:14:27,175] [INFO] q8b115882564r5k
+[2026-06-03 11:14:27,304] [INFO] 8sa3y1698323r9x
+[2026-06-03 11:14:27,376] [INFO] hdqtyg9rxwhe2vy
+[2026-06-03 11:14:27,446] [INFO] 74rf6a4xfv35087
+[2026-06-03 11:14:27,767] [INFO] 22e35s817htno53
+[2026-06-03 11:14:27,825] [INFO] zdmth885681hp9b
+[2026-06-03 11:14:39,302] [INFO] 7wo8d84198007fj
+[2026-06-03 11:14:39,535] [INFO] nmu9522gcxce93i
+[2026-06-03 11:15:01,649] [INFO] l6y286svin0oi2q
+[2026-06-03 11:15:01,813] [INFO] 23x71k3235e510i
+[2026-06-03 11:15:01,933] [INFO] besi569pm9y99tj
+[2026-06-03 11:15:02,116] [INFO] 24s7847th555l4l
+[2026-06-03 11:15:46,520] [INFO] 440kxkr61mjx297
+[2026-06-03 11:15:46,661] [INFO] e2yo17m30f1zlmc
+[2026-06-03 11:15:46,954] [INFO] 5b8842932997p33
+[2026-06-03 11:15:47,061] [INFO] 438ru1cp67q4114
+[2026-06-03 11:15:49,776] [INFO] vto3lpa3s9h9b2i
+[2026-06-03 11:16:31,960] [INFO] ankp5ji0s2xv91y
+[2026-06-03 11:16:32,078] [INFO] mzeh5c7s7zr58dt
+[2026-06-03 11:16:32,594] [INFO] p547k0g2b20ak31
+[2026-06-03 11:16:41,272] [INFO] 7ld5u00f06hoi76
+[2026-06-03 11:16:41,367] [INFO] i45n0p75n0z53p6
+[2026-06-03 11:16:41,525] [INFO] 9ge2300jwju0l9c
+[2026-06-03 11:16:41,580] [INFO] 93ucy9v8bd2f779
+[2026-06-03 11:16:58,386] [INFO] 8jfbc569772p69l
+[2026-06-03 11:17:25,407] [INFO] d161mtyhn233o2o
+[2026-06-03 11:17:25,549] [INFO] u97u09xj1w45044
+[2026-06-03 11:17:25,902] [INFO] 1ke2t548u64ihj0
+[2026-06-03 11:18:01,344] [INFO] 3b03qji02x731f6
+[2026-06-03 11:18:01,439] [INFO] 46p297wez5h5p11
+[2026-06-03 11:18:01,568] [INFO] 311lmb730t1odys
+[2026-06-03 11:18:01,749] [INFO] 7b4313p83e58752
+[2026-06-03 11:18:28,299] [INFO] Releasing camera resources
+[2026-06-03 11:18:36,093] [INFO] 127.0.0.1:10920 - "GET /video_feed/rt1?source=rtsp://admin:admin@192.168.1.89:554/mainstream HTTP/1.1" 200
+[2026-06-03 11:19:32,899] [INFO] 127.0.0.1:5926 - "GET /web/app/ HTTP/1.1" 304
+[2026-06-03 11:19:53,496] [INFO] Releasing camera resources
+[2026-06-03 11:23:34,618] [INFO] 127.0.0.1:6471 - "GET /video_feed/rt1?source=rtsp://admin:admin@192.168.1.89:554/mainstream HTTP/1.1" 200
+[2026-06-03 11:23:56,265] [INFO] Releasing camera resources
+[2026-06-03 11:24:09,243] [INFO] Shutting down
+[2026-06-03 11:24:09,354] [INFO] Waiting for application shutdown.
+[2026-06-03 11:24:09,531] [INFO] Cleanup complete. Shutting down.
+[2026-06-03 11:24:18,208] [INFO] 4.10.0
+[2026-06-03 11:24:18,208] [INFO] 2.6.0+cu126
+[2026-06-03 11:24:18,458] [DEBUG] Using proactor: IocpProactor
+[2026-06-03 11:24:18,482] [INFO] Started server process [55556]
+[2026-06-03 11:24:18,482] [INFO] Waiting for application startup.
+[2026-06-03 11:24:18,486] [INFO] PocketBase stater 59168
+[2026-06-03 11:24:18,514] [INFO] Found the 'pt' file!
+[2026-06-03 11:24:18,514] [INFO] Loading YOLO models...
+[2026-06-03 11:24:18,514] [INFO] Loading onnx/pt
+[2026-06-03 11:24:20,774] [DEBUG] Loaded backend Agg version v2.2.
+[2026-06-03 11:24:21,650] [INFO] Models loaded successfully
+[2026-06-03 11:24:21,720] [INFO] Application startup complete.
+[2026-06-03 11:24:21,721] [INFO] Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+[2026-06-03 11:24:21,793] [INFO] 127.0.0.1:11591 - "GET /web/app HTTP/1.1" 307
+[2026-06-03 11:25:51,433] [INFO] 127.0.0.1:12475 - "GET /video_feed/rt1?source=rtsp://admin:admin@192.168.1.89:554/mainstream HTTP/1.1" 200
+[2026-06-03 11:26:00,688] [INFO] Releasing camera resources
+[2026-06-03 11:26:03,711] [INFO] Shutting down
+[2026-06-03 11:26:03,821] [INFO] Waiting for application shutdown.
+[2026-06-03 11:26:03,965] [INFO] Cleanup complete. Shutting down.
+[2026-06-03 11:26:08,392] [INFO] 4.10.0
+[2026-06-03 11:26:08,392] [INFO] 2.6.0+cu126
+[2026-06-03 11:26:08,570] [DEBUG] Using proactor: IocpProactor
+[2026-06-03 11:26:08,587] [INFO] Started server process [52476]
+[2026-06-03 11:26:08,587] [INFO] Waiting for application startup.
+[2026-06-03 11:26:08,590] [INFO] PocketBase stater 58948
+[2026-06-03 11:26:08,611] [INFO] Found the 'pt' file!
+[2026-06-03 11:26:08,611] [INFO] Loading YOLO models...
+[2026-06-03 11:26:08,611] [INFO] Loading onnx/pt
+[2026-06-03 11:26:10,310] [DEBUG] Loaded backend Agg version v2.2.
+[2026-06-03 11:26:11,083] [INFO] Models loaded successfully
+[2026-06-03 11:26:11,149] [INFO] Application startup complete.
+[2026-06-03 11:26:11,150] [INFO] Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+[2026-06-03 11:26:11,213] [INFO] 127.0.0.1:5505 - "GET /web/app HTTP/1.1" 307
+[2026-06-03 11:26:37,668] [INFO] 127.0.0.1:7925 - "GET /video_feed/rt1?source=rtsp://admin:admin@192.168.1.89:554/mainstream HTTP/1.1" 200
+[2026-06-03 11:27:00,868] [INFO] Shutting down
+[2026-06-03 11:27:00,973] [INFO] Waiting for connections to close. (CTRL+C to force quit)
+[2026-06-03 11:27:03,528] [INFO] Waiting for application shutdown.
+[2026-06-03 11:27:03,713] [INFO] Cleanup complete. Shutting down.
+[2026-06-03 11:27:08,410] [INFO] 4.10.0
+[2026-06-03 11:27:08,411] [INFO] 2.6.0+cu126
+[2026-06-03 11:27:08,587] [DEBUG] Using proactor: IocpProactor
+[2026-06-03 11:27:08,606] [INFO] Started server process [48824]
+[2026-06-03 11:27:08,606] [INFO] Waiting for application startup.
+[2026-06-03 11:27:08,609] [INFO] PocketBase stater 47556
+[2026-06-03 11:27:08,623] [INFO] Found the 'pt' file!
+[2026-06-03 11:27:08,623] [INFO] Loading YOLO models...
+[2026-06-03 11:27:08,623] [INFO] Loading onnx/pt
+[2026-06-03 11:27:10,250] [DEBUG] Loaded backend Agg version v2.2.
+[2026-06-03 11:27:11,020] [INFO] Models loaded successfully
+[2026-06-03 11:27:11,086] [INFO] Application startup complete.
+[2026-06-03 11:27:11,087] [INFO] Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+[2026-06-03 11:27:11,169] [INFO] 127.0.0.1:12551 - "GET /web/app HTTP/1.1" 307
+[2026-06-03 11:27:38,018] [INFO] 127.0.0.1:14545 - "GET /video_feed/rt1?source=rtsp://admin:admin@192.168.1.89:554/mainstream HTTP/1.1" 200
+[2026-06-03 11:27:40,037] [INFO] 7dop233q26akw20
+[2026-06-03 11:27:57,906] [INFO] 127.0.0.1:8217 - "GET /web/app/ HTTP/1.1" 304
+[2026-06-03 11:27:57,944] [INFO] Releasing camera resources
+[2026-06-03 11:28:02,721] [INFO] 127.0.0.1:8217 - "GET /video_feed/rt1?source=rtsp://admin:admin@192.168.1.89:554/mainstream HTTP/1.1" 200
+[2026-06-03 11:28:28,680] [INFO] d00ng9683olemyj
+[2026-06-03 11:28:28,837] [INFO] mj7pg3ark9bn155
+[2026-06-03 11:29:25,895] [INFO] crspg18ora98b8x
+[2026-06-03 11:29:26,055] [INFO] q216f06i8z1q1ks
+[2026-06-03 11:29:55,791] [INFO] 84rdd03672g17tp
+[2026-06-03 11:29:55,894] [INFO] s64n4143z2931a0
+[2026-06-03 11:29:58,559] [INFO] 7dbqn1gzq1mcef7
+[2026-06-03 11:29:58,686] [INFO] 2i52af803006j39
+[2026-06-03 11:29:59,291] [INFO] 82gw00292y1197i
+[2026-06-03 11:30:03,180] [INFO] 4qc482ae07lu908
+[2026-06-03 11:30:08,590] [INFO] horudyg5k5l7l0s
+[2026-06-03 11:30:47,296] [INFO] ubs634p37pi0rhi
+[2026-06-03 11:31:13,670] [INFO] d8j2c9oxj091ss3
+[2026-06-03 11:31:14,110] [INFO] g87b3d77oegx5mw
+[2026-06-03 11:31:14,164] [INFO] t2750o19w1g6wro
+[2026-06-03 11:31:14,269] [INFO] 80j34hc1w4noqnq
+[2026-06-03 11:32:10,089] [INFO] 3vtts8xt11wd3x8
+[2026-06-03 11:32:10,341] [INFO] eu2q9f0ma38r7km
+[2026-06-03 11:32:10,446] [INFO] 372qyuya2b24bse
+[2026-06-03 11:32:10,588] [INFO] q68773zb5l39tuv
+[2026-06-03 11:32:26,010] [INFO] 86cf4d0h566n9z0
+[2026-06-03 11:32:26,106] [INFO] q31httk70j8esz2
+[2026-06-03 11:33:04,397] [INFO] 087g36y4dd38gsp
+[2026-06-03 11:33:04,610] [INFO] 4698mpu5d41n609
+[2026-06-03 11:33:04,751] [INFO] f94539j88855691
+[2026-06-03 11:34:44,493] [INFO] faq8d19d3mg4r66
+[2026-06-03 11:34:57,311] [INFO] 23vxw7559908q77
+[2026-06-03 11:35:05,525] [INFO] 4kgw2dhp0j86v37
+[2026-06-03 11:35:05,691] [INFO] z03sz327l9eq5nm
+[2026-06-03 11:35:17,502] [INFO] j56lmj124y674xs
+[2026-06-03 11:35:17,868] [INFO] v8t2s7c045q0p6q
+[2026-06-03 11:35:26,580] [INFO] pc2i1i45rw80wdw
+[2026-06-03 11:35:26,738] [INFO] u5n2b3wfocjtu93
+[2026-06-03 11:35:27,163] [INFO] 922mc391khe1y4x
+[2026-06-03 11:35:27,226] [INFO] 2qa64847cugs87s
+[2026-06-03 11:36:16,668] [INFO] lccbcxz29f5655y
+[2026-06-03 11:36:16,767] [INFO] 9kh20o1g7sqzs5b
+[2026-06-03 11:36:17,049] [INFO] b454ju4p1snh5bs
+[2026-06-03 11:37:26,928] [INFO] 6j9llwnpveyfbd1
+[2026-06-03 11:37:28,596] [INFO] zfee4wcx535td34
+[2026-06-03 11:37:49,452] [INFO] w8ynry3quz2w69v
+[2026-06-03 11:38:38,179] [INFO] noc9n17g2wm162g
+[2026-06-03 11:39:31,574] [INFO] 3z1z62996q0ji67
+[2026-06-03 11:40:41,154] [INFO] 9sm6hs600o3l36w
+[2026-06-03 11:40:41,375] [INFO] 263hc3d8zx88go6
+[2026-06-03 11:40:41,508] [INFO] odp9112876046tr
+[2026-06-03 11:42:04,523] [INFO] 6i02js647vll7c5
+[2026-06-03 11:42:04,590] [INFO] nz1e4k1u1q3u70g
+[2026-06-03 11:42:12,067] [INFO] lu4bxd0mby1pfn3
+[2026-06-03 11:42:12,457] [INFO] mf1m203t9o0m00o
+[2026-06-03 11:42:12,723] [INFO] 12me7q2w7z0w3w8
+[2026-06-03 11:42:15,033] [INFO] 1854036n6hg1d2u
+[2026-06-03 11:42:15,134] [INFO] 7u203r6q6fsztwy
+[2026-06-03 11:42:28,423] [INFO] sr9fuvk68359e25
+[2026-06-03 11:42:41,312] [INFO] g27b6i52tc9oe70
+[2026-06-03 11:42:56,778] [INFO] f73m845mum1lsbm
+[2026-06-03 11:42:57,343] [INFO] 8nh2wv977m1e4o5
+[2026-06-03 11:44:34,830] [INFO] p130t54610mu95k
+[2026-06-03 11:44:35,279] [INFO] 6l7gg57d393spb9
+[2026-06-03 11:45:31,651] [INFO] xdt382427t89746
+[2026-06-03 11:46:07,859] [INFO] sk17j55hz0bk4c1
+[2026-06-03 11:46:07,989] [INFO] 9ru300wz50t5nf8
+[2026-06-03 11:46:08,163] [INFO] o84217lnmx6132a
+[2026-06-03 11:46:11,628] [INFO] 127.0.0.1:10211 - "GET /web/app/ HTTP/1.1" 304
+[2026-06-03 11:46:11,800] [INFO] Releasing camera resources
+[2026-06-03 11:46:16,443] [INFO] 127.0.0.1:10211 - "GET /video_feed/rt1?source=rtsp://admin:admin@192.168.1.89:554/mainstream HTTP/1.1" 200
+[2026-06-03 11:46:21,497] [INFO] a4161v5pg70rk8k
+[2026-06-03 11:46:33,002] [INFO] Releasing camera resources
+[2026-06-03 11:57:02,272] [INFO] Shutting down
+[2026-06-03 11:57:02,379] [INFO] Waiting for application shutdown.
+[2026-06-03 11:57:03,081] [INFO] Cleanup complete. Shutting down.
+[2026-06-03 12:07:12,259] [INFO] 4.10.0
+[2026-06-03 12:07:12,259] [INFO] 2.6.0+cu126
+[2026-06-03 12:07:12,587] [DEBUG] Using proactor: IocpProactor
+[2026-06-03 12:07:12,624] [INFO] Started server process [63900]
+[2026-06-03 12:07:12,624] [INFO] Waiting for application startup.
+[2026-06-03 12:07:12,758] [INFO] PocketBase stater 54756
+[2026-06-03 12:07:12,785] [INFO] Found the 'pt' file!
+[2026-06-03 12:07:12,786] [INFO] Loading YOLO models...
+[2026-06-03 12:07:12,787] [INFO] Loading onnx/pt
+[2026-06-03 12:07:15,461] [DEBUG] Loaded backend Agg version v2.2.
+[2026-06-03 12:07:16,716] [INFO] Models loaded successfully
+[2026-06-03 12:07:16,792] [INFO] Application startup complete.
+[2026-06-03 12:07:16,793] [INFO] Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+[2026-06-03 12:07:16,895] [INFO] 127.0.0.1:6486 - "GET /web/app HTTP/1.1" 307
+[2026-06-03 12:31:15,745] [INFO] 127.0.0.1:5328 - "GET /video_feed/rt1?source=rtsp://admin:admin@192.168.1.89:554/mainstream HTTP/1.1" 200
+[2026-06-03 12:31:22,579] [INFO] 127.0.0.1:1908 - "GET /web/app/ HTTP/1.1" 304
+[2026-06-03 12:31:22,600] [INFO] Releasing camera resources
+[2026-06-03 12:31:27,048] [INFO] 127.0.0.1:1908 - "GET /video_feed/rt1?source=rtsp://admin:admin@192.168.1.89:554/mainstream HTTP/1.1" 200
+[2026-06-03 12:31:56,694] [INFO] p2e0pdw7ztvdn0h
+[2026-06-03 12:32:06,675] [INFO] m5t497qa70d2b01
+[2026-06-03 12:32:38,292] [INFO] 50hti134l1jnr2g
+[2026-06-03 12:32:42,369] [INFO] s2gd7o1t3f8l67e
+[2026-06-03 12:32:46,612] [INFO] 279d5iw0536t88s
+[2026-06-03 12:32:46,743] [INFO] 44mgy0zxehmniq1
+[2026-06-03 12:32:47,571] [INFO] 3pjgac4196kypnj
+[2026-06-03 12:33:21,773] [INFO] oi497bq436q2375
+[2026-06-03 12:33:57,711] [INFO] p9fu2hddz6qg96z
+[2026-06-03 12:36:01,529] [INFO] 31l918szj7l27m0
+[2026-06-03 12:36:01,623] [INFO] zoxip5k50517856
+[2026-06-03 12:36:14,055] [INFO] 8m997ig98pz5a5f
+[2026-06-03 12:36:42,721] [INFO] Releasing camera resources
+[2026-06-03 12:36:51,581] [INFO] 127.0.0.1:10721 - "GET /video_feed/rt1?source=rtsp://admin:admin@192.168.1.89:554/mainstream HTTP/1.1" 200
+[2026-06-03 12:37:13,752] [INFO] 9v39859dmlhlgdf
+[2026-06-03 12:37:14,170] [INFO] 7948243424ipo8s
+[2026-06-03 12:37:17,851] [INFO] m9b89hd647302s8
+[2026-06-03 12:37:17,937] [INFO] 94m2wj6x47ei84w
+[2026-06-03 12:37:18,198] [INFO] ts5209s192190k4
+[2026-06-03 12:37:18,322] [INFO] denf8m62n73z657
+[2026-06-03 12:37:18,410] [INFO] 9cf7w1y8t4y5n6l
+[2026-06-03 12:37:18,552] [INFO] 93cp8z805ky8q4m
+[2026-06-03 12:37:53,775] [INFO] w0e637gxs19f8ei
+[2026-06-03 12:37:53,933] [INFO] r997pl2er963l23
+[2026-06-03 12:37:54,097] [INFO] 1su67e31ad411vw
+[2026-06-03 12:38:21,504] [INFO] Releasing camera resources
+[2026-06-03 12:38:22,598] [INFO] 127.0.0.1:4118 - "GET /video_feed/rt1?source=rtsp://admin:admin@192.168.1.89:554/mainstream HTTP/1.1" 200
+[2026-06-03 12:38:29,333] [INFO] 83570722jy0v1sl
+[2026-06-03 12:38:29,452] [INFO] 0r2y3irrty3906j
+[2026-06-03 12:38:53,877] [INFO] 7nl761hvf70ta0t
+[2026-06-03 12:39:04,503] [ERROR] Exception in callback _ProactorBasePipeTransport._call_connection_lost(None)
+handle: <Handle _ProactorBasePipeTransport._call_connection_lost(None)>
+Traceback (most recent call last):
+  File "C:\Users\Microsoft\AppData\Local\Programs\Python\Python310\lib\asyncio\events.py", line 80, in _run
+    self._context.run(self._callback, *self._args)
+  File "C:\Users\Microsoft\AppData\Local\Programs\Python\Python310\lib\asyncio\proactor_events.py", line 165, in _call_connection_lost
+    self._sock.shutdown(socket.SHUT_RDWR)
+ConnectionResetError: [WinError 10054] An existing connection was forcibly closed by the remote host
+[2026-06-03 12:39:04,540] [INFO] Releasing camera resources
+[2026-06-03 12:39:22,648] [INFO] Shutting down
+[2026-06-03 12:39:22,758] [INFO] Waiting for application shutdown.
+[2026-06-03 12:39:23,035] [INFO] Cleanup complete. Shutting down.
+[2026-06-03 12:39:28,150] [INFO] 4.10.0
+[2026-06-03 12:39:28,150] [INFO] 2.6.0+cu126
+[2026-06-03 12:39:28,381] [DEBUG] Using proactor: IocpProactor
+[2026-06-03 12:39:28,406] [INFO] Started server process [54204]
+[2026-06-03 12:39:28,407] [INFO] Waiting for application startup.
+[2026-06-03 12:39:28,410] [INFO] PocketBase stater 20460
+[2026-06-03 12:39:28,429] [INFO] Found the 'pt' file!
+[2026-06-03 12:39:28,429] [INFO] Loading YOLO models...
+[2026-06-03 12:39:28,430] [INFO] Loading onnx/pt
+[2026-06-03 12:39:30,494] [DEBUG] Loaded backend Agg version v2.2.
+[2026-06-03 12:39:31,590] [INFO] Models loaded successfully
+[2026-06-03 12:39:31,694] [INFO] Application startup complete.
+[2026-06-03 12:39:31,694] [INFO] Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+[2026-06-03 12:39:31,800] [INFO] 127.0.0.1:4128 - "GET /web/app HTTP/1.1" 307
+[2026-06-03 12:39:41,351] [INFO] 127.0.0.1:9766 - "GET /video_feed/rt1?source=rtsp://admin:admin@192.168.1.89:554/mainstream HTTP/1.1" 200
+[2026-06-03 12:39:44,697] [INFO] 0xfyb46lgps4mo2
+[2026-06-03 12:40:22,072] [INFO] j2fn3g8zk61pux3
+[2026-06-03 12:40:22,523] [INFO] qaf9c030pzz7e6f
+[2026-06-03 12:41:35,493] [INFO] 8v2eq042yw08b9s
+[2026-06-03 12:41:41,182] [INFO] 6z0bc88exv8x84x
+[2026-06-03 12:42:08,005] [INFO] wiadkk4r2r9cb1g
+[2026-06-03 12:42:08,117] [INFO] yk8y1601s8470m9
+[2026-06-03 12:42:08,327] [INFO] gz25c063yo3e3r7
+[2026-06-03 12:42:08,473] [INFO] 8bcg60m0e8lfwew
+[2026-06-03 12:42:39,319] [INFO] 28i6xl09ng3n478
+[2026-06-03 12:42:39,511] [INFO] 04m30d9o16298e6
+[2026-06-03 12:43:22,506] [INFO] Releasing camera resources
+[2026-06-03 12:43:24,052] [INFO] Shutting down
+[2026-06-03 12:43:24,162] [INFO] Waiting for application shutdown.
+[2026-06-03 12:43:24,317] [INFO] Cleanup complete. Shutting down.
+[2026-06-03 13:03:43,905] [INFO] 4.10.0
+[2026-06-03 13:03:43,905] [INFO] 2.6.0+cu126
+[2026-06-03 13:03:44,062] [DEBUG] Using proactor: IocpProactor
+[2026-06-03 13:03:44,080] [INFO] Started server process [62912]
+[2026-06-03 13:03:44,080] [INFO] Waiting for application startup.
+[2026-06-03 13:03:44,084] [INFO] PocketBase stater 45752
+[2026-06-03 13:03:44,102] [INFO] Found the 'pt' file!
+[2026-06-03 13:03:44,102] [INFO] Loading YOLO models...
+[2026-06-03 13:03:44,103] [INFO] Loading onnx/pt/engine
+[2026-06-03 13:03:45,482] [DEBUG] Loaded backend Agg version v2.2.
+[2026-06-03 13:03:46,297] [INFO] Models loaded successfully
+[2026-06-03 13:03:46,371] [INFO] Application startup complete.
+[2026-06-03 13:03:46,372] [INFO] Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+[2026-06-03 13:03:46,433] [INFO] 127.0.0.1:10955 - "GET /web/app HTTP/1.1" 307
+[2026-06-03 13:04:16,915] [INFO] Shutting down
+[2026-06-03 13:04:17,025] [INFO] Waiting for application shutdown.
+[2026-06-03 13:04:17,161] [INFO] Cleanup complete. Shutting down.
+[2026-06-03 13:04:20,279] [INFO] 4.10.0
+[2026-06-03 13:04:20,279] [INFO] 2.6.0+cu126
+[2026-06-03 13:04:20,427] [DEBUG] Using proactor: IocpProactor
+[2026-06-03 13:04:20,443] [INFO] Started server process [69984]
+[2026-06-03 13:04:20,443] [INFO] Waiting for application startup.
+[2026-06-03 13:04:20,447] [INFO] PocketBase stater 68424
+[2026-06-03 13:04:20,459] [INFO] Found the 'engine' file!
+[2026-06-03 13:04:20,459] [INFO] Loading YOLO models...
+[2026-06-03 13:04:20,460] [INFO] Loading onnx/pt/engine
+[2026-06-03 13:04:21,697] [DEBUG] Loaded backend Agg version v2.2.
+[2026-06-03 13:04:22,234] [ERROR] Traceback (most recent call last):
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\starlette\routing.py", line 693, in lifespan
+    async with self.lifespan_context(app) as maybe_state:
+  File "C:\Users\Microsoft\AppData\Local\Programs\Python\Python310\lib\contextlib.py", line 199, in __aenter__
+    return await anext(self.gen)
+  File "D:\Codes\anprv8\engine\api.py", line 27, in lifespan
+    cctv=CcTvMonitor()
+  File "D:\Codes\anprv8\engine\engines.py", line 60, in __init__
+    self.model_car, self.model_plate, self.model_char, self.dolatimodel = self.loadModels()
+  File "D:\Codes\anprv8\engine\engines.py", line 158, in loadModels
+    model_car = YOLO(f'model/yolov8n.{fileEx}', task='detect')
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\ultralytics\models\yolo\model.py", line 23, in __init__
+    super().__init__(model=model, task=task, verbose=verbose)
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\ultralytics\engine\model.py", line 146, in __init__
+    self._load(model, task=task)
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\ultralytics\engine\model.py", line 294, in _load
+    weights = checks.check_file(weights)  # runs in all cases, not redundant with above call
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\ultralytics\utils\checks.py", line 520, in check_file
+    raise FileNotFoundError(f"'{file}' does not exist")
+FileNotFoundError: 'model/yolov8n.engine' does not exist
+
+[2026-06-03 13:04:22,234] [ERROR] Application startup failed. Exiting.
+[2026-06-03 13:04:34,374] [INFO] 4.10.0
+[2026-06-03 13:04:34,374] [INFO] 2.6.0+cu126
+[2026-06-03 13:04:34,517] [DEBUG] Using proactor: IocpProactor
+[2026-06-03 13:04:34,533] [INFO] Started server process [68924]
+[2026-06-03 13:04:34,533] [INFO] Waiting for application startup.
+[2026-06-03 13:04:34,537] [INFO] PocketBase stater 62424
+[2026-06-03 13:04:34,549] [INFO] Found the 'onnx' file!
+[2026-06-03 13:04:34,549] [INFO] Loading YOLO models...
+[2026-06-03 13:04:34,550] [INFO] Loading onnx/pt/engine
+[2026-06-03 13:04:35,789] [DEBUG] Loaded backend Agg version v2.2.
+[2026-06-03 13:04:36,630] [INFO] Models loaded successfully
+[2026-06-03 13:04:36,693] [INFO] Application startup complete.
+[2026-06-03 13:04:36,694] [INFO] Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+[2026-06-03 13:04:36,756] [INFO] 127.0.0.1:13568 - "GET /web/app HTTP/1.1" 307
+[2026-06-03 13:05:17,011] [INFO] Shutting down
+[2026-06-03 13:05:17,119] [INFO] Waiting for application shutdown.
+[2026-06-03 13:05:17,238] [INFO] Cleanup complete. Shutting down.
+[2026-06-03 13:05:20,601] [INFO] 4.10.0
+[2026-06-03 13:05:20,601] [INFO] 2.6.0+cu126
+[2026-06-03 13:05:20,746] [DEBUG] Using proactor: IocpProactor
+[2026-06-03 13:05:20,762] [INFO] Started server process [37288]
+[2026-06-03 13:05:20,762] [INFO] Waiting for application startup.
+[2026-06-03 13:05:20,766] [INFO] PocketBase stater 67680
+[2026-06-03 13:05:20,777] [INFO] Found the 'pt' file!
+[2026-06-03 13:05:20,778] [INFO] Loading YOLO models...
+[2026-06-03 13:05:20,778] [INFO] Found the 'openvino' file!
+[2026-06-03 13:05:20,778] [INFO] Loading onnx/pt/engine
+[2026-06-03 13:05:21,995] [DEBUG] Loaded backend Agg version v2.2.
+[2026-06-03 13:05:22,657] [INFO] Models loaded successfully
+[2026-06-03 13:05:22,714] [INFO] Application startup complete.
+[2026-06-03 13:05:22,714] [INFO] Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+[2026-06-03 13:05:22,772] [INFO] 127.0.0.1:9971 - "GET /web/app HTTP/1.1" 307
+[2026-06-03 13:05:25,784] [INFO] Shutting down
+[2026-06-03 13:05:25,894] [INFO] Waiting for application shutdown.
+[2026-06-03 13:05:26,019] [INFO] Cleanup complete. Shutting down.
+[2026-06-03 13:34:02,397] [INFO] 4.10.0
+[2026-06-03 13:34:02,398] [INFO] 2.6.0+cu126
+[2026-06-03 13:34:02,663] [DEBUG] Using proactor: IocpProactor
+[2026-06-03 13:34:02,694] [INFO] Started server process [77244]
+[2026-06-03 13:34:02,694] [INFO] Waiting for application startup.
+[2026-06-03 13:34:02,698] [INFO] PocketBase stater 71772
+[2026-06-03 13:34:02,719] [INFO] Found the 'engine' file!
+[2026-06-03 13:34:02,719] [INFO] Loading YOLO models...
+[2026-06-03 13:34:02,722] [INFO] Loading onnx/pt/engine
+[2026-06-03 13:34:05,026] [DEBUG] Loaded backend Agg version v2.2.
+[2026-06-03 13:34:06,006] [INFO] Models loaded successfully
+[2026-06-03 13:34:06,070] [INFO] Application startup complete.
+[2026-06-03 13:34:06,071] [INFO] Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+[2026-06-03 13:34:06,130] [INFO] 127.0.0.1:11037 - "GET /web/app HTTP/1.1" 307
+[2026-06-03 13:34:11,837] [INFO] 127.0.0.1:9899 - "GET /video_feed/rt1?source=rtsp://admin:admin@192.168.1.89:554/mainstream HTTP/1.1" 200
+[2026-06-03 13:34:27,759] [INFO] Releasing camera resources
+[2026-06-03 13:34:27,958] [INFO] 127.0.0.1:8748 - "GET /video_feed/rt1?source=rtsp://admin:admin@192.168.1.89:554/mainstream HTTP/1.1" 200
+[2026-06-03 13:38:35,261] [INFO] Shutting down
+[2026-06-03 13:38:35,358] [INFO] Waiting for connections to close. (CTRL+C to force quit)
+[2026-06-03 13:38:36,236] [INFO] Finished server process [77244]
+[2026-06-03 13:38:36,248] [ERROR] Traceback (most recent call last):
+  File "C:\Users\Microsoft\AppData\Local\Programs\Python\Python310\lib\asyncio\runners.py", line 44, in run
+    return loop.run_until_complete(main)
+  File "C:\Users\Microsoft\AppData\Local\Programs\Python\Python310\lib\asyncio\base_events.py", line 636, in run_until_complete
+    self.run_forever()
+  File "C:\Users\Microsoft\AppData\Local\Programs\Python\Python310\lib\asyncio\windows_events.py", line 321, in run_forever
+    super().run_forever()
+  File "C:\Users\Microsoft\AppData\Local\Programs\Python\Python310\lib\asyncio\base_events.py", line 603, in run_forever
+    self._run_once()
+  File "C:\Users\Microsoft\AppData\Local\Programs\Python\Python310\lib\asyncio\base_events.py", line 1909, in _run_once
+    handle._run()
+  File "C:\Users\Microsoft\AppData\Local\Programs\Python\Python310\lib\asyncio\events.py", line 80, in _run
+    self._context.run(self._callback, *self._args)
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\uvicorn\server.py", line 69, in serve
+    with self.capture_signals():
+  File "C:\Users\Microsoft\AppData\Local\Programs\Python\Python310\lib\contextlib.py", line 142, in __exit__
+    next(self.gen)
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\uvicorn\server.py", line 330, in capture_signals
+    signal.raise_signal(captured_signal)
+KeyboardInterrupt
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\starlette\routing.py", line 700, in lifespan
+    await receive()
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\uvicorn\lifespan\on.py", line 137, in receive
+    return await self.receive_queue.get()
+  File "C:\Users\Microsoft\AppData\Local\Programs\Python\Python310\lib\asyncio\queues.py", line 159, in get
+    await getter
+asyncio.exceptions.CancelledError
+
+[2026-06-03 13:38:36,249] [ERROR] Exception in ASGI application
+Traceback (most recent call last):
+  File "C:\Users\Microsoft\AppData\Local\Programs\Python\Python310\lib\asyncio\runners.py", line 44, in run
+    return loop.run_until_complete(main)
+  File "C:\Users\Microsoft\AppData\Local\Programs\Python\Python310\lib\asyncio\base_events.py", line 636, in run_until_complete
+    self.run_forever()
+  File "C:\Users\Microsoft\AppData\Local\Programs\Python\Python310\lib\asyncio\windows_events.py", line 321, in run_forever
+    super().run_forever()
+  File "C:\Users\Microsoft\AppData\Local\Programs\Python\Python310\lib\asyncio\base_events.py", line 603, in run_forever
+    self._run_once()
+  File "C:\Users\Microsoft\AppData\Local\Programs\Python\Python310\lib\asyncio\base_events.py", line 1909, in _run_once
+    handle._run()
+  File "C:\Users\Microsoft\AppData\Local\Programs\Python\Python310\lib\asyncio\events.py", line 80, in _run
+    self._context.run(self._callback, *self._args)
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\uvicorn\server.py", line 69, in serve
+    with self.capture_signals():
+  File "C:\Users\Microsoft\AppData\Local\Programs\Python\Python310\lib\contextlib.py", line 142, in __exit__
+    next(self.gen)
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\uvicorn\server.py", line 330, in capture_signals
+    signal.raise_signal(captured_signal)
+KeyboardInterrupt
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\uvicorn\protocols\http\h11_impl.py", line 403, in run_asgi
+    result = await app(  # type: ignore[func-returns-value]
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\uvicorn\middleware\proxy_headers.py", line 60, in __call__
+    return await self.app(scope, receive, send)
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\fastapi\applications.py", line 1054, in __call__
+    await super().__call__(scope, receive, send)
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\starlette\applications.py", line 113, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\starlette\middleware\errors.py", line 165, in __call__
+    await self.app(scope, receive, _send)
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\starlette\middleware\cors.py", line 85, in __call__
+    await self.app(scope, receive, send)
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\starlette\middleware\exceptions.py", line 62, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\starlette\_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\starlette\routing.py", line 715, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\starlette\routing.py", line 735, in app
+    await route.handle(scope, receive, send)
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\starlette\routing.py", line 288, in handle
+    await self.app(scope, receive, send)
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\starlette\routing.py", line 76, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\starlette\_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\starlette\routing.py", line 74, in app
+    await response(scope, receive, send)
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\starlette\responses.py", line 252, in __call__
+    async with anyio.create_task_group() as task_group:
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\anyio\_backends\_asyncio.py", line 771, in __aexit__
+    raise exc_val
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\starlette\responses.py", line 259, in __call__
+    await wrap(partial(self.listen_for_disconnect, receive))
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\starlette\responses.py", line 255, in wrap
+    await func()
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\starlette\responses.py", line 232, in listen_for_disconnect
+    message = await receive()
+  File "D:\Codes\anprv8\mainenv\lib\site-packages\uvicorn\protocols\http\h11_impl.py", line 531, in receive
+    await self.message_event.wait()
+  File "C:\Users\Microsoft\AppData\Local\Programs\Python\Python310\lib\asyncio\locks.py", line 214, in wait
+    await fut
+asyncio.exceptions.CancelledError
+[2026-06-03 13:41:06,937] [INFO] 4.10.0
+[2026-06-03 13:41:06,937] [INFO] 2.6.0+cu126
+[2026-06-03 13:41:07,102] [DEBUG] Using proactor: IocpProactor
+[2026-06-03 13:41:07,122] [INFO] Started server process [70356]
+[2026-06-03 13:41:07,122] [INFO] Waiting for application startup.
+[2026-06-03 13:41:07,127] [INFO] PocketBase stater 79644
+[2026-06-03 13:41:07,148] [INFO] Loading YOLO models...
+[2026-06-03 13:41:07,149] [INFO] Loading onnx/pt
+[2026-06-03 13:41:08,690] [DEBUG] Loaded backend Agg version v2.2.
+[2026-06-03 13:41:09,906] [INFO] Models loaded successfully
+[2026-06-03 13:41:10,022] [INFO] Application startup complete.
+[2026-06-03 13:41:10,023] [INFO] Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+[2026-06-03 13:41:10,104] [INFO] 127.0.0.1:12472 - "GET /web/app HTTP/1.1" 307
+[2026-06-03 13:42:36,301] [INFO] 127.0.0.1:14517 - "GET /video_feed/rt1?source=rtsp://admin:admin@192.168.1.89:554/mainstream HTTP/1.1" 200
+[2026-06-03 13:42:38,585] [INFO] 4rdenf309hi8o3x
+[2026-06-03 13:42:38,865] [INFO] ig57p6x329gle3z
+[2026-06-03 13:42:39,001] [INFO] dqbv13032891532
+[2026-06-03 13:42:39,213] [INFO] v2n0gyj638j1h0c
+[2026-06-03 13:42:39,778] [INFO] 2gmt3grlv5389t3
+[2026-06-03 13:42:40,637] [INFO] 1ntdofk140bq4n2
+[2026-06-03 13:42:43,450] [INFO] 9shy3vj0a1jce9t
+[2026-06-03 13:42:44,267] [INFO] es7vlkv5yowb4js
+[2026-06-03 13:42:44,532] [INFO] d1oees17yc9620x
+[2026-06-03 13:42:44,671] [INFO] p07fvm61278iw88
+[2026-06-03 13:42:45,071] [INFO] n72s2yik49ayvyi
+[2026-06-03 13:42:48,463] [INFO] 02q1y7e8i2ap82e
+[2026-06-03 13:42:49,281] [INFO] 7833i40g9y7p2k3
+[2026-06-03 13:42:50,279] [INFO] 428u897a4hs46ip
+[2026-06-03 13:42:51,262] [INFO] 6u0h5bd947fweds
+[2026-06-03 13:42:53,199] [INFO] i5qezpi2ub6h839
+[2026-06-03 13:42:53,539] [INFO] hh1zx5m0bo1213j
+[2026-06-03 13:42:54,431] [INFO] Releasing camera resources
+[2026-06-03 13:43:08,540] [INFO] Shutting down
+[2026-06-03 13:43:08,647] [INFO] Waiting for application shutdown.
+[2026-06-03 13:43:08,773] [INFO] Cleanup complete. Shutting down.
+[2026-06-03 13:49:03,034] [INFO] 4.10.0
+[2026-06-03 13:49:03,034] [INFO] 2.6.0+cu126
+[2026-06-03 13:49:03,207] [DEBUG] Using proactor: IocpProactor
+[2026-06-03 13:49:03,224] [INFO] Started server process [10876]
+[2026-06-03 13:49:03,224] [INFO] Waiting for application startup.
+[2026-06-03 13:49:03,227] [INFO] PocketBase stater 80828
+[2026-06-03 13:49:03,250] [INFO] Loading YOLO models...
+[2026-06-03 13:49:03,250] [INFO] Loading onnx/pt
+[2026-06-03 13:49:04,620] [DEBUG] Loaded backend Agg version v2.2.
+[2026-06-03 13:49:05,109] [INFO] Models loaded successfully
+[2026-06-03 13:49:05,167] [INFO] Application startup complete.
+[2026-06-03 13:49:05,168] [INFO] Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+[2026-06-03 13:49:05,675] [INFO] 127.0.0.1:8220 - "GET /web/app HTTP/1.1" 307
+[2026-06-03 13:49:10,634] [INFO] 127.0.0.1:4547 - "GET /video_feed/rt1?source=rtsp://admin:admin@192.168.1.89:554/mainstream HTTP/1.1" 200
+[2026-06-03 13:49:12,152] [INFO] gan882bxm7u681m
+[2026-06-03 13:49:12,369] [INFO] dx0t692c91582ll
+[2026-06-03 13:49:12,765] [INFO] jpx06455gt4kgpq
+[2026-06-03 13:49:13,504] [INFO] cudi9919x723l63
+[2026-06-03 13:49:15,023] [INFO] gr5n46p4t04v19u
+[2026-06-03 13:49:18,781] [INFO] 0nt8zl3uxi1c8j1
+[2026-06-03 13:49:21,289] [INFO] 4b815bbd54ix91u
+[2026-06-03 13:49:22,297] [INFO] 1hp8vffzz9pvt8m
+[2026-06-03 13:49:22,389] [INFO] uydnr0eh467n7so
+[2026-06-03 13:49:22,950] [INFO] 8zfzw7i4up58w05
+[2026-06-03 13:49:23,145] [INFO] dof51uk3xm6a55u
+[2026-06-03 13:49:23,244] [INFO] 5v0v73i3545450a
+[2026-06-03 13:49:24,758] [INFO] cszjb6rg81i1376
+[2026-06-03 13:49:25,331] [INFO] 23qx9y6iy2e75z4
+[2026-06-03 13:49:26,316] [INFO] 9y31z8et6eke7t9
+[2026-06-03 13:49:26,713] [INFO] 7x86305go9g977x
+[2026-06-03 13:49:28,352] [INFO] eo1zvio0sg6h1p2
+[2026-06-03 13:49:29,511] [INFO] 220v62k3h09r4oc
+[2026-06-03 13:49:29,890] [INFO] 50u1v9d2of4k1n9
+[2026-06-03 13:49:32,426] [INFO] sjil74c95qa7vc1
+[2026-06-03 13:49:32,529] [INFO] 930056y0532zr5a
+[2026-06-03 13:49:34,481] [INFO] 59vl41v26szf4p5
+[2026-06-03 13:49:34,901] [INFO] 57724s66pyw4o4z
+[2026-06-03 13:49:36,238] [INFO] 8zkt3hu1w17f5bx
+[2026-06-03 13:49:37,353] [INFO] 2af6yee31449w63
+[2026-06-03 13:49:38,381] [INFO] 2449584glx3wba1
+[2026-06-03 13:49:40,785] [INFO] 881i978e1et98mc
+[2026-06-03 13:49:42,741] [INFO] h526wdn8ex950bz
+[2026-06-03 13:49:45,480] [INFO] 3xbcbfiu68u359c
+[2026-06-03 13:49:45,930] [INFO] po93m6i95pnxx5n
+[2026-06-03 13:49:46,402] [INFO] 94qkt82vyw39zim
+[2026-06-03 13:49:46,626] [INFO] 77o3t7v1km2x594
+[2026-06-03 13:49:47,597] [INFO] bdy7y65852u22p0
+[2026-06-03 13:49:49,423] [INFO] 73uyd7fo6t9e9vi
+[2026-06-03 13:49:49,764] [INFO] 126li68n793x3o1
+[2026-06-03 13:49:50,828] [INFO] rdhr918b086u52z
+[2026-06-03 13:49:51,252] [INFO] 7u03l56c8f77r07
+[2026-06-03 13:49:51,476] [INFO] wtny6x8151i007v
+[2026-06-03 13:49:52,392] [INFO] a2r65gi7jf0h6p4
+[2026-06-03 13:49:52,527] [INFO] lx8x2q2717i3og1
+[2026-06-03 13:49:53,316] [INFO] 334177286o6dy4h
+[2026-06-03 13:49:54,276] [INFO] 8yg36124h26gykc
+[2026-06-03 13:49:55,145] [INFO] Releasing camera resources
+[2026-06-03 13:51:03,439] [INFO] Shutting down
+[2026-06-03 13:51:03,548] [INFO] Waiting for application shutdown.
+[2026-06-03 13:51:03,674] [INFO] Cleanup complete. Shutting down.
+[2026-06-03 13:51:06,962] [INFO] 4.10.0
+[2026-06-03 13:51:06,962] [INFO] 2.6.0+cu126
+[2026-06-03 13:51:07,110] [DEBUG] Using proactor: IocpProactor
+[2026-06-03 13:51:07,126] [INFO] Started server process [82840]
+[2026-06-03 13:51:07,127] [INFO] Waiting for application startup.
+[2026-06-03 13:51:07,131] [INFO] PocketBase stater 82192
+[2026-06-03 13:51:07,141] [INFO] Loading YOLO models...
+[2026-06-03 13:51:07,141] [INFO] Loading onnx/pt
+[2026-06-03 13:51:08,507] [DEBUG] Loaded backend Agg version v2.2.
+[2026-06-03 13:51:09,038] [INFO] Models loaded successfully
+[2026-06-03 13:51:09,099] [INFO] Application startup complete.
+[2026-06-03 13:51:09,100] [INFO] Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+[2026-06-03 13:51:09,156] [INFO] 127.0.0.1:13583 - "GET /web/app HTTP/1.1" 307
+[2026-06-03 13:51:28,769] [INFO] 127.0.0.1:8956 - "GET /web/app HTTP/1.1" 307
+[2026-06-03 13:51:28,829] [INFO] 127.0.0.1:8956 - "GET /web/app/ HTTP/1.1" 200
+[2026-06-03 13:51:28,840] [INFO] 127.0.0.1:8956 - "GET /web/app/flutter_bootstrap.js HTTP/1.1" 200
+[2026-06-03 13:51:28,872] [INFO] 127.0.0.1:8956 - "GET /web/app/canvaskit/chromium/canvaskit.wasm HTTP/1.1" 200
+[2026-06-03 13:51:28,872] [INFO] 127.0.0.1:14351 - "GET /web/app/main.dart.js HTTP/1.1" 200
+[2026-06-03 13:51:28,873] [INFO] 127.0.0.1:14129 - "GET /web/app/canvaskit/chromium/canvaskit.js HTTP/1.1" 200
+[2026-06-03 13:51:28,874] [INFO] 127.0.0.1:1829 - "GET /web/app/manifest.json HTTP/1.1" 200
+[2026-06-03 13:51:28,875] [INFO] 127.0.0.1:12821 - "GET /web/app/favicon.png HTTP/1.1" 200
+[2026-06-03 13:51:29,270] [INFO] 127.0.0.1:8956 - "GET /web/app/assets/FontManifest.json HTTP/1.1" 200
+[2026-06-03 13:51:29,278] [INFO] 127.0.0.1:8956 - "GET /web/app/assets/fonts/MaterialIcons-Regular.otf HTTP/1.1" 200
+[2026-06-03 13:51:29,278] [INFO] 127.0.0.1:14351 - "GET /web/app/assets/assets/fonts/Yekan.ttf HTTP/1.1" 200
+[2026-06-03 13:51:29,279] [INFO] 127.0.0.1:14129 - "GET /web/app/assets/assets/fonts/arial.ttf HTTP/1.1" 200
+[2026-06-03 13:51:29,280] [INFO] 127.0.0.1:12821 - "GET /web/app/assets/packages/cupertino_icons/assets/CupertinoIcons.ttf HTTP/1.1" 200
+[2026-06-03 13:51:30,333] [INFO] 127.0.0.1:14129 - "GET /web/app/assets/images/logo.jpg HTTP/1.1" 200
+[2026-06-03 13:51:32,334] [INFO] 127.0.0.1:14129 - "GET /web/app/assets/images/mainlogo2.png HTTP/1.1" 200
+[2026-06-03 13:51:32,351] [INFO] 127.0.0.1:14129 - "GET /web/app/assets/images/ban.jpg HTTP/1.1" 200
+[2026-06-03 13:51:34,899] [INFO] 127.0.0.1:14129 - "GET /web/app/assets/images/iranFlag.png HTTP/1.1" 200
+[2026-06-03 13:51:34,909] [INFO] 127.0.0.1:14129 - "GET /web/app/assets/images/arvand.png HTTP/1.1" 200
+[2026-06-03 13:51:34,945] [INFO] 127.0.0.1:14129 - "GET /video_feed/rt1?source=rtsp://admin:admin@192.168.1.89:554/mainstream HTTP/1.1" 200
+[2026-06-03 13:51:36,867] [INFO] asec51lb82mdjta
+[2026-06-03 13:51:37,453] [INFO] nl8s141akn9uc25
+[2026-06-03 13:51:38,454] [INFO] apgw9wpojkhv9n9
+[2026-06-03 13:51:39,823] [INFO] p14033g5v0tl076
+[2026-06-03 13:51:40,276] [INFO] 8325kz1bc07lf02
+[2026-06-03 13:51:41,106] [INFO] 1nxm663x36dk57k
+[2026-06-03 13:51:47,461] [INFO] m8k1ljg15h6b12h
+[2026-06-03 13:51:47,619] [INFO] m7t6km70x9av971
+[2026-06-03 13:51:48,056] [INFO] n22c4r0468yf3uy
+[2026-06-03 13:51:48,834] [INFO] c7cz02reqzew79r
+[2026-06-03 13:51:49,088] [INFO] 9q8o6p7xzt2o4s3
+[2026-06-03 13:51:50,440] [INFO] oz1jsy1mf63b580
+[2026-06-03 13:51:50,536] [INFO] 1702p0m5351ea3h
+[2026-06-03 13:51:51,008] [INFO] qx9v4j62ng99p05
+[2026-06-03 13:51:53,111] [INFO] 1738c39zbqv679f
+[2026-06-03 13:51:53,199] [INFO] 6679292e0cu915f
+[2026-06-03 13:51:53,602] [INFO] 19tzwg6z7pqkz34
+[2026-06-03 13:51:54,252] [INFO] 2p4150i1k904npn
+[2026-06-03 13:51:54,279] [INFO] Releasing camera resources
+[2026-06-03 13:51:55,343] [INFO] Shutting down
+[2026-06-03 13:51:55,455] [INFO] Waiting for application shutdown.
+[2026-06-03 13:51:55,588] [INFO] Cleanup complete. Shutting down.
+[2026-06-03 13:53:45,121] [INFO] 4.10.0
+[2026-06-03 13:53:45,121] [INFO] 2.6.0+cu126
+[2026-06-03 13:53:45,297] [DEBUG] Using proactor: IocpProactor
+[2026-06-03 13:53:45,313] [INFO] Started server process [81808]
+[2026-06-03 13:53:45,314] [INFO] Waiting for application startup.
+[2026-06-03 13:53:45,317] [INFO] PocketBase stater 78392
+[2026-06-03 13:53:45,339] [INFO] Loading YOLO models...
+[2026-06-03 13:53:45,340] [INFO] Loading onnx/pt
+[2026-06-03 13:53:46,677] [DEBUG] Loaded backend Agg version v2.2.
+[2026-06-03 13:53:47,344] [INFO] Models loaded successfully
+[2026-06-03 13:53:47,409] [INFO] Application startup complete.
+[2026-06-03 13:53:47,409] [INFO] Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+[2026-06-03 13:53:47,817] [INFO] 127.0.0.1:10717 - "GET /web/app HTTP/1.1" 307
+[2026-06-03 13:53:52,663] [INFO] 127.0.0.1:8895 - "GET /video_feed/rt1?source=rtsp://admin:admin@192.168.1.89:554/mainstream HTTP/1.1" 200
+[2026-06-03 13:53:54,551] [INFO] a3ov7cbr249t6z6
+[2026-06-03 13:53:54,990] [INFO] 5skc781311dv560
+[2026-06-03 13:53:55,236] [INFO] 5u8x44i1j1911g9
+[2026-06-03 13:53:55,755] [INFO] bpf4r4i1226w68b
+[2026-06-03 13:53:56,429] [INFO] szsvc0o15tn6011
+[2026-06-03 13:53:56,695] [INFO] 801n7jrga18x625
+[2026-06-03 13:53:57,179] [INFO] i91295t3tzx725g
+[2026-06-03 13:53:57,917] [INFO] 41g9x70e3vqea56
+[2026-06-03 13:53:58,642] [INFO] v507ze72f6rx3ct
+[2026-06-03 13:53:59,242] [INFO] d5bx91wri37vx4i
+[2026-06-03 13:53:59,359] [INFO] w8eu321d59xer67
+[2026-06-03 13:54:03,641] [INFO] ns8p49y1qk44ab3
+[2026-06-03 13:54:04,160] [INFO] mkk9x5q38h7lqjd
+[2026-06-03 13:54:05,068] [INFO] 26ag23g059ecc5h
+[2026-06-03 13:54:05,499] [INFO] 9z1q2u8gh32yp30
+[2026-06-03 13:54:05,722] [INFO] rmn3vd87qdrokvx
+[2026-06-03 13:54:06,294] [INFO] 5rnq5og1by34xuq
+[2026-06-03 13:54:07,308] [INFO] yy14jo9krlgat0j
+[2026-06-03 13:54:08,268] [INFO] r4r0dxgx303nmjc
+[2026-06-03 13:54:09,500] [INFO] c5ce6ouu9e6o765
+[2026-06-03 13:54:12,533] [INFO] otkrk0643023sir
+[2026-06-03 13:54:13,351] [INFO] 44660a4zn3128ka
+[2026-06-03 13:54:13,552] [INFO] 3kw2fn6a1nt564f
+[2026-06-03 13:54:14,532] [INFO] l4t15md1br9hh89
+[2026-06-03 13:54:15,514] [INFO] Shutting down
+[2026-06-03 13:54:15,601] [INFO] Waiting for connections to close. (CTRL+C to force quit)
+[2026-06-03 13:54:16,597] [INFO] Waiting for application shutdown.
+[2026-06-03 13:54:16,741] [INFO] 976f8wg2tse444j
+[2026-06-03 13:54:16,741] [INFO] Cleanup complete. Shutting down.
+[2026-06-03 13:54:20,523] [INFO] 4.10.0
+[2026-06-03 13:54:20,523] [INFO] 2.6.0+cu126
+[2026-06-03 13:54:20,664] [DEBUG] Using proactor: IocpProactor
+[2026-06-03 13:54:20,679] [INFO] Started server process [80904]
+[2026-06-03 13:54:20,679] [INFO] Waiting for application startup.
+[2026-06-03 13:54:20,683] [INFO] PocketBase stater 84360
+[2026-06-03 13:54:20,698] [INFO] Loading YOLO models...
+[2026-06-03 13:54:20,699] [INFO] Loading onnx/pt
+[2026-06-03 13:54:21,943] [DEBUG] Loaded backend Agg version v2.2.
+[2026-06-03 13:54:22,599] [INFO] Models loaded successfully
+[2026-06-03 13:54:22,661] [INFO] Application startup complete.
+[2026-06-03 13:54:22,662] [INFO] Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+[2026-06-03 13:54:22,719] [INFO] 127.0.0.1:11144 - "GET /web/app HTTP/1.1" 307
+[2026-06-03 13:54:29,422] [INFO] 127.0.0.1:14814 - "GET /video_feed/rt1?source=rtsp://admin:admin@192.168.1.89:554/mainstream HTTP/1.1" 200
+[2026-06-03 13:54:31,488] [INFO] 9sze8tn22j9af3h
+[2026-06-03 13:54:32,077] [INFO] d1uw32z680v5g1x
+[2026-06-03 13:54:32,276] [INFO] 81xh59yfxj9030p
+[2026-06-03 13:54:32,505] [INFO] 00hkcv5732821g2
+[2026-06-03 13:54:33,292] [INFO] 5ttf14t46d302bc
+[2026-06-03 13:54:33,767] [INFO] ii0d4n4k3d20d00
+[2026-06-03 13:54:36,177] [INFO] 1bm359xpfgj77do
+[2026-06-03 13:54:36,801] [INFO] li35r4bkwmg7756
+[2026-06-03 13:54:37,096] [INFO] 522w6t217xf93zq
+[2026-06-03 13:54:38,007] [INFO] 2ea6x85t8830xf1
+[2026-06-03 13:54:38,909] [INFO] 78mw51286e78fx5
+[2026-06-03 13:54:39,013] [INFO] 80q463fon33mik0
+[2026-06-03 13:54:42,512] [INFO] 1m5it7gkb62s73m
+[2026-06-03 13:54:42,930] [INFO] ukat2z1kypcvt8o
+[2026-06-03 13:54:43,692] [INFO] coq70515dq2ekjz
+[2026-06-03 13:54:44,015] [INFO] 171b5651yi053in
+[2026-06-03 13:54:44,365] [INFO] s0746a34n6qfgzw
+[2026-06-03 13:54:44,687] [INFO] umq0dfv1p7w2345
+[2026-06-03 13:54:45,590] [INFO] o41ktgv8j67bk58
+[2026-06-03 13:54:47,769] [INFO] 413gmwn3ft2i6s2
+[2026-06-03 13:54:51,994] [INFO] bv59yig2o65bg30
+[2026-06-03 13:54:52,733] [INFO] 7z1rufxzq549b4d
+[2026-06-03 13:54:54,808] [INFO] z91ku2xz6wd08bm
+[2026-06-03 13:54:57,925] [INFO] gifz717f36n3w97
+[2026-06-03 13:55:00,408] [INFO] i07o5t9v31zp197
+[2026-06-03 13:55:01,421] [INFO] u0f9vm6uxfyfc1v
+[2026-06-03 13:55:03,426] [INFO] mz1ja6vu4lj8756
+[2026-06-03 13:55:03,655] [INFO] u4c6p7q8et8g2xz
+[2026-06-03 13:55:05,780] [INFO] 5or98h6t3wq4mb1
+[2026-06-03 13:55:07,764] [INFO] q39ogkqcy2xu06s
+[2026-06-03 13:55:07,881] [INFO] u2x2925715v6m4m
+[2026-06-03 13:55:08,521] [INFO] 8y3p84e2yoe285h
+[2026-06-03 13:55:09,126] [INFO] jf6rukx06ej1592
+[2026-06-03 13:55:13,855] [INFO] c561g45529uny99
+[2026-06-03 13:55:14,310] [INFO] v1w878829c2q1xy
+[2026-06-03 13:55:14,681] [INFO] 40lu2lvac4512p8
+[2026-06-03 13:55:14,832] [INFO] 9uj892x0c1csg71
+[2026-06-03 13:55:15,170] [INFO] 5avsq12d92gl03n
+[2026-06-03 13:55:15,586] [INFO] r604nc6ovjmjx0q
+[2026-06-03 13:55:18,401] [INFO] m39pcv98hj8i46d
+[2026-06-03 13:55:18,498] [INFO] 9ks35851307350n
+[2026-06-03 13:55:18,759] [INFO] 30l2bda4o74m4j2
+[2026-06-03 13:55:19,219] [INFO] 39e0582528v0ugs
+[2026-06-03 13:55:19,635] [INFO] 117173fzo8i99ui
+[2026-06-03 13:55:20,993] [INFO] k56rz6qk892e706
+[2026-06-03 13:55:21,104] [INFO] 4w3ir0vtu4o6m2d
+[2026-06-03 13:55:24,346] [INFO] 1te9y616fil5965
+[2026-06-03 13:55:24,749] [INFO] 0u4z696yv6d6ay4
+[2026-06-03 13:55:28,710] [INFO] erk42kylr592gli
+[2026-06-03 13:55:29,841] [INFO] mqot3r25894j7o8
+[2026-06-03 13:55:31,205] [INFO] 20jhwx762637lbu
+[2026-06-03 13:55:31,459] [INFO] 334br4332bv3e91
+[2026-06-03 13:55:31,556] [INFO] bvjw5a5l4mz1nrt
+[2026-06-03 13:55:32,202] [INFO] 1m5f584inl7n42v
+[2026-06-03 13:55:32,981] [INFO] 8533d5zp27n4l21
+[2026-06-03 13:55:34,593] [INFO] 5w90pcjkl194g1e
+[2026-06-03 13:55:35,540] [INFO] y8bn1u6spem09ob
+[2026-06-03 13:55:37,664] [INFO] 6a57t994yy50obv
+[2026-06-03 13:55:41,119] [INFO] c9i8p0w0vnhpa76
+[2026-06-03 13:55:42,479] [INFO] i7tvscsy86f18w6
+[2026-06-03 13:55:43,773] [INFO] 948k092w7j6p25g
+[2026-06-03 13:55:43,847] [INFO] Releasing camera resources
+[2026-06-03 13:55:45,498] [INFO] Shutting down
+[2026-06-03 13:55:45,608] [INFO] Waiting for application shutdown.
+[2026-06-03 13:55:45,736] [INFO] Cleanup complete. Shutting down.
