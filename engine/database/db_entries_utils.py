@@ -1,12 +1,19 @@
 
 import logging
 import os
+import threading
 from typing import NamedTuple
 import cv2
 import datetime
 import time
 import requests
 from PIL import Image
+
+
+recent_plates = {}
+recent_lock = threading.Lock()
+
+TIME_THRESHOLD = 10  # seconds
 
 
 logging.basicConfig(
@@ -20,6 +27,7 @@ logging.basicConfig(
     ]
 )
 
+
 def getQuality() -> int:
     response = requests.get(
         f"http://127.0.0.1:8090/api/collections/setting/records")
@@ -30,86 +38,50 @@ def getQuality() -> int:
     return int(quality)
 
 
-# def dbGetPlateLatestEntry(plateNumber):
-#     params = Parameters()
-#     base_url = f"http://127.0.0.1:8090/api/collections/database/records"
+def reserve_plate(plate: str, rtpath: str) -> bool:
+    """
+    Reserve a plate for processing.
 
-#     try:
-#         params = {
-#             'filter': f"plateNum='{plateNumber}'",
-#             'sort': '-eDate',
-#             'perPage': 1
-#         }
+    Returns:
+        True  -> process it
+        False -> recently processed
+    """
 
-#         response = requests.get(
-#             url=base_url,
-#             params=params,
-#             timeout=10
-#         )
-#         response.raise_for_status()
+    now = time.time()
 
-#         data = response.json()
+    with recent_lock:
 
-#         if data.get('totalItems', 0) > 0:
-#             # Map API response to Entries constructor parameters
-#             item = data['items'][0]
+        # Cleanup expired entries
+        expired = [
+            key
+            for key, ts in recent_plates.items()
+            if now - ts > TIME_THRESHOLD
+        ]
 
-#             # Create dictionary with required fields
-#             FullData = {
-#                 'platePercent': item['platePercent'],
-#                 'charPercent': item['charPercent'],
-#                 'eDate': item['eDate'],
-#                 'eTime': item['eTime'],
-#                 'plateNum': item['plateNum'],
-#                 'status': item['status'],
-#                 'imgpath': item['imgpath'],
-#                 'scrnpath': item['scrnPath'],  # Note case difference
-#                 'isarvand': item['isarvand'],
-#                 'rtpath': item['rtpath']
-#             }
+        for key in expired:
+            del recent_plates[key]
 
-#             return Entries(**FullData)
+        key = f"{rtpath}_{plate}"
 
-#         return None
+        # Already processed recently
+        if key in recent_plates:
+            return False
 
-#     except Exception as e:
-#         print(f"API request failed: {str(e)}")
-#         return None
-#     except KeyError as e:
-#         print(f"Missing expected field in response: {str(e)}")
-#         return None
+        # Reserve it
+        recent_plates[key] = now
+
+        return True
 
 
-# def insterToPocket(plateImgName2, screenshot_path, number, display_date, display_time, status, isarvand, rtpath, charConfAvg, plateConfAvg):
-#     POCKETBASE_URL = f"http://127.0.0.1:8090"
-#     COLLECTION_NAME = "database"
-#     url = f"{POCKETBASE_URL}/api/collections/{COLLECTION_NAME}/records"
+def release_plate(plate: str, rtpath: str):
+    """
+    Release reservation when upload fails.
+    """
 
-#     with open(plateImgName2, "rb") as file1, open(screenshot_path, "rb") as file2:
-#         files = {
-#             # Change field name if needed
-#             "scrnPath": (screenshot_path, file2, "image/jpeg"),
-#             # Change field name if needed
-#             "imgpath": (plateImgName2, file1, "image/jpeg"),
-#         }
+    key = f"{rtpath}_{plate}"
 
-#         response = requests.post(url, files=files, data={
-#             "plateNum": number,
-#             "eDate": display_date,
-#             "eTime": display_time,
-#             "status": status,
-#             "isarvand": isarvand,
-#             "rtpath": rtpath,
-#             "charPercent": charConfAvg,
-#             "platePercent": plateConfAvg,
-#         })
-
-#     # Check response
-#     if response.status_code in [200, 201]:
-
-#         return response.json()['id']
-#     else:
-#         print("Error:", response.text)
+    with recent_lock:
+        recent_plates.pop(key, None)
 
 
 def savePicture(frame, croppedPlate, number, quality):
@@ -128,44 +100,42 @@ def savePicture(frame, croppedPlate, number, quality):
     return frame_loc, crop_loc
 
 
-class RecentEntry(NamedTuple):
-    platenum: str
+# class RecentEntry(NamedTuple):
+#     platenum: str
 
-    time: datetime.datetime
-
-
-recent_names: list[RecentEntry] = []
-TIME_THRESHOLD = 10
+#     time: datetime.datetime
 
 
-def clean_old_entries():
-    now = datetime.datetime.now()
-    recent_names[:] = [
-        entry for entry in recent_names
-        if (now - entry.time).total_seconds() < TIME_THRESHOLD
-    ]
+# recent_names: list[RecentEntry] = []
+# TIME_THRESHOLD = 10
 
 
-def should_insert(name):
-    now = datetime.datetime.now()
-    clean_old_entries()
-
-    # for entry in recent_names:
-    #     if name == "unknown" and entry.platenum == "unknown":
-    #         if (now - entry.time).total_seconds() < TIME_THRESHOLD:
-    #             return False
-    for entry in recent_names:
-        if entry.platenum == name:
-            if (now - entry.time).total_seconds() < TIME_THRESHOLD:
-                return False
-
-    return True
+# def clean_old_entries():
+#     now = datetime.datetime.now()
+#     recent_names[:] = [
+#         entry for entry in recent_names
+#         if (now - entry.time).total_seconds() < TIME_THRESHOLD
+#     ]
 
 
-def db_entries_time(number, charConfAvg, plateConfAvg, croppedPlate, status, frame, isarvand, rtpath,quality):
+# def should_insert(name):
+#     now = datetime.datetime.now()
+#     clean_old_entries()
+
+#     # for entry in recent_names:
+#     #     if name == "unknown" and entry.platenum == "unknown":
+#     #         if (now - entry.time).total_seconds() < TIME_THRESHOLD:
+#     #             return False
+#     for entry in recent_names:
+#         if entry.platenum == name:
+#             if (now - entry.time).total_seconds() < TIME_THRESHOLD:
+#                 return False
+
+#     return True
+
+
+def db_entries_time(number, charConfAvg, plateConfAvg, croppedPlate, status, frame, isarvand, rtpath, quality):
     url = "http://127.0.0.1:8090/api/collections/database/records"
-
-
 
     timeNow = datetime.datetime.now()
     display_time = timeNow.strftime("%H:%M:%S")
@@ -175,16 +145,16 @@ def db_entries_time(number, charConfAvg, plateConfAvg, croppedPlate, status, fra
         os.makedirs('output')
         os.makedirs('output/cropedplate')
         os.makedirs('output/screenshot')
-    else:
-        pass
-    if should_insert(number):
+    if not reserve_plate(number, rtpath):
+        return
+    frame_loc = None
+    crop_loc = None
+    try:
 
         frame_loc, crop_loc = savePicture(
             frame, croppedPlate, number, quality)
-        
-        recent_names.append(RecentEntry(
-            platenum=number, time=datetime.datetime.now()))
-        try:
+
+        if True:
             with open(crop_loc, "rb") as file1, open(frame_loc, "rb") as file2:
 
                 files = {
@@ -204,63 +174,34 @@ def db_entries_time(number, charConfAvg, plateConfAvg, croppedPlate, status, fra
                     "charPercent": charConfAvg,
                     "platePercent": plateConfAvg,
                 })
-                
+
                 if response.status_code in [200, 201]:
+         
                     logging.info(response.json()['id'])
                 else:
-                    logging.error("Error:", response.text)
-            os.remove(frame_loc)
-            os.remove(crop_loc)
-        
-        except Exception as e:
-            logging.info(e)
+                    logging.error(
+                        f"PocketBase error {response.status_code}: "
+                        f"{response.text}"
+                    )
+                    release_plate(number, rtpath)
+            # os.remove(frame_loc)
+            # os.remove(crop_loc)
 
-    # result = dbGetPlateLatestEntry(number)
-    # if number != '':
-    #     if result is not None:
-    #         strTime = result.getTime()
-    #         strDate = result.getDate()
-    #         timediff = timeDifference(strTime, strDate, False)
+    except Exception as e:
+        logging.exception(
+            f"Failed to save plate {number}"
+        )
 
-    #     else:
-    #         strTime = time.strftime("%H:%M:%S")
-    #         strDate = time.strftime("%Y-%m-%d")
-    #         timediff = timeDifference(strTime, strDate, True)
+        release_plate(number, rtpath)
 
-    #     if timediff:
-    #         display_time = timeNow.strftime("%H:%M:%S")
-    #         display_date = timeNow.strftime("%Y-%m-%d")
-    #         screenshot_path = f"output/screenshot/{number}_{datetime.datetime.now().strftime('%Y-%m-%d_%H-%M-%S')}.jpg"
-    #     # Save the full frame as a screenshot if `frame` is provided
-    #         if frame is not None:
-    #             frame = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
-    #             frame = Image.fromarray(frame)
-    #             frame.save(screenshot_path, "JPEG",
-    #                        quality=quality, optimize=True)
-    #         #    cv2.imwrite(screenshot_path, frame)
+    finally:
 
-    #         plateImgName2 = f'output/cropedplate/{number}_{datetime.datetime.now().strftime("%m-%d")}.jpg'
-    #         cv2.imwrite(plateImgName2, croppedPlate)
-    #         insterToPocket(status=status, rtpath=rtpath, plateImgName2=plateImgName2, screenshot_path=screenshot_path, charConfAvg=charConfAvg,
-    #                        display_date=display_date, display_time=display_time, isarvand=isarvand, number=number, plateConfAvg=plateConfAvg)
+        for path in (frame_loc, crop_loc):
 
+            if path and os.path.exists(path):
 
-# def timeDifference(strTime, strDate, isnone):
-#     # Uncomment the following if you want to calculate the actual time difference
-#     start_time = datetime.datetime.strptime(
-#         strTime + ' ' + strDate, "%H:%M:%S %Y-%m-%d")
-#     end_time = datetime.datetime.strptime(
-#         datetime.datetime.now().strftime("%H:%M:%S %Y-%m-%d"), "%H:%M:%S %Y-%m-%d")
-#     delta = end_time - start_time
-#     sec = delta.total_seconds()
-#     if isnone:
-#         min = 2
-#     else:
-#         min = (sec / 60).__ceil__()
-
-#     # min = 2  # Set to 2 for testing purposes
-
-#     if min > 1:
-#         return True
-#     else:
-#         return False
+                try:
+                    os.remove(path)
+                except Exception:
+                    logging.exception(
+                        f"Failed to delete temporary file {path}")
