@@ -2,7 +2,6 @@
 import logging
 import os
 import threading
-from typing import NamedTuple
 import cv2
 import datetime
 import time
@@ -141,10 +140,10 @@ def db_entries_time(number, charConfAvg, plateConfAvg, croppedPlate, status, fra
     display_time = timeNow.strftime("%H:%M:%S")
     display_date = timeNow.strftime("%Y-%m-%d")
 
-    if not os.path.exists('output'):
-        os.makedirs('output')
-        os.makedirs('output/cropedplate')
-        os.makedirs('output/screenshot')
+    
+  
+    os.makedirs('output/cropedplate',exist_ok=True)
+    os.makedirs('output/screenshot',exist_ok=True)
     if not reserve_plate(number, rtpath):
         return
     frame_loc = None
@@ -154,36 +153,35 @@ def db_entries_time(number, charConfAvg, plateConfAvg, croppedPlate, status, fra
         frame_loc, crop_loc = savePicture(
             frame, croppedPlate, number, quality)
 
-        if True:
-            with open(crop_loc, "rb") as file1, open(frame_loc, "rb") as file2:
+        with open(crop_loc, "rb") as file1, open(frame_loc, "rb") as file2:
 
-                files = {
-                    # Change field name if needed
-                    "scrnPath": (frame_loc, file2, "image/jpeg"),
-                    # Change field name if needed
-                    "imgpath": (crop_loc, file1, "image/jpeg"),
-                }
+            files = {
+                # Change field name if needed
+                "scrnPath": (frame_loc, file2, "image/jpeg"),
+                # Change field name if needed
+                "imgpath": (crop_loc, file1, "image/jpeg"),
+            }
 
-                response = requests.post(url, files=files, data={
-                    "plateNum": number,
-                    "eDate": display_date,
-                    "eTime": display_time,
-                    "status": status,
-                    "isarvand": isarvand,
-                    "rtpath": rtpath,
-                    "charPercent": charConfAvg,
-                    "platePercent": plateConfAvg,
-                })
+            response = requests.post(url, files=files, data={
+                "plateNum": number,
+                "eDate": display_date,
+                "eTime": display_time,
+                "status": status,
+                "isarvand": isarvand,
+                "rtpath": rtpath,
+                "charPercent": charConfAvg,
+                "platePercent": plateConfAvg,
+            }, timeout=15)
 
-                if response.status_code in [200, 201]:
-         
-                    logging.info(response.json()['id'])
-                else:
-                    logging.error(
-                        f"PocketBase error {response.status_code}: "
-                        f"{response.text}"
-                    )
-                    release_plate(number, rtpath)
+            if response.status_code in [200, 201]:
+
+                logging.info(response.json()['id'])
+            else:
+                logging.error(
+                    f"PocketBase error {response.status_code}: "
+                    f"{response.text}"
+                )
+                release_plate(number, rtpath)
             # os.remove(frame_loc)
             # os.remove(crop_loc)
 
