@@ -23,6 +23,7 @@ from camera import FreshestFrame
 import threading
 from configParams import Parameters
 
+
 logging.basicConfig(
     level=logging.DEBUG,  # Capture everything from DEBUG and above
 
@@ -34,7 +35,7 @@ logging.basicConfig(
     ]
 )
 
-torch.serialization.add_safe_globals([np.core.multiarray._reconstruct])
+
 logging.info(cv2.__version__)
 logging.info(torch.__version__)
 

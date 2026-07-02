@@ -222,7 +222,7 @@ def export_onnx(model, im, file, opset, dynamic, simplify, prefix=colorstr("ONNX
 def export_openvino(file, metadata, half, int8, data, prefix=colorstr("OpenVINO:")):
     # YOLOv5 OpenVINO export
     check_requirements("openvino-dev>=2023.0")  # requires openvino-dev: https://pypi.org/project/openvino-dev/
-    import openvino.runtime as ov  # noqa
+    import openvino as ov  # noqa
     from openvino.tools import mo  # noqa
 
     LOGGER.info(f"\n{prefix} starting export with openvino {ov.__version__}...")

@@ -3822,3 +3822,1262 @@ asyncio.exceptions.CancelledError
 [2026-06-03 13:55:45,498] [INFO] Shutting down
 [2026-06-03 13:55:45,608] [INFO] Waiting for application shutdown.
 [2026-06-03 13:55:45,736] [INFO] Cleanup complete. Shutting down.
+[2026-06-21 12:50:20,932] [INFO] 4.13.0
+[2026-06-21 12:50:20,932] [INFO] 2.12.1+cu126
+[2026-06-21 12:55:46,759] [INFO] 4.13.0
+[2026-06-21 12:55:46,759] [INFO] 2.12.1+cu126
+[2026-06-21 12:55:48,358] [DEBUG] Using proactor: IocpProactor
+[2026-06-21 12:55:48,371] [INFO] Started server process [19676]
+[2026-06-21 12:55:48,371] [INFO] Waiting for application startup.
+[2026-06-21 12:55:50,349] [INFO] PocketBase stater 14212
+[2026-06-21 12:55:50,404] [INFO] Loading YOLO models...
+[2026-06-21 12:55:50,405] [INFO] Loading onnx/pt
+[2026-06-21 12:59:38,141] [DEBUG] Loaded backend Agg version v2.2.
+[2026-06-21 12:59:38,221] [ERROR] Traceback (most recent call last):
+  File "D:\Codes\anprv8\engine\yolov5\hubconf.py", line 65, in _create
+    model = attempt_load(path, device=device, fuse=False)  # arbitrary model
+  File "D:\Codes\anprv8\engine\yolov5\models\experimental.py", line 78, in attempt_load
+    ckpt = torch.load(attempt_download(w), map_location="cpu")  # load
+  File "D:\Codes\anprv8\mainenv\Lib\site-packages\torch\serialization.py", line 1578, in load
+    raise pickle.UnpicklingError(_get_wo_message(str(e))) from None
+_pickle.UnpicklingError: Weights only load failed. This file can still be loaded, to do so you have two options, [1mdo those steps only if you trust the source of the checkpoint[0m. 
+	(1) In PyTorch 2.6, we changed the default value of the `weights_only` argument in `torch.load` from `False` to `True`. Re-running `torch.load` with `weights_only` set to `False` will likely succeed, but it can result in arbitrary code execution. Do it only if you got the file from a trusted source.
+	(2) Alternatively, to load with `weights_only=True` please check the recommended steps in the following error message.
+	WeightsUnpickler error: Unsupported global: GLOBAL numpy.core.multiarray._reconstruct was not an allowed global by default. Please use `torch.serialization.add_safe_globals([numpy.core.multiarray._reconstruct])` or the `torch.serialization.safe_globals([numpy.core.multiarray._reconstruct])` context manager to allowlist this global if you trust this class/function.
+
+Check the documentation of torch.load to learn more about types accepted by default with weights_only https://pytorch.org/docs/stable/generated/torch.load.html.
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\Codes\anprv8\mainenv\Lib\site-packages\starlette\routing.py", line 638, in lifespan
+    async with self.lifespan_context(app) as maybe_state:
+               ~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "C:\Users\Microsoft\AppData\Local\Python\pythoncore-3.14-64\Lib\contextlib.py", line 214, in __aenter__
+    return await anext(self.gen)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Codes\anprv8\engine\api.py", line 27, in lifespan
+    cctv=CcTvMonitor()
+  File "D:\Codes\anprv8\engine\engines.py", line 60, in __init__
+    self.model_car, self.model_plate, self.model_char, self.dolatimodel = self.loadModels()
+                                                                          ~~~~~~~~~~~~~~~^^
+  File "D:\Codes\anprv8\engine\engines.py", line 143, in loadModels
+    model_char = torch.hub.load(
+        'yolov5', 'custom', f'model/CharsYolo.{fileEx}', source='local', device=self.device, force_reload=True)
+  File "D:\Codes\anprv8\mainenv\Lib\site-packages\torch\hub.py", line 669, in load
+    model = _load_local(repo_or_dir, model, *args, **kwargs)
+  File "D:\Codes\anprv8\mainenv\Lib\site-packages\torch\hub.py", line 702, in _load_local
+    model = entry(*args, **kwargs)
+  File "D:\Codes\anprv8\engine\yolov5\hubconf.py", line 88, in custom
+    return _create(path, autoshape=autoshape, verbose=_verbose, device=device)
+  File "D:\Codes\anprv8\engine\yolov5\hubconf.py", line 83, in _create
+    raise Exception(s) from e
+Exception: Weights only load failed. This file can still be loaded, to do so you have two options, [1mdo those steps only if you trust the source of the checkpoint[0m. 
+	(1) In PyTorch 2.6, we changed the default value of the `weights_only` argument in `torch.load` from `False` to `True`. Re-running `torch.load` with `weights_only` set to `False` will likely succeed, but it can result in arbitrary code execution. Do it only if you got the file from a trusted source.
+	(2) Alternatively, to load with `weights_only=True` please check the recommended steps in the following error message.
+	WeightsUnpickler error: Unsupported global: GLOBAL numpy.core.multiarray._reconstruct was not an allowed global by default. Please use `torch.serialization.add_safe_globals([numpy.core.multiarray._reconstruct])` or the `torch.serialization.safe_globals([numpy.core.multiarray._reconstruct])` context manager to allowlist this global if you trust this class/function.
+
+Check the documentation of torch.load to learn more about types accepted by default with weights_only https://pytorch.org/docs/stable/generated/torch.load.html.. Cache may be out of date, try `force_reload=True` or see https://docs.ultralytics.com/yolov5/tutorials/pytorch_hub_model_loading for help.
+
+[2026-06-21 12:59:38,221] [ERROR] Application startup failed. Exiting.
+[2026-06-21 14:27:52,226] [INFO] 4.13.0
+[2026-06-21 14:27:52,226] [INFO] 2.12.1+cu126
+[2026-06-21 14:27:52,391] [DEBUG] Using proactor: IocpProactor
+[2026-06-21 14:27:52,407] [INFO] Started server process [20932]
+[2026-06-21 14:27:52,408] [INFO] Waiting for application startup.
+[2026-06-21 14:27:52,412] [INFO] PocketBase stater 5488
+[2026-06-21 14:27:52,444] [INFO] Loading YOLO models...
+[2026-06-21 14:27:52,444] [INFO] Loading onnx/pt
+[2026-06-21 14:27:55,038] [DEBUG] Loaded backend Agg version v2.2.
+[2026-06-21 14:27:55,060] [ERROR] Traceback (most recent call last):
+  File "D:\Codes\anprv8\engine\yolov5\hubconf.py", line 65, in _create
+    model = attempt_load(path, device=device, fuse=False)  # arbitrary model
+  File "D:\Codes\anprv8\engine\yolov5\models\experimental.py", line 78, in attempt_load
+    ckpt = torch.load(attempt_download(w), map_location="cpu")  # load
+  File "D:\Codes\anprv8\mainenv\Lib\site-packages\torch\serialization.py", line 1578, in load
+    raise pickle.UnpicklingError(_get_wo_message(str(e))) from None
+_pickle.UnpicklingError: Weights only load failed. This file can still be loaded, to do so you have two options, [1mdo those steps only if you trust the source of the checkpoint[0m. 
+	(1) In PyTorch 2.6, we changed the default value of the `weights_only` argument in `torch.load` from `False` to `True`. Re-running `torch.load` with `weights_only` set to `False` will likely succeed, but it can result in arbitrary code execution. Do it only if you got the file from a trusted source.
+	(2) Alternatively, to load with `weights_only=True` please check the recommended steps in the following error message.
+	WeightsUnpickler error: Unsupported global: GLOBAL numpy.core.multiarray._reconstruct was not an allowed global by default. Please use `torch.serialization.add_safe_globals([numpy.core.multiarray._reconstruct])` or the `torch.serialization.safe_globals([numpy.core.multiarray._reconstruct])` context manager to allowlist this global if you trust this class/function.
+
+Check the documentation of torch.load to learn more about types accepted by default with weights_only https://pytorch.org/docs/stable/generated/torch.load.html.
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\Codes\anprv8\mainenv\Lib\site-packages\starlette\routing.py", line 638, in lifespan
+    async with self.lifespan_context(app) as maybe_state:
+               ~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "C:\Users\Microsoft\AppData\Local\Python\pythoncore-3.14-64\Lib\contextlib.py", line 214, in __aenter__
+    return await anext(self.gen)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Codes\anprv8\engine\api.py", line 27, in lifespan
+    cctv=CcTvMonitor()
+  File "D:\Codes\anprv8\engine\engines.py", line 60, in __init__
+    self.model_car, self.model_plate, self.model_char, self.dolatimodel = self.loadModels()
+                                                                          ~~~~~~~~~~~~~~~^^
+  File "D:\Codes\anprv8\engine\engines.py", line 143, in loadModels
+    model_char = torch.hub.load(
+        'yolov5', 'custom', f'model/CharsYolo.{fileEx}', source='local', device=self.device, force_reload=True)
+  File "D:\Codes\anprv8\mainenv\Lib\site-packages\torch\hub.py", line 669, in load
+    model = _load_local(repo_or_dir, model, *args, **kwargs)
+  File "D:\Codes\anprv8\mainenv\Lib\site-packages\torch\hub.py", line 702, in _load_local
+    model = entry(*args, **kwargs)
+  File "D:\Codes\anprv8\engine\yolov5\hubconf.py", line 88, in custom
+    return _create(path, autoshape=autoshape, verbose=_verbose, device=device)
+  File "D:\Codes\anprv8\engine\yolov5\hubconf.py", line 83, in _create
+    raise Exception(s) from e
+Exception: Weights only load failed. This file can still be loaded, to do so you have two options, [1mdo those steps only if you trust the source of the checkpoint[0m. 
+	(1) In PyTorch 2.6, we changed the default value of the `weights_only` argument in `torch.load` from `False` to `True`. Re-running `torch.load` with `weights_only` set to `False` will likely succeed, but it can result in arbitrary code execution. Do it only if you got the file from a trusted source.
+	(2) Alternatively, to load with `weights_only=True` please check the recommended steps in the following error message.
+	WeightsUnpickler error: Unsupported global: GLOBAL numpy.core.multiarray._reconstruct was not an allowed global by default. Please use `torch.serialization.add_safe_globals([numpy.core.multiarray._reconstruct])` or the `torch.serialization.safe_globals([numpy.core.multiarray._reconstruct])` context manager to allowlist this global if you trust this class/function.
+
+Check the documentation of torch.load to learn more about types accepted by default with weights_only https://pytorch.org/docs/stable/generated/torch.load.html.. Cache may be out of date, try `force_reload=True` or see https://docs.ultralytics.com/yolov5/tutorials/pytorch_hub_model_loading for help.
+
+[2026-06-21 14:27:55,061] [ERROR] Application startup failed. Exiting.
+[2026-06-21 14:30:43,183] [INFO] 4.13.0
+[2026-06-21 14:30:43,183] [INFO] 2.12.1+cu126
+[2026-06-21 14:30:43,287] [DEBUG] Using proactor: IocpProactor
+[2026-06-21 14:30:43,300] [INFO] Started server process [15972]
+[2026-06-21 14:30:43,300] [INFO] Waiting for application startup.
+[2026-06-21 14:30:43,305] [INFO] PocketBase stater 6384
+[2026-06-21 14:30:43,324] [INFO] Loading YOLO models...
+[2026-06-21 14:30:43,325] [INFO] Loading onnx/pt
+[2026-06-21 14:30:44,402] [DEBUG] Loaded backend Agg version v2.2.
+[2026-06-21 14:30:44,422] [ERROR] Traceback (most recent call last):
+  File "D:\Codes\anprv8\engine\yolov5\hubconf.py", line 65, in _create
+    model = attempt_load(path, device=device, fuse=False)  # arbitrary model
+  File "D:\Codes\anprv8\engine\yolov5\models\experimental.py", line 78, in attempt_load
+    ckpt = torch.load(attempt_download(w), map_location="cpu")  # load
+  File "D:\Codes\anprv8\mainenv\Lib\site-packages\torch\serialization.py", line 1578, in load
+    raise pickle.UnpicklingError(_get_wo_message(str(e))) from None
+_pickle.UnpicklingError: Weights only load failed. This file can still be loaded, to do so you have two options, [1mdo those steps only if you trust the source of the checkpoint[0m. 
+	(1) In PyTorch 2.6, we changed the default value of the `weights_only` argument in `torch.load` from `False` to `True`. Re-running `torch.load` with `weights_only` set to `False` will likely succeed, but it can result in arbitrary code execution. Do it only if you got the file from a trusted source.
+	(2) Alternatively, to load with `weights_only=True` please check the recommended steps in the following error message.
+	WeightsUnpickler error: Unsupported global: GLOBAL numpy.core.multiarray._reconstruct was not an allowed global by default. Please use `torch.serialization.add_safe_globals([numpy.core.multiarray._reconstruct])` or the `torch.serialization.safe_globals([numpy.core.multiarray._reconstruct])` context manager to allowlist this global if you trust this class/function.
+
+Check the documentation of torch.load to learn more about types accepted by default with weights_only https://pytorch.org/docs/stable/generated/torch.load.html.
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\Codes\anprv8\mainenv\Lib\site-packages\starlette\routing.py", line 638, in lifespan
+    async with self.lifespan_context(app) as maybe_state:
+               ~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "C:\Users\Microsoft\AppData\Local\Python\pythoncore-3.14-64\Lib\contextlib.py", line 214, in __aenter__
+    return await anext(self.gen)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Codes\anprv8\engine\api.py", line 27, in lifespan
+    cctv=CcTvMonitor()
+  File "D:\Codes\anprv8\engine\engines.py", line 61, in __init__
+    self.model_car, self.model_plate, self.model_char, self.dolatimodel = self.loadModels()
+                                                                          ~~~~~~~~~~~~~~~^^
+  File "D:\Codes\anprv8\engine\engines.py", line 144, in loadModels
+    model_char = torch.hub.load(
+        'yolov5', 'custom', f'model/CharsYolo.{fileEx}', source='local', device=self.device, force_reload=True)
+  File "D:\Codes\anprv8\mainenv\Lib\site-packages\torch\hub.py", line 669, in load
+    model = _load_local(repo_or_dir, model, *args, **kwargs)
+  File "D:\Codes\anprv8\mainenv\Lib\site-packages\torch\hub.py", line 702, in _load_local
+    model = entry(*args, **kwargs)
+  File "D:\Codes\anprv8\engine\yolov5\hubconf.py", line 88, in custom
+    return _create(path, autoshape=autoshape, verbose=_verbose, device=device)
+  File "D:\Codes\anprv8\engine\yolov5\hubconf.py", line 83, in _create
+    raise Exception(s) from e
+Exception: Weights only load failed. This file can still be loaded, to do so you have two options, [1mdo those steps only if you trust the source of the checkpoint[0m. 
+	(1) In PyTorch 2.6, we changed the default value of the `weights_only` argument in `torch.load` from `False` to `True`. Re-running `torch.load` with `weights_only` set to `False` will likely succeed, but it can result in arbitrary code execution. Do it only if you got the file from a trusted source.
+	(2) Alternatively, to load with `weights_only=True` please check the recommended steps in the following error message.
+	WeightsUnpickler error: Unsupported global: GLOBAL numpy.core.multiarray._reconstruct was not an allowed global by default. Please use `torch.serialization.add_safe_globals([numpy.core.multiarray._reconstruct])` or the `torch.serialization.safe_globals([numpy.core.multiarray._reconstruct])` context manager to allowlist this global if you trust this class/function.
+
+Check the documentation of torch.load to learn more about types accepted by default with weights_only https://pytorch.org/docs/stable/generated/torch.load.html.. Cache may be out of date, try `force_reload=True` or see https://docs.ultralytics.com/yolov5/tutorials/pytorch_hub_model_loading for help.
+
+[2026-06-21 14:30:44,423] [ERROR] Application startup failed. Exiting.
+[2026-06-21 14:30:53,038] [INFO] 4.13.0
+[2026-06-21 14:30:53,038] [INFO] 2.12.1+cu126
+[2026-06-21 14:30:53,135] [DEBUG] Using proactor: IocpProactor
+[2026-06-21 14:30:53,146] [INFO] Started server process [21056]
+[2026-06-21 14:30:53,146] [INFO] Waiting for application startup.
+[2026-06-21 14:30:53,151] [INFO] PocketBase stater 21132
+[2026-06-21 14:30:53,167] [INFO] Loading YOLO models...
+[2026-06-21 14:30:53,167] [INFO] Loading onnx/pt
+[2026-06-21 14:30:54,119] [DEBUG] Loaded backend Agg version v2.2.
+[2026-06-21 14:30:54,137] [ERROR] Traceback (most recent call last):
+  File "D:\Codes\anprv8\engine\yolov5\hubconf.py", line 65, in _create
+    model = attempt_load(path, device=device, fuse=False)  # arbitrary model
+  File "D:\Codes\anprv8\engine\yolov5\models\experimental.py", line 78, in attempt_load
+    ckpt = torch.load(attempt_download(w), map_location="cpu")  # load
+  File "D:\Codes\anprv8\mainenv\Lib\site-packages\torch\serialization.py", line 1578, in load
+    raise pickle.UnpicklingError(_get_wo_message(str(e))) from None
+_pickle.UnpicklingError: Weights only load failed. This file can still be loaded, to do so you have two options, [1mdo those steps only if you trust the source of the checkpoint[0m. 
+	(1) In PyTorch 2.6, we changed the default value of the `weights_only` argument in `torch.load` from `False` to `True`. Re-running `torch.load` with `weights_only` set to `False` will likely succeed, but it can result in arbitrary code execution. Do it only if you got the file from a trusted source.
+	(2) Alternatively, to load with `weights_only=True` please check the recommended steps in the following error message.
+	WeightsUnpickler error: Unsupported global: GLOBAL numpy.core.multiarray._reconstruct was not an allowed global by default. Please use `torch.serialization.add_safe_globals([numpy.core.multiarray._reconstruct])` or the `torch.serialization.safe_globals([numpy.core.multiarray._reconstruct])` context manager to allowlist this global if you trust this class/function.
+
+Check the documentation of torch.load to learn more about types accepted by default with weights_only https://pytorch.org/docs/stable/generated/torch.load.html.
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\Codes\anprv8\mainenv\Lib\site-packages\starlette\routing.py", line 638, in lifespan
+    async with self.lifespan_context(app) as maybe_state:
+               ~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "C:\Users\Microsoft\AppData\Local\Python\pythoncore-3.14-64\Lib\contextlib.py", line 214, in __aenter__
+    return await anext(self.gen)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Codes\anprv8\engine\api.py", line 27, in lifespan
+    cctv=CcTvMonitor()
+  File "D:\Codes\anprv8\engine\engines.py", line 61, in __init__
+    self.model_car, self.model_plate, self.model_char, self.dolatimodel = self.loadModels()
+                                                                          ~~~~~~~~~~~~~~~^^
+  File "D:\Codes\anprv8\engine\engines.py", line 144, in loadModels
+    model_char = torch.hub.load(
+        'yolov5', 'custom', f'model/CharsYolo.{fileEx}', source='local', device=self.device, force_reload=True)
+  File "D:\Codes\anprv8\mainenv\Lib\site-packages\torch\hub.py", line 669, in load
+    model = _load_local(repo_or_dir, model, *args, **kwargs)
+  File "D:\Codes\anprv8\mainenv\Lib\site-packages\torch\hub.py", line 702, in _load_local
+    model = entry(*args, **kwargs)
+  File "D:\Codes\anprv8\engine\yolov5\hubconf.py", line 88, in custom
+    return _create(path, autoshape=autoshape, verbose=_verbose, device=device)
+  File "D:\Codes\anprv8\engine\yolov5\hubconf.py", line 83, in _create
+    raise Exception(s) from e
+Exception: Weights only load failed. This file can still be loaded, to do so you have two options, [1mdo those steps only if you trust the source of the checkpoint[0m. 
+	(1) In PyTorch 2.6, we changed the default value of the `weights_only` argument in `torch.load` from `False` to `True`. Re-running `torch.load` with `weights_only` set to `False` will likely succeed, but it can result in arbitrary code execution. Do it only if you got the file from a trusted source.
+	(2) Alternatively, to load with `weights_only=True` please check the recommended steps in the following error message.
+	WeightsUnpickler error: Unsupported global: GLOBAL numpy.core.multiarray._reconstruct was not an allowed global by default. Please use `torch.serialization.add_safe_globals([numpy.core.multiarray._reconstruct])` or the `torch.serialization.safe_globals([numpy.core.multiarray._reconstruct])` context manager to allowlist this global if you trust this class/function.
+
+Check the documentation of torch.load to learn more about types accepted by default with weights_only https://pytorch.org/docs/stable/generated/torch.load.html.. Cache may be out of date, try `force_reload=True` or see https://docs.ultralytics.com/yolov5/tutorials/pytorch_hub_model_loading for help.
+
+[2026-06-21 14:30:54,137] [ERROR] Application startup failed. Exiting.
+[2026-06-21 14:31:14,780] [INFO] 4.13.0
+[2026-06-21 14:31:14,780] [INFO] 2.12.1+cu126
+[2026-06-21 14:31:14,876] [DEBUG] Using proactor: IocpProactor
+[2026-06-21 14:31:14,887] [INFO] Started server process [17288]
+[2026-06-21 14:31:14,887] [INFO] Waiting for application startup.
+[2026-06-21 14:31:14,893] [INFO] PocketBase stater 7460
+[2026-06-21 14:31:14,907] [INFO] Loading YOLO models...
+[2026-06-21 14:31:14,908] [INFO] Loading onnx/pt
+[2026-06-21 14:31:15,860] [DEBUG] Loaded backend Agg version v2.2.
+[2026-06-21 14:31:15,878] [ERROR] Traceback (most recent call last):
+  File "D:\Codes\anprv8\engine\yolov5\hubconf.py", line 65, in _create
+    model = attempt_load(path, device=device, fuse=False)  # arbitrary model
+  File "D:\Codes\anprv8\engine\yolov5\models\experimental.py", line 78, in attempt_load
+    ckpt = torch.load(attempt_download(w), map_location="cpu")  # load
+  File "D:\Codes\anprv8\mainenv\Lib\site-packages\torch\serialization.py", line 1578, in load
+    raise pickle.UnpicklingError(_get_wo_message(str(e))) from None
+_pickle.UnpicklingError: Weights only load failed. This file can still be loaded, to do so you have two options, [1mdo those steps only if you trust the source of the checkpoint[0m. 
+	(1) In PyTorch 2.6, we changed the default value of the `weights_only` argument in `torch.load` from `False` to `True`. Re-running `torch.load` with `weights_only` set to `False` will likely succeed, but it can result in arbitrary code execution. Do it only if you got the file from a trusted source.
+	(2) Alternatively, to load with `weights_only=True` please check the recommended steps in the following error message.
+	WeightsUnpickler error: Unsupported global: GLOBAL numpy.core.multiarray._reconstruct was not an allowed global by default. Please use `torch.serialization.add_safe_globals([numpy.core.multiarray._reconstruct])` or the `torch.serialization.safe_globals([numpy.core.multiarray._reconstruct])` context manager to allowlist this global if you trust this class/function.
+
+Check the documentation of torch.load to learn more about types accepted by default with weights_only https://pytorch.org/docs/stable/generated/torch.load.html.
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\Codes\anprv8\mainenv\Lib\site-packages\starlette\routing.py", line 638, in lifespan
+    async with self.lifespan_context(app) as maybe_state:
+               ~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "C:\Users\Microsoft\AppData\Local\Python\pythoncore-3.14-64\Lib\contextlib.py", line 214, in __aenter__
+    return await anext(self.gen)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Codes\anprv8\engine\api.py", line 27, in lifespan
+    cctv=CcTvMonitor()
+  File "D:\Codes\anprv8\engine\engines.py", line 61, in __init__
+    self.model_car, self.model_plate, self.model_char, self.dolatimodel = self.loadModels()
+                                                                          ~~~~~~~~~~~~~~~^^
+  File "D:\Codes\anprv8\engine\engines.py", line 144, in loadModels
+    model_char = torch.hub.load(
+        'yolov5', 'custom', f'model/CharsYolo.{fileEx}', source='local', device=self.device, force_reload=True)
+  File "D:\Codes\anprv8\mainenv\Lib\site-packages\torch\hub.py", line 669, in load
+    model = _load_local(repo_or_dir, model, *args, **kwargs)
+  File "D:\Codes\anprv8\mainenv\Lib\site-packages\torch\hub.py", line 702, in _load_local
+    model = entry(*args, **kwargs)
+  File "D:\Codes\anprv8\engine\yolov5\hubconf.py", line 88, in custom
+    return _create(path, autoshape=autoshape, verbose=_verbose, device=device)
+  File "D:\Codes\anprv8\engine\yolov5\hubconf.py", line 83, in _create
+    raise Exception(s) from e
+Exception: Weights only load failed. This file can still be loaded, to do so you have two options, [1mdo those steps only if you trust the source of the checkpoint[0m. 
+	(1) In PyTorch 2.6, we changed the default value of the `weights_only` argument in `torch.load` from `False` to `True`. Re-running `torch.load` with `weights_only` set to `False` will likely succeed, but it can result in arbitrary code execution. Do it only if you got the file from a trusted source.
+	(2) Alternatively, to load with `weights_only=True` please check the recommended steps in the following error message.
+	WeightsUnpickler error: Unsupported global: GLOBAL numpy.core.multiarray._reconstruct was not an allowed global by default. Please use `torch.serialization.add_safe_globals([numpy.core.multiarray._reconstruct])` or the `torch.serialization.safe_globals([numpy.core.multiarray._reconstruct])` context manager to allowlist this global if you trust this class/function.
+
+Check the documentation of torch.load to learn more about types accepted by default with weights_only https://pytorch.org/docs/stable/generated/torch.load.html.. Cache may be out of date, try `force_reload=True` or see https://docs.ultralytics.com/yolov5/tutorials/pytorch_hub_model_loading for help.
+
+[2026-06-21 14:31:15,879] [ERROR] Application startup failed. Exiting.
+[2026-06-21 14:32:15,807] [INFO] 4.13.0
+[2026-06-21 14:32:15,808] [INFO] 2.12.1+cu126
+[2026-06-21 14:32:15,904] [DEBUG] Using proactor: IocpProactor
+[2026-06-21 14:32:15,915] [INFO] Started server process [17748]
+[2026-06-21 14:32:15,915] [INFO] Waiting for application startup.
+[2026-06-21 14:32:15,920] [INFO] PocketBase stater 13780
+[2026-06-21 14:32:15,935] [INFO] Loading YOLO models...
+[2026-06-21 14:32:15,935] [INFO] Loading onnx/pt
+[2026-06-21 14:32:16,890] [DEBUG] Loaded backend Agg version v2.2.
+[2026-06-21 14:32:17,329] [INFO] Models loaded successfully
+[2026-06-21 14:32:17,331] [DEBUG] Starting new HTTP connection (1): 127.0.0.1:8090
+[2026-06-21 14:32:17,347] [DEBUG] http://127.0.0.1:8090 "GET /api/collections/setting/records HTTP/1.1" 200 439
+[2026-06-21 14:32:17,396] [INFO] Application startup complete.
+[2026-06-21 14:32:17,397] [INFO] Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+[2026-06-21 14:32:17,452] [INFO] 127.0.0.1:4958 - "GET /web/app HTTP/1.1" 307
+[2026-06-21 14:32:17,507] [INFO] 127.0.0.1:4958 - "GET /web/app/ HTTP/1.1" 200
+[2026-06-21 14:32:17,531] [INFO] 127.0.0.1:4958 - "GET /web/app/flutter_bootstrap.js HTTP/1.1" 200
+[2026-06-21 14:32:17,539] [INFO] 127.0.0.1:1743 - "GET /web/app/manifest.json HTTP/1.1" 200
+[2026-06-21 14:32:17,578] [INFO] 127.0.0.1:4958 - "GET /web/app/canvaskit/chromium/canvaskit.wasm HTTP/1.1" 200
+[2026-06-21 14:32:17,578] [INFO] 127.0.0.1:4291 - "GET /web/app/canvaskit/chromium/canvaskit.js HTTP/1.1" 200
+[2026-06-21 14:32:17,579] [INFO] 127.0.0.1:7340 - "GET /web/app/main.dart.js HTTP/1.1" 200
+[2026-06-21 14:32:17,580] [INFO] 127.0.0.1:2471 - "GET /web/app/icons/Icon-192.png HTTP/1.1" 200
+[2026-06-21 14:32:17,581] [INFO] 127.0.0.1:9936 - "GET /web/app/favicon.png HTTP/1.1" 200
+[2026-06-21 14:32:19,116] [INFO] 127.0.0.1:7340 - "GET /web/app/assets/FontManifest.json HTTP/1.1" 200
+[2026-06-21 14:32:19,127] [INFO] 127.0.0.1:4291 - "GET /web/app/assets/assets/fonts/Yekan.ttf HTTP/1.1" 200
+[2026-06-21 14:32:19,128] [INFO] 127.0.0.1:9936 - "GET /web/app/assets/packages/cupertino_icons/assets/CupertinoIcons.ttf HTTP/1.1" 200
+[2026-06-21 14:32:19,128] [INFO] 127.0.0.1:4958 - "GET /web/app/assets/assets/fonts/arial.ttf HTTP/1.1" 200
+[2026-06-21 14:32:19,129] [INFO] 127.0.0.1:7340 - "GET /web/app/assets/fonts/MaterialIcons-Regular.otf HTTP/1.1" 200
+[2026-06-21 14:32:19,937] [INFO] 127.0.0.1:4958 - "GET /web/app/assets/images/logo.jpg HTTP/1.1" 200
+[2026-06-21 14:32:35,240] [INFO] 127.0.0.1:4687 - "GET /web/app/assets/images/mainlogo2.png HTTP/1.1" 200
+[2026-06-21 14:32:35,256] [INFO] 127.0.0.1:4687 - "GET /web/app/assets/images/ban.jpg HTTP/1.1" 200
+[2026-06-21 14:32:38,238] [INFO] 127.0.0.1:4687 - "GET /web/app/assets/images/iranFlag.png HTTP/1.1" 200
+[2026-06-21 14:32:38,250] [INFO] 127.0.0.1:3136 - "GET /web/app/assets/images/arvand.png HTTP/1.1" 200
+[2026-06-21 14:32:38,286] [INFO] 127.0.0.1:3136 - "GET /video_feed/rt1?source=rtsp://admin:admin@192.168.1.89:554/mainstream HTTP/1.1" 200
+[2026-06-21 14:33:33,908] [INFO] Shutting down
+[2026-06-21 14:33:34,010] [INFO] Waiting for application shutdown.
+[2026-06-21 14:33:34,012] [DEBUG] Starting new HTTP connection (1): 127.0.0.1:8090
+[2026-06-21 14:33:34,013] [DEBUG] http://127.0.0.1:8090 "GET /api/collections/setting/records HTTP/1.1" 200 439
+[2026-06-21 14:33:34,163] [INFO] Cleanup complete. Shutting down.
+[2026-06-23 08:00:26,831] [INFO] 4.13.0
+[2026-06-23 08:00:26,832] [INFO] 2.12.1+cu126
+[2026-06-23 08:00:27,053] [DEBUG] Using proactor: IocpProactor
+[2026-06-23 08:00:27,070] [INFO] Started server process [13280]
+[2026-06-23 08:00:27,070] [INFO] Waiting for application startup.
+[2026-06-23 08:00:28,813] [INFO] PocketBase stater 18308
+[2026-06-23 08:00:28,846] [INFO] Loading YOLO models...
+[2026-06-23 08:00:28,846] [INFO] Loading onnx/pt
+[2026-06-23 08:00:58,066] [DEBUG] Loaded backend Agg version v2.2.
+[2026-06-23 08:00:58,882] [INFO] Models loaded successfully
+[2026-06-23 08:00:58,884] [DEBUG] Starting new HTTP connection (1): 127.0.0.1:8090
+[2026-06-23 08:00:58,887] [DEBUG] http://127.0.0.1:8090 "GET /api/collections/setting/records HTTP/1.1" 200 439
+[2026-06-23 08:00:58,928] [INFO] Application startup complete.
+[2026-06-23 08:00:58,929] [INFO] Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+[2026-06-23 08:00:58,979] [INFO] 127.0.0.1:8701 - "GET /web/app HTTP/1.1" 307
+[2026-06-23 08:24:46,649] [INFO] 127.0.0.1:4820 - "GET /video_feed/rt1?source=rtsp://admin:admin@192.168.1.89:554/mainstream HTTP/1.1" 200
+[2026-06-23 08:25:40,815] [DEBUG] Starting new HTTP connection (1): 127.0.0.1:8090
+[2026-06-23 08:25:40,836] [DEBUG] http://127.0.0.1:8090 "POST /api/collections/database/records HTTP/1.1" 200 410
+[2026-06-23 08:25:40,837] [INFO] ehaj0eyjta65xhd
+[2026-06-23 08:26:19,486] [DEBUG] Starting new HTTP connection (1): 127.0.0.1:8090
+[2026-06-23 08:26:19,527] [DEBUG] http://127.0.0.1:8090 "POST /api/collections/database/records HTTP/1.1" 200 410
+[2026-06-23 08:26:19,528] [INFO] x943qj7p4u8oak1
+[2026-06-23 08:26:19,630] [DEBUG] Starting new HTTP connection (1): 127.0.0.1:8090
+[2026-06-23 08:26:19,648] [DEBUG] http://127.0.0.1:8090 "POST /api/collections/database/records HTTP/1.1" 200 416
+[2026-06-23 08:26:19,648] [INFO] pb6wld6271mo323
+[2026-06-23 08:26:20,065] [DEBUG] Starting new HTTP connection (1): 127.0.0.1:8090
+[2026-06-23 08:26:20,091] [DEBUG] http://127.0.0.1:8090 "POST /api/collections/database/records HTTP/1.1" 200 416
+[2026-06-23 08:26:20,092] [INFO] 8pxlu23x81o1f9u
+[2026-06-23 08:26:33,100] [DEBUG] Starting new HTTP connection (1): 127.0.0.1:8090
+[2026-06-23 08:26:33,113] [DEBUG] http://127.0.0.1:8090 "POST /api/collections/database/records HTTP/1.1" 200 410
+[2026-06-23 08:26:33,114] [INFO] 0702lj0tjsmtga9
+[2026-06-23 08:26:41,794] [DEBUG] Starting new HTTP connection (1): 127.0.0.1:8090
+[2026-06-23 08:26:41,815] [DEBUG] http://127.0.0.1:8090 "POST /api/collections/database/records HTTP/1.1" 200 410
+[2026-06-23 08:26:41,815] [INFO] t4tr463g78p22et
+[2026-06-23 08:26:41,913] [DEBUG] Starting new HTTP connection (1): 127.0.0.1:8090
+[2026-06-23 08:26:41,947] [DEBUG] http://127.0.0.1:8090 "POST /api/collections/database/records HTTP/1.1" 200 410
+[2026-06-23 08:26:41,948] [INFO] tr8oi66gra13va6
+[2026-06-23 08:26:42,160] [DEBUG] Starting new HTTP connection (1): 127.0.0.1:8090
+[2026-06-23 08:26:42,171] [DEBUG] http://127.0.0.1:8090 "POST /api/collections/database/records HTTP/1.1" 200 410
+[2026-06-23 08:26:42,172] [INFO] o420qce3wqfze52
+[2026-06-23 08:26:42,242] [DEBUG] Starting new HTTP connection (1): 127.0.0.1:8090
+[2026-06-23 08:26:42,256] [DEBUG] http://127.0.0.1:8090 "POST /api/collections/database/records HTTP/1.1" 200 410
+[2026-06-23 08:26:42,256] [INFO] zu4kdjrn9k4q0ja
+[2026-06-23 08:28:05,990] [DEBUG] Starting new HTTP connection (1): 127.0.0.1:8090
+[2026-06-23 08:28:06,002] [DEBUG] http://127.0.0.1:8090 "POST /api/collections/database/records HTTP/1.1" 200 410
+[2026-06-23 08:28:06,003] [INFO] tjm2t9yi4w8iixs
+[2026-06-23 08:28:06,811] [DEBUG] Starting new HTTP connection (1): 127.0.0.1:8090
+[2026-06-23 08:28:06,822] [DEBUG] http://127.0.0.1:8090 "POST /api/collections/database/records HTTP/1.1" 200 410
+[2026-06-23 08:28:06,823] [INFO] o7x57tkkdsd118s
+[2026-06-23 08:28:59,164] [DEBUG] Starting new HTTP connection (1): 127.0.0.1:8090
+[2026-06-23 08:28:59,191] [DEBUG] http://127.0.0.1:8090 "POST /api/collections/database/records HTTP/1.1" 200 410
+[2026-06-23 08:28:59,191] [INFO] 338c3r59hu47nda
+[2026-06-23 08:29:34,634] [DEBUG] Starting new HTTP connection (1): 127.0.0.1:8090
+[2026-06-23 08:29:34,664] [DEBUG] http://127.0.0.1:8090 "POST /api/collections/database/records HTTP/1.1" 200 410
+[2026-06-23 08:29:34,665] [INFO] i4q5e501kp342gm
+[2026-06-23 08:29:35,007] [DEBUG] Starting new HTTP connection (1): 127.0.0.1:8090
+[2026-06-23 08:29:35,022] [DEBUG] http://127.0.0.1:8090 "POST /api/collections/database/records HTTP/1.1" 200 410
+[2026-06-23 08:29:35,024] [INFO] 2337l3ula7tiw65
+[2026-06-23 08:30:02,032] [DEBUG] Starting new HTTP connection (1): 127.0.0.1:8090
+[2026-06-23 08:30:02,052] [DEBUG] http://127.0.0.1:8090 "POST /api/collections/database/records HTTP/1.1" 200 410
+[2026-06-23 08:30:02,052] [INFO] ki41110w1y7inc8
+[2026-06-23 08:30:14,447] [DEBUG] Starting new HTTP connection (1): 127.0.0.1:8090
+[2026-06-23 08:30:14,461] [DEBUG] http://127.0.0.1:8090 "POST /api/collections/database/records HTTP/1.1" 200 410
+[2026-06-23 08:30:14,462] [INFO] 77vh2t9qde469v1
+[2026-06-23 08:30:22,358] [DEBUG] Starting new HTTP connection (1): 127.0.0.1:8090
+[2026-06-23 08:30:22,370] [DEBUG] http://127.0.0.1:8090 "POST /api/collections/database/records HTTP/1.1" 200 410
+[2026-06-23 08:30:22,371] [INFO] kwuso0rrcre3229
+[2026-06-23 08:30:22,492] [DEBUG] Starting new HTTP connection (1): 127.0.0.1:8090
+[2026-06-23 08:30:22,504] [DEBUG] http://127.0.0.1:8090 "POST /api/collections/database/records HTTP/1.1" 200 401
+[2026-06-23 08:30:22,504] [INFO] hg7xzfrml2iee4p
+[2026-06-23 08:30:23,043] [DEBUG] Starting new HTTP connection (1): 127.0.0.1:8090
+[2026-06-23 08:30:23,060] [DEBUG] http://127.0.0.1:8090 "POST /api/collections/database/records HTTP/1.1" 200 410
+[2026-06-23 08:30:23,060] [INFO] 13577fs509qy61i
+[2026-06-23 08:30:30,197] [DEBUG] Starting new HTTP connection (1): 127.0.0.1:8090
+[2026-06-23 08:30:30,207] [DEBUG] http://127.0.0.1:8090 "POST /api/collections/database/records HTTP/1.1" 200 410
+[2026-06-23 08:30:30,208] [INFO] 88n50cf0pu52ozx
+[2026-06-23 08:30:43,747] [DEBUG] Starting new HTTP connection (1): 127.0.0.1:8090
+[2026-06-23 08:30:43,763] [DEBUG] http://127.0.0.1:8090 "POST /api/collections/database/records HTTP/1.1" 200 410
+[2026-06-23 08:30:43,763] [INFO] l3p948wwr6dv9pi
+[2026-06-23 08:30:44,120] [DEBUG] Starting new HTTP connection (1): 127.0.0.1:8090
+[2026-06-23 08:30:44,142] [DEBUG] http://127.0.0.1:8090 "POST /api/collections/database/records HTTP/1.1" 200 410
+[2026-06-23 08:30:44,143] [INFO] d1o8464enwly4nx
+[2026-06-23 08:30:44,399] [DEBUG] Starting new HTTP connection (1): 127.0.0.1:8090
+[2026-06-23 08:30:44,415] [DEBUG] http://127.0.0.1:8090 "POST /api/collections/database/records HTTP/1.1" 200 413
+[2026-06-23 08:30:44,415] [INFO] 316n30gcjw800rz
+[2026-06-23 08:32:05,379] [DEBUG] Starting new HTTP connection (1): 127.0.0.1:8090
+[2026-06-23 08:32:05,389] [DEBUG] http://127.0.0.1:8090 "POST /api/collections/database/records HTTP/1.1" 200 410
+[2026-06-23 08:32:05,390] [INFO] qj5xokl5g670787
+[2026-06-23 08:32:27,395] [DEBUG] Starting new HTTP connection (1): 127.0.0.1:8090
+[2026-06-23 08:32:27,408] [DEBUG] http://127.0.0.1:8090 "POST /api/collections/database/records HTTP/1.1" 200 410
+[2026-06-23 08:32:27,409] [INFO] n997e06i658rtxc
+[2026-06-23 08:32:29,453] [INFO] 127.0.0.1:10995 - "POST /utils/iprelay HTTP/1.1" 200
+[2026-06-23 08:32:44,360] [DEBUG] Starting new HTTP connection (1): 127.0.0.1:8090
+[2026-06-23 08:32:44,380] [DEBUG] http://127.0.0.1:8090 "POST /api/collections/database/records HTTP/1.1" 200 410
+[2026-06-23 08:32:44,381] [INFO] u18e1a2100zryq5
+[2026-06-23 08:32:44,992] [DEBUG] Starting new HTTP connection (1): 127.0.0.1:8090
+[2026-06-23 08:32:45,015] [DEBUG] http://127.0.0.1:8090 "POST /api/collections/database/records HTTP/1.1" 200 410
+[2026-06-23 08:32:45,015] [INFO] w3j45zb3g9t5j40
+[2026-06-23 08:33:06,741] [DEBUG] Starting new HTTP connection (1): 127.0.0.1:8090
+[2026-06-23 08:33:06,765] [DEBUG] http://127.0.0.1:8090 "POST /api/collections/database/records HTTP/1.1" 200 410
+[2026-06-23 08:33:06,765] [INFO] 430w1h8x54v954u
+[2026-06-23 08:33:15,138] [DEBUG] Starting new HTTP connection (1): 127.0.0.1:8090
+[2026-06-23 08:33:15,161] [DEBUG] http://127.0.0.1:8090 "POST /api/collections/database/records HTTP/1.1" 200 410
+[2026-06-23 08:33:15,161] [INFO] i1wzmdmv0t3534f
+[2026-06-23 08:33:15,452] [DEBUG] Starting new HTTP connection (1): 127.0.0.1:8090
+[2026-06-23 08:33:15,475] [DEBUG] http://127.0.0.1:8090 "POST /api/collections/database/records HTTP/1.1" 200 410
+[2026-06-23 08:33:15,476] [INFO] i88z04hs4uum783
+[2026-06-23 08:33:15,894] [DEBUG] Starting new HTTP connection (1): 127.0.0.1:8090
+[2026-06-23 08:33:15,917] [DEBUG] http://127.0.0.1:8090 "POST /api/collections/database/records HTTP/1.1" 200 413
+[2026-06-23 08:33:15,917] [INFO] 1et60sk1tamby03
+[2026-06-23 08:34:13,255] [DEBUG] Starting new HTTP connection (1): 127.0.0.1:8090
+[2026-06-23 08:34:13,268] [DEBUG] http://127.0.0.1:8090 "POST /api/collections/database/records HTTP/1.1" 200 410
+[2026-06-23 08:34:13,269] [INFO] hp3efleei070h73
+[2026-06-23 08:34:13,433] [DEBUG] Starting new HTTP connection (1): 127.0.0.1:8090
+[2026-06-23 08:34:13,470] [DEBUG] http://127.0.0.1:8090 "POST /api/collections/database/records HTTP/1.1" 200 410
+[2026-06-23 08:34:13,470] [INFO] 07p9k5ya256o5bm
+[2026-06-23 08:34:13,671] [DEBUG] Starting new HTTP connection (1): 127.0.0.1:8090
+[2026-06-23 08:34:13,683] [DEBUG] http://127.0.0.1:8090 "POST /api/collections/database/records HTTP/1.1" 200 413
+[2026-06-23 08:34:13,683] [INFO] qj11838711069lx
+[2026-06-23 08:34:49,349] [DEBUG] Starting new HTTP connection (1): 127.0.0.1:8090
+[2026-06-23 08:34:49,362] [DEBUG] http://127.0.0.1:8090 "POST /api/collections/database/records HTTP/1.1" 200 416
+[2026-06-23 08:34:49,363] [INFO] 58ma68651hx13dq
+[2026-06-23 08:34:49,501] [DEBUG] Starting new HTTP connection (1): 127.0.0.1:8090
+[2026-06-23 08:34:49,514] [DEBUG] http://127.0.0.1:8090 "POST /api/collections/database/records HTTP/1.1" 200 413
+[2026-06-23 08:34:49,514] [INFO] 56r6e16g6fa7c05
+[2026-06-23 08:34:49,631] [DEBUG] Starting new HTTP connection (1): 127.0.0.1:8090
+[2026-06-23 08:34:49,645] [DEBUG] http://127.0.0.1:8090 "POST /api/collections/database/records HTTP/1.1" 200 413
+[2026-06-23 08:34:49,646] [INFO] 9l72i54iv35dxn6
+[2026-06-23 08:34:50,358] [DEBUG] Starting new HTTP connection (1): 127.0.0.1:8090
+[2026-06-23 08:34:50,381] [DEBUG] http://127.0.0.1:8090 "POST /api/collections/database/records HTTP/1.1" 200 410
+[2026-06-23 08:34:50,382] [INFO] 53c35v1j5k8t8tt
+[2026-06-23 08:35:52,857] [DEBUG] Starting new HTTP connection (1): 127.0.0.1:8090
+[2026-06-23 08:35:52,884] [DEBUG] http://127.0.0.1:8090 "POST /api/collections/database/records HTTP/1.1" 200 410
+[2026-06-23 08:35:52,884] [INFO] 8v6q87095w8d4je
+[2026-06-23 08:37:07,242] [DEBUG] Starting new HTTP connection (1): 127.0.0.1:8090
+[2026-06-23 08:37:07,274] [DEBUG] http://127.0.0.1:8090 "POST /api/collections/database/records HTTP/1.1" 200 410
+[2026-06-23 08:37:07,275] [INFO] tl4bfwr84209h8u
+[2026-06-23 08:37:07,362] [DEBUG] Starting new HTTP connection (1): 127.0.0.1:8090
+[2026-06-23 08:37:07,377] [DEBUG] http://127.0.0.1:8090 "POST /api/collections/database/records HTTP/1.1" 200 410
+[2026-06-23 08:37:07,378] [INFO] fiftsv6193gpfek
+[2026-06-23 08:37:07,594] [DEBUG] Starting new HTTP connection (1): 127.0.0.1:8090
+[2026-06-23 08:37:07,618] [DEBUG] http://127.0.0.1:8090 "POST /api/collections/database/records HTTP/1.1" 200 410
+[2026-06-23 08:37:07,619] [INFO] 43tc9rjkwfyf25b
+[2026-06-23 08:37:10,003] [DEBUG] Starting new HTTP connection (1): 127.0.0.1:8090
+[2026-06-23 08:37:10,015] [DEBUG] http://127.0.0.1:8090 "POST /api/collections/database/records HTTP/1.1" 200 410
+[2026-06-23 08:37:10,016] [INFO] 2k828g2ej8png05
+[2026-06-23 08:37:36,985] [DEBUG] Starting new HTTP connection (1): 127.0.0.1:8090
+[2026-06-23 08:37:36,997] [DEBUG] http://127.0.0.1:8090 "POST /api/collections/database/records HTTP/1.1" 200 410
+[2026-06-23 08:37:36,998] [INFO] fo21ks51w0y8agy
+[2026-06-23 08:37:37,201] [DEBUG] Starting new HTTP connection (1): 127.0.0.1:8090
+[2026-06-23 08:37:37,213] [DEBUG] http://127.0.0.1:8090 "POST /api/collections/database/records HTTP/1.1" 200 410
+[2026-06-23 08:37:37,214] [INFO] pks6sjt6c58f8ma
+[2026-06-23 08:39:28,612] [DEBUG] Starting new HTTP connection (1): 127.0.0.1:8090
+[2026-06-23 08:39:28,624] [DEBUG] http://127.0.0.1:8090 "POST /api/collections/database/records HTTP/1.1" 200 410
+[2026-06-23 08:39:28,624] [INFO] 67t11676vmzd1gl
+[2026-06-23 08:39:29,175] [DEBUG] Starting new HTTP connection (1): 127.0.0.1:8090
+[2026-06-23 08:39:29,191] [DEBUG] http://127.0.0.1:8090 "POST /api/collections/database/records HTTP/1.1" 200 410
+[2026-06-23 08:39:29,192] [INFO] dw2f1r4256f3b75
+[2026-06-23 08:39:40,567] [DEBUG] Starting new HTTP connection (1): 127.0.0.1:8090
+[2026-06-23 08:39:40,576] [DEBUG] http://127.0.0.1:8090 "POST /api/collections/database/records HTTP/1.1" 200 410
+[2026-06-23 08:39:40,576] [INFO] 2ybkn47zrlo69yc
+[2026-06-23 08:39:40,678] [DEBUG] Starting new HTTP connection (1): 127.0.0.1:8090
+[2026-06-23 08:39:40,689] [DEBUG] http://127.0.0.1:8090 "POST /api/collections/database/records HTTP/1.1" 200 410
+[2026-06-23 08:39:40,689] [INFO] pu5zce6w44s5kpg
+[2026-06-23 08:40:40,415] [DEBUG] Starting new HTTP connection (1): 127.0.0.1:8090
+[2026-06-23 08:40:40,435] [DEBUG] http://127.0.0.1:8090 "POST /api/collections/database/records HTTP/1.1" 200 410
+[2026-06-23 08:40:40,436] [INFO] 7ybuhz874l3364a
+[2026-06-23 08:40:40,854] [DEBUG] Starting new HTTP connection (1): 127.0.0.1:8090
+[2026-06-23 08:40:40,868] [DEBUG] http://127.0.0.1:8090 "POST /api/collections/database/records HTTP/1.1" 200 410
+[2026-06-23 08:40:40,869] [INFO] eo6c048ny45d091
+[2026-06-23 08:41:25,541] [DEBUG] Starting new HTTP connection (1): 127.0.0.1:8090
+[2026-06-23 08:41:25,557] [DEBUG] http://127.0.0.1:8090 "POST /api/collections/database/records HTTP/1.1" 200 410
+[2026-06-23 08:41:25,558] [INFO] arf3p4tns7heb4f
+[2026-06-23 08:41:38,913] [DEBUG] Starting new HTTP connection (1): 127.0.0.1:8090
+[2026-06-23 08:41:38,936] [DEBUG] http://127.0.0.1:8090 "POST /api/collections/database/records HTTP/1.1" 200 410
+[2026-06-23 08:41:38,937] [INFO] x86emi45eg2saa9
+[2026-06-23 08:41:46,778] [DEBUG] Starting new HTTP connection (1): 127.0.0.1:8090
+[2026-06-23 08:41:46,791] [DEBUG] http://127.0.0.1:8090 "POST /api/collections/database/records HTTP/1.1" 200 413
+[2026-06-23 08:41:46,791] [INFO] wyb3dt129lat172
+[2026-06-23 08:41:46,976] [DEBUG] Starting new HTTP connection (1): 127.0.0.1:8090
+[2026-06-23 08:41:46,994] [DEBUG] http://127.0.0.1:8090 "POST /api/collections/database/records HTTP/1.1" 200 416
+[2026-06-23 08:41:46,995] [INFO] 5i2jfa2fzc2rm63
+[2026-06-23 08:41:47,235] [DEBUG] Starting new HTTP connection (1): 127.0.0.1:8090
+[2026-06-23 08:41:47,254] [DEBUG] http://127.0.0.1:8090 "POST /api/collections/database/records HTTP/1.1" 200 416
+[2026-06-23 08:41:47,254] [INFO] cfc8x4v0p0zd4n4
+[2026-06-23 08:41:47,343] [DEBUG] Starting new HTTP connection (1): 127.0.0.1:8090
+[2026-06-23 08:41:47,380] [DEBUG] http://127.0.0.1:8090 "POST /api/collections/database/records HTTP/1.1" 200 413
+[2026-06-23 08:41:47,380] [INFO] 852q2o9k5gyw5ry
+[2026-06-23 08:41:53,864] [DEBUG] Starting new HTTP connection (1): 127.0.0.1:8090
+[2026-06-23 08:41:53,901] [DEBUG] http://127.0.0.1:8090 "POST /api/collections/database/records HTTP/1.1" 200 410
+[2026-06-23 08:41:53,902] [INFO] 629l0wys1lo80an
+[2026-06-23 08:42:15,041] [DEBUG] Starting new HTTP connection (1): 127.0.0.1:8090
+[2026-06-23 08:42:15,083] [DEBUG] http://127.0.0.1:8090 "POST /api/collections/database/records HTTP/1.1" 200 410
+[2026-06-23 08:42:15,084] [INFO] zc75r92yrrhdx94
+[2026-06-23 08:42:28,136] [DEBUG] Starting new HTTP connection (1): 127.0.0.1:8090
+[2026-06-23 08:42:28,167] [DEBUG] http://127.0.0.1:8090 "POST /api/collections/database/records HTTP/1.1" 200 410
+[2026-06-23 08:42:28,168] [INFO] 8r462p6f71yn6n4
+[2026-06-23 08:42:31,463] [DEBUG] Starting new HTTP connection (1): 127.0.0.1:8090
+[2026-06-23 08:42:31,474] [DEBUG] http://127.0.0.1:8090 "POST /api/collections/database/records HTTP/1.1" 200 410
+[2026-06-23 08:42:31,474] [INFO] w25htzd67o68oyn
+[2026-06-23 08:42:31,848] [DEBUG] Starting new HTTP connection (1): 127.0.0.1:8090
+[2026-06-23 08:42:31,862] [DEBUG] http://127.0.0.1:8090 "POST /api/collections/database/records HTTP/1.1" 200 410
+[2026-06-23 08:42:31,862] [INFO] 1x1py6os9fk7x61
+[2026-06-23 08:42:50,064] [DEBUG] Starting new HTTP connection (1): 127.0.0.1:8090
+[2026-06-23 08:42:50,100] [DEBUG] http://127.0.0.1:8090 "POST /api/collections/database/records HTTP/1.1" 200 416
+[2026-06-23 08:42:50,100] [INFO] 04gvnh7ri590369
+[2026-06-23 08:42:50,374] [DEBUG] Starting new HTTP connection (1): 127.0.0.1:8090
+[2026-06-23 08:42:50,407] [DEBUG] http://127.0.0.1:8090 "POST /api/collections/database/records HTTP/1.1" 200 419
+[2026-06-23 08:42:50,408] [INFO] y714fpafac5oja1
+[2026-06-23 08:42:50,590] [DEBUG] Starting new HTTP connection (1): 127.0.0.1:8090
+[2026-06-23 08:42:50,600] [DEBUG] http://127.0.0.1:8090 "POST /api/collections/database/records HTTP/1.1" 200 416
+[2026-06-23 08:42:50,601] [INFO] z6i2u5ps4vp2v82
+[2026-06-23 08:42:54,330] [DEBUG] Starting new HTTP connection (1): 127.0.0.1:8090
+[2026-06-23 08:42:54,347] [DEBUG] http://127.0.0.1:8090 "POST /api/collections/database/records HTTP/1.1" 200 410
+[2026-06-23 08:42:54,347] [INFO] sem6l777ujj51e5
+[2026-06-23 08:42:54,545] [DEBUG] Starting new HTTP connection (1): 127.0.0.1:8090
+[2026-06-23 08:42:54,554] [DEBUG] http://127.0.0.1:8090 "POST /api/collections/database/records HTTP/1.1" 200 410
+[2026-06-23 08:42:54,555] [INFO] fmk67ktqj8ih1f7
+[2026-06-23 08:43:06,785] [DEBUG] Starting new HTTP connection (1): 127.0.0.1:8090
+[2026-06-23 08:43:06,798] [DEBUG] http://127.0.0.1:8090 "POST /api/collections/database/records HTTP/1.1" 200 410
+[2026-06-23 08:43:06,799] [INFO] nh2iwqlez8sq15t
+[2026-06-23 08:43:26,281] [DEBUG] Starting new HTTP connection (1): 127.0.0.1:8090
+[2026-06-23 08:43:26,293] [DEBUG] http://127.0.0.1:8090 "POST /api/collections/database/records HTTP/1.1" 200 416
+[2026-06-23 08:43:26,293] [INFO] h385o75b9gm3sv3
+[2026-06-23 08:43:26,726] [DEBUG] Starting new HTTP connection (1): 127.0.0.1:8090
+[2026-06-23 08:43:26,735] [DEBUG] http://127.0.0.1:8090 "POST /api/collections/database/records HTTP/1.1" 200 416
+[2026-06-23 08:43:26,736] [INFO] 2e321ks5r1pncrz
+[2026-06-23 08:43:46,753] [DEBUG] Starting new HTTP connection (1): 127.0.0.1:8090
+[2026-06-23 08:43:46,791] [DEBUG] http://127.0.0.1:8090 "POST /api/collections/database/records HTTP/1.1" 200 410
+[2026-06-23 08:43:46,791] [INFO] 9ojutdf5p06o618
+[2026-06-23 08:43:46,974] [DEBUG] Starting new HTTP connection (1): 127.0.0.1:8090
+[2026-06-23 08:43:46,986] [DEBUG] http://127.0.0.1:8090 "POST /api/collections/database/records HTTP/1.1" 200 410
+[2026-06-23 08:43:46,989] [INFO] r9xk22ye6emurje
+[2026-06-23 08:44:25,797] [DEBUG] Starting new HTTP connection (1): 127.0.0.1:8090
+[2026-06-23 08:44:25,809] [DEBUG] http://127.0.0.1:8090 "POST /api/collections/database/records HTTP/1.1" 200 410
+[2026-06-23 08:44:25,809] [INFO] 9fb417715e657ei
+[2026-06-23 08:44:46,582] [DEBUG] Starting new HTTP connection (1): 127.0.0.1:8090
+[2026-06-23 08:44:46,598] [DEBUG] http://127.0.0.1:8090 "POST /api/collections/database/records HTTP/1.1" 200 416
+[2026-06-23 08:44:46,598] [INFO] 51n8ey4sq4sgfi2
+[2026-06-23 08:44:46,748] [DEBUG] Starting new HTTP connection (1): 127.0.0.1:8090
+[2026-06-23 08:44:46,777] [DEBUG] http://127.0.0.1:8090 "POST /api/collections/database/records HTTP/1.1" 200 419
+[2026-06-23 08:44:46,778] [INFO] i15451qq60q0u9d
+[2026-06-23 08:44:46,990] [DEBUG] Starting new HTTP connection (1): 127.0.0.1:8090
+[2026-06-23 08:44:47,013] [DEBUG] http://127.0.0.1:8090 "POST /api/collections/database/records HTTP/1.1" 200 413
+[2026-06-23 08:44:47,014] [INFO] c3u54teeh7m2y01
+[2026-06-23 08:45:01,182] [DEBUG] Starting new HTTP connection (1): 127.0.0.1:8090
+[2026-06-23 08:45:01,198] [DEBUG] http://127.0.0.1:8090 "POST /api/collections/database/records HTTP/1.1" 200 416
+[2026-06-23 08:45:01,198] [INFO] 160p457cg7o1vaj
+[2026-06-23 08:45:01,870] [DEBUG] Starting new HTTP connection (1): 127.0.0.1:8090
+[2026-06-23 08:45:01,902] [DEBUG] http://127.0.0.1:8090 "POST /api/collections/database/records HTTP/1.1" 200 419
+[2026-06-23 08:45:01,903] [INFO] 5v209bhh0dwzmi6
+[2026-06-23 08:45:39,872] [INFO] Shutting down
+[2026-06-23 08:45:39,974] [INFO] Waiting for connections to close. (CTRL+C to force quit)
+[2026-06-23 08:45:48,710] [INFO] Releasing camera resources
+[2026-06-23 08:45:48,757] [INFO] Waiting for application shutdown.
+[2026-06-23 08:45:48,758] [DEBUG] Starting new HTTP connection (1): 127.0.0.1:8090
+[2026-06-23 08:45:48,759] [DEBUG] http://127.0.0.1:8090 "GET /api/collections/setting/records HTTP/1.1" 200 439
+[2026-06-23 08:45:49,122] [INFO] Cleanup complete. Shutting down.
+[2026-06-23 08:47:37,881] [INFO] 4.13.0
+[2026-06-23 08:47:37,881] [INFO] 2.12.1+cu126
+[2026-06-23 08:47:38,043] [DEBUG] Using proactor: IocpProactor
+[2026-06-23 08:47:38,057] [INFO] Started server process [26028]
+[2026-06-23 08:47:38,058] [INFO] Waiting for application startup.
+[2026-06-23 08:47:38,158] [INFO] PocketBase stater 24636
+[2026-06-23 08:47:38,159] [INFO] Loading YOLO models...
+[2026-06-23 08:47:38,159] [INFO] Found the 'openvino' file!
+[2026-06-23 08:47:38,159] [INFO] Loading openvino
+[2026-06-23 08:47:39,876] [DEBUG] Loaded backend Agg version v2.2.
+[2026-06-23 08:47:41,161] [ERROR] Traceback (most recent call last):
+  File "D:\Codes\anprv8\engine\yolov5\hubconf.py", line 50, in _create
+    model = DetectMultiBackend(path, device=device, fuse=autoshape)  # detection model
+  File "D:\Codes\anprv8\engine\yolov5\models\common.py", line 404, in __init__
+    from openvino.runtime import Core, Layout, get_batch
+ModuleNotFoundError: No module named 'openvino.runtime'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\Codes\anprv8\engine\yolov5\hubconf.py", line 65, in _create
+    model = attempt_load(path, device=device, fuse=False)  # arbitrary model
+  File "D:\Codes\anprv8\engine\yolov5\models\experimental.py", line 78, in attempt_load
+    ckpt = torch.load(attempt_download(w), map_location="cpu",weights_only=False)  # load
+  File "D:\Codes\anprv8\mainenv\Lib\site-packages\torch\serialization.py", line 1530, in load
+    with _open_file_like(f, "rb") as opened_file:
+         ~~~~~~~~~~~~~~~^^^^^^^^^
+  File "D:\Codes\anprv8\mainenv\Lib\site-packages\torch\serialization.py", line 795, in _open_file_like
+    return _open_file(name_or_buffer, mode)
+  File "D:\Codes\anprv8\mainenv\Lib\site-packages\torch\serialization.py", line 776, in __init__
+    super().__init__(open(name, mode))  # noqa: SIM115
+                     ~~~~^^^^^^^^^^^^
+PermissionError: [Errno 13] Permission denied: 'model\\CharsYolo_openvino_model'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\Codes\anprv8\mainenv\Lib\site-packages\starlette\routing.py", line 638, in lifespan
+    async with self.lifespan_context(app) as maybe_state:
+               ~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "C:\Users\Microsoft\AppData\Local\Python\pythoncore-3.14-64\Lib\contextlib.py", line 214, in __aenter__
+    return await anext(self.gen)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Codes\anprv8\engine\api.py", line 27, in lifespan
+    cctv=CcTvMonitor()
+  File "D:\Codes\anprv8\engine\engines.py", line 61, in __init__
+    self.model_car, self.model_plate, self.model_char, self.dolatimodel = self.loadModels()
+                                                                          ~~~~~~~~~~~~~~~^^
+  File "D:\Codes\anprv8\engine\engines.py", line 134, in loadModels
+    model_char = torch.hub.load(
+        'yolov5', 'custom', f'model/CharsYolo_openvino_model', source='local', device=self.device, force_reload=True)
+  File "D:\Codes\anprv8\mainenv\Lib\site-packages\torch\hub.py", line 669, in load
+    model = _load_local(repo_or_dir, model, *args, **kwargs)
+  File "D:\Codes\anprv8\mainenv\Lib\site-packages\torch\hub.py", line 702, in _load_local
+    model = entry(*args, **kwargs)
+  File "D:\Codes\anprv8\engine\yolov5\hubconf.py", line 88, in custom
+    return _create(path, autoshape=autoshape, verbose=_verbose, device=device)
+  File "D:\Codes\anprv8\engine\yolov5\hubconf.py", line 83, in _create
+    raise Exception(s) from e
+Exception: [Errno 13] Permission denied: 'model\\CharsYolo_openvino_model'. Cache may be out of date, try `force_reload=True` or see https://docs.ultralytics.com/yolov5/tutorials/pytorch_hub_model_loading for help.
+
+[2026-06-23 08:47:41,161] [ERROR] Application startup failed. Exiting.
+[2026-06-23 08:48:29,121] [INFO] 4.13.0
+[2026-06-23 08:48:29,122] [INFO] 2.12.1+cu126
+[2026-06-23 08:48:29,222] [DEBUG] Using proactor: IocpProactor
+[2026-06-23 08:48:29,234] [INFO] Started server process [8668]
+[2026-06-23 08:48:29,234] [INFO] Waiting for application startup.
+[2026-06-23 08:48:29,241] [INFO] PocketBase stater 24332
+[2026-06-23 08:48:29,241] [INFO] Loading YOLO models...
+[2026-06-23 08:48:29,242] [INFO] Found the 'openvino' file!
+[2026-06-23 08:48:29,242] [INFO] Loading openvino
+[2026-06-23 08:48:30,231] [DEBUG] Loaded backend Agg version v2.2.
+[2026-06-23 08:48:30,337] [ERROR] Traceback (most recent call last):
+  File "D:\Codes\anprv8\engine\yolov5\hubconf.py", line 50, in _create
+    model = DetectMultiBackend(path, device=device, fuse=autoshape)  # detection model
+  File "D:\Codes\anprv8\engine\yolov5\models\common.py", line 404, in __init__
+    from openvino.runtime import Core, Layout, get_batch
+ModuleNotFoundError: No module named 'openvino.runtime'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\Codes\anprv8\engine\yolov5\hubconf.py", line 65, in _create
+    model = attempt_load(path, device=device, fuse=False)  # arbitrary model
+  File "D:\Codes\anprv8\engine\yolov5\models\experimental.py", line 78, in attempt_load
+    ckpt = torch.load(attempt_download(w), map_location="cpu",weights_only=False)  # load
+  File "D:\Codes\anprv8\mainenv\Lib\site-packages\torch\serialization.py", line 1530, in load
+    with _open_file_like(f, "rb") as opened_file:
+         ~~~~~~~~~~~~~~~^^^^^^^^^
+  File "D:\Codes\anprv8\mainenv\Lib\site-packages\torch\serialization.py", line 795, in _open_file_like
+    return _open_file(name_or_buffer, mode)
+  File "D:\Codes\anprv8\mainenv\Lib\site-packages\torch\serialization.py", line 776, in __init__
+    super().__init__(open(name, mode))  # noqa: SIM115
+                     ~~~~^^^^^^^^^^^^
+PermissionError: [Errno 13] Permission denied: 'model\\CharsYolo_openvino_model'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\Codes\anprv8\mainenv\Lib\site-packages\starlette\routing.py", line 638, in lifespan
+    async with self.lifespan_context(app) as maybe_state:
+               ~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "C:\Users\Microsoft\AppData\Local\Python\pythoncore-3.14-64\Lib\contextlib.py", line 214, in __aenter__
+    return await anext(self.gen)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Codes\anprv8\engine\api.py", line 27, in lifespan
+    cctv=CcTvMonitor()
+  File "D:\Codes\anprv8\engine\engines.py", line 61, in __init__
+    self.model_car, self.model_plate, self.model_char, self.dolatimodel = self.loadModels()
+                                                                          ~~~~~~~~~~~~~~~^^
+  File "D:\Codes\anprv8\engine\engines.py", line 134, in loadModels
+    model_char = torch.hub.load(
+        'yolov5', 'custom', f'model/CharsYolo_openvino_model', source='local', device=self.device, force_reload=False)
+  File "D:\Codes\anprv8\mainenv\Lib\site-packages\torch\hub.py", line 669, in load
+    model = _load_local(repo_or_dir, model, *args, **kwargs)
+  File "D:\Codes\anprv8\mainenv\Lib\site-packages\torch\hub.py", line 702, in _load_local
+    model = entry(*args, **kwargs)
+  File "D:\Codes\anprv8\engine\yolov5\hubconf.py", line 88, in custom
+    return _create(path, autoshape=autoshape, verbose=_verbose, device=device)
+  File "D:\Codes\anprv8\engine\yolov5\hubconf.py", line 83, in _create
+    raise Exception(s) from e
+Exception: [Errno 13] Permission denied: 'model\\CharsYolo_openvino_model'. Cache may be out of date, try `force_reload=True` or see https://docs.ultralytics.com/yolov5/tutorials/pytorch_hub_model_loading for help.
+
+[2026-06-23 08:48:30,338] [ERROR] Application startup failed. Exiting.
+[2026-06-23 08:50:35,536] [INFO] 4.13.0
+[2026-06-23 08:50:35,537] [INFO] 2.12.1+cu126
+[2026-06-23 08:50:35,635] [DEBUG] Using proactor: IocpProactor
+[2026-06-23 08:50:35,647] [INFO] Started server process [15536]
+[2026-06-23 08:50:35,647] [INFO] Waiting for application startup.
+[2026-06-23 08:50:35,651] [INFO] PocketBase stater 24568
+[2026-06-23 08:50:35,652] [INFO] Loading YOLO models...
+[2026-06-23 08:50:35,652] [INFO] Found the 'openvino' file!
+[2026-06-23 08:50:35,652] [INFO] Loading openvino
+[2026-06-23 08:50:36,614] [DEBUG] Loaded backend Agg version v2.2.
+[2026-06-23 08:50:36,714] [ERROR] Traceback (most recent call last):
+  File "D:\Codes\anprv8\engine\yolov5\hubconf.py", line 50, in _create
+    model = DetectMultiBackend(path, device=device, fuse=autoshape)  # detection model
+  File "D:\Codes\anprv8\engine\yolov5\models\common.py", line 404, in __init__
+    from openvino.runtime import Core, Layout, get_batch
+ModuleNotFoundError: No module named 'openvino.runtime'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\Codes\anprv8\engine\yolov5\hubconf.py", line 65, in _create
+    model = attempt_load(path, device=device, fuse=False)  # arbitrary model
+  File "D:\Codes\anprv8\engine\yolov5\models\experimental.py", line 78, in attempt_load
+    ckpt = torch.load(attempt_download(w), map_location="cpu",weights_only=False)  # load
+  File "D:\Codes\anprv8\mainenv\Lib\site-packages\torch\serialization.py", line 1530, in load
+    with _open_file_like(f, "rb") as opened_file:
+         ~~~~~~~~~~~~~~~^^^^^^^^^
+  File "D:\Codes\anprv8\mainenv\Lib\site-packages\torch\serialization.py", line 795, in _open_file_like
+    return _open_file(name_or_buffer, mode)
+  File "D:\Codes\anprv8\mainenv\Lib\site-packages\torch\serialization.py", line 776, in __init__
+    super().__init__(open(name, mode))  # noqa: SIM115
+                     ~~~~^^^^^^^^^^^^
+PermissionError: [Errno 13] Permission denied: 'model\\CharsYolo_openvino_model'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\Codes\anprv8\mainenv\Lib\site-packages\starlette\routing.py", line 638, in lifespan
+    async with self.lifespan_context(app) as maybe_state:
+               ~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "C:\Users\Microsoft\AppData\Local\Python\pythoncore-3.14-64\Lib\contextlib.py", line 214, in __aenter__
+    return await anext(self.gen)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Codes\anprv8\engine\api.py", line 27, in lifespan
+    cctv=CcTvMonitor()
+  File "D:\Codes\anprv8\engine\engines.py", line 61, in __init__
+    self.model_car, self.model_plate, self.model_char, self.dolatimodel = self.loadModels()
+                                                                          ~~~~~~~~~~~~~~~^^
+  File "D:\Codes\anprv8\engine\engines.py", line 134, in loadModels
+    model_char = torch.hub.load(
+        'yolov5', 'custom', f'model/CharsYolo_openvino_model', source='local', device=self.device, force_reload=True)
+  File "D:\Codes\anprv8\mainenv\Lib\site-packages\torch\hub.py", line 669, in load
+    model = _load_local(repo_or_dir, model, *args, **kwargs)
+  File "D:\Codes\anprv8\mainenv\Lib\site-packages\torch\hub.py", line 702, in _load_local
+    model = entry(*args, **kwargs)
+  File "D:\Codes\anprv8\engine\yolov5\hubconf.py", line 88, in custom
+    return _create(path, autoshape=autoshape, verbose=_verbose, device=device)
+  File "D:\Codes\anprv8\engine\yolov5\hubconf.py", line 83, in _create
+    raise Exception(s) from e
+Exception: [Errno 13] Permission denied: 'model\\CharsYolo_openvino_model'. Cache may be out of date, try `force_reload=True` or see https://docs.ultralytics.com/yolov5/tutorials/pytorch_hub_model_loading for help.
+
+[2026-06-23 08:50:36,715] [ERROR] Application startup failed. Exiting.
+[2026-06-23 08:53:11,500] [INFO] 4.13.0
+[2026-06-23 08:53:11,500] [INFO] 2.12.1+cu126
+[2026-06-23 08:53:11,604] [DEBUG] Using proactor: IocpProactor
+[2026-06-23 08:53:11,616] [INFO] Started server process [15008]
+[2026-06-23 08:53:11,616] [INFO] Waiting for application startup.
+[2026-06-23 08:53:11,621] [INFO] PocketBase stater 20812
+[2026-06-23 08:53:11,621] [INFO] Loading YOLO models...
+[2026-06-23 08:53:11,621] [INFO] Found the 'openvino' file!
+[2026-06-23 08:53:11,621] [INFO] Loading openvino
+[2026-06-23 08:53:12,695] [DEBUG] Loaded backend Agg version v2.2.
+[2026-06-23 08:53:15,469] [INFO] Models loaded successfully
+[2026-06-23 08:53:15,470] [DEBUG] Starting new HTTP connection (1): 127.0.0.1:8090
+[2026-06-23 08:53:15,474] [DEBUG] http://127.0.0.1:8090 "GET /api/collections/setting/records HTTP/1.1" 200 439
+[2026-06-23 08:53:15,525] [INFO] Application startup complete.
+[2026-06-23 08:53:15,525] [INFO] Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+[2026-06-23 08:53:15,578] [INFO] 127.0.0.1:4916 - "GET /web/app HTTP/1.1" 307
+[2026-06-23 08:53:46,605] [INFO] 127.0.0.1:14659 - "GET /video_feed/rt1?source=rtsp://admin:admin@192.168.1.89:554/mainstream HTTP/1.1" 200
+[2026-06-23 08:54:02,316] [DEBUG] Starting new HTTP connection (1): 127.0.0.1:8090
+[2026-06-23 08:54:02,348] [DEBUG] http://127.0.0.1:8090 "POST /api/collections/database/records HTTP/1.1" 200 410
+[2026-06-23 08:54:02,349] [INFO] 0g4199460039jwn
+[2026-06-23 08:54:03,002] [DEBUG] Starting new HTTP connection (1): 127.0.0.1:8090
+[2026-06-23 08:54:03,014] [DEBUG] http://127.0.0.1:8090 "POST /api/collections/database/records HTTP/1.1" 200 410
+[2026-06-23 08:54:03,014] [INFO] 1yhe4bzu0154004
+[2026-06-23 08:54:10,203] [DEBUG] Starting new HTTP connection (1): 127.0.0.1:8090
+[2026-06-23 08:54:10,214] [DEBUG] http://127.0.0.1:8090 "POST /api/collections/database/records HTTP/1.1" 200 416
+[2026-06-23 08:54:10,214] [INFO] g8lwe080s56070v
+[2026-06-23 08:54:10,333] [DEBUG] Starting new HTTP connection (1): 127.0.0.1:8090
+[2026-06-23 08:54:10,344] [DEBUG] http://127.0.0.1:8090 "POST /api/collections/database/records HTTP/1.1" 200 416
+[2026-06-23 08:54:10,345] [INFO] rup1909253102lb
+[2026-06-23 08:54:14,770] [INFO] Shutting down
+[2026-06-23 08:54:14,871] [INFO] Waiting for connections to close. (CTRL+C to force quit)
+[2026-06-23 08:54:16,099] [INFO] Waiting for application shutdown.
+[2026-06-23 08:54:16,100] [DEBUG] Starting new HTTP connection (1): 127.0.0.1:8090
+[2026-06-23 08:54:16,101] [DEBUG] http://127.0.0.1:8090 "GET /api/collections/setting/records HTTP/1.1" 200 439
+[2026-06-23 08:54:16,276] [INFO] Cleanup complete. Shutting down.
+[2026-06-23 08:58:07,508] [INFO] 4.10.0
+[2026-06-23 08:58:07,508] [INFO] 2.12.1+cu126
+[2026-06-23 08:58:07,610] [DEBUG] Using proactor: IocpProactor
+[2026-06-23 08:58:07,622] [INFO] Started server process [5324]
+[2026-06-23 08:58:07,622] [INFO] Waiting for application startup.
+[2026-06-23 08:58:07,626] [INFO] PocketBase stater 15056
+[2026-06-23 08:58:07,627] [INFO] Loading YOLO models...
+[2026-06-23 08:58:07,627] [INFO] Found the 'openvino' file!
+[2026-06-23 08:58:07,627] [INFO] Loading openvino
+[2026-06-23 08:58:08,616] [DEBUG] Loaded backend Agg version v2.2.
+[2026-06-23 08:58:09,298] [INFO] Models loaded successfully
+[2026-06-23 08:58:09,300] [DEBUG] Starting new HTTP connection (1): 127.0.0.1:8090
+[2026-06-23 08:58:09,303] [DEBUG] http://127.0.0.1:8090 "GET /api/collections/setting/records HTTP/1.1" 200 439
+[2026-06-23 08:58:09,340] [INFO] Application startup complete.
+[2026-06-23 08:58:09,340] [INFO] Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+[2026-06-23 08:58:09,406] [INFO] 127.0.0.1:2850 - "GET /web/app HTTP/1.1" 307
+[2026-06-23 08:58:13,909] [INFO] Shutting down
+[2026-06-23 08:58:14,025] [INFO] Waiting for application shutdown.
+[2026-06-23 08:58:14,026] [DEBUG] Starting new HTTP connection (1): 127.0.0.1:8090
+[2026-06-23 08:58:14,028] [DEBUG] http://127.0.0.1:8090 "GET /api/collections/setting/records HTTP/1.1" 200 439
+[2026-06-23 08:58:14,187] [INFO] Cleanup complete. Shutting down.
+[2026-06-23 09:03:15,970] [INFO] 4.10.0
+[2026-06-23 09:03:15,971] [INFO] 2.12.1+cu126
+[2026-06-23 09:03:16,078] [DEBUG] Using proactor: IocpProactor
+[2026-06-23 09:03:16,091] [INFO] Started server process [15156]
+[2026-06-23 09:03:16,092] [INFO] Waiting for application startup.
+[2026-06-23 09:03:16,095] [INFO] PocketBase stater 6896
+[2026-06-23 09:03:16,113] [INFO] Found the 'onnx' file!
+[2026-06-23 09:03:16,114] [INFO] Loading YOLO models...
+[2026-06-23 09:03:16,114] [INFO] Loading onnx/pt
+[2026-06-23 09:03:17,093] [DEBUG] Loaded backend Agg version v2.2.
+[2026-06-23 09:03:17,686] [INFO] Models loaded successfully
+[2026-06-23 09:03:17,687] [DEBUG] Starting new HTTP connection (1): 127.0.0.1:8090
+[2026-06-23 09:03:17,691] [DEBUG] http://127.0.0.1:8090 "GET /api/collections/setting/records HTTP/1.1" 200 439
+[2026-06-23 09:03:17,725] [INFO] Application startup complete.
+[2026-06-23 09:03:17,726] [INFO] Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+[2026-06-23 09:03:17,770] [INFO] 127.0.0.1:12055 - "GET /web/app HTTP/1.1" 307
+[2026-06-23 09:03:26,120] [INFO] 127.0.0.1:7801 - "GET /video_feed/rt1?source=rtsp://admin:admin@192.168.1.89:554/mainstream HTTP/1.1" 200
+[2026-06-23 09:03:39,740] [INFO] Shutting down
+[2026-06-23 09:03:39,848] [INFO] Waiting for connections to close. (CTRL+C to force quit)
+[2026-06-23 09:03:41,823] [INFO] Releasing camera resources
+[2026-06-23 09:03:41,848] [INFO] Waiting for application shutdown.
+[2026-06-23 09:03:41,849] [DEBUG] Starting new HTTP connection (1): 127.0.0.1:8090
+[2026-06-23 09:03:41,851] [DEBUG] http://127.0.0.1:8090 "GET /api/collections/setting/records HTTP/1.1" 200 439
+[2026-06-23 09:03:42,050] [INFO] Cleanup complete. Shutting down.
+[2026-06-23 09:04:15,963] [INFO] 4.10.0
+[2026-06-23 09:04:15,963] [INFO] 2.12.1+cu126
+[2026-06-23 09:04:16,064] [DEBUG] Using proactor: IocpProactor
+[2026-06-23 09:04:16,076] [INFO] Started server process [25980]
+[2026-06-23 09:04:16,076] [INFO] Waiting for application startup.
+[2026-06-23 09:04:16,081] [INFO] PocketBase stater 18648
+[2026-06-23 09:04:16,099] [INFO] Found the 'onnx' file!
+[2026-06-23 09:04:16,099] [INFO] Loading YOLO models...
+[2026-06-23 09:04:16,099] [INFO] Loading onnx/pt
+[2026-06-23 09:04:17,135] [DEBUG] Loaded backend Agg version v2.2.
+[2026-06-23 09:04:17,157] [ERROR] Traceback (most recent call last):
+  File "D:\Codes\anprv8\engine\yolov5\hubconf.py", line 50, in _create
+    model = DetectMultiBackend(path, device=device, fuse=autoshape)  # detection model
+  File "D:\Codes\anprv8\engine\yolov5\models\common.py", line 396, in __init__
+    session = onnxruntime.InferenceSession(w, providers=providers)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: module 'onnxruntime' has no attribute 'InferenceSession'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\Codes\anprv8\engine\yolov5\hubconf.py", line 65, in _create
+    model = attempt_load(path, device=device, fuse=False)  # arbitrary model
+  File "D:\Codes\anprv8\engine\yolov5\models\experimental.py", line 78, in attempt_load
+    ckpt = torch.load(attempt_download(w), map_location="cpu",weights_only=False)  # load
+  File "D:\Codes\anprv8\mainenv\Lib\site-packages\torch\serialization.py", line 1603, in load
+    return _legacy_load(
+        opened_file, map_location, pickle_module, **pickle_load_args
+    )
+  File "D:\Codes\anprv8\mainenv\Lib\site-packages\torch\serialization.py", line 1855, in _legacy_load
+    magic_number = pickle_module.load(f, **pickle_load_args)
+_pickle.UnpicklingError: invalid load key, '\x08'.
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\Codes\anprv8\mainenv\Lib\site-packages\starlette\routing.py", line 638, in lifespan
+    async with self.lifespan_context(app) as maybe_state:
+               ~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "C:\Users\Microsoft\AppData\Local\Python\pythoncore-3.14-64\Lib\contextlib.py", line 214, in __aenter__
+    return await anext(self.gen)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Codes\anprv8\engine\api.py", line 27, in lifespan
+    cctv=CcTvMonitor()
+  File "D:\Codes\anprv8\engine\engines.py", line 61, in __init__
+    self.model_car, self.model_plate, self.model_char, self.dolatimodel = self.loadModels()
+                                                                          ~~~~~~~~~~~~~~~^^
+  File "D:\Codes\anprv8\engine\engines.py", line 144, in loadModels
+    model_char = torch.hub.load(
+        'yolov5', 'custom', f'model/CharsYolo.{fileEx}', source='local', device=self.device, force_reload=True)
+  File "D:\Codes\anprv8\mainenv\Lib\site-packages\torch\hub.py", line 669, in load
+    model = _load_local(repo_or_dir, model, *args, **kwargs)
+  File "D:\Codes\anprv8\mainenv\Lib\site-packages\torch\hub.py", line 702, in _load_local
+    model = entry(*args, **kwargs)
+  File "D:\Codes\anprv8\engine\yolov5\hubconf.py", line 88, in custom
+    return _create(path, autoshape=autoshape, verbose=_verbose, device=device)
+  File "D:\Codes\anprv8\engine\yolov5\hubconf.py", line 83, in _create
+    raise Exception(s) from e
+Exception: invalid load key, '\x08'.. Cache may be out of date, try `force_reload=True` or see https://docs.ultralytics.com/yolov5/tutorials/pytorch_hub_model_loading for help.
+
+[2026-06-23 09:04:17,157] [ERROR] Application startup failed. Exiting.
+[2026-06-23 09:05:08,630] [INFO] 4.10.0
+[2026-06-23 09:05:08,630] [INFO] 2.12.1+cu126
+[2026-06-23 09:05:08,735] [DEBUG] Using proactor: IocpProactor
+[2026-06-23 09:05:08,746] [INFO] Started server process [22860]
+[2026-06-23 09:05:08,746] [INFO] Waiting for application startup.
+[2026-06-23 09:05:08,752] [INFO] PocketBase stater 26316
+[2026-06-23 09:05:08,770] [INFO] Found the 'onnx' file!
+[2026-06-23 09:05:08,770] [INFO] Loading YOLO models...
+[2026-06-23 09:05:08,770] [INFO] Loading onnx/pt
+[2026-06-23 09:05:09,755] [DEBUG] Loaded backend Agg version v2.2.
+[2026-06-23 09:05:10,228] [INFO] Models loaded successfully
+[2026-06-23 09:05:10,229] [DEBUG] Starting new HTTP connection (1): 127.0.0.1:8090
+[2026-06-23 09:05:10,231] [DEBUG] http://127.0.0.1:8090 "GET /api/collections/setting/records HTTP/1.1" 200 439
+[2026-06-23 09:05:10,270] [INFO] Application startup complete.
+[2026-06-23 09:05:10,271] [INFO] Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+[2026-06-23 09:05:10,326] [INFO] 127.0.0.1:3344 - "GET /web/app HTTP/1.1" 307
+[2026-06-23 09:05:17,962] [INFO] 127.0.0.1:9512 - "GET /video_feed/rt1?source=rtsp://admin:admin@192.168.1.89:554/mainstream HTTP/1.1" 200
+[2026-06-23 09:05:28,424] [INFO] Releasing camera resources
+[2026-06-23 09:05:29,703] [INFO] Shutting down
+[2026-06-23 09:05:29,819] [INFO] Waiting for application shutdown.
+[2026-06-23 09:05:29,821] [DEBUG] Starting new HTTP connection (1): 127.0.0.1:8090
+[2026-06-23 09:05:29,822] [DEBUG] http://127.0.0.1:8090 "GET /api/collections/setting/records HTTP/1.1" 200 439
+[2026-06-23 09:05:29,966] [INFO] Cleanup complete. Shutting down.
+[2026-06-23 09:05:53,350] [INFO] 4.10.0
+[2026-06-23 09:05:53,350] [INFO] 2.12.1+cu126
+[2026-06-23 09:05:53,450] [DEBUG] Using proactor: IocpProactor
+[2026-06-23 09:05:53,462] [INFO] Started server process [17932]
+[2026-06-23 09:05:53,462] [INFO] Waiting for application startup.
+[2026-06-23 09:05:53,466] [INFO] PocketBase stater 10688
+[2026-06-23 09:05:53,481] [INFO] Found the 'onnx' file!
+[2026-06-23 09:05:53,481] [INFO] Loading YOLO models...
+[2026-06-23 09:05:53,482] [INFO] Loading onnx/pt
+[2026-06-23 09:05:54,435] [DEBUG] Loaded backend Agg version v2.2.
+[2026-06-23 09:05:55,998] [INFO] Models loaded successfully
+[2026-06-23 09:05:56,000] [DEBUG] Starting new HTTP connection (1): 127.0.0.1:8090
+[2026-06-23 09:05:56,001] [DEBUG] http://127.0.0.1:8090 "GET /api/collections/setting/records HTTP/1.1" 200 439
+[2026-06-23 09:05:56,038] [INFO] Application startup complete.
+[2026-06-23 09:05:56,038] [INFO] Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+[2026-06-23 09:05:56,087] [INFO] 127.0.0.1:5535 - "GET /web/app HTTP/1.1" 307
+[2026-06-23 09:06:06,282] [INFO] 127.0.0.1:1901 - "GET /video_feed/rt1?source=rtsp://admin:admin@192.168.1.89:554/mainstream HTTP/1.1" 200
+[2026-06-23 09:06:38,113] [INFO] Releasing camera resources
+[2026-06-23 09:06:39,504] [INFO] Shutting down
+[2026-06-23 09:06:39,605] [INFO] Waiting for application shutdown.
+[2026-06-23 09:06:39,606] [DEBUG] Starting new HTTP connection (1): 127.0.0.1:8090
+[2026-06-23 09:06:39,619] [DEBUG] http://127.0.0.1:8090 "GET /api/collections/setting/records HTTP/1.1" 200 439
+[2026-06-23 09:06:39,764] [INFO] Cleanup complete. Shutting down.
+[2026-06-23 09:10:11,573] [INFO] 4.10.0
+[2026-06-23 09:10:11,573] [INFO] 2.12.1+cu126
+[2026-06-23 09:10:11,673] [DEBUG] Using proactor: IocpProactor
+[2026-06-23 09:10:11,685] [INFO] Started server process [25980]
+[2026-06-23 09:10:11,686] [INFO] Waiting for application startup.
+[2026-06-23 09:10:11,691] [INFO] PocketBase stater 25012
+[2026-06-23 09:10:11,708] [INFO] Found the 'onnx' file!
+[2026-06-23 09:10:11,708] [INFO] Loading YOLO models...
+[2026-06-23 09:10:11,708] [INFO] Loading onnx/pt
+[2026-06-23 09:10:12,688] [DEBUG] Loaded backend Agg version v2.2.
+[2026-06-23 09:10:14,533] [INFO] Models loaded successfully
+[2026-06-23 09:10:14,535] [DEBUG] Starting new HTTP connection (1): 127.0.0.1:8090
+[2026-06-23 09:10:14,538] [DEBUG] http://127.0.0.1:8090 "GET /api/collections/setting/records HTTP/1.1" 200 439
+[2026-06-23 09:10:14,582] [INFO] Application startup complete.
+[2026-06-23 09:10:14,584] [INFO] Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+[2026-06-23 09:10:14,638] [INFO] 127.0.0.1:5691 - "GET /web/app HTTP/1.1" 307
+[2026-06-23 09:10:19,998] [INFO] 127.0.0.1:3217 - "GET /video_feed/rt1?source=rtsp://admin:admin@192.168.1.89:554/mainstream HTTP/1.1" 200
+[2026-06-23 09:10:39,259] [INFO] Releasing camera resources
+[2026-06-23 09:10:40,804] [INFO] Shutting down
+[2026-06-23 09:10:40,909] [INFO] Waiting for application shutdown.
+[2026-06-23 09:10:40,910] [DEBUG] Starting new HTTP connection (1): 127.0.0.1:8090
+[2026-06-23 09:10:40,912] [DEBUG] http://127.0.0.1:8090 "GET /api/collections/setting/records HTTP/1.1" 200 439
+[2026-06-23 09:10:41,055] [INFO] Cleanup complete. Shutting down.
+[2026-06-23 09:10:51,242] [INFO] 4.10.0
+[2026-06-23 09:10:51,243] [INFO] 2.12.1+cu126
+[2026-06-23 09:10:51,347] [DEBUG] Using proactor: IocpProactor
+[2026-06-23 09:10:51,358] [INFO] Started server process [23468]
+[2026-06-23 09:10:51,359] [INFO] Waiting for application startup.
+[2026-06-23 09:10:51,363] [INFO] PocketBase stater 20108
+[2026-06-23 09:10:51,364] [INFO] Found the 'onnx' file!
+[2026-06-23 09:10:51,364] [INFO] Loading YOLO models...
+[2026-06-23 09:10:51,364] [INFO] Loading onnx/pt
+[2026-06-23 09:10:52,385] [DEBUG] Loaded backend Agg version v2.2.
+[2026-06-23 09:10:59,430] [INFO] Models loaded successfully
+[2026-06-23 09:10:59,432] [DEBUG] Starting new HTTP connection (1): 127.0.0.1:8090
+[2026-06-23 09:10:59,433] [DEBUG] http://127.0.0.1:8090 "GET /api/collections/setting/records HTTP/1.1" 200 439
+[2026-06-23 09:10:59,474] [INFO] Application startup complete.
+[2026-06-23 09:10:59,474] [INFO] Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+[2026-06-23 09:10:59,475] [INFO] Shutting down
+[2026-06-23 09:10:59,590] [INFO] Finished server process [23468]
+[2026-06-23 09:10:59,602] [ERROR] Traceback (most recent call last):
+  File "C:\Users\Microsoft\AppData\Local\Python\pythoncore-3.14-64\Lib\asyncio\runners.py", line 205, in run
+    return runner.run(main)
+           ~~~~~~~~~~^^^^^^
+  File "C:\Users\Microsoft\AppData\Local\Python\pythoncore-3.14-64\Lib\asyncio\runners.py", line 128, in run
+    return self._loop.run_until_complete(task)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "C:\Users\Microsoft\AppData\Local\Python\pythoncore-3.14-64\Lib\asyncio\base_events.py", line 706, in run_until_complete
+    self.run_forever()
+    ~~~~~~~~~~~~~~~~^^
+  File "C:\Users\Microsoft\AppData\Local\Python\pythoncore-3.14-64\Lib\asyncio\base_events.py", line 677, in run_forever
+    self._run_once()
+    ~~~~~~~~~~~~~~^^
+  File "C:\Users\Microsoft\AppData\Local\Python\pythoncore-3.14-64\Lib\asyncio\base_events.py", line 2056, in _run_once
+    handle._run()
+    ~~~~~~~~~~~^^
+  File "C:\Users\Microsoft\AppData\Local\Python\pythoncore-3.14-64\Lib\asyncio\events.py", line 94, in _run
+    self._context.run(self._callback, *self._args)
+    ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Codes\anprv8\mainenv\Lib\site-packages\uvicorn\server.py", line 78, in serve
+    with self.capture_signals():
+         ~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\Microsoft\AppData\Local\Python\pythoncore-3.14-64\Lib\contextlib.py", line 148, in __exit__
+    next(self.gen)
+    ~~~~^^^^^^^^^^
+  File "D:\Codes\anprv8\mainenv\Lib\site-packages\uvicorn\server.py", line 339, in capture_signals
+    signal.raise_signal(captured_signal)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "C:\Users\Microsoft\AppData\Local\Python\pythoncore-3.14-64\Lib\asyncio\runners.py", line 167, in _on_sigint
+    raise KeyboardInterrupt()
+KeyboardInterrupt
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\Codes\anprv8\mainenv\Lib\site-packages\starlette\routing.py", line 645, in lifespan
+    await receive()
+  File "D:\Codes\anprv8\mainenv\Lib\site-packages\uvicorn\lifespan\on.py", line 137, in receive
+    return await self.receive_queue.get()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Microsoft\AppData\Local\Python\pythoncore-3.14-64\Lib\asyncio\queues.py", line 186, in get
+    await getter
+asyncio.exceptions.CancelledError
+
+[2026-06-23 09:12:12,283] [INFO] 4.10.0
+[2026-06-23 09:12:12,283] [INFO] 2.12.1+cu126
+[2026-06-23 09:12:12,381] [DEBUG] Using proactor: IocpProactor
+[2026-06-23 09:12:12,392] [INFO] Started server process [18760]
+[2026-06-23 09:12:12,393] [INFO] Waiting for application startup.
+[2026-06-23 09:12:12,398] [INFO] PocketBase stater 21740
+[2026-06-23 09:12:12,398] [INFO] Found the 'onnx' file!
+[2026-06-23 09:12:12,398] [INFO] Loading YOLO models...
+[2026-06-23 09:12:12,399] [INFO] Loading onnx/pt
+[2026-06-23 09:12:13,353] [DEBUG] Loaded backend Agg version v2.2.
+[2026-06-23 09:12:13,863] [INFO] Models loaded successfully
+[2026-06-23 09:12:13,865] [DEBUG] Starting new HTTP connection (1): 127.0.0.1:8090
+[2026-06-23 09:12:13,866] [DEBUG] http://127.0.0.1:8090 "GET /api/collections/setting/records HTTP/1.1" 200 439
+[2026-06-23 09:12:13,904] [INFO] Application startup complete.
+[2026-06-23 09:12:13,904] [INFO] Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+[2026-06-23 09:12:13,950] [INFO] 127.0.0.1:13409 - "GET /web/app HTTP/1.1" 307
+[2026-06-23 09:12:17,216] [INFO] 127.0.0.1:13409 - "GET /video_feed/rt1?source=rtsp://admin:admin@192.168.1.89:554/mainstream HTTP/1.1" 200
+[2026-06-23 09:12:21,696] [INFO] Shutting down
+[2026-06-23 09:12:21,812] [INFO] Waiting for connections to close. (CTRL+C to force quit)
+[2026-06-23 09:12:23,819] [INFO] Waiting for background tasks to complete. (CTRL+C to force quit)
+[2026-06-23 09:12:23,831] [INFO] Releasing camera resources
+[2026-06-23 09:12:23,927] [INFO] Waiting for application shutdown.
+[2026-06-23 09:12:23,930] [DEBUG] Starting new HTTP connection (1): 127.0.0.1:8090
+[2026-06-23 09:12:23,932] [DEBUG] http://127.0.0.1:8090 "GET /api/collections/setting/records HTTP/1.1" 200 439
+[2026-06-23 09:12:24,107] [INFO] Cleanup complete. Shutting down.
+[2026-06-23 09:12:33,714] [INFO] 4.10.0
+[2026-06-23 09:12:33,715] [INFO] 2.12.1+cu126
+[2026-06-23 09:12:33,820] [DEBUG] Using proactor: IocpProactor
+[2026-06-23 09:12:33,832] [INFO] Started server process [23864]
+[2026-06-23 09:12:33,832] [INFO] Waiting for application startup.
+[2026-06-23 09:12:33,837] [INFO] PocketBase stater 10356
+[2026-06-23 09:12:33,855] [INFO] Found the 'onnx' file!
+[2026-06-23 09:12:33,855] [INFO] Loading YOLO models...
+[2026-06-23 09:12:33,855] [INFO] Loading onnx/pt
+[2026-06-23 09:12:34,820] [DEBUG] Loaded backend Agg version v2.2.
+[2026-06-23 09:12:35,167] [INFO] Models loaded successfully
+[2026-06-23 09:12:35,169] [DEBUG] Starting new HTTP connection (1): 127.0.0.1:8090
+[2026-06-23 09:12:35,170] [DEBUG] http://127.0.0.1:8090 "GET /api/collections/setting/records HTTP/1.1" 200 439
+[2026-06-23 09:12:35,218] [INFO] Application startup complete.
+[2026-06-23 09:12:35,219] [INFO] Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+[2026-06-23 09:12:35,266] [INFO] 127.0.0.1:6812 - "GET /web/app HTTP/1.1" 307
+[2026-06-23 09:12:40,423] [INFO] 127.0.0.1:6244 - "GET /video_feed/rt1?source=rtsp://admin:admin@192.168.1.89:554/mainstream HTTP/1.1" 200
+[2026-06-23 09:12:44,579] [INFO] Shutting down
+[2026-06-23 09:12:44,694] [INFO] Waiting for connections to close. (CTRL+C to force quit)
+[2026-06-23 09:12:47,345] [INFO] Waiting for application shutdown.
+[2026-06-23 09:12:47,346] [DEBUG] Starting new HTTP connection (1): 127.0.0.1:8090
+[2026-06-23 09:12:47,348] [DEBUG] http://127.0.0.1:8090 "GET /api/collections/setting/records HTTP/1.1" 200 439
+[2026-06-23 09:12:47,519] [INFO] Cleanup complete. Shutting down.
+[2026-06-23 09:13:27,805] [INFO] 4.10.0
+[2026-06-23 09:13:27,805] [INFO] 2.12.1+cu126
+[2026-06-23 09:13:27,922] [DEBUG] Using proactor: IocpProactor
+[2026-06-23 09:13:27,936] [INFO] Started server process [14104]
+[2026-06-23 09:13:27,936] [INFO] Waiting for application startup.
+[2026-06-23 09:13:27,940] [INFO] PocketBase stater 18380
+[2026-06-23 09:13:27,957] [INFO] Found the 'onnx' file!
+[2026-06-23 09:13:27,957] [INFO] Loading YOLO models...
+[2026-06-23 09:13:27,957] [INFO] Loading onnx/pt
+[2026-06-23 09:13:29,019] [DEBUG] Loaded backend Agg version v2.2.
+[2026-06-23 09:13:30,561] [INFO] Models loaded successfully
+[2026-06-23 09:13:30,562] [DEBUG] Starting new HTTP connection (1): 127.0.0.1:8090
+[2026-06-23 09:13:30,563] [DEBUG] http://127.0.0.1:8090 "GET /api/collections/setting/records HTTP/1.1" 200 439
+[2026-06-23 09:13:30,601] [INFO] Application startup complete.
+[2026-06-23 09:13:30,602] [INFO] Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+[2026-06-23 09:13:30,643] [INFO] 127.0.0.1:9345 - "GET /web/app HTTP/1.1" 307
+[2026-06-23 09:13:36,785] [INFO] 127.0.0.1:8135 - "GET /video_feed/rt1?source=rtsp://admin:admin@192.168.1.89:554/mainstream HTTP/1.1" 200
+[2026-06-23 09:13:39,700] [DEBUG] Starting new HTTP connection (1): 127.0.0.1:8090
+[2026-06-23 09:13:39,732] [DEBUG] http://127.0.0.1:8090 "POST /api/collections/database/records HTTP/1.1" 200 410
+[2026-06-23 09:13:39,732] [INFO] fpc7t19ey44v7z3
+[2026-06-23 09:13:41,557] [INFO] Releasing camera resources
+[2026-06-23 09:13:42,997] [INFO] Shutting down
+[2026-06-23 09:13:43,098] [INFO] Waiting for application shutdown.
+[2026-06-23 09:13:43,099] [DEBUG] Starting new HTTP connection (1): 127.0.0.1:8090
+[2026-06-23 09:13:43,102] [DEBUG] http://127.0.0.1:8090 "GET /api/collections/setting/records HTTP/1.1" 200 439
+[2026-06-23 09:13:43,246] [INFO] Cleanup complete. Shutting down.
+[2026-06-23 09:14:06,449] [INFO] 4.10.0
+[2026-06-23 09:14:06,449] [INFO] 2.12.1+cu126
+[2026-06-23 09:14:06,548] [DEBUG] Using proactor: IocpProactor
+[2026-06-23 09:14:06,559] [INFO] Started server process [19852]
+[2026-06-23 09:14:06,559] [INFO] Waiting for application startup.
+[2026-06-23 09:14:06,563] [INFO] PocketBase stater 20460
+[2026-06-23 09:14:06,564] [INFO] Found the 'onnx' file!
+[2026-06-23 09:14:06,564] [INFO] Loading YOLO models...
+[2026-06-23 09:14:06,564] [INFO] Loading onnx/pt
+[2026-06-23 09:14:07,558] [DEBUG] Loaded backend Agg version v2.2.
+[2026-06-23 09:14:07,910] [INFO] Models loaded successfully
+[2026-06-23 09:14:07,912] [DEBUG] Starting new HTTP connection (1): 127.0.0.1:8090
+[2026-06-23 09:14:07,913] [DEBUG] http://127.0.0.1:8090 "GET /api/collections/setting/records HTTP/1.1" 200 439
+[2026-06-23 09:14:07,950] [INFO] Application startup complete.
+[2026-06-23 09:14:07,950] [INFO] Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+[2026-06-23 09:14:07,993] [INFO] 127.0.0.1:2539 - "GET /web/app HTTP/1.1" 307
+[2026-06-23 09:14:09,857] [INFO] 127.0.0.1:2539 - "GET /video_feed/rt1?source=rtsp://admin:admin@192.168.1.89:554/mainstream HTTP/1.1" 200
+[2026-06-23 09:14:13,111] [ERROR] Exception in callback _ProactorBasePipeTransport._call_connection_lost()
+handle: <Handle _ProactorBasePipeTransport._call_connection_lost()>
+Traceback (most recent call last):
+  File "C:\Users\Microsoft\AppData\Local\Python\pythoncore-3.14-64\Lib\asyncio\events.py", line 94, in _run
+    self._context.run(self._callback, *self._args)
+    ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Microsoft\AppData\Local\Python\pythoncore-3.14-64\Lib\asyncio\proactor_events.py", line 165, in _call_connection_lost
+    self._sock.shutdown(socket.SHUT_RDWR)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+ConnectionResetError: [WinError 10054] An existing connection was forcibly closed by the remote host
+[2026-06-23 09:14:13,200] [INFO] Releasing camera resources
+[2026-06-23 09:14:14,480] [INFO] Shutting down
+[2026-06-23 09:17:41,695] [INFO] 4.10.0
+[2026-06-23 09:17:41,695] [INFO] 2.12.1+cu126
+[2026-06-23 09:17:41,797] [DEBUG] Using proactor: IocpProactor
+[2026-06-23 09:17:41,810] [INFO] Started server process [17600]
+[2026-06-23 09:17:41,810] [INFO] Waiting for application startup.
+[2026-06-23 09:17:41,814] [INFO] PocketBase stater 20288
+[2026-06-23 09:17:41,831] [INFO] Found the 'onnx' file!
+[2026-06-23 09:17:41,831] [INFO] Loading YOLO models...
+[2026-06-23 09:17:41,831] [INFO] Loading onnx/pt
+[2026-06-23 09:17:42,808] [DEBUG] Loaded backend Agg version v2.2.
+[2026-06-23 09:17:43,170] [INFO] Models loaded successfully
+[2026-06-23 09:17:43,172] [DEBUG] Starting new HTTP connection (1): 127.0.0.1:8090
+[2026-06-23 09:17:43,176] [DEBUG] http://127.0.0.1:8090 "GET /api/collections/setting/records HTTP/1.1" 200 439
+[2026-06-23 09:17:43,213] [INFO] Application startup complete.
+[2026-06-23 09:17:43,214] [INFO] Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+[2026-06-23 09:17:43,265] [INFO] 127.0.0.1:1390 - "GET /web/app HTTP/1.1" 307
+[2026-06-23 09:22:38,357] [INFO] Shutting down
+[2026-06-23 09:22:38,460] [INFO] Waiting for application shutdown.
+[2026-06-23 09:22:38,462] [DEBUG] Starting new HTTP connection (1): 127.0.0.1:8090
+[2026-06-23 09:22:38,465] [DEBUG] http://127.0.0.1:8090 "GET /api/collections/setting/records HTTP/1.1" 200 439
+[2026-06-23 09:22:38,609] [INFO] Cleanup complete. Shutting down.
+[2026-06-27 09:54:16,747] [INFO] 4.10.0
+[2026-06-27 09:54:16,748] [INFO] 2.12.1+cu126
+[2026-06-27 09:54:16,933] [DEBUG] Using proactor: IocpProactor
+[2026-06-27 09:54:16,950] [INFO] Started server process [19260]
+[2026-06-27 09:54:16,950] [INFO] Waiting for application startup.
+[2026-06-27 09:54:18,807] [INFO] PocketBase stater 6484
+[2026-06-27 09:54:18,825] [INFO] Found the 'onnx' file!
+[2026-06-27 09:54:18,825] [INFO] Loading YOLO models...
+[2026-06-27 09:54:18,826] [INFO] Loading onnx/pt
+[2026-06-27 09:54:22,470] [DEBUG] Loaded backend Agg version v2.2.
+[2026-06-27 09:54:24,580] [INFO] Models loaded successfully
+[2026-06-27 09:54:24,582] [DEBUG] Starting new HTTP connection (1): 127.0.0.1:8090
+[2026-06-27 09:54:24,585] [DEBUG] http://127.0.0.1:8090 "GET /api/collections/setting/records HTTP/1.1" 200 439
+[2026-06-27 09:54:24,625] [INFO] Application startup complete.
+[2026-06-27 09:54:24,625] [INFO] Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+[2026-06-27 09:54:24,670] [INFO] 127.0.0.1:8103 - "GET /web/app HTTP/1.1" 307
+[2026-06-27 09:54:24,709] [INFO] 127.0.0.1:8103 - "GET /web/app/ HTTP/1.1" 200
+[2026-06-27 09:54:24,724] [INFO] 127.0.0.1:8103 - "GET /web/app/flutter_bootstrap.js HTTP/1.1" 200
+[2026-06-27 09:54:24,740] [INFO] 127.0.0.1:2015 - "GET /web/app/manifest.json HTTP/1.1" 200
+[2026-06-27 09:54:24,997] [INFO] 127.0.0.1:8103 - "GET /web/app/canvaskit/chromium/canvaskit.wasm HTTP/1.1" 200
+[2026-06-27 09:54:24,997] [INFO] 127.0.0.1:3476 - "GET /web/app/canvaskit/chromium/canvaskit.js HTTP/1.1" 200
+[2026-06-27 09:54:24,998] [INFO] 127.0.0.1:8280 - "GET /web/app/main.dart.js HTTP/1.1" 200
+[2026-06-27 09:54:26,495] [INFO] 127.0.0.1:8280 - "GET /web/app/assets/FontManifest.json HTTP/1.1" 200
+[2026-06-27 09:54:26,505] [INFO] 127.0.0.1:8280 - "GET /web/app/assets/fonts/MaterialIcons-Regular.otf HTTP/1.1" 200
+[2026-06-27 09:54:26,506] [INFO] 127.0.0.1:3476 - "GET /web/app/assets/assets/fonts/Yekan.ttf HTTP/1.1" 200
+[2026-06-27 09:54:26,506] [INFO] 127.0.0.1:8103 - "GET /web/app/assets/assets/fonts/arial.ttf HTTP/1.1" 200
+[2026-06-27 09:54:26,507] [INFO] 127.0.0.1:12347 - "GET /web/app/assets/packages/cupertino_icons/assets/CupertinoIcons.ttf HTTP/1.1" 200
+[2026-06-27 09:54:26,510] [INFO] 127.0.0.1:11760 - "GET /web/app/icons/Icon-192.png HTTP/1.1" 200
+[2026-06-27 09:54:27,513] [INFO] 127.0.0.1:8103 - "GET /web/app/assets/images/logo.jpg HTTP/1.1" 200
+[2026-06-27 09:54:29,540] [INFO] 127.0.0.1:8103 - "GET /web/app/assets/images/mainlogo2.png HTTP/1.1" 200
+[2026-06-27 09:54:29,554] [INFO] 127.0.0.1:8103 - "GET /web/app/assets/images/ban.jpg HTTP/1.1" 200
+[2026-06-27 09:54:34,750] [INFO] Shutting down
+[2026-06-27 09:54:34,850] [INFO] Waiting for application shutdown.
+[2026-06-27 09:54:34,852] [DEBUG] Starting new HTTP connection (1): 127.0.0.1:8090
+[2026-06-27 09:54:34,853] [DEBUG] http://127.0.0.1:8090 "GET /api/collections/setting/records HTTP/1.1" 200 439
+[2026-06-27 09:54:35,000] [INFO] Cleanup complete. Shutting down.
+[2026-06-27 09:55:17,955] [INFO] 4.10.0
+[2026-06-27 09:55:17,956] [INFO] 2.12.1+cu126
+[2026-06-27 09:55:18,057] [DEBUG] Using proactor: IocpProactor
+[2026-06-27 09:55:18,070] [INFO] Started server process [18816]
+[2026-06-27 09:55:18,071] [INFO] Waiting for application startup.
+[2026-06-27 09:55:18,075] [INFO] PocketBase stater 2720
+[2026-06-27 09:55:18,092] [INFO] Found the 'onnx' file!
+[2026-06-27 09:55:18,092] [INFO] Loading YOLO models...
+[2026-06-27 09:55:18,092] [INFO] Loading onnx/pt
+[2026-06-27 09:55:19,071] [DEBUG] Loaded backend Agg version v2.2.
+[2026-06-27 09:55:19,492] [INFO] Models loaded successfully
+[2026-06-27 09:55:19,494] [DEBUG] Starting new HTTP connection (1): 127.0.0.1:8090
+[2026-06-27 09:55:19,497] [DEBUG] http://127.0.0.1:8090 "GET /api/collections/setting/records HTTP/1.1" 200 439
+[2026-06-27 09:55:19,540] [INFO] Application startup complete.
+[2026-06-27 09:55:19,540] [INFO] Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+[2026-06-27 09:55:19,593] [INFO] 127.0.0.1:11533 - "GET /web/app HTTP/1.1" 307
+[2026-06-27 09:55:35,131] [INFO] Shutting down
+[2026-06-27 09:55:35,235] [INFO] Waiting for application shutdown.
+[2026-06-27 09:55:35,236] [DEBUG] Starting new HTTP connection (1): 127.0.0.1:8090
+[2026-06-27 09:55:35,238] [DEBUG] http://127.0.0.1:8090 "GET /api/collections/setting/records HTTP/1.1" 200 439
+[2026-06-27 09:55:35,386] [INFO] Cleanup complete. Shutting down.
+[2026-06-27 09:56:29,295] [INFO] 4.10.0
+[2026-06-27 09:56:29,295] [INFO] 2.12.1+cu126
+[2026-06-27 09:56:29,404] [DEBUG] Using proactor: IocpProactor
+[2026-06-27 09:56:29,416] [INFO] Started server process [17476]
+[2026-06-27 09:56:29,416] [INFO] Waiting for application startup.
+[2026-06-27 09:56:29,420] [INFO] PocketBase stater 15232
+[2026-06-27 09:56:29,444] [INFO] Found the 'onnx' file!
+[2026-06-27 09:56:29,444] [INFO] Loading YOLO models...
+[2026-06-27 09:56:29,445] [INFO] Loading onnx/pt
+[2026-06-27 09:56:30,423] [DEBUG] Loaded backend Agg version v2.2.
+[2026-06-27 09:56:30,794] [INFO] Models loaded successfully
+[2026-06-27 09:56:30,796] [DEBUG] Starting new HTTP connection (1): 127.0.0.1:8090
+[2026-06-27 09:56:30,797] [DEBUG] http://127.0.0.1:8090 "GET /api/collections/setting/records HTTP/1.1" 200 411
+[2026-06-27 09:56:30,835] [INFO] Application startup complete.
+[2026-06-27 09:56:30,836] [INFO] Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+[2026-06-27 09:56:36,381] [INFO] Shutting down
+[2026-06-27 09:56:36,486] [INFO] Waiting for application shutdown.
+[2026-06-27 09:56:36,487] [DEBUG] Starting new HTTP connection (1): 127.0.0.1:8090
+[2026-06-27 09:56:36,489] [DEBUG] http://127.0.0.1:8090 "GET /api/collections/setting/records HTTP/1.1" 200 411
+[2026-06-27 09:56:36,632] [INFO] Cleanup complete. Shutting down.
+[2026-06-27 13:26:42,257] [INFO] 4.10.0
+[2026-06-27 13:26:42,258] [INFO] 2.12.1+cu126
+[2026-06-27 13:26:42,457] [DEBUG] Using proactor: IocpProactor
+[2026-06-27 13:26:42,469] [INFO] Started server process [21364]
+[2026-06-27 13:26:42,470] [INFO] Waiting for application startup.
+[2026-06-27 13:26:42,562] [INFO] PocketBase stater 23244
+[2026-06-27 13:26:42,589] [INFO] Found the 'onnx' file!
+[2026-06-27 13:26:42,589] [INFO] Loading YOLO models...
+[2026-06-27 13:26:42,590] [INFO] Loading onnx/pt
+[2026-06-27 13:26:44,437] [DEBUG] Loaded backend Agg version v2.2.
+[2026-06-27 13:26:44,987] [INFO] Models loaded successfully
+[2026-06-27 13:26:44,998] [DEBUG] Starting new HTTP connection (1): 127.0.0.1:8090
+[2026-06-27 13:26:45,001] [DEBUG] http://127.0.0.1:8090 "GET /api/collections/setting/records HTTP/1.1" 200 439
+[2026-06-27 13:26:45,043] [INFO] Application startup complete.
+[2026-06-27 13:26:45,044] [INFO] Uvicorn running on http://0.0.0.0:8005 (Press CTRL+C to quit)
+[2026-06-27 13:26:50,831] [INFO] 127.0.0.1:4466 - "GET /web/app HTTP/1.1" 307
+[2026-06-27 13:26:51,234] [INFO] 127.0.0.1:4466 - "GET /web/app/flutter_service_worker.js HTTP/1.1" 200
+[2026-06-27 13:26:56,620] [INFO] Shutting down
+[2026-06-27 13:26:56,726] [INFO] Waiting for application shutdown.
+[2026-06-27 13:26:56,727] [DEBUG] Starting new HTTP connection (1): 127.0.0.1:8090
+[2026-06-27 13:26:56,728] [DEBUG] http://127.0.0.1:8090 "GET /api/collections/setting/records HTTP/1.1" 200 439
+[2026-06-27 13:26:56,876] [INFO] Cleanup complete. Shutting down.

@@ -1,4 +1,6 @@
-#TODO: BEST OF BOTH WORLD?
+
+import os
+os.environ['ULTRALYTICS_SKIP_REQUIREMENTS_CHECKS'] = '1'
 import asyncio
 from contextlib import asynccontextmanager
 import json

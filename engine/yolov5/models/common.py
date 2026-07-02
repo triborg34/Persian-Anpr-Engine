@@ -401,7 +401,7 @@ class DetectMultiBackend(nn.Module):
         elif xml:  # OpenVINO
             LOGGER.info(f"Loading {w} for OpenVINO inference...")
             check_requirements("openvino>=2023.0")  # requires openvino-dev: https://pypi.org/project/openvino-dev/
-            from openvino.runtime import Core, Layout, get_batch
+            from openvino import Core, Layout, get_batch
 
             core = Core()
             if not Path(w).is_file():  # if not *.xml
