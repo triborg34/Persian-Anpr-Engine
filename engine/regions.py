@@ -23,6 +23,10 @@ class CCTVRegionSelector:
         self.region_counter = 1
         self.draw_mode = tk.StringVar(value="polygon")  # polygon, rectangle, line
         
+        # Zoom/scale
+        self.scale = 1.0
+        self.display_image = None
+        
         # Rectangle drawing variables
         self.rect_start = None
         self.temp_rect = None
@@ -70,6 +74,8 @@ class CCTVRegionSelector:
         
         ttk.Button(region_frame, text="Clear All", 
                   command=self.clear_regions).pack(side=tk.LEFT, padx=2)
+        ttk.Button(region_frame, text="Fit", 
+                  command=self.fit_to_window).pack(side=tk.LEFT, padx=2)
         ttk.Button(region_frame, text="Save Regions", 
                   command=self.save_regions).pack(side=tk.LEFT, padx=2)
         ttk.Button(region_frame, text="Load Regions", 
@@ -100,7 +106,8 @@ class CCTVRegionSelector:
         self.canvas.bind('<Button-1>', self.on_canvas_click)
         self.canvas.bind('<B1-Motion>', self.on_canvas_drag)
         self.canvas.bind('<ButtonRelease-1>', self.on_canvas_release)
-        self.canvas.bind('<Button-3>', self.finish_polygon)  # Right click to finish polygon
+        self.canvas.bind('<Button-3>', self.finish_polygon)
+        self.canvas.bind('<MouseWheel>', self.on_mouse_wheel)
         
         # Region list frame (right side)
         list_frame = ttk.LabelFrame(content_frame, text="Regions", padding=5)
@@ -219,22 +226,20 @@ Instructions:
     def load_image_from_pil(self, image):
         """Load image from PIL Image object"""
         self.image = image.copy()
-        
-        # Resize image if too large
-        # max_size = 2000
-        # if max(image.size) > max_size:
-        #     ratio = max_size / max(image.size)
-        #     new_size = (int(image.size[0] * ratio), int(image.size[1] * ratio))
-        #     image = image.resize(new_size, Image.Resampling.LANCZOS)
-        
-        self.photo = ImageTk.PhotoImage(image)
-        
-        # Update canvas
+        self.root.update_idletasks()
+        canvas_w = self.canvas.winfo_width()
+        canvas_h = self.canvas.winfo_height()
+        if canvas_w < 10 or canvas_h < 10:
+            canvas_w, canvas_h = 1200, 700
+        img_w, img_h = image.size
+        self.scale = min(canvas_w / img_w, canvas_h / img_h, 1.0)
+        new_w = int(img_w * self.scale)
+        new_h = int(img_h * self.scale)
+        self.display_image = image.resize((new_w, new_h), Image.Resampling.LANCZOS)
+        self.photo = ImageTk.PhotoImage(self.display_image)
         self.canvas.delete("all")
-        self.canvas.configure(scrollregion=(0, 0, image.size[0], image.size[1]))
+        self.canvas.configure(scrollregion=(0, 0, new_w, new_h))
         self.canvas.create_image(0, 0, anchor=tk.NW, image=self.photo)
-        
-        # Clear regions
         self.regions = {}
         self.region_counter = 1
         self.update_region_list()
@@ -285,6 +290,46 @@ Instructions:
             self.finish_rectangle(x, y)
         elif mode == "line":
             self.finish_line(x, y)
+    
+    def on_mouse_wheel(self, event):
+        """Zoom in/out with mouse wheel"""
+        if not self.image:
+            return
+        factor = 1.1 if event.delta > 0 else 0.9
+        old_scale = self.scale
+        self.scale = max(0.1, min(5.0, self.scale * factor))
+        ratio = self.scale / old_scale
+        img_w, img_h = self.image.size
+        new_w = int(img_w * self.scale)
+        new_h = int(img_h * self.scale)
+        self.display_image = self.image.resize((new_w, new_h), Image.Resampling.LANCZOS)
+        self.photo = ImageTk.PhotoImage(self.display_image)
+        self.canvas.delete("all")
+        self.canvas.configure(scrollregion=(0, 0, new_w, new_h))
+        self.canvas.create_image(0, 0, anchor=tk.NW, image=self.photo)
+        self.redraw_regions()
+        self.status_var.set(f"Zoom: {int(self.scale * 100)}%")
+    
+    def fit_to_window(self):
+        """Reset zoom to fit image in canvas"""
+        if not self.image:
+            return
+        self.root.update_idletasks()
+        canvas_w = self.canvas.winfo_width()
+        canvas_h = self.canvas.winfo_height()
+        if canvas_w < 10 or canvas_h < 10:
+            canvas_w, canvas_h = 1200, 700
+        img_w, img_h = self.image.size
+        self.scale = min(canvas_w / img_w, canvas_h / img_h, 1.0)
+        new_w = int(img_w * self.scale)
+        new_h = int(img_h * self.scale)
+        self.display_image = self.image.resize((new_w, new_h), Image.Resampling.LANCZOS)
+        self.photo = ImageTk.PhotoImage(self.display_image)
+        self.canvas.delete("all")
+        self.canvas.configure(scrollregion=(0, 0, new_w, new_h))
+        self.canvas.create_image(0, 0, anchor=tk.NW, image=self.photo)
+        self.redraw_regions()
+        self.status_var.set(f"Fit to window - Zoom: {int(self.scale * 100)}%")
     
     def add_polygon_point(self, x, y):
         """Add point to current polygon"""
@@ -370,17 +415,21 @@ Instructions:
         
         self.save_current_region("line", color)
     
+    def _canvas_to_image(self, x, y):
+        return x / self.scale, y / self.scale
+
+    def _image_to_canvas(self, x, y):
+        return x * self.scale, y * self.scale
+
     def save_current_region(self, shape_type, color):
         """Save the current region with custom name and ID"""
         if not self.current_region:
             return
         
-        # Remove temporary drawings
         self.canvas.delete("temp_line")
         self.canvas.delete("temp_point")
         self.canvas.delete("temp_rect")
         
-        # Get custom name and ID from user
         dialog = RegionDialog(self.root, f"r{self.region_counter}")
         self.root.wait_window(dialog.dialog)
         
@@ -391,19 +440,19 @@ Instructions:
             relay_ip=dialog.result['relay_ip']
             relay_number=dialog.result['relay_number']
         else:
-            # User cancelled, restore default
             region_name = f"r{self.region_counter}"
             region_id = str(self.region_counter)
             description = ""
             relay_ip=str("192.168.1.200")
             relay_number='1'
         
-        # Draw the final shape
+        image_points = [self._canvas_to_image(px, py) for px, py in self.current_region]
+        
         if shape_type == "polygon":
-            points = []
+            canvas_points = []
             for point in self.current_region:
-                points.extend([point[0], point[1]])
-            self.canvas.create_polygon(points, outline=color, fill='', width=2, tags=f"region_{region_name}")
+                canvas_points.extend([point[0], point[1]])
+            self.canvas.create_polygon(canvas_points, outline=color, fill='', width=2, tags=f"region_{region_name}")
         elif shape_type == "rectangle":
             x1, y1 = self.current_region[0]
             x2, y2 = self.current_region[2]
@@ -413,21 +462,19 @@ Instructions:
             x2, y2 = self.current_region[1]
             self.canvas.create_line(x1, y1, x2, y2, fill=color, width=2, tags=f"region_{region_name}")
         
-        # Add region label
         center_x = sum(p[0] for p in self.current_region) / len(self.current_region)
         center_y = sum(p[1] for p in self.current_region) / len(self.current_region)
         
         self.canvas.create_text(center_x, center_y, text=region_name, 
                                fill=color, font=('Arial', 10, 'bold'), tags=f"label_{region_name}")
         
-        # Save region data
         self.regions[region_name] = {
             'id': region_id,
             'name': region_name,
             'description': description,
             'relay_ip':relay_ip,
             'relay_number':relay_number,
-            'points': self.current_region.copy(),
+            'points': image_points,
             'shape_type': shape_type,
             'color': color,
             'created': datetime.now().isoformat()
@@ -435,7 +482,6 @@ Instructions:
         
         self.status_var.set(f"Region {region_name} (ID: {region_id}) created")
         
-        # Reset for next region
         self.current_region = []
         self.drawing = False
         self.rect_start = None
@@ -639,36 +685,34 @@ Instructions:
         if not self.image:
             return
         
-        # Clear existing region drawings
         for region_name in self.regions.keys():
             self.canvas.delete(f"region_{region_name}")
             self.canvas.delete(f"label_{region_name}")
         
-        # Draw all regions
         for region_name, region_data in self.regions.items():
             points = region_data.get('points', [])
             color = region_data.get('color', 'red')
             shape_type = region_data.get('shape_type', 'polygon')
             
-            # Draw shape based on type
-            if shape_type == "polygon" and len(points) > 2:
-                canvas_points = []
-                for point in points:
-                    canvas_points.extend([point[0], point[1]])
-                self.canvas.create_polygon(canvas_points, outline=color, fill='', width=2, tags=f"region_{region_name}")
-            elif shape_type == "rectangle" and len(points) == 4:
-                x1, y1 = points[0]
-                x2, y2 = points[2]
+            canvas_points = [self._image_to_canvas(px, py) for px, py in points]
+            
+            if shape_type == "polygon" and len(canvas_points) > 2:
+                flat = []
+                for pt in canvas_points:
+                    flat.extend(pt)
+                self.canvas.create_polygon(flat, outline=color, fill='', width=2, tags=f"region_{region_name}")
+            elif shape_type == "rectangle" and len(canvas_points) == 4:
+                x1, y1 = canvas_points[0]
+                x2, y2 = canvas_points[2]
                 self.canvas.create_rectangle(x1, y1, x2, y2, outline=color, width=2, tags=f"region_{region_name}")
-            elif shape_type == "line" and len(points) == 2:
-                x1, y1 = points[0]
-                x2, y2 = points[1]
+            elif shape_type == "line" and len(canvas_points) == 2:
+                x1, y1 = canvas_points[0]
+                x2, y2 = canvas_points[1]
                 self.canvas.create_line(x1, y1, x2, y2, fill=color, width=2, tags=f"region_{region_name}")
             
-            # Add label
-            if points:
-                center_x = sum(p[0] for p in points) / len(points)
-                center_y = sum(p[1] for p in points) / len(points)
+            if canvas_points:
+                center_x = sum(p[0] for p in canvas_points) / len(canvas_points)
+                center_y = sum(p[1] for p in canvas_points) / len(canvas_points)
                 self.canvas.create_text(center_x, center_y, text=region_name, 
                                        fill=color, font=('Arial', 10, 'bold'), tags=f"label_{region_name}")
 

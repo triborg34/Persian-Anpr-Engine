@@ -1,21 +1,18 @@
 
-from asyncio import subprocess
-import datetime
 import gc
 import json
 import logging
 import os
-import platform
 import queue
+import socket
+import subprocess
 import time
 from urllib.parse import urlparse
 import webbrowser
-from fastapi import Request
 import numpy as np
 import cv2
 import requests
 import torch
-import subprocess
 import statistics
 from ultralytics import YOLO
 from database.db_entries_utils import db_entries_time
@@ -35,12 +32,14 @@ logging.basicConfig(
 )
 
 torch.serialization.add_safe_globals([np.core.multiarray._reconstruct])
+if torch.cuda.is_available():
+    torch.set_float32_matmul_precision('medium')
 logging.info(cv2.__version__)
 logging.info(torch.__version__)
 
 
 class CcTvMonitor:
-    def __init__(self):
+    def __init__(self) -> None:
         self.process = None
         self.loadDb()
         self.regionMode = self.isRegionMode()
@@ -59,9 +58,10 @@ class CcTvMonitor:
         self.model_car, self.model_plate, self.model_char, self.dolatimodel = self.loadModels()
         self.quality, self.charConfidence, self.plateConfidence, self.port = self.loadConfig()[
             0:4]
+        self._warmup_models()
         self.loadWebBrowser(self.port)
 
-    def loadWebBrowser(self, port):
+    def loadWebBrowser(self, port: int) -> None:
         webbrowser.open(f'http://127.0.0.1:{port}/web/app')
 
     def isRegionMode(self) -> bool:
@@ -70,7 +70,7 @@ class CcTvMonitor:
         else:
             return False
 
-    def loadDb(self):
+    def loadDb(self) -> None:
 
         try:
 
@@ -80,78 +80,93 @@ class CcTvMonitor:
         except Exception as e:
             logging.info(e)
 
-    def checkrecordMode(self):
+    def checkrecordMode(self) -> bool:
         if os.path.isfile('recordingmode'):
             return True
         else:
             return False
 
-    def chechOnnx(self):
+    def chechOnnx(self) -> str:
         directory = 'model'
+        if not os.path.isdir(directory):
+            logging.warning("Model directory not found, defaulting to 'pt'")
+            return 'pt'
         for filename in os.listdir(directory):
-            # Get full file path
             filepath = os.path.join(directory, filename)
-
-            # Check if it's a file (not a directory)
             if os.path.isfile(filepath):
-                # Check if filename is exactly "onnx"
                 if filename == "onnx":
-                
-                    logging.info(f"Found the 'onnx' file!")
-
-                    # Read and process the onnx file
+                    logging.info("Found 'onnx' sentinel file")
                     return "onnx"
-                elif filename=='pt':
-              
-                    logging.info(f"Found the 'pt' file!")
+                elif filename == "pt":
+                    logging.info("Found 'pt' sentinel file")
                     return "pt"
         return 'pt'
 
-    def chechOpenvino(self):
+    def chechOpenvino(self) -> bool:
         directory = 'model'
+        if not os.path.isdir(directory):
+            return False
         for filename in os.listdir(directory):
-            # Get full file path
             filepath = os.path.join(directory, filename)
-
-            # Check if it's a file (not a directory)
             if os.path.isfile(filepath):
-                # Check if filename is exactly "openvino"
-                if filename == "openvino":
-                    logging.info(f"Found the 'openvino' file!")
-
-                    # Read and process the onnx file
+                if 'openvino' in filename.lower() and not filename.startswith('.'):
+                    logging.info(f"Found OpenVINO model: {filename}")
                     return True
-
         return False
 
-    def loadModels(self):
+    def loadModels(self) -> tuple:
         fileEx = self.chechOnnx()
         logging.info("Loading YOLO models...")
-        if self.chechOpenvino() and self.device.type == 'cpu':
-            logging.info("Loading openvino")
-            model_char = torch.hub.load(
-                'yolov5', 'custom', f'model/CharsYolo_openvino_model', source='local', device=self.device, force_reload=True)
-            model_plate = torch.hub.load(
-                'yolov5', 'custom', f'model/plateYolo_openvino_model', source='local', device=self.device, force_reload=True)
-            model_car = YOLO(f'model/yolov8n_openvino_model', task='detect')
-            dolatimodel = YOLO('model/dolditector_openvino_model',task='detect')
+        model_car = None
+        model_plate = None
+        model_char = None
+        dolatimodel = None
 
-        else:
+        try:
+            if self.chechOpenvino() and self.device.type == 'cpu':
+                logging.info("Loading openvino")
+                model_char = torch.hub.load(
+                    'yolov5', 'custom', f'model/CharsYolo_openvino_model', source='local', device=self.device, force_reload=True)
+                model_plate = torch.hub.load(
+                    'yolov5', 'custom', f'model/plateYolo_openvino_model', source='local', device=self.device, force_reload=True)
+                model_car = YOLO(f'model/yolov8n_openvino_model', task='detect')
+                dolatimodel = YOLO('model/dolditector_openvino_model', task='detect')
+            else:
+                logging.info("Loading onnx/pt")
+                model_char = torch.hub.load(
+                    'yolov5', 'custom', f'model/CharsYolo.{fileEx}', source='local', device=self.device, force_reload=True)
+                model_plate = torch.hub.load(
+                    'yolov5', 'custom', f'model/plateYolo.{fileEx}', source='local', device=self.device, force_reload=True)
+                model_car = YOLO(f'model/yolov8n.{fileEx}', task='detect')
+                dolatimodel = YOLO(f'model/dolditector.{fileEx}', task='detect')
+        except Exception as e:
+            logging.error(f"Error loading models: {e}")
+            if model_car is None or model_plate is None or model_char is None:
+                logging.critical("Core models failed to load. System cannot operate.")
+                raise RuntimeError("Failed to load core YOLO models") from e
+            logging.warning("Some models failed to load, running with partial capabilities")
 
-            logging.info("Loading onnx/pt")
-            model_char = torch.hub.load(
-                'yolov5', 'custom', f'model/CharsYolo.{fileEx}', source='local', device=self.device, force_reload=True)
-            model_plate = torch.hub.load(
-                'yolov5', 'custom', f'model/plateYolo.{fileEx}', source='local', device=self.device, force_reload=True)
-            
-            model_car = YOLO(f'model/yolov8n.{fileEx}', task='detect')
-
-            dolatimodel = YOLO(f'model/dolditector.{fileEx}',task='detect')
         logging.info("Models loaded successfully")
         with self.lock:
             return model_car, model_plate, model_char, dolatimodel
 
-    def loadConfig(self):
+    def _warmup_models(self) -> None:
+        logging.info("Warming up models...")
+        dummy = np.zeros((640, 640, 3), dtype=np.uint8)
+        try:
+            if self.model_car is not None:
+                self.model_car(dummy, device=self.device, verbose=False)
+            if self.model_plate is not None:
+                self.model_plate(dummy)
+            if self.model_char is not None:
+                self.model_char(dummy)
+            if self.dolatimodel is not None:
+                self.dolatimodel(dummy, verbose=False)
+        except Exception as e:
+            logging.warning(f"Model warmup failed: {e}")
+        logging.info("Model warmup complete")
+
+    def loadConfig(self) -> tuple:
         url = 'http://127.0.0.1:8090/api/collections/setting/records'
         response = requests.get(url).json()
         with self.lock:
@@ -161,31 +176,20 @@ class CcTvMonitor:
             port = response['items'][0]['port']
             return quality, charConfidence, plateConfidence, port
 
-    def graceful_shutdown(self):
-
-        # Clean up resources
+    def graceful_shutdown(self) -> None:
         if torch.cuda.is_available():
             torch.cuda.empty_cache()
         gc.collect()
 
-        # Stop observer if running
-        # os.system(f'taskkill /PID {self.process.pid} /F')
-        self.process.kill()
-        self.process.wait(1)
-        # if self.process.returncode is not None:
-
-        #    self.process.kill()
-        #    self.process.wait(1)
-        # # self.process.terminate()
+        if self.process and self.process.poll() is None:
+            self.process.kill()
+            self.process.wait(1)
 
         logging.info("Cleanup complete. Shutting down.")
 
-        # Use os._exit instead of sys.exit for more forceful termination
-        os._exit(0)
-
 
 class CameraManager:
-    def __init__(self, source, config: CcTvMonitor, camera_id):
+    def __init__(self, source: str, config: CcTvMonitor, camera_id: int):
         self.source = source
         self.config = config
         self.camera_id = camera_id
@@ -194,16 +198,17 @@ class CameraManager:
         self.running = False
         self.client_count = 0
         self.client_lock = threading.Lock()
-        self.latest_frame = None
-        self.resuilt_frame = None
+        self._latest_frame = None
+        self._frame_lock = threading.Lock()
+        self.result_frame = None
         # ---------- THREADS ----------
         self.capture_thread = None
         self.process_thread = None
         self.stop_event = threading.Event()
 
-        # ========== CHANGE 1: LOCK-FREE BUFFERS ==========
-        self.capture_buffer = [None, None]  # For raw frames from camera
-        self.display_buffer = [None, None]  # For processed frames
+        # ========== LOCK-FREE BUFFERS ==========
+        self.capture_buffer = [None, None]
+        self.display_buffer = [None, None]
         self.capture_write_idx = 0
         self.capture_read_idx = 0
         self.display_write_idx = 0
@@ -212,13 +217,25 @@ class CameraManager:
         self.capture_version = 0
         self.display_version = 0
 
-        # ========== CHANGE 2: OPTIMIZED QUEUES ==========
-        # Smaller queues, faster operations
-        self.frame_queue = queue.Queue(maxsize=2)  # Was 10
+        # ========== OPTIMIZED QUEUES ==========
+        self.frame_queue = queue.Queue(maxsize=2)
 
         # ---------- DATA ----------
-        # Remove: self.result_frame, self.result_lock
         self.processed_tracks = set()
+
+        # ========== REGION MASK CACHE ==========
+        self._cached_region_masks = None
+        self._cached_regions_key = None
+        self._cached_frame_shape = None
+        self._combined_region_mask = None
+        self._combined_regions_key = None
+
+        # ========== CACHED CV OBJECTS ==========
+        self._clahe = cv2.createCLAHE(clipLimit=3.0, tileGridSize=(8, 8))
+        self._hsv_lower1 = np.array([0, 70, 50])
+        self._hsv_upper1 = np.array([10, 255, 255])
+        self._hsv_lower2 = np.array([170, 70, 50])
+        self._hsv_upper2 = np.array([180, 255, 255])
 
         if self.config.regionMode:
             self.background_subtractor = cv2.createBackgroundSubtractorMOG2()
@@ -258,30 +275,18 @@ class CameraManager:
                 self.stop()
 
     def sendFrames(self):
-
-        #     encode_params = [
-        #     cv2.IMWRITE_JPEG_QUALITY, 80,  # Lower quality = faster
-        #     cv2.IMWRITE_JPEG_OPTIMIZE, 1,   # Optimize encoding
-        #     cv2.IMWRITE_JPEG_PROGRESSIVE, 0  # No progressive (faster)
-        # ]
-        last_version = -1
-
+        jpeg_params = [cv2.IMWRITE_JPEG_QUALITY, 50, cv2.IMWRITE_JPEG_OPTIMIZE, 0]
         while self.running:
-            frame = self.resuilt_frame
-            # current_version = self.display_version
-            # if current_version == last_version:
-            #     time.sleep(0.005)  # 5ms sleep when waiting
-            #     continue
-            # last_version = current_version
-            # read_idx = self.display_read_idx
-            # frame = self.display_buffer[read_idx]
+            with self._frame_lock:
+                frame = self.result_frame
 
             if frame is None:
                 time.sleep(0.005)
                 continue
 
-            _, jpeg = cv2.imencode(
-                ".jpg", frame, [cv2.IMWRITE_JPEG_QUALITY, 50])
+            success, jpeg = cv2.imencode(".jpg", frame, jpeg_params)
+            if not success:
+                continue
 
             yield (
                 b"--frame\r\n"
@@ -290,7 +295,7 @@ class CameraManager:
                 + b"\r\n"
             )
 
-    def generate_frames(self, camera_idx, source):
+    def generate_frames(self, camera_idx: int, source: str):
         """Generate frames from a specific camera feed"""
         if not self.is_connection_alive(source):
             logging.warning(f"[Camera {camera_idx}] Connection not available")
@@ -298,7 +303,7 @@ class CameraManager:
 
         counter = 0
         if self.config.regionMode:
-            regions = self.loadRegions(soruce=source)  # TODO:FIX
+            regions = self.loadRegions(soruce=source)
 
             if not hasattr(self, 'k'):
                 self.k = []
@@ -312,26 +317,17 @@ class CameraManager:
 
                 success, frame = fresh.read()
 
-                # if counter%750  ==0:
-                #     print("CLEARING TRACKS")
-                #     self.processed_tracks.clear()
-
                 if frame is None:
                     continue
-                self.latest_frame = frame
-                # write_idx = self.capture_write_idx
-                # self.capture_buffer[write_idx] = frame
+                with self._frame_lock:
+                    self._latest_frame = frame
 
-                # # Swap buffers atomically
-                # self.capture_read_idx = write_idx
-                # self.capture_write_idx = 1 - write_idx
-                # self.capture_version += 1
                 try:
-
                     self.frame_queue.put_nowait(
                         (f'/rt{camera_idx}', counter, regions))
                 except queue.Full:
                     pass
+                counter += 1
 
         except Exception as e:
             logging.error(f"Error in generate_frames: {e}")
@@ -343,6 +339,10 @@ class CameraManager:
     def process_frame(self):
         last_capture_version = -1
         """Process a single frame for object detection"""
+        if self.config.regionMode:
+            self._combined_region_mask = None
+            self._combined_regions_key = None
+
         while self.running:
             try:
 
@@ -355,35 +355,43 @@ class CameraManager:
                 logging.info("process_frame shutdown signal received")
                 break
             path, counter, regions = item
-            frame = self.latest_frame
-            # current_capture_version = self.capture_version
-            # if current_capture_version == last_capture_version:
-            #     continue
-            # last_capture_version = current_capture_version
-            # read_idx = self.capture_read_idx
-            # frame = self.capture_buffer[read_idx]
+            with self._frame_lock:
+                frame = self._latest_frame
             if frame is None or frame.size == 0:
                 continue
 
             try:
-                processed_frame = frame.copy()
+                processed_frame = frame
 
                 if self.config.regionMode:
-                    region_masks = self.generate_region_masks(
-                        processed_frame.shape, regions)
-                    combined_mask = np.zeros(
-                        processed_frame.shape[:2], dtype=np.uint8)
-                    for mask in region_masks.values():
-                        combined_mask = cv2.bitwise_or(combined_mask, mask)
+                    regions_key = id(regions) if regions else None
+                    frame_shape_key = (frame.shape[0], frame.shape[1])
+                    if (self._cached_region_masks is None or
+                            self._cached_regions_key != regions_key or
+                            self._cached_frame_shape != frame_shape_key):
+                        self._cached_region_masks = self.generate_region_masks(
+                            frame.shape, regions)
+                        self._cached_regions_key = regions_key
+                        self._cached_frame_shape = frame_shape_key
+                        self._combined_region_mask = None
+
+                    region_masks = self._cached_region_masks
+
+                    if self._combined_region_mask is None:
+                        combined_mask = np.zeros(
+                            processed_frame.shape[:2], dtype=np.uint8)
+                        for mask in region_masks.values():
+                            cv2.bitwise_or(combined_mask, mask, dst=combined_mask)
+                        self._combined_region_mask = combined_mask
+
                     masked_frame = cv2.bitwise_and(
-                        processed_frame, processed_frame, mask=combined_mask)
+                        processed_frame, processed_frame, mask=self._combined_region_mask)
                     self.k.clear()
                     current_regions = []
 
-                # Detect vehicles in low-res
-
-                car_res = self.config.model_car(
-                    masked_frame if self.config.regionMode else processed_frame, device=self.config.device, classes=[2, 5, 7], verbose=False, conf=self.config.carConf, iou=self.config.iou)
+                with torch.inference_mode():
+                    car_res = self.config.model_car(
+                        masked_frame if self.config.regionMode else processed_frame, device=self.config.device, classes=[2, 5, 7], verbose=False, conf=self.config.carConf, iou=self.config.iou)
 
                 for res in car_res:
                     for i in range(len(res.boxes.xyxy)):
@@ -418,7 +426,6 @@ class CameraManager:
                                         int(plate['xmax']), int(plate['ymax'])
                                     )
 
-                                    # Safety check to prevent out-of-bounds issues
                                     if (y_min >= y_max or x_min >= x_max or
                                         y_min < 0 or x_min < 0 or
                                         y_max > cropped_car.shape[0] or
@@ -428,7 +435,6 @@ class CameraManager:
                                     cropped_plate = cropped_car[y_min:y_max,
                                                                 x_min:x_max]
 
-                                    # Skip if the cropped plate is empty
                                     if cropped_plate.size == 0:
                                         continue
 
@@ -452,7 +458,7 @@ class CameraManager:
                                             plateConfAvg=plate_conf,
                                             croppedPlate=cropped_plate,
                                             status="Active",
-                                            frame=processed_frame.copy(),
+                                            frame=processed_frame,
                                             isarvand='notarvand',
                                             rtpath=path,
                                             quality=self.config.quality
@@ -479,7 +485,6 @@ class CameraManager:
                                         d = newy2 - newy1
                                         tempyMax = newy1 + int(d / 2)
 
-                                        # Safety check before cropping
                                         if (tempyMax > newy1 and newx2 > newx1 and
                                             newy1 >= 0 and newx1 >= 0 and
                                             tempyMax <= deskewed_plate.shape[0] and
@@ -515,54 +520,29 @@ class CameraManager:
                 else:
                     display_frame = processed_frame
 
-                # write_idx = self.display_write_idx
-                # self.display_buffer[write_idx] = display_frame
-
-                # # Swap buffers atomically
-                # self.display_read_idx = write_idx
-                # self.display_write_idx = 1 - write_idx
-                # self.display_version += 1
-
-                # try:
-                #     del plate_results, cropped_car, car_res
-                # except Exception as e:
-                #     pass
-                self.resuilt_frame = display_frame
-                # with self.result_lock:
-                #         self.result_frame = frame
+                with self._frame_lock:
+                    self.result_frame = display_frame
 
             except Exception as ex:
+                logging.error(f"Error in process_frame: {ex}")
+                with self._frame_lock:
+                    self.result_frame = frame
 
-                self.resuilt_frame = frame
-                # write_idx = self.display_write_idx
-                # self.display_buffer[write_idx] = frame
-
-                # # Swap buffers atomically
-                # self.display_read_idx = write_idx
-                # self.display_write_idx = 1 - write_idx
-                # self.display_version += 1
-
-    def is_connection_alive(self, source):
-        """Check if network connection to source is alive"""
-        ulr = urlparse(source).hostname
-        param = "-n" if platform.system().lower() == "windows" else "-c"
-
-        # Build the ping command
-        command = ["ping", param, "1", ulr]
-
+    def is_connection_alive(self, source: str) -> bool:
+        """Check if network connection to source is alive using socket"""
+        hostname = urlparse(source).hostname
+        if not hostname:
+            return False
         try:
-            # Execute the ping command
-            result = subprocess.run(
-                command, capture_output=True, text=True, timeout=10)
-            if 'unreachable' not in result.stdout:
-                return True
-            else:
-
-                return False
-        except subprocess.TimeoutExpired:
+            sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+            sock.settimeout(3)
+            result = sock.connect_ex((hostname, 554))
+            sock.close()
+            return result == 0
+        except (socket.error, OSError):
             return False
 
-    def draw_regions_on_frame(self, frame, regions):
+    def draw_regions_on_frame(self, frame: np.ndarray, regions: dict) -> np.ndarray:
         """Draw region boundaries on frame"""
         overlay = frame.copy()
 
@@ -609,7 +589,7 @@ class CameraManager:
 
         return overlay
 
-    def onDisplay(self, region, frame):
+    def onDisplay(self, region: list, frame: np.ndarray) -> None:
         """Display region names on frame"""
         if not region:  # More pythonic than len(region) == 0
             return
@@ -625,7 +605,7 @@ class CameraManager:
                 cv2.putText(frame, reg['name'], (10, y_pos),
                             cv2.FONT_HERSHEY_COMPLEX_SMALL, 1, (255, 255, 255))
 
-    def get_detection_region(self, detection_box, region_masks):
+    def get_detection_region(self, detection_box: tuple, region_masks: dict) -> str | None:
 
         cx = int((detection_box[0] + detection_box[2]) / 2)
         cy = int((detection_box[1] + detection_box[3]) / 2)
@@ -635,7 +615,7 @@ class CameraManager:
                 return region_name  # First match wins
         return None
 
-    def generate_region_masks(self, frame_shape, regions):
+    def generate_region_masks(self, frame_shape: tuple, regions: dict) -> dict:
         """Create binary masks for each region (once)"""
         h, w, _ = frame_shape
         masks = {}
@@ -662,14 +642,12 @@ class CameraManager:
             masks[region_name] = mask
         return masks
 
-    def correct_perspective(self, image, scale_factor):
+    def correct_perspective(self, image: np.ndarray, scale_factor: float) -> tuple[np.ndarray, tuple]:
         try:
-            # Preprocessing
             gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
             gray = cv2.GaussianBlur(gray, (7, 7), 0)
             gray = cv2.medianBlur(gray, 3)
-            clahe = cv2.createCLAHE(clipLimit=3.0, tileGridSize=(8, 8))
-            gray = clahe.apply(gray)
+            gray = self._clahe.apply(gray)
 
             # Edge detection
             edges = cv2.Canny(gray, 30, 150)
@@ -754,28 +732,17 @@ class CameraManager:
             logging.error(f"Error in correct_perspective: {e}")
             return image, (0, 0, 0, 0)
 
-    def is_red_plate(self, img):
-
+    def is_red_plate(self, img: np.ndarray) -> bool:
         hsv = cv2.cvtColor(img, cv2.COLOR_BGR2HSV)
-    
-
-        lower_red1 = np.array([0, 70, 50])
-        upper_red1 = np.array([10, 255, 255])
-
-        lower_red2 = np.array([170, 70, 50])
-        upper_red2 = np.array([180, 255, 255])
-
-        mask1 = cv2.inRange(hsv, lower_red1, upper_red1)
-        mask2 = cv2.inRange(hsv, lower_red2, upper_red2)
-
-        mask = mask1 + mask2
-
-        red_ratio = np.sum(mask > 0) / (img.shape[0] * img.shape[1])
-
+        mask1 = cv2.inRange(hsv, self._hsv_lower1, self._hsv_upper1)
+        mask2 = cv2.inRange(hsv, self._hsv_lower2, self._hsv_upper2)
+        mask = cv2.add(mask1, mask2)
+        red_ratio = cv2.countNonZero(mask) / (img.shape[0] * img.shape[1])
         return red_ratio > 0.15
 
-    def dolatireader(self, img):
-        results = self.config.dolatimodel(img, conf=0.7)
+    def dolatireader(self, img: np.ndarray):
+        with torch.inference_mode():
+            results = self.config.dolatimodel(img, conf=0.7)
 
         boxes = results[0].boxes
 
@@ -784,70 +751,51 @@ class CameraManager:
         conf_char = boxes.conf
 
         if len(cls_char) > 0:
-
-            # class ids
-            keys = cls_char.cpu().numpy().astype(int)
-
-            # x position for sorting
-            x_positions = bbox_char[:, 0].cpu().numpy().astype(int)
-
-            # confidences
+            keys = cls_char.cpu().numpy().astype(np.int32)
+            x_positions = bbox_char[:, 0].cpu().numpy().astype(np.int32)
             confidences = conf_char.cpu().numpy()
 
-            # sort by x coordinate
-            sorted_list = sorted(
-                zip(keys, x_positions, confidences),
-                key=lambda x: x[1]
-            )
+            sorted_indices = np.argsort(x_positions)
+            sorted_keys = keys[sorted_indices]
+            sorted_confidences = confidences[sorted_indices]
 
-            # extract text
             plate_text = ''.join([
                 self.config.params.charclasssnames[k]
-                for k, _, _ in sorted_list
+                for k in sorted_keys
             ])
 
-            # average confidence
-            char_conf_avg = round(
-                np.mean([c for _, _, c in sorted_list]) * 100
-            )
+            char_conf_avg = round(float(np.mean(sorted_confidences)) * 100)
             return plate_text, char_conf_avg
 
-    def detect_plate_chars(self, cropped_plate):
+    def detect_plate_chars(self, cropped_plate: np.ndarray) -> tuple[str, int]:
         if self.is_red_plate(cropped_plate):
-
-          
-
-            plate_text, char_conf_avg = self.dolatireader(cropped_plate,verbose=True)
-
-            # if detection successful
+            plate_text, char_conf_avg = self.dolatireader(cropped_plate)
             if plate_text and len(plate_text.strip()) > 0:
                 return plate_text, char_conf_avg
 
-        chars, confidences, char_detected = [], [], []
-        results = self.config.model_char(cropped_plate)
-        # Sort by x-coordinate
+        chars, confidences = [], []
+        with torch.inference_mode():
+            results = self.config.model_char(cropped_plate)
         detections = sorted(results.pred[0], key=lambda x: x[0])
         for det in detections:
             conf = det[4]
-
             if conf > 0.5:
                 cls = int(det[5].item())
                 char = self.config.params.char_id_dict.get(str(cls), '')
                 chars.append(char)
                 confidences.append(conf.item())
-                char_detected.append(det.tolist())
         char_conf_avg = round(statistics.mean(confidences)
                               * 100) if confidences else 0
         return ''.join(chars), char_conf_avg
 
-    def realseFreshest(self):
+    def realseFreshest(self) -> None:
         if not self.running:
             return
 
         self.running = False
         logging.info("Camera pipeline stopped")
 
-    def loadRegions(self, soruce, file_path='regions.json'):
+    def loadRegions(self, soruce: str, file_path: str = 'regions.json') -> dict:
         url = urlparse(soruce).hostname
         """Load regions from JSON file"""
         try:
@@ -860,28 +808,28 @@ class CameraManager:
                         pass
 
         except Exception as e:
-            print(f"Error loading regions: {e}")
+            logging.error(f"Error loading regions: {e}")
             return {}
 
 
-def emailHandler(email, plateNumber, edate, etime):
+def emailHandler(email: str, plateNumber: str, edate: str, etime: str) -> None:
 
     import smtplib
     from email.mime.text import MIMEText
     from email.mime.multipart import MIMEMultipart
 
-    # Gmail SMTP server settings
     SMTP_SERVER = "smtp.gmail.com"
     SMTP_PORT = 587
 
-    # Sender's email credentials
-    SENDER_EMAIL = "amnafarin4@gmail.com"
-    SENDER_PASSWORD = "vioz mxiw nedg rybh"
+    SENDER_EMAIL = os.environ.get("ANPR_EMAIL", "")
+    SENDER_PASSWORD = os.environ.get("ANPR_EMAIL_PASSWORD", "")
 
-    # Recipient email
+    if not SENDER_EMAIL or not SENDER_PASSWORD:
+        logging.error("ANPR_EMAIL and ANPR_EMAIL_PASSWORD environment variables not set")
+        return
+
     RECIPIENT_EMAIL = email
 
-    # Email content
     subject = f"{edate} شناسایی پلاک در تاریخ "
     body = f""" 
     پلاک:\n{plateNumber}
@@ -889,27 +837,25 @@ def emailHandler(email, plateNumber, edate, etime):
     زمان:\n{etime}
      """
 
-    # Create the email message
     msg = MIMEMultipart()
     msg["From"] = SENDER_EMAIL
     msg["To"] = RECIPIENT_EMAIL
     msg["Subject"] = subject
     msg.attach(MIMEText(body, "plain"))
 
+    server = None
     try:
-        # Connect to the SMTP server
         server = smtplib.SMTP(SMTP_SERVER, SMTP_PORT)
-        server.starttls()  # Upgrade the connection to secure
-        server.login(SENDER_EMAIL, SENDER_PASSWORD)  # Log in to the server
-
-        # Send the email
+        server.starttls()
+        server.login(SENDER_EMAIL, SENDER_PASSWORD)
         server.sendmail(SENDER_EMAIL, RECIPIENT_EMAIL, msg.as_string())
-        print("Email sent successfully!")
+        logging.info("Email sent successfully!")
 
     except Exception as e:
-        print(f"Failed to send email: {e}")
+        logging.error(f"Failed to send email: {e}")
 
     finally:
-        server.quit()  # Close the connection
+        if server:
+            server.quit()
 
 

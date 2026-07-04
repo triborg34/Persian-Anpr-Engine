@@ -1,20 +1,21 @@
 import multiprocessing
 import os
-import sys
 import time
+import logging
 import threading
 import numpy as np
 import cv2 as cv
 
+logger = logging.getLogger(__name__)
+
+os.environ["OPENCV_FFMPEG_CAPTURE_OPTIONS"] = "rtsp_transport;tcp"
+os.environ['OPENCV_FFMPEG_FFMPEG_DEBUG'] = "1"
+os.environ['OPENCV_FFMPEG_FFMPEG_LOGLEVEL'] = "48"
+cv.setNumThreads(multiprocessing.cpu_count())
+
 # also acts (partly) like a cv.VideoCapture
 class FreshestFrame(threading.Thread):
     def __init__(self, rtsp_url, name='FreshestFrame'):
-        # self.capture = capture
-        # assert self.capture.isOpened()
-        os.environ["OPENCV_FFMPEG_CAPTURE_OPTIONS"]="rtsp_transport;tcp"
-        os.environ['OPENCV_FFMPEG_FFMPEG_DEBUG']="1"
-        os.environ['OPENCV_FFMPEG_FFMPEG_LOGLEVEL']="48"
-        cv.setNumThreads(multiprocessing.cpu_count())
         self.rtsp_url = rtsp_url
         self._create_capture()
 
@@ -57,7 +58,7 @@ class FreshestFrame(threading.Thread):
         while self.running:
             rv, img = self.cap.read()
             if not rv:
-                print("Lost frame, reconnecting...")
+                logger.warning("Lost frame, reconnecting...")
                 self.cap.release()
                 time.sleep(2)
                 self._create_capture()
