@@ -4,6 +4,7 @@ import json
 import logging
 import os
 import queue
+import re
 import socket
 import subprocess
 import time
@@ -60,6 +61,8 @@ class CcTvMonitor:
             0:4]
         self._warmup_models()
         self.loadWebBrowser(self.port)
+        self._settings_thread = threading.Thread(target=self._settings_listener, daemon=True)
+        self._settings_thread.start()
 
     def loadWebBrowser(self, port: int) -> None:
         webbrowser.open(f'http://127.0.0.1:{port}/web/app')
@@ -176,6 +179,88 @@ class CcTvMonitor:
             port = response['items'][0]['port']
             return quality, charConfidence, plateConfidence, port
 
+
+
+    def _settings_listener(self):
+        base_url = 'http://127.0.0.1:8090'
+        backoff = 1
+
+        while True:
+            try:
+                logging.info("[Realtime] Connecting to PocketBase realtime...")
+                resp = requests.get(
+                    f'{base_url}/api/realtime',
+                    stream=True,
+                    timeout=(5, None)
+                )
+                logging.info("[Realtime] Connected to PocketBase realtime")
+
+                client_id = None
+                event_type = None
+                raw_data = None
+                for line in resp.iter_lines(decode_unicode=True):
+                    if line is None:
+                        break
+
+                    logging.debug(f"[Realtime] SSE line: {repr(line)}")
+
+                    if line.startswith('event:'):
+                        event_type = line[len('event:'):].strip()
+                    elif line.startswith('data:'):
+                        raw_data = line[len('data:'):].strip()
+                    elif line == '':
+                        logging.debug(f"[Realtime] Event boundary: type={event_type}, data={repr(raw_data)}")
+                        print(event_type)
+                        if event_type == 'PB_CONNECT' and raw_data:
+                            parsed = json.loads(raw_data)
+                            client_id = parsed.get("clientId", parsed) if isinstance(parsed, dict) else parsed
+                            logging.info(f"[Realtime] Got clientId={client_id!r}")
+
+                            sub_payload = json.dumps({
+                                "clientId": client_id,
+                                "subscriptions": ["setting/*"]
+                            })
+                            logging.info(f"[Realtime] Sending subscribe: {sub_payload}")
+                            sub_resp = requests.post(
+                                f'{base_url}/api/realtime',
+                                data=sub_payload,
+                                headers={"Content-Type": "application/json"},
+                                timeout=5
+                            )
+                            logging.info(f"[Realtime] Subscribe response: {sub_resp.status_code} {sub_resp.text}")
+                            backoff = 1
+
+                        
+                        elif event_type == 'PB_RECORDS' or event_type.startswith("setting") and raw_data:
+                            try:
+                                data = json.loads(raw_data)
+                                record = data.get('record', {})
+                                print(record)
+                                with self.lock:
+                                    if 'quality' in record:
+                                        self.quality = record['quality']
+                                    if 'charConf' in record:
+                                        self.charConfidence = record['charConf']
+                                    if 'plateConf' in record:
+                                        self.plateConfidence = record['plateConf']
+                
+                                logging.info(
+                                    f"[Realtime] Settings updated - quality={self.quality}, "
+                                    f"charConf={self.charConfidence}, plateConf={self.plateConfidence}, "
+   
+                                )
+                            except Exception as e:
+                                logging.error(f"[Realtime] Failed to parse update: {e}")
+
+                        event_type = None
+                        raw_data = None
+
+            except Exception as e:
+                logging.warning(f"[Realtime] Connection lost: {e}")
+
+            logging.info(f"[Realtime] Reconnecting in {backoff}s...")
+            time.sleep(backoff)
+            backoff = min(backoff * 2, 30)
     def graceful_shutdown(self) -> None:
         if torch.cuda.is_available():
             torch.cuda.empty_cache()
@@ -741,8 +826,9 @@ class CameraManager:
         return red_ratio > 0.15
 
     def dolatireader(self, img: np.ndarray):
+       
         with torch.inference_mode():
-            results = self.config.dolatimodel(img, conf=0.7)
+            results = self.config.dolatimodel(img, conf=0.4)
 
         boxes = results[0].boxes
 
@@ -765,13 +851,16 @@ class CameraManager:
             ])
 
             char_conf_avg = round(float(np.mean(sorted_confidences)) * 100)
+
             return plate_text, char_conf_avg
 
     def detect_plate_chars(self, cropped_plate: np.ndarray) -> tuple[str, int]:
-        if self.is_red_plate(cropped_plate):
-            plate_text, char_conf_avg = self.dolatireader(cropped_plate)
+        result = self.dolatireader(cropped_plate)
+        if result is not None:
+            plate_text, char_conf_avg = result
             if plate_text and len(plate_text.strip()) > 0:
-                return plate_text, char_conf_avg
+                if re.match(r'^.{2}A.{5}$', plate_text):
+                    return plate_text, char_conf_avg
 
         chars, confidences = [], []
         with torch.inference_mode():
