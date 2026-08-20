@@ -19,18 +19,23 @@ from ultralytics import YOLO
 from database.db_entries_utils import db_entries_time
 from camera import FreshestFrame
 import threading
+from concurrent.futures import ThreadPoolExecutor
 from configParams import Parameters
 
-logging.basicConfig(
-    level=logging.DEBUG,  # Capture everything from DEBUG and above
+# Configure logging only if nothing else (e.g. api.py) already did. This avoids
+# the previous bug where db_entries_utils imported first and silently forced
+# DEBUG level globally, flooding log.txt on every frame.
+if not logging.getLogger().handlers:
+    logging.basicConfig(
+        level=logging.INFO,
 
-    format='[%(asctime)s] [%(levelname)s] %(message)s',
-    handlers=[
-        logging.FileHandler("log.txt", mode='a',
-                            encoding='utf-8'),  # Append mode
-        logging.StreamHandler()  # Optional: also show logs in console
-    ]
-)
+        format='[%(asctime)s] [%(levelname)s] %(message)s',
+        handlers=[
+            logging.FileHandler("log.txt", mode='a',
+                                encoding='utf-8'),  # Append mode
+            logging.StreamHandler()  # Optional: also show logs in console
+        ]
+    )
 
 torch.serialization.add_safe_globals([np.core.multiarray._reconstruct])
 if torch.cuda.is_available():
@@ -57,8 +62,7 @@ class CcTvMonitor:
 
         self.lock = threading.Lock()
         self.model_car, self.model_plate, self.model_char, self.dolatimodel = self.loadModels()
-        self.quality, self.charConfidence, self.plateConfidence, self.port = self.loadConfig()[
-            0:4]
+        self.quality, self.charConfidence, self.plateConfidence, self.port = self.loadConfig()
         self._warmup_models()
         self.loadWebBrowser(self.port)
         self._settings_thread = threading.Thread(target=self._settings_listener, daemon=True)
@@ -126,20 +130,21 @@ class CcTvMonitor:
         dolatimodel = None
 
         try:
-            if self.chechOpenvino() and self.device.type == 'cpu':
+            use_openvino = self.chechOpenvino() and self.device.type == 'cpu'
+            if use_openvino:
                 logging.info("Loading openvino")
                 model_char = torch.hub.load(
-                    'yolov5', 'custom', f'model/CharsYolo_openvino_model', source='local', device=self.device, force_reload=True)
+                    'yolov5', 'custom', 'model/CharsYolo_openvino_model', source='local', device=self.device)
                 model_plate = torch.hub.load(
-                    'yolov5', 'custom', f'model/plateYolo_openvino_model', source='local', device=self.device, force_reload=True)
-                model_car = YOLO(f'model/yolov8n_openvino_model', task='detect')
+                    'yolov5', 'custom', 'model/plateYolo_openvino_model', source='local', device=self.device)
+                model_car = YOLO('model/yolov8n_openvino_model', task='detect')
                 dolatimodel = YOLO('model/dolditector_openvino_model', task='detect')
             else:
                 logging.info("Loading onnx/pt")
                 model_char = torch.hub.load(
-                    'yolov5', 'custom', f'model/CharsYolo.{fileEx}', source='local', device=self.device, force_reload=True)
+                    'yolov5', 'custom', f'model/CharsYolo.{fileEx}', source='local', device=self.device)
                 model_plate = torch.hub.load(
-                    'yolov5', 'custom', f'model/plateYolo.{fileEx}', source='local', device=self.device, force_reload=True)
+                    'yolov5', 'custom', f'model/plateYolo.{fileEx}', source='local', device=self.device)
                 model_car = YOLO(f'model/yolov8n.{fileEx}', task='detect')
                 dolatimodel = YOLO(f'model/dolditector.{fileEx}', task='detect')
         except Exception as e:
@@ -202,15 +207,11 @@ class CcTvMonitor:
                     if line is None:
                         break
 
-                    logging.debug(f"[Realtime] SSE line: {repr(line)}")
-
                     if line.startswith('event:'):
                         event_type = line[len('event:'):].strip()
                     elif line.startswith('data:'):
                         raw_data = line[len('data:'):].strip()
                     elif line == '':
-                        logging.debug(f"[Realtime] Event boundary: type={event_type}, data={repr(raw_data)}")
-                        print(event_type)
                         if event_type == 'PB_CONNECT' and raw_data:
                             parsed = json.loads(raw_data)
                             client_id = parsed.get("clientId", parsed) if isinstance(parsed, dict) else parsed
@@ -235,7 +236,6 @@ class CcTvMonitor:
                             try:
                                 data = json.loads(raw_data)
                                 record = data.get('record', {})
-                                print(record)
                                 with self.lock:
                                     if 'quality' in record:
                                         self.quality = record['quality']
@@ -291,22 +291,35 @@ class CameraManager:
         self.process_thread = None
         self.stop_event = threading.Event()
 
-        # ========== LOCK-FREE BUFFERS ==========
-        self.capture_buffer = [None, None]
-        self.display_buffer = [None, None]
-        self.capture_write_idx = 0
-        self.capture_read_idx = 0
-        self.display_write_idx = 0
-        self.display_read_idx = 0
-
-        self.capture_version = 0
-        self.display_version = 0
-
         # ========== OPTIMIZED QUEUES ==========
         self.frame_queue = queue.Queue(maxsize=2)
 
-        # ---------- DATA ----------
-        self.processed_tracks = set()
+        # ========== DB WRITE QUEUE ==========
+        self.db_queue = queue.Queue()
+        self.db_writer_thread = None
+
+        # ========== OCR WORKER POOL ==========
+        # Runs plate char recognition (and the expensive correct_perspective
+        # deskew) off the detection thread so multiple cars in one frame are
+        # processed in parallel. Ultralytics/PyTorch inference is thread-safe
+        # for concurrent predict() calls and cv2 releases the GIL, so this
+        # overlaps CPU work across detections instead of serializing it.
+        self._ocr_pool = ThreadPoolExecutor(max_workers=3)
+
+        # YOLOv5 (model_plate / model_char, loaded via torch.hub) is NOT
+        # thread-safe: it caches grid/anchor tensors in module state during
+        # forward, so concurrent calls with different input sizes corrupt each
+        # other ("size of tensor a must match tensor b"). Serialize those calls.
+        # RLock because _process_car_ocr may hold it across the detect_plate_chars
+        # call (which also acquires it) on the same thread.
+        self._model_lock = threading.RLock()
+
+        # ========== STREAM JPEG PARAMS ==========
+        self._jpeg_params = [cv2.IMWRITE_JPEG_QUALITY, 50, cv2.IMWRITE_JPEG_OPTIMIZE, 0]
+
+        # ========== DB WRITE DEDUP ==========
+        # single-writer (process_frame thread), so no lock needed
+        self._recent_db_puts = {}
 
         # ========== REGION MASK CACHE ==========
         self._cached_region_masks = None
@@ -314,6 +327,7 @@ class CameraManager:
         self._cached_frame_shape = None
         self._combined_region_mask = None
         self._combined_regions_key = None
+        self._cached_full_frame_region = None
 
         # ========== CACHED CV OBJECTS ==========
         self._clahe = cv2.createCLAHE(clipLimit=3.0, tileGridSize=(8, 8))
@@ -326,6 +340,12 @@ class CameraManager:
             self.background_subtractor = cv2.createBackgroundSubtractorMOG2()
             self.k = []
 
+    REGION_COLORS = {
+        'red': (0, 0, 255), 'blue': (255, 0, 0), 'green': (0, 255, 0),
+        'yellow': (0, 255, 255), 'purple': (128, 0, 128),
+        'orange': (0, 165, 255), 'cyan': (255, 255, 0), 'magenta': (255, 0, 255)
+    }
+
     def start(self):
         self.running = True
         self.stop_event.clear()
@@ -337,13 +357,46 @@ class CameraManager:
         self.process_thread = threading.Thread(
             target=self.process_frame, daemon=True
         )
+        self.db_writer_thread = threading.Thread(
+            target=self._db_writer, daemon=True
+        )
 
         self.capture_thread.start()
         self.process_thread.start()
+        self.db_writer_thread.start()
 
     def stop(self):
         self.running = False
         self.stop_event.set()
+        self.db_queue.put(None)
+        self._ocr_pool.shutdown(wait=False)
+
+    def _db_writer(self):
+        while True:
+            item = self.db_queue.get()
+            if item is None:
+                break
+            try:
+                db_entries_time(**item)
+            except Exception as e:
+                logging.error(f"[Camera {self.camera_id}] DB write failed: {e}")
+
+    def _queue_db_entry(self, entry: dict) -> None:
+        """Enqueue a plate write for the background worker.
+
+        Mirrors db_entries_time's 10s reserve_plate window here in the
+        producer, so consecutive frames of the same plate don't pile up in
+        the queue while the worker is busy writing the first one to disk.
+        """
+        now = time.time()
+        self._recent_db_puts = {
+            k: ts for k, ts in self._recent_db_puts.items() if now - ts <= 10
+        }
+        key = (entry['rtpath'], entry['number'])
+        if key in self._recent_db_puts:
+            return
+        self._recent_db_puts[key] = now
+        self.db_queue.put(entry)
 
     def add_client(self):
         with self.client_lock:
@@ -353,32 +406,40 @@ class CameraManager:
                 self.start()
 
     def remove_client(self):
+        # may be called from both watch_disconnect and sendFrames' finally;
+        # never let it run twice or client_count goes negative and the camera
+        # can never be restarted
         with self.client_lock:
+            if self.client_count <= 0:
+                return
             self.client_count -= 1
 
             if self.client_count == 0:
                 self.stop()
 
     def sendFrames(self):
-        jpeg_params = [cv2.IMWRITE_JPEG_QUALITY, 50, cv2.IMWRITE_JPEG_OPTIMIZE, 0]
-        while self.running:
-            with self._frame_lock:
-                frame = self.result_frame
+        jpeg_params = self._jpeg_params
+        try:
+            while self.running:
+                with self._frame_lock:
+                    frame = self.result_frame
 
-            if frame is None:
-                time.sleep(0.005)
-                continue
+                if frame is None:
+                    time.sleep(0.005)
+                    continue
 
-            success, jpeg = cv2.imencode(".jpg", frame, jpeg_params)
-            if not success:
-                continue
+                success, jpeg = cv2.imencode(".jpg", frame, jpeg_params)
+                if not success:
+                    continue
 
-            yield (
-                b"--frame\r\n"
-                b"Content-Type: image/jpeg\r\n\r\n"
-                + jpeg.tobytes()
-                + b"\r\n"
-            )
+                yield (
+                    b"--frame\r\n"
+                    b"Content-Type: image/jpeg\r\n\r\n"
+                    + jpeg.tobytes()
+                    + b"\r\n"
+                )
+        finally:
+            self.remove_client()
 
     def generate_frames(self, camera_idx: int, source: str):
         """Generate frames from a specific camera feed"""
@@ -422,7 +483,6 @@ class CameraManager:
             cv2.destroyAllWindows()
 
     def process_frame(self):
-        last_capture_version = -1
         """Process a single frame for object detection"""
         if self.config.regionMode:
             self._combined_region_mask = None
@@ -449,7 +509,11 @@ class CameraManager:
                 processed_frame = frame
 
                 if self.config.regionMode:
-                    regions_key = id(regions) if regions else None
+                    if not regions:
+                        # camera has no entry (or empty regions) in
+                        # regions.json: detect over the whole frame instead
+                        regions = self._full_frame_region(frame.shape)
+                    regions_key = id(regions)
                     frame_shape_key = (frame.shape[0], frame.shape[1])
                     if (self._cached_region_masks is None or
                             self._cached_regions_key != regions_key or
@@ -478,6 +542,7 @@ class CameraManager:
                     car_res = self.config.model_car(
                         masked_frame if self.config.regionMode else processed_frame, device=self.config.device, classes=[2, 5, 7], verbose=False, conf=self.config.carConf, iou=self.config.iou)
 
+                ocr_futures = []
                 for res in car_res:
                     for i in range(len(res.boxes.xyxy)):
                         x1, y1, x2, y2 = res.boxes.xyxy[i].int().tolist()
@@ -489,8 +554,6 @@ class CameraManager:
                                 region_data = regions[region_name]
                                 if region_data not in current_regions:
                                     current_regions.append(region_data)
-                        else:
-                            region_data = None
 
                         cv2.rectangle(processed_frame, (x1, y1),
                                       (x2, y2), (255, 0, 0), 2)
@@ -499,103 +562,21 @@ class CameraManager:
                         if cropped_car.size == 0:
                             continue
 
-                        plate_results = self.config.model_plate(
-                            cropped_car).pandas().xyxy[0]
+                        # Offload plate OCR + deskew to the worker pool so
+                        # multiple cars in this frame are recognized in parallel.
+                        try:
+                            ocr_futures.append(
+                                self._ocr_pool.submit(
+                                    self._process_car_ocr, processed_frame, cropped_car, path))
+                        except RuntimeError:
+                            # Pool is shutting down (stop() called); skip this car.
+                            pass
 
-                        if not plate_results.empty:
-                            for _, plate in plate_results.iterrows():
-                                plate_conf = int(plate['confidence'] * 100)
-                                if plate_conf >= int(self.config.plateConfidence*100):
-                                    x_min, y_min, x_max, y_max = (
-                                        int(plate['xmin']), int(plate['ymin']),
-                                        int(plate['xmax']), int(plate['ymax'])
-                                    )
-
-                                    if (y_min >= y_max or x_min >= x_max or
-                                        y_min < 0 or x_min < 0 or
-                                        y_max > cropped_car.shape[0] or
-                                            x_max > cropped_car.shape[1]):
-                                        continue
-
-                                    cropped_plate = cropped_car[y_min:y_max,
-                                                                x_min:x_max]
-
-                                    if cropped_plate.size == 0:
-                                        continue
-
-                                    plate_text, char_conf_avg = self.detect_plate_chars(
-                                        cropped_plate)
-
-                                    cv2.rectangle(
-                                        cropped_car, (x_min, y_min), (x_max, y_max), (60, 119, 0), 2)
-                                    plate_text = plate_text.replace(
-                                        'Taxi', 'x')
-                                    confidence = float(
-                                        self.config.charConfidence) * 100
-
-                                    if char_conf_avg >= confidence and len(plate_text) >= 8:
-                                        cv2.putText(cropped_car, f"Plate: {plate_text}", (x_min, y_min - 10),
-                                                    cv2.FONT_HERSHEY_SIMPLEX, 0.7, (0, 255, 128), 2, cv2.LINE_AA)
-
-                                        db_entries_time(
-                                            number=plate_text,
-                                            charConfAvg=char_conf_avg,
-                                            plateConfAvg=plate_conf,
-                                            croppedPlate=cropped_plate,
-                                            status="Active",
-                                            frame=processed_frame,
-                                            isarvand='notarvand',
-                                            rtpath=path,
-                                            quality=self.config.quality
-                                        )
-                                        break
-
-                                    else:
-                                        deskewed_plate, (newx1, newy1, newx2, newy2) = self.correct_perspective(
-                                            cropped_plate, 1.0)
-                                        if deskewed_plate.size == 0:
-                                            continue
-
-                                        newx1 = max(0, newx1)
-                                        newy1 = max(0, newy1)
-                                        newx2 = min(
-                                            deskewed_plate.shape[1], newx2)
-                                        newy2 = min(
-                                            deskewed_plate.shape[0], newy2)
-
-                                        if (newx2 <= newx1) or (newy2 <= newy1):
-                                            newx1, newy1 = 0, 0
-                                            newx2, newy2 = deskewed_plate.shape[1], deskewed_plate.shape[0]
-
-                                        d = newy2 - newy1
-                                        tempyMax = newy1 + int(d / 2)
-
-                                        if (tempyMax > newy1 and newx2 > newx1 and
-                                            newy1 >= 0 and newx1 >= 0 and
-                                            tempyMax <= deskewed_plate.shape[0] and
-                                                newx2 <= deskewed_plate.shape[1]):
-
-                                            cropped_plate_nesf = deskewed_plate[newy1:tempyMax, newx1:newx2]
-
-                                            if cropped_plate_nesf.size > 0:
-                                                plate_text_arvnad, char_conf_arvnad = self.detect_plate_chars(
-                                                    cropped_plate_nesf)
-
-                                                if len(plate_text_arvnad) >= 5 and char_conf_arvnad >= confidence - 3:
-                                                    cv2.putText(cropped_car, f"Plate: {plate_text_arvnad}", (x_min, y_min - 10),
-                                                                cv2.FONT_HERSHEY_SIMPLEX, 0.7, (0, 255, 128), 2, cv2.LINE_AA)
-
-                                                    db_entries_time(
-                                                        number=plate_text_arvnad,
-                                                        charConfAvg=char_conf_arvnad,
-                                                        plateConfAvg=plate_conf,
-                                                        croppedPlate=cropped_plate,
-                                                        status="Active",
-                                                        frame=processed_frame,
-                                                        isarvand='arvand',
-                                                        rtpath=path,
-                                                        quality=self.config.quality
-                                                    )
+                # Wait for all plate recognition for this frame to finish before
+                # publishing, so every label/box is present and there are no
+                # cross-frame races on the shared frame buffer.
+                for _fut in ocr_futures:
+                    _fut.result()
 
                 if self.config.regionMode:
                     self.k = current_regions
@@ -628,51 +609,29 @@ class CameraManager:
             return False
 
     def draw_regions_on_frame(self, frame: np.ndarray, regions: dict) -> np.ndarray:
-        """Draw region boundaries on frame"""
-        overlay = frame.copy()
-
+        """Draw region boundaries directly on the frame"""
         for region_name, region_data in regions.items():
             points = region_data.get('points', [])
             color_name = region_data.get('color', 'red')
             shape_type = region_data.get('shape_type', 'polygon')
 
-            # Convert color name to BGR
-            color_map = {
-                'red': (0, 0, 255), 'blue': (255, 0, 0), 'green': (0, 255, 0),
-                'yellow': (0, 255, 255), 'purple': (128, 0, 128),
-                'orange': (0, 165, 255), 'cyan': (255, 255, 0), 'magenta': (255, 0, 255)
-            }
-            color = color_map.get(color_name, (0, 0, 255))
+            color = self.REGION_COLORS.get(color_name, (0, 0, 255))
 
             if shape_type == 'polygon' and len(points) > 2:
                 pts = np.array(points, dtype=np.int32)
-                cv2.polylines(overlay, [pts], True, color, 2)
+                cv2.polylines(frame, [pts], True, color, 2)
 
             elif shape_type == 'rectangle' and len(points) == 4:
                 x1, y1 = int(points[0][0]), int(points[0][1])
                 x2, y2 = int(points[2][0]), int(points[2][1])
-                cv2.rectangle(overlay, (x1, y1), (x2, y2), color, 2)
+                cv2.rectangle(frame, (x1, y1), (x2, y2), color, 2)
 
             elif shape_type == 'line' and len(points) == 2:
                 x1, y1 = int(points[0][0]), int(points[0][1])
                 x2, y2 = int(points[1][0]), int(points[1][1])
-                cv2.line(overlay, (x1, y1), (x2, y2), color, 2)
+                cv2.line(frame, (x1, y1), (x2, y2), color, 2)
 
-            # Add region label
-            if points:
-                center_x = int(sum(p[0] for p in points) / len(points))
-                center_y = int(sum(p[1] for p in points) / len(points))
-
-                # Add background for text
-                text = f"{region_name} (ID: {region_data.get('id', 'N/A')})"
-                text_size = cv2.getTextSize(
-                    text, cv2.FONT_HERSHEY_SIMPLEX, 0.5, 1)[0]
-                # cv2.rectangle(overlay, (center_x - text_size[0]//2 - 5, center_y - text_size[1] - 5),
-                #               (center_x + text_size[0]//2 + 5, center_y + 5), (0, 0, 0), -1)
-                # cv2.putText(overlay, text, (center_x - text_size[0]//2, center_y),
-                #             cv2.FONT_HERSHEY_SIMPLEX, 0.5, color, 1)
-
-        return overlay
+        return frame
 
     def onDisplay(self, region: list, frame: np.ndarray) -> None:
         """Display region names on frame"""
@@ -817,13 +776,125 @@ class CameraManager:
             logging.error(f"Error in correct_perspective: {e}")
             return image, (0, 0, 0, 0)
 
-    def is_red_plate(self, img: np.ndarray) -> bool:
-        hsv = cv2.cvtColor(img, cv2.COLOR_BGR2HSV)
-        mask1 = cv2.inRange(hsv, self._hsv_lower1, self._hsv_upper1)
-        mask2 = cv2.inRange(hsv, self._hsv_lower2, self._hsv_upper2)
-        mask = cv2.add(mask1, mask2)
-        red_ratio = cv2.countNonZero(mask) / (img.shape[0] * img.shape[1])
-        return red_ratio > 0.15
+    def _process_car_ocr(self, frame, cropped_car, path):
+        """Detect and OCR plates inside one car crop.
+
+        Runs on a worker thread (self._ocr_pool) so several cars in the same
+        frame are recognized concurrently instead of one after another. It
+        draws the plate box/label directly onto ``cropped_car`` (a view of the
+        working frame) and enqueues DB writes. ``process_frame`` joins every
+        car future before publishing the frame, so there are no cross-frame
+        races on the shared frame buffer.
+
+        Note: this relies on Ultralytics/PyTorch inference being thread-safe
+        for concurrent ``predict()`` calls, and cv2 releasing the GIL.
+        """
+        plate_min = int(self.config.plateConfidence * 100)
+        char_min = float(self.config.charConfidence) * 100
+        try:
+            with self._model_lock, torch.inference_mode():
+                plate_res = self.config.model_plate(cropped_car)
+            # (x1, y1, x2, y2, conf, cls) rows, no pandas involved
+            for pbox in plate_res.xyxy[0].tolist():
+                x_min, y_min, x_max, y_max = (
+                    int(pbox[0]), int(pbox[1]),
+                    int(pbox[2]), int(pbox[3])
+                )
+                plate_conf = int(pbox[4] * 100)
+
+                if plate_conf < plate_min:
+                    continue
+
+                if (y_min >= y_max or x_min >= x_max or
+                        y_min < 0 or x_min < 0 or
+                        y_max > cropped_car.shape[0] or
+                        x_max > cropped_car.shape[1]):
+                    continue
+
+                cropped_plate = cropped_car[y_min:y_max, x_min:x_max]
+                if cropped_plate.size == 0:
+                    continue
+
+                plate_text, char_conf_avg = self.detect_plate_chars(
+                    cropped_plate)
+
+                cv2.rectangle(
+                    cropped_car, (x_min, y_min), (x_max, y_max), (60, 119, 0), 2)
+                plate_text = plate_text.replace('Taxi', 'x')
+
+                if char_conf_avg >= char_min and len(plate_text) >= 8:
+                    cv2.putText(cropped_car, f"Plate: {plate_text}", (x_min, y_min - 10),
+                                cv2.FONT_HERSHEY_SIMPLEX, 0.7, (0, 255, 128), 2, cv2.LINE_AA)
+
+                    self._queue_db_entry(
+                        dict(
+                            number=plate_text,
+                            charConfAvg=char_conf_avg,
+                            plateConfAvg=plate_conf,
+                            croppedPlate=cropped_plate,
+                            status="Active",
+                            frame=frame,
+                            isarvand='notarvand',
+                            rtpath=path,
+                            quality=self.config.quality
+                        ))
+                    break
+
+                else:
+                    deskewed_plate, (newx1, newy1, newx2, newy2) = self.correct_perspective(
+                        cropped_plate, 1.0)
+                    if deskewed_plate.size == 0:
+                        continue
+
+                    newx1 = max(0, newx1)
+                    newy1 = max(0, newy1)
+                    newx2 = min(deskewed_plate.shape[1], newx2)
+                    newy2 = min(deskewed_plate.shape[0], newy2)
+
+                    if (newx2 <= newx1) or (newy2 <= newy1):
+                        newx1, newy1 = 0, 0
+                        newx2, newy2 = deskewed_plate.shape[1], deskewed_plate.shape[0]
+
+                    d = newy2 - newy1
+                    tempyMax = newy1 + int(d / 2)
+
+                    if (tempyMax > newy1 and newx2 > newx1 and
+                            newy1 >= 0 and newx1 >= 0 and
+                            tempyMax <= deskewed_plate.shape[0] and
+                            newx2 <= deskewed_plate.shape[1]):
+
+                        cropped_plate_nesf = deskewed_plate[newy1:tempyMax, newx1:newx2]
+
+                        if cropped_plate_nesf.size > 0:
+                            plate_text_arvnad, char_conf_arvnad = self.detect_plate_chars(
+                                cropped_plate_nesf)
+
+                            if len(plate_text_arvnad) >= 5 and char_conf_arvnad >= char_min - 3:
+                                cv2.putText(cropped_car, f"Plate: {plate_text_arvnad}", (x_min, y_min - 10),
+                                            cv2.FONT_HERSHEY_SIMPLEX, 0.7, (0, 255, 128), 2, cv2.LINE_AA)
+
+                                self._queue_db_entry(
+                                    dict(
+                                        number=plate_text_arvnad,
+                                        charConfAvg=char_conf_arvnad,
+                                        plateConfAvg=plate_conf,
+                                        croppedPlate=cropped_plate,
+                                        status="Active",
+                                        frame=frame,
+                                        isarvand='arvand',
+                                        rtpath=path,
+                                        quality=self.config.quality
+                                    ))
+        except Exception as e:
+            logging.error(f"Error in _process_car_ocr: {e}")
+
+    # def is_red_plate(self, img: np.ndarray) -> bool:
+    #     hsv = cv2.cvtColor(img, cv2.COLOR_BGR2HSV)
+    #     mask1 = cv2.inRange(hsv, self._hsv_lower1, self._hsv_upper1)
+    #     mask2 = cv2.inRange(hsv, self._hsv_lower2, self._hsv_upper2)
+    #     mask = cv2.add(mask1, mask2)
+    #     red_ratio = cv2.countNonZero(mask) / (img.shape[0] * img.shape[1])
+    #     return red_ratio > 0.15
 
     def dolatireader(self, img: np.ndarray):
        
@@ -863,7 +934,7 @@ class CameraManager:
                     return plate_text, char_conf_avg
 
         chars, confidences = [], []
-        with torch.inference_mode():
+        with self._model_lock, torch.inference_mode():
             results = self.config.model_char(cropped_plate)
         detections = sorted(results.pred[0], key=lambda x: x[0])
         for det in detections:
@@ -893,12 +964,32 @@ class CameraManager:
                 for data in datas:
                     if url == data['ip']:
                         return data.get('regions', {})
-                    else:
-                        pass
 
         except Exception as e:
             logging.error(f"Error loading regions: {e}")
-            return {}
+
+        logging.warning(
+            f"No regions configured for camera {url}, using full-screen region")
+        return {}
+
+    def _full_frame_region(self, frame_shape: tuple) -> dict:
+        """Full-screen fallback region for cameras with no regions.json entry.
+
+        Cached per frame size so the dict identity (and therefore the region
+        mask cache key) stays stable across frames.
+        """
+        h, w = frame_shape[:2]
+        if self._cached_full_frame_region is None or self._cached_full_frame_region[0] != (h, w):
+            self._cached_full_frame_region = ((h, w), {
+                'full_frame': {
+                    'id': 'auto',
+                    'name': 'FullFrame',
+                    'points': [[0, 0], [w, 0], [w, h], [0, h]],
+                    'shape_type': 'rectangle',
+                    'color': 'green',
+                },
+            })
+        return self._cached_full_frame_region[1]
 
 
 def emailHandler(email: str, plateNumber: str, edate: str, etime: str) -> None:

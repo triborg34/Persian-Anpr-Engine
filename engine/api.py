@@ -7,6 +7,14 @@ import asyncio
 from contextlib import asynccontextmanager
 import json
 import logging
+logging.basicConfig(
+    level=logging.INFO,
+    format='[%(asctime)s] [%(levelname)s] %(message)s',
+    handlers=[
+        logging.FileHandler("log.txt", mode='a', encoding='utf-8'),
+        logging.StreamHandler(),
+    ],
+)
 import socket
 import threading
 import time
@@ -196,29 +204,31 @@ def sendEmail(request: EmailClass, email: str, _: bool = Security(verify_api_key
         return {"message": "failed"}
 
 
-def discover_onvif_stream():
+async def discover_onvif_stream():
     try:
-
         ip_base = socket.gethostbyname(socket.gethostname())
         ip_base = ip_base.split('.')
         ip_base = '.'.join(ip_base[0:3])
     except Exception:
         ip_base = "192.168.1"
 
-    def event_generator():
-        for i in range(1, 255):
-            ip = f"{ip_base}.{i}"
-            try:
-                sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-                sock.settimeout(0.3)
-                result = sock.connect_ex((ip, 80))
-                if result == 0:
-                    yield f"data: {json.dumps({'ip': ip, 'port': 80})}\n\n"
-                sock.close()
-            except:
-                continue
-            time.sleep(0.1)
-    return event_generator()
+    loop = asyncio.get_event_loop()
+
+    async def probe(ip: str, port: int, timeout: float = 0.3) -> bool:
+        try:
+            transport, _ = await asyncio.wait_for(
+                loop.create_connection(asyncio.Protocol, host=ip, port=port),
+                timeout)
+            transport.close()
+            return True
+        except Exception:
+            return False
+
+    for i in range(1, 255):
+        ip = f"{ip_base}.{i}"
+        if await probe(ip, 80):
+            yield f"data: {json.dumps({'ip': ip, 'port': 80})}\n\n"
+        await asyncio.sleep(0.1)
 
 
 @app.get("/onvif/get-stream")
@@ -227,7 +237,8 @@ async def get_camera_stream(_: bool = Security(verify_api_key)):
 
 
 @app.post('/onvif/get-rtsp')
-async def get_camra_rtsp(request: RtspFields, _: bool = Security(verify_api_key)):
+def get_camra_rtsp(request: RtspFields, _: bool = Security(verify_api_key)):
+    # sync def -> FastAPI runs this in the threadpool so ONVIF I/O never blocks the loop
     logging.info(f"ONVIF RTSP request for {request.ip}")
     request.port = int(request.port)
     rtspUrl = get_rtsp_url(request.ip, request.port,
@@ -237,10 +248,12 @@ async def get_camra_rtsp(request: RtspFields, _: bool = Security(verify_api_key)
 
 @app.get('/system/utils')
 async def get_system_health(_: bool = Security(verify_api_key)):
+    # On Windows, '/' maps to the install drive; report the drive the app runs from
+    drive = os.path.splitdrive(os.path.abspath(__file__))[0] or '/'
     return {
         "cpu": psutil.cpu_percent(),
         "ram": psutil.virtual_memory().percent,
-        "disk": psutil.disk_usage('/').percent,
+        "disk": psutil.disk_usage(drive).percent,
     }
     
 

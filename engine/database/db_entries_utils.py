@@ -1,6 +1,5 @@
 
 import logging
-import os
 import threading
 import cv2
 import datetime
@@ -14,28 +13,6 @@ recent_plates = {}
 recent_lock = threading.Lock()
 
 TIME_THRESHOLD = 10  # seconds
-
-OUTPUT_DIRS_CREATED = False
-
-
-logging.basicConfig(
-    level=logging.DEBUG,
-
-    format='[%(asctime)s] [%(levelname)s] %(message)s',
-    handlers=[
-        logging.FileHandler("log.txt", mode='a',
-                            encoding='utf-8'),
-        logging.StreamHandler()
-    ]
-)
-
-
-def _ensure_output_dirs():
-    global OUTPUT_DIRS_CREATED
-    if not OUTPUT_DIRS_CREATED:
-        os.makedirs('output/cropedplate', exist_ok=True)
-        os.makedirs('output/screenshot', exist_ok=True)
-        OUTPUT_DIRS_CREATED = True
 
 
 def getQuality() -> int:
@@ -82,18 +59,10 @@ def release_plate(plate: str, rtpath: str):
         recent_plates.pop(key, None)
 
 
-def savePicture(frame, croppedPlate, number, quality):
-
-    frame_loc = f'output/screenshot/s.{number}.jpg'
-    crop_loc = f'output/cropedplate/c.{number}.jpg'
-
-    encode_params_frame = [cv2.IMWRITE_JPEG_QUALITY, quality, cv2.IMWRITE_JPEG_OPTIMIZE, 0]
-    encode_params_crop = [cv2.IMWRITE_JPEG_QUALITY, 100, cv2.IMWRITE_JPEG_OPTIMIZE, 0]
-
-    cv2.imwrite(frame_loc, frame, encode_params_frame)
-    cv2.imwrite(crop_loc, croppedPlate, encode_params_crop)
-
-    return frame_loc, crop_loc
+def _encode_jpeg(img, quality: int):
+    params = [cv2.IMWRITE_JPEG_QUALITY, quality, cv2.IMWRITE_JPEG_OPTIMIZE, 0]
+    ok, buf = cv2.imencode('.jpg', img, params)
+    return buf if ok else None
 
 
 def _upload_to_pocketbase(url, files, data, number, rtpath):
@@ -114,29 +83,25 @@ def _upload_to_pocketbase(url, files, data, number, rtpath):
 
 def db_entries_time(number, charConfAvg, plateConfAvg, croppedPlate, status, frame, isarvand, rtpath, quality):
     url = "http://127.0.0.1:8090/api/collections/database/records"
-    
 
     timeNow = datetime.datetime.now()
     display_time = timeNow.strftime("%H:%M:%S")
     display_date = timeNow.strftime("%Y-%m-%d")
 
-    _ensure_output_dirs()
     if not reserve_plate(number, rtpath):
         return
-    frame_loc = None
-    crop_loc = None
+
     try:
-
-        frame_loc, crop_loc = savePicture(
-            frame, croppedPlate, number, quality)
-
-        with open(crop_loc, "rb") as f1, open(frame_loc, "rb") as f2:
-            crop_bytes = f1.read()
-            frame_bytes = f2.read()
+        frame_bytes = _encode_jpeg(frame, quality)
+        crop_bytes = _encode_jpeg(croppedPlate, 100)
+        if frame_bytes is None or crop_bytes is None:
+            logging.error(f"Failed to encode plate images for {number}")
+            release_plate(number, rtpath)
+            return
 
         files = {
-            "scrnPath": (frame_loc, frame_bytes, "image/jpeg"),
-            "imgpath": (crop_loc, crop_bytes, "image/jpeg"),
+            "scrnPath": (f"s.{number}.jpg", frame_bytes.tobytes(), "image/jpeg"),
+            "imgpath": (f"c.{number}.jpg", crop_bytes.tobytes(), "image/jpeg"),
         }
 
         data = {
@@ -157,15 +122,3 @@ def db_entries_time(number, charConfAvg, plateConfAvg, croppedPlate, status, fra
             f"Failed to save plate {number}"
         )
         release_plate(number, rtpath)
-
-    finally:
-
-        for path in (frame_loc, crop_loc):
-
-            if path and os.path.exists(path):
-
-                try:
-                    os.remove(path)
-                except Exception:
-                    logging.exception(
-                        f"Failed to delete temporary file {path}")
