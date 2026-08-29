@@ -2755,3 +2755,1488 @@
 [2026-08-20 09:39:22,886] [INFO] Cleanup complete. Shutting down.
 [2026-08-20 09:39:22,886] [INFO] Application shutdown complete.
 [2026-08-20 09:39:22,886] [INFO] Finished server process [20004]
+[2026-08-25 09:05:59,149] [INFO] 4.10.0
+[2026-08-25 09:05:59,149] [INFO] 2.12.1+cu126
+[2026-08-25 09:05:59,152] [INFO] Found 'pt' sentinel file
+[2026-08-25 09:05:59,152] [INFO] Loading YOLO models...
+[2026-08-25 09:05:59,152] [INFO] Found OpenVINO model: openvino2
+[2026-08-25 09:05:59,152] [INFO] Loading onnx/pt
+[2026-08-25 09:06:06,711] [INFO] Models loaded successfully
+[2026-08-25 09:06:06,711] [INFO] Warming up models...
+[2026-08-25 09:06:07,357] [INFO] Model warmup complete
+[2026-08-25 09:06:18,605] [INFO] 4.10.0
+[2026-08-25 09:06:18,605] [INFO] 2.12.1+cu126
+[2026-08-25 09:06:18,606] [INFO] Found 'pt' sentinel file
+[2026-08-25 09:06:18,606] [INFO] Loading YOLO models...
+[2026-08-25 09:06:18,607] [INFO] Found OpenVINO model: openvino2
+[2026-08-25 09:06:18,607] [INFO] Loading onnx/pt
+[2026-08-25 09:06:20,544] [INFO] Models loaded successfully
+[2026-08-25 09:06:20,544] [INFO] Warming up models...
+[2026-08-25 09:06:20,931] [INFO] Model warmup complete
+[2026-08-25 09:08:17,484] [INFO] 4.10.0
+[2026-08-25 09:08:17,484] [INFO] 2.12.1+cu126
+[2026-08-25 09:08:17,486] [INFO] Found 'pt' sentinel file
+[2026-08-25 09:08:17,486] [INFO] Loading YOLO models...
+[2026-08-25 09:08:17,487] [INFO] Found OpenVINO model: openvino2
+[2026-08-25 09:08:17,487] [INFO] Loading onnx/pt
+[2026-08-25 09:08:19,386] [INFO] Models loaded successfully
+[2026-08-25 09:08:19,386] [INFO] Warming up models...
+[2026-08-25 09:08:19,792] [INFO] Model warmup complete
+[2026-08-25 09:27:07,600] [INFO] 4.10.0
+[2026-08-25 09:27:07,600] [INFO] 2.12.1+cu126
+[2026-08-25 09:27:07,602] [INFO] Found 'pt' sentinel file
+[2026-08-25 09:27:07,602] [INFO] Loading YOLO models...
+[2026-08-25 09:27:07,603] [INFO] Found OpenVINO model: openvino2
+[2026-08-25 09:27:07,603] [INFO] Loading onnx/pt
+[2026-08-25 09:27:09,470] [INFO] Models loaded successfully
+[2026-08-25 09:27:09,470] [INFO] Warming up models...
+[2026-08-25 09:27:09,843] [INFO] Model warmup complete
+[2026-08-25 09:27:34,872] [INFO] 4.10.0
+[2026-08-25 09:27:34,873] [INFO] 2.12.1+cu126
+[2026-08-25 09:27:34,874] [INFO] Found 'pt' sentinel file
+[2026-08-25 09:27:34,874] [INFO] Loading YOLO models...
+[2026-08-25 09:27:34,875] [INFO] Found OpenVINO model: openvino2
+[2026-08-25 09:27:34,875] [INFO] Loading onnx/pt
+[2026-08-25 09:27:36,763] [INFO] Models loaded successfully
+[2026-08-25 09:27:36,763] [INFO] Warming up models...
+[2026-08-25 09:27:37,105] [INFO] Model warmup complete
+[2026-08-25 09:28:02,642] [INFO] 4.10.0
+[2026-08-25 09:28:02,642] [INFO] 2.12.1+cu126
+[2026-08-25 09:28:02,644] [INFO] Found 'pt' sentinel file
+[2026-08-25 09:28:02,644] [INFO] Loading YOLO models...
+[2026-08-25 09:28:02,644] [INFO] Found OpenVINO model: openvino2
+[2026-08-25 09:28:02,644] [INFO] Loading onnx/pt
+[2026-08-25 09:28:04,522] [INFO] Models loaded successfully
+[2026-08-25 09:28:04,522] [INFO] Warming up models...
+[2026-08-25 09:28:04,885] [INFO] Model warmup complete
+[2026-08-25 09:29:15,969] [INFO] 4.10.0
+[2026-08-25 09:29:15,969] [INFO] 2.12.1+cu126
+[2026-08-25 09:29:15,971] [INFO] Found 'pt' sentinel file
+[2026-08-25 09:29:15,971] [INFO] Loading YOLO models...
+[2026-08-25 09:29:15,972] [INFO] Found OpenVINO model: openvino2
+[2026-08-25 09:29:15,972] [INFO] Loading onnx/pt
+[2026-08-25 09:29:17,816] [INFO] Models loaded successfully
+[2026-08-25 09:29:17,817] [INFO] Warming up models...
+[2026-08-25 09:29:18,189] [INFO] Model warmup complete
+[2026-08-25 09:30:30,227] [INFO] 4.10.0
+[2026-08-25 09:30:30,227] [INFO] 2.12.1+cu126
+[2026-08-25 09:30:30,229] [INFO] Found 'pt' sentinel file
+[2026-08-25 09:30:30,229] [INFO] Loading YOLO models...
+[2026-08-25 09:30:30,229] [INFO] Found OpenVINO model: openvino2
+[2026-08-25 09:30:30,229] [INFO] Loading onnx/pt
+[2026-08-25 09:30:32,107] [INFO] Models loaded successfully
+[2026-08-25 09:30:32,108] [INFO] Warming up models...
+[2026-08-25 09:30:32,495] [INFO] Model warmup complete
+[2026-08-25 09:31:23,951] [INFO] 4.10.0
+[2026-08-25 09:31:23,952] [INFO] 2.12.1+cu126
+[2026-08-25 09:31:23,953] [INFO] Found 'pt' sentinel file
+[2026-08-25 09:31:23,953] [INFO] Loading YOLO models...
+[2026-08-25 09:31:23,954] [INFO] Found OpenVINO model: openvino2
+[2026-08-25 09:31:23,954] [INFO] Loading onnx/pt
+[2026-08-25 09:31:25,851] [INFO] Models loaded successfully
+[2026-08-25 09:31:25,852] [INFO] Warming up models...
+[2026-08-25 09:31:26,228] [INFO] Model warmup complete
+[2026-08-25 09:32:59,371] [INFO] 4.10.0
+[2026-08-25 09:32:59,371] [INFO] 2.12.1+cu126
+[2026-08-25 09:32:59,373] [INFO] Found 'pt' sentinel file
+[2026-08-25 09:32:59,373] [INFO] Loading YOLO models...
+[2026-08-25 09:32:59,374] [INFO] Found OpenVINO model: openvino2
+[2026-08-25 09:32:59,374] [INFO] Loading onnx/pt
+[2026-08-25 09:33:01,327] [INFO] Models loaded successfully
+[2026-08-25 09:33:01,327] [INFO] Warming up models...
+[2026-08-25 09:33:01,728] [INFO] Model warmup complete
+[2026-08-25 09:33:37,000] [INFO] 4.10.0
+[2026-08-25 09:33:37,000] [INFO] 2.12.1+cu126
+[2026-08-25 09:33:37,002] [INFO] Found 'pt' sentinel file
+[2026-08-25 09:33:37,002] [INFO] Loading YOLO models...
+[2026-08-25 09:33:37,003] [INFO] Found OpenVINO model: openvino2
+[2026-08-25 09:33:37,003] [INFO] Loading onnx/pt
+[2026-08-25 09:33:38,908] [INFO] Models loaded successfully
+[2026-08-25 09:33:38,909] [INFO] Warming up models...
+[2026-08-25 09:33:39,301] [INFO] Model warmup complete
+[2026-08-25 09:34:03,632] [INFO] 4.10.0
+[2026-08-25 09:34:03,632] [INFO] 2.12.1+cu126
+[2026-08-25 09:34:03,633] [INFO] Found 'pt' sentinel file
+[2026-08-25 09:34:03,634] [INFO] Loading YOLO models...
+[2026-08-25 09:34:03,634] [INFO] Found OpenVINO model: openvino2
+[2026-08-25 09:34:03,634] [INFO] Loading onnx/pt
+[2026-08-25 09:34:05,618] [INFO] Models loaded successfully
+[2026-08-25 09:34:05,618] [INFO] Warming up models...
+[2026-08-25 09:34:06,019] [INFO] Model warmup complete
+[2026-08-25 09:34:23,222] [INFO] 4.10.0
+[2026-08-25 09:34:23,222] [INFO] 2.12.1+cu126
+[2026-08-25 09:34:23,224] [INFO] Found 'pt' sentinel file
+[2026-08-25 09:34:23,224] [INFO] Loading YOLO models...
+[2026-08-25 09:34:23,225] [INFO] Found OpenVINO model: openvino2
+[2026-08-25 09:34:23,225] [INFO] Loading onnx/pt
+[2026-08-25 09:34:25,188] [INFO] Models loaded successfully
+[2026-08-25 09:34:25,188] [INFO] Warming up models...
+[2026-08-25 09:34:25,564] [INFO] Model warmup complete
+[2026-08-25 09:35:13,903] [INFO] 4.10.0
+[2026-08-25 09:35:13,904] [INFO] 2.12.1+cu126
+[2026-08-25 09:35:13,905] [INFO] Found 'pt' sentinel file
+[2026-08-25 09:35:13,905] [INFO] Loading YOLO models...
+[2026-08-25 09:35:13,906] [INFO] Found OpenVINO model: openvino2
+[2026-08-25 09:35:13,906] [INFO] Loading onnx/pt
+[2026-08-25 09:35:15,826] [INFO] Models loaded successfully
+[2026-08-25 09:35:15,827] [INFO] Warming up models...
+[2026-08-25 09:35:16,250] [INFO] Model warmup complete
+[2026-08-25 09:35:44,206] [INFO] 4.10.0
+[2026-08-25 09:35:44,207] [INFO] 2.12.1+cu126
+[2026-08-25 09:35:44,208] [INFO] Found 'pt' sentinel file
+[2026-08-25 09:35:44,208] [INFO] Loading YOLO models...
+[2026-08-25 09:35:44,209] [INFO] Found OpenVINO model: openvino2
+[2026-08-25 09:35:44,209] [INFO] Loading onnx/pt
+[2026-08-25 09:35:46,122] [INFO] Models loaded successfully
+[2026-08-25 09:35:46,122] [INFO] Warming up models...
+[2026-08-25 09:35:46,526] [INFO] Model warmup complete
+[2026-08-25 09:36:27,708] [INFO] 4.10.0
+[2026-08-25 09:36:27,709] [INFO] 2.12.1+cu126
+[2026-08-25 09:36:27,710] [INFO] Found 'pt' sentinel file
+[2026-08-25 09:36:27,710] [INFO] Loading YOLO models...
+[2026-08-25 09:36:27,711] [INFO] Found OpenVINO model: openvino2
+[2026-08-25 09:36:27,711] [INFO] Loading onnx/pt
+[2026-08-25 09:36:29,670] [INFO] Models loaded successfully
+[2026-08-25 09:36:29,671] [INFO] Warming up models...
+[2026-08-25 09:36:30,067] [INFO] Model warmup complete
+[2026-08-25 09:37:00,579] [INFO] 4.10.0
+[2026-08-25 09:37:00,580] [INFO] 2.12.1+cu126
+[2026-08-25 09:37:00,581] [INFO] Found 'pt' sentinel file
+[2026-08-25 09:37:00,581] [INFO] Loading YOLO models...
+[2026-08-25 09:37:00,582] [INFO] Found OpenVINO model: openvino2
+[2026-08-25 09:37:00,582] [INFO] Loading onnx/pt
+[2026-08-25 09:37:02,474] [INFO] Models loaded successfully
+[2026-08-25 09:37:02,474] [INFO] Warming up models...
+[2026-08-25 09:37:02,859] [INFO] Model warmup complete
+[2026-08-25 09:37:14,707] [INFO] 4.10.0
+[2026-08-25 09:37:14,707] [INFO] 2.12.1+cu126
+[2026-08-25 09:37:14,709] [INFO] Found 'pt' sentinel file
+[2026-08-25 09:37:14,709] [INFO] Loading YOLO models...
+[2026-08-25 09:37:14,710] [INFO] Found OpenVINO model: openvino2
+[2026-08-25 09:37:14,710] [INFO] Loading onnx/pt
+[2026-08-25 09:37:16,569] [INFO] Models loaded successfully
+[2026-08-25 09:37:16,570] [INFO] Warming up models...
+[2026-08-25 09:37:16,953] [INFO] Model warmup complete
+[2026-08-25 09:37:50,499] [INFO] 4.10.0
+[2026-08-25 09:37:50,499] [INFO] 2.12.1+cu126
+[2026-08-25 09:37:50,501] [INFO] Found 'pt' sentinel file
+[2026-08-25 09:37:50,501] [INFO] Loading YOLO models...
+[2026-08-25 09:37:50,502] [INFO] Found OpenVINO model: openvino2
+[2026-08-25 09:37:50,502] [INFO] Loading onnx/pt
+[2026-08-25 09:37:52,387] [INFO] Models loaded successfully
+[2026-08-25 09:37:52,388] [INFO] Warming up models...
+[2026-08-25 09:37:52,754] [INFO] Model warmup complete
+[2026-08-25 09:58:33,524] [INFO] 4.10.0
+[2026-08-25 09:58:33,524] [INFO] 2.12.1+cu126
+[2026-08-25 09:58:33,526] [INFO] Found 'pt' sentinel file
+[2026-08-25 09:58:33,526] [INFO] Loading YOLO models...
+[2026-08-25 09:58:33,526] [INFO] Found OpenVINO model: openvino2
+[2026-08-25 09:58:33,527] [INFO] Loading onnx/pt
+[2026-08-25 09:58:35,432] [INFO] Models loaded successfully
+[2026-08-25 09:58:35,432] [INFO] Warming up models...
+[2026-08-25 09:58:35,899] [INFO] Model warmup complete
+[2026-08-25 10:02:48,652] [INFO] 4.10.0
+[2026-08-25 10:02:48,653] [INFO] 2.12.1+cu126
+[2026-08-25 10:02:48,654] [INFO] Found 'pt' sentinel file
+[2026-08-25 10:02:48,654] [INFO] Loading YOLO models...
+[2026-08-25 10:02:48,655] [INFO] Found OpenVINO model: openvino2
+[2026-08-25 10:02:48,655] [INFO] Loading onnx/pt
+[2026-08-25 10:02:50,543] [INFO] Models loaded successfully
+[2026-08-25 10:02:50,544] [INFO] Warming up models...
+[2026-08-25 10:02:50,910] [INFO] Model warmup complete
+[2026-08-25 10:03:45,951] [INFO] 4.10.0
+[2026-08-25 10:03:45,951] [INFO] 2.12.1+cu126
+[2026-08-25 10:03:45,952] [INFO] Found 'pt' sentinel file
+[2026-08-25 10:03:45,952] [INFO] Loading YOLO models...
+[2026-08-25 10:03:45,953] [INFO] Found OpenVINO model: openvino2
+[2026-08-25 10:03:45,953] [INFO] Loading onnx/pt
+[2026-08-25 10:03:47,837] [INFO] Models loaded successfully
+[2026-08-25 10:03:47,837] [INFO] Warming up models...
+[2026-08-25 10:03:48,190] [INFO] Model warmup complete
+[2026-08-25 10:03:58,811] [INFO] 4.10.0
+[2026-08-25 10:03:58,811] [INFO] 2.12.1+cu126
+[2026-08-25 10:03:58,812] [INFO] Found 'pt' sentinel file
+[2026-08-25 10:03:58,812] [INFO] Loading YOLO models...
+[2026-08-25 10:03:58,813] [INFO] Found OpenVINO model: openvino2
+[2026-08-25 10:03:58,813] [INFO] Loading onnx/pt
+[2026-08-25 10:04:00,666] [INFO] Models loaded successfully
+[2026-08-25 10:04:00,667] [INFO] Warming up models...
+[2026-08-25 10:04:01,012] [INFO] Model warmup complete
+[2026-08-25 10:04:22,269] [INFO] 4.10.0
+[2026-08-25 10:04:22,270] [INFO] 2.12.1+cu126
+[2026-08-25 10:04:22,272] [INFO] Found 'pt' sentinel file
+[2026-08-25 10:04:22,272] [INFO] Loading YOLO models...
+[2026-08-25 10:04:22,273] [INFO] Found OpenVINO model: openvino2
+[2026-08-25 10:04:22,273] [INFO] Loading onnx/pt
+[2026-08-25 10:04:24,212] [INFO] Models loaded successfully
+[2026-08-25 10:04:24,212] [INFO] Warming up models...
+[2026-08-25 10:04:24,564] [INFO] Model warmup complete
+[2026-08-25 10:09:39,483] [INFO] 4.10.0
+[2026-08-25 10:09:39,483] [INFO] 2.12.1+cu126
+[2026-08-25 10:09:39,485] [INFO] Found 'pt' sentinel file
+[2026-08-25 10:09:39,485] [INFO] Loading YOLO models...
+[2026-08-25 10:09:39,485] [INFO] Found OpenVINO model: openvino2
+[2026-08-25 10:09:39,486] [INFO] Loading onnx/pt
+[2026-08-25 10:09:41,459] [INFO] Models loaded successfully
+[2026-08-25 10:09:41,459] [INFO] Warming up models...
+[2026-08-25 10:09:41,866] [INFO] Model warmup complete
+[2026-08-25 10:10:22,766] [INFO] 4.10.0
+[2026-08-25 10:10:22,766] [INFO] 2.12.1+cu126
+[2026-08-25 10:10:22,768] [INFO] Found 'pt' sentinel file
+[2026-08-25 10:10:22,768] [INFO] Loading YOLO models...
+[2026-08-25 10:10:22,768] [INFO] Found OpenVINO model: openvino2
+[2026-08-25 10:10:22,768] [INFO] Loading onnx/pt
+[2026-08-25 10:10:24,680] [INFO] Models loaded successfully
+[2026-08-25 10:10:24,680] [INFO] Warming up models...
+[2026-08-25 10:10:25,135] [INFO] Model warmup complete
+[2026-08-25 10:10:35,834] [INFO] 4.10.0
+[2026-08-25 10:10:35,835] [INFO] 2.12.1+cu126
+[2026-08-25 10:10:35,836] [INFO] Found 'pt' sentinel file
+[2026-08-25 10:10:35,836] [INFO] Loading YOLO models...
+[2026-08-25 10:10:35,837] [INFO] Found OpenVINO model: openvino2
+[2026-08-25 10:10:35,837] [INFO] Loading onnx/pt
+[2026-08-25 10:10:37,744] [INFO] Models loaded successfully
+[2026-08-25 10:10:37,745] [INFO] Warming up models...
+[2026-08-25 10:10:38,163] [INFO] Model warmup complete
+[2026-08-25 10:12:49,074] [INFO] 4.10.0
+[2026-08-25 10:12:49,074] [INFO] 2.12.1+cu126
+[2026-08-25 10:12:49,076] [INFO] Found 'pt' sentinel file
+[2026-08-25 10:12:49,076] [INFO] Loading YOLO models...
+[2026-08-25 10:12:49,077] [INFO] Found OpenVINO model: openvino2
+[2026-08-25 10:12:49,077] [INFO] Loading onnx/pt
+[2026-08-25 10:12:51,000] [INFO] Models loaded successfully
+[2026-08-25 10:12:51,001] [INFO] Warming up models...
+[2026-08-25 10:12:51,402] [INFO] Model warmup complete
+[2026-08-25 10:13:05,676] [INFO] 4.10.0
+[2026-08-25 10:13:05,677] [INFO] 2.12.1+cu126
+[2026-08-25 10:13:05,678] [INFO] Found 'pt' sentinel file
+[2026-08-25 10:13:05,678] [INFO] Loading YOLO models...
+[2026-08-25 10:13:05,679] [INFO] Found OpenVINO model: openvino2
+[2026-08-25 10:13:05,679] [INFO] Loading onnx/pt
+[2026-08-25 10:13:07,632] [INFO] Models loaded successfully
+[2026-08-25 10:13:07,632] [INFO] Warming up models...
+[2026-08-25 10:13:07,998] [INFO] Model warmup complete
+[2026-08-25 10:13:18,227] [INFO] 4.10.0
+[2026-08-25 10:13:18,227] [INFO] 2.12.1+cu126
+[2026-08-25 10:13:18,229] [INFO] Found 'pt' sentinel file
+[2026-08-25 10:13:18,229] [INFO] Loading YOLO models...
+[2026-08-25 10:13:18,229] [INFO] Found OpenVINO model: openvino2
+[2026-08-25 10:13:18,229] [INFO] Loading onnx/pt
+[2026-08-25 10:13:20,169] [INFO] Models loaded successfully
+[2026-08-25 10:13:20,169] [INFO] Warming up models...
+[2026-08-25 10:13:20,561] [INFO] Model warmup complete
+[2026-08-25 10:13:32,820] [INFO] 4.10.0
+[2026-08-25 10:13:32,821] [INFO] 2.12.1+cu126
+[2026-08-25 10:13:32,822] [INFO] Found 'pt' sentinel file
+[2026-08-25 10:13:32,822] [INFO] Loading YOLO models...
+[2026-08-25 10:13:32,823] [INFO] Found OpenVINO model: openvino2
+[2026-08-25 10:13:32,824] [INFO] Loading onnx/pt
+[2026-08-25 10:13:34,706] [INFO] Models loaded successfully
+[2026-08-25 10:13:34,707] [INFO] Warming up models...
+[2026-08-25 10:13:35,110] [INFO] Model warmup complete
+[2026-08-25 10:14:34,618] [INFO] 4.10.0
+[2026-08-25 10:14:34,618] [INFO] 2.12.1+cu126
+[2026-08-25 10:14:34,620] [INFO] Found 'pt' sentinel file
+[2026-08-25 10:14:34,620] [INFO] Loading YOLO models...
+[2026-08-25 10:14:34,620] [INFO] Found OpenVINO model: openvino2
+[2026-08-25 10:14:34,620] [INFO] Loading onnx/pt
+[2026-08-25 10:14:36,508] [INFO] Models loaded successfully
+[2026-08-25 10:14:36,508] [INFO] Warming up models...
+[2026-08-25 10:14:36,905] [INFO] Model warmup complete
+[2026-08-25 10:26:37,600] [INFO] 4.10.0
+[2026-08-25 10:26:37,600] [INFO] 2.12.1+cu126
+[2026-08-25 10:26:37,602] [INFO] Found 'pt' sentinel file
+[2026-08-25 10:26:37,602] [INFO] Loading YOLO models...
+[2026-08-25 10:26:37,602] [INFO] Found OpenVINO model: openvino2
+[2026-08-25 10:26:37,602] [INFO] Loading onnx/pt
+[2026-08-25 10:26:39,541] [INFO] Models loaded successfully
+[2026-08-25 10:26:39,541] [INFO] Warming up models...
+[2026-08-25 10:26:39,937] [INFO] Model warmup complete
+[2026-08-25 10:42:09,158] [INFO] 4.10.0
+[2026-08-25 10:42:09,158] [INFO] 2.12.1+cu126
+[2026-08-25 10:42:09,159] [INFO] Found 'pt' sentinel file
+[2026-08-25 10:42:09,159] [INFO] Loading YOLO models...
+[2026-08-25 10:42:09,160] [INFO] Found OpenVINO model: openvino2
+[2026-08-25 10:42:09,160] [INFO] Loading onnx/pt
+[2026-08-25 10:42:15,997] [INFO] Models loaded successfully
+[2026-08-25 10:42:15,997] [INFO] Warming up models...
+[2026-08-25 10:42:16,368] [INFO] Model warmup complete
+[2026-08-25 10:42:58,743] [INFO] 4.10.0
+[2026-08-25 10:42:58,743] [INFO] 2.12.1+cu126
+[2026-08-25 10:42:58,745] [INFO] Found 'pt' sentinel file
+[2026-08-25 10:42:58,745] [INFO] Loading YOLO models...
+[2026-08-25 10:42:58,746] [INFO] Found OpenVINO model: openvino2
+[2026-08-25 10:42:58,746] [INFO] Loading onnx/pt
+[2026-08-25 10:43:00,624] [INFO] Models loaded successfully
+[2026-08-25 10:43:00,624] [INFO] Warming up models...
+[2026-08-25 10:43:01,018] [INFO] Model warmup complete
+[2026-08-25 10:43:20,581] [INFO] 4.10.0
+[2026-08-25 10:43:20,581] [INFO] 2.12.1+cu126
+[2026-08-25 10:43:20,583] [INFO] Found 'pt' sentinel file
+[2026-08-25 10:43:20,583] [INFO] Loading YOLO models...
+[2026-08-25 10:43:20,584] [INFO] Found OpenVINO model: openvino2
+[2026-08-25 10:43:20,584] [INFO] Loading onnx/pt
+[2026-08-25 10:43:22,553] [INFO] Models loaded successfully
+[2026-08-25 10:43:22,553] [INFO] Warming up models...
+[2026-08-25 10:43:22,923] [INFO] Model warmup complete
+[2026-08-25 11:22:11,482] [INFO] 4.10.0
+[2026-08-25 11:22:11,483] [INFO] 2.12.1+cu126
+[2026-08-25 11:22:11,872] [INFO] Started server process [21820]
+[2026-08-25 11:22:11,872] [INFO] Waiting for application startup.
+[2026-08-25 11:22:11,977] [INFO] PocketBase stater 7300
+[2026-08-25 11:22:11,978] [INFO] Found 'pt' sentinel file
+[2026-08-25 11:22:11,978] [INFO] Loading YOLO models...
+[2026-08-25 11:22:11,979] [INFO] Found OpenVINO model: openvino2
+[2026-08-25 11:22:11,979] [INFO] Loading onnx/pt
+[2026-08-25 11:22:14,371] [INFO] Models loaded successfully
+[2026-08-25 11:22:14,380] [INFO] Warming up models...
+[2026-08-25 11:22:14,927] [INFO] Model warmup complete
+[2026-08-25 11:22:15,003] [INFO] [Realtime] Connecting to PocketBase realtime...
+[2026-08-25 11:22:15,003] [INFO] Application startup complete.
+[2026-08-25 11:22:15,005] [INFO] Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+[2026-08-25 11:22:15,007] [INFO] [Realtime] Connected to PocketBase realtime
+[2026-08-25 11:22:15,007] [INFO] [Realtime] Got clientId='dXk7ccOKlgXfrjgljGtLJQHHP6OSXb85F66kQdYK'
+[2026-08-25 11:22:15,007] [INFO] [Realtime] Sending subscribe: {"clientId": "dXk7ccOKlgXfrjgljGtLJQHHP6OSXb85F66kQdYK", "subscriptions": ["setting/*"]}
+[2026-08-25 11:22:15,009] [INFO] [Realtime] Subscribe response: 204 
+[2026-08-25 11:22:15,062] [INFO] 127.0.0.1:44912 - "GET /web/app HTTP/1.1" 307
+[2026-08-25 11:22:15,103] [INFO] 127.0.0.1:44912 - "GET /web/app/ HTTP/1.1" 200
+[2026-08-25 11:22:15,120] [INFO] 127.0.0.1:44912 - "GET /web/app/flutter_bootstrap.js HTTP/1.1" 200
+[2026-08-25 11:22:15,133] [INFO] 127.0.0.1:64416 - "GET /web/app/manifest.json HTTP/1.1" 200
+[2026-08-25 11:22:15,416] [INFO] 127.0.0.1:44912 - "GET /web/app/canvaskit/chromium/canvaskit.wasm HTTP/1.1" 200
+[2026-08-25 11:22:15,416] [INFO] 127.0.0.1:24461 - "GET /web/app/canvaskit/chromium/canvaskit.js HTTP/1.1" 200
+[2026-08-25 11:22:15,417] [INFO] 127.0.0.1:27552 - "GET /web/app/main.dart.js HTTP/1.1" 200
+[2026-08-25 11:22:16,750] [INFO] 127.0.0.1:27552 - "GET /web/app/assets/FontManifest.json HTTP/1.1" 200
+[2026-08-25 11:22:16,759] [INFO] 127.0.0.1:24461 - "GET /web/app/icons/Icon-192.png HTTP/1.1" 200
+[2026-08-25 11:22:16,768] [INFO] 127.0.0.1:44912 - "GET /web/app/assets/assets/fonts/Yekan.ttf HTTP/1.1" 200
+[2026-08-25 11:22:16,768] [INFO] 127.0.0.1:27552 - "GET /web/app/assets/fonts/MaterialIcons-Regular.otf HTTP/1.1" 200
+[2026-08-25 11:22:16,771] [INFO] 127.0.0.1:6546 - "GET /web/app/assets/packages/cupertino_icons/assets/CupertinoIcons.ttf HTTP/1.1" 200
+[2026-08-25 11:22:16,771] [INFO] 127.0.0.1:47644 - "GET /web/app/assets/assets/fonts/arial.ttf HTTP/1.1" 200
+[2026-08-25 11:22:17,215] [INFO] 127.0.0.1:47644 - "GET /web/app/assets/images/logo.jpg HTTP/1.1" 200
+[2026-08-25 11:22:19,229] [INFO] 127.0.0.1:47644 - "GET /web/app/assets/images/mainlogo2.png HTTP/1.1" 200
+[2026-08-25 11:22:19,243] [INFO] 127.0.0.1:47644 - "GET /web/app/assets/images/ban.jpg HTTP/1.1" 200
+[2026-08-25 11:22:22,157] [INFO] 127.0.0.1:47644 - "GET /web/app/assets/images/iranFlag.png HTTP/1.1" 200
+[2026-08-25 11:22:22,181] [INFO] NORMAL MODE
+[2026-08-25 11:22:22,187] [INFO] 127.0.0.1:47644 - "GET /video_feed/rt1?source=rtsp://admin:admin@192.168.1.89:554/mainstream HTTP/1.1" 200
+[2026-08-25 11:22:55,666] [INFO] g1z2p1vf025007q
+[2026-08-25 11:23:02,123] [INFO] vvzc11641x486o6
+[2026-08-25 11:23:02,279] [INFO] 9xql21zzn986zz3
+[2026-08-25 11:23:56,445] [INFO] 7275e8c0iact8jz
+[2026-08-25 11:23:56,781] [INFO] 1u96y349w5xve2z
+[2026-08-25 11:24:03,376] [INFO] 81w2me00n047plq
+[2026-08-25 11:24:04,360] [INFO] q407z5g3j741u0g
+[2026-08-25 11:24:04,478] [INFO] y1q56xz09px16r0
+[2026-08-25 11:24:17,411] [INFO] tm1lcknv5xbf623
+[2026-08-25 11:24:17,688] [INFO] ayd15u70f7ieiyd
+[2026-08-25 11:26:33,071] [INFO] 4953wwrctp13hn2
+[2026-08-25 11:26:37,086] [INFO] 5m31mdck40gwwkm
+[2026-08-25 11:26:41,713] [INFO] 9ip55n2m5952778
+[2026-08-25 11:26:41,718] [INFO] 8ar7101ija3pvcr
+[2026-08-25 11:26:41,750] [INFO] 0rwmj49ziwoy8u0
+[2026-08-25 11:27:15,007] [INFO] [Realtime] Reconnecting in 1s...
+[2026-08-25 11:27:16,008] [INFO] [Realtime] Connecting to PocketBase realtime...
+[2026-08-25 11:27:16,010] [INFO] [Realtime] Connected to PocketBase realtime
+[2026-08-25 11:27:16,010] [INFO] [Realtime] Got clientId='D2918xYxaDxTevL8OSE4WCvFXlmWo6M2F1mLqmM5'
+[2026-08-25 11:27:16,011] [INFO] [Realtime] Sending subscribe: {"clientId": "D2918xYxaDxTevL8OSE4WCvFXlmWo6M2F1mLqmM5", "subscriptions": ["setting/*"]}
+[2026-08-25 11:27:16,012] [INFO] [Realtime] Subscribe response: 204 
+[2026-08-25 11:27:31,912] [INFO] 32qll4k66n6r8z2
+[2026-08-25 11:27:32,184] [INFO] 4fg8h7096uxh8m0
+[2026-08-25 11:27:46,593] [INFO] u3720k61wsb71w6
+[2026-08-25 11:27:47,086] [INFO] teh974lh52u2f8y
+[2026-08-25 11:27:47,095] [INFO] e1tr62363l7kyjv
+[2026-08-25 11:28:17,024] [INFO] d4655u93wwfh1tr
+[2026-08-25 11:28:17,100] [INFO] qia8bz8c106wr5x
+[2026-08-25 11:28:17,630] [INFO] 0kan2048xshl74k
+[2026-08-25 11:28:17,687] [INFO] 58nv8zna1cwi05j
+[2026-08-25 11:28:17,809] [INFO] 47bxz4ou9cq03z8
+[2026-08-25 11:28:17,858] [INFO] n59u3480rtgjle9
+[2026-08-25 11:28:27,738] [INFO] 655k9p5jywf7c07
+[2026-08-25 11:28:27,810] [INFO] urvtg875lj5q3o3
+[2026-08-25 11:29:11,153] [INFO] 8k13lgg88azqjvz
+[2026-08-25 11:29:11,164] [INFO] dag3f29ts6chi81
+[2026-08-25 11:29:51,659] [INFO] op0d8t51ju0p58f
+[2026-08-25 11:30:39,677] [INFO] fcu7t564uzwg610
+[2026-08-25 11:30:39,733] [INFO] 0j52ef36219h37q
+[2026-08-25 11:32:16,010] [INFO] [Realtime] Reconnecting in 1s...
+[2026-08-25 11:32:17,010] [INFO] [Realtime] Connecting to PocketBase realtime...
+[2026-08-25 11:32:17,013] [INFO] [Realtime] Connected to PocketBase realtime
+[2026-08-25 11:32:17,013] [INFO] [Realtime] Got clientId='1HIuJOdLpnZZV5pvvL0EyJ3KtbTOVrnPfPQywBHh'
+[2026-08-25 11:32:17,013] [INFO] [Realtime] Sending subscribe: {"clientId": "1HIuJOdLpnZZV5pvvL0EyJ3KtbTOVrnPfPQywBHh", "subscriptions": ["setting/*"]}
+[2026-08-25 11:32:17,015] [INFO] [Realtime] Subscribe response: 204 
+[2026-08-25 11:32:21,871] [INFO] 0tgmnw06x76cx0i
+[2026-08-25 11:32:21,950] [INFO] 3245qp0lmhli062
+[2026-08-25 11:32:22,108] [INFO] 6566t0909pa50j7
+[2026-08-25 11:33:28,099] [INFO] 2vw3kthv2g0fb06
+[2026-08-25 11:33:28,246] [INFO] 9h6z3qk4m924hj4
+[2026-08-25 11:33:28,487] [INFO] e8474n1ul1ljng8
+[2026-08-25 11:33:28,516] [INFO] amgaj32115obaa8
+[2026-08-25 11:33:53,559] [INFO] 9v4941b6t5747td
+[2026-08-25 11:33:55,361] [INFO] y0i01b3zqm0lr79
+[2026-08-25 11:33:56,795] [INFO] 6yec9j7op97ogcv
+[2026-08-25 11:33:56,897] [INFO] 20b89sk11vipqu5
+[2026-08-25 11:33:57,218] [INFO] jbv723v20vbcoq4
+[2026-08-25 11:33:57,255] [INFO] jil43kox1tl41ga
+[2026-08-25 11:34:11,239] [INFO] 31ps82j3nbjqo80
+[2026-08-25 11:34:11,377] [INFO] 1b89f1wa1vbf791
+[2026-08-25 11:34:11,579] [INFO] tja7mq4rlg3ob90
+[2026-08-25 11:34:11,702] [INFO] uf1162j5g888708
+[2026-08-25 11:34:11,738] [INFO] k7ko8dj0m95gd3n
+[2026-08-25 11:34:35,031] [INFO] bu55w856lno99q5
+[2026-08-25 11:34:35,499] [INFO] 5pjt1o23210ay18
+[2026-08-25 11:34:35,640] [INFO] 0h1v40n9khi5o05
+[2026-08-25 11:34:36,198] [INFO] cn3379uj5h25lex
+[2026-08-25 11:35:07,266] [INFO] nm04yvwm98rbpjy
+[2026-08-25 11:35:07,362] [INFO] ihof2847j2yyn7e
+[2026-08-25 11:35:07,604] [INFO] mw839jt040e0dfy
+[2026-08-25 11:35:45,703] [INFO] a9hp1c954871y81
+[2026-08-25 11:35:46,086] [INFO] 41851mgb520180w
+[2026-08-25 11:35:54,587] [INFO] d73827kdra1c36m
+[2026-08-25 11:35:54,655] [INFO] zboh484s8igk103
+[2026-08-25 11:35:58,758] [INFO] f22056yezlhgz5h
+[2026-08-25 11:35:59,076] [INFO] 2i0hqm8hjz1qsa1
+[2026-08-25 11:37:17,013] [INFO] [Realtime] Reconnecting in 1s...
+[2026-08-25 11:37:18,013] [INFO] [Realtime] Connecting to PocketBase realtime...
+[2026-08-25 11:37:18,015] [INFO] [Realtime] Connected to PocketBase realtime
+[2026-08-25 11:37:18,015] [INFO] [Realtime] Got clientId='gHc7uww1VVuXOBYnR7i90lXOiwbwkzJSYXGH9jdP'
+[2026-08-25 11:37:18,015] [INFO] [Realtime] Sending subscribe: {"clientId": "gHc7uww1VVuXOBYnR7i90lXOiwbwkzJSYXGH9jdP", "subscriptions": ["setting/*"]}
+[2026-08-25 11:37:18,017] [INFO] [Realtime] Subscribe response: 204 
+[2026-08-25 11:38:34,429] [INFO] tn6a66y4hxxrrj9
+[2026-08-25 11:38:35,214] [INFO] f177u8fkayr341s
+[2026-08-25 11:39:28,859] [INFO] s818to5168w7om5
+[2026-08-25 11:39:28,885] [INFO] m334bb13mpn4p56
+[2026-08-25 11:39:29,086] [INFO] 3pmrjzn6470qbn2
+[2026-08-25 11:39:29,200] [INFO] rc7425imw5ff60b
+[2026-08-25 11:39:29,239] [INFO] 4479wp962ngec83
+[2026-08-25 11:39:49,184] [INFO] 5n32g0ktvqc038e
+[2026-08-25 11:39:49,231] [INFO] 7p5170hyn27741i
+[2026-08-25 11:39:49,569] [INFO] x680bb314zbt0jy
+[2026-08-25 11:39:49,964] [INFO] 3a0un10t984r36y
+[2026-08-25 11:39:50,070] [INFO] b6h27656u4c101g
+[2026-08-25 11:40:12,439] [INFO] 085092a5b07g0sb
+[2026-08-25 11:40:12,520] [INFO] 14pc2w7b1b50d5t
+[2026-08-25 11:40:12,957] [INFO] 36r50s58v9zl9b8
+[2026-08-25 11:41:03,675] [INFO] c27lt1u5627f57v
+[2026-08-25 11:41:03,775] [INFO] y04r9y0252q1027
+[2026-08-25 11:41:03,900] [INFO] 243b83fa5c67t94
+[2026-08-25 11:41:04,860] [INFO] 7722217p6fpv8a7
+[2026-08-25 11:41:04,917] [INFO] 7s28o3v819pr674
+[2026-08-25 11:41:10,273] [INFO] 7880os3c3t169iq
+[2026-08-25 11:41:10,352] [INFO] 1338o65157hhp3e
+[2026-08-25 11:41:28,357] [INFO] q1g1myju22b2sqc
+[2026-08-25 11:41:41,265] [INFO] s0307bj5ge1yqrk
+[2026-08-25 11:41:41,693] [INFO] 27q9gvlfmpjq620
+[2026-08-25 11:41:50,048] [INFO] w98i11s64l074a2
+[2026-08-25 11:41:50,351] [INFO] 44c9738k961qf3w
+[2026-08-25 11:42:18,015] [INFO] [Realtime] Reconnecting in 1s...
+[2026-08-25 11:42:19,016] [INFO] [Realtime] Connecting to PocketBase realtime...
+[2026-08-25 11:42:19,018] [INFO] [Realtime] Connected to PocketBase realtime
+[2026-08-25 11:42:19,019] [INFO] [Realtime] Got clientId='P1nWtmBgaiHsADEA1FHsVpuj4zBg0ZnELQ3xxSzm'
+[2026-08-25 11:42:19,019] [INFO] [Realtime] Sending subscribe: {"clientId": "P1nWtmBgaiHsADEA1FHsVpuj4zBg0ZnELQ3xxSzm", "subscriptions": ["setting/*"]}
+[2026-08-25 11:42:19,021] [INFO] [Realtime] Subscribe response: 204 
+[2026-08-25 11:42:21,980] [INFO] 5wj43ic68188nzc
+[2026-08-25 11:42:30,310] [INFO] qtv0dq855m4n2j2
+[2026-08-25 11:43:21,533] [INFO] 5s9v90390q9ha7z
+[2026-08-25 11:43:37,946] [INFO] i0f16f1bq6191n8
+[2026-08-25 11:43:37,977] [INFO] z9ck2ij6h9x784f
+[2026-08-25 11:43:38,390] [INFO] 8x5hk9h326wj30c
+[2026-08-25 11:44:11,809] [INFO] j096n3bnxatb50e
+[2026-08-25 11:44:11,819] [INFO] tb6z73x4319whvp
+[2026-08-25 11:46:10,826] [INFO] a4ot2wqw6sz778j
+[2026-08-25 11:46:11,447] [INFO] n1sf7d46xmiec55
+[2026-08-25 11:46:13,797] [INFO] 8n29752861g8n95
+[2026-08-25 11:46:13,881] [INFO] j1op8x2s5vb2730
+[2026-08-25 11:46:59,090] [INFO] g8e1223ob68m381
+[2026-08-25 11:47:19,018] [INFO] [Realtime] Reconnecting in 1s...
+[2026-08-25 11:47:20,019] [INFO] [Realtime] Connecting to PocketBase realtime...
+[2026-08-25 11:47:20,038] [INFO] [Realtime] Connected to PocketBase realtime
+[2026-08-25 11:47:20,038] [INFO] [Realtime] Got clientId='b0elYwBQR9DgdpAcj1dC9pYRp2JoDDcHq9rUbT9K'
+[2026-08-25 11:47:20,038] [INFO] [Realtime] Sending subscribe: {"clientId": "b0elYwBQR9DgdpAcj1dC9pYRp2JoDDcHq9rUbT9K", "subscriptions": ["setting/*"]}
+[2026-08-25 11:47:20,040] [INFO] [Realtime] Subscribe response: 204 
+[2026-08-25 11:47:33,378] [INFO] 127.0.0.1:16978 - "GET /web/app/assets/images/arvand.png HTTP/1.1" 200
+[2026-08-25 11:47:54,524] [INFO] Releasing camera resources
+[2026-08-25 11:48:04,667] [INFO] NORMAL MODE
+[2026-08-25 11:48:04,670] [INFO] 127.0.0.1:45243 - "GET /video_feed/rt1?source=rtsp://admin:admin@192.168.1.89:554/mainstream HTTP/1.1" 200
+[2026-08-25 11:48:07,930] [INFO] Releasing camera resources
+[2026-08-25 11:48:21,020] [INFO] NORMAL MODE
+[2026-08-25 11:48:21,022] [INFO] 127.0.0.1:39913 - "GET /video_feed/rt1?source=rtsp://admin:admin@192.168.1.89:554/mainstream HTTP/1.1" 200
+[2026-08-25 11:52:20,038] [INFO] [Realtime] Reconnecting in 1s...
+[2026-08-25 11:52:21,039] [INFO] [Realtime] Connecting to PocketBase realtime...
+[2026-08-25 11:52:21,043] [INFO] [Realtime] Connected to PocketBase realtime
+[2026-08-25 11:52:21,043] [INFO] [Realtime] Got clientId='JD662VEWaxwSoSIj6sx9JXDc13RqrgInqtlnBHZ8'
+[2026-08-25 11:52:21,043] [INFO] [Realtime] Sending subscribe: {"clientId": "JD662VEWaxwSoSIj6sx9JXDc13RqrgInqtlnBHZ8", "subscriptions": ["setting/*"]}
+[2026-08-25 11:52:21,045] [INFO] [Realtime] Subscribe response: 204 
+[2026-08-25 11:57:21,042] [INFO] [Realtime] Reconnecting in 1s...
+[2026-08-25 11:57:22,043] [INFO] [Realtime] Connecting to PocketBase realtime...
+[2026-08-25 11:57:22,045] [INFO] [Realtime] Connected to PocketBase realtime
+[2026-08-25 11:57:22,045] [INFO] [Realtime] Got clientId='3TXsFziY43o6q8QAYZehtXcJ5szXSPt21yy2PNEf'
+[2026-08-25 11:57:22,045] [INFO] [Realtime] Sending subscribe: {"clientId": "3TXsFziY43o6q8QAYZehtXcJ5szXSPt21yy2PNEf", "subscriptions": ["setting/*"]}
+[2026-08-25 11:57:22,047] [INFO] [Realtime] Subscribe response: 204 
+[2026-08-25 12:02:22,045] [INFO] [Realtime] Reconnecting in 1s...
+[2026-08-25 12:02:23,045] [INFO] [Realtime] Connecting to PocketBase realtime...
+[2026-08-25 12:02:23,061] [INFO] [Realtime] Connected to PocketBase realtime
+[2026-08-25 12:02:23,062] [INFO] [Realtime] Got clientId='AJIukM3un5rftNyzixUx50LTSEUdOEIqE2dsPE1d'
+[2026-08-25 12:02:23,062] [INFO] [Realtime] Sending subscribe: {"clientId": "AJIukM3un5rftNyzixUx50LTSEUdOEIqE2dsPE1d", "subscriptions": ["setting/*"]}
+[2026-08-25 12:02:23,077] [INFO] [Realtime] Subscribe response: 204 
+[2026-08-25 12:07:23,061] [INFO] [Realtime] Reconnecting in 1s...
+[2026-08-25 12:07:24,062] [INFO] [Realtime] Connecting to PocketBase realtime...
+[2026-08-25 12:07:24,075] [INFO] [Realtime] Connected to PocketBase realtime
+[2026-08-25 12:07:24,075] [INFO] [Realtime] Got clientId='VjtTp1BzNG7hH7gbTQXK3S3vQZUSoH8SckTnjkGN'
+[2026-08-25 12:07:24,075] [INFO] [Realtime] Sending subscribe: {"clientId": "VjtTp1BzNG7hH7gbTQXK3S3vQZUSoH8SckTnjkGN", "subscriptions": ["setting/*"]}
+[2026-08-25 12:07:24,077] [INFO] [Realtime] Subscribe response: 204 
+[2026-08-25 12:08:13,199] [INFO] Releasing camera resources
+[2026-08-25 12:08:27,335] [INFO] Shutting down
+[2026-08-25 12:08:27,445] [INFO] Waiting for application shutdown.
+[2026-08-25 12:08:27,661] [WARNING] [Realtime] Connection lost: ("Connection broken: ConnectionResetError(10054, 'An existing connection was forcibly closed by the remote host', None, 10054, None)", ConnectionResetError(10054, 'An existing connection was forcibly closed by the remote host', None, 10054, None))
+[2026-08-25 12:08:27,662] [INFO] [Realtime] Reconnecting in 1s...
+[2026-08-25 12:08:27,667] [INFO] Cleanup complete. Shutting down.
+[2026-08-25 12:08:27,667] [INFO] Application shutdown complete.
+[2026-08-25 12:08:27,667] [INFO] Finished server process [21820]
+[2026-08-25 12:08:40,021] [INFO] 4.10.0
+[2026-08-25 12:08:40,021] [INFO] 2.12.1+cu126
+[2026-08-25 12:08:40,184] [INFO] Started server process [10036]
+[2026-08-25 12:08:40,184] [INFO] Waiting for application startup.
+[2026-08-25 12:08:40,191] [INFO] PocketBase stater 3688
+[2026-08-25 12:08:40,192] [INFO] Found 'pt' sentinel file
+[2026-08-25 12:08:40,192] [INFO] Loading YOLO models...
+[2026-08-25 12:08:40,193] [INFO] Found OpenVINO model: openvino2
+[2026-08-25 12:08:40,193] [INFO] Loading onnx/pt
+[2026-08-25 12:08:42,104] [INFO] Models loaded successfully
+[2026-08-25 12:08:42,109] [INFO] Warming up models...
+[2026-08-25 12:08:42,545] [INFO] Model warmup complete
+[2026-08-25 12:08:42,617] [INFO] [Realtime] Connecting to PocketBase realtime...
+[2026-08-25 12:08:42,617] [INFO] Application startup complete.
+[2026-08-25 12:08:42,619] [INFO] Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+[2026-08-25 12:08:42,620] [INFO] [Realtime] Connected to PocketBase realtime
+[2026-08-25 12:08:42,620] [INFO] [Realtime] Got clientId='83HbvDSY9Eb7c8AbTmsR5psBpSsJgFMydN1dEarh'
+[2026-08-25 12:08:42,620] [INFO] [Realtime] Sending subscribe: {"clientId": "83HbvDSY9Eb7c8AbTmsR5psBpSsJgFMydN1dEarh", "subscriptions": ["setting/*"]}
+[2026-08-25 12:08:42,622] [INFO] [Realtime] Subscribe response: 204 
+[2026-08-25 12:08:42,686] [INFO] 127.0.0.1:60174 - "GET /web/app HTTP/1.1" 307
+[2026-08-25 12:08:42,731] [INFO] 127.0.0.1:60174 - "GET /web/app/ HTTP/1.1" 200
+[2026-08-25 12:08:42,745] [INFO] 127.0.0.1:60174 - "GET /web/app/flutter_bootstrap.js HTTP/1.1" 200
+[2026-08-25 12:08:42,754] [INFO] 127.0.0.1:19705 - "GET /web/app/manifest.json HTTP/1.1" 200
+[2026-08-25 12:08:42,765] [INFO] 127.0.0.1:60174 - "GET /web/app/canvaskit/chromium/canvaskit.wasm HTTP/1.1" 200
+[2026-08-25 12:08:42,766] [INFO] 127.0.0.1:52334 - "GET /web/app/canvaskit/chromium/canvaskit.js HTTP/1.1" 200
+[2026-08-25 12:08:42,767] [INFO] 127.0.0.1:2831 - "GET /web/app/main.dart.js HTTP/1.1" 200
+[2026-08-25 12:08:43,131] [INFO] 127.0.0.1:60174 - "GET /web/app/assets/FontManifest.json HTTP/1.1" 200
+[2026-08-25 12:08:43,148] [INFO] 127.0.0.1:60174 - "GET /web/app/assets/fonts/MaterialIcons-Regular.otf HTTP/1.1" 200
+[2026-08-25 12:08:43,149] [INFO] 127.0.0.1:52334 - "GET /web/app/assets/assets/fonts/arial.ttf HTTP/1.1" 200
+[2026-08-25 12:08:43,149] [INFO] 127.0.0.1:2831 - "GET /web/app/assets/assets/fonts/Yekan.ttf HTTP/1.1" 200
+[2026-08-25 12:08:43,150] [INFO] 127.0.0.1:48784 - "GET /web/app/assets/packages/cupertino_icons/assets/CupertinoIcons.ttf HTTP/1.1" 200
+[2026-08-25 12:08:43,152] [INFO] 127.0.0.1:26253 - "GET /web/app/icons/Icon-192.png HTTP/1.1" 200
+[2026-08-25 12:08:44,033] [INFO] 127.0.0.1:52334 - "GET /web/app/assets/images/logo.jpg HTTP/1.1" 200
+[2026-08-25 12:08:46,046] [INFO] 127.0.0.1:52334 - "GET /web/app/assets/images/mainlogo2.png HTTP/1.1" 200
+[2026-08-25 12:08:46,059] [INFO] 127.0.0.1:52334 - "GET /web/app/assets/images/ban.jpg HTTP/1.1" 200
+[2026-08-25 12:13:42,620] [INFO] [Realtime] Reconnecting in 1s...
+[2026-08-25 12:13:43,621] [INFO] [Realtime] Connecting to PocketBase realtime...
+[2026-08-25 12:13:43,623] [INFO] [Realtime] Connected to PocketBase realtime
+[2026-08-25 12:13:43,623] [INFO] [Realtime] Got clientId='i0wP0K3XYeDfNisK0DTe62nSE42na30oKWnNPMMI'
+[2026-08-25 12:13:43,623] [INFO] [Realtime] Sending subscribe: {"clientId": "i0wP0K3XYeDfNisK0DTe62nSE42na30oKWnNPMMI", "subscriptions": ["setting/*"]}
+[2026-08-25 12:13:43,644] [INFO] [Realtime] Subscribe response: 204 
+[2026-08-25 12:18:23,799] [INFO] [Realtime] Reconnecting in 1s...
+[2026-08-25 12:18:24,799] [INFO] [Realtime] Connecting to PocketBase realtime...
+[2026-08-25 12:18:24,802] [INFO] [Realtime] Connected to PocketBase realtime
+[2026-08-25 12:18:24,802] [INFO] [Realtime] Got clientId='dqwdExtyN1LTdnQeAb0eMZFRkhYyad3yM0XUMt87'
+[2026-08-25 12:18:24,802] [INFO] [Realtime] Sending subscribe: {"clientId": "dqwdExtyN1LTdnQeAb0eMZFRkhYyad3yM0XUMt87", "subscriptions": ["setting/*"]}
+[2026-08-25 12:18:24,822] [INFO] [Realtime] Subscribe response: 204 
+[2026-08-25 12:20:24,174] [INFO] 127.0.0.1:54879 - "GET /web/app/assets/images/iranFlag.png HTTP/1.1" 200
+[2026-08-25 12:20:24,224] [INFO] NORMAL MODE
+[2026-08-25 12:20:24,227] [INFO] 127.0.0.1:54879 - "GET /video_feed/rt1?source=rtsp://admin:admin@192.168.1.89:554/mainstream HTTP/1.1" 200
+[2026-08-25 12:20:28,571] [INFO] y9cpi58kvv41lb3
+[2026-08-25 12:20:35,195] [INFO] 920k61k2v66l2la
+[2026-08-25 12:20:35,535] [INFO] 3zwho955cd7013q
+[2026-08-25 12:20:35,663] [INFO] ln40186n2v275v9
+[2026-08-25 12:23:01,058] [INFO] r4g3a9m8llv44c0
+[2026-08-25 12:23:01,162] [INFO] c8l99h405kh82kk
+[2026-08-25 12:23:01,238] [INFO] 9x93iyb75va0hdm
+[2026-08-25 12:23:24,801] [INFO] [Realtime] Reconnecting in 1s...
+[2026-08-25 12:23:25,802] [INFO] [Realtime] Connecting to PocketBase realtime...
+[2026-08-25 12:23:25,804] [INFO] [Realtime] Connected to PocketBase realtime
+[2026-08-25 12:23:25,804] [INFO] [Realtime] Got clientId='491h1lOsi9XcFDOo6Jd47r1sB351IFZ8q0nvjESg'
+[2026-08-25 12:23:25,804] [INFO] [Realtime] Sending subscribe: {"clientId": "491h1lOsi9XcFDOo6Jd47r1sB351IFZ8q0nvjESg", "subscriptions": ["setting/*"]}
+[2026-08-25 12:23:25,825] [INFO] [Realtime] Subscribe response: 204 
+[2026-08-25 12:23:50,233] [INFO] 9hv2115gj5o7lr2
+[2026-08-25 12:23:57,489] [INFO] jy80tuel9znvo9q
+[2026-08-25 12:24:29,315] [INFO] 310t502w4uy0b3z
+[2026-08-25 12:24:29,342] [INFO] 00hmp2ygixaven8
+[2026-08-25 12:25:21,780] [INFO] 9e4b40643i4166h
+[2026-08-25 12:25:21,805] [INFO] um8ruwq5fyzo9k3
+[2026-08-25 12:25:22,141] [INFO] 444d76csu537s4g
+[2026-08-25 12:25:22,190] [INFO] gqcqc4p51252o93
+[2026-08-25 12:25:22,583] [INFO] u8u0sptau1dg87w
+[2026-08-25 12:25:22,849] [INFO] 8zb45abdbb10nnp
+[2026-08-25 12:25:34,020] [INFO] t2rog8i281ug57k
+[2026-08-25 12:25:34,641] [INFO] 2z94rw6m8rq8s58
+[2026-08-25 12:25:34,741] [INFO] co19rd1x391973g
+[2026-08-25 12:25:34,777] [INFO] 8o1dgcyi647mu5u
+[2026-08-25 12:25:37,684] [INFO] oomh8sq6a0842wl
+[2026-08-25 12:26:26,633] [INFO] 8ymop2i982h1vp2
+[2026-08-25 12:26:35,648] [INFO] q8kn4xtjl2wz0kw
+[2026-08-25 12:26:35,765] [INFO] ea8871pd15s7427
+[2026-08-25 12:26:36,663] [INFO] i748b605043s9t8
+[2026-08-25 12:27:24,624] [INFO] q90e2945g3ftf4z
+[2026-08-25 12:27:26,632] [INFO] 89lsra654u168lx
+[2026-08-25 12:27:30,831] [INFO] 4r577w9260w6ezt
+[2026-08-25 12:27:36,628] [INFO] 81138mcrxf93699
+[2026-08-25 12:28:25,804] [INFO] [Realtime] Reconnecting in 1s...
+[2026-08-25 12:28:26,805] [INFO] [Realtime] Connecting to PocketBase realtime...
+[2026-08-25 12:28:26,807] [INFO] [Realtime] Connected to PocketBase realtime
+[2026-08-25 12:28:26,808] [INFO] [Realtime] Got clientId='dZxZnXQCGuC3SsKZrj2vmIc1SU8PQfonNCWM7hOO'
+[2026-08-25 12:28:26,808] [INFO] [Realtime] Sending subscribe: {"clientId": "dZxZnXQCGuC3SsKZrj2vmIc1SU8PQfonNCWM7hOO", "subscriptions": ["setting/*"]}
+[2026-08-25 12:28:26,810] [INFO] [Realtime] Subscribe response: 204 
+[2026-08-25 12:28:39,510] [INFO] 3v02jb18096fz4v
+[2026-08-25 12:28:39,706] [INFO] 615t901am66axvf
+[2026-08-25 12:29:31,563] [INFO] 3m208s2s5776tnx
+[2026-08-25 12:29:56,718] [INFO] 00dn0v44w7j5gs9
+[2026-08-25 12:30:13,621] [INFO] rso762hc7g9oe22
+[2026-08-25 12:30:13,715] [INFO] u0fl51378mm8u88
+[2026-08-25 12:30:13,950] [INFO] oh81vod003s3h07
+[2026-08-25 12:30:14,016] [INFO] p5t78a5ob1gr9n8
+[2026-08-25 12:30:59,178] [INFO] 06z7tp472ji2s4n
+[2026-08-25 12:30:59,281] [INFO] n7rj9u0ass29j3u
+[2026-08-25 12:30:59,591] [INFO] z963l569y7vl343
+[2026-08-25 12:30:59,943] [INFO] sa34hgzko3x7ze6
+[2026-08-25 12:30:59,962] [INFO] y1v7wp55uba647x
+[2026-08-25 12:31:19,553] [INFO] 5u3xjo55o9yg4wk
+[2026-08-25 12:31:19,840] [INFO] iq8akt326xi97sh
+[2026-08-25 12:31:19,988] [INFO] q061d0h3q5087yg
+[2026-08-25 12:31:30,717] [INFO] 5da69w08jlu6v65
+[2026-08-25 12:31:45,859] [INFO] cnf3jfx1k7mn10v
+[2026-08-25 12:32:54,978] [INFO] 4731oupqu7xo98a
+[2026-08-25 12:32:55,055] [INFO] 1n1q7ne5kvov865
+[2026-08-25 12:32:55,166] [INFO] 27k126pgt9f5an3
+[2026-08-25 12:33:26,807] [INFO] [Realtime] Reconnecting in 1s...
+[2026-08-25 12:33:27,807] [INFO] [Realtime] Connecting to PocketBase realtime...
+[2026-08-25 12:33:27,809] [INFO] [Realtime] Connected to PocketBase realtime
+[2026-08-25 12:33:27,810] [INFO] [Realtime] Got clientId='tayLbXTvoEPS9tzDLiBXChoSug0X8wsPZ0VdQw52'
+[2026-08-25 12:33:27,810] [INFO] [Realtime] Sending subscribe: {"clientId": "tayLbXTvoEPS9tzDLiBXChoSug0X8wsPZ0VdQw52", "subscriptions": ["setting/*"]}
+[2026-08-25 12:33:27,811] [INFO] [Realtime] Subscribe response: 204 
+[2026-08-25 12:34:53,135] [INFO] 9e70856qe7c0v49
+[2026-08-25 12:35:13,211] [INFO] g2pna0oyhm462a9
+[2026-08-25 12:35:13,898] [INFO] 3ph2b19k0nxx04n
+[2026-08-25 12:36:13,240] [INFO] qo9bwpf4s9d678a
+[2026-08-25 12:36:13,939] [INFO] k8573z15k04xp74
+[2026-08-25 12:36:52,908] [INFO] a0oqhj3ej1wz136
+[2026-08-25 12:36:52,963] [INFO] c67j2bt2dttoqm1
+[2026-08-25 12:36:52,994] [INFO] 45neg5lj743o16r
+[2026-08-25 12:36:53,337] [INFO] 73v8iy7r62u4hc3
+[2026-08-25 12:36:53,535] [INFO] 51206mdiod2r5x2
+[2026-08-25 12:37:22,911] [INFO] 1k08s220469w8u3
+[2026-08-25 12:37:48,660] [INFO] 027y1022bzb4346
+[2026-08-25 12:37:49,244] [INFO] 2r4bm1bd91g5i04
+[2026-08-25 12:38:16,523] [INFO] 160x6yh612482qc
+[2026-08-25 12:38:16,609] [INFO] ba1j25bofv8iww3
+[2026-08-25 12:38:16,842] [INFO] 3w7g220244ydgwc
+[2026-08-25 12:38:17,301] [INFO] cm9d5aif5tpjcwo
+[2026-08-25 12:38:17,318] [INFO] 9t6v9g1611bx9r2
+[2026-08-25 12:38:17,379] [INFO] ww286836c38i2q1
+[2026-08-25 12:38:27,810] [INFO] [Realtime] Reconnecting in 1s...
+[2026-08-25 12:38:28,810] [INFO] [Realtime] Connecting to PocketBase realtime...
+[2026-08-25 12:38:28,812] [INFO] [Realtime] Connected to PocketBase realtime
+[2026-08-25 12:38:28,812] [INFO] [Realtime] Got clientId='k3FMJLAWFB0zf2BTddXvegvJSEx3qLcYxNZPOYVj'
+[2026-08-25 12:38:28,812] [INFO] [Realtime] Sending subscribe: {"clientId": "k3FMJLAWFB0zf2BTddXvegvJSEx3qLcYxNZPOYVj", "subscriptions": ["setting/*"]}
+[2026-08-25 12:38:28,814] [INFO] [Realtime] Subscribe response: 204 
+[2026-08-25 12:38:45,926] [INFO] xp96242n8e8y0ca
+[2026-08-25 12:38:45,942] [INFO] 894r8k2cm98r193
+[2026-08-25 12:38:46,468] [INFO] nlm0drbassl7x3a
+[2026-08-25 12:39:10,456] [INFO] uzc6rd4rx27mr18
+[2026-08-25 12:39:10,593] [INFO] t07sv494mcp5i80
+[2026-08-25 12:39:10,741] [INFO] q87mp839p2e6xvj
+[2026-08-25 12:39:10,770] [INFO] 1576gaor3k25x79
+[2026-08-25 12:39:40,912] [INFO] zv3mg49vj6zg5ky
+[2026-08-25 12:39:42,857] [INFO] pw69317661g0wdm
+[2026-08-25 12:39:43,560] [INFO] 8a8o378a7gii822
+[2026-08-25 12:39:49,311] [INFO] oo2o67761st4a9i
+[2026-08-25 12:39:50,009] [INFO] xi58p5b7ikwkztv
+[2026-08-25 12:39:52,577] [INFO] 745qa5615pyg6k1
+[2026-08-25 12:39:53,013] [INFO] n7k8322656r17q3
+[2026-08-25 12:39:53,146] [INFO] b61d3m16b1x6wbw
+[2026-08-25 12:39:53,328] [INFO] 1d457vy1394m698
+[2026-08-25 12:39:53,766] [INFO] jb241itlnfmir9o
+[2026-08-25 12:39:58,069] [INFO] 5bqf54dss9k49hq
+[2026-08-25 12:39:58,648] [INFO] 50zz1o8h80ukm97
+[2026-08-25 12:39:59,449] [INFO] 66x3cj56sbc5bgn
+[2026-08-25 12:39:59,837] [INFO] urzu035ku7rv943
+[2026-08-25 12:40:00,120] [INFO] kn85yl3xhdv4yje
+[2026-08-25 12:40:01,654] [INFO] 54620uh3731jb14
+[2026-08-25 12:40:06,257] [INFO] y989b3n92akp7cr
+[2026-08-25 12:40:09,167] [INFO] 7cgl4lpnr035t05
+[2026-08-25 12:40:09,457] [INFO] f75h44i047394ue
+[2026-08-25 12:40:10,160] [INFO] qx7eg2781czm43r
+[2026-08-25 12:40:15,697] [INFO] ph368669h55fec8
+[2026-08-25 12:40:16,126] [INFO] u09mvoty65611y2
+[2026-08-25 12:40:16,191] [INFO] w7x8w4p15c26ck6
+[2026-08-25 12:40:16,281] [INFO] x9u00c66f1wc869
+[2026-08-25 12:40:18,101] [INFO] 6xtd521yjviyt79
+[2026-08-25 12:40:18,655] [INFO] d38hu0o4hu3otf1
+[2026-08-25 12:40:20,162] [INFO] 4c9d6v76xoz9pq3
+[2026-08-25 12:40:22,366] [INFO] 7006p4f8ndi65n7
+[2026-08-25 12:40:23,454] [INFO] q7o14g32mi76kpc
+[2026-08-25 12:40:23,709] [INFO] zm8x67712jd0649
+[2026-08-25 12:40:24,956] [INFO] 6744bh7oibjg9rb
+[2026-08-25 12:40:26,293] [INFO] ckqz6w2q4opi5d3
+[2026-08-25 12:40:26,442] [INFO] 5j1931d46c2h0i5
+[2026-08-25 12:40:27,639] [INFO] 0zw2fgo2r8f5xa9
+[2026-08-25 12:40:32,673] [INFO] 680l3zh26p38p43
+[2026-08-25 12:40:32,775] [INFO] z58ju6b961s20n8
+[2026-08-25 12:40:35,270] [INFO] meio3peb625n3x2
+[2026-08-25 12:40:36,376] [INFO] t5z54k2vuzu201v
+[2026-08-25 12:40:36,531] [INFO] 9a6vr1ohrvr44n0
+[2026-08-25 12:40:36,696] [INFO] eya505wf9d2z3e1
+[2026-08-25 12:40:38,077] [INFO] 0flb9511hv17b6v
+[2026-08-25 12:40:38,207] [INFO] 898oaiyes5s133w
+[2026-08-25 12:40:38,659] [INFO] czxi2yvejq8e6u5
+[2026-08-25 12:40:39,564] [INFO] l5e0o923lo5l90r
+[2026-08-25 12:40:41,247] [INFO] e7y329mppx906lb
+[2026-08-25 12:40:41,403] [INFO] k3h369m1a2kh8zt
+[2026-08-25 12:40:41,851] [INFO] 1y96qwi68ag682a
+[2026-08-25 12:40:41,936] [INFO] 51bn04173w2l4l2
+[2026-08-25 12:40:41,954] [INFO] m9mz592e66iu8a4
+[2026-08-25 12:40:42,134] [INFO] 8xc37969z9zimca
+[2026-08-25 12:40:46,483] [INFO] 6qa1velw3s83m0k
+[2026-08-25 12:40:46,941] [INFO] 3t01qt55fy84to7
+[2026-08-25 12:40:49,179] [INFO] s938ou2z8rll2aj
+[2026-08-25 12:40:51,412] [INFO] wkn9ik7702s842q
+[2026-08-25 12:40:52,950] [INFO] wmv7godlk43r64s
+[2026-08-25 12:40:53,502] [INFO] rtpbvjb6w76kq01
+[2026-08-25 12:40:56,535] [INFO] 31355w1srq60033
+[2026-08-25 12:40:56,548] [INFO] pu68d7175bv9dd0
+[2026-08-25 12:40:57,020] [INFO] nh83jdwiva1293i
+[2026-08-25 12:40:57,039] [INFO] p82x1qw8wt3zp05
+[2026-08-25 12:40:57,216] [INFO] dx346fp2rc6d07d
+[2026-08-25 12:40:57,470] [INFO] qq5oyftw2otwzk9
+[2026-08-25 12:40:58,773] [INFO] yaszf6xvs14u4fd
+[2026-08-25 12:40:59,479] [INFO] et9513x6483uu6c
+[2026-08-25 12:41:02,082] [INFO] ie83u640w5j8777
+[2026-08-25 12:41:04,652] [INFO] ap9632r7gahwz16
+[2026-08-25 12:41:04,933] [INFO] 6ynmn52guvqyfb5
+[2026-08-25 12:41:05,051] [INFO] jiix24pz80q5uv4
+[2026-08-25 12:41:05,103] [INFO] fa50521u7319a2k
+[2026-08-25 12:41:05,407] [INFO] ew2tvo8b9pah597
+[2026-08-25 12:41:06,918] [INFO] 6v64mzwxr755vxc
+[2026-08-25 12:41:07,021] [INFO] e1j0643o0dp03te
+[2026-08-25 12:41:07,283] [INFO] h028c38i19i4yr4
+[2026-08-25 12:41:08,049] [INFO] 88l20319w76zns9
+[2026-08-25 12:41:10,409] [INFO] edu4bb619t97253
+[2026-08-25 12:41:12,823] [INFO] 25gpv5mwhd5sm9x
+[2026-08-25 12:41:13,728] [INFO] 79s1l5861k2iz0p
+[2026-08-25 12:41:17,048] [INFO] 46k82160n8l8uz4
+[2026-08-25 12:41:17,073] [INFO] 17008d7kpn626o9
+[2026-08-25 12:41:18,218] [INFO] 4i04tb4r7i05y28
+[2026-08-25 12:41:20,689] [INFO] bq4zt35xwk025r1
+[2026-08-25 12:41:21,062] [INFO] 4z8x43qq53l3m61
+[2026-08-25 12:41:22,376] [INFO] 6l23gq4bknjbw6e
+[2026-08-25 12:41:22,579] [INFO] 58594a262b6g350
+[2026-08-25 12:41:22,665] [INFO] i6z62x9zt44nfa3
+[2026-08-25 12:41:23,902] [INFO] 127.0.0.1:21011 - "GET /web/app/assets/images/arvand.png HTTP/1.1" 200
+[2026-08-25 12:41:24,718] [INFO] Releasing camera resources
+[2026-08-25 12:41:25,647] [INFO] NORMAL MODE
+[2026-08-25 12:41:25,650] [INFO] 127.0.0.1:21011 - "GET /video_feed/rt1?source=rtsp://admin:admin@192.168.1.89:554/mainstream HTTP/1.1" 200
+[2026-08-25 12:41:31,006] [INFO] Releasing camera resources
+[2026-08-25 12:41:32,513] [INFO] Shutting down
+[2026-08-25 12:41:32,629] [INFO] Waiting for application shutdown.
+[2026-08-25 12:41:32,793] [WARNING] [Realtime] Connection lost: ("Connection broken: ConnectionResetError(10054, 'An existing connection was forcibly closed by the remote host', None, 10054, None)", ConnectionResetError(10054, 'An existing connection was forcibly closed by the remote host', None, 10054, None))
+[2026-08-25 12:41:32,793] [INFO] [Realtime] Reconnecting in 1s...
+[2026-08-25 12:41:32,796] [INFO] Cleanup complete. Shutting down.
+[2026-08-25 12:41:32,797] [INFO] Application shutdown complete.
+[2026-08-25 12:41:32,797] [INFO] Finished server process [10036]
+[2026-08-25 13:15:41,139] [INFO] 4.10.0
+[2026-08-25 13:15:41,139] [INFO] 2.12.1+cu126
+[2026-08-25 13:15:41,301] [INFO] Started server process [9120]
+[2026-08-25 13:15:41,301] [INFO] Waiting for application startup.
+[2026-08-25 13:15:41,307] [INFO] PocketBase stater 20876
+[2026-08-25 13:15:41,308] [INFO] Found 'pt' sentinel file
+[2026-08-25 13:15:41,309] [INFO] Loading YOLO models...
+[2026-08-25 13:15:41,309] [INFO] Found OpenVINO model: openvino2
+[2026-08-25 13:15:41,309] [INFO] Loading onnx/pt
+[2026-08-25 13:15:43,217] [INFO] Models loaded successfully
+[2026-08-25 13:15:43,221] [INFO] Warming up models...
+[2026-08-25 13:15:43,605] [INFO] Model warmup complete
+[2026-08-25 13:15:43,668] [INFO] [Realtime] Connecting to PocketBase realtime...
+[2026-08-25 13:15:43,668] [INFO] Application startup complete.
+[2026-08-25 13:15:43,670] [INFO] Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+[2026-08-25 13:15:43,670] [INFO] [Realtime] Connected to PocketBase realtime
+[2026-08-25 13:15:43,671] [INFO] [Realtime] Got clientId='dDNFmKgT2Rj2NYJyLqLyAOly9iDNPvgQoctf608Z'
+[2026-08-25 13:15:43,671] [INFO] [Realtime] Sending subscribe: {"clientId": "dDNFmKgT2Rj2NYJyLqLyAOly9iDNPvgQoctf608Z", "subscriptions": ["setting/*"]}
+[2026-08-25 13:15:43,694] [INFO] [Realtime] Subscribe response: 204 
+[2026-08-25 13:15:43,746] [INFO] 127.0.0.1:37134 - "GET /web/app HTTP/1.1" 307
+[2026-08-25 13:15:50,116] [INFO] NORMAL MODE
+[2026-08-25 13:15:50,122] [INFO] 127.0.0.1:3312 - "GET /video_feed/rt1?source=rtsp://admin:admin@192.168.1.89:554/mainstream HTTP/1.1" 200
+[2026-08-25 13:15:56,508] [INFO] Releasing camera resources
+[2026-08-25 13:16:10,661] [INFO] NORMAL MODE
+[2026-08-25 13:16:10,664] [INFO] 127.0.0.1:44433 - "GET /video_feed/rt1?source=rtsp://admin:admin@192.168.1.89:554/mainstream HTTP/1.1" 200
+[2026-08-25 13:16:15,188] [INFO] Releasing camera resources
+[2026-08-25 13:16:19,959] [INFO] Shutting down
+[2026-08-25 13:16:20,063] [INFO] Waiting for application shutdown.
+[2026-08-25 13:16:20,225] [WARNING] [Realtime] Connection lost: ("Connection broken: ConnectionResetError(10054, 'An existing connection was forcibly closed by the remote host', None, 10054, None)", ConnectionResetError(10054, 'An existing connection was forcibly closed by the remote host', None, 10054, None))
+[2026-08-25 13:16:20,225] [INFO] [Realtime] Reconnecting in 1s...
+[2026-08-25 13:16:20,230] [INFO] Cleanup complete. Shutting down.
+[2026-08-25 13:16:20,230] [INFO] Application shutdown complete.
+[2026-08-25 13:16:20,230] [INFO] Finished server process [9120]
+[2026-08-25 13:16:26,206] [INFO] 4.10.0
+[2026-08-25 13:16:26,206] [INFO] 2.12.1+cu126
+[2026-08-25 13:16:26,369] [INFO] Started server process [19420]
+[2026-08-25 13:16:26,369] [INFO] Waiting for application startup.
+[2026-08-25 13:16:26,375] [INFO] PocketBase stater 11260
+[2026-08-25 13:16:26,377] [INFO] Found 'pt' sentinel file
+[2026-08-25 13:16:26,377] [INFO] Loading YOLO models...
+[2026-08-25 13:16:26,378] [INFO] Found OpenVINO model: openvino2
+[2026-08-25 13:16:26,378] [INFO] Loading onnx/pt
+[2026-08-25 13:16:28,247] [INFO] Models loaded successfully
+[2026-08-25 13:16:28,251] [INFO] Warming up models...
+[2026-08-25 13:16:28,638] [INFO] Model warmup complete
+[2026-08-25 13:16:28,697] [INFO] [Realtime] Connecting to PocketBase realtime...
+[2026-08-25 13:16:28,698] [INFO] Application startup complete.
+[2026-08-25 13:16:28,699] [INFO] Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+[2026-08-25 13:16:28,700] [INFO] [Realtime] Connected to PocketBase realtime
+[2026-08-25 13:16:28,700] [INFO] [Realtime] Got clientId='R1So1kyp12XUVvFOflbOaHwj2cu5qYkj0lBmJDtY'
+[2026-08-25 13:16:28,700] [INFO] [Realtime] Sending subscribe: {"clientId": "R1So1kyp12XUVvFOflbOaHwj2cu5qYkj0lBmJDtY", "subscriptions": ["setting/*"]}
+[2026-08-25 13:16:28,713] [INFO] [Realtime] Subscribe response: 204 
+[2026-08-25 13:16:28,759] [INFO] 127.0.0.1:36858 - "GET /web/app HTTP/1.1" 307
+[2026-08-25 13:16:34,039] [INFO] NORMAL MODE
+[2026-08-25 13:16:34,045] [INFO] 127.0.0.1:19636 - "GET /video_feed/rt1?source=rtsp://admin:admin@192.168.1.89:554/mainstream HTTP/1.1" 200
+[2026-08-25 13:16:38,828] [INFO] Releasing camera resources
+[2026-08-25 13:16:43,397] [INFO] Shutting down
+[2026-08-25 13:16:43,513] [INFO] Waiting for application shutdown.
+[2026-08-25 13:16:43,667] [WARNING] [Realtime] Connection lost: ("Connection broken: ConnectionResetError(10054, 'An existing connection was forcibly closed by the remote host', None, 10054, None)", ConnectionResetError(10054, 'An existing connection was forcibly closed by the remote host', None, 10054, None))
+[2026-08-25 13:16:43,667] [INFO] [Realtime] Reconnecting in 1s...
+[2026-08-25 13:16:43,670] [INFO] Cleanup complete. Shutting down.
+[2026-08-25 13:16:43,670] [INFO] Application shutdown complete.
+[2026-08-25 13:16:43,670] [INFO] Finished server process [19420]
+[2026-08-25 13:16:48,816] [INFO] 4.10.0
+[2026-08-25 13:16:48,817] [INFO] 2.12.1+cu126
+[2026-08-25 13:16:48,981] [INFO] Started server process [23252]
+[2026-08-25 13:16:48,981] [INFO] Waiting for application startup.
+[2026-08-25 13:16:48,987] [INFO] PocketBase stater 19704
+[2026-08-25 13:16:48,988] [INFO] Found 'pt' sentinel file
+[2026-08-25 13:16:48,989] [INFO] Loading YOLO models...
+[2026-08-25 13:16:48,989] [INFO] Found OpenVINO model: openvino2
+[2026-08-25 13:16:48,989] [INFO] Loading onnx/pt
+[2026-08-25 13:16:50,857] [INFO] Models loaded successfully
+[2026-08-25 13:16:50,862] [INFO] Warming up models...
+[2026-08-25 13:16:51,218] [INFO] Model warmup complete
+[2026-08-25 13:16:51,278] [INFO] [Realtime] Connecting to PocketBase realtime...
+[2026-08-25 13:16:51,278] [INFO] Application startup complete.
+[2026-08-25 13:16:51,280] [INFO] Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+[2026-08-25 13:16:51,280] [INFO] [Realtime] Connected to PocketBase realtime
+[2026-08-25 13:16:51,280] [INFO] [Realtime] Got clientId='eooF9dgmTlCQJrgodtbK2KrBKazMEQzSmCBPxYbG'
+[2026-08-25 13:16:51,281] [INFO] [Realtime] Sending subscribe: {"clientId": "eooF9dgmTlCQJrgodtbK2KrBKazMEQzSmCBPxYbG", "subscriptions": ["setting/*"]}
+[2026-08-25 13:16:51,296] [INFO] [Realtime] Subscribe response: 204 
+[2026-08-25 13:16:51,348] [INFO] 127.0.0.1:47123 - "GET /web/app HTTP/1.1" 307
+[2026-08-25 13:16:56,245] [INFO] NORMAL MODE
+[2026-08-25 13:16:56,251] [INFO] 127.0.0.1:47123 - "GET /video_feed/rt1?source=rtsp://admin:admin@192.168.1.89:554/mainstream HTTP/1.1" 200
+[2026-08-25 13:17:01,335] [INFO] 38u42i3ha1q254e
+[2026-08-25 13:17:50,754] [INFO] vx96v018xv16l0o
+[2026-08-25 13:17:51,330] [INFO] ins3b214c5n78l0
+[2026-08-25 13:17:57,450] [INFO] 0eni14846a05ba8
+[2026-08-25 13:17:57,537] [INFO] g3spa364u661a67
+[2026-08-25 13:18:27,200] [INFO] 2g1214otypr8k4j
+[2026-08-25 13:18:28,053] [INFO] g0v37mj03i7jzj5
+[2026-08-25 13:18:28,125] [INFO] q2406p4j4hjmoxv
+[2026-08-25 13:19:11,851] [INFO] 5753leqxog07x4r
+[2026-08-25 13:19:12,092] [INFO] 354723s577ek9bl
+[2026-08-25 13:20:17,680] [INFO] 6379pmg399t8jm9
+[2026-08-25 13:20:17,830] [INFO] 887o6jc4l4gh95y
+[2026-08-25 13:20:18,286] [INFO] b47bg1b0g38a619
+[2026-08-25 13:20:23,149] [INFO] ac541sbihr240ek
+[2026-08-25 13:20:23,223] [INFO] 854gm4miu2kb2w5
+[2026-08-25 13:21:27,737] [INFO] fzg5hl7s1t34y53
+[2026-08-25 13:21:27,807] [INFO] o4x4441nz577wcl
+[2026-08-25 13:21:28,511] [INFO] 4i0oha0745i0qra
+[2026-08-25 13:21:51,281] [INFO] [Realtime] Reconnecting in 1s...
+[2026-08-25 13:21:52,281] [INFO] [Realtime] Connecting to PocketBase realtime...
+[2026-08-25 13:21:52,301] [INFO] [Realtime] Connected to PocketBase realtime
+[2026-08-25 13:21:52,301] [INFO] [Realtime] Got clientId='B7yd6V0aYEbPLvNO9WYrVmX6fidssowqRDj9HqWg'
+[2026-08-25 13:21:52,302] [INFO] [Realtime] Sending subscribe: {"clientId": "B7yd6V0aYEbPLvNO9WYrVmX6fidssowqRDj9HqWg", "subscriptions": ["setting/*"]}
+[2026-08-25 13:21:52,304] [INFO] [Realtime] Subscribe response: 204 
+[2026-08-25 13:22:15,226] [INFO] f2w17b6944vufr4
+[2026-08-25 13:22:15,369] [INFO] iz257405w8e386r
+[2026-08-25 13:22:15,453] [INFO] 75u73td90u43rqx
+[2026-08-25 13:22:19,964] [INFO] 0zxnon7yw2jv3ch
+[2026-08-25 13:22:20,316] [INFO] kmfc9o91yaivj31
+[2026-08-25 13:22:41,285] [INFO] ov52kye29o6ur3k
+[2026-08-25 13:22:41,319] [INFO] 3j3hhpz4tv8o05o
+[2026-08-25 13:22:41,396] [INFO] sr45zv8960jp13j
+[2026-08-25 13:22:41,419] [INFO] 05mnqurkex852f6
+[2026-08-25 13:23:10,330] [INFO] rs6b7g6wj3z1480
+[2026-08-25 13:24:02,968] [INFO] 9g4p39y7269e0bb
+[2026-08-25 13:24:52,780] [INFO] 9l6hwilgkwqu5x0
+[2026-08-25 13:24:52,856] [INFO] 484w49171vy10a7
+[2026-08-25 13:24:52,955] [INFO] tlp5zsudn91tig4
+[2026-08-25 13:24:53,295] [INFO] 00796t4tk9d1tp2
+[2026-08-25 13:24:53,461] [INFO] w94ub13gwi418k8
+[2026-08-25 13:25:53,848] [INFO] ksst8f01158l4t7
+[2026-08-25 13:25:53,887] [INFO] 8sax882413690ah
+[2026-08-25 13:26:24,843] [INFO] 352m9154xxh7q10
+[2026-08-25 13:26:25,386] [INFO] 99n8vaie3ls6txz
+[2026-08-25 13:26:52,301] [INFO] [Realtime] Reconnecting in 1s...
+[2026-08-25 13:26:53,302] [INFO] [Realtime] Connecting to PocketBase realtime...
+[2026-08-25 13:26:53,304] [INFO] [Realtime] Connected to PocketBase realtime
+[2026-08-25 13:26:53,304] [INFO] [Realtime] Got clientId='HNapnwGpi9mt1sDgR4CUMFweutOYNjhIF97iESj2'
+[2026-08-25 13:26:53,305] [INFO] [Realtime] Sending subscribe: {"clientId": "HNapnwGpi9mt1sDgR4CUMFweutOYNjhIF97iESj2", "subscriptions": ["setting/*"]}
+[2026-08-25 13:26:53,307] [INFO] [Realtime] Subscribe response: 204 
+[2026-08-25 13:27:19,779] [INFO] 0x3656znrv75ku3
+[2026-08-25 13:27:20,494] [INFO] 28y7x8s4601cb22
+[2026-08-25 13:27:57,403] [INFO] nqt2j345k7x1879
+[2026-08-25 13:28:10,109] [INFO] c524axeo2i6ii7h
+[2026-08-25 13:28:10,276] [INFO] 60oa0ljt89b7yyp
+[2026-08-25 13:28:10,280] [INFO] gilxqm92p400ik7
+[2026-08-25 13:28:10,558] [INFO] 9ssfyem261m60m6
+[2026-08-25 13:28:56,475] [INFO] sx7ki21k62144ip
+[2026-08-25 13:28:56,710] [INFO] 41ce28bh458updh
+[2026-08-25 13:28:56,813] [INFO] 6yswb62stes9l45
+[2026-08-25 13:29:33,419] [INFO] 332yy656hld124r
+[2026-08-25 13:29:33,463] [INFO] 0i0h1w2w69pxnlr
+[2026-08-25 13:29:56,370] [INFO] 9y46sek4t967b79
+[2026-08-25 13:29:56,450] [INFO] m80w3mx3ipi5l24
+[2026-08-25 13:29:56,561] [INFO] 6949u08djs0dd1a
+[2026-08-25 13:29:56,823] [INFO] awp188c4sm3y7il
+[2026-08-25 13:29:57,112] [INFO] h20ak6qf327om5x
+[2026-08-25 13:29:57,147] [INFO] 112m80012807395
+[2026-08-25 13:30:23,329] [INFO] 26mq8c673htugm7
+[2026-08-25 13:30:23,429] [INFO] 83gtjz2z1923i8t
+[2026-08-25 13:31:05,181] [INFO] 5jelkw86a6my77d
+[2026-08-25 13:31:05,715] [INFO] yn29irm90204z01
+[2026-08-25 13:31:38,545] [INFO] 61rf65ln9h1r6a9
+[2026-08-25 13:31:38,744] [INFO] 6gj54h55jzuay7q
+[2026-08-25 13:31:53,304] [INFO] [Realtime] Reconnecting in 1s...
+[2026-08-25 13:31:54,305] [INFO] [Realtime] Connecting to PocketBase realtime...
+[2026-08-25 13:31:54,307] [INFO] [Realtime] Connected to PocketBase realtime
+[2026-08-25 13:31:54,307] [INFO] [Realtime] Got clientId='B643OzZHnF7CITPPV9j7O31U49G67WozxxUXSVrq'
+[2026-08-25 13:31:54,307] [INFO] [Realtime] Sending subscribe: {"clientId": "B643OzZHnF7CITPPV9j7O31U49G67WozxxUXSVrq", "subscriptions": ["setting/*"]}
+[2026-08-25 13:31:54,310] [INFO] [Realtime] Subscribe response: 204 
+[2026-08-25 13:32:14,198] [INFO] nu4829346m10jx2
+[2026-08-25 13:32:14,677] [INFO] efrj69e069p78ut
+[2026-08-25 13:32:47,005] [INFO] 3l2e7y8zc3fg336
+[2026-08-25 13:33:42,844] [INFO] u2621ufeeg6imgm
+[2026-08-25 13:34:24,506] [INFO] o17581lb4j541ju
+[2026-08-25 13:34:35,159] [INFO] l9rh9i4a1eqms5z
+[2026-08-25 13:35:40,659] [INFO] vkp5h38181930am
+[2026-08-25 13:35:49,804] [INFO] 61974jef7xb8fbg
+[2026-08-25 13:36:16,521] [INFO] 0721h4h7u2l9c8o
+[2026-08-25 13:36:16,617] [INFO] ik5w7gdam5nhi0l
+[2026-08-25 13:36:16,743] [INFO] 0q650dmdktg09z2
+[2026-08-25 13:36:54,307] [INFO] [Realtime] Reconnecting in 1s...
+[2026-08-25 13:36:55,307] [INFO] [Realtime] Connecting to PocketBase realtime...
+[2026-08-25 13:36:55,310] [INFO] [Realtime] Connected to PocketBase realtime
+[2026-08-25 13:36:55,310] [INFO] [Realtime] Got clientId='mNPeoL54yFDbroXUUBGryODjhr1vRriAIvu44Qxl'
+[2026-08-25 13:36:55,310] [INFO] [Realtime] Sending subscribe: {"clientId": "mNPeoL54yFDbroXUUBGryODjhr1vRriAIvu44Qxl", "subscriptions": ["setting/*"]}
+[2026-08-25 13:36:55,311] [INFO] [Realtime] Subscribe response: 204 
+[2026-08-25 13:38:17,235] [WARNING] Lost frame, reconnecting...
+[2026-08-25 13:38:49,361] [WARNING] Lost frame, reconnecting...
+[2026-08-25 13:39:21,432] [WARNING] Lost frame, reconnecting...
+[2026-08-25 13:39:53,539] [WARNING] Lost frame, reconnecting...
+[2026-08-25 13:40:25,641] [WARNING] Lost frame, reconnecting...
+[2026-08-25 13:40:57,660] [WARNING] Lost frame, reconnecting...
+[2026-08-25 13:41:29,759] [WARNING] Lost frame, reconnecting...
+[2026-08-25 13:41:55,310] [INFO] [Realtime] Reconnecting in 1s...
+[2026-08-25 13:41:56,310] [INFO] [Realtime] Connecting to PocketBase realtime...
+[2026-08-25 13:41:56,322] [INFO] [Realtime] Connected to PocketBase realtime
+[2026-08-25 13:41:56,322] [INFO] [Realtime] Got clientId='VRXzZsHVVPDywq757eio0MmiKd2W2YKXksUsHpXT'
+[2026-08-25 13:41:56,322] [INFO] [Realtime] Sending subscribe: {"clientId": "VRXzZsHVVPDywq757eio0MmiKd2W2YKXksUsHpXT", "subscriptions": ["setting/*"]}
+[2026-08-25 13:41:56,324] [INFO] [Realtime] Subscribe response: 204 
+[2026-08-25 13:42:01,829] [WARNING] Lost frame, reconnecting...
+[2026-08-25 13:42:20,681] [INFO] 3gn0b1jormfm84b
+[2026-08-25 13:42:20,776] [INFO] 143ev9dadabzb0d
+[2026-08-25 13:42:22,871] [INFO] 7jae3if9710zijl
+[2026-08-25 13:42:22,905] [INFO] umjnu1vz40225r2
+[2026-08-25 13:42:30,248] [INFO] 8z1wwzpyqh01tn4
+[2026-08-25 13:43:16,843] [INFO] 5c31frs9q16q0qx
+[2026-08-25 13:43:17,636] [INFO] q1b61j581g926wd
+[2026-08-25 13:43:23,135] [INFO] v957558cfbuu330
+[2026-08-25 13:43:41,123] [INFO] 1427yct018uxg3g
+[2026-08-25 13:44:05,386] [INFO] 190w3qndqo4afg8
+[2026-08-25 13:44:05,696] [INFO] lojwsc59r89ard1
+[2026-08-25 13:44:05,726] [INFO] we0n02z766n27c7
+[2026-08-25 13:44:40,251] [INFO] s1vgfh8938z77o2
+[2026-08-25 13:44:40,487] [INFO] 44tfz38lsdo09qn
+[2026-08-25 13:44:40,564] [INFO] oy7oc7a3guwl2qj
+[2026-08-25 13:46:49,560] [INFO] 71hl4cdl64ugb36
+[2026-08-25 13:46:49,832] [INFO] c5547xo786io4v2
+[2026-08-25 13:46:51,101] [INFO] r5o7km31ti7e7j9
+[2026-08-25 13:46:51,201] [INFO] 5p704062u04f84g
+[2026-08-25 13:46:53,821] [INFO] p2y6w3o9a35tbp1
+[2026-08-25 13:46:53,914] [INFO] 1p1mo84g0639c66
+[2026-08-25 13:46:56,322] [INFO] [Realtime] Reconnecting in 1s...
+[2026-08-25 13:46:57,322] [INFO] [Realtime] Connecting to PocketBase realtime...
+[2026-08-25 13:46:57,324] [INFO] [Realtime] Connected to PocketBase realtime
+[2026-08-25 13:46:57,324] [INFO] [Realtime] Got clientId='oXxce84ZLrbU2Dj5xY8AAx6wJf9MHb203DZN8uKo'
+[2026-08-25 13:46:57,325] [INFO] [Realtime] Sending subscribe: {"clientId": "oXxce84ZLrbU2Dj5xY8AAx6wJf9MHb203DZN8uKo", "subscriptions": ["setting/*"]}
+[2026-08-25 13:46:57,326] [INFO] [Realtime] Subscribe response: 204 
+[2026-08-25 13:47:52,093] [INFO] k8m8ebwd3pb15cr
+[2026-08-25 13:47:52,285] [INFO] a6oy947r00b65ne
+[2026-08-25 13:47:52,417] [INFO] s0vi7m6u7rk25d5
+[2026-08-25 13:48:17,667] [INFO] n23d5m6562k8ly7
+[2026-08-25 13:48:17,742] [INFO] 2fjdd1to32a29f8
+[2026-08-25 13:49:16,254] [INFO] ndedj233dfo4e01
+[2026-08-25 13:49:16,411] [INFO] 5zy4p610j462s64
+[2026-08-25 13:49:44,147] [INFO] my23s3j1p169jwe
+[2026-08-25 13:49:44,377] [INFO] 4631s7s5053k2p6
+[2026-08-25 13:51:17,253] [INFO] nys7zt7aqh8jcp4
+[2026-08-25 13:51:54,511] [INFO] 2v74x614d8c4jzl
+[2026-08-25 13:51:54,757] [INFO] 0i9j23o2y7p8n6q
+[2026-08-25 13:51:54,864] [INFO] 1y2ed84nkpiq4is
+[2026-08-25 13:51:57,324] [INFO] [Realtime] Reconnecting in 1s...
+[2026-08-25 13:51:58,325] [INFO] [Realtime] Connecting to PocketBase realtime...
+[2026-08-25 13:51:58,327] [INFO] [Realtime] Connected to PocketBase realtime
+[2026-08-25 13:51:58,327] [INFO] [Realtime] Got clientId='D9dOVQal0KhCowa3laUK2qjYVZr34XGD1jR5zEgC'
+[2026-08-25 13:51:58,327] [INFO] [Realtime] Sending subscribe: {"clientId": "D9dOVQal0KhCowa3laUK2qjYVZr34XGD1jR5zEgC", "subscriptions": ["setting/*"]}
+[2026-08-25 13:51:58,329] [INFO] [Realtime] Subscribe response: 204 
+[2026-08-25 13:51:59,969] [INFO] xnt625hl5fxk904
+[2026-08-25 13:52:00,196] [INFO] v6pv1i5wp55hu9u
+[2026-08-25 13:52:10,738] [INFO] 9ld750l2kr04u8f
+[2026-08-25 13:52:11,323] [INFO] ehxgoebe7fla3pm
+[2026-08-25 13:52:58,284] [INFO] s2z94g2l8c1dey9
+[2026-08-25 13:52:58,527] [INFO] qkuah32pc3e3dek
+[2026-08-25 13:54:15,660] [INFO] k910vi23r789omx
+[2026-08-25 13:54:15,714] [INFO] 2bkl558ns2i19l1
+[2026-08-25 13:56:58,327] [INFO] [Realtime] Reconnecting in 1s...
+[2026-08-25 13:56:59,328] [INFO] [Realtime] Connecting to PocketBase realtime...
+[2026-08-25 13:56:59,331] [INFO] [Realtime] Connected to PocketBase realtime
+[2026-08-25 13:56:59,331] [INFO] [Realtime] Got clientId='78GVx9cIvdUG1Fgq2V7eh2B16QE4yMeEIhNaVqYA'
+[2026-08-25 13:56:59,331] [INFO] [Realtime] Sending subscribe: {"clientId": "78GVx9cIvdUG1Fgq2V7eh2B16QE4yMeEIhNaVqYA", "subscriptions": ["setting/*"]}
+[2026-08-25 13:56:59,357] [INFO] [Realtime] Subscribe response: 204 
+[2026-08-25 13:58:02,504] [INFO] 6344s0xqu3ara5c
+[2026-08-25 13:58:26,331] [INFO] Releasing camera resources
+[2026-08-25 13:58:37,239] [INFO] NORMAL MODE
+[2026-08-25 13:58:37,242] [INFO] 127.0.0.1:59246 - "GET /video_feed/rt1?source=rtsp://admin:admin@192.168.1.89:554/mainstream HTTP/1.1" 200
+[2026-08-25 13:58:50,173] [INFO] Releasing camera resources
+[2026-08-25 14:01:59,331] [INFO] [Realtime] Reconnecting in 1s...
+[2026-08-25 14:02:00,332] [INFO] [Realtime] Connecting to PocketBase realtime...
+[2026-08-25 14:02:00,345] [INFO] [Realtime] Connected to PocketBase realtime
+[2026-08-25 14:02:00,345] [INFO] [Realtime] Got clientId='pc4nr6m43o1ApQxkc5tkTn5Cgcrcil56PQ0bxO5Y'
+[2026-08-25 14:02:00,345] [INFO] [Realtime] Sending subscribe: {"clientId": "pc4nr6m43o1ApQxkc5tkTn5Cgcrcil56PQ0bxO5Y", "subscriptions": ["setting/*"]}
+[2026-08-25 14:02:00,347] [INFO] [Realtime] Subscribe response: 204 
+[2026-08-25 14:02:11,959] [INFO] Shutting down
+[2026-08-25 14:02:12,060] [INFO] Waiting for application shutdown.
+[2026-08-25 14:02:12,222] [WARNING] [Realtime] Connection lost: ("Connection broken: ConnectionResetError(10054, 'An existing connection was forcibly closed by the remote host', None, 10054, None)", ConnectionResetError(10054, 'An existing connection was forcibly closed by the remote host', None, 10054, None))
+[2026-08-25 14:02:12,222] [INFO] [Realtime] Reconnecting in 1s...
+[2026-08-25 14:02:12,225] [INFO] Cleanup complete. Shutting down.
+[2026-08-25 14:02:12,226] [INFO] Application shutdown complete.
+[2026-08-25 14:02:12,226] [INFO] Finished server process [23252]
+[2026-08-26 12:43:23,057] [INFO] 4.10.0
+[2026-08-26 12:43:23,057] [INFO] 2.12.1+cu126
+[2026-08-26 12:43:23,353] [INFO] Started server process [23744]
+[2026-08-26 12:43:23,353] [INFO] Waiting for application startup.
+[2026-08-26 12:43:23,439] [INFO] PocketBase stater 7084
+[2026-08-26 12:43:23,441] [INFO] Found 'pt' sentinel file
+[2026-08-26 12:43:23,442] [INFO] Loading YOLO models...
+[2026-08-26 12:43:23,442] [INFO] Found OpenVINO model: openvino2
+[2026-08-26 12:43:23,443] [INFO] Loading onnx/pt
+[2026-08-26 12:43:31,195] [INFO] Models loaded successfully
+[2026-08-26 12:43:31,214] [INFO] Warming up models...
+[2026-08-26 12:43:31,948] [INFO] Model warmup complete
+[2026-08-26 12:43:32,021] [INFO] [Realtime] Connecting to PocketBase realtime...
+[2026-08-26 12:43:32,021] [INFO] Application startup complete.
+[2026-08-26 12:43:32,023] [INFO] Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+[2026-08-26 12:43:32,027] [INFO] [Realtime] Connected to PocketBase realtime
+[2026-08-26 12:43:32,027] [INFO] [Realtime] Got clientId='DAZ39MNBpW07Nu2r3Da5m85DmwvRyEY3t6NP9CnC'
+[2026-08-26 12:43:32,027] [INFO] [Realtime] Sending subscribe: {"clientId": "DAZ39MNBpW07Nu2r3Da5m85DmwvRyEY3t6NP9CnC", "subscriptions": ["setting/*"]}
+[2026-08-26 12:43:32,044] [INFO] [Realtime] Subscribe response: 204 
+[2026-08-26 12:43:32,092] [INFO] 127.0.0.1:48919 - "GET /web/app HTTP/1.1" 307
+[2026-08-26 12:43:51,467] [INFO] NORMAL MODE
+[2026-08-26 12:43:51,475] [INFO] 127.0.0.1:15317 - "GET /video_feed/rt1?source=rtsp://admin:admin@192.168.1.89:554/mainstream HTTP/1.1" 200
+[2026-08-26 12:43:52,836] [INFO] 1m89y9k68970gat
+[2026-08-26 12:43:55,532] [INFO] jj8344957t3yol8
+[2026-08-26 12:43:56,174] [INFO] 0rc7l3ogkfme3x6
+[2026-08-26 12:43:56,433] [INFO] njk9dun42t2rjdy
+[2026-08-26 12:43:59,473] [INFO] Releasing camera resources
+[2026-08-26 12:44:09,701] [INFO] [Realtime] Settings updated - quality=100, charConf=0.7972222222222217, plateConf=0.8041666666666661, 
+[2026-08-26 12:44:10,944] [INFO] NORMAL MODE
+[2026-08-26 12:44:10,946] [INFO] 127.0.0.1:28768 - "GET /video_feed/rt1?source=rtsp://admin:admin@192.168.1.89:554/mainstream HTTP/1.1" 200
+[2026-08-26 12:45:13,987] [INFO] Releasing camera resources
+[2026-08-26 12:45:22,626] [INFO] [Realtime] Settings updated - quality=100, charConf=0.7972222222222217, plateConf=0.7486111111111109, 
+[2026-08-26 12:45:25,067] [INFO] NORMAL MODE
+[2026-08-26 12:45:25,069] [INFO] 127.0.0.1:45086 - "GET /video_feed/rt1?source=rtsp://admin:admin@192.168.1.89:554/mainstream HTTP/1.1" 200
+[2026-08-26 12:46:34,593] [INFO] Releasing camera resources
+[2026-08-26 12:46:51,969] [INFO] [Realtime] Settings updated - quality=100, charConf=0.7972222222222217, plateConf=0.6999999999999998, 
+[2026-08-26 12:46:56,189] [INFO] Shutting down
+[2026-08-26 12:46:56,300] [INFO] Waiting for application shutdown.
+[2026-08-26 12:46:56,495] [WARNING] [Realtime] Connection lost: ("Connection broken: ConnectionResetError(10054, 'An existing connection was forcibly closed by the remote host', None, 10054, None)", ConnectionResetError(10054, 'An existing connection was forcibly closed by the remote host', None, 10054, None))
+[2026-08-26 12:46:56,496] [INFO] [Realtime] Reconnecting in 1s...
+[2026-08-26 12:46:56,499] [INFO] Cleanup complete. Shutting down.
+[2026-08-26 12:46:56,500] [INFO] Application shutdown complete.
+[2026-08-26 12:46:56,500] [INFO] Finished server process [23744]
+[2026-08-26 12:47:03,310] [INFO] 4.10.0
+[2026-08-26 12:47:03,310] [INFO] 2.12.1+cu126
+[2026-08-26 12:47:03,521] [INFO] Started server process [14320]
+[2026-08-26 12:47:03,521] [INFO] Waiting for application startup.
+[2026-08-26 12:47:03,527] [INFO] PocketBase stater 28396
+[2026-08-26 12:47:03,528] [INFO] Found 'pt' sentinel file
+[2026-08-26 12:47:03,528] [INFO] Loading YOLO models...
+[2026-08-26 12:47:03,529] [INFO] Found OpenVINO model: openvino2
+[2026-08-26 12:47:03,529] [INFO] Loading onnx/pt
+[2026-08-26 12:47:05,863] [INFO] Models loaded successfully
+[2026-08-26 12:47:05,869] [INFO] Warming up models...
+[2026-08-26 12:47:06,318] [INFO] Model warmup complete
+[2026-08-26 12:47:06,395] [INFO] [Realtime] Connecting to PocketBase realtime...
+[2026-08-26 12:47:06,395] [INFO] Application startup complete.
+[2026-08-26 12:47:06,397] [INFO] Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+[2026-08-26 12:47:06,398] [INFO] [Realtime] Connected to PocketBase realtime
+[2026-08-26 12:47:06,398] [INFO] [Realtime] Got clientId='YtZielRLcqqEnsdFdLNSKT2v6jzkrxQVF676Dtdg'
+[2026-08-26 12:47:06,398] [INFO] [Realtime] Sending subscribe: {"clientId": "YtZielRLcqqEnsdFdLNSKT2v6jzkrxQVF676Dtdg", "subscriptions": ["setting/*"]}
+[2026-08-26 12:47:06,414] [INFO] [Realtime] Subscribe response: 204 
+[2026-08-26 12:47:06,470] [INFO] 127.0.0.1:17869 - "GET /web/app HTTP/1.1" 307
+[2026-08-26 12:47:11,650] [INFO] NORMAL MODE
+[2026-08-26 12:47:11,657] [INFO] 127.0.0.1:15431 - "GET /video_feed/rt1?source=rtsp://admin:admin@192.168.1.89:554/mainstream HTTP/1.1" 200
+[2026-08-26 12:48:03,326] [INFO] Releasing camera resources
+[2026-08-26 12:48:28,289] [INFO] [Realtime] Settings updated - quality=100, charConf=0.7069444444444445, plateConf=0.6999999999999998, 
+[2026-08-26 12:48:30,941] [INFO] NORMAL MODE
+[2026-08-26 12:48:30,943] [INFO] 127.0.0.1:22150 - "GET /video_feed/rt1?source=rtsp://admin:admin@192.168.1.89:554/mainstream HTTP/1.1" 200
+[2026-08-26 12:49:24,207] [INFO] Releasing camera resources
+[2026-08-26 12:49:26,181] [INFO] Shutting down
+[2026-08-26 12:49:26,290] [INFO] Waiting for application shutdown.
+[2026-08-26 12:49:26,485] [WARNING] [Realtime] Connection lost: ("Connection broken: ConnectionResetError(10054, 'An existing connection was forcibly closed by the remote host', None, 10054, None)", ConnectionResetError(10054, 'An existing connection was forcibly closed by the remote host', None, 10054, None))
+[2026-08-26 12:49:26,485] [INFO] [Realtime] Reconnecting in 1s...
+[2026-08-26 12:49:26,489] [INFO] Cleanup complete. Shutting down.
+[2026-08-26 12:49:26,490] [INFO] Application shutdown complete.
+[2026-08-26 12:49:26,490] [INFO] Finished server process [14320]
+[2026-08-26 12:49:33,431] [INFO] 4.10.0
+[2026-08-26 12:49:33,431] [INFO] 2.12.1+cu126
+[2026-08-26 12:49:33,633] [INFO] Started server process [15516]
+[2026-08-26 12:49:33,633] [INFO] Waiting for application startup.
+[2026-08-26 12:49:33,640] [INFO] PocketBase stater 8920
+[2026-08-26 12:49:33,642] [INFO] Found 'pt' sentinel file
+[2026-08-26 12:49:33,642] [INFO] Loading YOLO models...
+[2026-08-26 12:49:33,643] [INFO] Found OpenVINO model: openvino2
+[2026-08-26 12:49:33,643] [INFO] Loading onnx/pt
+[2026-08-26 12:49:35,788] [INFO] Models loaded successfully
+[2026-08-26 12:49:35,793] [INFO] Warming up models...
+[2026-08-26 12:49:36,244] [INFO] Model warmup complete
+[2026-08-26 12:49:36,329] [INFO] [Realtime] Connecting to PocketBase realtime...
+[2026-08-26 12:49:36,329] [INFO] Application startup complete.
+[2026-08-26 12:49:36,331] [INFO] Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+[2026-08-26 12:49:36,332] [INFO] [Realtime] Connected to PocketBase realtime
+[2026-08-26 12:49:36,332] [INFO] [Realtime] Got clientId='yqNJMJLYbp6MED29s86eQsivQ35M6wv7nOXVy5ym'
+[2026-08-26 12:49:36,332] [INFO] [Realtime] Sending subscribe: {"clientId": "yqNJMJLYbp6MED29s86eQsivQ35M6wv7nOXVy5ym", "subscriptions": ["setting/*"]}
+[2026-08-26 12:49:36,350] [INFO] [Realtime] Subscribe response: 204 
+[2026-08-26 12:49:36,415] [INFO] 127.0.0.1:48786 - "GET /web/app HTTP/1.1" 307
+[2026-08-26 12:49:41,583] [INFO] NORMAL MODE
+[2026-08-26 12:49:41,589] [INFO] 127.0.0.1:45351 - "GET /video_feed/rt1?source=rtsp://admin:admin@192.168.1.89:554/mainstream HTTP/1.1" 200
+[2026-08-26 12:50:00,808] [INFO] 03ioo2047u251k6
+[2026-08-26 12:50:01,078] [INFO] hxx1tz9t119j1dw
+[2026-08-26 12:50:16,302] [INFO] z378q4eglrcl8p5
+[2026-08-26 12:50:16,698] [INFO] Releasing camera resources
+[2026-08-26 12:50:17,342] [INFO] NORMAL MODE
+[2026-08-26 12:50:17,345] [INFO] 127.0.0.1:1917 - "GET /video_feed/rt1?source=rtsp://admin:admin@192.168.1.89:554/mainstream HTTP/1.1" 200
+[2026-08-26 12:50:19,214] [INFO] Releasing camera resources
+[2026-08-26 12:50:35,469] [INFO] [Realtime] Settings updated - quality=100, charConf=0.7069444444444445, plateConf=0.8180555555555551, 
+[2026-08-26 12:50:36,824] [INFO] NORMAL MODE
+[2026-08-26 12:50:36,833] [INFO] 127.0.0.1:40719 - "GET /video_feed/rt1?source=rtsp://admin:admin@192.168.1.89:554/mainstream HTTP/1.1" 200
+[2026-08-26 12:51:19,065] [INFO] Releasing camera resources
+[2026-08-26 12:51:20,967] [INFO] Shutting down
+[2026-08-26 12:51:21,077] [INFO] Waiting for application shutdown.
+[2026-08-26 12:51:21,259] [WARNING] [Realtime] Connection lost: ("Connection broken: ConnectionResetError(10054, 'An existing connection was forcibly closed by the remote host', None, 10054, None)", ConnectionResetError(10054, 'An existing connection was forcibly closed by the remote host', None, 10054, None))
+[2026-08-26 12:51:21,259] [INFO] [Realtime] Reconnecting in 1s...
+[2026-08-26 12:51:21,266] [INFO] Cleanup complete. Shutting down.
+[2026-08-26 12:51:21,266] [INFO] Application shutdown complete.
+[2026-08-26 12:51:21,266] [INFO] Finished server process [15516]
+[2026-08-26 12:51:27,292] [INFO] 4.10.0
+[2026-08-26 12:51:27,292] [INFO] 2.12.1+cu126
+[2026-08-26 12:51:27,495] [INFO] Started server process [3360]
+[2026-08-26 12:51:27,496] [INFO] Waiting for application startup.
+[2026-08-26 12:51:27,501] [INFO] PocketBase stater 27792
+[2026-08-26 12:51:27,503] [INFO] Found 'pt' sentinel file
+[2026-08-26 12:51:27,503] [INFO] Loading YOLO models...
+[2026-08-26 12:51:27,504] [INFO] Found OpenVINO model: openvino2
+[2026-08-26 12:51:27,504] [INFO] Loading onnx/pt
+[2026-08-26 12:51:29,901] [INFO] Models loaded successfully
+[2026-08-26 12:51:29,906] [INFO] Warming up models...
+[2026-08-26 12:51:30,381] [INFO] Model warmup complete
+[2026-08-26 12:51:30,464] [INFO] [Realtime] Connecting to PocketBase realtime...
+[2026-08-26 12:51:30,464] [INFO] Application startup complete.
+[2026-08-26 12:51:30,466] [INFO] Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+[2026-08-26 12:51:30,467] [INFO] [Realtime] Connected to PocketBase realtime
+[2026-08-26 12:51:30,467] [INFO] [Realtime] Got clientId='AxUWmRd0vTIhiy4eYuvgipNliXiRx9oPJLHVfAqS'
+[2026-08-26 12:51:30,467] [INFO] [Realtime] Sending subscribe: {"clientId": "AxUWmRd0vTIhiy4eYuvgipNliXiRx9oPJLHVfAqS", "subscriptions": ["setting/*"]}
+[2026-08-26 12:51:30,469] [INFO] [Realtime] Subscribe response: 204 
+[2026-08-26 12:51:30,550] [INFO] 127.0.0.1:3523 - "GET /web/app HTTP/1.1" 307
+[2026-08-26 12:51:35,431] [INFO] NORMAL MODE
+[2026-08-26 12:51:35,438] [INFO] 127.0.0.1:3523 - "GET /video_feed/rt1?source=rtsp://admin:admin@192.168.1.89:554/mainstream HTTP/1.1" 200
+[2026-08-26 12:51:36,874] [INFO] 76dnb2qx7j1633i
+[2026-08-26 12:51:42,102] [INFO] 8z7laadx40dps9y
+[2026-08-26 12:52:11,979] [INFO] ub2e29843888y45
+[2026-08-26 12:52:13,220] [INFO] p2m0k4romw7l94l
+[2026-08-26 12:52:25,405] [INFO] p8n7taom2vkoq7p
+[2026-08-26 12:52:41,025] [INFO] 55ianc4cw048v11
+[2026-08-26 12:52:52,464] [INFO] 14rxbt2852b73s7
+[2026-08-26 12:53:09,333] [INFO] 93cf73ofs54176x
+[2026-08-26 12:53:09,403] [INFO] 86hdi09hq3l419c
+[2026-08-26 12:53:25,743] [INFO] 589fhb5bw205a7r
+[2026-08-26 12:53:31,081] [INFO] s87s2w564a30dd9
+[2026-08-26 12:53:44,912] [INFO] d63j3792hic04dm
+[2026-08-26 12:53:44,981] [INFO] n7c0e6vu399299t
+[2026-08-26 12:53:46,301] [INFO] 1tar0a6i45g2k5j
+[2026-08-26 12:53:50,041] [INFO] sj50a96x7ny5ttt
+[2026-08-26 12:55:26,192] [WARNING] Lost frame, reconnecting...
+[2026-08-26 12:55:58,241] [WARNING] Lost frame, reconnecting...
+[2026-08-26 12:56:30,273] [WARNING] Lost frame, reconnecting...
+[2026-08-26 12:56:30,467] [INFO] [Realtime] Reconnecting in 1s...
+[2026-08-26 12:56:31,467] [INFO] [Realtime] Connecting to PocketBase realtime...
+[2026-08-26 12:56:31,469] [INFO] [Realtime] Connected to PocketBase realtime
+[2026-08-26 12:56:31,470] [INFO] [Realtime] Got clientId='E54mDZ5Pf7hxrJibyJpMHfgjushqIadfUBnbKn2F'
+[2026-08-26 12:56:31,470] [INFO] [Realtime] Sending subscribe: {"clientId": "E54mDZ5Pf7hxrJibyJpMHfgjushqIadfUBnbKn2F", "subscriptions": ["setting/*"]}
+[2026-08-26 12:56:31,471] [INFO] [Realtime] Subscribe response: 204 
+[2026-08-26 12:57:02,293] [WARNING] Lost frame, reconnecting...
+[2026-08-26 12:57:34,306] [WARNING] Lost frame, reconnecting...
+[2026-08-26 12:58:06,318] [WARNING] Lost frame, reconnecting...
+[2026-08-26 12:58:38,383] [WARNING] Lost frame, reconnecting...
+[2026-08-26 12:59:10,436] [WARNING] Lost frame, reconnecting...
+[2026-08-26 12:59:42,481] [WARNING] Lost frame, reconnecting...
+[2026-08-26 13:00:14,521] [WARNING] Lost frame, reconnecting...
+[2026-08-26 13:00:46,565] [WARNING] Lost frame, reconnecting...
+[2026-08-26 13:01:18,628] [WARNING] Lost frame, reconnecting...
+[2026-08-26 13:01:31,470] [INFO] [Realtime] Reconnecting in 1s...
+[2026-08-26 13:01:32,470] [INFO] [Realtime] Connecting to PocketBase realtime...
+[2026-08-26 13:01:32,473] [INFO] [Realtime] Connected to PocketBase realtime
+[2026-08-26 13:01:32,473] [INFO] [Realtime] Got clientId='8p5rxWisbAZwCqRvbK1XhnDGNJ8vvgOJtGK1IE42'
+[2026-08-26 13:01:32,473] [INFO] [Realtime] Sending subscribe: {"clientId": "8p5rxWisbAZwCqRvbK1XhnDGNJ8vvgOJtGK1IE42", "subscriptions": ["setting/*"]}
+[2026-08-26 13:01:32,485] [INFO] [Realtime] Subscribe response: 204 
+[2026-08-26 13:01:50,681] [WARNING] Lost frame, reconnecting...
+[2026-08-26 13:02:22,728] [WARNING] Lost frame, reconnecting...
+[2026-08-26 13:02:54,765] [WARNING] Lost frame, reconnecting...
+[2026-08-26 13:03:26,822] [WARNING] Lost frame, reconnecting...
+[2026-08-26 13:03:58,877] [WARNING] Lost frame, reconnecting...
+[2026-08-26 13:04:30,910] [WARNING] Lost frame, reconnecting...
+[2026-08-26 13:05:02,936] [WARNING] Lost frame, reconnecting...
+[2026-08-26 13:05:25,900] [INFO] j789o56u76j2977
+[2026-08-26 13:05:26,043] [INFO] lu4h5r99qgx4f53
+[2026-08-26 13:05:26,582] [INFO] qx6o6dli8mjf0ca
+[2026-08-26 13:05:26,719] [INFO] wt1lhaq638dqn7o
+[2026-08-26 13:06:08,503] [INFO] Releasing camera resources
+[2026-08-26 13:06:32,472] [INFO] [Realtime] Reconnecting in 1s...
+[2026-08-26 13:06:33,473] [INFO] [Realtime] Connecting to PocketBase realtime...
+[2026-08-26 13:06:33,487] [INFO] [Realtime] Connected to PocketBase realtime
+[2026-08-26 13:06:33,487] [INFO] [Realtime] Got clientId='Fq1Q8WaKXPWQe2NoopFHvzj2isLaEHTVnZ1rQKWR'
+[2026-08-26 13:06:33,487] [INFO] [Realtime] Sending subscribe: {"clientId": "Fq1Q8WaKXPWQe2NoopFHvzj2isLaEHTVnZ1rQKWR", "subscriptions": ["setting/*"]}
+[2026-08-26 13:06:33,488] [INFO] [Realtime] Subscribe response: 204 
+[2026-08-26 13:09:41,272] [INFO] Shutting down
+[2026-08-26 13:09:41,381] [INFO] Waiting for application shutdown.
+[2026-08-26 13:09:41,618] [WARNING] [Realtime] Connection lost: ("Connection broken: ConnectionResetError(10054, 'An existing connection was forcibly closed by the remote host', None, 10054, None)", ConnectionResetError(10054, 'An existing connection was forcibly closed by the remote host', None, 10054, None))
+[2026-08-26 13:09:41,618] [INFO] [Realtime] Reconnecting in 1s...
+[2026-08-26 13:09:41,622] [INFO] Cleanup complete. Shutting down.
+[2026-08-26 13:09:41,622] [INFO] Application shutdown complete.
+[2026-08-26 13:09:41,622] [INFO] Finished server process [3360]
+[2026-08-26 14:02:42,388] [INFO] 4.10.0
+[2026-08-26 14:02:42,388] [INFO] 2.12.1+cu126
+[2026-08-26 14:02:42,733] [INFO] Started server process [26404]
+[2026-08-26 14:02:42,734] [INFO] Waiting for application startup.
+[2026-08-26 14:02:42,743] [INFO] PocketBase stater 20148
+[2026-08-26 14:02:42,744] [INFO] Found 'pt' sentinel file
+[2026-08-26 14:02:42,745] [INFO] Loading YOLO models...
+[2026-08-26 14:02:42,745] [INFO] Found OpenVINO model: openvino2
+[2026-08-26 14:02:42,745] [INFO] Loading onnx/pt
+[2026-08-26 14:02:47,056] [INFO] Models loaded successfully
+[2026-08-26 14:02:47,067] [INFO] Warming up models...
+[2026-08-26 14:02:47,932] [INFO] Model warmup complete
+[2026-08-26 14:02:48,015] [INFO] [Realtime] Connecting to PocketBase realtime...
+[2026-08-26 14:02:48,016] [INFO] Application startup complete.
+[2026-08-26 14:02:48,018] [INFO] Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+[2026-08-26 14:02:48,019] [INFO] [Realtime] Connected to PocketBase realtime
+[2026-08-26 14:02:48,020] [INFO] [Realtime] Got clientId='AeIwdnZ2cMOZd3REm2JrOfBYWhQEz17EvhXIFTzf'
+[2026-08-26 14:02:48,020] [INFO] [Realtime] Sending subscribe: {"clientId": "AeIwdnZ2cMOZd3REm2JrOfBYWhQEz17EvhXIFTzf", "subscriptions": ["setting/*"]}
+[2026-08-26 14:02:48,022] [INFO] [Realtime] Subscribe response: 204 
+[2026-08-26 14:02:48,098] [INFO] 127.0.0.1:1475 - "GET /web/app HTTP/1.1" 307
+[2026-08-26 14:03:43,257] [INFO] NORMAL MODE
+[2026-08-26 14:03:43,268] [INFO] 127.0.0.1:9145 - "GET /video_feed/rt1?source=rtsp://admin:admin@192.168.1.89:554/mainstream HTTP/1.1" 200
+[2026-08-26 14:03:55,523] [INFO] 127.0.0.1:36838 - "GET /web/app/ HTTP/1.1" 304
+[2026-08-26 14:03:55,749] [INFO] Releasing camera resources
+[2026-08-26 14:03:56,001] [INFO] 127.0.0.1:36838 - "GET /web/app/favicon.png HTTP/1.1" 200
+[2026-08-26 14:04:00,903] [INFO] NORMAL MODE
+[2026-08-26 14:04:00,906] [INFO] 127.0.0.1:36838 - "GET /video_feed/rt1?source=rtsp://admin:admin@192.168.1.89:554/mainstream HTTP/1.1" 200
+[2026-08-26 14:07:48,019] [INFO] [Realtime] Reconnecting in 1s...
+[2026-08-26 14:07:48,092] [INFO] Releasing camera resources
+[2026-08-26 14:07:49,020] [INFO] [Realtime] Connecting to PocketBase realtime...
+[2026-08-26 14:07:49,047] [INFO] [Realtime] Connected to PocketBase realtime
+[2026-08-26 14:07:49,048] [INFO] [Realtime] Got clientId='o1fmSPQaWFh9xTM46kxCeeDklTinpQL1IhrDXhXb'
+[2026-08-26 14:07:49,048] [INFO] [Realtime] Sending subscribe: {"clientId": "o1fmSPQaWFh9xTM46kxCeeDklTinpQL1IhrDXhXb", "subscriptions": ["setting/*"]}
+[2026-08-26 14:07:49,050] [INFO] [Realtime] Subscribe response: 204 
+[2026-08-26 14:07:58,128] [INFO] [Realtime] Settings updated - quality=100, charConf=0.7069444444444445, plateConf=0.7833333333333332, 
+[2026-08-26 14:07:59,253] [INFO] NORMAL MODE
+[2026-08-26 14:07:59,255] [INFO] 127.0.0.1:42485 - "GET /video_feed/rt1?source=rtsp://admin:admin@192.168.1.89:554/mainstream HTTP/1.1" 200
+[2026-08-26 14:08:05,853] [INFO] Shutting down
+[2026-08-26 14:08:05,956] [INFO] Waiting for connections to close. (CTRL+C to force quit)
+[2026-08-26 14:08:09,852] [INFO] Releasing camera resources
+[2026-08-26 14:08:09,885] [INFO] Waiting for application shutdown.
+[2026-08-26 14:08:10,126] [WARNING] [Realtime] Connection lost: ("Connection broken: ConnectionResetError(10054, 'An existing connection was forcibly closed by the remote host', None, 10054, None)", ConnectionResetError(10054, 'An existing connection was forcibly closed by the remote host', None, 10054, None))
+[2026-08-26 14:08:10,126] [INFO] [Realtime] Reconnecting in 1s...
+[2026-08-26 14:08:10,131] [INFO] Cleanup complete. Shutting down.
+[2026-08-26 14:08:10,137] [INFO] Application shutdown complete.
+[2026-08-26 14:08:10,138] [INFO] Finished server process [26404]
+[2026-08-26 14:08:18,193] [INFO] 4.10.0
+[2026-08-26 14:08:18,193] [INFO] 2.12.1+cu126
+[2026-08-26 14:08:18,401] [INFO] Started server process [17928]
+[2026-08-26 14:08:18,402] [INFO] Waiting for application startup.
+[2026-08-26 14:08:18,408] [INFO] PocketBase stater 20724
+[2026-08-26 14:08:18,409] [INFO] Found 'pt' sentinel file
+[2026-08-26 14:08:18,409] [INFO] Loading YOLO models...
+[2026-08-26 14:08:18,410] [INFO] Found OpenVINO model: openvino2
+[2026-08-26 14:08:18,410] [INFO] Loading onnx/pt
+[2026-08-26 14:08:20,675] [INFO] Models loaded successfully
+[2026-08-26 14:08:20,682] [INFO] Warming up models...
+[2026-08-26 14:08:21,146] [INFO] Model warmup complete
+[2026-08-26 14:08:21,237] [INFO] [Realtime] Connecting to PocketBase realtime...
+[2026-08-26 14:08:21,237] [INFO] Application startup complete.
+[2026-08-26 14:08:21,239] [INFO] Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+[2026-08-26 14:08:21,240] [INFO] [Realtime] Connected to PocketBase realtime
+[2026-08-26 14:08:21,240] [INFO] [Realtime] Got clientId='F6PVTSn028ao2AJ8cc12SEHPJEl6RAuigYArek9m'
+[2026-08-26 14:08:21,240] [INFO] [Realtime] Sending subscribe: {"clientId": "F6PVTSn028ao2AJ8cc12SEHPJEl6RAuigYArek9m", "subscriptions": ["setting/*"]}
+[2026-08-26 14:08:21,242] [INFO] [Realtime] Subscribe response: 204 
+[2026-08-26 14:08:21,344] [INFO] 127.0.0.1:60906 - "GET /web/app HTTP/1.1" 307
+[2026-08-26 14:08:23,825] [INFO] NORMAL MODE
+[2026-08-26 14:08:23,834] [INFO] 127.0.0.1:60906 - "GET /video_feed/rt1?source=rtsp://admin:admin@192.168.1.89:554/mainstream HTTP/1.1" 200
+[2026-08-26 14:08:47,602] [INFO] jx9r0v245t16vsb
+[2026-08-26 14:08:50,116] [INFO] 68tlf5d3993p8dz
+[2026-08-26 14:09:24,393] [INFO] 1733p7i8yaqxg15
+[2026-08-26 14:09:45,213] [INFO] akv19z2x799fb80
+[2026-08-26 14:10:21,417] [INFO] g5n71z78m9l5477
+[2026-08-26 14:10:33,094] [INFO] qlof3xt804p3cl3
+[2026-08-26 14:10:33,196] [INFO] 59mcw7buteyu67z
+[2026-08-26 14:10:43,898] [INFO] 5b1mqo9b915amtg
+[2026-08-26 14:10:44,527] [INFO] m11598ps9nb7979
+[2026-08-26 14:11:43,159] [INFO] w9946kz26e3x3q4
+[2026-08-26 14:12:49,076] [INFO] 9469qjk5dmzpg82
+[2026-08-26 14:13:11,969] [INFO] f76bjxcsmzy3w4l
+[2026-08-26 14:13:12,055] [INFO] bex5o885619h15r
+[2026-08-26 14:13:21,240] [INFO] [Realtime] Reconnecting in 1s...
+[2026-08-26 14:13:22,242] [INFO] [Realtime] Connecting to PocketBase realtime...
+[2026-08-26 14:13:22,245] [INFO] [Realtime] Connected to PocketBase realtime
+[2026-08-26 14:13:22,246] [INFO] [Realtime] Got clientId='1SQwiXYKddJFMMf2H2cPKIw13eIBJhZqGZ1A3eEP'
+[2026-08-26 14:13:22,246] [INFO] [Realtime] Sending subscribe: {"clientId": "1SQwiXYKddJFMMf2H2cPKIw13eIBJhZqGZ1A3eEP", "subscriptions": ["setting/*"]}
+[2026-08-26 14:13:22,248] [INFO] [Realtime] Subscribe response: 204 
+[2026-08-26 14:13:57,562] [INFO] 15y85v0g9ui9v70
+[2026-08-26 14:14:23,416] [INFO] 51623u18wc3rwp5
+[2026-08-26 14:14:23,513] [INFO] 10l1sv634488cn4
+[2026-08-26 14:14:24,134] [INFO] 681o7zw58gv01ku
+[2026-08-26 14:14:24,230] [INFO] x0ts063r0es2885
+[2026-08-26 14:15:26,505] [INFO] 7gugh363g83rnl5
+[2026-08-26 14:15:26,771] [INFO] muefoytwig3lq4q
+[2026-08-26 14:15:48,679] [INFO] fu417zu7j076gjr
+[2026-08-26 14:15:48,770] [INFO] 1j7953a2y146f13
+[2026-08-26 14:15:49,499] [INFO] w1858o699rneuke
+[2026-08-26 14:16:04,596] [INFO] r7qst317o38f2c5
+[2026-08-26 14:16:04,708] [INFO] i0yz6j83264wjr9
+[2026-08-26 14:16:04,760] [INFO] f2yo2viv4g54v4v
+[2026-08-26 14:17:57,165] [INFO] 7l9nqxf0e3f92a3
+[2026-08-26 14:17:57,249] [INFO] qie3589v1sd747k
+[2026-08-26 14:18:07,566] [INFO] 0eh38f3678b9250
+[2026-08-26 14:18:18,271] [INFO] 06rb6144749in7o
+[2026-08-26 14:18:21,372] [INFO] 4viz720051g5u50
+[2026-08-26 14:18:22,245] [INFO] [Realtime] Reconnecting in 1s...
+[2026-08-26 14:18:23,246] [INFO] [Realtime] Connecting to PocketBase realtime...
+[2026-08-26 14:18:23,248] [INFO] [Realtime] Connected to PocketBase realtime
+[2026-08-26 14:18:23,248] [INFO] [Realtime] Got clientId='Wigb8YgKSjAt6a9jAlc1PDWwEGHdOBSaXjfoouAt'
+[2026-08-26 14:18:23,248] [INFO] [Realtime] Sending subscribe: {"clientId": "Wigb8YgKSjAt6a9jAlc1PDWwEGHdOBSaXjfoouAt", "subscriptions": ["setting/*"]}
+[2026-08-26 14:18:23,250] [INFO] [Realtime] Subscribe response: 204 
+[2026-08-26 14:18:51,852] [INFO] a7eq414ct63ewk6
+[2026-08-26 14:18:52,346] [INFO] icbhz5nqcrh5w79
+[2026-08-26 14:19:31,152] [INFO] s08z3k29e4o24b7
+[2026-08-26 14:20:29,408] [INFO] 43zb1y3k5ju589c
+[2026-08-26 14:20:31,511] [INFO] 41gpdg73oj4r697
+[2026-08-26 14:22:30,933] [INFO] 3275c4yd0g6yx7n
+[2026-08-26 14:23:07,004] [INFO] p2ddqt08e2ug936
+[2026-08-26 14:23:23,248] [INFO] [Realtime] Reconnecting in 1s...
+[2026-08-26 14:23:24,249] [INFO] [Realtime] Connecting to PocketBase realtime...
+[2026-08-26 14:23:24,254] [INFO] [Realtime] Connected to PocketBase realtime
+[2026-08-26 14:23:24,255] [INFO] [Realtime] Got clientId='ReEJyiiXwRAhWLvJd5l7xO0fXeG2LaHS48vHnnrb'
+[2026-08-26 14:23:24,255] [INFO] [Realtime] Sending subscribe: {"clientId": "ReEJyiiXwRAhWLvJd5l7xO0fXeG2LaHS48vHnnrb", "subscriptions": ["setting/*"]}
+[2026-08-26 14:23:24,258] [INFO] [Realtime] Subscribe response: 204 
+[2026-08-26 14:23:46,466] [INFO] w0gqqei72980t5r
+[2026-08-26 14:25:12,945] [INFO] 3r70g4cezdts4qd
+[2026-08-26 14:25:40,697] [INFO] 76xx0c3c9o41w49
+[2026-08-26 14:25:41,284] [INFO] g73n1c64go386rq
+[2026-08-26 14:25:59,811] [INFO] x45zo6tltk93895
+[2026-08-26 14:26:01,885] [INFO] fq715w251wj4zmp
+[2026-08-26 14:26:01,990] [INFO] y4w6o44r1mp23ul
+[2026-08-26 14:26:02,095] [INFO] d7io232it66n177
+[2026-08-26 14:26:02,227] [INFO] xrijx919052kir2
+[2026-08-26 14:26:24,099] [INFO] m724z31yuznlp58
+[2026-08-26 14:26:24,403] [INFO] p5qpkvx6743y6a4
+[2026-08-26 14:26:36,877] [INFO] 660lv3q1534q565
+[2026-08-26 14:27:40,510] [INFO] him5fqvh9h8gv13
+[2026-08-26 14:28:06,243] [INFO] b737jn31t4ap623
+[2026-08-26 14:28:14,111] [INFO] 66y0qz273uyw827
+[2026-08-26 14:28:14,195] [INFO] 9on6uiib55h3778
+[2026-08-26 14:28:24,254] [INFO] [Realtime] Reconnecting in 1s...
+[2026-08-26 14:28:25,254] [INFO] [Realtime] Connecting to PocketBase realtime...
+[2026-08-26 14:28:25,258] [INFO] [Realtime] Connected to PocketBase realtime
+[2026-08-26 14:28:25,258] [INFO] [Realtime] Got clientId='CAwwsmQWykBWQwS73TuhLWe2d6wih8mDvMIHTrK6'
+[2026-08-26 14:28:25,258] [INFO] [Realtime] Sending subscribe: {"clientId": "CAwwsmQWykBWQwS73TuhLWe2d6wih8mDvMIHTrK6", "subscriptions": ["setting/*"]}
+[2026-08-26 14:28:25,260] [INFO] [Realtime] Subscribe response: 204 
+[2026-08-26 14:30:04,104] [INFO] n79cym20vk68672
+[2026-08-26 14:31:40,826] [INFO] a2r8lodb5el3287
+[2026-08-26 14:31:55,908] [INFO] 2lh5pi9q7hdqmtn
+[2026-08-26 14:33:08,303] [INFO] 922du83039p7ru6
+[2026-08-26 14:33:15,299] [INFO] wf320yfa4b18354
+[2026-08-26 14:33:15,717] [INFO] y2avp5tqz9l3qs5
+[2026-08-26 14:33:25,257] [INFO] [Realtime] Reconnecting in 1s...
+[2026-08-26 14:33:26,258] [INFO] [Realtime] Connecting to PocketBase realtime...
+[2026-08-26 14:33:26,279] [INFO] [Realtime] Connected to PocketBase realtime
+[2026-08-26 14:33:26,279] [INFO] [Realtime] Got clientId='1IHSW5PngHYFt1A4YGDCJzY4AwShDXS1i7jyxxUt'
+[2026-08-26 14:33:26,280] [INFO] [Realtime] Sending subscribe: {"clientId": "1IHSW5PngHYFt1A4YGDCJzY4AwShDXS1i7jyxxUt", "subscriptions": ["setting/*"]}
+[2026-08-26 14:33:26,281] [INFO] [Realtime] Subscribe response: 204 
+[2026-08-26 14:33:49,101] [INFO] 2ds1zo5vr1ei181
+[2026-08-26 14:33:49,210] [INFO] 04jhe55a36i7g8r
+[2026-08-26 14:33:49,439] [INFO] c2a059ryynnkr4z
+[2026-08-26 14:33:49,464] [INFO] 56dek3idgsow28b
+[2026-08-26 14:33:49,608] [INFO] c78aed3m8d7847o
+[2026-08-26 14:34:57,781] [INFO] 2bl50ib4i9mft1d
+[2026-08-26 14:37:16,160] [INFO] f7t3m5j8040q2qn
+[2026-08-26 14:38:04,822] [INFO] 3dusl66q3p31ls7
+[2026-08-26 14:38:05,941] [INFO] eq2l42s5lfz0cua
+[2026-08-26 14:38:26,279] [INFO] [Realtime] Reconnecting in 1s...
+[2026-08-26 14:38:27,280] [INFO] [Realtime] Connecting to PocketBase realtime...
+[2026-08-26 14:38:27,282] [INFO] [Realtime] Connected to PocketBase realtime
+[2026-08-26 14:38:27,282] [INFO] [Realtime] Got clientId='NIy5lkwWo9A7j4Ecmy4oO1Ac9t3b8mcTVQ7YX9lv'
+[2026-08-26 14:38:27,282] [INFO] [Realtime] Sending subscribe: {"clientId": "NIy5lkwWo9A7j4Ecmy4oO1Ac9t3b8mcTVQ7YX9lv", "subscriptions": ["setting/*"]}
+[2026-08-26 14:38:27,284] [INFO] [Realtime] Subscribe response: 204 
+[2026-08-26 14:38:45,859] [INFO] 9kx5e61g86450yb
+[2026-08-26 14:38:46,256] [INFO] 9j296qq7340sq40
+[2026-08-26 14:38:49,495] [INFO] jd61w01h6nt2r39
+[2026-08-26 14:38:53,229] [INFO] i524o5nfx942j84
+[2026-08-26 14:38:58,990] [INFO] 52w8yp380maeh63
+[2026-08-26 14:39:23,864] [INFO] 2n8njjpr8jif289
+[2026-08-26 14:41:02,513] [INFO] 97hkb2t36bn7wc3
+[2026-08-26 14:41:02,960] [INFO] 85i48hn4ceid5n7
+[2026-08-26 14:41:04,194] [INFO] m4i20o8527wvav5
+[2026-08-26 14:41:43,062] [INFO] 8dcx74nah2sdhg5
+[2026-08-26 14:42:09,487] [INFO] q283kc31c12yh44
+[2026-08-26 14:43:27,283] [INFO] [Realtime] Reconnecting in 1s...
+[2026-08-26 14:43:28,284] [INFO] [Realtime] Connecting to PocketBase realtime...
+[2026-08-26 14:43:28,287] [INFO] [Realtime] Connected to PocketBase realtime
+[2026-08-26 14:43:28,287] [INFO] [Realtime] Got clientId='FSQ3REy9Ma7dDOOI3Gk7aR0Jg3VWoWrdidrLuLO6'
+[2026-08-26 14:43:28,287] [INFO] [Realtime] Sending subscribe: {"clientId": "FSQ3REy9Ma7dDOOI3Gk7aR0Jg3VWoWrdidrLuLO6", "subscriptions": ["setting/*"]}
+[2026-08-26 14:43:28,290] [INFO] [Realtime] Subscribe response: 204 
+[2026-08-26 14:43:29,987] [INFO] eoa09jn01x6miqp
+[2026-08-26 14:44:45,648] [INFO] u7673on5768806o
+[2026-08-26 14:45:00,798] [INFO] 0lrr3k1a9pye0e7
+[2026-08-26 14:45:43,628] [INFO] 81203evwx9evrhs
+[2026-08-26 14:45:44,047] [INFO] 81d8nq320v2lkko
+[2026-08-26 14:45:54,323] [INFO] fihoc73f4s2t3y8
+[2026-08-26 14:45:55,123] [INFO] 17b2956xig9t2a8
+[2026-08-26 14:46:49,353] [INFO] p943s20vm3d7ndl
+[2026-08-26 14:46:56,040] [INFO] iady8d5k2x4qw1j
+[2026-08-26 14:46:56,605] [INFO] ae36bueb1333c8q
+[2026-08-26 14:46:56,837] [INFO] k92i9p8j1kckox8
+[2026-08-26 14:47:46,803] [INFO] g669508181f0zd8
+[2026-08-26 14:47:47,457] [INFO] ow28548fchz5p3g
+[2026-08-26 14:48:19,452] [INFO] 96k9xabnpi2z569
+[2026-08-26 14:48:27,239] [INFO] c4p5waht9q496bq
+[2026-08-26 14:48:28,287] [INFO] [Realtime] Reconnecting in 1s...
+[2026-08-26 14:48:29,287] [INFO] [Realtime] Connecting to PocketBase realtime...
+[2026-08-26 14:48:29,290] [INFO] [Realtime] Connected to PocketBase realtime
+[2026-08-26 14:48:29,290] [INFO] [Realtime] Got clientId='8sOCjMXYD1sGTSXxxhLajSW2ydVPpPjbNF5xhir3'
+[2026-08-26 14:48:29,290] [INFO] [Realtime] Sending subscribe: {"clientId": "8sOCjMXYD1sGTSXxxhLajSW2ydVPpPjbNF5xhir3", "subscriptions": ["setting/*"]}
+[2026-08-26 14:48:29,294] [INFO] [Realtime] Subscribe response: 204 
+[2026-08-26 14:49:20,161] [INFO] o8az2xwe5q1o0y0
+[2026-08-26 14:49:33,110] [INFO] b321n3l8rx4432t
+[2026-08-26 14:49:44,488] [INFO] l3dtql5nspecm5s
+[2026-08-26 14:49:44,576] [INFO] q736k9mct36xx80
+[2026-08-26 14:49:57,104] [INFO] 5wf2zu3k29as7gm
+[2026-08-26 14:50:07,918] [INFO] 2j6s725ak0rgl1l
+[2026-08-26 14:50:22,417] [INFO] Releasing camera resources
+[2026-08-26 14:50:24,576] [INFO] Shutting down
+[2026-08-26 14:50:24,684] [INFO] Waiting for application shutdown.
+[2026-08-26 14:50:24,879] [WARNING] [Realtime] Connection lost: ("Connection broken: ConnectionResetError(10054, 'An existing connection was forcibly closed by the remote host', None, 10054, None)", ConnectionResetError(10054, 'An existing connection was forcibly closed by the remote host', None, 10054, None))
+[2026-08-26 14:50:24,879] [INFO] [Realtime] Reconnecting in 1s...
+[2026-08-26 14:50:24,882] [INFO] Cleanup complete. Shutting down.
+[2026-08-26 14:50:24,882] [INFO] Application shutdown complete.
+[2026-08-26 14:50:24,883] [INFO] Finished server process [17928]

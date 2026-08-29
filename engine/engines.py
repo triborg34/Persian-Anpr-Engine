@@ -55,6 +55,7 @@ class CcTvMonitor:
       
         self.carConf = 0.6
         self.iou = 0.5
+        self.dolatiConf = 0.4
         self.device = torch.device(0 if torch.cuda.is_available() else 'cpu')
         self.RETRY_LIMIT = 5
         self.RETRY_DELAY = 3
@@ -896,10 +897,24 @@ class CameraManager:
     #     red_ratio = cv2.countNonZero(mask) / (img.shape[0] * img.shape[1])
     #     return red_ratio > 0.15
 
+
+    def _looks_like_plate(self,text: str) -> bool:
+        """Trust gate for the fast dolatimodel read (before falling back to the
+        slower char OCR). The detector only outputs digits + a single provincial
+        letter 'A', so a real plate is: digits, one 'A' somewhere in the middle,
+        more digits, total length 7-9 (tolerant of +/-1 detection errors that the
+        strict ^.{2}A.{5}$ rejected)."""
+        if not text or text.count('A') != 1:
+            return False
+        if not text.replace('A', '').isdigit():
+            return False
+        a = text.index('A')
+        return 7 <= len(text) <= 9 and 1 <= a <= len(text) - 2
+
     def dolatireader(self, img: np.ndarray):
        
         with torch.inference_mode():
-            results = self.config.dolatimodel(img, conf=0.4)
+            results = self.config.dolatimodel(img, conf=self.config.dolatiConf)
 
         boxes = results[0].boxes
 
@@ -930,7 +945,7 @@ class CameraManager:
         if result is not None:
             plate_text, char_conf_avg = result
             if plate_text and len(plate_text.strip()) > 0:
-                if re.match(r'^.{2}A.{5}$', plate_text):
+                if self._looks_like_plate(plate_text):
                     return plate_text, char_conf_avg
 
         chars, confidences = [], []

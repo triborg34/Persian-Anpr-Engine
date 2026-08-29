@@ -104,6 +104,7 @@ async def video_feed(
 
     cctv.carConf = 0.1
     cctv.iou = 0.5
+    cctv.dolatiConf=0.6
     logging.info("NORMAL MODE")
     if source == "0":
         source = int(source)
