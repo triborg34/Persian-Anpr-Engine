@@ -94,6 +94,12 @@ async def verify_api_key(api_key: str = Security(API_KEY_HEADER)):
     return True
 
 
+@app.get("/utils/setting")
+async def updateSetting():
+    response=cctv.updateSetting()
+    logging.info(response)
+    return {"Massage":response}
+
 @app.get("/video_feed/{camera_id}")
 async def video_feed(
     camera_id: str,
@@ -102,10 +108,7 @@ async def video_feed(
     _: bool = Security(verify_api_key),
 ):
 
-    cctv.carConf = 0.1
-    cctv.iou = 0.5
-    cctv.dolatiConf=0.6
-    logging.info("NORMAL MODE")
+    cctv.set_detection_params(car_conf=0.1, iou=0.5, dolati_conf=0.6)
     if source == "0":
         source = int(source)
     camera_idx = int(camera_id[2:])
@@ -115,19 +118,23 @@ async def video_feed(
 
         cam = camera_registry[source]
 
-    cam.add_client()
+    token = cam.add_client()
 
     async def watch_disconnect():
         while True:
             if await request.is_disconnected():
-                cam.remove_client()
+                cam.remove_client(token)
+                break
+            # Generator already closed (stream ended): don't linger, and
+            # don't touch other connections' tokens.
+            if not cam.has_client(token):
                 break
             await asyncio.sleep(0.2)
 
     asyncio.create_task(watch_disconnect())
 
     return StreamingResponse(
-        cam.sendFrames(),
+        cam.sendFrames(token),
         media_type="multipart/x-mixed-replace; boundary=frame",
     )
 

@@ -11,6 +11,8 @@ _executor = ThreadPoolExecutor(max_workers=4)
 
 recent_plates = {}
 recent_lock = threading.Lock()
+_last_cleanup = time.time()
+_CLEANUP_INTERVAL = 60  # seconds
 
 TIME_THRESHOLD = 10  # seconds
 
@@ -30,17 +32,20 @@ def getQuality() -> int:
 
 
 def reserve_plate(plate: str, rtpath: str) -> bool:
+    global _last_cleanup
     now = time.time()
 
     with recent_lock:
-        expired = [
-            key
-            for key, ts in recent_plates.items()
-            if now - ts > TIME_THRESHOLD
-        ]
-
-        for key in expired:
-            del recent_plates[key]
+        # Periodic cleanup to prevent memory growth
+        if now - _last_cleanup >= _CLEANUP_INTERVAL:
+            expired = [
+                key
+                for key, ts in recent_plates.items()
+                if now - ts > TIME_THRESHOLD
+            ]
+            for key in expired:
+                del recent_plates[key]
+            _last_cleanup = now
 
         key = f"{rtpath}_{plate}"
 
@@ -69,13 +74,20 @@ def _upload_to_pocketbase(url, files, data, number, rtpath):
     try:
         response = requests.post(url, files=files, data=data, timeout=15)
         if response.status_code in [200, 201]:
-            logging.info(response.json().get('id', 'unknown'))
+            record_id = response.json().get('id', 'unknown')
+            logging.info(f"Plate {number} saved with id={record_id}")
         else:
             logging.error(
-                f"PocketBase error {response.status_code}: "
+                f"PocketBase error {response.status_code} for plate {number}: "
                 f"{response.text}"
             )
             release_plate(number, rtpath)
+    except requests.Timeout:
+        logging.error(f"Timeout uploading plate {number} to PocketBase")
+        release_plate(number, rtpath)
+    except requests.ConnectionError:
+        logging.error(f"Connection error uploading plate {number} to PocketBase")
+        release_plate(number, rtpath)
     except Exception as e:
         logging.error(f"Failed to upload plate {number}: {e}")
         release_plate(number, rtpath)
