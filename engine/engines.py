@@ -62,7 +62,8 @@ class CcTvMonitor:
 
         self.lock = threading.Lock()
         self._shutdown_event = threading.Event()
-        self.model_car, self.model_plate, self.model_char, self.dolatimodel = self.loadModels()
+        self.model_car, self.model_plate, self.model_char = self.loadModels()
+        #self.dolatimodel
         self.quality, self.charConfidence, self.plateConfidence, self.port = self.loadConfig()
         self._warmup_models()
         self.loadWebBrowser(self.port)
@@ -142,7 +143,7 @@ class CcTvMonitor:
         model_car = None
         model_plate = None
         model_char = None
-        dolatimodel = None
+        #dolatimodel = None
 
         try:
             use_openvino = self.chechOpenvino() and self.device.type == 'cpu'
@@ -156,12 +157,14 @@ class CcTvMonitor:
                 dolatimodel = YOLO('model/dolditector_openvino_model', task='detect')
             else:
                 logging.info("Loading onnx/pt")
-                model_char = torch.hub.load(
-                    'yolov5', 'custom', f'model/CharsYolo.{fileEx}', source='local', device=self.device)
-                model_plate = torch.hub.load(
-                    'yolov5', 'custom', f'model/plateYolo.{fileEx}', source='local', device=self.device)
+                # model_char = torch.hub.load(
+                #     'yolov5', 'custom', f'model/CharsYolo.{fileEx}', source='local', device=self.device)
+                # model_plate = torch.hub.load(
+                #     'yolov5', 'custom', f'model/plateYolo.{fileEx}', source='local', device=self.device)
+                model_plate = YOLO(f'model/plate_det_model.{fileEx}', task='detect')
+                model_char = YOLO(f'model/chars_best_v26.{fileEx}', task='detect')
                 model_car = YOLO(f'model/yolov8n.{fileEx}', task='detect')
-                dolatimodel = YOLO(f'model/dolditector.{fileEx}', task='detect')
+                # dolatimodel = YOLO(f'model/dolditector.{fileEx}', task='detect')
         except Exception as e:
             logging.error(f"Error loading models: {e}")
             if model_car is None or model_plate is None or model_char is None:
@@ -171,7 +174,7 @@ class CcTvMonitor:
 
         logging.info("Models loaded successfully")
         with self.lock:
-            return model_car, model_plate, model_char, dolatimodel
+            return model_car, model_plate, model_char, #dolatimodel
 
     def _warmup_models(self) -> None:
         logging.info("Warming up models...")
@@ -183,8 +186,8 @@ class CcTvMonitor:
                 self.model_plate(dummy)
             if self.model_char is not None:
                 self.model_char(dummy)
-            if self.dolatimodel is not None:
-                self.dolatimodel(dummy, verbose=False)
+            # if self.dolatimodel is not None:
+            #     self.dolatimodel(dummy, verbose=False)
         except Exception as e:
             logging.warning(f"Model warmup failed: {e}")
         logging.info("Model warmup complete")
@@ -706,6 +709,7 @@ class CameraManager:
 
             try:
                 processed_frame = frame
+                
 
                 if self.config.regionMode:
                     if not regions:
@@ -1032,98 +1036,116 @@ class CameraManager:
         char_min = float(self.config.charConfidence) * 100
         try:
             with self._model_lock, torch.inference_mode():
-                plate_res = self.config.model_plate(cropped_car)
-            # (x1, y1, x2, y2, conf, cls) rows, no pandas involved
-            for pbox in plate_res.xyxy[0].tolist():
-                x_min, y_min, x_max, y_max = (
-                    int(pbox[0]), int(pbox[1]),
-                    int(pbox[2]), int(pbox[3])
-                )
-                plate_conf = int(pbox[4] * 100)
-
-                if plate_conf < plate_min:
-                    continue
-
-                if (y_min >= y_max or x_min >= x_max or
-                        y_min < 0 or x_min < 0 or
-                        y_max > cropped_car.shape[0] or
-                        x_max > cropped_car.shape[1]):
-                    continue
-
-                cropped_plate = cropped_car[y_min:y_max, x_min:x_max]
-                if cropped_plate.size == 0:
-                    continue
-
-                plate_text, char_conf_avg = self.detect_plate_chars(
-                    cropped_plate)
-
-                cv2.rectangle(
-                    cropped_car, (x_min, y_min), (x_max, y_max), (60, 119, 0), 2)
-                plate_text = plate_text.replace('Taxi', 'x')
-
-                if char_conf_avg >= char_min and len(plate_text) >= 8:
-                    cv2.putText(cropped_car, f"Plate: {plate_text}", (x_min, y_min - 10),
-                                cv2.FONT_HERSHEY_SIMPLEX, 0.7, (0, 255, 128), 2, cv2.LINE_AA)
-
-                    self._queue_db_entry(
-                        dict(
-                            number=plate_text,
-                            charConfAvg=char_conf_avg,
-                            plateConfAvg=plate_conf,
-                            croppedPlate=cropped_plate,
-                            status="Active",
-                            frame=frame,
-                            isarvand='notarvand',
-                            rtpath=path,
-                            quality=self.config.quality
-                        ))
-                    break
-
-                else:
-                    deskewed_plate, (newx1, newy1, newx2, newy2) = self.correct_perspective(
-                        cropped_plate, 1.0)
-                    if deskewed_plate.size == 0:
+                plate_res = self.config.model_plate.predict(cropped_car,verbose=False)[0]
+                for plate_box in plate_res:
+                    x1s,y1s,x2s,y2s=map(int,plate_box.boxes.xyxy[0][::1])
+                    cv2.rectangle(cropped_car,(x1s,y1s),(x2s,y2s),(0,255,55),2)
+                    plate_conf=int(plate_box.boxes.conf[0]*100)
+                    
+                    if plate_conf < plate_min:
+              
+                        continue
+                    if (y1s >= y2s or x1s >= x2s or
+                        y1s < 0 or x1s < 0 or
+                        y2s > cropped_car.shape[0] or
+                        x2s > cropped_car.shape[1]):
                         continue
 
-                    newx1 = max(0, newx1)
-                    newy1 = max(0, newy1)
-                    newx2 = min(deskewed_plate.shape[1], newx2)
-                    newy2 = min(deskewed_plate.shape[0], newy2)
 
-                    if (newx2 <= newx1) or (newy2 <= newy1):
-                        newx1, newy1 = 0, 0
-                        newx2, newy2 = deskewed_plate.shape[1], deskewed_plate.shape[0]
+                    
+                
+            # (x1, y1, x2, y2, conf, cls) rows, no pandas involved
+            # for pbox in plate_res.xyxy[0].tolist():
+            #     x_min, y_min, x_max, y_max = (
+            #         int(pbox[0]), int(pbox[1]),
+            #         int(pbox[2]), int(pbox[3])
+            #     )
+            #     plate_conf = int(pbox[4] * 100)
 
-                    d = newy2 - newy1
-                    tempyMax = newy1 + int(d / 2)
+            #     if plate_conf < plate_min:
+            #         continue
 
-                    if (tempyMax > newy1 and newx2 > newx1 and
-                            newy1 >= 0 and newx1 >= 0 and
-                            tempyMax <= deskewed_plate.shape[0] and
-                            newx2 <= deskewed_plate.shape[1]):
+            #     if (y_min >= y_max or x_min >= x_max or
+            #             y_min < 0 or x_min < 0 or
+            #             y_max > cropped_car.shape[0] or
+            #             x_max > cropped_car.shape[1]):
+            #         continue
 
-                        cropped_plate_nesf = deskewed_plate[newy1:tempyMax, newx1:newx2]
+                    cropped_plate = cropped_car[y1s:y2s,x1s:x2s]
+                    if cropped_plate.size == 0:
+                        continue
 
-                        if cropped_plate_nesf.size > 0:
-                            plate_text_arvnad, char_conf_arvnad = self.detect_plate_chars(
-                                cropped_plate_nesf)
+                    plate_text, char_conf_avg = self.detect_plate_chars(
+                        cropped_plate)
+                   
 
-                            if len(plate_text_arvnad) >= 5 and char_conf_arvnad >= char_min - 3:
-                                cv2.putText(cropped_car, f"Plate: {plate_text_arvnad}", (x_min, y_min - 10),
-                                            cv2.FONT_HERSHEY_SIMPLEX, 0.7, (0, 255, 128), 2, cv2.LINE_AA)
+                    cv2.rectangle(
+                        cropped_car, (x1s, y1s), (x2s, y2s), (60, 119, 0), 2)
+                    # plate_text = plate_text.replace('Taxi', 'x')
 
-                                self._queue_db_entry(
-                                    dict(
-                                        number=plate_text_arvnad,
-                                        charConfAvg=char_conf_arvnad,
-                                        plateConfAvg=plate_conf,
-                                        croppedPlate=cropped_plate,
-                                        status="Active",
-                                        frame=frame,
-                                        isarvand='arvand',
-                                        rtpath=path,
-                                        quality=self.config.quality
-                                    ))
+                    if char_conf_avg >= char_min and len(plate_text) >= 8:
+                        cv2.putText(cropped_car, f"Plate: {plate_text}", (x1s, y1s - 10),
+                                    cv2.FONT_HERSHEY_SIMPLEX, 0.7, (0, 255, 128), 2, cv2.LINE_AA)
+
+                        self._queue_db_entry(
+                            dict(
+                                number=plate_text,
+                                charConfAvg=char_conf_avg,
+                                plateConfAvg=plate_conf,
+                                croppedPlate=cropped_plate,
+                                status="Active",
+                                frame=frame,
+                                isarvand='notarvand',
+                                rtpath=path,
+                                quality=self.config.quality
+                            ))
+                        break
+
+                    else:
+                        deskewed_plate, (newx1, newy1, newx2, newy2) = self.correct_perspective(
+                            cropped_plate, 1.0)
+                        if deskewed_plate.size == 0:
+                            continue
+
+                        newx1 = max(0, newx1)
+                        newy1 = max(0, newy1)
+                        newx2 = min(deskewed_plate.shape[1], newx2)
+                        newy2 = min(deskewed_plate.shape[0], newy2)
+
+                        if (newx2 <= newx1) or (newy2 <= newy1):
+                            newx1, newy1 = 0, 0
+                            newx2, newy2 = deskewed_plate.shape[1], deskewed_plate.shape[0]
+
+                        d = newy2 - newy1
+                        tempyMax = newy1 + int(d / 2)
+
+                        if (tempyMax > newy1 and newx2 > newx1 and
+                                newy1 >= 0 and newx1 >= 0 and
+                                tempyMax <= deskewed_plate.shape[0] and
+                                newx2 <= deskewed_plate.shape[1]):
+
+                            cropped_plate_nesf = deskewed_plate[newy1:tempyMax, newx1:newx2]
+
+                            if cropped_plate_nesf.size > 0:
+                                plate_text_arvnad, char_conf_arvnad = self.detect_plate_chars(
+                                    cropped_plate_nesf)
+
+                                if len(plate_text_arvnad) >= 5 and char_conf_arvnad >= char_min - 3:
+                                    cv2.putText(cropped_car, f"Plate: {plate_text_arvnad}", (x1s, y1s - 10),
+                                                cv2.FONT_HERSHEY_SIMPLEX, 0.7, (0, 255, 128), 2, cv2.LINE_AA)
+
+                                    self._queue_db_entry(
+                                        dict(
+                                            number=plate_text_arvnad,
+                                            charConfAvg=char_conf_arvnad,
+                                            plateConfAvg=plate_conf,
+                                            croppedPlate=cropped_plate,
+                                            status="Active",
+                                            frame=frame,
+                                            isarvand='arvand',
+                                            rtpath=path,
+                                            quality=self.config.quality
+                                        ))
         except Exception as e:
             logging.error(
                 f"[Camera {self.camera_id}] Error in _process_car_ocr: {e}",
@@ -1139,73 +1161,99 @@ class CameraManager:
     #     return red_ratio > 0.15
 
 
-    def _looks_like_plate(self,text: str) -> bool:
-        """Trust gate for the fast dolatimodel read (before falling back to the
-        slower char OCR). The detector only outputs digits + a single provincial
-        letter 'A', so a real plate is: digits, one 'A' somewhere in the middle,
-        more digits, total length 7-9 (tolerant of +/-1 detection errors that the
-        strict ^.{2}A.{5}$ rejected)."""
-        if not text or text.count('A') != 1:
-            return False
-        if not text.replace('A', '').isdigit():
-            return False
-        a = text.index('A')
-        return 7 <= len(text) <= 9 and 1 <= a <= len(text) - 2
+    # def _looks_like_plate(self,text: str) -> bool:
+    #     """Trust gate for the fast dolatimodel read (before falling back to the
+    #     slower char OCR). The detector only outputs digits + a single provincial
+    #     letter 'A', so a real plate is: digits, one 'A' somewhere in the middle,
+    #     more digits, total length 7-9 (tolerant of +/-1 detection errors that the
+    #     strict ^.{2}A.{5}$ rejected)."""
+    #     if not text or text.count('A') != 1:
+    #         return False
+    #     if not text.replace('A', '').isdigit():
+    #         return False
+    #     a = text.index('A')
+    #     return 7 <= len(text) <= 9 and 1 <= a <= len(text) - 2
 
-    def dolatireader(self, img: np.ndarray):
-        try:
-            with self._model_lock, torch.inference_mode():
-                results = self.config.dolatimodel(img, conf=self.config.dolatiConf)
+    # def dolatireader(self, img: np.ndarray):
+    #     try:
+    #         with self._model_lock, torch.inference_mode():
+    #             results = self.config.dolatimodel(img, conf=self.config.dolatiConf)
 
-            boxes = results[0].boxes
+    #         boxes = results[0].boxes
 
-            bbox_char = boxes.xyxy
-            cls_char = boxes.cls
-            conf_char = boxes.conf
+    #         bbox_char = boxes.xyxy
+    #         cls_char = boxes.cls
+    #         conf_char = boxes.conf
 
-            if len(cls_char) > 0:
-                keys = cls_char.cpu().numpy().astype(np.int32)
-                x_positions = bbox_char[:, 0].cpu().numpy().astype(np.int32)
-                confidences = conf_char.cpu().numpy()
+    #         if len(cls_char) > 0:
+    #             keys = cls_char.cpu().numpy().astype(np.int32)
+    #             x_positions = bbox_char[:, 0].cpu().numpy().astype(np.int32)
+    #             confidences = conf_char.cpu().numpy()
 
-                sorted_indices = np.argsort(x_positions)
-                sorted_keys = keys[sorted_indices]
-                sorted_confidences = confidences[sorted_indices]
+    #             sorted_indices = np.argsort(x_positions)
+    #             sorted_keys = keys[sorted_indices]
+    #             sorted_confidences = confidences[sorted_indices]
 
-                plate_text = ''.join([
-                    self.config.params.charclasssnames[k]
-                    for k in sorted_keys
-                ])
+    #             plate_text = ''.join([
+    #                 self.config.params.charclasssnames[k]
+    #                 for k in sorted_keys
+    #             ])
 
-                char_conf_avg = round(float(np.mean(sorted_confidences)) * 100)
+    #             char_conf_avg = round(float(np.mean(sorted_confidences)) * 100)
 
-                return plate_text, char_conf_avg
-        except Exception as e:
-            logging.warning(f"dolatireader inference failed: {e}")
-            return None
+    #             return plate_text, char_conf_avg
+    #     except Exception as e:
+    #         logging.warning(f"dolatireader inference failed: {e}")
+    #         return None
 
-    def detect_plate_chars(self, cropped_plate: np.ndarray) -> tuple[str, int]:
-        result = self.dolatireader(cropped_plate)
-        if result is not None:
-            plate_text, char_conf_avg = result
-            if plate_text and len(plate_text.strip()) > 0:
-                if self._looks_like_plate(plate_text):
-                    return plate_text, char_conf_avg
+    def detect_plate_chars(self, cropped_plate: np.ndarray) :
+        
+        chars = []
+        confidences = []
 
-        chars, confidences = [], []
-        with self._model_lock, torch.inference_mode():
-            results = self.config.model_char(cropped_plate)
-        detections = sorted(results.pred[0], key=lambda x: x[0])
-        for det in detections:
-            conf = det[4]
-            if conf > 0.5:
-                cls = int(det[5].item())
-                char = self.config.params.char_id_dict.get(str(cls), '')
-                chars.append(char)
-                confidences.append(conf.item())
-        char_conf_avg = round(statistics.mean(confidences)
-                              * 100) if confidences else 0
-        return ''.join(chars), char_conf_avg
+        char_res=self.config.model_char.predict(cropped_plate,verbose=False)[0]
+        
+        boxes=char_res.boxes
+
+
+        if boxes is not None and len(boxes) > 0:
+
+                order = boxes.xyxy[:, 0].argsort()
+
+                for idx in order:
+                    cls_id = int(boxes.cls[idx])
+                    conf = float(boxes.conf[idx])
+
+                    chars.append(self.config.params.persian_letter[cls_id])
+                    confidences.append(conf)
+
+        char_result = ''.join(chars)
+        english_result=self.config.params.persian_to_english(char_result)
+      
+
+        char_conf_avg = round(statistics.mean(confidences) * 100) if confidences else 0
+        return english_result,char_conf_avg
+        # result = self.dolatireader(cropped_plate)
+        # if result is not None:
+        #     plate_text, char_conf_avg = result
+        #     if plate_text and len(plate_text.strip()) > 0:
+        #         if self._looks_like_plate(plate_text):
+        #             return plate_text, char_conf_avg
+
+        # chars, confidences = [], []
+        # with self._model_lock, torch.inference_mode():
+        #     results = self.config.model_char(cropped_plate)
+        # detections = sorted(results.pred[0], key=lambda x: x[0])
+        # for det in detections:
+        #     conf = det[4]
+        #     if conf > 0.5:
+        #         cls = int(det[5].item())
+        #         char = self.config.params.char_id_dict.get(str(cls), '')
+        #         chars.append(char)
+        #         confidences.append(conf.item())
+        # char_conf_avg = round(statistics.mean(confidences)
+        #                       * 100) if confidences else 0
+        # return ''.join(chars), char_conf_avg
 
     def realseFreshest(self) -> None:
         if not self.running:
