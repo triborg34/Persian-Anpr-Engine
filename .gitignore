@@ -30,7 +30,7 @@ engine/pb_data
 engine/pb_migrations
 engine/pocketbase.exe
 engine/log.txt
-engine/model
+engine/model/older
 engine/dtrb
 engine/nengine.py
 engine/somthing.py
