@@ -93,7 +93,7 @@ def _upload_to_pocketbase(url, files, data, number, rtpath):
         release_plate(number, rtpath)
 
 
-def db_entries_time(number, charConfAvg, plateConfAvg, croppedPlate, status, frame, isarvand, rtpath, quality):
+def db_entries_time(number, charConfAvg, plateConfAvg, croppedPlate, status, frame, isarvand, rtpath, quality,provice,city):
     url = "http://127.0.0.1:8090/api/collections/database/records"
 
     timeNow = datetime.datetime.now()
@@ -125,6 +125,8 @@ def db_entries_time(number, charConfAvg, plateConfAvg, croppedPlate, status, fra
             "rtpath": rtpath,
             "charPercent": charConfAvg,
             "platePercent": plateConfAvg,
+            "provice":provice,
+            "city":city
         }
 
         _executor.submit(_upload_to_pocketbase, url, files, data, number, rtpath)

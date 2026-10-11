@@ -51,7 +51,7 @@ class CcTvMonitor:
         if self.regionMode:
             self.background_subtractor = cv2.createBackgroundSubtractorMOG2()
             self.k = []
-      
+
         self.carConf = 0.6
         self.iou = 0.5
         self.dolatiConf = 0.4
@@ -63,7 +63,7 @@ class CcTvMonitor:
         self.lock = threading.Lock()
         self._shutdown_event = threading.Event()
         self.model_car, self.model_plate, self.model_char = self.loadModels()
-        #self.dolatimodel
+        # self.dolatimodel
         self.quality, self.charConfidence, self.plateConfidence, self.port = self.loadConfig()
         self._warmup_models()
         self.loadWebBrowser(self.port)
@@ -143,38 +143,36 @@ class CcTvMonitor:
         model_car = None
         model_plate = None
         model_char = None
-        #dolatimodel = None
+        # dolatimodel = None
 
         try:
             use_openvino = self.chechOpenvino() and self.device.type == 'cpu'
             if use_openvino:
                 logging.info("Loading openvino")
-                model_char = torch.hub.load(
-                    'yolov5', 'custom', 'model/CharsYolo_openvino_model', source='local', device=self.device)
-                model_plate = torch.hub.load(
-                    'yolov5', 'custom', 'model/plateYolo_openvino_model', source='local', device=self.device)
+
                 model_car = YOLO('model/yolov8n_openvino_model', task='detect')
-                dolatimodel = YOLO('model/dolditector_openvino_model', task='detect')
+
             else:
                 logging.info("Loading onnx/pt")
-                # model_char = torch.hub.load(
-                #     'yolov5', 'custom', f'model/CharsYolo.{fileEx}', source='local', device=self.device)
-                # model_plate = torch.hub.load(
-                #     'yolov5', 'custom', f'model/plateYolo.{fileEx}', source='local', device=self.device)
-                model_plate = YOLO(f'model/plate_det_model.{fileEx}', task='detect')
-                model_char = YOLO(f'model/chars_best_v26.{fileEx}', task='detect')
+       
+                model_plate = YOLO(
+                    f'model/plate_det_model.{fileEx}', task='detect')
+                model_char = YOLO(
+                    f'model/chars_best_v26.{fileEx}', task='detect')
                 model_car = YOLO(f'model/yolov8n.{fileEx}', task='detect')
-                # dolatimodel = YOLO(f'model/dolditector.{fileEx}', task='detect')
+  
         except Exception as e:
             logging.error(f"Error loading models: {e}")
             if model_car is None or model_plate is None or model_char is None:
-                logging.critical("Core models failed to load. System cannot operate.")
+                logging.critical(
+                    "Core models failed to load. System cannot operate.")
                 raise RuntimeError("Failed to load core YOLO models") from e
-            logging.warning("Some models failed to load, running with partial capabilities")
+            logging.warning(
+                "Some models failed to load, running with partial capabilities")
 
         logging.info("Models loaded successfully")
         with self.lock:
-            return model_car, model_plate, model_char, #dolatimodel
+            return model_car, model_plate, model_char,  # dolatimodel
 
     def _warmup_models(self) -> None:
         logging.info("Warming up models...")
@@ -229,16 +227,19 @@ class CcTvMonitor:
                     )
                     time.sleep(delay)
                     delay = min(delay * 2, 10)
-        logging.critical(f"loadConfig failed after {max_retries} attempts: {last_error}")
-        raise RuntimeError(f"Failed to load config from PocketBase after {max_retries} attempts") from last_error
+        logging.critical(
+            f"loadConfig failed after {max_retries} attempts: {last_error}")
+        raise RuntimeError(
+            f"Failed to load config from PocketBase after {max_retries} attempts") from last_error
+
     def updateSetting(self):
         try:
-            self.quality, self.charConfidence, self.plateConfidence = self.loadConfig()[0:3]
+            self.quality, self.charConfidence, self.plateConfidence = self.loadConfig()[
+                0:3]
             return f"Sucsess : {self.quality=} , {self.charConfidence=} , {self.plateConfidence}"
         except Exception as e:
-          
-            return str(e)
 
+            return str(e)
 
     # def _settings_listener(self):
     #     base_url = 'http://127.0.0.1:8090'
@@ -285,7 +286,6 @@ class CcTvMonitor:
     #                         logging.info(f"[Realtime] Subscribe response: {sub_resp.status_code} {sub_resp.text}")
     #                         backoff = 1
 
-                        
     #                     elif event_type == 'PB_RECORDS' or event_type.startswith("setting") and raw_data:
     #                         try:
     #                             data = json.loads(raw_data)
@@ -297,7 +297,7 @@ class CcTvMonitor:
     #                                     self.charConfidence = record['charConf']
     #                                 if 'plateConf' in record:
     #                                     self.plateConfidence = record['plateConf']
-                
+
     #                             logging.info(
     #                                 f"[Realtime] Settings updated - quality={self.quality}, "
     #                                 f"charConf={self.charConfidence}, plateConf={self.plateConfidence}"
@@ -318,6 +318,7 @@ class CcTvMonitor:
     #             logging.info(f"[Realtime] Reconnecting in {backoff}s...")
     #             self._shutdown_event.wait(timeout=backoff)
     #             backoff = min(backoff * 2, 30)
+
     def graceful_shutdown(self) -> None:
         self._shutdown_event.set()
 
@@ -377,7 +378,8 @@ class CameraManager:
         self._model_lock = threading.RLock()
 
         # ========== STREAM JPEG PARAMS ==========
-        self._jpeg_params = [cv2.IMWRITE_JPEG_QUALITY, 50, cv2.IMWRITE_JPEG_OPTIMIZE, 0]
+        self._jpeg_params = [cv2.IMWRITE_JPEG_QUALITY,
+                             50, cv2.IMWRITE_JPEG_OPTIMIZE, 0]
 
         # ========== DB WRITE DEDUP ==========
         # single-writer (process_frame thread), so no lock needed
@@ -515,7 +517,8 @@ class CameraManager:
                 )
 
     def _queue_db_entry(self, entry: dict) -> None:
-        """Enqueue a plate write for the background worker.
+        """
+        Enqueue a plate write for the background worker.
 
         Mirrors db_entries_time's 10s reserve_plate window here in the
         producer, so consecutive frames of the same plate don't pile up in
@@ -684,7 +687,6 @@ class CameraManager:
                 logging.warning(f"Error closing OpenCV windows: {e}")
 
     def process_frame(self):
-     
         """Process a single frame for object detection"""
         if self.config.regionMode:
             self._combined_region_mask = None
@@ -709,7 +711,6 @@ class CameraManager:
 
             try:
                 processed_frame = frame
-                
 
                 if self.config.regionMode:
                     if not regions:
@@ -733,7 +734,8 @@ class CameraManager:
                         combined_mask = np.zeros(
                             processed_frame.shape[:2], dtype=np.uint8)
                         for mask in region_masks.values():
-                            cv2.bitwise_or(combined_mask, mask, dst=combined_mask)
+                            cv2.bitwise_or(combined_mask, mask,
+                                           dst=combined_mask)
                         self._combined_region_mask = combined_mask
 
                     masked_frame = cv2.bitwise_and(
@@ -747,7 +749,8 @@ class CameraManager:
 
                 with torch.inference_mode():
                     car_res = self.config.model_car(
-                        detection_input, device=self.config.device, classes=[2, 5, 7],
+                        detection_input, device=self.config.device, classes=[
+                            2, 5, 7],
                         verbose=False, conf=self.config.carConf, iou=self.config.iou)
 
                 ocr_futures = []
@@ -1036,48 +1039,29 @@ class CameraManager:
         char_min = float(self.config.charConfidence) * 100
         try:
             with self._model_lock, torch.inference_mode():
-                plate_res = self.config.model_plate.predict(cropped_car,verbose=False)[0]
+                plate_res = self.config.model_plate.predict(
+                    cropped_car, verbose=False,device=self.config.device)[0],
                 for plate_box in plate_res:
-                    x1s,y1s,x2s,y2s=map(int,plate_box.boxes.xyxy[0][::1])
-                    cv2.rectangle(cropped_car,(x1s,y1s),(x2s,y2s),(0,255,55),2)
-                    plate_conf=int(plate_box.boxes.conf[0]*100)
-                    
+                    x1s, y1s, x2s, y2s = map(int, plate_box.boxes.xyxy[0][::1])
+                    cv2.rectangle(cropped_car, (x1s, y1s),
+                                  (x2s, y2s), (0, 255, 55), 2)
+                    plate_conf = int(plate_box.boxes.conf[0]*100)
+
                     if plate_conf < plate_min:
-              
+
                         continue
                     if (y1s >= y2s or x1s >= x2s or
                         y1s < 0 or x1s < 0 or
                         y2s > cropped_car.shape[0] or
-                        x2s > cropped_car.shape[1]):
+                            x2s > cropped_car.shape[1]):
                         continue
 
-
-                    
-                
-            # (x1, y1, x2, y2, conf, cls) rows, no pandas involved
-            # for pbox in plate_res.xyxy[0].tolist():
-            #     x_min, y_min, x_max, y_max = (
-            #         int(pbox[0]), int(pbox[1]),
-            #         int(pbox[2]), int(pbox[3])
-            #     )
-            #     plate_conf = int(pbox[4] * 100)
-
-            #     if plate_conf < plate_min:
-            #         continue
-
-            #     if (y_min >= y_max or x_min >= x_max or
-            #             y_min < 0 or x_min < 0 or
-            #             y_max > cropped_car.shape[0] or
-            #             x_max > cropped_car.shape[1]):
-            #         continue
-
-                    cropped_plate = cropped_car[y1s:y2s,x1s:x2s]
+                    cropped_plate = cropped_car[y1s:y2s, x1s:x2s]
                     if cropped_plate.size == 0:
                         continue
 
-                    plate_text, char_conf_avg = self.detect_plate_chars(
+                    plate_text, char_conf_avg, provice, city = self.detect_plate_chars(
                         cropped_plate)
-                   
 
                     cv2.rectangle(
                         cropped_car, (x1s, y1s), (x2s, y2s), (60, 119, 0), 2)
@@ -1097,7 +1081,10 @@ class CameraManager:
                                 frame=frame,
                                 isarvand='notarvand',
                                 rtpath=path,
-                                quality=self.config.quality
+                                quality=self.config.quality,
+                                provice=provice,
+                                city=city
+
                             ))
                         break
 
@@ -1127,12 +1114,13 @@ class CameraManager:
                             cropped_plate_nesf = deskewed_plate[newy1:tempyMax, newx1:newx2]
 
                             if cropped_plate_nesf.size > 0:
-                                plate_text_arvnad, char_conf_arvnad = self.detect_plate_chars(
+                                plate_text_arvnad, char_conf_arvnad, provice, city = self.detect_plate_chars(
                                     cropped_plate_nesf)
 
                                 if len(plate_text_arvnad) >= 5 and char_conf_arvnad >= char_min - 3:
                                     cv2.putText(cropped_car, f"Plate: {plate_text_arvnad}", (x1s, y1s - 10),
                                                 cv2.FONT_HERSHEY_SIMPLEX, 0.7, (0, 255, 128), 2, cv2.LINE_AA)
+                                    
 
                                     self._queue_db_entry(
                                         dict(
@@ -1144,7 +1132,9 @@ class CameraManager:
                                             frame=frame,
                                             isarvand='arvand',
                                             rtpath=path,
-                                            quality=self.config.quality
+                                            quality=self.config.quality,
+                                            provice=provice,
+                                            city=city
                                         ))
         except Exception as e:
             logging.error(
@@ -1152,108 +1142,41 @@ class CameraManager:
                 exc_info=True
             )
 
-    # def is_red_plate(self, img: np.ndarray) -> bool:
-    #     hsv = cv2.cvtColor(img, cv2.COLOR_BGR2HSV)
-    #     mask1 = cv2.inRange(hsv, self._hsv_lower1, self._hsv_upper1)
-    #     mask2 = cv2.inRange(hsv, self._hsv_lower2, self._hsv_upper2)
-    #     mask = cv2.add(mask1, mask2)
-    #     red_ratio = cv2.countNonZero(mask) / (img.shape[0] * img.shape[1])
-    #     return red_ratio > 0.15
+    def detect_plate_chars(self, cropped_plate: np.ndarray):
 
-
-    # def _looks_like_plate(self,text: str) -> bool:
-    #     """Trust gate for the fast dolatimodel read (before falling back to the
-    #     slower char OCR). The detector only outputs digits + a single provincial
-    #     letter 'A', so a real plate is: digits, one 'A' somewhere in the middle,
-    #     more digits, total length 7-9 (tolerant of +/-1 detection errors that the
-    #     strict ^.{2}A.{5}$ rejected)."""
-    #     if not text or text.count('A') != 1:
-    #         return False
-    #     if not text.replace('A', '').isdigit():
-    #         return False
-    #     a = text.index('A')
-    #     return 7 <= len(text) <= 9 and 1 <= a <= len(text) - 2
-
-    # def dolatireader(self, img: np.ndarray):
-    #     try:
-    #         with self._model_lock, torch.inference_mode():
-    #             results = self.config.dolatimodel(img, conf=self.config.dolatiConf)
-
-    #         boxes = results[0].boxes
-
-    #         bbox_char = boxes.xyxy
-    #         cls_char = boxes.cls
-    #         conf_char = boxes.conf
-
-    #         if len(cls_char) > 0:
-    #             keys = cls_char.cpu().numpy().astype(np.int32)
-    #             x_positions = bbox_char[:, 0].cpu().numpy().astype(np.int32)
-    #             confidences = conf_char.cpu().numpy()
-
-    #             sorted_indices = np.argsort(x_positions)
-    #             sorted_keys = keys[sorted_indices]
-    #             sorted_confidences = confidences[sorted_indices]
-
-    #             plate_text = ''.join([
-    #                 self.config.params.charclasssnames[k]
-    #                 for k in sorted_keys
-    #             ])
-
-    #             char_conf_avg = round(float(np.mean(sorted_confidences)) * 100)
-
-    #             return plate_text, char_conf_avg
-    #     except Exception as e:
-    #         logging.warning(f"dolatireader inference failed: {e}")
-    #         return None
-
-    def detect_plate_chars(self, cropped_plate: np.ndarray) :
-        
         chars = []
         confidences = []
 
-        char_res=self.config.model_char.predict(cropped_plate,verbose=False)[0]
-        
-        boxes=char_res.boxes
+        char_res = self.config.model_char.predict(
+            cropped_plate, verbose=False,device=self.config.device)[0]
 
+        boxes = char_res.boxes
 
         if boxes is not None and len(boxes) > 0:
 
-                order = boxes.xyxy[:, 0].argsort()
+            order = boxes.xyxy[:, 0].argsort()
 
-                for idx in order:
-                    cls_id = int(boxes.cls[idx])
-                    conf = float(boxes.conf[idx])
+            for idx in order:
+                cls_id = int(boxes.cls[idx])
+                conf = float(boxes.conf[idx])
 
-                    chars.append(self.config.params.persian_letter[cls_id])
-                    confidences.append(conf)
+                chars.append(self.config.params.persian_letter[cls_id])
+                confidences.append(conf)
 
         char_result = ''.join(chars)
-        english_result=self.config.params.persian_to_english(char_result)
-      
+        plateRegionResuilt = self.config.params.plate_city(char_result)
+        if plateRegionResuilt:
 
-        char_conf_avg = round(statistics.mean(confidences) * 100) if confidences else 0
-        return english_result,char_conf_avg
-        # result = self.dolatireader(cropped_plate)
-        # if result is not None:
-        #     plate_text, char_conf_avg = result
-        #     if plate_text and len(plate_text.strip()) > 0:
-        #         if self._looks_like_plate(plate_text):
-        #             return plate_text, char_conf_avg
+            province, city = plateRegionResuilt['province'], plateRegionResuilt['city']
 
-        # chars, confidences = [], []
-        # with self._model_lock, torch.inference_mode():
-        #     results = self.config.model_char(cropped_plate)
-        # detections = sorted(results.pred[0], key=lambda x: x[0])
-        # for det in detections:
-        #     conf = det[4]
-        #     if conf > 0.5:
-        #         cls = int(det[5].item())
-        #         char = self.config.params.char_id_dict.get(str(cls), '')
-        #         chars.append(char)
-        #         confidences.append(conf.item())
-        # char_conf_avg = round(statistics.mean(confidences)
-        #                       * 100) if confidences else 0
-        # return ''.join(chars), char_conf_avg
+        else:
+            province, city = "None", "None"
+
+        english_result = self.config.params.persian_to_english(char_result)
+
+        char_conf_avg = round(statistics.mean(confidences)
+                              * 100) if confidences else 0
+        return english_result, char_conf_avg, province, city
 
     def realseFreshest(self) -> None:
         if not self.running:
@@ -1312,7 +1235,8 @@ def emailHandler(email: str, plateNumber: str, edate: str, etime: str) -> None:
     SENDER_PASSWORD = os.environ.get("ANPR_EMAIL_PASSWORD", "")
 
     if not SENDER_EMAIL or not SENDER_PASSWORD:
-        logging.error("ANPR_EMAIL and ANPR_EMAIL_PASSWORD environment variables not set")
+        logging.error(
+            "ANPR_EMAIL and ANPR_EMAIL_PASSWORD environment variables not set")
         return
 
     RECIPIENT_EMAIL = email
@@ -1344,5 +1268,3 @@ def emailHandler(email: str, plateNumber: str, edate: str, etime: str) -> None:
     finally:
         if server:
             server.quit()
-
-
