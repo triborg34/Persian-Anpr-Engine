@@ -123,7 +123,7 @@ class CcTvMonitor:
                 elif filename == "pt":
                     logging.info("Found 'pt' sentinel file")
                     return "pt"
-        return 'pt'
+        return 'engine'
 
     def chechOpenvino(self) -> bool:
         directory = 'model'
@@ -149,11 +149,14 @@ class CcTvMonitor:
             use_openvino = self.chechOpenvino() and self.device.type == 'cpu'
             if use_openvino:
                 logging.info("Loading openvino")
-
+                model_plate = YOLO(
+                    f'model/plate_det_model_openvino_model', task='detect')
+                model_char = YOLO(
+                    f'model/chars_best_v26_openvino_model', task='detect')
                 model_car = YOLO('model/yolov8n_openvino_model', task='detect')
 
             else:
-                logging.info("Loading onnx/pt")
+                logging.info("Loading {}".format(fileEx))
        
                 model_plate = YOLO(
                     f'model/plate_det_model.{fileEx}', task='detect')
