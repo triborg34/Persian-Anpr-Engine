@@ -157,13 +157,13 @@ class CcTvMonitor:
 
             else:
                 logging.info("Loading {}".format(fileEx))
-       
+
                 model_plate = YOLO(
                     f'model/plate_det_model.{fileEx}', task='detect')
                 model_char = YOLO(
                     f'model/chars_best_v26.{fileEx}', task='detect')
                 model_car = YOLO(f'model/yolov8n.{fileEx}', task='detect')
-  
+
         except Exception as e:
             logging.error(f"Error loading models: {e}")
             if model_car is None or model_plate is None or model_char is None:
@@ -1043,20 +1043,20 @@ class CameraManager:
         try:
             with self._model_lock, torch.inference_mode():
                 plate_res = self.config.model_plate.predict(
-                    cropped_car, verbose=False,device=self.config.device)[0],
+                    cropped_car, verbose=False, device=self.config.device)[0]
                 for plate_box in plate_res:
                     x1s, y1s, x2s, y2s = map(int, plate_box.boxes.xyxy[0][::1])
+                    if (y1s >= y2s or x1s >= x2s or
+                        y1s < 0 or x1s < 0 or
+                        y2s > cropped_car.shape[0] or
+                            x2s > cropped_car.shape[1]):
+                        continue
                     cv2.rectangle(cropped_car, (x1s, y1s),
                                   (x2s, y2s), (0, 255, 55), 2)
                     plate_conf = int(plate_box.boxes.conf[0]*100)
 
                     if plate_conf < plate_min:
 
-                        continue
-                    if (y1s >= y2s or x1s >= x2s or
-                        y1s < 0 or x1s < 0 or
-                        y2s > cropped_car.shape[0] or
-                            x2s > cropped_car.shape[1]):
                         continue
 
                     cropped_plate = cropped_car[y1s:y2s, x1s:x2s]
@@ -1070,7 +1070,7 @@ class CameraManager:
                         cropped_car, (x1s, y1s), (x2s, y2s), (60, 119, 0), 2)
                     # plate_text = plate_text.replace('Taxi', 'x')
 
-                    if char_conf_avg >= char_min and len(plate_text) >= 8:
+                    if char_conf_avg >= char_min and len(plate_text) >= 8 and len(plate_text) <=10:
                         cv2.putText(cropped_car, f"Plate: {plate_text}", (x1s, y1s - 10),
                                     cv2.FONT_HERSHEY_SIMPLEX, 0.7, (0, 255, 128), 2, cv2.LINE_AA)
 
@@ -1120,10 +1120,9 @@ class CameraManager:
                                 plate_text_arvnad, char_conf_arvnad, provice, city = self.detect_plate_chars(
                                     cropped_plate_nesf)
 
-                                if len(plate_text_arvnad) >= 5 and char_conf_arvnad >= char_min - 3:
+                                if len(plate_text_arvnad) >= 5 and char_conf_arvnad >= char_min - 3 and len(plate_text_arvnad) <= 7:
                                     cv2.putText(cropped_car, f"Plate: {plate_text_arvnad}", (x1s, y1s - 10),
                                                 cv2.FONT_HERSHEY_SIMPLEX, 0.7, (0, 255, 128), 2, cv2.LINE_AA)
-                                    
 
                                     self._queue_db_entry(
                                         dict(
@@ -1151,7 +1150,7 @@ class CameraManager:
         confidences = []
 
         char_res = self.config.model_char.predict(
-            cropped_plate, verbose=False,device=self.config.device)[0]
+            cropped_plate, verbose=False, device=self.config.device)[0]
 
         boxes = char_res.boxes
 

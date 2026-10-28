@@ -1,5 +1,6 @@
 
 import os
+import platform
 os.environ['ULTRALYTICS_SKIP_REQUIREMENTS_CHECKS'] = '1'
 from dotenv import load_dotenv
 load_dotenv()
@@ -108,7 +109,7 @@ async def video_feed(
     _: bool = Security(verify_api_key),
 ):
 
-    cctv.set_detection_params(car_conf=0.1, iou=0.5, dolati_conf=0.6)
+    cctv.set_detection_params(car_conf=0.1, iou=0.5)
     if source == "0":
         source = int(source)
     camera_idx = int(camera_id[2:])
@@ -153,6 +154,20 @@ async def rtsp_feed(camera_id: str, request: Request, source: str = Query(...), 
     )
 
 
+@app.get("/utils/cpu")
+def cpu_stats():
+    # Blocks ~0.5 s to measure real usage over that window.
+    per_core = psutil.cpu_percent(interval=0.5, percpu=True)
+    freq = psutil.cpu_freq()
+    mem = psutil.virtual_memory()
+    return {
+        "load": round(sum(per_core) / len(per_core), 1),
+        "per_core": per_core,
+        "cores": psutil.cpu_count(logical=True),
+        "freq_mhz": round(freq.current) if freq else None,
+        "ram_percent": mem.percent,
+        "model": platform.processor() or platform.machine(),
+    }
 async def generate_rtsp(source, request):
     cam = FreshestFrame(source) if isinstance(source, str) else FreshestFrame(str(source))
     jpeg_params = [cv2.IMWRITE_JPEG_QUALITY, 80, cv2.IMWRITE_JPEG_OPTIMIZE, 0]
@@ -262,6 +277,7 @@ async def get_system_health(_: bool = Security(verify_api_key)):
         "cpu": psutil.cpu_percent(),
         "ram": psutil.virtual_memory().percent,
         "disk": psutil.disk_usage(drive).percent,
+        "build":"10.28.26"
     }
     
 
