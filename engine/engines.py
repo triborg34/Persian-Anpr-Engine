@@ -351,7 +351,12 @@ class CameraManager:
         self.client_lock = threading.Lock()
         self._latest_frame = None
         self._frame_lock = threading.Lock()
+        self._frame_available = threading.Condition(self._frame_lock)
         self.result_frame = None
+        self._result_frame_version = 0
+        self._jpeg_lock = threading.Lock()
+        self._jpeg_frame_version = -1
+        self._latest_jpeg = None
         # ---------- THREADS ----------
         self.capture_thread = None
         self.process_thread = None
@@ -482,6 +487,8 @@ class CameraManager:
         # blocking shutdown(wait=True) would freeze all API responses.
         self.running = False
         self.stop_event.set()
+        with self._frame_available:
+            self._frame_available.notify_all()
         # Unblock process_frame (polls with timeout, sentinel is best-effort)
         # and _db_writer (blocks forever on get()).
         try:
@@ -576,23 +583,43 @@ class CameraManager:
 
     def sendFrames(self, token: str | None = None):
         jpeg_params = self._jpeg_params
+        last_sent_version = -1
         try:
             while self.running:
-                with self._frame_lock:
+                # Sleep until a new processed frame arrives instead of polling
+                # and contending for the frame lock in every streaming client.
+                with self._frame_available:
+                    self._frame_available.wait_for(
+                        lambda: (not self.running or
+                                 (self.result_frame is not None and
+                                  self._result_frame_version != last_sent_version)),
+                        timeout=0.5,
+                    )
+                    if not self.running:
+                        break
                     frame = self.result_frame
+                    frame_version = self._result_frame_version
 
-                if frame is None:
-                    time.sleep(0.005)
+                if frame is None or frame_version == last_sent_version:
                     continue
 
-                success, jpeg = cv2.imencode(".jpg", frame, jpeg_params)
-                if not success:
-                    continue
+                # Serialize viewers while they encode, but keep _frame_lock
+                # free during JPEG compression so inference can publish.
+                with self._jpeg_lock:
+                    if self._jpeg_frame_version != frame_version:
+                        success, jpeg = cv2.imencode(
+                            ".jpg", frame, jpeg_params)
+                        if not success:
+                            continue
+                        self._latest_jpeg = jpeg.tobytes()
+                        self._jpeg_frame_version = frame_version
+                    encoded_frame = self._latest_jpeg
 
+                last_sent_version = frame_version
                 yield (
                     b"--frame\r\n"
                     b"Content-Type: image/jpeg\r\n\r\n"
-                    + jpeg.tobytes()
+                    + encoded_frame
                     + b"\r\n"
                 )
         finally:
@@ -818,16 +845,20 @@ class CameraManager:
                 else:
                     display_frame = processed_frame
 
-                with self._frame_lock:
+                with self._frame_available:
                     self.result_frame = display_frame
+                    self._result_frame_version += 1
+                    self._frame_available.notify_all()
 
             except Exception as ex:
                 logging.error(
                     f"[Camera {self.camera_id}] Error in process_frame: {ex}",
                     exc_info=True
                 )
-                with self._frame_lock:
+                with self._frame_available:
                     self.result_frame = frame
+                    self._result_frame_version += 1
+                    self._frame_available.notify_all()
 
     def is_connection_alive(self, source) -> bool:
         """Check if network connection to source is alive using socket"""
